@@ -1,0 +1,2844 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>CityRP Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+    <link rel="stylesheet" href="../glua.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>CityRP 2</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/GM.html">GM</a></li>
+  <li><a href="../modules/core.derma.cl_dcoloredicon.html">core.derma.cl_dcoloredicon</a></li>
+  <li><a href="../modules/core.derma.cl_dfillicon.html">core.derma.cl_dfillicon</a></li>
+  <li><a href="../modules/core.derma.cl_diconlabel.html">core.derma.cl_diconlabel</a></li>
+  <li><a href="../modules/core.derma.cl_dinfolabel.html">core.derma.cl_dinfolabel</a></li>
+  <li><a href="../modules/core.derma.cl_dinfopanel.html">core.derma.cl_dinfopanel</a></li>
+  <li><a href="../modules/core.derma.cl_ditemtitle.html">core.derma.cl_ditemtitle</a></li>
+  <li><a href="../modules/core.derma.cl_dlimitedtextentry.html">core.derma.cl_dlimitedtextentry</a></li>
+  <li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+  <li><a href="../modules/core.derma.cl_dpropamt.html">core.derma.cl_dpropamt</a></li>
+  <li><a href="../modules/core.derma.cl_dradio.html">core.derma.cl_dradio</a></li>
+  <li><a href="../modules/core.derma.cl_dscaleitempanel.html">core.derma.cl_dscaleitempanel</a></li>
+  <li><a href="../modules/core.derma.cl_dtexturedprogress.html">core.derma.cl_dtexturedprogress</a></li>
+  <li><a href="../modules/core.derma.cl_dwepinfo.html">core.derma.cl_dwepinfo</a></li>
+  <li><a href="../modules/core.derma.cl_hud_botleft.html">core.derma.cl_hud_botleft</a></li>
+  <li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+  <li><a href="../modules/core.derma.cl_hud_vehicle.html">core.derma.cl_hud_vehicle</a></li>
+  <li><a href="../modules/notification.html">notification</a></li>
+  <li><a href="../modules/core.derma.sh_urlpanel.html">core.derma.sh_urlpanel</a></li>
+  <li><a href="../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+  <li><a href="../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+  <li><a href="../modules/temar.html">temar</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.boot.html">core.libraries.meska.achievements.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.client.hud.html">core.libraries.meska.achievements.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.server.html">core.libraries.meska.achievements.server</a></li>
+  <li><a href="../modules/core.libraries.meska.client.html">core.libraries.meska.client</a></li>
+  <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+  <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.boot.html">core.libraries.meska.custombonus.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.client.hud.html">core.libraries.meska.custombonus.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.server.html">core.libraries.meska.custombonus.server</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.boot.html">core.libraries.meska.dailybonus.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.client.hud.html">core.libraries.meska.dailybonus.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.server.html">core.libraries.meska.dailybonus.server</a></li>
+  <li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+  <li><a href="../modules/core.libraries.meska.hooks.html">core.libraries.meska.hooks</a></li>
+  <li><a href="../modules/core.libraries.meska.html">core.libraries.meska</a></li>
+  <li><a href="../modules/core.libraries.meska.metrics.boot.html">core.libraries.meska.metrics.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.metrics.server.html">core.libraries.meska.metrics.server</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.boot.html">core.libraries.meska.skills.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.client.hud.html">core.libraries.meska.skills.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.server.html">core.libraries.meska.skills.server</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.shared.meta.html">core.libraries.meska.skills.shared.meta</a></li>
+  <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+  <li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
+  <li><a href="../modules/functions.html">functions</a></li>
+  <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
+  <li><a href="../modules/internet.html">internet</a></li>
+  <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
+  <li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+  <li><a href="../modules/cityrp.table.html">cityrp.table</a></li>
+  <li><a href="../modules/cityrp.team.html">cityrp.team</a></li>
+  <li><a href="../modules/workarounds.html">workarounds</a></li>
+  <li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
+  <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
+  <li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+  <li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
+  <li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
+  <li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+  <li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
+  <li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+  <li><strong>core.metatables.sh_player</strong></li>
+  <li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+  <li><a href="../modules/core.metatables.sv_entity.html">core.metatables.sv_entity</a></li>
+  <li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
+  <li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+  <li><a href="../modules/acpig.html.html">acpig.html</a></li>
+  <li><a href="../modules/acpig.html">acpig</a></li>
+  <li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+  <li><a href="../modules/core.plugins.admin_assist.cl_init.html">core.plugins.admin_assist.cl_init</a></li>
+  <li><a href="../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.sh_init.html">core.plugins.adminhub.sh_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+  <li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+  <li><a href="../modules/core.plugins.animations.sv_meta.html">core.plugins.animations.sv_meta</a></li>
+  <li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+  <li><a href="../modules/core.plugins.anonymous.cl_init.html">core.plugins.anonymous.cl_init</a></li>
+  <li><a href="../modules/core.plugins.autokick.cl_init.html">core.plugins.autokick.cl_init</a></li>
+  <li><a href="../modules/core.plugins.autokick.sv_init.html">core.plugins.autokick.sv_init</a></li>
+  <li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+  <li><a href="../modules/core.plugins.bodybags.sv_init.html">core.plugins.bodybags.sv_init</a></li>
+  <li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+  <li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+  <li><a href="../modules/cityrp.door.html">cityrp.door</a></li>
+  <li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+  <li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+  <li><a href="../modules/core.plugins.laws.sv_init.html">core.plugins.laws.sv_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.cl_init.html">core.plugins.lifealert.cl_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.sv_init.html">core.plugins.lifealert.sv_init</a></li>
+  <li><a href="../modules/core.plugins.mazerunner.sv_init.html">core.plugins.mazerunner.sv_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.cl_init.html">core.plugins.mixtures.cl_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.sh_init.html">core.plugins.mixtures.sh_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.sv_init.html">core.plugins.mixtures.sv_init</a></li>
+  <li><a href="../modules/core.plugins.model-state.cl_init.html">core.plugins.model-state.cl_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.cl_init.html">core.plugins.onlinelog.cl_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.sh_init.html">core.plugins.onlinelog.sh_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.sv_init.html">core.plugins.onlinelog.sv_init</a></li>
+  <li><a href="../modules/core.plugins.packaging.sv_init.html">core.plugins.packaging.sv_init</a></li>
+  <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+  <li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+  <li><a href="../modules/cityrp.phonebook.html">cityrp.phonebook</a></li>
+  <li><a href="../modules/core.plugins.pradio.sv_init.html">core.plugins.pradio.sv_init</a></li>
+  <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+  <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+  <li><a href="../modules/core.plugins.radio.cl_init.html">core.plugins.radio.cl_init</a></li>
+  <li><a href="../modules/core.plugins.radio.sv_init.html">core.plugins.radio.sv_init</a></li>
+  <li><a href="../modules/referrals.html">referrals</a></li>
+  <li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+  <li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+  <li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+  <li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+  <li><a href="../modules/core.plugins.savedeaths.sv_init.html">core.plugins.savedeaths.sv_init</a></li>
+  <li><a href="../modules/core.plugins.spawnpoints.cl_init.html">core.plugins.spawnpoints.cl_init</a></li>
+  <li><a href="../modules/core.plugins.spawnpoints.sv_init.html">core.plugins.spawnpoints.sv_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.sh_init.html">core.plugins.stamina.sh_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.sv_init.html">core.plugins.stamina.sv_init</a></li>
+  <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+  <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+  <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+  <li><a href="../modules/core.plugins.tracking.sv_init.html">core.plugins.tracking.sv_init</a></li>
+  <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+  <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+  <li><a href="../modules/core.plugins.typing.cl_init.html">core.plugins.typing.cl_init</a></li>
+  <li><a href="../modules/core.plugins.typing.sh_init.html">core.plugins.typing.sh_init</a></li>
+  <li><a href="../modules/core.plugins.typing.sv_init.html">core.plugins.typing.sv_init</a></li>
+  <li><a href="../modules/core.plugins.uniforms.sv_init.html">core.plugins.uniforms.sv_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+  <li><a href="../modules/core.plugins.unownable.sv_init.html">core.plugins.unownable.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_doors.sv_init.html">core.plugins.vehicle_doors.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.cl_init.html">core.plugins.vehicle_skins.cl_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.sh_init.html">core.plugins.vehicle_skins.sh_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.sv_init.html">core.plugins.vehicle_skins.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sh_vehicles.html">core.plugins.vehicles.sh_vehicles</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+  <li><a href="../modules/core.plugins.visible_protection.sh_init.html">core.plugins.visible_protection.sh_init</a></li>
+  <li><a href="../modules/core.plugins.visible_protection.sv_init.html">core.plugins.visible_protection.sv_init</a></li>
+  <li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+  <li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.sv_init.html">core.plugins.voiceradio.sv_init</a></li>
+  <li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+  <li><a href="../modules/core.plugins.warning.sh_init.html">core.plugins.warning.sh_init</a></li>
+  <li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+  <li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
+  <li><a href="../modules/core.plugins.worldprops.sv_init.html">core.plugins.worldprops.sv_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
+  <li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+  <li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/PANEL.cityrp_Cards.html">PANEL.cityrp_Cards</a></li>
+  <li><a href="../classes/PANEL.cityrp_Character.html">PANEL.cityrp_Character</a></li>
+  <li><a href="../classes/PANEL.cityrp_Clan.html">PANEL.cityrp_Clan</a></li>
+  <li><a href="../classes/PANEL.cityrp_Feedback.html">PANEL.cityrp_Feedback</a></li>
+  <li><a href="../classes/PANEL.cityrp_Credits.html">PANEL.cityrp_Credits</a></li>
+  <li><a href="../classes/ITEM.base_accessory.html">ITEM.base_accessory</a></li>
+  <li><a href="../classes/ITEM.base_ammo.html">ITEM.base_ammo</a></li>
+  <li><a href="../classes/ITEM.base_clothing.html">ITEM.base_clothing</a></li>
+  <li><a href="../classes/ITEM.base_collectable.html">ITEM.base_collectable</a></li>
+  <li><a href="../classes/ITEM.base_food.html">ITEM.base_food</a></li>
+  <li><a href="../classes/ITEM.base_modelbg.html">ITEM.base_modelbg</a></li>
+  <li><a href="../classes/ITEM.base_outfit.html">ITEM.base_outfit</a></li>
+  <li><a href="../classes/ITEM.base_spawnable.html">ITEM.base_spawnable</a></li>
+  <li><a href="../classes/ITEM.html">ITEM</a></li>
+  <li><a href="../classes/DB.html">DB</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/items.md.html">items</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>core.metatables.sh_player</code></h1>
+<p>Shared Player Metafunctions.</p>
+<p>
+
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: 2015-2019 Limelight Gaming</li>
+        <li><strong>Release</strong>: CityRP 2</li>
+        <li><strong>Author</strong>: Legacy Team.</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Nick"><span class='state state-client state-server'>pMeta:Nick()</span></a></td>
+	<td class="summary">Get a player's nickname.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsOutside"><span class='state state-client state-server'>pMeta:IsOutside()</span></a></td>
+	<td class="summary">Check if a player is outside.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ReturnOutside"><span class='state state-client state-server'>ReturnOutside(ply)</span></a></td>
+	<td class="summary">Function for Console Command to check if the player is outside.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:GenderWord"><span class='state state-client state-server'>pMeta:GenderWord()</span></a></td>
+	<td class="summary">Return the appropiate word for the player's gender.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsGovernment"><span class='state state-client state-server'>pMeta:IsGovernment()</span></a></td>
+	<td class="summary">Check if player is Pres, VP, SS, Swatleader, Swat, NDS, Policecleader, Police, Paramedic, Fireman</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsPresident"><span class='state state-client state-server'>pMeta:IsPresident()</span></a></td>
+	<td class="summary">Check if player is Pres or VP.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsPresidentAdministration"><span class='state state-client state-server'>pMeta:IsPresidentAdministration()</span></a></td>
+	<td class="summary">Check if player is Pres, VP or NDS.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsLawenforcement"><span class='state state-client state-server'>pMeta:IsLawenforcement()</span></a></td>
+	<td class="summary">Check if player is a law enforcer (SS, Cop, SWAT)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsSwat"><span class='state state-client state-server'>pMeta:IsSwat()</span></a></td>
+	<td class="summary">Check if player is a SWAT member.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsPolice"><span class='state state-client state-server'>pMeta:IsPolice()</span></a></td>
+	<td class="summary">Check if player is a Police Officer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsRescue"><span class='state state-client state-server'>pMeta:IsRescue()</span></a></td>
+	<td class="summary">Check if player is a rescue worker (EMS / Fire).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsRebel"><span class='state state-client state-server'>pMeta:IsRebel()</span></a></td>
+	<td class="summary">Check if player is a Rebel or Rebel Leader.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsMafia"><span class='state state-client state-server'>pMeta:IsMafia()</span></a></td>
+	<td class="summary">Check if player is a Mafia or Mafia Leader.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsSecretService"><span class='state state-client state-server'>pMeta:IsSecretService()</span></a></td>
+	<td class="summary">Check if player is a Secret Service Agent (Or Lead).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsActualPresident"><span class='state state-client state-server'>pMeta:IsActualPresident()</span></a></td>
+	<td class="summary">Check if player is the President.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsVicePresident"><span class='state state-client state-server'>pMeta:IsVicePresident()</span></a></td>
+	<td class="summary">Check if player is the VP.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsSwatLeader"><span class='state state-client state-server'>pMeta:IsSwatLeader()</span></a></td>
+	<td class="summary">Check if player is the SWAT Leader.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsSSLeader"><span class='state state-client state-server'>pMeta:IsSSLeader()</span></a></td>
+	<td class="summary">Check if player is the SS Lead.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsNexusDeskSecretary"><span class='state state-client state-server'>pMeta:IsNexusDeskSecretary()</span></a></td>
+	<td class="summary">Check if player is a Secretary.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsParamedic"><span class='state state-client state-server'>pMeta:IsParamedic()</span></a></td>
+	<td class="summary">Check if player is a Paramedic.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsFireman"><span class='state state-client state-server'>pMeta:IsFireman()</span></a></td>
+	<td class="summary">Check if player is a Fireman.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsSecurityGuard"><span class='state state-client state-server'>pMeta:IsSecurityGuard()</span></a></td>
+	<td class="summary">Check if player is a Security Guard.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsChef"><span class='state state-client state-server'>pMeta:IsChef()</span></a></td>
+	<td class="summary">Check if player is a Chef.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsDoctor"><span class='state state-client state-server'>pMeta:IsDoctor()</span></a></td>
+	<td class="summary">Check if player is a doctor.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsChauffeur"><span class='state state-client state-server'>pMeta:IsChauffeur()</span></a></td>
+	<td class="summary">Check if player is a taxi driver.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsArmsDealer"><span class='state state-client state-server'>pMeta:IsArmsDealer()</span></a></td>
+	<td class="summary">Check if player is a gundealer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsBlackmarketDealer"><span class='state state-client state-server'>pMeta:IsBlackmarketDealer()</span></a></td>
+	<td class="summary">Check if player is a BMD.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsMechanic"><span class='state state-client state-server'>pMeta:IsMechanic()</span></a></td>
+	<td class="summary">Check if player is a mechanic.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsMafiaDon"><span class='state state-client state-server'>pMeta:IsMafiaDon()</span></a></td>
+	<td class="summary">Check if player is the Don.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsRebelLeader"><span class='state state-client state-server'>pMeta:IsRebelLeader()</span></a></td>
+	<td class="summary">Check if player is the Rebel Leader.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:getTeamGroup"><span class='state state-client state-server'>pMeta:getTeamGroup()</span></a></td>
+	<td class="summary">Get the current team group the player is in.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:GetSVRank"><span class='state state-client state-server'>pMeta:GetSVRank()</span></a></td>
+	<td class="summary">Get the player's rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsRank"><span class='state state-client state-server'>pMeta:IsRank(rank)</span></a></td>
+	<td class="summary">Check if a player is a specified rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsUserGroup"><span class='state state-client state-server'>pMeta:IsUserGroup(rank)</span></a></td>
+	<td class="summary">Check if a player is a specified rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsOwner"><span class='state state-client state-server'>pMeta:IsOwner()</span></a></td>
+	<td class="summary">Checks if the player is of the owner rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsSuperDeveloper"><span class='state state-client state-server'>pMeta:IsSuperDeveloper()</span></a></td>
+	<td class="summary">Checks if the player has SuperDev permissions (Owner or SD)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsSuperAdmin"><span class='state state-client state-server'>pMeta:IsSuperAdmin()</span></a></td>
+	<td class="summary">Checks if the player has SuperDev permissions (SuperDev perms or SuperAdmin rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsDeveloper"><span class='state state-client state-server'>pMeta:IsDeveloper()</span></a></td>
+	<td class="summary">Checks if the player has Developer permissions (SuperDev or Developer Rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsAdmin"><span class='state state-client state-server'>pMeta:IsAdmin()</span></a></td>
+	<td class="summary">Checks if the player has Administrative permissions (Developer, SuperAdmin or admin rank.)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsDevMod2"><span class='state state-client state-server'>pMeta:IsDevMod2()</span></a></td>
+	<td class="summary">Checks if the player has Developer Mod Stage 2 permissions (Developer, developermod2 rank.)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsModerator2"><span class='state state-client state-server'>pMeta:IsModerator2()</span></a></td>
+	<td class="summary">Checks if the player has Mod Stage 2 permissions (DevMod2, Admin or moderator2 rank.)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsDevMod"><span class='state state-client state-server'>pMeta:IsDevMod()</span></a></td>
+	<td class="summary">Checks if the player has Developer Mod permissions (DeveloperMod Stage 2, developermod rank.)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsModerator"><span class='state state-client state-server'>pMeta:IsModerator()</span></a></td>
+	<td class="summary">Checks if the player has Mod permissions (DevMod, Mod2 or moderator rank.)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsTrialDevMod"><span class='state state-client state-server'>pMeta:IsTrialDevMod()</span></a></td>
+	<td class="summary">Checks if the player has TDevMod permissions (DevMod or trialdevmod rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsTrialMod"><span class='state state-client state-server'>pMeta:IsTrialMod()</span></a></td>
+	<td class="summary">Checks if the player has TMod permissions (TDMod, Mod or trialmoderator rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsDeveloperOnly"><span class='state state-client state-server'>pMeta:IsDeveloperOnly()</span></a></td>
+	<td class="summary">Checks if the player has DevOnly permissions (TDMod or developeronly rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsContributor"><span class='state state-client state-server'>pMeta:IsContributor()</span></a></td>
+	<td class="summary">Checks if the player has Contrib permissions (DevOnly or contributor rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsAssistant"><span class='state state-client state-server'>pMeta:IsAssistant(strict)</span></a></td>
+	<td class="summary">Checks if the player has Teacher permissions (DevOnly for loose checks, trial mod or assistant rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:IsVeteran"><span class='state state-client state-server'>pMeta:IsVeteran()</span></a></td>
+	<td class="summary">Checks if the player is a veteran.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Name"><span class='state state-client state-server'>pMeta:Name(replace)</span></a></td>
+	<td class="summary">Gets a player's OOC name, dependent on U/C settings.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:RPName"><span class='state state-client state-server'>pMeta:RPName()</span></a></td>
+	<td class="summary">Get a player's current IC name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:getLocation"><span class='state state-client state-server'>pMeta:getLocation()</span></a></td>
+	<td class="summary">Get the current location of the player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Arrested"><span class='state state-client state-server'>pMeta:Arrested()</span></a></td>
+	<td class="summary">Check if a player is arrested.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Hostaged"><span class='state state-client state-server'>pMeta:Hostaged()</span></a></td>
+	<td class="summary">Check if a player is hostaged.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Blindfolded"><span class='state state-client state-server'>pMeta:Blindfolded()</span></a></td>
+	<td class="summary">Check if a player is blindfolded.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Sleeping"><span class='state state-client state-server'>pMeta:Sleeping()</span></a></td>
+	<td class="summary">Check if a player is sleeping.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Cuffed"><span class='state state-client state-server'>pMeta:Cuffed()</span></a></td>
+	<td class="summary">Check if a player is cuffed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Frozen"><span class='state state-client state-server'>pMeta:Frozen()</span></a></td>
+	<td class="summary">Check if a player is frozen/physgunfrozen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Ziptied"><span class='state state-client state-server'>pMeta:Ziptied()</span></a></td>
+	<td class="summary">Check if a player is ziptied.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Gagged"><span class='state state-client state-server'>pMeta:Gagged()</span></a></td>
+	<td class="summary">Check if a player is gagged.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Tranqed"><span class='state state-client state-server'>pMeta:Tranqed()</span></a></td>
+	<td class="summary">Check if a player is tranq'd.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Stunned"><span class='state state-client state-server'>pMeta:Stunned()</span></a></td>
+	<td class="summary">Check if a player is tased.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Injured"><span class='state state-client state-server'>pMeta:Injured()</span></a></td>
+	<td class="summary">Check if a player is injured.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:KockedOut"><span class='state state-client state-server'>pMeta:KockedOut()</span></a></td>
+	<td class="summary">Check if a player is knocked out.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Warranted"><span class='state state-client state-server'>pMeta:Warranted()</span></a></td>
+	<td class="summary">Check if a player is warrant.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Pass"><span class='state state-client state-server'>pMeta:Pass()</span></a></td>
+	<td class="summary">Check if a player has a pass.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Job"><span class='state state-client state-server'>pMeta:Job()</span></a></td>
+	<td class="summary">Get a player's job.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Description"><span class='state state-client state-server'>pMeta:Description()</span></a></td>
+	<td class="summary">Get a player's description.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Status"><span class='state state-client state-server'>pMeta:Status()</span></a></td>
+	<td class="summary">Get a player's status.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Clan"><span class='state state-client state-server'>pMeta:Clan()</span></a></td>
+	<td class="summary">Get a player's clan name and rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:ClanName"><span class='state state-client state-server'>pMeta:ClanName()</span></a></td>
+	<td class="summary">Get a player's clan name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:ClanID"><span class='state state-client state-server'>pMeta:ClanID()</span></a></td>
+	<td class="summary">Get a player's clan ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:MembershipLevel"><span class='state state-client state-server'>pMeta:MembershipLevel()</span></a></td>
+	<td class="summary">Get a player's membership level.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Masked"><span class='state state-client state-server'>pMeta:Masked()</span></a></td>
+	<td class="summary">Check if a player is currently masked.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:REP"><span class='state state-client state-server'>pMeta:REP(cat)</span></a></td>
+	<td class="summary">Get a player's REP.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:GetPropLimit"><span class='state state-client state-server'>pMeta:GetPropLimit()</span></a></td>
+	<td class="summary">Get the player's prop limit.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:HasTags"><span class='state state-client state-server'>pMeta:HasTags()</span></a></td>
+	<td class="summary">Check if the current user's name has tags for their rank in it.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:GetInjuryState"><span class='state state-client state-server'>pMeta:GetInjuryState()</span></a></td>
+	<td class="summary">Return an injury state, based on the player's current HP and injured state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:HasGodMode"><span class='state state-client state-server'>pMeta:HasGodMode()</span></a></td>
+	<td class="summary">Check if a player has god mode.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:GetIcon"><span class='state state-client state-server'>pMeta:GetIcon()</span></a></td>
+	<td class="summary">Get the rank icon for a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:GetIconReplacement"><span class='state state-client state-server'>pMeta:GetIconReplacement()</span></a></td>
+	<td class="summary">Get the rank icon's textual replacement for a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:GetRankName"><span class='state state-client state-server'>pMeta:GetRankName()</span></a></td>
+	<td class="summary">Get the name of a given player's rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:GetRankColor"><span class='state state-client state-server'>pMeta:GetRankColor()</span></a></td>
+	<td class="summary">Get the colour for a given player's rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:GetRankSortOrder"><span class='state state-client state-server'>pMeta:GetRankSortOrder()</span></a></td>
+	<td class="summary">Get the sort order for a given player's rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:GetAgendaGroup"><span class='state state-client state-server'>pMeta:GetAgendaGroup()</span></a></td>
+	<td class="summary">Get the agenda group the player is in.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:GetAgendaLeader"><span class='state state-client state-server'>pMeta:GetAgendaLeader()</span></a></td>
+	<td class="summary">Get the agenda group the player leads.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:Noclipping"><span class='state state-client state-server'>pMeta:Noclipping()</span></a></td>
+	<td class="summary">Get the players noclip state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:MembershipExpires"><span class='state state-client state-server'>pMeta:MembershipExpires()</span></a></td>
+	<td class="summary">Get the time that a users' membership expires.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pMeta:HasMembership"><span class='state state-client state-server'>pMeta:HasMembership()</span></a></td>
+	<td class="summary">Check if the player currently has active membership.</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#pMeta.GetPlayerChatColour">pMeta.GetPlayerChatColour</a></td>
+	<td class="summary">Get the player's chat colour.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "pMeta:Nick"></a>
+    <strong><span class='state state-client state-server'>pMeta:Nick()</span></strong>
+    </dt>
+    <dd>
+    Get a player's nickname.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string The player's nickname.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsOutside"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsOutside()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is outside.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean If the player is outside.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ReturnOutside"></a>
+    <strong><span class='state state-client state-server'>ReturnOutside(ply)</span></strong>
+    </dt>
+    <dd>
+    Function for Console Command to check if the player is outside.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player to check against.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:GenderWord"></a>
+    <strong><span class='state state-client state-server'>pMeta:GenderWord()</span></strong>
+    </dt>
+    <dd>
+    Return the appropiate word for the player's gender.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The word for the gender.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsGovernment"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsGovernment()</span></strong>
+    </dt>
+    <dd>
+    Check if player is Pres, VP, SS, Swatleader, Swat, NDS, Policecleader, Police, Paramedic, Fireman
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a government member.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsPresident"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsPresident()</span></strong>
+    </dt>
+    <dd>
+    Check if player is Pres or VP.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a the President or Vice President.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsPresidentAdministration"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsPresidentAdministration()</span></strong>
+    </dt>
+    <dd>
+    Check if player is Pres, VP or NDS.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a the President, Vice President or NDS.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsLawenforcement"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsLawenforcement()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a law enforcer (SS, Cop, SWAT)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a law enforcer.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsSwat"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsSwat()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a SWAT member.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a SWAT member.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsPolice"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsPolice()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Police Officer.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Police Officer.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsRescue"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsRescue()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a rescue worker (EMS / Fire).
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a rescue worker.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsRebel"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsRebel()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Rebel or Rebel Leader.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Rebel.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsMafia"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsMafia()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Mafia or Mafia Leader.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Mafia Member.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsSecretService"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsSecretService()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Secret Service Agent (Or Lead).
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is SS.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsActualPresident"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsActualPresident()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the President.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the President.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsVicePresident"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsVicePresident()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the VP.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the VP.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsSwatLeader"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsSwatLeader()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the SWAT Leader.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the SWAT LEader.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsSSLeader"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsSSLeader()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the SS Lead.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the SS Lead.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsNexusDeskSecretary"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsNexusDeskSecretary()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Secretary.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Secretary.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsParamedic"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsParamedic()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Paramedic.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Paramedic.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsFireman"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsFireman()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Fireman.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Fireman.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsSecurityGuard"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsSecurityGuard()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Security Guard.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Security Guard.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsChef"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsChef()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Chef.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Chef.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsDoctor"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsDoctor()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a doctor.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a doctor.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsChauffeur"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsChauffeur()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a taxi driver.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a taxi driver.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsArmsDealer"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsArmsDealer()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a gundealer.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a gundealer.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsBlackmarketDealer"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsBlackmarketDealer()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a BMD.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a BMD.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsMechanic"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsMechanic()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a mechanic.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a mechanic.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsMafiaDon"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsMafiaDon()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the Don.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the Don.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsRebelLeader"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsRebelLeader()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the Rebel Leader.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the Rebel Leader.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:getTeamGroup"></a>
+    <strong><span class='state state-client state-server'>pMeta:getTeamGroup()</span></strong>
+    </dt>
+    <dd>
+    Get the current team group the player is in.
+ If there are multiple matches, the first one defined in the TEAMGROUPS table will be used.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string The group the player is in, "" if none.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:GetSVRank"></a>
+    <strong><span class='state state-client state-server'>pMeta:GetSVRank()</span></strong>
+    </dt>
+    <dd>
+    Get the player's rank.
+ On server, this always returns the true value (if the player has had their data loaded, as we load from DB.), unless stream override is enabled.
+ On client, this returns a value based on the true value, current rank and hidden state.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string User's current rank.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsRank"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsRank(rank)</span></strong>
+    </dt>
+    <dd>
+    Check if a player is a specified rank.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">rank</span>
+         The rank to check against.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean If the player is the specified rank.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsUserGroup"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsUserGroup(rank)</span></strong>
+    </dt>
+    <dd>
+    Check if a player is a specified rank.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">rank</span>
+         The rank to check against.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean If the player is the specified rank.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsOwner"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsOwner()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player is of the owner rank.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean If the player is the owner.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsSuperDeveloper"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsSuperDeveloper()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has SuperDev permissions (Owner or SD)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsSuperAdmin"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsSuperAdmin()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has SuperDev permissions (SuperDev perms or SuperAdmin rank)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsDeveloper"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsDeveloper()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Developer permissions (SuperDev or Developer Rank)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsAdmin"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsAdmin()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Administrative permissions (Developer, SuperAdmin or admin rank.)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsDevMod2"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsDevMod2()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Developer Mod Stage 2 permissions (Developer, developermod2 rank.)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsModerator2"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsModerator2()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Mod Stage 2 permissions (DevMod2, Admin or moderator2 rank.)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsDevMod"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsDevMod()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Developer Mod permissions (DeveloperMod Stage 2, developermod rank.)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsModerator"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsModerator()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Mod permissions (DevMod, Mod2 or moderator rank.)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsTrialDevMod"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsTrialDevMod()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has TDevMod permissions (DevMod or trialdevmod rank)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsTrialMod"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsTrialMod()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has TMod permissions (TDMod, Mod or trialmoderator rank)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsDeveloperOnly"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsDeveloperOnly()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has DevOnly permissions (TDMod or developeronly rank)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsContributor"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsContributor()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Contrib permissions (DevOnly or contributor rank)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsAssistant"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsAssistant(strict)</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Teacher permissions (DevOnly for loose checks, trial mod or assistant rank)
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">strict</span>
+         If strict checking is enabled (for REP)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean if the player has permissions.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:IsVeteran"></a>
+    <strong><span class='state state-client state-server'>pMeta:IsVeteran()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player is a veteran.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean If the player is a veteran.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Name"></a>
+    <strong><span class='state state-client state-server'>pMeta:Name(replace)</span></strong>
+    </dt>
+    <dd>
+    Gets a player's OOC name, dependent on U/C settings.
+ If replace is true, will attempt to fetch U/C name, or "an administrator" if none is registered.
+ Otherwise provides regular nickname.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">replace</span>
+         If the name should be replaced by the undercover name (for command echos).
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The players' name, registered U/C name, "An administrator" or "a moderator" dependent on internal state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:RPName"></a>
+    <strong><span class='state state-client state-server'>pMeta:RPName()</span></strong>
+    </dt>
+    <dd>
+    Get a player's current IC name.
+ If a fake name is set, it will be returned.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The player's IC name.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:getLocation"></a>
+    <strong><span class='state state-client state-server'>pMeta:getLocation()</span></strong>
+    </dt>
+    <dd>
+    Get the current location of the player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string The player's location.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Arrested"></a>
+    <strong><span class='state state-client state-server'>pMeta:Arrested()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is arrested.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current arrest state.
+ MakeAccessor("Arrested", "cityrp_arrested")
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Hostaged"></a>
+    <strong><span class='state state-client state-server'>pMeta:Hostaged()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is hostaged.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current hostage state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Blindfolded"></a>
+    <strong><span class='state state-client state-server'>pMeta:Blindfolded()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is blindfolded.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The current blindfold state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Sleeping"></a>
+    <strong><span class='state state-client state-server'>pMeta:Sleeping()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is sleeping.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current sleep state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Cuffed"></a>
+    <strong><span class='state state-client state-server'>pMeta:Cuffed()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is cuffed.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current cuff state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Frozen"></a>
+    <strong><span class='state state-client state-server'>pMeta:Frozen()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is frozen/physgunfrozen.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current freeze state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Ziptied"></a>
+    <strong><span class='state state-client state-server'>pMeta:Ziptied()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is ziptied.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current ziptie state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Gagged"></a>
+    <strong><span class='state state-client state-server'>pMeta:Gagged()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is gagged.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current gag state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Tranqed"></a>
+    <strong><span class='state state-client state-server'>pMeta:Tranqed()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is tranq'd.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current tranq state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Stunned"></a>
+    <strong><span class='state state-client state-server'>pMeta:Stunned()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is tased.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current tase state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Injured"></a>
+    <strong><span class='state state-client state-server'>pMeta:Injured()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is injured.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current injury state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:KockedOut"></a>
+    <strong><span class='state state-client state-server'>pMeta:KockedOut()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is knocked out.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current knock outage state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Warranted"></a>
+    <strong><span class='state state-client state-server'>pMeta:Warranted()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is warrant.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [string | nil] The current warrant type, or nil if none.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Pass"></a>
+    <strong><span class='state state-client state-server'>pMeta:Pass()</span></strong>
+    </dt>
+    <dd>
+    Check if a player has a pass.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [string | nil] The current pass or nil if none.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Job"></a>
+    <strong><span class='state state-client state-server'>pMeta:Job()</span></strong>
+    </dt>
+    <dd>
+    Get a player's job.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string The current job.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Description"></a>
+    <strong><span class='state state-client state-server'>pMeta:Description()</span></strong>
+    </dt>
+    <dd>
+    Get a player's description.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string The current description.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Status"></a>
+    <strong><span class='state state-client state-server'>pMeta:Status()</span></strong>
+    </dt>
+    <dd>
+    Get a player's status.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string The current status.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Clan"></a>
+    <strong><span class='state state-client state-server'>pMeta:Clan()</span></strong>
+    </dt>
+    <dd>
+    Get a player's clan name and rank.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+        The current clan and rank.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:ClanName"></a>
+    <strong><span class='state state-client state-server'>pMeta:ClanName()</span></strong>
+    </dt>
+    <dd>
+    Get a player's clan name.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+        The current clan name.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:ClanID"></a>
+    <strong><span class='state state-client state-server'>pMeta:ClanID()</span></strong>
+    </dt>
+    <dd>
+    Get a player's clan ID.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The current clan ID.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:MembershipLevel"></a>
+    <strong><span class='state state-client state-server'>pMeta:MembershipLevel()</span></strong>
+    </dt>
+    <dd>
+    Get a player's membership level.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The current membership level.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Masked"></a>
+    <strong><span class='state state-client state-server'>pMeta:Masked()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is currently masked.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Mask state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:REP"></a>
+    <strong><span class='state state-client state-server'>pMeta:REP(cat)</span></strong>
+    </dt>
+    <dd>
+    Get a player's REP.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">cat</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The category to check, or all if empty.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The number of REPs the player has.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:GetPropLimit"></a>
+    <strong><span class='state state-client state-server'>pMeta:GetPropLimit()</span></strong>
+    </dt>
+    <dd>
+    Get the player's prop limit.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        number The prop limit.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:HasTags"></a>
+    <strong><span class='state state-client state-server'>pMeta:HasTags()</span></strong>
+    </dt>
+    <dd>
+    Check if the current user's name has tags for their rank in it.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean If the player is currently wearing appropriate tags.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:GetInjuryState"></a>
+    <strong><span class='state state-client state-server'>pMeta:GetInjuryState()</span></strong>
+    </dt>
+    <dd>
+    Return an injury state, based on the player's current HP and injured state.
+ 0 = Uninjured
+ 1 = Injured
+ 2 = Seriously Injured
+ 3 = Mortally Wounded
+ 4 = Cardiac Arrest
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        number The current injury state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:HasGodMode"></a>
+    <strong><span class='state state-client state-server'>pMeta:HasGodMode()</span></strong>
+    </dt>
+    <dd>
+    Check if a player has god mode.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean If the player has god enabled.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:GetIcon"></a>
+    <strong><span class='state state-client state-server'>pMeta:GetIcon()</span></strong>
+    </dt>
+    <dd>
+    Get the rank icon for a player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string The rank icon path.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:GetIconReplacement"></a>
+    <strong><span class='state state-client state-server'>pMeta:GetIconReplacement()</span></strong>
+    </dt>
+    <dd>
+    Get the rank icon's textual replacement for a player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The replacement.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:GetRankName"></a>
+    <strong><span class='state state-client state-server'>pMeta:GetRankName()</span></strong>
+    </dt>
+    <dd>
+    Get the name of a given player's rank.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The name.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:GetRankColor"></a>
+    <strong><span class='state state-client state-server'>pMeta:GetRankColor()</span></strong>
+    </dt>
+    <dd>
+    Get the colour for a given player's rank.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The colour object.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:GetRankSortOrder"></a>
+    <strong><span class='state state-client state-server'>pMeta:GetRankSortOrder()</span></strong>
+    </dt>
+    <dd>
+    Get the sort order for a given player's rank.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The sort order.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:GetAgendaGroup"></a>
+    <strong><span class='state state-client state-server'>pMeta:GetAgendaGroup()</span></strong>
+    </dt>
+    <dd>
+    Get the agenda group the player is in.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [string | false] The agenda group the player is in, or false if none.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:GetAgendaLeader"></a>
+    <strong><span class='state state-client state-server'>pMeta:GetAgendaLeader()</span></strong>
+    </dt>
+    <dd>
+    Get the agenda group the player leads.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [string | false] The agenda group the player leads, or false if none.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:Noclipping"></a>
+    <strong><span class='state state-client state-server'>pMeta:Noclipping()</span></strong>
+    </dt>
+    <dd>
+    Get the players noclip state.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean Players noclip state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:MembershipExpires"></a>
+    <strong><span class='state state-client state-server'>pMeta:MembershipExpires()</span></strong>
+    </dt>
+    <dd>
+    Get the time that a users' membership expires.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        Unix expiry time.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pMeta:HasMembership"></a>
+    <strong><span class='state state-client state-server'>pMeta:HasMembership()</span></strong>
+    </dt>
+    <dd>
+    Check if the player currently has active membership.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        boolean If the player has membership.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "pMeta.GetPlayerChatColour"></a>
+    <strong>pMeta.GetPlayerChatColour</strong>
+    </dt>
+    <dd>
+    Get the player's chat colour.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2020-12-18 14:26:16 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

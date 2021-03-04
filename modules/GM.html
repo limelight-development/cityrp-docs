@@ -1,0 +1,3223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>CityRP Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+    <link rel="stylesheet" href="../glua.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>CityRP 2</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>GM</strong></li>
+  <li><a href="../modules/core.derma.cl_dcoloredicon.html">core.derma.cl_dcoloredicon</a></li>
+  <li><a href="../modules/core.derma.cl_dfillicon.html">core.derma.cl_dfillicon</a></li>
+  <li><a href="../modules/core.derma.cl_diconlabel.html">core.derma.cl_diconlabel</a></li>
+  <li><a href="../modules/core.derma.cl_dinfolabel.html">core.derma.cl_dinfolabel</a></li>
+  <li><a href="../modules/core.derma.cl_dinfopanel.html">core.derma.cl_dinfopanel</a></li>
+  <li><a href="../modules/core.derma.cl_ditemtitle.html">core.derma.cl_ditemtitle</a></li>
+  <li><a href="../modules/core.derma.cl_dlimitedtextentry.html">core.derma.cl_dlimitedtextentry</a></li>
+  <li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+  <li><a href="../modules/core.derma.cl_dpropamt.html">core.derma.cl_dpropamt</a></li>
+  <li><a href="../modules/core.derma.cl_dradio.html">core.derma.cl_dradio</a></li>
+  <li><a href="../modules/core.derma.cl_dscaleitempanel.html">core.derma.cl_dscaleitempanel</a></li>
+  <li><a href="../modules/core.derma.cl_dtexturedprogress.html">core.derma.cl_dtexturedprogress</a></li>
+  <li><a href="../modules/core.derma.cl_dwepinfo.html">core.derma.cl_dwepinfo</a></li>
+  <li><a href="../modules/core.derma.cl_hud_botleft.html">core.derma.cl_hud_botleft</a></li>
+  <li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+  <li><a href="../modules/core.derma.cl_hud_vehicle.html">core.derma.cl_hud_vehicle</a></li>
+  <li><a href="../modules/notification.html">notification</a></li>
+  <li><a href="../modules/core.derma.sh_urlpanel.html">core.derma.sh_urlpanel</a></li>
+  <li><a href="../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+  <li><a href="../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+  <li><a href="../modules/temar.html">temar</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.boot.html">core.libraries.meska.achievements.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.client.hud.html">core.libraries.meska.achievements.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.server.html">core.libraries.meska.achievements.server</a></li>
+  <li><a href="../modules/core.libraries.meska.client.html">core.libraries.meska.client</a></li>
+  <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+  <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.boot.html">core.libraries.meska.custombonus.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.client.hud.html">core.libraries.meska.custombonus.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.server.html">core.libraries.meska.custombonus.server</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.boot.html">core.libraries.meska.dailybonus.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.client.hud.html">core.libraries.meska.dailybonus.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.server.html">core.libraries.meska.dailybonus.server</a></li>
+  <li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+  <li><a href="../modules/core.libraries.meska.hooks.html">core.libraries.meska.hooks</a></li>
+  <li><a href="../modules/core.libraries.meska.html">core.libraries.meska</a></li>
+  <li><a href="../modules/core.libraries.meska.metrics.boot.html">core.libraries.meska.metrics.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.metrics.server.html">core.libraries.meska.metrics.server</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.boot.html">core.libraries.meska.skills.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.client.hud.html">core.libraries.meska.skills.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.server.html">core.libraries.meska.skills.server</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.shared.meta.html">core.libraries.meska.skills.shared.meta</a></li>
+  <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+  <li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
+  <li><a href="../modules/functions.html">functions</a></li>
+  <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
+  <li><a href="../modules/internet.html">internet</a></li>
+  <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
+  <li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+  <li><a href="../modules/cityrp.table.html">cityrp.table</a></li>
+  <li><a href="../modules/cityrp.team.html">cityrp.team</a></li>
+  <li><a href="../modules/workarounds.html">workarounds</a></li>
+  <li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
+  <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
+  <li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+  <li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
+  <li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
+  <li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+  <li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
+  <li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+  <li><a href="../modules/core.metatables.sh_player.html">core.metatables.sh_player</a></li>
+  <li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+  <li><a href="../modules/core.metatables.sv_entity.html">core.metatables.sv_entity</a></li>
+  <li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
+  <li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+  <li><a href="../modules/acpig.html.html">acpig.html</a></li>
+  <li><a href="../modules/acpig.html">acpig</a></li>
+  <li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+  <li><a href="../modules/core.plugins.admin_assist.cl_init.html">core.plugins.admin_assist.cl_init</a></li>
+  <li><a href="../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.sh_init.html">core.plugins.adminhub.sh_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+  <li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+  <li><a href="../modules/core.plugins.animations.sv_meta.html">core.plugins.animations.sv_meta</a></li>
+  <li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+  <li><a href="../modules/core.plugins.anonymous.cl_init.html">core.plugins.anonymous.cl_init</a></li>
+  <li><a href="../modules/core.plugins.autokick.cl_init.html">core.plugins.autokick.cl_init</a></li>
+  <li><a href="../modules/core.plugins.autokick.sv_init.html">core.plugins.autokick.sv_init</a></li>
+  <li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+  <li><a href="../modules/core.plugins.bodybags.sv_init.html">core.plugins.bodybags.sv_init</a></li>
+  <li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+  <li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+  <li><a href="../modules/cityrp.door.html">cityrp.door</a></li>
+  <li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+  <li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+  <li><a href="../modules/core.plugins.laws.sv_init.html">core.plugins.laws.sv_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.cl_init.html">core.plugins.lifealert.cl_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.sv_init.html">core.plugins.lifealert.sv_init</a></li>
+  <li><a href="../modules/core.plugins.mazerunner.sv_init.html">core.plugins.mazerunner.sv_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.cl_init.html">core.plugins.mixtures.cl_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.sh_init.html">core.plugins.mixtures.sh_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.sv_init.html">core.plugins.mixtures.sv_init</a></li>
+  <li><a href="../modules/core.plugins.model-state.cl_init.html">core.plugins.model-state.cl_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.cl_init.html">core.plugins.onlinelog.cl_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.sh_init.html">core.plugins.onlinelog.sh_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.sv_init.html">core.plugins.onlinelog.sv_init</a></li>
+  <li><a href="../modules/core.plugins.packaging.sv_init.html">core.plugins.packaging.sv_init</a></li>
+  <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+  <li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+  <li><a href="../modules/cityrp.phonebook.html">cityrp.phonebook</a></li>
+  <li><a href="../modules/core.plugins.pradio.sv_init.html">core.plugins.pradio.sv_init</a></li>
+  <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+  <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+  <li><a href="../modules/core.plugins.radio.cl_init.html">core.plugins.radio.cl_init</a></li>
+  <li><a href="../modules/core.plugins.radio.sv_init.html">core.plugins.radio.sv_init</a></li>
+  <li><a href="../modules/referrals.html">referrals</a></li>
+  <li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+  <li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+  <li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+  <li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+  <li><a href="../modules/core.plugins.savedeaths.sv_init.html">core.plugins.savedeaths.sv_init</a></li>
+  <li><a href="../modules/core.plugins.spawnpoints.cl_init.html">core.plugins.spawnpoints.cl_init</a></li>
+  <li><a href="../modules/core.plugins.spawnpoints.sv_init.html">core.plugins.spawnpoints.sv_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.sh_init.html">core.plugins.stamina.sh_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.sv_init.html">core.plugins.stamina.sv_init</a></li>
+  <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+  <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+  <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+  <li><a href="../modules/core.plugins.tracking.sv_init.html">core.plugins.tracking.sv_init</a></li>
+  <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+  <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+  <li><a href="../modules/core.plugins.typing.cl_init.html">core.plugins.typing.cl_init</a></li>
+  <li><a href="../modules/core.plugins.typing.sh_init.html">core.plugins.typing.sh_init</a></li>
+  <li><a href="../modules/core.plugins.typing.sv_init.html">core.plugins.typing.sv_init</a></li>
+  <li><a href="../modules/core.plugins.uniforms.sv_init.html">core.plugins.uniforms.sv_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+  <li><a href="../modules/core.plugins.unownable.sv_init.html">core.plugins.unownable.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_doors.sv_init.html">core.plugins.vehicle_doors.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.cl_init.html">core.plugins.vehicle_skins.cl_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.sh_init.html">core.plugins.vehicle_skins.sh_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.sv_init.html">core.plugins.vehicle_skins.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sh_vehicles.html">core.plugins.vehicles.sh_vehicles</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+  <li><a href="../modules/core.plugins.visible_protection.sh_init.html">core.plugins.visible_protection.sh_init</a></li>
+  <li><a href="../modules/core.plugins.visible_protection.sv_init.html">core.plugins.visible_protection.sv_init</a></li>
+  <li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+  <li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.sv_init.html">core.plugins.voiceradio.sv_init</a></li>
+  <li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+  <li><a href="../modules/core.plugins.warning.sh_init.html">core.plugins.warning.sh_init</a></li>
+  <li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+  <li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
+  <li><a href="../modules/core.plugins.worldprops.sv_init.html">core.plugins.worldprops.sv_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
+  <li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+  <li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/PANEL.cityrp_Cards.html">PANEL.cityrp_Cards</a></li>
+  <li><a href="../classes/PANEL.cityrp_Character.html">PANEL.cityrp_Character</a></li>
+  <li><a href="../classes/PANEL.cityrp_Clan.html">PANEL.cityrp_Clan</a></li>
+  <li><a href="../classes/PANEL.cityrp_Feedback.html">PANEL.cityrp_Feedback</a></li>
+  <li><a href="../classes/PANEL.cityrp_Credits.html">PANEL.cityrp_Credits</a></li>
+  <li><a href="../classes/ITEM.base_accessory.html">ITEM.base_accessory</a></li>
+  <li><a href="../classes/ITEM.base_ammo.html">ITEM.base_ammo</a></li>
+  <li><a href="../classes/ITEM.base_clothing.html">ITEM.base_clothing</a></li>
+  <li><a href="../classes/ITEM.base_collectable.html">ITEM.base_collectable</a></li>
+  <li><a href="../classes/ITEM.base_food.html">ITEM.base_food</a></li>
+  <li><a href="../classes/ITEM.base_modelbg.html">ITEM.base_modelbg</a></li>
+  <li><a href="../classes/ITEM.base_outfit.html">ITEM.base_outfit</a></li>
+  <li><a href="../classes/ITEM.base_spawnable.html">ITEM.base_spawnable</a></li>
+  <li><a href="../classes/ITEM.html">ITEM</a></li>
+  <li><a href="../classes/DB.html">DB</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/items.md.html">items</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>GM</code></h1>
+<p>Primary Gamemode Bootstrap</p>
+<p>
+
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: 2015-2019 Limelight Gaming</li>
+        <li><strong>Release</strong>: CityRP 2</li>
+        <li><strong>Author</strong>: Legacy Team</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#printf"><span class='state state-client state-server'>printf(str, ...)</span></a></td>
+	<td class="summary">Formatted print to console.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sprintf"><span class='state state-client state-server'>sprintf(str, ...)</span></a></td>
+	<td class="summary">Formatted return.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ConnectToDatabase"><span class='state state-server'>ConnectToDatabase()</span></a></td>
+	<td class="summary">Create DB_MAIN and load our DB instance.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Initialize"><span class='state state-server'>Initialize()</span></a></td>
+	<td class="summary">Run the gamemode startup procedure.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSwitchFlashlight"><span class='state state-server'>PlayerSwitchFlashlight(ply, on)</span></a></td>
+	<td class="summary">Called when a player switches their flashlight on or off.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UpdateDatabase"><span class='state state-server'>UpdateDatabase()</span></a></td>
+	<td class="summary">Update the database and player's data.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerUse"><span class='state state-server'>PlayerUse(ply, ent)</span></a></td>
+	<td class="summary">Called when a player attempts to use an entity.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerDemote"><span class='state state-server'>PlayerDemote(ply, tgt, from, reason)</span></a></td>
+	<td class="summary">Called when a player is demoting another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerPromoteLeader"><span class='state state-server'>PlayerPromoteLeader(ply, tgt, from)</span></a></td>
+	<td class="summary">Called when a player is promoting another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerKnockOut"><span class='state state-server'>PlayerKnockOut(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player is knocking out another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerWakeUp"><span class='state state-server'>PlayerWakeUp(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player is waking up another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerArrest"><span class='state state-server'>PlayerArrest(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player is arresting another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerHostage"><span class='state state-server'>PlayerHostage(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player hostages player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerUnarrest"><span class='state state-server'>PlayerUnarrest(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player unarrests player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerWarrant"><span class='state state-server'>PlayerWarrant(ply, tgt, class)</span></a></td>
+	<td class="summary">Called when a player warrants a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerUnwarrant"><span class='state state-server'>PlayerUnwarrant(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player unwarrants player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanOwnDoor"><span class='state state-server'>PlayerCanOwnDoor(ply, door)</span></a></td>
+	<td class="summary">Called when a player owns a door.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanViewDoor"><span class='state state-server'>PlayerCanViewDoor(ply, door)</span></a></td>
+	<td class="summary">Called when a player views a door.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanHolster"><span class='state state-server'>PlayerCanHolster(ply, weapon, silent)</span></a></td>
+	<td class="summary">Called when a player holsters a weapon.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanDrop"><span class='state state-server'>PlayerCanDrop(ply, weapon, silent, attacker)</span></a></td>
+	<td class="summary">Called when a player drops a weapon.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanUseItem"><span class='state state-server'>PlayerCanUseItem(ply, item, silent)</span></a></td>
+	<td class="summary">Called when a player attempts to use an item.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanDropItem"><span class='state state-server'>PlayerCanDropItem(ply, item, amt, pos)</span></a></td>
+	<td class="summary">Called when a player attempts to drop an item on the ground.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanGiveItem"><span class='state state-server'>PlayerCanGiveItem(ply, item, amt, to)</span></a></td>
+	<td class="summary">Called when a player attempts to give an item to another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanRemoveItem"><span class='state state-server'>PlayerCanRemoveItem(ply, item)</span></a></td>
+	<td class="summary">Called when a player attempts to remove an item.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanKnockOut"><span class='state state-server'>PlayerCanKnockOut(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player attempts to knock out another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanWarrant"><span class='state state-server'>PlayerCanWarrant(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player attempts to warrant another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanWakeUp"><span class='state state-server'>PlayerCanWakeUp(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player attempts to wake up another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanRamDoor"><span class='state state-server'>PlayerCanRamDoor(ply, door, silent)</span></a></td>
+	<td class="summary">Called when a player attempts to ram a door.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanUseDoor"><span class='state state-server'>PlayerCanUseDoor(ply, door)</span></a></td>
+	<td class="summary">Called when a player attempts to use a door.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanJoinTeam"><span class='state state-server'>PlayerCanJoinTeam(ply, team)</span></a></td>
+	<td class="summary">Check if a player can join a team.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanDemote"><span class='state state-server'>PlayerCanDemote(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player attempts to demote another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanPromote"><span class='state state-server'>PlayerCanPromote(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player attempts to promote another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#InitPostEntity"><span class='state state-server'>InitPostEntity()</span></a></td>
+	<td class="summary">Called when all of the map entities have been initialized.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanHearPlayersVoice"><span class='state state-server'>PlayerCanHearPlayersVoice(ply, tgt)</span></a></td>
+	<td class="summary">Hook function called to check if a player can be heard.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanSayIC"><span class='state state-server'>PlayerCanSayIC(ply, text)</span></a></td>
+	<td class="summary">Check if a player can say IC text.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanSayOOC"><span class='state state-server'>PlayerCanSayOOC(ply, text)</span></a></td>
+	<td class="summary">Check if a player can say OOC text.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanSayLOOC"><span class='state state-server'>PlayerCanSayLOOC(ply, text)</span></a></td>
+	<td class="summary">Check if a player can say Local OOC text.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanUseCommand"><span class='state state-server'>PlayerCanUseCommand(ply, command, arguments)</span></a></td>
+	<td class="summary">Check if a player can run a command.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSaidOOC"><span class='state state-server'>PlayerSaidOOC(ply, msg)</span></a></td>
+	<td class="summary">Called after a player sends a message in OOC.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSaidLOOC"><span class='state state-server'>PlayerSaidLOOC(ply, msg)</span></a></td>
+	<td class="summary">Called after a player sends a message in Local OOC.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSaid"><span class='state state-server'>PlayerSaid(ply, msg, msgType)</span></a></td>
+	<td class="summary">Called after a player sends a message in chat.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerRanCommand"><span class='state state-server'>PlayerRanCommand(ply, cmd, args)</span></a></td>
+	<td class="summary">Called after a command is ran.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerRanAdminCommand"><span class='state state-server'>PlayerRanAdminCommand(ply, cmd, args)</span></a></td>
+	<td class="summary">Called after an admin command is ran.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSay"><span class='state state-server'>PlayerSay(ply, text, public)</span></a></td>
+	<td class="summary">Hook function for when any message is sent to the server.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CanPlayerSuicide"><span class='state state-server'>CanPlayerSuicide(ply)</span></a></td>
+	<td class="summary">Called when a player attempts suicide.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#VehicleHPChange"><span class='state state-server'>VehicleHPChange(ent, delta, cur)</span></a></td>
+	<td class="summary">Hook function called when vehicle HP changes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#VehicleHPChanged"><span class='state state-server'>VehicleHPChanged(veh, new, old)</span></a></td>
+	<td class="summary">Hook function called after vehicle HP changes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#GravGunPunt"><span class='state state-server'>GravGunPunt(ply, ent)</span></a></td>
+	<td class="summary">Called when a player attempts to punt an entity with the gravity gun.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlyCanPickupRegular"><span class='state state-server'>PlyCanPickupRegular(ply, ent)</span></a></td>
+	<td class="summary">Can a regular player pickup this entity?</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlyCanPickupAdmin"><span class='state state-server'>PlyCanPickupAdmin(ply, ent)</span></a></td>
+	<td class="summary">Can a player with extended access (admin/mod) pickup this entity?</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PhysgunPickup"><span class='state state-server'>PhysgunPickup(ply, ent)</span></a></td>
+	<td class="summary">Called when a player attempts to pick up an entity with the physics gun.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PhysgunDrop"><span class='state state-server'>PhysgunDrop(ply, ent)</span></a></td>
+	<td class="summary">Called when a player attempts to drop an entity with the physics gun.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanArrest"><span class='state state-server'>PlayerCanArrest(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player attempts to arrest another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanUnarrest"><span class='state state-server'>PlayerCanUnarrest(ply, tgt)</span></a></td>
+	<td class="summary">Called when a player attempts to unarrest another player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerShouldTaunt"><span class='state state-server'>PlayerShouldTaunt(ply, act)</span></a></td>
+	<td class="summary">Called when player tries to act something out.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSpawnNPC"><span class='state state-server'>PlayerSpawnNPC(ply, class, weapon)</span></a></td>
+	<td class="summary">Called when a player attempts to spawn an NPC.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSpawnProp"><span class='state state-server'>PlayerSpawnProp(ply, model[, state])</span></a></td>
+	<td class="summary">Called when a player attempts to spawn a prop.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSpawnEffect"><span class='state state-server'>PlayerSpawnEffect(ply, mdl)</span></a></td>
+	<td class="summary">Called when a player attempts to spawn an effect.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSpawnedProp"><span class='state state-server'>PlayerSpawnedProp(ply, mdl, ent)</span></a></td>
+	<td class="summary">Called when a player has spawned a prop.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSpawnedEffect"><span class='state state-server'>PlayerSpawnedEffect(ply, mdl, ent)</span></a></td>
+	<td class="summary">Called when a player has spawned an effect.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#OnEntityCreated"><span class='state state-server'>OnEntityCreated(ent)</span></a></td>
+	<td class="summary">Called when an entity is created.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSpawnRagdoll"><span class='state state-server'>PlayerSpawnRagdoll(ply, model)</span></a></td>
+	<td class="summary">Called when a player attempts to spawn a ragdoll.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSpawnedRagdoll"><span class='state state-server'>PlayerSpawnedRagdoll(ply, model, ent)</span></a></td>
+	<td class="summary">Called when a player has spawned a ragdoll.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSpawnVehicle"><span class='state state-server'>PlayerSpawnVehicle(ply, model)</span></a></td>
+	<td class="summary">Called when a player attempts to spawn a vehicle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CanTool"><span class='state state-server'>CanTool(ply, trace, tool)</span></a></td>
+	<td class="summary">Called when a player attempts to use their toolgun.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerNoClip"><span class='state state-server'>PlayerNoClip(ply, state)</span></a></td>
+	<td class="summary">Called when a player attempts to noclip.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SetupSalary"><span class='state state-server'>SetupSalary(ply)</span></a></td>
+	<td class="summary">Set up a player's salary timer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerCanGainFrag"><span class='state state-server'>PlayerCanGainFrag(ply, victim)</span></a></td>
+	<td class="summary">Hook function called when a player gains a kill.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSpray"><span class='state state-server'>PlayerSpray(ply)</span></a></td>
+	<td class="summary">Called when a player should be allowed to spray.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSetModel"><span class='state state-server'>PlayerSetModel(ply)</span></a></td>
+	<td class="summary">Loadout hook function called when a player's model needs to be set.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSpawnSWEP"><span class='state state-server'>PlayerSpawnSWEP(ply, class, wep)</span></a></td>
+	<td class="summary">Called when a player attempts to spawn a SWEP.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerGiveSWEP"><span class='state state-server'>PlayerGiveSWEP(ply, class, wep)</span></a></td>
+	<td class="summary">Called when a player attempts to give a SWEP.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayerSpawnSENT"><span class='state state-server'>PlayerSpawnSENT(ply, class)</span></a></td>
+	<td class="summary">Called when attempts to spawn a SENT.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#KeyPress"><span class='state state-server'>KeyPress(ply, key)</span></a></td>
+	<td class="summary">Called when a player presses a key.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CheckPassword"><span class='state state-server'>CheckPassword(id64, ipAddr, svPass, clPass, name)</span></a></td>
+	<td class="summary">Called when a player joins and attempts to check their password.</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#entities">entities</a></td>
+	<td class="summary">A table that will hold entities that were there when the map started.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp_server_rules">cityrp_server_rules</a></td>
+	<td class="summary">Table for storing the rules.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "printf"></a>
+    <strong><span class='state state-client state-server'>printf(str, ...)</span></strong>
+    </dt>
+    <dd>
+    Formatted print to console.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">str</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Formatting string input.
+        </li>
+        <li><span class="parameter">...</span>
+            <span class="types"><span class="type">vararg</span></span>
+         Formatter arguments.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sprintf"></a>
+    <strong><span class='state state-client state-server'>sprintf(str, ...)</span></strong>
+    </dt>
+    <dd>
+    Formatted return.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">str</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Formatting string input.
+        </li>
+        <li><span class="parameter">...</span>
+            <span class="types"><span class="type">vararg</span></span>
+         Formatter arguments.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+        Formatted string.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ConnectToDatabase"></a>
+    <strong><span class='state state-server'>ConnectToDatabase()</span></strong>
+    </dt>
+    <dd>
+    Create DB_MAIN and load our DB instance.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Initialize"></a>
+    <strong><span class='state state-server'>Initialize()</span></strong>
+    </dt>
+    <dd>
+    Run the gamemode startup procedure.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSwitchFlashlight"></a>
+    <strong><span class='state state-server'>PlayerSwitchFlashlight(ply, on)</span></strong>
+    </dt>
+    <dd>
+    Called when a player switches their flashlight on or off.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player switching their flashlight.
+        </li>
+        <li><span class="parameter">on</span>
+            <span class="types"><span class="type">bool</span></span>
+         The requested flashlight state.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UpdateDatabase"></a>
+    <strong><span class='state state-server'>UpdateDatabase()</span></strong>
+    </dt>
+    <dd>
+    Update the database and player's data.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerUse"></a>
+    <strong><span class='state state-server'>PlayerUse(ply, ent)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to use an entity.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player using an entity.
+        </li>
+        <li><span class="parameter">ent</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The entity being used.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerDemote"></a>
+    <strong><span class='state state-server'>PlayerDemote(ply, tgt, from, reason)</span></strong>
+    </dt>
+    <dd>
+    Called when a player is demoting another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player demoting the target.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being demoted.
+        </li>
+        <li><span class="parameter">from</span>
+            <span class="types"><span class="type">number</span></span>
+         The team they're being demoted from.
+        </li>
+        <li><span class="parameter">reason</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The reason they're being demoted.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the demote is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerPromoteLeader"></a>
+    <strong><span class='state state-server'>PlayerPromoteLeader(ply, tgt, from)</span></strong>
+    </dt>
+    <dd>
+    Called when a player is promoting another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player promoting the target.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being promoted.
+        </li>
+        <li><span class="parameter">from</span>
+            <span class="types"><span class="type">number</span></span>
+         The team they're being promoted to.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the promote is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerKnockOut"></a>
+    <strong><span class='state state-server'>PlayerKnockOut(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player is knocking out another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player knocking out.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being knocked out.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the knockout is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerWakeUp"></a>
+    <strong><span class='state state-server'>PlayerWakeUp(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player is waking up another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player waking up.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being woken up.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the wakeup is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerArrest"></a>
+    <strong><span class='state state-server'>PlayerArrest(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player is arresting another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player arresting.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being arrested.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the arrest is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerHostage"></a>
+    <strong><span class='state state-server'>PlayerHostage(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player hostages player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player hostaging.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being hostaged.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the hostage is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerUnarrest"></a>
+    <strong><span class='state state-server'>PlayerUnarrest(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player unarrests player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player unarresting.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being unarrested.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the unarrest is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerWarrant"></a>
+    <strong><span class='state state-server'>PlayerWarrant(ply, tgt, class)</span></strong>
+    </dt>
+    <dd>
+    Called when a player warrants a player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player warranting.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being warranted.
+        </li>
+        <li><span class="parameter">class</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The warrant class.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the warrant is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerUnwarrant"></a>
+    <strong><span class='state state-server'>PlayerUnwarrant(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player unwarrants player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player unwarranting.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being unwarranted.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the unwarrant is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanOwnDoor"></a>
+    <strong><span class='state state-server'>PlayerCanOwnDoor(ply, door)</span></strong>
+    </dt>
+    <dd>
+    Called when a player owns a door.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player owning the door.
+        </li>
+        <li><span class="parameter">door</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The door being owned.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the own is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanViewDoor"></a>
+    <strong><span class='state state-server'>PlayerCanViewDoor(ply, door)</span></strong>
+    </dt>
+    <dd>
+    Called when a player views a door.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player viewing the door.
+        </li>
+        <li><span class="parameter">door</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The door being viewed.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the view is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanHolster"></a>
+    <strong><span class='state state-server'>PlayerCanHolster(ply, weapon, silent)</span></strong>
+    </dt>
+    <dd>
+    Called when a player holsters a weapon.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player holstering a weapon.
+        </li>
+        <li><span class="parameter">weapon</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The weapon being holstered.
+        </li>
+        <li><span class="parameter">silent</span>
+            <span class="types"><span class="type">bool</span></span>
+         If the holster is silent.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the holster is allowed
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanDrop"></a>
+    <strong><span class='state state-server'>PlayerCanDrop(ply, weapon, silent, attacker)</span></strong>
+    </dt>
+    <dd>
+    Called when a player drops a weapon.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player dropping a weapon.
+        </li>
+        <li><span class="parameter">weapon</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The weapon being dropped.
+        </li>
+        <li><span class="parameter">silent</span>
+            <span class="types"><span class="type">bool</span></span>
+         If the drop is silent.
+        </li>
+        <li><span class="parameter">attacker</span>
+            <span class="types"><span class="type">Player</span></span>
+         The attacker for the player.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the holster is allowed
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanUseItem"></a>
+    <strong><span class='state state-server'>PlayerCanUseItem(ply, item, silent)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to use an item.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player using an item.
+        </li>
+        <li><span class="parameter">item</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The item being used.
+        </li>
+        <li><span class="parameter">silent</span>
+            <span class="types"><span class="type">bool</span></span>
+         If the use is silent.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the use is allowed
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanDropItem"></a>
+    <strong><span class='state state-server'>PlayerCanDropItem(ply, item, amt, pos)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to drop an item on the ground.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player dropping the item.
+        </li>
+        <li><span class="parameter">item</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The uniqueID of the item being dropped.
+        </li>
+        <li><span class="parameter">amt</span>
+            <span class="types"><span class="type">number</span></span>
+         The amount of items being dropped.
+        </li>
+        <li><span class="parameter">pos</span>
+            <span class="types"><span class="type">Vector</span></span>
+         The position that the items would be created at.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">bool</span></span>
+        If the drop was allowed.</li>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+        Error message to display to the player, if any.</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanGiveItem"></a>
+    <strong><span class='state state-server'>PlayerCanGiveItem(ply, item, amt, to)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to give an item to another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player giving the item.
+        </li>
+        <li><span class="parameter">item</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The uniqueID of the item being given.
+        </li>
+        <li><span class="parameter">amt</span>
+            <span class="types"><span class="type">number</span></span>
+         The amount of items being given.
+        </li>
+        <li><span class="parameter">to</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being given the items.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">bool</span></span>
+        If the drop was allowed.</li>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+        Error message to display to the player, if any.</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanRemoveItem"></a>
+    <strong><span class='state state-server'>PlayerCanRemoveItem(ply, item)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to remove an item.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player removing the item.
+        </li>
+        <li><span class="parameter">item</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The uniqueID of the item being removed.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">bool</span></span>
+        If the drop was allowed.</li>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+        Error message to display to the player, if any.</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanKnockOut"></a>
+    <strong><span class='state state-server'>PlayerCanKnockOut(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to knock out another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player knocking out.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being knocked out.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the knockout is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanWarrant"></a>
+    <strong><span class='state state-server'>PlayerCanWarrant(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to warrant another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player warranting.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being warranted.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the warrant is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanWakeUp"></a>
+    <strong><span class='state state-server'>PlayerCanWakeUp(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to wake up another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player waking up.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being woken up.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the wakeup is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanRamDoor"></a>
+    <strong><span class='state state-server'>PlayerCanRamDoor(ply, door, silent)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to ram a door.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player ramming the door.
+        </li>
+        <li><span class="parameter">door</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The door being rammed.
+        </li>
+        <li><span class="parameter">silent</span>
+            <span class="types"><span class="type">bool</span></span>
+         If the ram is silent.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the ram is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanUseDoor"></a>
+    <strong><span class='state state-server'>PlayerCanUseDoor(ply, door)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to use a door.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player using the door.
+        </li>
+        <li><span class="parameter">door</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The door being used.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the use is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanJoinTeam"></a>
+    <strong><span class='state state-server'>PlayerCanJoinTeam(ply, team)</span></strong>
+    </dt>
+    <dd>
+    Check if a player can join a team.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player changing team.
+        </li>
+        <li><span class="parameter">team</span>
+            <span class="types"><span class="type">number</span></span>
+         The new team.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the player can join the team.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanDemote"></a>
+    <strong><span class='state state-server'>PlayerCanDemote(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to demote another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player demoting the target.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being demoted.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the demote was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanPromote"></a>
+    <strong><span class='state state-server'>PlayerCanPromote(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to promote another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player promoting the target.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player being promoted.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the promote was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "InitPostEntity"></a>
+    <strong><span class='state state-server'>InitPostEntity()</span></strong>
+    </dt>
+    <dd>
+    Called when all of the map entities have been initialized.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanHearPlayersVoice"></a>
+    <strong><span class='state state-server'>PlayerCanHearPlayersVoice(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Hook function called to check if a player can be heard.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player listening.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player speaking.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the voice can be heard.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanSayIC"></a>
+    <strong><span class='state state-server'>PlayerCanSayIC(ply, text)</span></strong>
+    </dt>
+    <dd>
+    Check if a player can say IC text.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player talking.
+        </li>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The words said.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the chat will be shown.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanSayOOC"></a>
+    <strong><span class='state state-server'>PlayerCanSayOOC(ply, text)</span></strong>
+    </dt>
+    <dd>
+    Check if a player can say OOC text.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player talking.
+        </li>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The words said.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the chat will be shown.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanSayLOOC"></a>
+    <strong><span class='state state-server'>PlayerCanSayLOOC(ply, text)</span></strong>
+    </dt>
+    <dd>
+    Check if a player can say Local OOC text.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player talking.
+        </li>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The words said.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the chat will be shown.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanUseCommand"></a>
+    <strong><span class='state state-server'>PlayerCanUseCommand(ply, command, arguments)</span></strong>
+    </dt>
+    <dd>
+    Check if a player can run a command.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The calling player.
+        </li>
+        <li><span class="parameter">command</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The command being ran.
+        </li>
+        <li><span class="parameter">arguments</span>
+            <span class="types"><span class="type">tab</span></span>
+         The arguments table.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the command is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSaidOOC"></a>
+    <strong><span class='state state-server'>PlayerSaidOOC(ply, msg)</span></strong>
+    </dt>
+    <dd>
+    Called after a player sends a message in OOC.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player talking in OOC.
+        </li>
+        <li><span class="parameter">msg</span>
+         The message which was sent.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSaidLOOC"></a>
+    <strong><span class='state state-server'>PlayerSaidLOOC(ply, msg)</span></strong>
+    </dt>
+    <dd>
+    Called after a player sends a message in Local OOC.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player talking in LOOC.
+        </li>
+        <li><span class="parameter">msg</span>
+         The message which was sent.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSaid"></a>
+    <strong><span class='state state-server'>PlayerSaid(ply, msg, msgType)</span></strong>
+    </dt>
+    <dd>
+    Called after a player sends a message in chat.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player talking in LOOC.
+        </li>
+        <li><span class="parameter">msg</span>
+         The message which was sent.
+        </li>
+        <li><span class="parameter">msgType</span>
+         The type of message sent.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerRanCommand"></a>
+    <strong><span class='state state-server'>PlayerRanCommand(ply, cmd, args)</span></strong>
+    </dt>
+    <dd>
+    Called after a command is ran.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player running the command.
+        </li>
+        <li><span class="parameter">cmd</span>
+         The command ran.
+        </li>
+        <li><span class="parameter">args</span>
+         The arguments list.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerRanAdminCommand"></a>
+    <strong><span class='state state-server'>PlayerRanAdminCommand(ply, cmd, args)</span></strong>
+    </dt>
+    <dd>
+    Called after an admin command is ran.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player running the command.
+        </li>
+        <li><span class="parameter">cmd</span>
+         The command ran.
+        </li>
+        <li><span class="parameter">args</span>
+         The arguments list.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSay"></a>
+    <strong><span class='state state-server'>PlayerSay(ply, text, public)</span></strong>
+    </dt>
+    <dd>
+    Hook function for when any message is sent to the server.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The talking player.
+        </li>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The message being sent.
+        </li>
+        <li><span class="parameter">public</span>
+            <span class="types"><span class="type">bool</span></span>
+         If the message is sent in team or global chat.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CanPlayerSuicide"></a>
+    <strong><span class='state state-server'>CanPlayerSuicide(ply)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts suicide.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Suiciding player.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the suicide was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "VehicleHPChange"></a>
+    <strong><span class='state state-server'>VehicleHPChange(ent, delta, cur)</span></strong>
+    </dt>
+    <dd>
+    Hook function called when vehicle HP changes.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ent</span>
+            <span class="types"><span class="type">Entity</span></span>
+         Vehicle to which the HP change is occuring.
+        </li>
+        <li><span class="parameter">delta</span>
+            <span class="types"><span class="type">int</span></span>
+         HP change
+        </li>
+        <li><span class="parameter">cur</span>
+            <span class="types"><span class="type">int</span></span>
+         Current HP.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        Modified delta.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "VehicleHPChanged"></a>
+    <strong><span class='state state-server'>VehicleHPChanged(veh, new, old)</span></strong>
+    </dt>
+    <dd>
+    Hook function called after vehicle HP changes.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">veh</span>
+            <span class="types"><span class="type">Vehicle</span></span>
+         Vehicle to which the change occured.
+        </li>
+        <li><span class="parameter">new</span>
+            <span class="types"><span class="type">int</span></span>
+         Current HP
+        </li>
+        <li><span class="parameter">old</span>
+            <span class="types"><span class="type">int</span></span>
+         Old HP
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "GravGunPunt"></a>
+    <strong><span class='state state-server'>GravGunPunt(ply, ent)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to punt an entity with the gravity gun.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Punting player.
+        </li>
+        <li><span class="parameter">ent</span>
+            <span class="types"><span class="type">Entity</span></span>
+         Punted entity.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the punt is allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlyCanPickupRegular"></a>
+    <strong><span class='state state-server'>PlyCanPickupRegular(ply, ent)</span></strong>
+    </dt>
+    <dd>
+    Can a regular player pickup this entity?
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Picking up player.
+        </li>
+        <li><span class="parameter">ent</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The entity being picked up.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types">optional <span class="type">boolean</span></span>
+        If the pickup was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlyCanPickupAdmin"></a>
+    <strong><span class='state state-server'>PlyCanPickupAdmin(ply, ent)</span></strong>
+    </dt>
+    <dd>
+    Can a player with extended access (admin/mod) pickup this entity?
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Picking up player.
+        </li>
+        <li><span class="parameter">ent</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The entity being picked up.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types">optional <span class="type">boolean</span></span>
+        If the pickup was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PhysgunPickup"></a>
+    <strong><span class='state state-server'>PhysgunPickup(ply, ent)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to pick up an entity with the physics gun.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Picking up player.
+        </li>
+        <li><span class="parameter">ent</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The entity being picked up.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types">optional <span class="type">boolean</span></span>
+        If the pickup was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PhysgunDrop"></a>
+    <strong><span class='state state-server'>PhysgunDrop(ply, ent)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to drop an entity with the physics gun.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Dropping player.
+        </li>
+        <li><span class="parameter">ent</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The entity being dropped.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanArrest"></a>
+    <strong><span class='state state-server'>PlayerCanArrest(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to arrest another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Arresting player.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         Arrested player.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types">optional <span class="type">boolean</span></span>
+        If the pickup arrest was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanUnarrest"></a>
+    <strong><span class='state state-server'>PlayerCanUnarrest(ply, tgt)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to unarrest another player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Picking up player.
+        </li>
+        <li><span class="parameter">tgt</span>
+            <span class="types"><span class="type">Player</span></span>
+         The entity being picked up.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types">optional <span class="type">boolean</span></span>
+        If the pickup was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerShouldTaunt"></a>
+    <strong><span class='state state-server'>PlayerShouldTaunt(ply, act)</span></strong>
+    </dt>
+    <dd>
+    Called when player tries to act something out.
+ Coded by Voluptious
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Acting player.
+        </li>
+        <li><span class="parameter">act</span>
+            <span class="types"><span class="type">number</span></span>
+         <a href='http://wiki.garrysmod.com/page/Enums/ACT'>ACT_</a> Enum.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types">optional <span class="type">boolean</span></span>
+        If the act was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSpawnNPC"></a>
+    <strong><span class='state state-server'>PlayerSpawnNPC(ply, class, weapon)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to spawn an NPC.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player spawning an NPC.
+        </li>
+        <li><span class="parameter">class</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The NPC class.
+        </li>
+        <li><span class="parameter">weapon</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The NPCs weapon.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the act was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSpawnProp"></a>
+    <strong><span class='state state-server'>PlayerSpawnProp(ply, model[, state])</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to spawn a prop.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player spawning the prop.
+        </li>
+        <li><span class="parameter">model</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The model path being spawned.
+        </li>
+        <li><span class="parameter">state</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Optional state data.
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the spawn was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSpawnEffect"></a>
+    <strong><span class='state state-server'>PlayerSpawnEffect(ply, mdl)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to spawn an effect.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player spawning the prop.
+        </li>
+        <li><span class="parameter">mdl</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The model path being spawned.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the spawn was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSpawnedProp"></a>
+    <strong><span class='state state-server'>PlayerSpawnedProp(ply, mdl, ent)</span></strong>
+    </dt>
+    <dd>
+    Called when a player has spawned a prop.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player spawning the prop.
+        </li>
+        <li><span class="parameter">mdl</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The model path being spawned.
+        </li>
+        <li><span class="parameter">ent</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The spawned entity.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSpawnedEffect"></a>
+    <strong><span class='state state-server'>PlayerSpawnedEffect(ply, mdl, ent)</span></strong>
+    </dt>
+    <dd>
+    Called when a player has spawned an effect.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player spawning the effect.
+        </li>
+        <li><span class="parameter">mdl</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The model path being spawned.
+        </li>
+        <li><span class="parameter">ent</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The spawned entity.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "OnEntityCreated"></a>
+    <strong><span class='state state-server'>OnEntityCreated(ent)</span></strong>
+    </dt>
+    <dd>
+    Called when an entity is created.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ent</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The created entity.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSpawnRagdoll"></a>
+    <strong><span class='state state-server'>PlayerSpawnRagdoll(ply, model)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to spawn a ragdoll.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Spawning player.
+        </li>
+        <li><span class="parameter">model</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The model being spawned.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the spawn was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSpawnedRagdoll"></a>
+    <strong><span class='state state-server'>PlayerSpawnedRagdoll(ply, model, ent)</span></strong>
+    </dt>
+    <dd>
+    Called when a player has spawned a ragdoll.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player spawning the ragdoll.
+        </li>
+        <li><span class="parameter">model</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The model path being spawned.
+        </li>
+        <li><span class="parameter">ent</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The spawned entity.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSpawnVehicle"></a>
+    <strong><span class='state state-server'>PlayerSpawnVehicle(ply, model)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to spawn a vehicle.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Spawning player.
+        </li>
+        <li><span class="parameter">model</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The model being spawned.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the spawn was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CanTool"></a>
+    <strong><span class='state state-server'>CanTool(ply, trace, tool)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to use their toolgun.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Calling player.
+        </li>
+        <li><span class="parameter">trace</span>
+            <span class="types"><span class="type">tab</span></span>
+         TraceResult structure.
+        </li>
+        <li><span class="parameter">tool</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The active toolmode.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the toolgun was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerNoClip"></a>
+    <strong><span class='state state-server'>PlayerNoClip(ply, state)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to noclip.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Player changing state.
+        </li>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">bool</span></span>
+         The requested noclip state.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the state change was allowed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SetupSalary"></a>
+    <strong><span class='state state-server'>SetupSalary(ply)</span></strong>
+    </dt>
+    <dd>
+    Set up a player's salary timer.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Player to setup.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerCanGainFrag"></a>
+    <strong><span class='state state-server'>PlayerCanGainFrag(ply, victim)</span></strong>
+    </dt>
+    <dd>
+    Hook function called when a player gains a kill.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Player gaining a kill.
+        </li>
+        <li><span class="parameter">victim</span>
+            <span class="types"><span class="type">Player</span></span>
+         Player who was killed.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSpray"></a>
+    <strong><span class='state state-server'>PlayerSpray(ply)</span></strong>
+    </dt>
+    <dd>
+    Called when a player should be allowed to spray.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Player attempting to spray.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSetModel"></a>
+    <strong><span class='state state-server'>PlayerSetModel(ply)</span></strong>
+    </dt>
+    <dd>
+    Loadout hook function called when a player's model needs to be set.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Player's whos model is being set.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSpawnSWEP"></a>
+    <strong><span class='state state-server'>PlayerSpawnSWEP(ply, class, wep)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to spawn a SWEP.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The spawning player.
+        </li>
+        <li><span class="parameter">class</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The SWEP class.
+        </li>
+        <li><span class="parameter">wep</span>
+            <span class="types"><span class="type">tab</span></span>
+         The weapon table.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerGiveSWEP"></a>
+    <strong><span class='state state-server'>PlayerGiveSWEP(ply, class, wep)</span></strong>
+    </dt>
+    <dd>
+    Called when a player attempts to give a SWEP.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The spawning player.
+        </li>
+        <li><span class="parameter">class</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The SWEP class.
+        </li>
+        <li><span class="parameter">wep</span>
+            <span class="types"><span class="type">tab</span></span>
+         The weapon table.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayerSpawnSENT"></a>
+    <strong><span class='state state-server'>PlayerSpawnSENT(ply, class)</span></strong>
+    </dt>
+    <dd>
+    Called when attempts to spawn a SENT.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The spawning player.
+        </li>
+        <li><span class="parameter">class</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The SENT class.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "KeyPress"></a>
+    <strong><span class='state state-server'>KeyPress(ply, key)</span></strong>
+    </dt>
+    <dd>
+    Called when a player presses a key.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player who pressed the key.
+        </li>
+        <li><span class="parameter">key</span>
+            <span class="types"><span class="type">number</span></span>
+         The key enum pressed.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CheckPassword"></a>
+    <strong><span class='state state-server'>CheckPassword(id64, ipAddr, svPass, clPass, name)</span></strong>
+    </dt>
+    <dd>
+    Called when a player joins and attempts to check their password.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id64</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         64bit SteamID
+        </li>
+        <li><span class="parameter">ipAddr</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         IP address.
+        </li>
+        <li><span class="parameter">svPass</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Server's Password
+        </li>
+        <li><span class="parameter">clPass</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Client's Provided Password.
+        </li>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Steam Name of the client.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">boolean</span></span>
+        If the password auth was successful.</li>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+        Failure message to display.</li>
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "entities"></a>
+    <strong>entities</strong>
+    </dt>
+    <dd>
+    A table that will hold entities that were there when the map started.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp_server_rules"></a>
+    <strong>cityrp_server_rules</strong>
+    </dt>
+    <dd>
+    Table for storing the rules.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2020-12-18 14:26:16 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

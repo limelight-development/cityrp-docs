@@ -1,0 +1,1324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>CityRP Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+    <link rel="stylesheet" href="../glua.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>CityRP 2</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/GM.html">GM</a></li>
+  <li><a href="../modules/core.derma.cl_dcoloredicon.html">core.derma.cl_dcoloredicon</a></li>
+  <li><a href="../modules/core.derma.cl_dfillicon.html">core.derma.cl_dfillicon</a></li>
+  <li><a href="../modules/core.derma.cl_diconlabel.html">core.derma.cl_diconlabel</a></li>
+  <li><a href="../modules/core.derma.cl_dinfolabel.html">core.derma.cl_dinfolabel</a></li>
+  <li><a href="../modules/core.derma.cl_dinfopanel.html">core.derma.cl_dinfopanel</a></li>
+  <li><a href="../modules/core.derma.cl_ditemtitle.html">core.derma.cl_ditemtitle</a></li>
+  <li><a href="../modules/core.derma.cl_dlimitedtextentry.html">core.derma.cl_dlimitedtextentry</a></li>
+  <li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+  <li><a href="../modules/core.derma.cl_dpropamt.html">core.derma.cl_dpropamt</a></li>
+  <li><a href="../modules/core.derma.cl_dradio.html">core.derma.cl_dradio</a></li>
+  <li><a href="../modules/core.derma.cl_dscaleitempanel.html">core.derma.cl_dscaleitempanel</a></li>
+  <li><a href="../modules/core.derma.cl_dtexturedprogress.html">core.derma.cl_dtexturedprogress</a></li>
+  <li><a href="../modules/core.derma.cl_dwepinfo.html">core.derma.cl_dwepinfo</a></li>
+  <li><a href="../modules/core.derma.cl_hud_botleft.html">core.derma.cl_hud_botleft</a></li>
+  <li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+  <li><a href="../modules/core.derma.cl_hud_vehicle.html">core.derma.cl_hud_vehicle</a></li>
+  <li><a href="../modules/notification.html">notification</a></li>
+  <li><a href="../modules/core.derma.sh_urlpanel.html">core.derma.sh_urlpanel</a></li>
+  <li><a href="../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+  <li><a href="../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+  <li><a href="../modules/temar.html">temar</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.boot.html">core.libraries.meska.achievements.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.client.hud.html">core.libraries.meska.achievements.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.server.html">core.libraries.meska.achievements.server</a></li>
+  <li><a href="../modules/core.libraries.meska.client.html">core.libraries.meska.client</a></li>
+  <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+  <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.boot.html">core.libraries.meska.custombonus.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.client.hud.html">core.libraries.meska.custombonus.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.server.html">core.libraries.meska.custombonus.server</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.boot.html">core.libraries.meska.dailybonus.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.client.hud.html">core.libraries.meska.dailybonus.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.server.html">core.libraries.meska.dailybonus.server</a></li>
+  <li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+  <li><a href="../modules/core.libraries.meska.hooks.html">core.libraries.meska.hooks</a></li>
+  <li><a href="../modules/core.libraries.meska.html">core.libraries.meska</a></li>
+  <li><a href="../modules/core.libraries.meska.metrics.boot.html">core.libraries.meska.metrics.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.metrics.server.html">core.libraries.meska.metrics.server</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.boot.html">core.libraries.meska.skills.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.client.hud.html">core.libraries.meska.skills.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.server.html">core.libraries.meska.skills.server</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.shared.meta.html">core.libraries.meska.skills.shared.meta</a></li>
+  <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+  <li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
+  <li><a href="../modules/functions.html">functions</a></li>
+  <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
+  <li><a href="../modules/internet.html">internet</a></li>
+  <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
+  <li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+  <li><a href="../modules/cityrp.table.html">cityrp.table</a></li>
+  <li><a href="../modules/cityrp.team.html">cityrp.team</a></li>
+  <li><a href="../modules/workarounds.html">workarounds</a></li>
+  <li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
+  <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
+  <li><strong>cityrp.acommands</strong></li>
+  <li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
+  <li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
+  <li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+  <li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
+  <li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+  <li><a href="../modules/core.metatables.sh_player.html">core.metatables.sh_player</a></li>
+  <li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+  <li><a href="../modules/core.metatables.sv_entity.html">core.metatables.sv_entity</a></li>
+  <li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
+  <li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+  <li><a href="../modules/acpig.html.html">acpig.html</a></li>
+  <li><a href="../modules/acpig.html">acpig</a></li>
+  <li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+  <li><a href="../modules/core.plugins.admin_assist.cl_init.html">core.plugins.admin_assist.cl_init</a></li>
+  <li><a href="../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.sh_init.html">core.plugins.adminhub.sh_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+  <li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+  <li><a href="../modules/core.plugins.animations.sv_meta.html">core.plugins.animations.sv_meta</a></li>
+  <li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+  <li><a href="../modules/core.plugins.anonymous.cl_init.html">core.plugins.anonymous.cl_init</a></li>
+  <li><a href="../modules/core.plugins.autokick.cl_init.html">core.plugins.autokick.cl_init</a></li>
+  <li><a href="../modules/core.plugins.autokick.sv_init.html">core.plugins.autokick.sv_init</a></li>
+  <li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+  <li><a href="../modules/core.plugins.bodybags.sv_init.html">core.plugins.bodybags.sv_init</a></li>
+  <li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+  <li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+  <li><a href="../modules/cityrp.door.html">cityrp.door</a></li>
+  <li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+  <li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+  <li><a href="../modules/core.plugins.laws.sv_init.html">core.plugins.laws.sv_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.cl_init.html">core.plugins.lifealert.cl_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.sv_init.html">core.plugins.lifealert.sv_init</a></li>
+  <li><a href="../modules/core.plugins.mazerunner.sv_init.html">core.plugins.mazerunner.sv_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.cl_init.html">core.plugins.mixtures.cl_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.sh_init.html">core.plugins.mixtures.sh_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.sv_init.html">core.plugins.mixtures.sv_init</a></li>
+  <li><a href="../modules/core.plugins.model-state.cl_init.html">core.plugins.model-state.cl_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.cl_init.html">core.plugins.onlinelog.cl_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.sh_init.html">core.plugins.onlinelog.sh_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.sv_init.html">core.plugins.onlinelog.sv_init</a></li>
+  <li><a href="../modules/core.plugins.packaging.sv_init.html">core.plugins.packaging.sv_init</a></li>
+  <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+  <li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+  <li><a href="../modules/cityrp.phonebook.html">cityrp.phonebook</a></li>
+  <li><a href="../modules/core.plugins.pradio.sv_init.html">core.plugins.pradio.sv_init</a></li>
+  <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+  <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+  <li><a href="../modules/core.plugins.radio.cl_init.html">core.plugins.radio.cl_init</a></li>
+  <li><a href="../modules/core.plugins.radio.sv_init.html">core.plugins.radio.sv_init</a></li>
+  <li><a href="../modules/referrals.html">referrals</a></li>
+  <li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+  <li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+  <li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+  <li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+  <li><a href="../modules/core.plugins.savedeaths.sv_init.html">core.plugins.savedeaths.sv_init</a></li>
+  <li><a href="../modules/core.plugins.spawnpoints.cl_init.html">core.plugins.spawnpoints.cl_init</a></li>
+  <li><a href="../modules/core.plugins.spawnpoints.sv_init.html">core.plugins.spawnpoints.sv_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.sh_init.html">core.plugins.stamina.sh_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.sv_init.html">core.plugins.stamina.sv_init</a></li>
+  <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+  <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+  <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+  <li><a href="../modules/core.plugins.tracking.sv_init.html">core.plugins.tracking.sv_init</a></li>
+  <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+  <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+  <li><a href="../modules/core.plugins.typing.cl_init.html">core.plugins.typing.cl_init</a></li>
+  <li><a href="../modules/core.plugins.typing.sh_init.html">core.plugins.typing.sh_init</a></li>
+  <li><a href="../modules/core.plugins.typing.sv_init.html">core.plugins.typing.sv_init</a></li>
+  <li><a href="../modules/core.plugins.uniforms.sv_init.html">core.plugins.uniforms.sv_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+  <li><a href="../modules/core.plugins.unownable.sv_init.html">core.plugins.unownable.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_doors.sv_init.html">core.plugins.vehicle_doors.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.cl_init.html">core.plugins.vehicle_skins.cl_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.sh_init.html">core.plugins.vehicle_skins.sh_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.sv_init.html">core.plugins.vehicle_skins.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sh_vehicles.html">core.plugins.vehicles.sh_vehicles</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+  <li><a href="../modules/core.plugins.visible_protection.sh_init.html">core.plugins.visible_protection.sh_init</a></li>
+  <li><a href="../modules/core.plugins.visible_protection.sv_init.html">core.plugins.visible_protection.sv_init</a></li>
+  <li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+  <li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.sv_init.html">core.plugins.voiceradio.sv_init</a></li>
+  <li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+  <li><a href="../modules/core.plugins.warning.sh_init.html">core.plugins.warning.sh_init</a></li>
+  <li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+  <li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
+  <li><a href="../modules/core.plugins.worldprops.sv_init.html">core.plugins.worldprops.sv_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
+  <li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+  <li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/PANEL.cityrp_Cards.html">PANEL.cityrp_Cards</a></li>
+  <li><a href="../classes/PANEL.cityrp_Character.html">PANEL.cityrp_Character</a></li>
+  <li><a href="../classes/PANEL.cityrp_Clan.html">PANEL.cityrp_Clan</a></li>
+  <li><a href="../classes/PANEL.cityrp_Feedback.html">PANEL.cityrp_Feedback</a></li>
+  <li><a href="../classes/PANEL.cityrp_Credits.html">PANEL.cityrp_Credits</a></li>
+  <li><a href="../classes/ITEM.base_accessory.html">ITEM.base_accessory</a></li>
+  <li><a href="../classes/ITEM.base_ammo.html">ITEM.base_ammo</a></li>
+  <li><a href="../classes/ITEM.base_clothing.html">ITEM.base_clothing</a></li>
+  <li><a href="../classes/ITEM.base_collectable.html">ITEM.base_collectable</a></li>
+  <li><a href="../classes/ITEM.base_food.html">ITEM.base_food</a></li>
+  <li><a href="../classes/ITEM.base_modelbg.html">ITEM.base_modelbg</a></li>
+  <li><a href="../classes/ITEM.base_outfit.html">ITEM.base_outfit</a></li>
+  <li><a href="../classes/ITEM.base_spawnable.html">ITEM.base_spawnable</a></li>
+  <li><a href="../classes/ITEM.html">ITEM</a></li>
+  <li><a href="../classes/DB.html">DB</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/items.md.html">items</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>cityrp.acommands</code></h1>
+<p>Serverside Administration Core Module</p>
+<p>
+
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: 2015-2019 Limelight Gaming</li>
+        <li><strong>Release</strong>: CityRP 2</li>
+        <li><strong>Author</strong>: Legacy Team</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.AddCommand"><span class='state state-server'>cityrp.acommands.AddCommand(cmd, func[, args=1[, access=b]])</span></a></td>
+	<td class="summary">Add a command with a ! prefix.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.getRankSteamID"><span class='state state-server'>cityrp.acommands.getRankSteamID(steamid)</span></a></td>
+	<td class="summary">Non-functional.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.precacheadmins"><span class='state state-server'>cityrp.acommands.precacheadmins()</span></a></td>
+	<td class="summary">Prefill the admin / moderator cache, for fakename / hidden operations.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.isadmin"><span class='state state-server'>cityrp.acommands.isadmin(sid)</span></a></td>
+	<td class="summary">Get an administrator's registered name from their Steam ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.ismoderator"><span class='state state-server'>cityrp.acommands.ismoderator(sid)</span></a></td>
+	<td class="summary">Get a moderator's registered name from their Steam ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.HandleCommand"><span class='state state-server'>cityrp.acommands.HandleCommand(ply, _, args, aStr)</span></a></td>
+	<td class="summary">Handle a cityrp_admin console command.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.GetPlayerByName"><span class='state state-server'>cityrp.acommands.GetPlayerByName(name)</span></a></td>
+	<td class="summary">Get a player by their Steam Name or UserID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.GetPlayerBySteamID"><span class='state state-server'>cityrp.acommands.GetPlayerBySteamID(steamid)</span></a></td>
+	<td class="summary">Get a player by their SteamID</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.adminHelp"><span class='state state-server'>cityrp.acommands.adminHelp(ply, text)</span></a></td>
+	<td class="summary">Send a message to moderator chat.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.adminChat"><span class='state state-server'>cityrp.acommands.adminChat(ply, text)</span></a></td>
+	<td class="summary">Send a message to admin chat.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.adminOOCChat"><span class='state state-server'>cityrp.acommands.adminOOCChat(ply, text)</span></a></td>
+	<td class="summary">Sends a message to OOC, using the player's registered name if undercover.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.getModerators"><span class='state state-server'>cityrp.acommands.getModerators()</span></a></td>
+	<td class="summary">Get a table of moderators.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.getAdmins"><span class='state state-server'>cityrp.acommands.getAdmins()</span></a></td>
+	<td class="summary">Get a table of administrators.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.chatcheck"><span class='state state-server'>cityrp.acommands.chatcheck()</span></a></td>
+	<td class="summary">Recall latest cross-server messages.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.popup"><span class='state state-server'>cityrp.acommands.popup(ply, text, targ)</span></a></td>
+	<td class="summary">Popup a message on a player's screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.FindPosition"><span class='state state-server'>cityrp.acommands.FindPosition(ply)</span></a></td>
+	<td class="summary">Find a position around an entity to be teleported to.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.GetPlayerObject"><span class='state state-server'>cityrp.acommands.GetPlayerObject(ply, searchTerm)</span></a></td>
+	<td class="summary">Get a player by the given search-term.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.GetPlayerObjectSilent"><span class='state state-server'>cityrp.acommands.GetPlayerObjectSilent(ply, searchTerm)</span></a></td>
+	<td class="summary">Get a player by the given search-term.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.GetTPPos"><span class='state state-server'>cityrp.acommands.GetTPPos(ply, from, to)</span></a></td>
+	<td class="summary">Function to get the "landing" position when TPing from point to point.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.ProcessTPRestrictions"><span class='state state-server'>cityrp.acommands.ProcessTPRestrictions(ply, ent)</span></a></td>
+	<td class="summary">Function to process teleport restrictions.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.TPUser"><span class='state state-server'>cityrp.acommands.TPUser(ply, pos)</span></a></td>
+	<td class="summary">Teleport a user</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.phase"><span class='state state-server'>cityrp.acommands.phase(ply)</span></a></td>
+	<td class="summary">Phase a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.unphase"><span class='state state-server'>cityrp.acommands.unphase(ply)</span></a></td>
+	<td class="summary">Unphase a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.SetRank"><span class='state state-server'>cityrp.acommands.SetRank(ply, rank)</span></a></td>
+	<td class="summary">Set a player's rank, checking if the rank is a real rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.luarun"><span class='state state-server'>cityrp.acommands.luarun(ply, _, code)</span></a></td>
+	<td class="summary">The callback to allow lua to be ran.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PLUGIN.playerLoadout"><span class='state state-server'>PLUGIN.playerLoadout(ply)</span></a></td>
+	<td class="summary">Called to set a player's physgun color.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PLUGIN.permaHC"><span class='state state-server'>PLUGIN.permaHC(ply)</span></a></td>
+	<td class="summary">Called on data load to set a player's hidden commands.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.respond"><span class='state state-server'>cityrp.acommands.respond(ply, targ, msg, ...)</span></a></td>
+	<td class="summary">Send an administrative response to a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.icIssue"><span class='state state-server'>cityrp.acommands.icIssue(ply, targ, msg, ...)</span></a></td>
+	<td class="summary">Send an "IC Issue" response to a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.acommands.teacherreply"><span class='state state-server'>cityrp.acommands.teacherreply(ply, targ, msg, ...)</span></a></td>
+	<td class="summary">Send a teacher response to a player.</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#console">console</a></td>
+	<td class="summary">Console Pseudoplayer Definition.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "cityrp.acommands.AddCommand"></a>
+    <strong><span class='state state-server'>cityrp.acommands.AddCommand(cmd, func[, args=1[, access=b]])</span></strong>
+    </dt>
+    <dd>
+    Add a command with a ! prefix.
+ Used be only used for admin commands.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">cmd</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Command Name to add (minus prefix).
+        </li>
+        <li><span class="parameter">func</span>
+            <span class="types"><span class="type">func</span></span>
+         Function to call after access check OR Command Name to copy.
+        </li>
+        <li><span class="parameter">args</span>
+            <span class="types"><span class="type">number</span></span>
+         OPTIONAL: Number of arguments.
+         (<em>default</em> 1)
+        </li>
+        <li><span class="parameter">access</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Access tag letter(s) required by the user.
+         (<em>default</em> b)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.getRankSteamID"></a>
+    <strong><span class='state state-server'>cityrp.acommands.getRankSteamID(steamid)</span></strong>
+    </dt>
+    <dd>
+    Non-functional.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">steamid</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.precacheadmins"></a>
+    <strong><span class='state state-server'>cityrp.acommands.precacheadmins()</span></strong>
+    </dt>
+    <dd>
+    Prefill the admin / moderator cache, for fakename / hidden operations.
+ Automatically called during bootstrap, no need to call again.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.isadmin"></a>
+    <strong><span class='state state-server'>cityrp.acommands.isadmin(sid)</span></strong>
+    </dt>
+    <dd>
+    Get an administrator's registered name from their Steam ID.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sid</span>
+         SteamID to check.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [str || nil] Registered name, or nil if not registered.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.ismoderator"></a>
+    <strong><span class='state state-server'>cityrp.acommands.ismoderator(sid)</span></strong>
+    </dt>
+    <dd>
+    Get a moderator's registered name from their Steam ID.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sid</span>
+         SteamID to check.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [str || nil] Registered name, or nil if not registered.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.HandleCommand"></a>
+    <strong><span class='state state-server'>cityrp.acommands.HandleCommand(ply, _, args, aStr)</span></strong>
+    </dt>
+    <dd>
+    Handle a cityrp_admin console command.
+ Automatically called by the server when a console command is sent.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player who called the command.
+        </li>
+        <li><span class="parameter">_</span>
+         Unused.
+        </li>
+        <li><span class="parameter">args</span>
+         Tabulated list of arguments.
+        </li>
+        <li><span class="parameter">aStr</span>
+         A string containing all the arguments.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.GetPlayerByName"></a>
+    <strong><span class='state state-server'>cityrp.acommands.GetPlayerByName(name)</span></strong>
+    </dt>
+    <dd>
+    Get a player by their Steam Name or UserID.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+         Name/UserID.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [table || entity || nil] Table of entities if multiple found, entity object if single found, nil if none found.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.GetPlayerBySteamID"></a>
+    <strong><span class='state state-server'>cityrp.acommands.GetPlayerBySteamID(steamid)</span></strong>
+    </dt>
+    <dd>
+    Get a player by their SteamID
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">steamid</span>
+         (Partial) SteamID.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [table || entity] Table of entities if multiple found, entity object if single found, empty table.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.adminHelp"></a>
+    <strong><span class='state state-server'>cityrp.acommands.adminHelp(ply, text)</span></strong>
+    </dt>
+    <dd>
+    Send a message to moderator chat.
+ Also adds the message to cross-server chat.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         Player / Pseudoplayer sending the message.
+        </li>
+        <li><span class="parameter">text</span>
+         The message to be sent.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.adminChat"></a>
+    <strong><span class='state state-server'>cityrp.acommands.adminChat(ply, text)</span></strong>
+    </dt>
+    <dd>
+    Send a message to admin chat.
+ Also adds the message to cross-server chat.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         Player / Pseudoplayer sending the message.
+        </li>
+        <li><span class="parameter">text</span>
+         The message to be sent.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.adminOOCChat"></a>
+    <strong><span class='state state-server'>cityrp.acommands.adminOOCChat(ply, text)</span></strong>
+    </dt>
+    <dd>
+    Sends a message to OOC, using the player's registered name if undercover.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         Player / Pseudoplayer sending the message.
+        </li>
+        <li><span class="parameter">text</span>
+         The message to be sent.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.getModerators"></a>
+    <strong><span class='state state-server'>cityrp.acommands.getModerators()</span></strong>
+    </dt>
+    <dd>
+    Get a table of moderators.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [table] List of player entities.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.getAdmins"></a>
+    <strong><span class='state state-server'>cityrp.acommands.getAdmins()</span></strong>
+    </dt>
+    <dd>
+    Get a table of administrators.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [table] List of player entities.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.chatcheck"></a>
+    <strong><span class='state state-server'>cityrp.acommands.chatcheck()</span></strong>
+    </dt>
+    <dd>
+    Recall latest cross-server messages.
+ Automatically called.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.popup"></a>
+    <strong><span class='state state-server'>cityrp.acommands.popup(ply, text, targ)</span></strong>
+    </dt>
+    <dd>
+    Popup a message on a player's screen.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player sending the popup.
+        </li>
+        <li><span class="parameter">text</span>
+         The text for the popup.
+        </li>
+        <li><span class="parameter">targ</span>
+         Player to send to, or false for global.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.FindPosition"></a>
+    <strong><span class='state state-server'>cityrp.acommands.FindPosition(ply)</span></strong>
+    </dt>
+    <dd>
+    Find a position around an entity to be teleported to.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The entity to be teleported to.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [Vector || False] The position to be placed at, or false if not found.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.GetPlayerObject"></a>
+    <strong><span class='state state-server'>cityrp.acommands.GetPlayerObject(ply, searchTerm)</span></strong>
+    </dt>
+    <dd>
+    Get a player by the given search-term.
+ Automatically notifies the calling player on failure.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         Player requesting the player.
+        </li>
+        <li><span class="parameter">searchTerm</span>
+         UserID, Name or SteamID to search for.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [nil || entity] nil on failure, entity on succcess.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.GetPlayerObjectSilent"></a>
+    <strong><span class='state state-server'>cityrp.acommands.GetPlayerObjectSilent(ply, searchTerm)</span></strong>
+    </dt>
+    <dd>
+    Get a player by the given search-term.
+ Doesn't notify the player on failure.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         Player requesting the player.
+        </li>
+        <li><span class="parameter">searchTerm</span>
+         UserID, Name or SteamID to search for.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [nil || entity] nil on failure, entity on succcess.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.GetTPPos"></a>
+    <strong><span class='state state-server'>cityrp.acommands.GetTPPos(ply, from, to)</span></strong>
+    </dt>
+    <dd>
+    Function to get the "landing" position when TPing from point to point.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player attempting the TP (who gets error messages).
+        </li>
+        <li><span class="parameter">from</span>
+         The entity that is being moved.
+        </li>
+        <li><span class="parameter">to</span>
+         The entity being moved to.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [vector || nil] Vector when a position is found, nil on failure.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.ProcessTPRestrictions"></a>
+    <strong><span class='state state-server'>cityrp.acommands.ProcessTPRestrictions(ply, ent)</span></strong>
+    </dt>
+    <dd>
+    Function to process teleport restrictions.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player attempting to teleport.
+        </li>
+        <li><span class="parameter">ent</span>
+         The entity being teleported to.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        [bool] Truthy or Falsy value, depending if the TP is allowed or barred.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.TPUser"></a>
+    <strong><span class='state state-server'>cityrp.acommands.TPUser(ply, pos)</span></strong>
+    </dt>
+    <dd>
+    Teleport a user
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player to be teleported.
+        </li>
+        <li><span class="parameter">pos</span>
+         The position to teleport them to.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.phase"></a>
+    <strong><span class='state state-server'>cityrp.acommands.phase(ply)</span></strong>
+    </dt>
+    <dd>
+    Phase a player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player to phase.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.unphase"></a>
+    <strong><span class='state state-server'>cityrp.acommands.unphase(ply)</span></strong>
+    </dt>
+    <dd>
+    Unphase a player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player to unphase.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.SetRank"></a>
+    <strong><span class='state state-server'>cityrp.acommands.SetRank(ply, rank)</span></strong>
+    </dt>
+    <dd>
+    Set a player's rank, checking if the rank is a real rank.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player to set a rank for.
+        </li>
+        <li><span class="parameter">rank</span>
+         The rank to set.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.luarun"></a>
+    <strong><span class='state state-server'>cityrp.acommands.luarun(ply, _, code)</span></strong>
+    </dt>
+    <dd>
+    The callback to allow lua to be ran.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player running lua.
+        </li>
+        <li><span class="parameter">_</span>
+         unused.
+        </li>
+        <li><span class="parameter">code</span>
+         The code string to be ran.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PLUGIN.playerLoadout"></a>
+    <strong><span class='state state-server'>PLUGIN.playerLoadout(ply)</span></strong>
+    </dt>
+    <dd>
+    Called to set a player's physgun color.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player to set physgun colour for.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PLUGIN.permaHC"></a>
+    <strong><span class='state state-server'>PLUGIN.permaHC(ply)</span></strong>
+    </dt>
+    <dd>
+    Called on data load to set a player's hidden commands.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player to check perma HC.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.respond"></a>
+    <strong><span class='state state-server'>cityrp.acommands.respond(ply, targ, msg, ...)</span></strong>
+    </dt>
+    <dd>
+    Send an administrative response to a player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player sending the message.
+        </li>
+        <li><span class="parameter">targ</span>
+         The search param for the player to send a message to.
+        </li>
+        <li><span class="parameter">msg</span>
+         The first part of the message to send.
+        </li>
+        <li><span class="parameter">...</span>
+         The remainder of the message.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.icIssue"></a>
+    <strong><span class='state state-server'>cityrp.acommands.icIssue(ply, targ, msg, ...)</span></strong>
+    </dt>
+    <dd>
+    Send an "IC Issue" response to a player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player sending the message.
+        </li>
+        <li><span class="parameter">targ</span>
+         The search param for the player to send a message to.
+        </li>
+        <li><span class="parameter">msg</span>
+         The first part of the message to send.
+        </li>
+        <li><span class="parameter">...</span>
+         The remainder of the message.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.acommands.teacherreply"></a>
+    <strong><span class='state state-server'>cityrp.acommands.teacherreply(ply, targ, msg, ...)</span></strong>
+    </dt>
+    <dd>
+    Send a teacher response to a player.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player sending the message.
+        </li>
+        <li><span class="parameter">targ</span>
+         The search param for the player to send a message to.
+        </li>
+        <li><span class="parameter">msg</span>
+         The first part of the message to send.
+        </li>
+        <li><span class="parameter">...</span>
+         The remainder of the message.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "console"></a>
+    <strong>console</strong>
+    </dt>
+    <dd>
+    Console Pseudoplayer Definition.
+ Whilst this table can be used in place of a regular player, it will fail for most regular player operations.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Name</span>
+         [Metafunction] Returns the fake player's name.
+        </li>
+        <li><span class="parameter">IsValid</span>
+         [Metafunction] Proves the validity of the pseduoplayer.
+        </li>
+        <li><span class="parameter">SteamID</span>
+         [Metafunction] Returns the pseduoplayer's SteamID.
+        </li>
+        <li><span class="parameter">IsAdmin</span>
+         [Metafunction] Returns the pseduoplayer's admin status.
+        </li>
+        <li><span class="parameter">IsSuperAdmin</span>
+         [Metafunction] Returns the pseduoplayer's superadmin status.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2020-12-18 14:26:16 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
