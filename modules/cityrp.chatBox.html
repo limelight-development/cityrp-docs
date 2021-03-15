@@ -1,0 +1,1631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>CityRP Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>CityRP 2</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Client_Globals">Client Globals </a></li>
+<li><a href="#Client_Fields">Client Fields </a></li>
+<li><a href="#Client_Functions">Client Functions </a></li>
+<li><a href="#Client_Functions">Client Functions</a></li>
+<li><a href="#Client_Internals">Client Internals </a></li>
+<li><a href="#Shared_Fields">Shared Fields</a></li>
+<li><a href="#Server_Functions">Server Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/GM.html">GM</a></li>
+  <li><a href="../modules/core.derma.cl_dcoloredicon.html">core.derma.cl_dcoloredicon</a></li>
+  <li><a href="../modules/core.derma.cl_dfillicon.html">core.derma.cl_dfillicon</a></li>
+  <li><a href="../modules/core.derma.cl_diconlabel.html">core.derma.cl_diconlabel</a></li>
+  <li><a href="../modules/core.derma.cl_dinfolabel.html">core.derma.cl_dinfolabel</a></li>
+  <li><a href="../modules/core.derma.cl_dinfopanel.html">core.derma.cl_dinfopanel</a></li>
+  <li><a href="../modules/core.derma.cl_ditemtitle.html">core.derma.cl_ditemtitle</a></li>
+  <li><a href="../modules/core.derma.cl_dlimitedtextentry.html">core.derma.cl_dlimitedtextentry</a></li>
+  <li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+  <li><a href="../modules/core.derma.cl_dpropamt.html">core.derma.cl_dpropamt</a></li>
+  <li><a href="../modules/core.derma.cl_dradio.html">core.derma.cl_dradio</a></li>
+  <li><a href="../modules/core.derma.cl_dscaleitempanel.html">core.derma.cl_dscaleitempanel</a></li>
+  <li><a href="../modules/core.derma.cl_dtexturedprogress.html">core.derma.cl_dtexturedprogress</a></li>
+  <li><a href="../modules/core.derma.cl_dwepinfo.html">core.derma.cl_dwepinfo</a></li>
+  <li><a href="../modules/core.derma.cl_hud_botleft.html">core.derma.cl_hud_botleft</a></li>
+  <li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+  <li><a href="../modules/core.derma.cl_hud_vehicle.html">core.derma.cl_hud_vehicle</a></li>
+  <li><a href="../modules/notification.html">notification</a></li>
+  <li><a href="../modules/core.derma.sh_urlpanel.html">core.derma.sh_urlpanel</a></li>
+  <li><strong>cityrp.chatBox</strong></li>
+  <li><a href="../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+  <li><a href="../modules/temar.html">temar</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.boot.html">core.libraries.meska.achievements.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.client.hud.html">core.libraries.meska.achievements.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.achievements.server.html">core.libraries.meska.achievements.server</a></li>
+  <li><a href="../modules/core.libraries.meska.client.html">core.libraries.meska.client</a></li>
+  <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+  <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.boot.html">core.libraries.meska.custombonus.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.client.hud.html">core.libraries.meska.custombonus.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.custombonus.server.html">core.libraries.meska.custombonus.server</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.boot.html">core.libraries.meska.dailybonus.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.client.hud.html">core.libraries.meska.dailybonus.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.dailybonus.server.html">core.libraries.meska.dailybonus.server</a></li>
+  <li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+  <li><a href="../modules/core.libraries.meska.hooks.html">core.libraries.meska.hooks</a></li>
+  <li><a href="../modules/core.libraries.meska.html">core.libraries.meska</a></li>
+  <li><a href="../modules/core.libraries.meska.metrics.boot.html">core.libraries.meska.metrics.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.metrics.server.html">core.libraries.meska.metrics.server</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+  <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.boot.html">core.libraries.meska.skills.boot</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.client.hud.html">core.libraries.meska.skills.client.hud</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.server.html">core.libraries.meska.skills.server</a></li>
+  <li><a href="../modules/core.libraries.meska.skills.shared.meta.html">core.libraries.meska.skills.shared.meta</a></li>
+  <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+  <li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
+  <li><a href="../modules/functions.html">functions</a></li>
+  <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
+  <li><a href="../modules/internet.html">internet</a></li>
+  <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
+  <li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+  <li><a href="../modules/cityrp.table.html">cityrp.table</a></li>
+  <li><a href="../modules/cityrp.team.html">cityrp.team</a></li>
+  <li><a href="../modules/workarounds.html">workarounds</a></li>
+  <li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
+  <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
+  <li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+  <li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
+  <li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
+  <li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+  <li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
+  <li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+  <li><a href="../modules/core.metatables.sh_player.html">core.metatables.sh_player</a></li>
+  <li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+  <li><a href="../modules/core.metatables.sv_entity.html">core.metatables.sv_entity</a></li>
+  <li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
+  <li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+  <li><a href="../modules/acpig.html.html">acpig.html</a></li>
+  <li><a href="../modules/acpig.html">acpig</a></li>
+  <li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+  <li><a href="../modules/core.plugins.admin_assist.cl_init.html">core.plugins.admin_assist.cl_init</a></li>
+  <li><a href="../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.sh_init.html">core.plugins.adminhub.sh_init</a></li>
+  <li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+  <li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+  <li><a href="../modules/core.plugins.animations.sv_meta.html">core.plugins.animations.sv_meta</a></li>
+  <li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+  <li><a href="../modules/core.plugins.anonymous.cl_init.html">core.plugins.anonymous.cl_init</a></li>
+  <li><a href="../modules/core.plugins.autokick.cl_init.html">core.plugins.autokick.cl_init</a></li>
+  <li><a href="../modules/core.plugins.autokick.sv_init.html">core.plugins.autokick.sv_init</a></li>
+  <li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+  <li><a href="../modules/core.plugins.bodybags.sv_init.html">core.plugins.bodybags.sv_init</a></li>
+  <li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+  <li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+  <li><a href="../modules/cityrp.door.html">cityrp.door</a></li>
+  <li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+  <li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+  <li><a href="../modules/core.plugins.laws.sv_init.html">core.plugins.laws.sv_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+  <li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.cl_init.html">core.plugins.lifealert.cl_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+  <li><a href="../modules/core.plugins.lifealert.sv_init.html">core.plugins.lifealert.sv_init</a></li>
+  <li><a href="../modules/core.plugins.mazerunner.sv_init.html">core.plugins.mazerunner.sv_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.cl_init.html">core.plugins.mixtures.cl_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.sh_init.html">core.plugins.mixtures.sh_init</a></li>
+  <li><a href="../modules/core.plugins.mixtures.sv_init.html">core.plugins.mixtures.sv_init</a></li>
+  <li><a href="../modules/core.plugins.model-state.cl_init.html">core.plugins.model-state.cl_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.cl_init.html">core.plugins.onlinelog.cl_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.sh_init.html">core.plugins.onlinelog.sh_init</a></li>
+  <li><a href="../modules/core.plugins.onlinelog.sv_init.html">core.plugins.onlinelog.sv_init</a></li>
+  <li><a href="../modules/core.plugins.packaging.sv_init.html">core.plugins.packaging.sv_init</a></li>
+  <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+  <li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+  <li><a href="../modules/cityrp.phonebook.html">cityrp.phonebook</a></li>
+  <li><a href="../modules/core.plugins.pradio.sv_init.html">core.plugins.pradio.sv_init</a></li>
+  <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+  <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+  <li><a href="../modules/core.plugins.radio.cl_init.html">core.plugins.radio.cl_init</a></li>
+  <li><a href="../modules/core.plugins.radio.sv_init.html">core.plugins.radio.sv_init</a></li>
+  <li><a href="../modules/referrals.html">referrals</a></li>
+  <li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+  <li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+  <li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+  <li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+  <li><a href="../modules/core.plugins.savedeaths.sv_init.html">core.plugins.savedeaths.sv_init</a></li>
+  <li><a href="../modules/core.plugins.spawnpoints.cl_init.html">core.plugins.spawnpoints.cl_init</a></li>
+  <li><a href="../modules/core.plugins.spawnpoints.sv_init.html">core.plugins.spawnpoints.sv_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.sh_init.html">core.plugins.stamina.sh_init</a></li>
+  <li><a href="../modules/core.plugins.stamina.sv_init.html">core.plugins.stamina.sv_init</a></li>
+  <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+  <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+  <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+  <li><a href="../modules/core.plugins.tracking.sv_init.html">core.plugins.tracking.sv_init</a></li>
+  <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+  <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+  <li><a href="../modules/core.plugins.typing.cl_init.html">core.plugins.typing.cl_init</a></li>
+  <li><a href="../modules/core.plugins.typing.sh_init.html">core.plugins.typing.sh_init</a></li>
+  <li><a href="../modules/core.plugins.typing.sv_init.html">core.plugins.typing.sv_init</a></li>
+  <li><a href="../modules/core.plugins.uniforms.sv_init.html">core.plugins.uniforms.sv_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+  <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+  <li><a href="../modules/core.plugins.unownable.sv_init.html">core.plugins.unownable.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_doors.sv_init.html">core.plugins.vehicle_doors.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.cl_init.html">core.plugins.vehicle_skins.cl_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.sh_init.html">core.plugins.vehicle_skins.sh_init</a></li>
+  <li><a href="../modules/core.plugins.vehicle_skins.sv_init.html">core.plugins.vehicle_skins.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sh_vehicles.html">core.plugins.vehicles.sh_vehicles</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+  <li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+  <li><a href="../modules/core.plugins.visible_protection.sh_init.html">core.plugins.visible_protection.sh_init</a></li>
+  <li><a href="../modules/core.plugins.visible_protection.sv_init.html">core.plugins.visible_protection.sv_init</a></li>
+  <li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+  <li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+  <li><a href="../modules/core.plugins.voiceradio.sv_init.html">core.plugins.voiceradio.sv_init</a></li>
+  <li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+  <li><a href="../modules/core.plugins.warning.sh_init.html">core.plugins.warning.sh_init</a></li>
+  <li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+  <li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
+  <li><a href="../modules/core.plugins.worldprops.sv_init.html">core.plugins.worldprops.sv_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
+  <li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
+  <li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+  <li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/PANEL.cityrp_Cards.html">PANEL.cityrp_Cards</a></li>
+  <li><a href="../classes/PANEL.cityrp_Character.html">PANEL.cityrp_Character</a></li>
+  <li><a href="../classes/PANEL.cityrp_Clan.html">PANEL.cityrp_Clan</a></li>
+  <li><a href="../classes/PANEL.cityrp_Feedback.html">PANEL.cityrp_Feedback</a></li>
+  <li><a href="../classes/PANEL.cityrp_Credits.html">PANEL.cityrp_Credits</a></li>
+  <li><a href="../classes/ITEM.base_accessory.html">ITEM.base_accessory</a></li>
+  <li><a href="../classes/ITEM.base_ammo.html">ITEM.base_ammo</a></li>
+  <li><a href="../classes/ITEM.base_clothing.html">ITEM.base_clothing</a></li>
+  <li><a href="../classes/ITEM.base_collectable.html">ITEM.base_collectable</a></li>
+  <li><a href="../classes/ITEM.base_food.html">ITEM.base_food</a></li>
+  <li><a href="../classes/ITEM.base_modelbg.html">ITEM.base_modelbg</a></li>
+  <li><a href="../classes/ITEM.base_outfit.html">ITEM.base_outfit</a></li>
+  <li><a href="../classes/ITEM.base_spawnable.html">ITEM.base_spawnable</a></li>
+  <li><a href="../classes/ITEM.html">ITEM</a></li>
+  <li><a href="../classes/DB.html">DB</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/items.md.html">items</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>cityrp.chatBox</code></h1>
+<p>Clientside code relating to the chatbox.</p>
+<p>
+
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: 2015-2019 Limelight Gaming</li>
+        <li><strong>Release</strong>: CityRP 2</li>
+        <li><strong>Author</strong>: Legacy Team</li>
+    </ul>
+
+
+<h2><a href="#Client_Globals">Client Globals </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#chat.AddText"><span class='state state-client'>chat.AddText(...)</span></a></td>
+	<td class="summary">Function to add text to a player's console and chatbox.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#table.copy"><span class='state state-client'>table.copy(orig)</span></a></td>
+	<td class="summary">Create a deep copy of an object.</td>
+	</tr>
+</table>
+<h2><a href="#Client_Fields">Client Fields </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.joinSpam">cityrp.chatBox.joinSpam</a></td>
+	<td class="summary">List of messages spamming join.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.leaveSpam">cityrp.chatBox.leaveSpam</a></td>
+	<td class="summary">List of messages spamming leave.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.messages">cityrp.chatBox.messages</a></td>
+	<td class="summary">Recent message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.derma">cityrp.chatBox.derma</a></td>
+	<td class="summary">Client derma store.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.history">cityrp.chatBox.history</a></td>
+	<td class="summary">Table to store the chat history.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.history.messages">cityrp.chatBox.history.messages</a></td>
+	<td class="summary">Recently recieved messages in the history.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.history.position">cityrp.chatBox.history.position</a></td>
+	<td class="summary">Current cursor position within history.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.sendhistory">cityrp.chatBox.sendhistory</a></td>
+	<td class="summary">Table to store the sent chat history.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.sendhistory.messages">cityrp.chatBox.sendhistory.messages</a></td>
+	<td class="summary">Table to store the chat message sent.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.sendhistory.position">cityrp.chatBox.sendhistory.position</a></td>
+	<td class="summary">Store the history cursor pos.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.sendhistory.useposition">cityrp.chatBox.sendhistory.useposition</a></td>
+	<td class="summary">Store for the current used position.</td>
+	</tr>
+</table>
+<h2><a href="#Client_Functions">Client Functions </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.getPosition"><span class='state state-client'>cityrp.chatBox.getPosition()</span></a></td>
+	<td class="summary">Gets the chatbox position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.getX"><span class='state state-client'>cityrp.chatBox.getX()</span></a></td>
+	<td class="summary">Gets the chatbox's x position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.getY"><span class='state state-client'>cityrp.chatBox.getY()</span></a></td>
+	<td class="summary">Gets the chatbox's y position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.getSpacing"><span class='state state-client'>cityrp.chatBox.getSpacing()</span></a></td>
+	<td class="summary">Gets the chatbox's spacing between messages.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.wrapText"><span class='state state-client'>cityrp.chatBox.wrapText(text, font, width, overhead, base)</span></a></td>
+	<td class="summary">Provides a table of wrapped strings.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.createDermaAll"><span class='state state-client'>cityrp.chatBox.createDermaAll()</span></a></td>
+	<td class="summary">Create the chatbox panels.</td>
+	</tr>
+</table>
+<h2><a href="#Client_Functions">Client Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.getPosition"><span class='state state-client'>cityrp.chatBox.getPosition()</span></a></td>
+	<td class="summary">Gets the chatbox position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.getX"><span class='state state-client'>cityrp.chatBox.getX()</span></a></td>
+	<td class="summary">Gets the chatbox's x position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.getY"><span class='state state-client'>cityrp.chatBox.getY()</span></a></td>
+	<td class="summary">Gets the chatbox's y position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.getSpacing"><span class='state state-client'>cityrp.chatBox.getSpacing()</span></a></td>
+	<td class="summary">Gets the chatbox's spacing between messages.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.wrapText"><span class='state state-client'>cityrp.chatBox.wrapText(text, font, width, overhead, base)</span></a></td>
+	<td class="summary">Provides a table of wrapped strings.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.createDermaAll"><span class='state state-client'>cityrp.chatBox.createDermaAll()</span></a></td>
+	<td class="summary">Create the chatbox panels.</td>
+	</tr>
+</table>
+<h2><a href="#Client_Internals">Client Internals </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.createDermaButtons"><span class='state state-client'>cityrp.chatBox.createDermaButtons()</span></a></td>
+	<td class="summary">Creates the chatbox control buttons.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.createDermaButton"><span class='state state-client'>cityrp.chatBox.createDermaButton(name, text, x, width, toolTip, doClick, think)</span></a></td>
+	<td class="summary">Create a derma button parented to the chatbox.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.createDermaCheckBoxes"><span class='state state-client'>cityrp.chatBox.createDermaCheckBoxes()</span></a></td>
+	<td class="summary">Create derma check boxes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.createDermaCheckBox"><span class='state state-client'>cityrp.chatBox.createDermaCheckBox(name, conVar, x, toolTip, label, parent, y)</span></a></td>
+	<td class="summary">Create a derma check box parented to the chat panel.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.createDermaTextEntry"><span class='state state-client'>cityrp.chatBox.createDermaTextEntry()</span></a></td>
+	<td class="summary">Create the derma text entry.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.createDermaFilters"><span class='state state-client'>cityrp.chatBox.createDermaFilters()</span></a></td>
+	<td class="summary">Create a derma filter checkboxes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.createDermaPanel"><span class='state state-client'>cityrp.chatBox.createDermaPanel()</span></a></td>
+	<td class="summary">Create the main derma panel.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.playerBindPress"><span class='state state-client'>cityrp.chatBox.playerBindPress(player, bind, press)</span></a></td>
+	<td class="summary">Update the chatbox when the player presses a bind.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.messageAdd"><span class='state state-client'>cityrp.chatBox.messageAdd([title][, name], text[, filtered[, icon[, consoleSuffix]]])</span></a></td>
+	<td class="summary">Create and send a new message to the chatbox.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.printConsole"><span class='state state-client'>cityrp.chatBox.printConsole(message)</span></a></td>
+	<td class="summary">Output a message to console.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.extractClasses"><span class='state state-client'>cityrp.chatBox.extractClasses(message)</span></a></td>
+	<td class="summary">Wrap text from string to blocks.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.think"><span class='state state-client'>cityrp.chatBox.think()</span></a></td>
+	<td class="summary">Think hook function for the chatbox.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.hudPaint"><span class='state state-client'>cityrp.chatBox.hudPaint()</span></a></td>
+	<td class="summary">Called on HUDPaint.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.explodeByTags"><span class='state state-client'>cityrp.chatBox.explodeByTags(variable, seperator, open, close)</span></a></td>
+	<td class="summary">Explode a string by seperator or by tag.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.chatText"><span class='state state-client'>cityrp.chatBox.chatText(index, name, text, class)</span></a></td>
+	<td class="summary">Process a message and add it to the chatbox.</td>
+	</tr>
+</table>
+<h2><a href="#Shared_Fields">Shared Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.actionTypes">cityrp.chatBox.actionTypes</a></td>
+	<td class="summary">The list of actions to have "overhead text" for.</td>
+	</tr>
+</table>
+<h2><a href="#Server_Functions">Server Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.add"><span class='state state-server'>cityrp.chatBox.add(recipientFilter[, ply], filter, text)</span></a></td>
+	<td class="summary">Add a new line.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cityrp.chatBox.addInRadius"><span class='state state-server'>cityrp.chatBox.addInRadius(ply, filter, text, position, radius)</span></a></td>
+	<td class="summary">Add a new line to players within the radius of a position.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Client_Globals"></a>Client Globals </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "chat.AddText"></a>
+    <strong><span class='state state-client'>chat.AddText(...)</span></strong>
+    </dt>
+    <dd>
+    Function to add text to a player's console and chatbox.
+ Currently semi-broken, requires a manual catch to be added to the chatbox.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         Vararg. Converts players to their name, takes strings as-is and discards other values.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "table.copy"></a>
+    <strong><span class='state state-client'>table.copy(orig)</span></strong>
+    </dt>
+    <dd>
+    Create a deep copy of an object.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">orig</span>
+         The object to copy.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Client_Fields"></a>Client Fields </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "cityrp.chatBox.joinSpam"></a>
+    <strong>cityrp.chatBox.joinSpam</strong>
+    </dt>
+    <dd>
+    List of messages spamming join.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.leaveSpam"></a>
+    <strong>cityrp.chatBox.leaveSpam</strong>
+    </dt>
+    <dd>
+    List of messages spamming leave.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.messages"></a>
+    <strong>cityrp.chatBox.messages</strong>
+    </dt>
+    <dd>
+    Recent message.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.derma"></a>
+    <strong>cityrp.chatBox.derma</strong>
+    </dt>
+    <dd>
+    Client derma store.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.history"></a>
+    <strong>cityrp.chatBox.history</strong>
+    </dt>
+    <dd>
+    Table to store the chat history.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.history.messages"></a>
+    <strong>cityrp.chatBox.history.messages</strong>
+    </dt>
+    <dd>
+    Recently recieved messages in the history.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.history.position"></a>
+    <strong>cityrp.chatBox.history.position</strong>
+    </dt>
+    <dd>
+    Current cursor position within history.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.sendhistory"></a>
+    <strong>cityrp.chatBox.sendhistory</strong>
+    </dt>
+    <dd>
+    Table to store the sent chat history.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.sendhistory.messages"></a>
+    <strong>cityrp.chatBox.sendhistory.messages</strong>
+    </dt>
+    <dd>
+    Table to store the chat message sent.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.sendhistory.position"></a>
+    <strong>cityrp.chatBox.sendhistory.position</strong>
+    </dt>
+    <dd>
+    Store the history cursor pos.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.sendhistory.useposition"></a>
+    <strong>cityrp.chatBox.sendhistory.useposition</strong>
+    </dt>
+    <dd>
+    Store for the current used position.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Client_Functions"></a>Client Functions </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "cityrp.chatBox.getPosition"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.getPosition()</span></strong>
+    </dt>
+    <dd>
+    Gets the chatbox position.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">int</span></span>
+        The current X position.</li>
+        <li>
+           <span class="types"><span class="type">int</span></span>
+        The current Y position.</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.getX"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.getX()</span></strong>
+    </dt>
+    <dd>
+    Gets the chatbox's x position.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The current X position.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.getY"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.getY()</span></strong>
+    </dt>
+    <dd>
+    Gets the chatbox's y position.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The current Y position.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.getSpacing"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.getSpacing()</span></strong>
+    </dt>
+    <dd>
+    Gets the chatbox's spacing between messages.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        Spacing distance.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.wrapText"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.wrapText(text, font, width, overhead, base)</span></strong>
+    </dt>
+    <dd>
+    Provides a table of wrapped strings.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The string to wrap.
+        </li>
+        <li><span class="parameter">font</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The font to check widths again.
+        </li>
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">number</span></span>
+         Maximum line width to explode at.
+        </li>
+        <li><span class="parameter">overhead</span>
+            <span class="types"><span class="type">number</span></span>
+         The buffer between text width and maximum width for the first line.
+        </li>
+        <li><span class="parameter">base</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.6">table</a></span>
+         Table to insert the lines in.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.createDermaAll"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.createDermaAll()</span></strong>
+    </dt>
+    <dd>
+    Create the chatbox panels.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Client_Functions"></a>Client Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "cityrp.chatBox.getPosition"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.getPosition()</span></strong>
+    </dt>
+    <dd>
+    Gets the chatbox position.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">int</span></span>
+        The current X position.</li>
+        <li>
+           <span class="types"><span class="type">int</span></span>
+        The current Y position.</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.getX"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.getX()</span></strong>
+    </dt>
+    <dd>
+    Gets the chatbox's x position.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The current X position.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.getY"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.getY()</span></strong>
+    </dt>
+    <dd>
+    Gets the chatbox's y position.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The current Y position.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.getSpacing"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.getSpacing()</span></strong>
+    </dt>
+    <dd>
+    Gets the chatbox's spacing between messages.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        Spacing distance.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.wrapText"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.wrapText(text, font, width, overhead, base)</span></strong>
+    </dt>
+    <dd>
+    Provides a table of wrapped strings.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The string to wrap.
+        </li>
+        <li><span class="parameter">font</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The font to check widths again.
+        </li>
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">number</span></span>
+         Maximum line width to explode at.
+        </li>
+        <li><span class="parameter">overhead</span>
+            <span class="types"><span class="type">number</span></span>
+         The buffer between text width and maximum width for the first line.
+        </li>
+        <li><span class="parameter">base</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.6">table</a></span>
+         Table to insert the lines in.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.createDermaAll"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.createDermaAll()</span></strong>
+    </dt>
+    <dd>
+    Create the chatbox panels.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Client_Internals"></a>Client Internals </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "cityrp.chatBox.createDermaButtons"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.createDermaButtons()</span></strong>
+    </dt>
+    <dd>
+    Creates the chatbox control buttons.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.createDermaButton"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.createDermaButton(name, text, x, width, toolTip, doClick, think)</span></strong>
+    </dt>
+    <dd>
+    Create a derma button parented to the chatbox.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The internal name of the button.
+        </li>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The label of the button.
+        </li>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         The x position of the button.
+        </li>
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">number</span></span>
+         The width of the button.
+        </li>
+        <li><span class="parameter">toolTip</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The hover text for the button.
+        </li>
+        <li><span class="parameter">doClick</span>
+            <span class="types"><span class="type">function</span></span>
+         The function to be called when clicked.
+        </li>
+        <li><span class="parameter">think</span>
+            <span class="types"><span class="type">function</span></span>
+         Think function.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.createDermaCheckBoxes"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.createDermaCheckBoxes()</span></strong>
+    </dt>
+    <dd>
+    Create derma check boxes.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.createDermaCheckBox"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.createDermaCheckBox(name, conVar, x, toolTip, label, parent, y)</span></strong>
+    </dt>
+    <dd>
+    Create a derma check box parented to the chat panel.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The internal name of the button.
+        </li>
+        <li><span class="parameter">conVar</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The attached ConVar to change.
+        </li>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         The x position of the button.
+        </li>
+        <li><span class="parameter">toolTip</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The hover text for the button.
+        </li>
+        <li><span class="parameter">label</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The label for the checkbox.
+        </li>
+        <li><span class="parameter">parent</span>
+            <span class="types"><span class="type">Panel</span></span>
+         Optional parent for the checkbox.
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         The y position to put the checkbox.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.createDermaTextEntry"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.createDermaTextEntry()</span></strong>
+    </dt>
+    <dd>
+    Create the derma text entry.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.createDermaFilters"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.createDermaFilters()</span></strong>
+    </dt>
+    <dd>
+    Create a derma filter checkboxes.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.createDermaPanel"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.createDermaPanel()</span></strong>
+    </dt>
+    <dd>
+    Create the main derma panel.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.playerBindPress"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.playerBindPress(player, bind, press)</span></strong>
+    </dt>
+    <dd>
+    Update the chatbox when the player presses a bind.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">player</span>
+            <span class="types"><span class="type">Player</span></span>
+         The player who pressed the bind.
+        </li>
+        <li><span class="parameter">bind</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The bind which was pressed.
+        </li>
+        <li><span class="parameter">press</span>
+            <span class="types"><span class="type">bool</span></span>
+         If the bind is being pressed or released.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the default action should be supressed.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.messageAdd"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.messageAdd([title][, name], text[, filtered[, icon[, consoleSuffix]]])</span></strong>
+    </dt>
+    <dd>
+    Create and send a new message to the chatbox.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">title</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">{string,Color}</a></span>
+         Optional the title table for the message.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">{string,Color}</a></span>
+         Optional the name table for the message.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">{string,Color}</a></span>
+         The text table for the message.
+        </li>
+        <li><span class="parameter">filtered</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Optional if the message was filtered, and thus won't display in the chatbox.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">icon</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Optional the icon for the message.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">consoleSuffix</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The prefix to be put in console.
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.printConsole"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.printConsole(message)</span></strong>
+    </dt>
+    <dd>
+    Output a message to console.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.6">table</a></span>
+         Message table from messageAdd.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.extractClasses"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.extractClasses(message)</span></strong>
+    </dt>
+    <dd>
+    Wrap text from string to blocks.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.6">table</a></span>
+         Message table from messageAdd.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.think"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.think()</span></strong>
+    </dt>
+    <dd>
+    Think hook function for the chatbox.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.hudPaint"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.hudPaint()</span></strong>
+    </dt>
+    <dd>
+    Called on HUDPaint.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.explodeByTags"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.explodeByTags(variable, seperator, open, close)</span></strong>
+    </dt>
+    <dd>
+    Explode a string by seperator or by tag.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">variable</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The input string to explode.
+        </li>
+        <li><span class="parameter">seperator</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The seperator to explode by.
+        </li>
+        <li><span class="parameter">open</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The opening tag.
+        </li>
+        <li><span class="parameter">close</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The closing tag.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.chatText"></a>
+    <strong><span class='state state-client'>cityrp.chatBox.chatText(index, name, text, class)</span></strong>
+    </dt>
+    <dd>
+    Process a message and add it to the chatbox.
+ Called when a player says something or a message is received from the server.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">number</span>, <span class="type">Player</span> or <a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.6">table</a></span>
+         The player ID, entity or enttable which sent the message.
+        </li>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The 'name' param to use.
+        </li>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The message to send.
+        </li>
+        <li><span class="parameter">class</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The message type.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Shared_Fields"></a>Shared Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "cityrp.chatBox.actionTypes"></a>
+    <strong>cityrp.chatBox.actionTypes</strong>
+    </dt>
+    <dd>
+    The list of actions to have "overhead text" for.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Server_Functions"></a>Server Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "cityrp.chatBox.add"></a>
+    <strong><span class='state state-server'>cityrp.chatBox.add(recipientFilter[, ply], filter, text)</span></strong>
+    </dt>
+    <dd>
+    Add a new line.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">recipientFilter</span>
+            <span class="types"><span class="type">RecipientFilter</span>, <span class="type">Player</span> or <a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.6">table(Player)</a></span>
+         Players to send to.
+        </li>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Player who is making the message.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">filter</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The type of message being sent.
+        </li>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The message body.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cityrp.chatBox.addInRadius"></a>
+    <strong><span class='state state-server'>cityrp.chatBox.addInRadius(ply, filter, text, position, radius)</span></strong>
+    </dt>
+    <dd>
+    Add a new line to players within the radius of a position.
+
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+            <span class="types"><span class="type">Player</span></span>
+         Player who is making the message.
+        </li>
+        <li><span class="parameter">filter</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The type of message being sent.
+        </li>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The message body.
+        </li>
+        <li><span class="parameter">position</span>
+            <span class="types"><span class="type">Vector</span></span>
+         The position to send from.
+        </li>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">number</span></span>
+         The radius to send the message in.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-03-15 14:23:48 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
