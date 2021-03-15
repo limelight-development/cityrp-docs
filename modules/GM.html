@@ -1,252 +1,274 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<head>
-    <title>CityRP Documentation</title>
-    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
-    <link rel="stylesheet" href="../style.css" type="text/css" />
-</head>
-<body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    	<title>CityRP Documentation</title>
+    	<link rel="stylesheet" href="../ldoc.css" type="text/css">
 
-<div id="container">
+		<link rel="stylesheet" href="../style.css" type="text/css">
+	</head>
+	<body>
+	<div id="container">
+		<div id="product">
+			<div id="product_logo"></div>
+			<div id="product_name"><big><b></b></big></div>
+			<div id="product_description"></div>
+		</div>
+		<!-- id="product" -->
 
-<div id="product">
-	<div id="product_logo"></div>
-	<div id="product_name"><big><b></b></big></div>
-	<div id="product_description"></div>
-</div> <!-- id="product" -->
+		<div id="main">
+
+			<!-- Menu -->
+			<div id="navigation">
+				<div class="ll-kind-header">
+					<h1>CityRP 2</h1>
+				</div>
+				<div class="ll-kind-body">
+					<ul>
+						<li><a href="../index.html">Index</a></li>
+					</ul>
+				</div>
+
+				<div class="ll-kind-header"><h2>Contents</h2></div>
+				<ul class="ll-kind-body">
+					<li><a href="#Functions">Functions</a></li>
+					<li><a href="#Tables">Tables</a></li>
+				</ul>
 
 
-<div id="main">
 
+				<div class="ll-kind-header"><h2>Modules</h2></div>
+				<ul class="ll-kind-body nowrap">
+					<li><strong>GM</strong></li>
+					<li><a href="../modules/core.derma.cl_dcoloredicon.html">core.derma.cl_dcoloredicon</a></li>
+					<li><a href="../modules/core.derma.cl_dfillicon.html">core.derma.cl_dfillicon</a></li>
+					<li><a href="../modules/core.derma.cl_diconlabel.html">core.derma.cl_diconlabel</a></li>
+					<li><a href="../modules/core.derma.cl_dinfolabel.html">core.derma.cl_dinfolabel</a></li>
+					<li><a href="../modules/core.derma.cl_dinfopanel.html">core.derma.cl_dinfopanel</a></li>
+					<li><a href="../modules/core.derma.cl_ditemtitle.html">core.derma.cl_ditemtitle</a></li>
+					<li><a href="../modules/core.derma.cl_dlimitedtextentry.html">core.derma.cl_dlimitedtextentry</a></li>
+					<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+					<li><a href="../modules/core.derma.cl_dpropamt.html">core.derma.cl_dpropamt</a></li>
+					<li><a href="../modules/core.derma.cl_dradio.html">core.derma.cl_dradio</a></li>
+					<li><a href="../modules/core.derma.cl_dscaleitempanel.html">core.derma.cl_dscaleitempanel</a></li>
+					<li><a href="../modules/core.derma.cl_dtexturedprogress.html">core.derma.cl_dtexturedprogress</a></li>
+					<li><a href="../modules/core.derma.cl_dwepinfo.html">core.derma.cl_dwepinfo</a></li>
+					<li><a href="../modules/core.derma.cl_hud_botleft.html">core.derma.cl_hud_botleft</a></li>
+					<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+					<li><a href="../modules/core.derma.cl_hud_vehicle.html">core.derma.cl_hud_vehicle</a></li>
+					<li><a href="../modules/notification.html">notification</a></li>
+					<li><a href="../modules/core.derma.sh_urlpanel.html">core.derma.sh_urlpanel</a></li>
+					<li><a href="../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+					<li><a href="../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+					<li><a href="../modules/temar.html">temar</a></li>
+					<li><a href="../modules/core.libraries.meska.achievements.boot.html">core.libraries.meska.achievements.boot</a></li>
+					<li><a href="../modules/core.libraries.meska.achievements.client.hud.html">core.libraries.meska.achievements.client.hud</a></li>
+					<li><a href="../modules/core.libraries.meska.achievements.server.html">core.libraries.meska.achievements.server</a></li>
+					<li><a href="../modules/core.libraries.meska.client.html">core.libraries.meska.client</a></li>
+					<li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+					<li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+					<li><a href="../modules/core.libraries.meska.custombonus.boot.html">core.libraries.meska.custombonus.boot</a></li>
+					<li><a href="../modules/core.libraries.meska.custombonus.client.hud.html">core.libraries.meska.custombonus.client.hud</a></li>
+					<li><a href="../modules/core.libraries.meska.custombonus.server.html">core.libraries.meska.custombonus.server</a></li>
+					<li><a href="../modules/core.libraries.meska.dailybonus.boot.html">core.libraries.meska.dailybonus.boot</a></li>
+					<li><a href="../modules/core.libraries.meska.dailybonus.client.hud.html">core.libraries.meska.dailybonus.client.hud</a></li>
+					<li><a href="../modules/core.libraries.meska.dailybonus.server.html">core.libraries.meska.dailybonus.server</a></li>
+					<li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+					<li><a href="../modules/core.libraries.meska.hooks.html">core.libraries.meska.hooks</a></li>
+					<li><a href="../modules/core.libraries.meska.html">core.libraries.meska</a></li>
+					<li><a href="../modules/core.libraries.meska.metrics.boot.html">core.libraries.meska.metrics.boot</a></li>
+					<li><a href="../modules/core.libraries.meska.metrics.server.html">core.libraries.meska.metrics.server</a></li>
+					<li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+					<li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+					<li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+					<li><a href="../modules/core.libraries.meska.skills.boot.html">core.libraries.meska.skills.boot</a></li>
+					<li><a href="../modules/core.libraries.meska.skills.client.hud.html">core.libraries.meska.skills.client.hud</a></li>
+					<li><a href="../modules/core.libraries.meska.skills.server.html">core.libraries.meska.skills.server</a></li>
+					<li><a href="../modules/core.libraries.meska.skills.shared.meta.html">core.libraries.meska.skills.shared.meta</a></li>
+					<li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+					<li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
+					<li><a href="../modules/functions.html">functions</a></li>
+					<li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
+					<li><a href="../modules/internet.html">internet</a></li>
+					<li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
+					<li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+					<li><a href="../modules/cityrp.table.html">cityrp.table</a></li>
+					<li><a href="../modules/cityrp.team.html">cityrp.team</a></li>
+					<li><a href="../modules/workarounds.html">workarounds</a></li>
+					<li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
+					<li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
+					<li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+					<li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
+					<li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
+					<li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+					<li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
+					<li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+					<li><a href="../modules/core.metatables.sh_player.html">core.metatables.sh_player</a></li>
+					<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+					<li><a href="../modules/core.metatables.sv_entity.html">core.metatables.sv_entity</a></li>
+					<li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
+					<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+					<li><a href="../modules/acpig.html.html">acpig.html</a></li>
+					<li><a href="../modules/acpig.html">acpig</a></li>
+					<li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+					<li><a href="../modules/core.plugins.admin_assist.cl_init.html">core.plugins.admin_assist.cl_init</a></li>
+					<li><a href="../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+					<li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+					<li><a href="../modules/core.plugins.adminhub.sh_init.html">core.plugins.adminhub.sh_init</a></li>
+					<li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+					<li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+					<li><a href="../modules/core.plugins.animations.sv_meta.html">core.plugins.animations.sv_meta</a></li>
+					<li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+					<li><a href="../modules/core.plugins.anonymous.cl_init.html">core.plugins.anonymous.cl_init</a></li>
+					<li><a href="../modules/core.plugins.autokick.cl_init.html">core.plugins.autokick.cl_init</a></li>
+					<li><a href="../modules/core.plugins.autokick.sv_init.html">core.plugins.autokick.sv_init</a></li>
+					<li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+					<li><a href="../modules/core.plugins.bodybags.sv_init.html">core.plugins.bodybags.sv_init</a></li>
+					<li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+					<li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+					<li><a href="../modules/cityrp.door.html">cityrp.door</a></li>
+					<li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+					<li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+					<li><a href="../modules/core.plugins.laws.sv_init.html">core.plugins.laws.sv_init</a></li>
+					<li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+					<li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+					<li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+					<li><a href="../modules/core.plugins.lifealert.cl_init.html">core.plugins.lifealert.cl_init</a></li>
+					<li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+					<li><a href="../modules/core.plugins.lifealert.sv_init.html">core.plugins.lifealert.sv_init</a></li>
+					<li><a href="../modules/core.plugins.mazerunner.sv_init.html">core.plugins.mazerunner.sv_init</a></li>
+					<li><a href="../modules/core.plugins.mixtures.cl_init.html">core.plugins.mixtures.cl_init</a></li>
+					<li><a href="../modules/core.plugins.mixtures.sh_init.html">core.plugins.mixtures.sh_init</a></li>
+					<li><a href="../modules/core.plugins.mixtures.sv_init.html">core.plugins.mixtures.sv_init</a></li>
+					<li><a href="../modules/core.plugins.model-state.cl_init.html">core.plugins.model-state.cl_init</a></li>
+					<li><a href="../modules/core.plugins.onlinelog.cl_init.html">core.plugins.onlinelog.cl_init</a></li>
+					<li><a href="../modules/core.plugins.onlinelog.sh_init.html">core.plugins.onlinelog.sh_init</a></li>
+					<li><a href="../modules/core.plugins.onlinelog.sv_init.html">core.plugins.onlinelog.sv_init</a></li>
+					<li><a href="../modules/core.plugins.packaging.sv_init.html">core.plugins.packaging.sv_init</a></li>
+					<li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+					<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+					<li><a href="../modules/cityrp.phonebook.html">cityrp.phonebook</a></li>
+					<li><a href="../modules/core.plugins.pradio.sv_init.html">core.plugins.pradio.sv_init</a></li>
+					<li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+					<li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+					<li><a href="../modules/core.plugins.radio.cl_init.html">core.plugins.radio.cl_init</a></li>
+					<li><a href="../modules/core.plugins.radio.sv_init.html">core.plugins.radio.sv_init</a></li>
+					<li><a href="../modules/referrals.html">referrals</a></li>
+					<li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+					<li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+					<li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+					<li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+					<li><a href="../modules/core.plugins.savedeaths.sv_init.html">core.plugins.savedeaths.sv_init</a></li>
+					<li><a href="../modules/core.plugins.spawnpoints.cl_init.html">core.plugins.spawnpoints.cl_init</a></li>
+					<li><a href="../modules/core.plugins.spawnpoints.sv_init.html">core.plugins.spawnpoints.sv_init</a></li>
+					<li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+					<li><a href="../modules/core.plugins.stamina.sh_init.html">core.plugins.stamina.sh_init</a></li>
+					<li><a href="../modules/core.plugins.stamina.sv_init.html">core.plugins.stamina.sv_init</a></li>
+					<li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+					<li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+					<li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+					<li><a href="../modules/core.plugins.tracking.sv_init.html">core.plugins.tracking.sv_init</a></li>
+					<li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+					<li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+					<li><a href="../modules/core.plugins.typing.cl_init.html">core.plugins.typing.cl_init</a></li>
+					<li><a href="../modules/core.plugins.typing.sh_init.html">core.plugins.typing.sh_init</a></li>
+					<li><a href="../modules/core.plugins.typing.sv_init.html">core.plugins.typing.sv_init</a></li>
+					<li><a href="../modules/core.plugins.uniforms.sv_init.html">core.plugins.uniforms.sv_init</a></li>
+					<li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+					<li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+					<li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+					<li><a href="../modules/core.plugins.unownable.sv_init.html">core.plugins.unownable.sv_init</a></li>
+					<li><a href="../modules/core.plugins.vehicle_doors.sv_init.html">core.plugins.vehicle_doors.sv_init</a></li>
+					<li><a href="../modules/core.plugins.vehicle_skins.cl_init.html">core.plugins.vehicle_skins.cl_init</a></li>
+					<li><a href="../modules/core.plugins.vehicle_skins.sh_init.html">core.plugins.vehicle_skins.sh_init</a></li>
+					<li><a href="../modules/core.plugins.vehicle_skins.sv_init.html">core.plugins.vehicle_skins.sv_init</a></li>
+					<li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+					<li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+					<li><a href="../modules/core.plugins.vehicles.sh_vehicles.html">core.plugins.vehicles.sh_vehicles</a></li>
+					<li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+					<li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+					<li><a href="../modules/core.plugins.visible_protection.sh_init.html">core.plugins.visible_protection.sh_init</a></li>
+					<li><a href="../modules/core.plugins.visible_protection.sv_init.html">core.plugins.visible_protection.sv_init</a></li>
+					<li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+					<li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+					<li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+					<li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+					<li><a href="../modules/core.plugins.voiceradio.sv_init.html">core.plugins.voiceradio.sv_init</a></li>
+					<li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+					<li><a href="../modules/core.plugins.warning.sh_init.html">core.plugins.warning.sh_init</a></li>
+					<li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+					<li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
+					<li><a href="../modules/core.plugins.worldprops.sv_init.html">core.plugins.worldprops.sv_init</a></li>
+					<li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
+					<li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
+					<li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
+					<li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+					<li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+				</ul>
 
-<!-- Menu -->
+				<div class="ll-kind-header"><h2>Classes</h2></div>
+				<ul class="ll-kind-body nowrap">
+					<li><a href="../classes/PANEL.cityrp_Cards.html">PANEL.cityrp_Cards</a></li>
+					<li><a href="../classes/PANEL.cityrp_Character.html">PANEL.cityrp_Character</a></li>
+					<li><a href="../classes/PANEL.cityrp_Clan.html">PANEL.cityrp_Clan</a></li>
+					<li><a href="../classes/PANEL.cityrp_Feedback.html">PANEL.cityrp_Feedback</a></li>
+					<li><a href="../classes/PANEL.cityrp_Credits.html">PANEL.cityrp_Credits</a></li>
+					<li><a href="../classes/ITEM.base_accessory.html">ITEM.base_accessory</a></li>
+					<li><a href="../classes/ITEM.base_ammo.html">ITEM.base_ammo</a></li>
+					<li><a href="../classes/ITEM.base_clothing.html">ITEM.base_clothing</a></li>
+					<li><a href="../classes/ITEM.base_collectable.html">ITEM.base_collectable</a></li>
+					<li><a href="../classes/ITEM.base_food.html">ITEM.base_food</a></li>
+					<li><a href="../classes/ITEM.base_modelbg.html">ITEM.base_modelbg</a></li>
+					<li><a href="../classes/ITEM.base_outfit.html">ITEM.base_outfit</a></li>
+					<li><a href="../classes/ITEM.base_spawnable.html">ITEM.base_spawnable</a></li>
+					<li><a href="../classes/ITEM.html">ITEM</a></li>
+					<li><a href="../classes/DB.html">DB</a></li>
+				</ul>
 
-<div id="navigation">
-<br/>
-<h1>CityRP 2</h1>
+				<div class="ll-kind-header"><h2>Topics</h2></div>
+				<ul class="ll-kind-body ">
+					<li><a href="../topics/items.md.html">items</a></li>
+				</ul>
 
-<ul>
-  <li><a href="../index.html">Index</a></li>
-</ul>
+				<div class="ll-kind-header"><h2>Credits</h2></div>
+				<ul class="ll-kind-body">
+					<li><p>Generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a>.</p></li>
+					<li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li>
+					<li><p>Last Updated at 2021-03-15 18:04:12.</p></li>
+				</div>
+</div>
 
-<h2>Contents</h2>
-<ul>
-<li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
-</ul>
-
-
-<h2>Modules</h2>
-<ul class="nowrap">
-  <li><strong>GM</strong></li>
-  <li><a href="../modules/core.derma.cl_dcoloredicon.html">core.derma.cl_dcoloredicon</a></li>
-  <li><a href="../modules/core.derma.cl_dfillicon.html">core.derma.cl_dfillicon</a></li>
-  <li><a href="../modules/core.derma.cl_diconlabel.html">core.derma.cl_diconlabel</a></li>
-  <li><a href="../modules/core.derma.cl_dinfolabel.html">core.derma.cl_dinfolabel</a></li>
-  <li><a href="../modules/core.derma.cl_dinfopanel.html">core.derma.cl_dinfopanel</a></li>
-  <li><a href="../modules/core.derma.cl_ditemtitle.html">core.derma.cl_ditemtitle</a></li>
-  <li><a href="../modules/core.derma.cl_dlimitedtextentry.html">core.derma.cl_dlimitedtextentry</a></li>
-  <li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-  <li><a href="../modules/core.derma.cl_dpropamt.html">core.derma.cl_dpropamt</a></li>
-  <li><a href="../modules/core.derma.cl_dradio.html">core.derma.cl_dradio</a></li>
-  <li><a href="../modules/core.derma.cl_dscaleitempanel.html">core.derma.cl_dscaleitempanel</a></li>
-  <li><a href="../modules/core.derma.cl_dtexturedprogress.html">core.derma.cl_dtexturedprogress</a></li>
-  <li><a href="../modules/core.derma.cl_dwepinfo.html">core.derma.cl_dwepinfo</a></li>
-  <li><a href="../modules/core.derma.cl_hud_botleft.html">core.derma.cl_hud_botleft</a></li>
-  <li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-  <li><a href="../modules/core.derma.cl_hud_vehicle.html">core.derma.cl_hud_vehicle</a></li>
-  <li><a href="../modules/notification.html">notification</a></li>
-  <li><a href="../modules/core.derma.sh_urlpanel.html">core.derma.sh_urlpanel</a></li>
-  <li><a href="../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
-  <li><a href="../modules/cityrp.inventory.html">cityrp.inventory</a></li>
-  <li><a href="../modules/temar.html">temar</a></li>
-  <li><a href="../modules/core.libraries.meska.achievements.boot.html">core.libraries.meska.achievements.boot</a></li>
-  <li><a href="../modules/core.libraries.meska.achievements.client.hud.html">core.libraries.meska.achievements.client.hud</a></li>
-  <li><a href="../modules/core.libraries.meska.achievements.server.html">core.libraries.meska.achievements.server</a></li>
-  <li><a href="../modules/core.libraries.meska.client.html">core.libraries.meska.client</a></li>
-  <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
-  <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
-  <li><a href="../modules/core.libraries.meska.custombonus.boot.html">core.libraries.meska.custombonus.boot</a></li>
-  <li><a href="../modules/core.libraries.meska.custombonus.client.hud.html">core.libraries.meska.custombonus.client.hud</a></li>
-  <li><a href="../modules/core.libraries.meska.custombonus.server.html">core.libraries.meska.custombonus.server</a></li>
-  <li><a href="../modules/core.libraries.meska.dailybonus.boot.html">core.libraries.meska.dailybonus.boot</a></li>
-  <li><a href="../modules/core.libraries.meska.dailybonus.client.hud.html">core.libraries.meska.dailybonus.client.hud</a></li>
-  <li><a href="../modules/core.libraries.meska.dailybonus.server.html">core.libraries.meska.dailybonus.server</a></li>
-  <li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
-  <li><a href="../modules/core.libraries.meska.hooks.html">core.libraries.meska.hooks</a></li>
-  <li><a href="../modules/core.libraries.meska.html">core.libraries.meska</a></li>
-  <li><a href="../modules/core.libraries.meska.metrics.boot.html">core.libraries.meska.metrics.boot</a></li>
-  <li><a href="../modules/core.libraries.meska.metrics.server.html">core.libraries.meska.metrics.server</a></li>
-  <li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
-  <li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
-  <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
-  <li><a href="../modules/core.libraries.meska.skills.boot.html">core.libraries.meska.skills.boot</a></li>
-  <li><a href="../modules/core.libraries.meska.skills.client.hud.html">core.libraries.meska.skills.client.hud</a></li>
-  <li><a href="../modules/core.libraries.meska.skills.server.html">core.libraries.meska.skills.server</a></li>
-  <li><a href="../modules/core.libraries.meska.skills.shared.meta.html">core.libraries.meska.skills.shared.meta</a></li>
-  <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-  <li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
-  <li><a href="../modules/functions.html">functions</a></li>
-  <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
-  <li><a href="../modules/internet.html">internet</a></li>
-  <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
-  <li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
-  <li><a href="../modules/cityrp.table.html">cityrp.table</a></li>
-  <li><a href="../modules/cityrp.team.html">cityrp.team</a></li>
-  <li><a href="../modules/workarounds.html">workarounds</a></li>
-  <li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
-  <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
-  <li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
-  <li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
-  <li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
-  <li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
-  <li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
-  <li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
-  <li><a href="../modules/core.metatables.sh_player.html">core.metatables.sh_player</a></li>
-  <li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-  <li><a href="../modules/core.metatables.sv_entity.html">core.metatables.sv_entity</a></li>
-  <li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
-  <li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
-  <li><a href="../modules/acpig.html.html">acpig.html</a></li>
-  <li><a href="../modules/acpig.html">acpig</a></li>
-  <li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
-  <li><a href="../modules/core.plugins.admin_assist.cl_init.html">core.plugins.admin_assist.cl_init</a></li>
-  <li><a href="../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
-  <li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
-  <li><a href="../modules/core.plugins.adminhub.sh_init.html">core.plugins.adminhub.sh_init</a></li>
-  <li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
-  <li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
-  <li><a href="../modules/core.plugins.animations.sv_meta.html">core.plugins.animations.sv_meta</a></li>
-  <li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
-  <li><a href="../modules/core.plugins.anonymous.cl_init.html">core.plugins.anonymous.cl_init</a></li>
-  <li><a href="../modules/core.plugins.autokick.cl_init.html">core.plugins.autokick.cl_init</a></li>
-  <li><a href="../modules/core.plugins.autokick.sv_init.html">core.plugins.autokick.sv_init</a></li>
-  <li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
-  <li><a href="../modules/core.plugins.bodybags.sv_init.html">core.plugins.bodybags.sv_init</a></li>
-  <li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
-  <li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
-  <li><a href="../modules/cityrp.door.html">cityrp.door</a></li>
-  <li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
-  <li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
-  <li><a href="../modules/core.plugins.laws.sv_init.html">core.plugins.laws.sv_init</a></li>
-  <li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
-  <li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
-  <li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
-  <li><a href="../modules/core.plugins.lifealert.cl_init.html">core.plugins.lifealert.cl_init</a></li>
-  <li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
-  <li><a href="../modules/core.plugins.lifealert.sv_init.html">core.plugins.lifealert.sv_init</a></li>
-  <li><a href="../modules/core.plugins.mazerunner.sv_init.html">core.plugins.mazerunner.sv_init</a></li>
-  <li><a href="../modules/core.plugins.mixtures.cl_init.html">core.plugins.mixtures.cl_init</a></li>
-  <li><a href="../modules/core.plugins.mixtures.sh_init.html">core.plugins.mixtures.sh_init</a></li>
-  <li><a href="../modules/core.plugins.mixtures.sv_init.html">core.plugins.mixtures.sv_init</a></li>
-  <li><a href="../modules/core.plugins.model-state.cl_init.html">core.plugins.model-state.cl_init</a></li>
-  <li><a href="../modules/core.plugins.onlinelog.cl_init.html">core.plugins.onlinelog.cl_init</a></li>
-  <li><a href="../modules/core.plugins.onlinelog.sh_init.html">core.plugins.onlinelog.sh_init</a></li>
-  <li><a href="../modules/core.plugins.onlinelog.sv_init.html">core.plugins.onlinelog.sv_init</a></li>
-  <li><a href="../modules/core.plugins.packaging.sv_init.html">core.plugins.packaging.sv_init</a></li>
-  <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
-  <li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
-  <li><a href="../modules/cityrp.phonebook.html">cityrp.phonebook</a></li>
-  <li><a href="../modules/core.plugins.pradio.sv_init.html">core.plugins.pradio.sv_init</a></li>
-  <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
-  <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
-  <li><a href="../modules/core.plugins.radio.cl_init.html">core.plugins.radio.cl_init</a></li>
-  <li><a href="../modules/core.plugins.radio.sv_init.html">core.plugins.radio.sv_init</a></li>
-  <li><a href="../modules/referrals.html">referrals</a></li>
-  <li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
-  <li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
-  <li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
-  <li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
-  <li><a href="../modules/core.plugins.savedeaths.sv_init.html">core.plugins.savedeaths.sv_init</a></li>
-  <li><a href="../modules/core.plugins.spawnpoints.cl_init.html">core.plugins.spawnpoints.cl_init</a></li>
-  <li><a href="../modules/core.plugins.spawnpoints.sv_init.html">core.plugins.spawnpoints.sv_init</a></li>
-  <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
-  <li><a href="../modules/core.plugins.stamina.sh_init.html">core.plugins.stamina.sh_init</a></li>
-  <li><a href="../modules/core.plugins.stamina.sv_init.html">core.plugins.stamina.sv_init</a></li>
-  <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
-  <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
-  <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
-  <li><a href="../modules/core.plugins.tracking.sv_init.html">core.plugins.tracking.sv_init</a></li>
-  <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
-  <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
-  <li><a href="../modules/core.plugins.typing.cl_init.html">core.plugins.typing.cl_init</a></li>
-  <li><a href="../modules/core.plugins.typing.sh_init.html">core.plugins.typing.sh_init</a></li>
-  <li><a href="../modules/core.plugins.typing.sv_init.html">core.plugins.typing.sv_init</a></li>
-  <li><a href="../modules/core.plugins.uniforms.sv_init.html">core.plugins.uniforms.sv_init</a></li>
-  <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
-  <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
-  <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
-  <li><a href="../modules/core.plugins.unownable.sv_init.html">core.plugins.unownable.sv_init</a></li>
-  <li><a href="../modules/core.plugins.vehicle_doors.sv_init.html">core.plugins.vehicle_doors.sv_init</a></li>
-  <li><a href="../modules/core.plugins.vehicle_skins.cl_init.html">core.plugins.vehicle_skins.cl_init</a></li>
-  <li><a href="../modules/core.plugins.vehicle_skins.sh_init.html">core.plugins.vehicle_skins.sh_init</a></li>
-  <li><a href="../modules/core.plugins.vehicle_skins.sv_init.html">core.plugins.vehicle_skins.sv_init</a></li>
-  <li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
-  <li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
-  <li><a href="../modules/core.plugins.vehicles.sh_vehicles.html">core.plugins.vehicles.sh_vehicles</a></li>
-  <li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
-  <li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
-  <li><a href="../modules/core.plugins.visible_protection.sh_init.html">core.plugins.visible_protection.sh_init</a></li>
-  <li><a href="../modules/core.plugins.visible_protection.sv_init.html">core.plugins.visible_protection.sv_init</a></li>
-  <li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
-  <li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
-  <li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
-  <li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
-  <li><a href="../modules/core.plugins.voiceradio.sv_init.html">core.plugins.voiceradio.sv_init</a></li>
-  <li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
-  <li><a href="../modules/core.plugins.warning.sh_init.html">core.plugins.warning.sh_init</a></li>
-  <li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
-  <li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
-  <li><a href="../modules/core.plugins.worldprops.sv_init.html">core.plugins.worldprops.sv_init</a></li>
-  <li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
-  <li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
-  <li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
-  <li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
-  <li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
-</ul>
-<h2>Classes</h2>
-<ul class="nowrap">
-  <li><a href="../classes/PANEL.cityrp_Cards.html">PANEL.cityrp_Cards</a></li>
-  <li><a href="../classes/PANEL.cityrp_Character.html">PANEL.cityrp_Character</a></li>
-  <li><a href="../classes/PANEL.cityrp_Clan.html">PANEL.cityrp_Clan</a></li>
-  <li><a href="../classes/PANEL.cityrp_Feedback.html">PANEL.cityrp_Feedback</a></li>
-  <li><a href="../classes/PANEL.cityrp_Credits.html">PANEL.cityrp_Credits</a></li>
-  <li><a href="../classes/ITEM.base_accessory.html">ITEM.base_accessory</a></li>
-  <li><a href="../classes/ITEM.base_ammo.html">ITEM.base_ammo</a></li>
-  <li><a href="../classes/ITEM.base_clothing.html">ITEM.base_clothing</a></li>
-  <li><a href="../classes/ITEM.base_collectable.html">ITEM.base_collectable</a></li>
-  <li><a href="../classes/ITEM.base_food.html">ITEM.base_food</a></li>
-  <li><a href="../classes/ITEM.base_modelbg.html">ITEM.base_modelbg</a></li>
-  <li><a href="../classes/ITEM.base_outfit.html">ITEM.base_outfit</a></li>
-  <li><a href="../classes/ITEM.base_spawnable.html">ITEM.base_spawnable</a></li>
-  <li><a href="../classes/ITEM.html">ITEM</a></li>
-  <li><a href="../classes/DB.html">DB</a></li>
-</ul>
-<h2>Topics</h2>
-<ul class="">
-  <li><a href="../topics/items.md.html">items</a></li>
-</ul>
 
 </div>
 
-<div id="content">
 
-<h1>Module <code>GM</code></h1>
-<p>Primary Gamemode Bootstrap</p>
-<p>
+			<div id="content">
+				<div class="ll-module-header"><h1>Module <code>GM</code></h1></div>
+				<div class="ll-module-body">
+					Primary Gamemode Bootstrap
 
-</p>
-    <h3>Info:</h3>
+
+
+				</div>
+
+
+
+
+
+
+	<div class="ll-module-header"><h2>Module Information</h2></div>
+	<div class="ll-module-body">
     <ul>
         <li><strong>Copyright</strong>: 2015-2019 Limelight Gaming</li>
         <li><strong>Release</strong>: CityRP 2</li>
         <li><strong>Author</strong>: Legacy Team</li>
     </ul>
+	</div>
 
 
-<h2><a href="#Functions">Functions</a></h2>
+<div class="ll-module-header"><h2>Module Overview</h2></div>
+<div class="ll-module-body">
+<h3><a href="#Functions">Functions</a></h3>
 <table class="function_list">
 	<tr>
 	<td class="name" nowrap><a href="#printf"><span class='state state-client state-server'>printf(str, ...)</span></a></td>
@@ -549,7 +571,7 @@
 	<td class="summary">Called when a player joins and attempts to check their password.</td>
 	</tr>
 </table>
-<h2><a href="#Tables">Tables</a></h2>
+<h3><a href="#Tables">Tables</a></h3>
 <table class="function_list">
 	<tr>
 	<td class="name" nowrap><a href="#entities">entities</a></td>
@@ -560,12 +582,10 @@
 	<td class="summary">Table for storing the rules.</td>
 	</tr>
 </table>
+</div>
 
-<br/>
-<br/>
-
-
-    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+	<div class="ll-module-header"><h2 class="section-header "><a name="Functions"></a>Functions</h2></div>
+    <div class="ll-module-body">
 
     <dl class="function">
     <dt>
@@ -574,13 +594,11 @@
     </dt>
     <dd>
     Formatted print to console.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">str</span>
@@ -592,11 +610,6 @@
          Formatter arguments.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "sprintf"></a>
@@ -604,13 +617,11 @@
     </dt>
     <dd>
     Formatted return.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">str</span>
@@ -622,17 +633,12 @@
          Formatter arguments.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
         Formatted string.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "ConnectToDatabase"></a>
@@ -640,18 +646,11 @@
     </dt>
     <dd>
     Create DB_MAIN and load our DB instance.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
-
-
-
-
-
 </dd>
     <dt>
     <a name = "Initialize"></a>
@@ -659,18 +658,11 @@
     </dt>
     <dd>
     Run the gamemode startup procedure.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSwitchFlashlight"></a>
@@ -678,13 +670,11 @@
     </dt>
     <dd>
     Called when a player switches their flashlight on or off.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -696,11 +686,6 @@
          The requested flashlight state.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "UpdateDatabase"></a>
@@ -708,18 +693,11 @@
     </dt>
     <dd>
     Update the database and player's data.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerUse"></a>
@@ -727,13 +705,11 @@
     </dt>
     <dd>
     Called when a player attempts to use an entity.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -745,11 +721,6 @@
          The entity being used.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerDemote"></a>
@@ -757,13 +728,11 @@
     </dt>
     <dd>
     Called when a player is demoting another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -783,17 +752,12 @@
          The reason they're being demoted.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the demote is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerPromoteLeader"></a>
@@ -801,13 +765,11 @@
     </dt>
     <dd>
     Called when a player is promoting another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -823,17 +785,12 @@
          The team they're being promoted to.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the promote is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerKnockOut"></a>
@@ -841,13 +798,11 @@
     </dt>
     <dd>
     Called when a player is knocking out another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -859,17 +814,12 @@
          The player being knocked out.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the knockout is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerWakeUp"></a>
@@ -877,13 +827,11 @@
     </dt>
     <dd>
     Called when a player is waking up another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -895,17 +843,12 @@
          The player being woken up.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the wakeup is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerArrest"></a>
@@ -913,13 +856,11 @@
     </dt>
     <dd>
     Called when a player is arresting another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -931,17 +872,12 @@
          The player being arrested.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the arrest is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerHostage"></a>
@@ -949,13 +885,11 @@
     </dt>
     <dd>
     Called when a player hostages player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -967,17 +901,12 @@
          The player being hostaged.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the hostage is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerUnarrest"></a>
@@ -985,13 +914,11 @@
     </dt>
     <dd>
     Called when a player unarrests player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1003,17 +930,12 @@
          The player being unarrested.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the unarrest is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerWarrant"></a>
@@ -1021,13 +943,11 @@
     </dt>
     <dd>
     Called when a player warrants a player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1043,17 +963,12 @@
          The warrant class.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the warrant is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerUnwarrant"></a>
@@ -1061,13 +976,11 @@
     </dt>
     <dd>
     Called when a player unwarrants player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1079,17 +992,12 @@
          The player being unwarranted.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the unwarrant is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanOwnDoor"></a>
@@ -1097,13 +1005,11 @@
     </dt>
     <dd>
     Called when a player owns a door.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1115,17 +1021,12 @@
          The door being owned.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the own is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanViewDoor"></a>
@@ -1133,13 +1034,11 @@
     </dt>
     <dd>
     Called when a player views a door.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1151,17 +1050,12 @@
          The door being viewed.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the view is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanHolster"></a>
@@ -1169,13 +1063,11 @@
     </dt>
     <dd>
     Called when a player holsters a weapon.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1191,17 +1083,12 @@
          If the holster is silent.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the holster is allowed
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanDrop"></a>
@@ -1209,13 +1096,11 @@
     </dt>
     <dd>
     Called when a player drops a weapon.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1235,17 +1120,12 @@
          The attacker for the player.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the holster is allowed
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanUseItem"></a>
@@ -1253,13 +1133,11 @@
     </dt>
     <dd>
     Called when a player attempts to use an item.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1275,17 +1153,12 @@
          If the use is silent.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the use is allowed
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanDropItem"></a>
@@ -1293,13 +1166,11 @@
     </dt>
     <dd>
     Called when a player attempts to drop an item on the ground.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1319,7 +1190,6 @@
          The position that the items would be created at.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
         <li>
@@ -1329,10 +1199,6 @@
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
         Error message to display to the player, if any.</li>
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanGiveItem"></a>
@@ -1340,13 +1206,11 @@
     </dt>
     <dd>
     Called when a player attempts to give an item to another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1366,7 +1230,6 @@
          The player being given the items.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
         <li>
@@ -1376,10 +1239,6 @@
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
         Error message to display to the player, if any.</li>
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanRemoveItem"></a>
@@ -1387,13 +1246,11 @@
     </dt>
     <dd>
     Called when a player attempts to remove an item.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1405,7 +1262,6 @@
          The uniqueID of the item being removed.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
         <li>
@@ -1415,10 +1271,6 @@
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
         Error message to display to the player, if any.</li>
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanKnockOut"></a>
@@ -1426,13 +1278,11 @@
     </dt>
     <dd>
     Called when a player attempts to knock out another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1444,17 +1294,12 @@
          The player being knocked out.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the knockout is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanWarrant"></a>
@@ -1462,13 +1307,11 @@
     </dt>
     <dd>
     Called when a player attempts to warrant another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1480,17 +1323,12 @@
          The player being warranted.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the warrant is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanWakeUp"></a>
@@ -1498,13 +1336,11 @@
     </dt>
     <dd>
     Called when a player attempts to wake up another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1516,17 +1352,12 @@
          The player being woken up.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the wakeup is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanRamDoor"></a>
@@ -1534,13 +1365,11 @@
     </dt>
     <dd>
     Called when a player attempts to ram a door.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1556,17 +1385,12 @@
          If the ram is silent.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the ram is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanUseDoor"></a>
@@ -1574,13 +1398,11 @@
     </dt>
     <dd>
     Called when a player attempts to use a door.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1592,17 +1414,12 @@
          The door being used.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the use is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanJoinTeam"></a>
@@ -1610,13 +1427,11 @@
     </dt>
     <dd>
     Check if a player can join a team.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1628,17 +1443,12 @@
          The new team.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the player can join the team.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanDemote"></a>
@@ -1646,13 +1456,11 @@
     </dt>
     <dd>
     Called when a player attempts to demote another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1664,17 +1472,12 @@
          The player being demoted.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the demote was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanPromote"></a>
@@ -1682,13 +1485,11 @@
     </dt>
     <dd>
     Called when a player attempts to promote another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1700,17 +1501,12 @@
          The player being promoted.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the promote was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "InitPostEntity"></a>
@@ -1718,18 +1514,11 @@
     </dt>
     <dd>
     Called when all of the map entities have been initialized.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanHearPlayersVoice"></a>
@@ -1737,13 +1526,11 @@
     </dt>
     <dd>
     Hook function called to check if a player can be heard.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1755,17 +1542,12 @@
          The player speaking.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the voice can be heard.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanSayIC"></a>
@@ -1773,13 +1555,11 @@
     </dt>
     <dd>
     Check if a player can say IC text.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1791,17 +1571,12 @@
          The words said.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the chat will be shown.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanSayOOC"></a>
@@ -1809,13 +1584,11 @@
     </dt>
     <dd>
     Check if a player can say OOC text.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1827,17 +1600,12 @@
          The words said.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the chat will be shown.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanSayLOOC"></a>
@@ -1845,13 +1613,11 @@
     </dt>
     <dd>
     Check if a player can say Local OOC text.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1863,17 +1629,12 @@
          The words said.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the chat will be shown.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanUseCommand"></a>
@@ -1881,13 +1642,11 @@
     </dt>
     <dd>
     Check if a player can run a command.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1903,17 +1662,12 @@
          The arguments table.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the command is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSaidOOC"></a>
@@ -1921,13 +1675,11 @@
     </dt>
     <dd>
     Called after a player sends a message in OOC.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1937,11 +1689,6 @@
          The message which was sent.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSaidLOOC"></a>
@@ -1949,13 +1696,11 @@
     </dt>
     <dd>
     Called after a player sends a message in Local OOC.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1965,11 +1710,6 @@
          The message which was sent.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSaid"></a>
@@ -1977,13 +1717,11 @@
     </dt>
     <dd>
     Called after a player sends a message in chat.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -1996,11 +1734,6 @@
          The type of message sent.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerRanCommand"></a>
@@ -2008,13 +1741,11 @@
     </dt>
     <dd>
     Called after a command is ran.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2027,11 +1758,6 @@
          The arguments list.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerRanAdminCommand"></a>
@@ -2039,13 +1765,11 @@
     </dt>
     <dd>
     Called after an admin command is ran.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2058,11 +1782,6 @@
          The arguments list.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSay"></a>
@@ -2070,13 +1789,11 @@
     </dt>
     <dd>
     Hook function for when any message is sent to the server.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2092,11 +1809,6 @@
          If the message is sent in team or global chat.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "CanPlayerSuicide"></a>
@@ -2104,13 +1816,11 @@
     </dt>
     <dd>
     Called when a player attempts suicide.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2118,17 +1828,12 @@
          Suiciding player.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">bool</span></span>
         If the suicide was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "VehicleHPChange"></a>
@@ -2136,13 +1841,11 @@
     </dt>
     <dd>
     Hook function called when vehicle HP changes.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ent</span>
@@ -2158,17 +1861,12 @@
          Current HP.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">int</span></span>
         Modified delta.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "VehicleHPChanged"></a>
@@ -2176,13 +1874,11 @@
     </dt>
     <dd>
     Hook function called after vehicle HP changes.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">veh</span>
@@ -2198,11 +1894,6 @@
          Old HP
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "GravGunPunt"></a>
@@ -2210,13 +1901,11 @@
     </dt>
     <dd>
     Called when a player attempts to punt an entity with the gravity gun.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2228,17 +1917,12 @@
          Punted entity.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">bool</span></span>
         If the punt is allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlyCanPickupRegular"></a>
@@ -2246,13 +1930,11 @@
     </dt>
     <dd>
     Can a regular player pickup this entity?
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2264,17 +1946,12 @@
          The entity being picked up.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types">optional <span class="type">boolean</span></span>
         If the pickup was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlyCanPickupAdmin"></a>
@@ -2282,13 +1959,11 @@
     </dt>
     <dd>
     Can a player with extended access (admin/mod) pickup this entity?
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2300,17 +1975,12 @@
          The entity being picked up.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types">optional <span class="type">boolean</span></span>
         If the pickup was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PhysgunPickup"></a>
@@ -2318,13 +1988,11 @@
     </dt>
     <dd>
     Called when a player attempts to pick up an entity with the physics gun.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2336,17 +2004,12 @@
          The entity being picked up.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types">optional <span class="type">boolean</span></span>
         If the pickup was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PhysgunDrop"></a>
@@ -2354,13 +2017,11 @@
     </dt>
     <dd>
     Called when a player attempts to drop an entity with the physics gun.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2372,11 +2033,6 @@
          The entity being dropped.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanArrest"></a>
@@ -2384,13 +2040,11 @@
     </dt>
     <dd>
     Called when a player attempts to arrest another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2402,17 +2056,12 @@
          Arrested player.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types">optional <span class="type">boolean</span></span>
         If the pickup arrest was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanUnarrest"></a>
@@ -2420,13 +2069,11 @@
     </dt>
     <dd>
     Called when a player attempts to unarrest another player.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2438,17 +2085,12 @@
          The entity being picked up.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types">optional <span class="type">boolean</span></span>
         If the pickup was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerShouldTaunt"></a>
@@ -2457,13 +2099,11 @@
     <dd>
     Called when player tries to act something out.
  Coded by Voluptious
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2475,17 +2115,12 @@
          <a href='http://wiki.garrysmod.com/page/Enums/ACT'>ACT_</a> Enum.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types">optional <span class="type">boolean</span></span>
         If the act was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSpawnNPC"></a>
@@ -2493,13 +2128,11 @@
     </dt>
     <dd>
     Called when a player attempts to spawn an NPC.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2515,17 +2148,12 @@
          The NPCs weapon.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the act was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSpawnProp"></a>
@@ -2533,13 +2161,11 @@
     </dt>
     <dd>
     Called when a player attempts to spawn a prop.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2556,17 +2182,12 @@
          (<em>optional</em>)
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the spawn was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSpawnEffect"></a>
@@ -2574,13 +2195,11 @@
     </dt>
     <dd>
     Called when a player attempts to spawn an effect.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2592,17 +2211,12 @@
          The model path being spawned.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the spawn was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSpawnedProp"></a>
@@ -2610,13 +2224,11 @@
     </dt>
     <dd>
     Called when a player has spawned a prop.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2632,11 +2244,6 @@
          The spawned entity.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSpawnedEffect"></a>
@@ -2644,13 +2251,11 @@
     </dt>
     <dd>
     Called when a player has spawned an effect.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2666,11 +2271,6 @@
          The spawned entity.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "OnEntityCreated"></a>
@@ -2678,13 +2278,11 @@
     </dt>
     <dd>
     Called when an entity is created.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ent</span>
@@ -2692,11 +2290,6 @@
          The created entity.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSpawnRagdoll"></a>
@@ -2704,13 +2297,11 @@
     </dt>
     <dd>
     Called when a player attempts to spawn a ragdoll.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2722,17 +2313,12 @@
          The model being spawned.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the spawn was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSpawnedRagdoll"></a>
@@ -2740,13 +2326,11 @@
     </dt>
     <dd>
     Called when a player has spawned a ragdoll.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2762,11 +2346,6 @@
          The spawned entity.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSpawnVehicle"></a>
@@ -2774,13 +2353,11 @@
     </dt>
     <dd>
     Called when a player attempts to spawn a vehicle.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2792,17 +2369,12 @@
          The model being spawned.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the spawn was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "CanTool"></a>
@@ -2810,13 +2382,11 @@
     </dt>
     <dd>
     Called when a player attempts to use their toolgun.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2832,17 +2402,12 @@
          The active toolmode.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">bool</span></span>
         If the toolgun was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerNoClip"></a>
@@ -2850,13 +2415,11 @@
     </dt>
     <dd>
     Called when a player attempts to noclip.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2868,17 +2431,12 @@
          The requested noclip state.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
         If the state change was allowed.
     </ol>
-
-
-
-
 </dd>
     <dt>
     <a name = "SetupSalary"></a>
@@ -2886,13 +2444,11 @@
     </dt>
     <dd>
     Set up a player's salary timer.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2900,11 +2456,6 @@
          Player to setup.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerCanGainFrag"></a>
@@ -2912,13 +2463,11 @@
     </dt>
     <dd>
     Hook function called when a player gains a kill.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2930,11 +2479,6 @@
          Player who was killed.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSpray"></a>
@@ -2942,13 +2486,11 @@
     </dt>
     <dd>
     Called when a player should be allowed to spray.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2956,11 +2498,6 @@
          Player attempting to spray.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSetModel"></a>
@@ -2968,13 +2505,11 @@
     </dt>
     <dd>
     Loadout hook function called when a player's model needs to be set.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -2982,11 +2517,6 @@
          Player's whos model is being set.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSpawnSWEP"></a>
@@ -2994,13 +2524,11 @@
     </dt>
     <dd>
     Called when a player attempts to spawn a SWEP.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -3016,11 +2544,6 @@
          The weapon table.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerGiveSWEP"></a>
@@ -3028,13 +2551,11 @@
     </dt>
     <dd>
     Called when a player attempts to give a SWEP.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -3050,11 +2571,6 @@
          The weapon table.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "PlayerSpawnSENT"></a>
@@ -3062,13 +2578,11 @@
     </dt>
     <dd>
     Called when attempts to spawn a SENT.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -3080,11 +2594,6 @@
          The SENT class.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "KeyPress"></a>
@@ -3092,13 +2601,11 @@
     </dt>
     <dd>
     Called when a player presses a key.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ply</span>
@@ -3110,11 +2617,6 @@
          The key enum pressed.
         </li>
     </ul>
-
-
-
-
-
 </dd>
     <dt>
     <a name = "CheckPassword"></a>
@@ -3122,13 +2624,11 @@
     </dt>
     <dd>
     Called when a player joins and attempts to check their password.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">id64</span>
@@ -3152,7 +2652,6 @@
          Steam Name of the client.
         </li>
     </ul>
-
     <h3>Returns:</h3>
     <ol>
         <li>
@@ -3162,13 +2661,11 @@
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
         Failure message to display.</li>
     </ol>
-
-
-
-
 </dd>
 </dl>
-    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+</div>
+	<div class="ll-module-header"><h2 class="section-header "><a name="Tables"></a>Tables</h2></div>
+    <div class="ll-module-body">
 
     <dl class="function">
     <dt>
@@ -3177,18 +2674,11 @@
     </dt>
     <dd>
     A table that will hold entities that were there when the map started.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
-
-
-
-
-
 </dd>
     <dt>
     <a name = "cityrp_server_rules"></a>
@@ -3196,28 +2686,19 @@
     </dt>
     <dd>
     Table for storing the rules.
-
     </ul>
     </ul>
     </ul>
     </ul>
     </ul>
-
-
-
-
-
-
 </dd>
 </dl>
-
-
+</div>
+</div>
 </div> <!-- id="content" -->
+</div>
 </div> <!-- id="main" -->
-<div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-03-15 14:23:48 </i>
-</div> <!-- id="about" -->
+<br class="clearfix">
 </div> <!-- id="container" -->
 </body>
 </html>
