@@ -22,11 +22,6 @@
 			<div id="navigation">
 				<div class="ll-kind-header">
 					<h1>CityRP 2</h1>
-					<div class="header-module">
-        				<li>Copyright: 2015-2019 Limelight Gaming</li>
-        				<li>Release: CityRP 2</li>
-        				<li>Author: Legacy Team</li>
-					</div>
 				</div>
 				<div class="ll-kind-body">
 					<ul>
@@ -96,13 +91,13 @@
 					<li><a href="../modules/internet.html">internet</a></li>
 					<li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
 					<li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
-					<li><strong>cityrp.table</strong></li>
+					<li><a href="../modules/cityrp.table.html">cityrp.table</a></li>
 					<li><a href="../modules/cityrp.team.html">cityrp.team</a></li>
 					<li><a href="../modules/workarounds.html">workarounds</a></li>
 					<li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
 					<li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 					<li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
-					<li><a href="../modules/core.libraries.sv_commands.html">core.libraries.sv_commands</a></li>
+					<li><strong>core.libraries.sv_commands</strong></li>
 					<li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
 					<li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
 					<li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
@@ -248,9 +243,9 @@
 
 
 			<div id="content">
-				<div class="ll-module-header"><h1>Module <code>cityrp.table</code></h1></div>
+				<div class="ll-module-header"><h1>Module <code>core.libraries.sv_commands</code></h1></div>
 				<div class="ll-module-body">
-					Generic Table functions.
+					Add a new command.
 
 
 
@@ -268,8 +263,8 @@
 <h3><a href="#Functions">Functions</a></h3>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#cityrp.table.HasValue"><span class='state state-client state-server'>cityrp.table.HasValue(tab, value)</span></a></td>
-	<td class="summary">Check if a table has a value in itself, or any child tables.</td>
+	<td class="name" nowrap><a href="#cityrp.command.consoleCommand"><span class='state state-server'>cityrp.command.consoleCommand(player, command, arguments)</span></a></td>
+	<td class="summary">Handle a player console command.</td>
 	</tr>
 </table>
 </div>
@@ -279,12 +274,11 @@
 
     <dl class="function">
     <dt>
-    <a name = "cityrp.table.HasValue"></a>
-    <strong><span class='state state-client state-server'>cityrp.table.HasValue(tab, value)</span></strong>
+    <a name = "cityrp.command.consoleCommand"></a>
+    <strong><span class='state state-server'>cityrp.command.consoleCommand(player, command, arguments)</span></strong>
     </dt>
     <dd>
-    Check if a table has a value in itself, or any child tables.
- <span style='color:red; font-weight:bold'>This function is O(N^x) where X is the depth of nested tables. Do not use if it can be avoided.</span>
+    Handle a player console command.
     </ul>
     </ul>
     </ul>
@@ -292,20 +286,19 @@
     </ul>
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">tab</span>
-            <span class="types"><span class="type">tab</span></span>
-         The table to search.
+        <li><span class="parameter">player</span>
+            <span class="types"><span class="type">Player</span></span>
+         Player running the command.
         </li>
-        <li><span class="parameter">value</span>
-         The value to check for.
+        <li><span class="parameter">command</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         The wrapper command being ran.
+        </li>
+        <li><span class="parameter">arguments</span>
+            <span class="types"><span class="type">tab</span></span>
+         Arguments.
         </li>
     </ul>
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">boolean</span></span>
-        If the value is in the table.
-    </ol>
 </dd>
 </dl>
 </div>
