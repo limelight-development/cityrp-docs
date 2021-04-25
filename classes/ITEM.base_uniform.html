@@ -23,7 +23,7 @@
 				<div class="ll-kind-header">
 					<h1>CityRP 2</h1>
 					<div class="header-module">
-        				<li>Copyright: 2015-2019 Limelight Gaming</li>
+        				<li>Copyright: 2015-2021 Limelight Gaming</li>
         				<li>Release: CityRP 2</li>
         				<li>Author: John Internet</li>
 					</div>
@@ -51,7 +51,7 @@
 					<li><a href="../classes/PANEL.cityrp_Credits.html">PANEL.cityrp_Credits</a></li>
 					<li><a href="../classes/cityrp_LawRow.html">cityrp_LawRow</a></li>
 					<li><a href="../classes/ITEM.base_accessory.html">ITEM.base_accessory</a></li>
-					<li><strong>ITEM.base_ammo</strong></li>
+					<li><a href="../classes/ITEM.base_ammo.html">ITEM.base_ammo</a></li>
 					<li><a href="../classes/ITEM.base_clothing.html">ITEM.base_clothing</a></li>
 					<li><a href="../classes/ITEM.base_collectable.html">ITEM.base_collectable</a></li>
 					<li><a href="../classes/ITEM.base_food.html">ITEM.base_food</a></li>
@@ -59,7 +59,7 @@
 					<li><a href="../classes/ITEM.base_outfit.html">ITEM.base_outfit</a></li>
 					<li><a href="../classes/ITEM.base_spawnable.html">ITEM.base_spawnable</a></li>
 					<li><a href="../classes/ITEM.base_suit.html">ITEM.base_suit</a></li>
-					<li><a href="../classes/ITEM.base_uniform.html">ITEM.base_uniform</a></li>
+					<li><strong>ITEM.base_uniform</strong></li>
 					<li><a href="../classes/ITEM.base_vehicle.html">ITEM.base_vehicle</a></li>
 					<li><a href="../classes/ITEM.base_weapon.html">ITEM.base_weapon</a></li>
 					<li><a href="../classes/ITEM.html">ITEM</a></li>
@@ -254,14 +254,10 @@
 
 
 			<div id="content">
-				<div class="ll-module-header"><h1>Class <code>ITEM.base_ammo</code></h1></div>
+				<div class="ll-module-header"><h1>Class <code>ITEM.base_uniform</code></h1></div>
 				<div class="ll-module-body">
-					Ammo Base Item</p>
-
-<p>A nice and simple item which a couple of utility functions for ammo.
-
-
-
+					Uniform Item.
+					The uniform base is an outfit, with extra helpers for handling stolen uniforms.
 				</div>
 
 
@@ -276,186 +272,190 @@
 <h3><a href="#Fields">Fields</a></h3>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo.name">ITEM.base_ammo.name</a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform.name">ITEM.base_uniform.name</a></td>
 	<td class="summary">Item Name.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo.description">ITEM.base_ammo.description</a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform.description">ITEM.base_uniform.description</a></td>
 	<td class="summary">Description of the item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo.size">ITEM.base_ammo.size</a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform.size">ITEM.base_uniform.size</a></td>
 	<td class="summary">Item Size</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo.cost">ITEM.base_ammo.cost</a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform.cost">ITEM.base_uniform.cost</a></td>
 	<td class="summary">Item Cost</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo.model">ITEM.base_ammo.model</a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform.model">ITEM.base_uniform.model</a></td>
 	<td class="summary">Model Path</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo.store">ITEM.base_ammo.store</a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform.store">ITEM.base_uniform.store</a></td>
 	<td class="summary">Market Availability</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo.category">ITEM.base_ammo.category</a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform.category">ITEM.base_uniform.category</a></td>
 	<td class="summary">Inventory / Market Category</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo.skin">ITEM.base_ammo.skin</a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform.skin">ITEM.base_uniform.skin</a></td>
 	<td class="summary">Skin used in the F1 menu.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo.__index">ITEM.base_ammo.__index</a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform.__index">ITEM.base_uniform.__index</a></td>
 	<td class="summary">The lookup index for the item metatable.</td>
 	</tr>
 </table>
 <h3><a href="#Methods">Methods</a></h3>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetAmmo"><span class='state state-client state-server'>ITEM.base_ammo:SetAmmo(ammoType, ammoValue)</span></a></td>
-	<td class="summary">Set the type and value of ammo used.</td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetNonMember"><span class='state state-client state-server'>ITEM.base_uniform:SetNonMember(data)</span></a></td>
+	<td class="summary">Sets the clothing to not be membership.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:New"><span class='state state-client state-server'>ITEM.base_ammo:New(base, data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetEmotes"><span class='state state-client state-server'>ITEM.base_uniform:SetEmotes(on, off)</span></a></td>
+	<td class="summary">Set on/off emotes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:New"><span class='state state-client state-server'>ITEM.base_uniform:New(base, data)</span></a></td>
 	<td class="summary">Create a new item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:Clone"><span class='state state-client state-server'>ITEM.base_ammo:Clone()</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:Clone"><span class='state state-client state-server'>ITEM.base_uniform:Clone()</span></a></td>
 	<td class="summary">Clone an item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:Merge"><span class='state state-client state-server'>ITEM.base_ammo:Merge(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:Merge"><span class='state state-client state-server'>ITEM.base_uniform:Merge(data)</span></a></td>
 	<td class="summary">Merge a table of data into the item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetData"><span class='state state-client state-server'>ITEM.base_ammo:SetData(name, value)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetData"><span class='state state-client state-server'>ITEM.base_uniform:SetData(name, value)</span></a></td>
 	<td class="summary">Set a single key on the item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:Register"><span class='state state-client state-server'>ITEM.base_ammo:Register([id])</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:Register"><span class='state state-client state-server'>ITEM.base_uniform:Register([id])</span></a></td>
 	<td class="summary">Register an item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:AutoFunction"><span class='state state-client state-server'>ITEM.base_ammo:AutoFunction(name, key)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:AutoFunction"><span class='state state-client state-server'>ITEM.base_uniform:AutoFunction(name, key)</span></a></td>
 	<td class="summary">Creates an automatically named setter function.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetCost"><span class='state state-client state-server'>ITEM.base_ammo:SetCost(cost)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetCost"><span class='state state-client state-server'>ITEM.base_uniform:SetCost(cost)</span></a></td>
 	<td class="summary">Sets the Market Cost.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetPrice"><span class='state state-client state-server'>ITEM.base_ammo:SetPrice(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetPrice"><span class='state state-client state-server'>ITEM.base_uniform:SetPrice(data)</span></a></td>
 	<td class="summary">Alias of ITEM:SetCost</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetDescription"><span class='state state-client state-server'>ITEM.base_ammo:SetDescription(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetDescription"><span class='state state-client state-server'>ITEM.base_uniform:SetDescription(data)</span></a></td>
 	<td class="summary">Sets the Description of an item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetDesc"><span class='state state-client state-server'>ITEM.base_ammo:SetDesc(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetDesc"><span class='state state-client state-server'>ITEM.base_uniform:SetDesc(data)</span></a></td>
 	<td class="summary">Alias of ITEM:SetDescription</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetCategory"><span class='state state-client state-server'>ITEM.base_ammo:SetCategory(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetCategory"><span class='state state-client state-server'>ITEM.base_uniform:SetCategory(data)</span></a></td>
 	<td class="summary">Sets the category of an item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetCat"><span class='state state-client state-server'>ITEM.base_ammo:SetCat(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetCat"><span class='state state-client state-server'>ITEM.base_uniform:SetCat(data)</span></a></td>
 	<td class="summary">Alias of ITEM:SetCategory</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetTeam"><span class='state state-client state-server'>ITEM.base_ammo:SetTeam(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetTeam"><span class='state state-client state-server'>ITEM.base_uniform:SetTeam(data)</span></a></td>
 	<td class="summary">Sets the team of an item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetBatch"><span class='state state-client state-server'>ITEM.base_ammo:SetBatch(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetBatch"><span class='state state-client state-server'>ITEM.base_uniform:SetBatch(data)</span></a></td>
 	<td class="summary">Sets the number of items created in a press of the manufacture button.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetMember"><span class='state state-client state-server'>ITEM.base_ammo:SetMember(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetMember"><span class='state state-client state-server'>ITEM.base_uniform:SetMember(data)</span></a></td>
 	<td class="summary">Sets the required membership level to use this item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetREPs"><span class='state state-client state-server'>ITEM.base_ammo:SetREPs(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetREPs"><span class='state state-client state-server'>ITEM.base_uniform:SetREPs(data)</span></a></td>
 	<td class="summary">Sets the required REP count to use this item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetREP"><span class='state state-client state-server'>ITEM.base_ammo:SetREP(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetREP"><span class='state state-client state-server'>ITEM.base_uniform:SetREP(data)</span></a></td>
 	<td class="summary">Alias of ITEM:SetREPs</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetCanUse"><span class='state state-client state-server'>ITEM.base_ammo:SetCanUse(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetCanUse"><span class='state state-client state-server'>ITEM.base_uniform:SetCanUse(data)</span></a></td>
 	<td class="summary">Sets the canUse function on this item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetSize"><span class='state state-client state-server'>ITEM.base_ammo:SetSize(data)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetSize"><span class='state state-client state-server'>ITEM.base_uniform:SetSize(data)</span></a></td>
 	<td class="summary">Sets the inventory size of this item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetName"><span class='state state-client state-server'>ITEM.base_ammo:SetName(name[, Plural=<name>s])</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetName"><span class='state state-client state-server'>ITEM.base_uniform:SetName(name[, Plural=<name>s])</span></a></td>
 	<td class="summary">Sets the name of an item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetModel"><span class='state state-client state-server'>ITEM.base_ammo:SetModel(model, skin[, Should])</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetModel"><span class='state state-client state-server'>ITEM.base_uniform:SetModel(model, skin[, Should])</span></a></td>
 	<td class="summary">Sets the model of the item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetStoreModel"><span class='state state-client state-server'>ITEM.base_ammo:SetStoreModel(model, skin)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetStoreModel"><span class='state state-client state-server'>ITEM.base_uniform:SetStoreModel(model, skin)</span></a></td>
 	<td class="summary">Sets the store model of the item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetStoreSkin"><span class='state state-client state-server'>ITEM.base_ammo:SetStoreSkin(skin[, autoStore])</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetStoreSkin"><span class='state state-client state-server'>ITEM.base_uniform:SetStoreSkin(skin[, autoStore])</span></a></td>
 	<td class="summary">Sets the store skin of the item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetPlural"><span class='state state-client state-server'>ITEM.base_ammo:SetPlural([name])</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetPlural"><span class='state state-client state-server'>ITEM.base_uniform:SetPlural([name])</span></a></td>
 	<td class="summary">Sets the item's plural.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:SetStore"><span class='state state-client state-server'>ITEM.base_ammo:SetStore(val)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:SetStore"><span class='state state-client state-server'>ITEM.base_uniform:SetStore(val)</span></a></td>
 	<td class="summary">Set if the item is in store, and its batch amount.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:Replaced"><span class='state state-client state-server'>ITEM.base_ammo:Replaced([by])</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:Replaced"><span class='state state-client state-server'>ITEM.base_uniform:Replaced([by])</span></a></td>
 	<td class="summary">Sets if a item is replaced.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:Replacement"><span class='state state-client state-server'>ITEM.base_ammo:Replacement(new, old)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:Replacement"><span class='state state-client state-server'>ITEM.base_uniform:Replacement(new, old)</span></a></td>
 	<td class="summary">Create a simple replacement item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:canUse"><span class='state state-client state-server'>ITEM.base_ammo:canUse(ply)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:canUse"><span class='state state-client state-server'>ITEM.base_uniform:canUse(ply)</span></a></td>
 	<td class="summary">Checks if a item can be used.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:canGive"><span class='state state-client state-server'>ITEM.base_ammo:canGive(ply, to, amt)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:canGive"><span class='state state-client state-server'>ITEM.base_uniform:canGive(ply, to, amt)</span></a></td>
 	<td class="summary">Checks if a item can be given.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:canRemove"><span class='state state-client state-server'>ITEM.base_ammo:canRemove(ply)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:canRemove"><span class='state state-client state-server'>ITEM.base_uniform:canRemove(ply)</span></a></td>
 	<td class="summary">Checks if a item can be removed.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:canDrop"><span class='state state-client state-server'>ITEM.base_ammo:canDrop(ply, pos, amt)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:canDrop"><span class='state state-client state-server'>ITEM.base_uniform:canDrop(ply, pos, amt)</span></a></td>
 	<td class="summary">Checks if a item can be dropped.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:canDestroy"><span class='state state-client state-server'>ITEM.base_ammo:canDestroy(ply, amt)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:canDestroy"><span class='state state-client state-server'>ITEM.base_uniform:canDestroy(ply, amt)</span></a></td>
 	<td class="summary">Checks if a item can be destroyed.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:canPickup"><span class='state state-client state-server'>ITEM.base_ammo:canPickup(ply)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:canPickup"><span class='state state-client state-server'>ITEM.base_uniform:canPickup(ply)</span></a></td>
 	<td class="summary">Checks if a item can be picked up.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:canSell"><span class='state state-client state-server'>ITEM.base_ammo:canSell(ply, amt)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:canSell"><span class='state state-client state-server'>ITEM.base_uniform:canSell(ply, amt)</span></a></td>
 	<td class="summary">Checks if a item can be sold up.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ITEM.base_ammo:canPlace"><span class='state state-client state-server'>ITEM.base_ammo:canPlace(ply, pos, amt)</span></a></td>
+	<td class="name" nowrap><a href="#ITEM.base_uniform:canPlace"><span class='state state-client state-server'>ITEM.base_uniform:canPlace(ply, pos, amt)</span></a></td>
 	<td class="summary">Checks if a item can be placed.</td>
 	</tr>
 </table>
@@ -465,8 +465,8 @@
     <div class="ll-module-body">
     <dl class="function">
     <dt>
-    <a name = "ITEM.base_ammo.name"></a>
-    <strong>ITEM.base_ammo.name</strong>
+    <a name = "ITEM.base_uniform.name"></a>
+    <strong>ITEM.base_uniform.name</strong>
     </dt>
     <dd>
     Item Name.
@@ -488,8 +488,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo.description"></a>
-    <strong>ITEM.base_ammo.description</strong>
+    <a name = "ITEM.base_uniform.description"></a>
+    <strong>ITEM.base_uniform.description</strong>
     </dt>
     <dd>
     Description of the item.
@@ -513,8 +513,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo.size"></a>
-    <strong>ITEM.base_ammo.size</strong>
+    <a name = "ITEM.base_uniform.size"></a>
+    <strong>ITEM.base_uniform.size</strong>
     </dt>
     <dd>
     Item Size
@@ -536,8 +536,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo.cost"></a>
-    <strong>ITEM.base_ammo.cost</strong>
+    <a name = "ITEM.base_uniform.cost"></a>
+    <strong>ITEM.base_uniform.cost</strong>
     </dt>
     <dd>
     Item Cost
@@ -560,8 +560,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo.model"></a>
-    <strong>ITEM.base_ammo.model</strong>
+    <a name = "ITEM.base_uniform.model"></a>
+    <strong>ITEM.base_uniform.model</strong>
     </dt>
     <dd>
     Model Path
@@ -583,8 +583,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo.store"></a>
-    <strong>ITEM.base_ammo.store</strong>
+    <a name = "ITEM.base_uniform.store"></a>
+    <strong>ITEM.base_uniform.store</strong>
     </dt>
     <dd>
     Market Availability
@@ -608,8 +608,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo.category"></a>
-    <strong>ITEM.base_ammo.category</strong>
+    <a name = "ITEM.base_uniform.category"></a>
+    <strong>ITEM.base_uniform.category</strong>
     </dt>
     <dd>
     Inventory / Market Category
@@ -633,8 +633,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo.skin"></a>
-    <strong>ITEM.base_ammo.skin</strong>
+    <a name = "ITEM.base_uniform.skin"></a>
+    <strong>ITEM.base_uniform.skin</strong>
     </dt>
     <dd>
     Skin used in the F1 menu.
@@ -658,8 +658,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo.__index"></a>
-    <strong>ITEM.base_ammo.__index</strong>
+    <a name = "ITEM.base_uniform.__index"></a>
+    <strong>ITEM.base_uniform.__index</strong>
     </dt>
     <dd>
     The lookup index for the item metatable.
@@ -688,12 +688,11 @@
     <div class="ll-module-body">
     <dl class="function">
     <dt>
-    <a name = "ITEM.base_ammo:SetAmmo"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetAmmo(ammoType, ammoValue)</span></strong>
+    <a name = "ITEM.base_uniform:SetNonMember"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetNonMember(data)</span></strong>
     </dt>
     <dd>
-    Set the type and value of ammo used.
- Calling this also sets the category.
+    Sets the clothing to not be membership.
     </ul>
     </ul>
     </ul>
@@ -702,19 +701,63 @@
     </ul>
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">ammoType</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
-         Ammo Class to give.
-        </li>
-        <li><span class="parameter">ammoValue</span>
-            <span class="types"><span class="type">number</span></span>
-         Amount of ammo to give.
+        <li><span class="parameter">data</span>
+            <span class="types"><span class="type">bool</span></span>
+         NonMember flag setting.
         </li>
     </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/ITEM.html#">ITEM</a></span>
+
+
+
+    </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/ITEM.base_clothing.html#">ITEM.base_clothing</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:New"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:New(base, data)</span></strong>
+    <a name = "ITEM.base_uniform:SetEmotes"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetEmotes(on, off)</span></strong>
+    </dt>
+    <dd>
+    Set on/off emotes.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">on</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Equip Emote.
+        </li>
+        <li><span class="parameter">off</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Dequip Emote.
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/ITEM.html#">ITEM</a></span>
+
+
+
+    </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/ITEM.base_clothing.html#">ITEM.base_clothing</a>
+	</ul>
+</dd>
+    <dt>
+    <a name = "ITEM.base_uniform:New"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:New(base, data)</span></strong>
     </dt>
     <dd>
     Create a new item.
@@ -749,8 +792,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:Clone"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:Clone()</span></strong>
+    <a name = "ITEM.base_uniform:Clone"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:Clone()</span></strong>
     </dt>
     <dd>
     Clone an item.
@@ -775,8 +818,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:Merge"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:Merge(data)</span></strong>
+    <a name = "ITEM.base_uniform:Merge"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:Merge(data)</span></strong>
     </dt>
     <dd>
     Merge a table of data into the item.
@@ -807,8 +850,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetData"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetData(name, value)</span></strong>
+    <a name = "ITEM.base_uniform:SetData"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetData(name, value)</span></strong>
     </dt>
     <dd>
     Set a single key on the item.
@@ -842,8 +885,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:Register"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:Register([id])</span></strong>
+    <a name = "ITEM.base_uniform:Register"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:Register([id])</span></strong>
     </dt>
     <dd>
     Register an item.
@@ -868,8 +911,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:AutoFunction"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:AutoFunction(name, key)</span></strong>
+    <a name = "ITEM.base_uniform:AutoFunction"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:AutoFunction(name, key)</span></strong>
     </dt>
     <dd>
     Creates an automatically named setter function.
@@ -917,8 +960,8 @@
     </ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetCost"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetCost(cost)</span></strong>
+    <a name = "ITEM.base_uniform:SetCost"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetCost(cost)</span></strong>
     </dt>
     <dd>
     Sets the Market Cost.
@@ -949,8 +992,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetPrice"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetPrice(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetPrice"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetPrice(data)</span></strong>
     </dt>
     <dd>
     Alias of ITEM:SetCost
@@ -985,8 +1028,8 @@
     </ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetDescription"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetDescription(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetDescription"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetDescription(data)</span></strong>
     </dt>
     <dd>
     Sets the Description of an item.
@@ -1017,8 +1060,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetDesc"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetDesc(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetDesc"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetDesc(data)</span></strong>
     </dt>
     <dd>
     Alias of ITEM:SetDescription
@@ -1053,8 +1096,8 @@
     </ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetCategory"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetCategory(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetCategory"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetCategory(data)</span></strong>
     </dt>
     <dd>
     Sets the category of an item.
@@ -1085,8 +1128,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetCat"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetCat(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetCat"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetCat(data)</span></strong>
     </dt>
     <dd>
     Alias of ITEM:SetCategory
@@ -1121,8 +1164,8 @@
     </ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetTeam"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetTeam(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetTeam"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetTeam(data)</span></strong>
     </dt>
     <dd>
     Sets the team of an item.
@@ -1153,8 +1196,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetBatch"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetBatch(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetBatch"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetBatch(data)</span></strong>
     </dt>
     <dd>
     Sets the number of items created in a press of the manufacture button.
@@ -1185,8 +1228,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetMember"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetMember(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetMember"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetMember(data)</span></strong>
     </dt>
     <dd>
     Sets the required membership level to use this item.
@@ -1217,8 +1260,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetREPs"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetREPs(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetREPs"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetREPs(data)</span></strong>
     </dt>
     <dd>
     Sets the required REP count to use this item.
@@ -1249,8 +1292,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetREP"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetREP(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetREP"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetREP(data)</span></strong>
     </dt>
     <dd>
     Alias of ITEM:SetREPs
@@ -1285,8 +1328,8 @@
     </ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetCanUse"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetCanUse(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetCanUse"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetCanUse(data)</span></strong>
     </dt>
     <dd>
     Sets the canUse function on this item.
@@ -1317,8 +1360,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetSize"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetSize(data)</span></strong>
+    <a name = "ITEM.base_uniform:SetSize"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetSize(data)</span></strong>
     </dt>
     <dd>
     Sets the inventory size of this item.
@@ -1349,8 +1392,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetName"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetName(name[, Plural=<name>s])</span></strong>
+    <a name = "ITEM.base_uniform:SetName"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetName(name[, Plural=<name>s])</span></strong>
     </dt>
     <dd>
     Sets the name of an item.
@@ -1382,8 +1425,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetModel"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetModel(model, skin[, Should])</span></strong>
+    <a name = "ITEM.base_uniform:SetModel"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetModel(model, skin[, Should])</span></strong>
     </dt>
     <dd>
     Sets the model of the item.
@@ -1425,8 +1468,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetStoreModel"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetStoreModel(model, skin)</span></strong>
+    <a name = "ITEM.base_uniform:SetStoreModel"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetStoreModel(model, skin)</span></strong>
     </dt>
     <dd>
     Sets the store model of the item.
@@ -1462,8 +1505,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetStoreSkin"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetStoreSkin(skin[, autoStore])</span></strong>
+    <a name = "ITEM.base_uniform:SetStoreSkin"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetStoreSkin(skin[, autoStore])</span></strong>
     </dt>
     <dd>
     Sets the store skin of the item.
@@ -1492,8 +1535,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetPlural"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetPlural([name])</span></strong>
+    <a name = "ITEM.base_uniform:SetPlural"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetPlural([name])</span></strong>
     </dt>
     <dd>
     Sets the item's plural.
@@ -1530,8 +1573,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:SetStore"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:SetStore(val)</span></strong>
+    <a name = "ITEM.base_uniform:SetStore"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:SetStore(val)</span></strong>
     </dt>
     <dd>
     Set if the item is in store, and its batch amount.
@@ -1565,8 +1608,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:Replaced"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:Replaced([by])</span></strong>
+    <a name = "ITEM.base_uniform:Replaced"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:Replaced([by])</span></strong>
     </dt>
     <dd>
     Sets if a item is replaced.
@@ -1599,8 +1642,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:Replacement"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:Replacement(new, old)</span></strong>
+    <a name = "ITEM.base_uniform:Replacement"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:Replacement(new, old)</span></strong>
     </dt>
     <dd>
     Create a simple replacement item.
@@ -1628,8 +1671,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:canUse"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:canUse(ply)</span></strong>
+    <a name = "ITEM.base_uniform:canUse"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:canUse(ply)</span></strong>
     </dt>
     <dd>
     Checks if a item can be used.
@@ -1661,8 +1704,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:canGive"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:canGive(ply, to, amt)</span></strong>
+    <a name = "ITEM.base_uniform:canGive"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:canGive(ply, to, amt)</span></strong>
     </dt>
     <dd>
     Checks if a item can be given.
@@ -1702,8 +1745,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:canRemove"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:canRemove(ply)</span></strong>
+    <a name = "ITEM.base_uniform:canRemove"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:canRemove(ply)</span></strong>
     </dt>
     <dd>
     Checks if a item can be removed.
@@ -1735,8 +1778,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:canDrop"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:canDrop(ply, pos, amt)</span></strong>
+    <a name = "ITEM.base_uniform:canDrop"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:canDrop(ply, pos, amt)</span></strong>
     </dt>
     <dd>
     Checks if a item can be dropped.
@@ -1776,8 +1819,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:canDestroy"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:canDestroy(ply, amt)</span></strong>
+    <a name = "ITEM.base_uniform:canDestroy"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:canDestroy(ply, amt)</span></strong>
     </dt>
     <dd>
     Checks if a item can be destroyed.
@@ -1813,8 +1856,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:canPickup"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:canPickup(ply)</span></strong>
+    <a name = "ITEM.base_uniform:canPickup"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:canPickup(ply)</span></strong>
     </dt>
     <dd>
     Checks if a item can be picked up.
@@ -1846,8 +1889,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:canSell"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:canSell(ply, amt)</span></strong>
+    <a name = "ITEM.base_uniform:canSell"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:canSell(ply, amt)</span></strong>
     </dt>
     <dd>
     Checks if a item can be sold up.
@@ -1883,8 +1926,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "ITEM.base_ammo:canPlace"></a>
-    <strong><span class='state state-client state-server'>ITEM.base_ammo:canPlace(ply, pos, amt)</span></strong>
+    <a name = "ITEM.base_uniform:canPlace"></a>
+    <strong><span class='state state-client state-server'>ITEM.base_uniform:canPlace(ply, pos, amt)</span></strong>
     </dt>
     <dd>
     Checks if a item can be placed.
