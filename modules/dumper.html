@@ -22,11 +22,6 @@
 			<div id="navigation">
 				<div class="ll-kind-header">
 					<h1>CityRP 2</h1>
-					<div class="header-module">
-        				<li>Copyright: © Limelight Gaming LTD.</li>
-        				<li>Release: CityRP 2</li>
-        				<li>Author: Steven A. (Burnett) <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#x3a;s&#45;&#x38;&#64;&#x70;&#111;&#x73;&#116;&#x65;o&#46;&#x6d;&#120;">&#x73;&#45;&#x38;&#64;&#x70;&#111;&#x73;t&#101;&#x6f;&#46;&#x6d;&#120;</a></li>
-					</div>
 				</div>
 				<div class="ll-kind-body">
 					<ul>
@@ -34,6 +29,10 @@
 					</ul>
 				</div>
 
+				<div class="ll-kind-header"><h2>Contents</h2></div>
+				<ul class="ll-kind-body">
+					<li><a href="#Functions">Functions</a></li>
+				</ul>
 
 
 
@@ -64,7 +63,7 @@
 					<li><a href="../modules/core.libraries.meska.achievements.client.hud.html">core.libraries.meska.achievements.client.hud</a></li>
 					<li><a href="../modules/core.libraries.meska.achievements.server.html">core.libraries.meska.achievements.server</a></li>
 					<li><a href="../modules/core.libraries.meska.client.html">core.libraries.meska.client</a></li>
-					<li><strong>core.libraries.meska.config</strong></li>
+					<li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 					<li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
 					<li><a href="../modules/core.libraries.meska.custombonus.boot.html">core.libraries.meska.custombonus.boot</a></li>
 					<li><a href="../modules/core.libraries.meska.custombonus.client.hud.html">core.libraries.meska.custombonus.client.hud</a></li>
@@ -86,7 +85,7 @@
 					<li><a href="../modules/core.libraries.meska.skills.shared.meta.html">core.libraries.meska.skills.shared.meta</a></li>
 					<li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
 					<li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
-					<li><a href="../modules/dumper.html">dumper</a></li>
+					<li><strong>dumper</strong></li>
 					<li><a href="../modules/functions.html">functions</a></li>
 					<li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
 					<li><a href="../modules/internet.html">internet</a></li>
@@ -250,13 +249,9 @@
 
 
 			<div id="content">
-				<div class="ll-module-header"><h1>Module <code>core.libraries.meska.config</code></h1></div>
+				<div class="ll-module-header"><h1>Module <code>dumper</code></h1></div>
 				<div class="ll-module-body">
-					Metrics-Skill-Achievement Framework (MESKA)
-The configuration file.
-
-
-
+					(no description)
 				</div>
 
 
@@ -265,7 +260,128 @@ The configuration file.
 
 
 
+<div class="ll-module-header"><h2>Module Overview</h2></div>
+<div class="ll-module-body">
 
+<h3><a href="#Functions">Functions</a></h3>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#inspect"><span class='state state-client state-server'>inspect(var[, level=0[, seen={}]])</span></a></td>
+	<td class="summary">Provides a human readable version of variables.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#keyify"><span class='state state-client state-server'>keyify(var)</span></a></td>
+	<td class="summary">Converts a variable into a string key equivilent.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#export"><span class='state state-client state-server'>export(var[, level=0[, seen={}]])</span></a></td>
+	<td class="summary">Provides a human &amp; machine readable version of variables.</td>
+	</tr>
+</table>
+</div>
+
+	<div class="ll-module-header"><h2 class="section-header "><a name="Functions"></a>Functions</h2></div>
+    <div class="ll-module-body">
+    <dl class="function">
+    <dt>
+    <a name = "inspect"></a>
+    <strong><span class='state state-client state-server'>inspect(var[, level=0[, seen={}]])</span></strong>
+    </dt>
+    <dd>
+    Provides a human readable version of variables.
+ Equivilent to PHP's print<em>r or var</em>dump.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">var</span>
+         Input variable.
+        </li>
+        <li><span class="parameter">level</span>
+            <span class="types"><span class="type">number</span></span>
+         Initial Indent Level (for tables).
+         (<em>default</em> 0)
+        </li>
+        <li><span class="parameter">seen</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.6">table</a></span>
+         Table of seen variables.
+         (<em>default</em> {})
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+        Readable version.
+    </ol>
+</dd>
+    <dt>
+    <a name = "keyify"></a>
+    <strong><span class='state state-client state-server'>keyify(var)</span></strong>
+    </dt>
+    <dd>
+    Converts a variable into a string key equivilent.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">var</span>
+         Input variable.
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+        Table key.
+    </ol>
+</dd>
+    <dt>
+    <a name = "export"></a>
+    <strong><span class='state state-client state-server'>export(var[, level=0[, seen={}]])</span></strong>
+    </dt>
+    <dd>
+    Provides a human &amp; machine readable version of variables.
+ Equivilent to PHP's var_export
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">var</span>
+         Input variable.
+        </li>
+        <li><span class="parameter">level</span>
+            <span class="types"><span class="type">number</span></span>
+         Initial Indent Level (for tables).
+         (<em>default</em> 0)
+        </li>
+        <li><span class="parameter">seen</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.6">table</a></span>
+         Table of seen variables.
+         (<em>default</em> {})
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+        Readable version.
+    </ol>
+</dd>
+</dl>
+</div>
 </div>
 </div> <!-- id="content" -->
 </div>
