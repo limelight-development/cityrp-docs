@@ -25,7 +25,7 @@
 					<div class="header-module">
         				<li>Copyright: 2015-2019 Limelight Gaming</li>
         				<li>Release: CityRP 2</li>
-        				<li>Author: Legacy Team</li>
+        				<li>Author: Doctor Internet</li>
 					</div>
 				</div>
 				<div class="ll-kind-body">
@@ -34,12 +34,29 @@
 					</ul>
 				</div>
 
-				<div class="ll-kind-header"><h2>Contents</h2></div>
-				<ul class="ll-kind-body">
-					<li><a href="#Functions">Functions</a></li>
+
+
+
+				<div class="ll-kind-header"><h2>Panels</h2></div>
+				<ul class="ll-kind-body nowrap">
+					<li><a href="../panels/dcoloredicon.html">dcoloredicon</a></li>
+					<li><a href="../panels/dfillicon.html">dfillicon</a></li>
+					<li><a href="../panels/diconlabel.html">diconlabel</a></li>
+					<li><strong>dinfolabel</strong></li>
+					<li><a href="../panels/dinfopanel.html">dinfopanel</a></li>
+					<li><a href="../panels/ditemtitle.html">ditemtitle</a></li>
+					<li><a href="../panels/dlimitedtextentry.html">dlimitedtextentry</a></li>
+					<li><a href="../panels/doptionpanel.html">doptionpanel</a></li>
+					<li><a href="../panels/dpropamt.html">dpropamt</a></li>
+					<li><a href="../panels/dradio.html">dradio</a></li>
+					<li><a href="../panels/dtexturedprogress.html">dtexturedprogress</a></li>
+					<li><a href="../panels/dwepinfo.html">dwepinfo</a></li>
+					<li><a href="../panels/hud_botleft.html">hud_botleft</a></li>
+					<li><a href="../panels/hud_topleft.html">hud_topleft</a></li>
+					<li><a href="../panels/hud_vehicle.html">hud_vehicle</a></li>
+					<li><a href="../panels/sh_urlpanel.html">sh_urlpanel</a></li>
+					<li><a href="../panels/functions.html">functions</a></li>
 				</ul>
-
-
 
 				<div class="ll-kind-header"><h2>Modules</h2></div>
 				<ul class="ll-kind-body nowrap">
@@ -174,7 +191,7 @@
 					<li><a href="../modules/core.plugins.vehicle_skins.sh_init.html">core.plugins.vehicle_skins.sh_init</a></li>
 					<li><a href="../modules/core.plugins.vehicle_skins.sv_init.html">core.plugins.vehicle_skins.sv_init</a></li>
 					<li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
-					<li><strong>core.plugins.vehicles.sh_init</strong></li>
+					<li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
 					<li><a href="../modules/core.plugins.vehicles.sh_vehicles.html">core.plugins.vehicles.sh_vehicles</a></li>
 					<li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
 					<li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
@@ -225,27 +242,6 @@
 					<li><a href="../classes/DB.html">DB</a></li>
 				</ul>
 
-				<div class="ll-kind-header"><h2>Panels</h2></div>
-				<ul class="ll-kind-body nowrap">
-					<li><a href="../panels/dcoloredicon.html">dcoloredicon</a></li>
-					<li><a href="../panels/dfillicon.html">dfillicon</a></li>
-					<li><a href="../panels/diconlabel.html">diconlabel</a></li>
-					<li><a href="../panels/dinfolabel.html">dinfolabel</a></li>
-					<li><a href="../panels/dinfopanel.html">dinfopanel</a></li>
-					<li><a href="../panels/ditemtitle.html">ditemtitle</a></li>
-					<li><a href="../panels/dlimitedtextentry.html">dlimitedtextentry</a></li>
-					<li><a href="../panels/doptionpanel.html">doptionpanel</a></li>
-					<li><a href="../panels/dpropamt.html">dpropamt</a></li>
-					<li><a href="../panels/dradio.html">dradio</a></li>
-					<li><a href="../panels/dtexturedprogress.html">dtexturedprogress</a></li>
-					<li><a href="../panels/dwepinfo.html">dwepinfo</a></li>
-					<li><a href="../panels/hud_botleft.html">hud_botleft</a></li>
-					<li><a href="../panels/hud_topleft.html">hud_topleft</a></li>
-					<li><a href="../panels/hud_vehicle.html">hud_vehicle</a></li>
-					<li><a href="../panels/sh_urlpanel.html">sh_urlpanel</a></li>
-					<li><a href="../panels/functions.html">functions</a></li>
-				</ul>
-
 				<div class="ll-kind-header"><h2>Topics</h2></div>
 				<ul class="ll-kind-body ">
 					<li><a href="../topics/items.md.html">items</a></li>
@@ -264,9 +260,9 @@
 
 
 			<div id="content">
-				<div class="ll-module-header"><h1>Module <code>core.plugins.vehicles.sh_init</code></h1></div>
+				<div class="ll-module-header"><h1>Panel <code>dinfolabel</code></h1></div>
 				<div class="ll-module-body">
-					Shared Vehicles Plugin.
+					Market Informational Label.
 
 
 
@@ -278,45 +274,7 @@
 
 
 
-<div class="ll-module-header"><h2>Module Overview</h2></div>
-<div class="ll-module-body">
 
-<h3><a href="#Functions">Functions</a></h3>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#HandleRollercoasterAnimation"><span class='state state-client state-server'>HandleRollercoasterAnimation(player, vehicle)</span></a></td>
-	<td class="summary">Function to handle the roller coaster animations?</td>
-	</tr>
-</table>
-</div>
-
-	<div class="ll-module-header"><h2 class="section-header "><a name="Functions"></a>Functions</h2></div>
-    <div class="ll-module-body">
-    <dl class="function">
-    <dt>
-    <a name = "HandleRollercoasterAnimation"></a>
-    <strong><span class='state state-client state-server'>HandleRollercoasterAnimation(player, vehicle)</span></strong>
-    </dt>
-    <dd>
-    Function to handle the roller coaster animations?
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">player</span>
-         The player who's being handled?
-        </li>
-        <li><span class="parameter">vehicle</span>
-         Unused.
-        </li>
-    </ul>
-</dd>
-</dl>
-</div>
 </div>
 </div> <!-- id="content" -->
 </div>
