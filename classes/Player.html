@@ -1,0 +1,3232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    	<title>CityRP Documentation</title>
+    	<link rel="stylesheet" href="../ldoc.css" type="text/css">
+
+		<link rel="stylesheet" href="../style.css" type="text/css">
+	</head>
+	<body>
+	<div id="container">
+		<div id="product">
+			<div id="product_logo"></div>
+			<div id="product_name"><big><b></b></big></div>
+			<div id="product_description"></div>
+		</div>
+		<!-- id="product" -->
+
+		<div id="main">
+
+			<!-- Menu -->
+			<div id="navigation">
+				<div class="ll-kind-header">
+					<h1>CityRP 2</h1>
+					<div class="header-module">
+        				<li>Copyright: 2015-2025 Limelight Gaming</li>
+        				<li>Release: CityRP 2</li>
+        				<li>Author: Legacy Team.</li>
+					</div>
+				</div>
+				<div class="ll-kind-body">
+					<ul>
+						<li><a href="../index.html">Index</a></li>
+					</ul>
+				</div>
+
+				<div class="ll-kind-header"><h2>Contents</h2></div>
+				<ul class="ll-kind-body">
+					<li><a href="#Methods">Methods</a></li>
+				</ul>
+
+
+
+				<div class="ll-kind-header"><h2>Classes</h2></div>
+				<ul class="ll-kind-body nowrap">
+					<li><a href="../classes/PANEL.cityrp_Cards.html">PANEL.cityrp_Cards</a></li>
+					<li><a href="../classes/PANEL.cityrp_Character.html">PANEL.cityrp_Character</a></li>
+					<li><a href="../classes/PANEL.cityrp_Clan.html">PANEL.cityrp_Clan</a></li>
+					<li><a href="../classes/PANEL.cityrp_Commands.html">PANEL.cityrp_Commands</a></li>
+					<li><a href="../classes/PANEL.cityrp_Feedback.html">PANEL.cityrp_Feedback</a></li>
+					<li><a href="../classes/PANEL.cityrp_Credits.html">PANEL.cityrp_Credits</a></li>
+					<li><a href="../classes/DScaleItemPanel.html">DScaleItemPanel</a></li>
+					<li><a href="../classes/cityrp_LawRow.html">cityrp_LawRow</a></li>
+					<li><a href="../classes/PANEL.cityrp_Map.html">PANEL.cityrp_Map</a></li>
+					<li><a href="../classes/ITEM.base_accessory.html">ITEM.base_accessory</a></li>
+					<li><a href="../classes/ITEM.base_ammo.html">ITEM.base_ammo</a></li>
+					<li><a href="../classes/ITEM.base_clothing.html">ITEM.base_clothing</a></li>
+					<li><a href="../classes/ITEM.base_collectable.html">ITEM.base_collectable</a></li>
+					<li><a href="../classes/ITEM.base_food.html">ITEM.base_food</a></li>
+					<li><a href="../classes/ITEM.base_ingredients.html">ITEM.base_ingredients</a></li>
+					<li><a href="../classes/ITEM.base_modelbg.html">ITEM.base_modelbg</a></li>
+					<li><a href="../classes/ITEM.base_outfit.html">ITEM.base_outfit</a></li>
+					<li><a href="../classes/ITEM.base_spawnable.html">ITEM.base_spawnable</a></li>
+					<li><a href="../classes/ITEM.base_suit.html">ITEM.base_suit</a></li>
+					<li><a href="../classes/ITEM.base_uniform.html">ITEM.base_uniform</a></li>
+					<li><a href="../classes/ITEM.base_vehicle.html">ITEM.base_vehicle</a></li>
+					<li><a href="../classes/ITEM.base_weapon.html">ITEM.base_weapon</a></li>
+					<li><a href="../classes/ITEM.html">ITEM</a></li>
+					<li><a href="../classes/PLUGIN.html">PLUGIN</a></li>
+					<li><strong>Player</strong></li>
+					<li><a href="../classes/PLUGIN.worldprops.html">PLUGIN.worldprops</a></li>
+					<li><a href="../classes/DB.html">DB</a></li>
+				</ul>
+
+				<div class="ll-kind-header"><h2>Modules</h2></div>
+				<ul class="ll-kind-body nowrap">
+					<li><a href="../modules/GM.html">GM</a></li>
+					<li><a href="../modules/notification.html">notification</a></li>
+					<li><a href="../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+					<li><a href="../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+					<li><a href="../modules/temar.html">temar</a></li>
+					<li><a href="../modules/core.libraries.meska.achievements.boot.html">core.libraries.meska.achievements.boot</a></li>
+					<li><a href="../modules/core.libraries.meska.achievements.client.hud.html">core.libraries.meska.achievements.client.hud</a></li>
+					<li><a href="../modules/core.libraries.meska.achievements.server.html">core.libraries.meska.achievements.server</a></li>
+					<li><a href="../modules/core.libraries.meska.client.html">core.libraries.meska.client</a></li>
+					<li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+					<li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+					<li><a href="../modules/core.libraries.meska.custombonus.boot.html">core.libraries.meska.custombonus.boot</a></li>
+					<li><a href="../modules/core.libraries.meska.custombonus.client.hud.html">core.libraries.meska.custombonus.client.hud</a></li>
+					<li><a href="../modules/core.libraries.meska.custombonus.server.html">core.libraries.meska.custombonus.server</a></li>
+					<li><a href="../modules/core.libraries.meska.dailybonus.boot.html">core.libraries.meska.dailybonus.boot</a></li>
+					<li><a href="../modules/core.libraries.meska.dailybonus.client.hud.html">core.libraries.meska.dailybonus.client.hud</a></li>
+					<li><a href="../modules/core.libraries.meska.dailybonus.server.html">core.libraries.meska.dailybonus.server</a></li>
+					<li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+					<li><a href="../modules/core.libraries.meska.hooks.html">core.libraries.meska.hooks</a></li>
+					<li><a href="../modules/core.libraries.meska.html">core.libraries.meska</a></li>
+					<li><a href="../modules/core.libraries.meska.metrics.boot.html">core.libraries.meska.metrics.boot</a></li>
+					<li><a href="../modules/core.libraries.meska.metrics.server.html">core.libraries.meska.metrics.server</a></li>
+					<li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+					<li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+					<li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+					<li><a href="../modules/core.libraries.meska.skills.boot.html">core.libraries.meska.skills.boot</a></li>
+					<li><a href="../modules/core.libraries.meska.skills.client.hud.html">core.libraries.meska.skills.client.hud</a></li>
+					<li><a href="../modules/core.libraries.meska.skills.server.html">core.libraries.meska.skills.server</a></li>
+					<li><a href="../modules/core.libraries.meska.skills.shared.meta.html">core.libraries.meska.skills.shared.meta</a></li>
+					<li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+					<li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
+					<li><a href="../modules/dumper.html">dumper</a></li>
+					<li><a href="../modules/functions.html">functions</a></li>
+					<li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
+					<li><a href="../modules/internet.html">internet</a></li>
+					<li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
+					<li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+					<li><a href="../modules/cityrp.table.html">cityrp.table</a></li>
+					<li><a href="../modules/cityrp.team.html">cityrp.team</a></li>
+					<li><a href="../modules/workarounds.html">workarounds</a></li>
+					<li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
+					<li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
+					<li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+					<li><a href="../modules/core.libraries.sv_commands.html">core.libraries.sv_commands</a></li>
+					<li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
+					<li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
+					<li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+					<li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
+					<li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+					<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+					<li><a href="../modules/core.metatables.sv_entity.html">core.metatables.sv_entity</a></li>
+					<li><a href="../modules/core.metatables.sv_inventory.html">core.metatables.sv_inventory</a></li>
+					<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+					<li><a href="../modules/acpig.html.html">acpig.html</a></li>
+					<li><a href="../modules/acpig.html">acpig</a></li>
+					<li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+					<li><a href="../modules/core.plugins.admin_assist.cl_init.html">core.plugins.admin_assist.cl_init</a></li>
+					<li><a href="../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+					<li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+					<li><a href="../modules/core.plugins.adminhub.sh_init.html">core.plugins.adminhub.sh_init</a></li>
+					<li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+					<li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+					<li><a href="../modules/core.plugins.animations.sv_meta.html">core.plugins.animations.sv_meta</a></li>
+					<li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+					<li><a href="../modules/core.plugins.anonymous.cl_init.html">core.plugins.anonymous.cl_init</a></li>
+					<li><a href="../modules/core.plugins.autokick.cl_init.html">core.plugins.autokick.cl_init</a></li>
+					<li><a href="../modules/core.plugins.autokick.sv_init.html">core.plugins.autokick.sv_init</a></li>
+					<li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+					<li><a href="../modules/core.plugins.bodybags.sv_init.html">core.plugins.bodybags.sv_init</a></li>
+					<li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+					<li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+					<li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+					<li><a href="../modules/cityrp.door.html">cityrp.door</a></li>
+					<li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+					<li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+					<li><a href="../modules/core.plugins.laws.sv_init.html">core.plugins.laws.sv_init</a></li>
+					<li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+					<li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+					<li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+					<li><a href="../modules/core.plugins.lifealert.cl_init.html">core.plugins.lifealert.cl_init</a></li>
+					<li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+					<li><a href="../modules/core.plugins.lifealert.sv_init.html">core.plugins.lifealert.sv_init</a></li>
+					<li><a href="../modules/core.plugins.mazerunner.sv_init.html">core.plugins.mazerunner.sv_init</a></li>
+					<li><a href="../modules/core.plugins.mixtures.cl_init.html">core.plugins.mixtures.cl_init</a></li>
+					<li><a href="../modules/core.plugins.mixtures.sh_init.html">core.plugins.mixtures.sh_init</a></li>
+					<li><a href="../modules/core.plugins.mixtures.sv_init.html">core.plugins.mixtures.sv_init</a></li>
+					<li><a href="../modules/core.plugins.model-state.cl_init.html">core.plugins.model-state.cl_init</a></li>
+					<li><a href="../modules/core.plugins.onlinelog.cl_init.html">core.plugins.onlinelog.cl_init</a></li>
+					<li><a href="../modules/core.plugins.onlinelog.sh_init.html">core.plugins.onlinelog.sh_init</a></li>
+					<li><a href="../modules/core.plugins.onlinelog.sv_init.html">core.plugins.onlinelog.sv_init</a></li>
+					<li><a href="../modules/core.plugins.packaging.sv_init.html">core.plugins.packaging.sv_init</a></li>
+					<li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+					<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+					<li><a href="../modules/cityrp.phonebook.html">cityrp.phonebook</a></li>
+					<li><a href="../modules/core.plugins.pradio.sv_init.html">core.plugins.pradio.sv_init</a></li>
+					<li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+					<li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+					<li><a href="../modules/core.plugins.radio.cl_init.html">core.plugins.radio.cl_init</a></li>
+					<li><a href="../modules/core.plugins.radio.sv_init.html">core.plugins.radio.sv_init</a></li>
+					<li><a href="../modules/referrals.html">referrals</a></li>
+					<li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+					<li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+					<li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+					<li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+					<li><a href="../modules/core.plugins.savedeaths.sv_init.html">core.plugins.savedeaths.sv_init</a></li>
+					<li><a href="../modules/core.plugins.spawnpoints.cl_init.html">core.plugins.spawnpoints.cl_init</a></li>
+					<li><a href="../modules/core.plugins.spawnpoints.sv_init.html">core.plugins.spawnpoints.sv_init</a></li>
+					<li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+					<li><a href="../modules/core.plugins.stamina.sh_init.html">core.plugins.stamina.sh_init</a></li>
+					<li><a href="../modules/core.plugins.stamina.sv_init.html">core.plugins.stamina.sv_init</a></li>
+					<li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+					<li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+					<li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+					<li><a href="../modules/core.plugins.tracking.sv_init.html">core.plugins.tracking.sv_init</a></li>
+					<li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+					<li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+					<li><a href="../modules/core.plugins.typing.cl_init.html">core.plugins.typing.cl_init</a></li>
+					<li><a href="../modules/core.plugins.typing.sh_init.html">core.plugins.typing.sh_init</a></li>
+					<li><a href="../modules/core.plugins.typing.sv_init.html">core.plugins.typing.sv_init</a></li>
+					<li><a href="../modules/core.plugins.uniforms.sv_init.html">core.plugins.uniforms.sv_init</a></li>
+					<li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+					<li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+					<li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+					<li><a href="../modules/core.plugins.unownable.sv_init.html">core.plugins.unownable.sv_init</a></li>
+					<li><a href="../modules/core.plugins.vehicle_doors.sv_init.html">core.plugins.vehicle_doors.sv_init</a></li>
+					<li><a href="../modules/core.plugins.vehicle_skins.cl_init.html">core.plugins.vehicle_skins.cl_init</a></li>
+					<li><a href="../modules/core.plugins.vehicle_skins.sh_init.html">core.plugins.vehicle_skins.sh_init</a></li>
+					<li><a href="../modules/core.plugins.vehicle_skins.sv_init.html">core.plugins.vehicle_skins.sv_init</a></li>
+					<li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+					<li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+					<li><a href="../modules/core.plugins.vehicles.sh_vehicles.html">core.plugins.vehicles.sh_vehicles</a></li>
+					<li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+					<li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+					<li><a href="../modules/core.plugins.visible_protection.sh_init.html">core.plugins.visible_protection.sh_init</a></li>
+					<li><a href="../modules/core.plugins.visible_protection.sv_init.html">core.plugins.visible_protection.sv_init</a></li>
+					<li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+					<li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+					<li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+					<li><a href="../modules/core.plugins.voiceradio.sv_init.html">core.plugins.voiceradio.sv_init</a></li>
+					<li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+					<li><a href="../modules/core.plugins.warning.sh_init.html">core.plugins.warning.sh_init</a></li>
+					<li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+					<li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
+					<li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
+					<li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
+					<li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
+					<li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+					<li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+				</ul>
+
+				<div class="ll-kind-header"><h2>Panels</h2></div>
+				<ul class="ll-kind-body nowrap">
+					<li><a href="../panels/dcoloredicon.html">dcoloredicon</a></li>
+					<li><a href="../panels/dfillicon.html">dfillicon</a></li>
+					<li><a href="../panels/diconlabel.html">diconlabel</a></li>
+					<li><a href="../panels/dinfolabel.html">dinfolabel</a></li>
+					<li><a href="../panels/dinfopanel.html">dinfopanel</a></li>
+					<li><a href="../panels/ditemtitle.html">ditemtitle</a></li>
+					<li><a href="../panels/dlimitedtextentry.html">dlimitedtextentry</a></li>
+					<li><a href="../panels/doptionpanel.html">doptionpanel</a></li>
+					<li><a href="../panels/dpropamt.html">dpropamt</a></li>
+					<li><a href="../panels/dradio.html">dradio</a></li>
+					<li><a href="../panels/dtexturedprogress.html">dtexturedprogress</a></li>
+					<li><a href="../panels/dwepinfo.html">dwepinfo</a></li>
+					<li><a href="../panels/hud_botleft.html">hud_botleft</a></li>
+					<li><a href="../panels/hud_topleft.html">hud_topleft</a></li>
+					<li><a href="../panels/hud_vehicle.html">hud_vehicle</a></li>
+					<li><a href="../panels/sh_urlpanel.html">sh_urlpanel</a></li>
+					<li><a href="../panels/functions.html">functions</a></li>
+				</ul>
+
+				<div class="ll-kind-header"><h2>Topics</h2></div>
+				<ul class="ll-kind-body ">
+					<li><a href="../topics/items.md.html">items</a></li>
+				</ul>
+
+				<div class="ll-kind-header"><h2>Credits</h2></div>
+				<ul class="ll-kind-body">
+					<li><p>Generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a>.</p></li>
+					<li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li>
+					<li><p>Last Updated at 2025-01-15 22:15:24.</p></li>
+				</div>
+</div>
+
+
+</div>
+
+
+			<div id="content">
+				<div class="ll-module-header"><h1>Class <code>Player</code></h1></div>
+				<div class="ll-module-body">
+					Shared Player Metafunctions.
+
+
+
+				</div>
+
+
+
+
+
+
+
+<div class="ll-module-header"><h2>Class Overview</h2></div>
+<div class="ll-module-body">
+
+<h3><a href="#Methods">Methods</a></h3>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Player:CanStaffChat"><span class='state state-client state-server'>Player:CanStaffChat()</span></a></td>
+	<td class="summary">Check if a player can view staff chat.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Nick"><span class='state state-client state-server'>Player:Nick()</span></a></td>
+	<td class="summary">Get a player's nickname.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsOutside"><span class='state state-client state-server'>Player:IsOutside()</span></a></td>
+	<td class="summary">Check if a player is outside.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:ReturnOutside"><span class='state state-client state-server'>Player:ReturnOutside(ply)</span></a></td>
+	<td class="summary">Function for Console Command to check if the player is outside.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GenderWord"><span class='state state-client state-server'>Player:GenderWord()</span></a></td>
+	<td class="summary">Return the appropiate word for the player's gender.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsGovernment"><span class='state state-client state-server'>Player:IsGovernment()</span></a></td>
+	<td class="summary">Check if player is Pres, VP, SS, Swatleader, Swat, NDS, Policecleader, Police, Paramedic, Fireman</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsPresident"><span class='state state-client state-server'>Player:IsPresident()</span></a></td>
+	<td class="summary">Check if player is Pres or VP.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsPresidentAdministration"><span class='state state-client state-server'>Player:IsPresidentAdministration()</span></a></td>
+	<td class="summary">Check if player is Pres, VP or NDS.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsLawenforcement"><span class='state state-client state-server'>Player:IsLawenforcement()</span></a></td>
+	<td class="summary">Check if player is a law enforcer (SS, Cop, SWAT)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsSwat"><span class='state state-client state-server'>Player:IsSwat()</span></a></td>
+	<td class="summary">Check if player is a SWAT member.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsPolice"><span class='state state-client state-server'>Player:IsPolice()</span></a></td>
+	<td class="summary">Check if player is a Police Officer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsRescue"><span class='state state-client state-server'>Player:IsRescue()</span></a></td>
+	<td class="summary">Check if player is a rescue worker (EMS / Fire).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsRebel"><span class='state state-client state-server'>Player:IsRebel()</span></a></td>
+	<td class="summary">Check if player is a Rebel or Rebel Leader.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsMafia"><span class='state state-client state-server'>Player:IsMafia()</span></a></td>
+	<td class="summary">Check if player is a Mafia or Mafia Leader.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsSecretService"><span class='state state-client state-server'>Player:IsSecretService()</span></a></td>
+	<td class="summary">Check if player is a Secret Service Agent (Or Lead).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsActualPresident"><span class='state state-client state-server'>Player:IsActualPresident()</span></a></td>
+	<td class="summary">Check if player is the President.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsVicePresident"><span class='state state-client state-server'>Player:IsVicePresident()</span></a></td>
+	<td class="summary">Check if player is the VP.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsSwatLeader"><span class='state state-client state-server'>Player:IsSwatLeader()</span></a></td>
+	<td class="summary">Check if player is the SWAT Leader.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsSSLeader"><span class='state state-client state-server'>Player:IsSSLeader()</span></a></td>
+	<td class="summary">Check if player is the SS Lead.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsNexusDeskSecretary"><span class='state state-client state-server'>Player:IsNexusDeskSecretary()</span></a></td>
+	<td class="summary">Check if player is a Secretary.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsParamedic"><span class='state state-client state-server'>Player:IsParamedic()</span></a></td>
+	<td class="summary">Check if player is a Paramedic.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsFireman"><span class='state state-client state-server'>Player:IsFireman()</span></a></td>
+	<td class="summary">Check if player is a Fireman.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsFirechief"><span class='state state-client state-server'>Player:IsFirechief()</span></a></td>
+	<td class="summary">Check if player is the Firechief.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsSecurityGuard"><span class='state state-client state-server'>Player:IsSecurityGuard()</span></a></td>
+	<td class="summary">Check if player is a Security Guard.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsChef"><span class='state state-client state-server'>Player:IsChef()</span></a></td>
+	<td class="summary">Check if player is a Chef.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsDoctor"><span class='state state-client state-server'>Player:IsDoctor()</span></a></td>
+	<td class="summary">Check if player is a doctor.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsChauffeur"><span class='state state-client state-server'>Player:IsChauffeur()</span></a></td>
+	<td class="summary">Check if player is a taxi driver.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsArmsDealer"><span class='state state-client state-server'>Player:IsArmsDealer()</span></a></td>
+	<td class="summary">Check if player is a gundealer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsBlackmarketDealer"><span class='state state-client state-server'>Player:IsBlackmarketDealer()</span></a></td>
+	<td class="summary">Check if player is a BMD.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsMechanic"><span class='state state-client state-server'>Player:IsMechanic()</span></a></td>
+	<td class="summary">Check if player is a mechanic.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsMafiaDon"><span class='state state-client state-server'>Player:IsMafiaDon()</span></a></td>
+	<td class="summary">Check if player is the Don.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsRebelLeader"><span class='state state-client state-server'>Player:IsRebelLeader()</span></a></td>
+	<td class="summary">Check if player is the Rebel Leader.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:getTeamGroup"><span class='state state-client state-server'>Player:getTeamGroup()</span></a></td>
+	<td class="summary">Get the current team group the player is in.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GetSVRank"><span class='state state-client state-server'>Player:GetSVRank()</span></a></td>
+	<td class="summary">Get the player's rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsRank"><span class='state state-client state-server'>Player:IsRank(rank)</span></a></td>
+	<td class="summary">Check if a player is a specified rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsUserGroup"><span class='state state-client state-server'>Player:IsUserGroup(rank)</span></a></td>
+	<td class="summary">Check if a player is a specified rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsOwner"><span class='state state-client state-server'>Player:IsOwner()</span></a></td>
+	<td class="summary">Checks if the player is of the owner rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsSuperDeveloper"><span class='state state-client state-server'>Player:IsSuperDeveloper()</span></a></td>
+	<td class="summary">Checks if the player has SuperDev permissions (Owner or SD)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsSuperAdmin"><span class='state state-client state-server'>Player:IsSuperAdmin()</span></a></td>
+	<td class="summary">Checks if the player has SuperDev permissions (SuperDev perms or SuperAdmin rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsDeveloper"><span class='state state-client state-server'>Player:IsDeveloper()</span></a></td>
+	<td class="summary">Checks if the player has Developer permissions (SuperDev or Developer Rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsAdmin"><span class='state state-client state-server'>Player:IsAdmin()</span></a></td>
+	<td class="summary">Checks if the player has Administrative permissions (Developer, SuperAdmin or admin rank.)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsDevMod2"><span class='state state-client state-server'>Player:IsDevMod2()</span></a></td>
+	<td class="summary">Checks if the player has Developer Mod Stage 2 permissions (Developer, developermod2 rank.)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsModerator2"><span class='state state-client state-server'>Player:IsModerator2()</span></a></td>
+	<td class="summary">Checks if the player has Mod Stage 2 permissions (DevMod2, Admin or moderator2 rank.)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsDevMod"><span class='state state-client state-server'>Player:IsDevMod()</span></a></td>
+	<td class="summary">Checks if the player has Developer Mod permissions (DeveloperMod Stage 2, developermod rank.)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsModerator"><span class='state state-client state-server'>Player:IsModerator()</span></a></td>
+	<td class="summary">Checks if the player has Mod permissions (DevMod, Mod2 or moderator rank.)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsTrialDevMod"><span class='state state-client state-server'>Player:IsTrialDevMod()</span></a></td>
+	<td class="summary">Checks if the player has TDevMod permissions (DevMod or trialdevmod rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsTrialMod"><span class='state state-client state-server'>Player:IsTrialMod()</span></a></td>
+	<td class="summary">Checks if the player has TMod permissions (TDMod, Mod or trialmoderator rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsDeveloperOnly"><span class='state state-client state-server'>Player:IsDeveloperOnly()</span></a></td>
+	<td class="summary">Checks if the player has DevOnly permissions (TDMod or developeronly rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsContributor"><span class='state state-client state-server'>Player:IsContributor()</span></a></td>
+	<td class="summary">Checks if the player has Contrib permissions (DevOnly or contributor rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsAssistant"><span class='state state-client state-server'>Player:IsAssistant(strict)</span></a></td>
+	<td class="summary">Checks if the player has Assistant permissions (DevOnly for loose checks, trial mod or assistant rank)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsVeteran"><span class='state state-client state-server'>Player:IsVeteran()</span></a></td>
+	<td class="summary">Checks if the player is a veteran.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsBusinessAdvisor"><span class='state state-client state-server'>Player:IsBusinessAdvisor()</span></a></td>
+	<td class="summary">Checks if the player is a business advisor.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsSecurityOfficer"><span class='state state-client state-server'>Player:IsSecurityOfficer()</span></a></td>
+	<td class="summary">Checks if the player is a security officer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:IsCore"><span class='state state-client state-server'>Player:IsCore()</span></a></td>
+	<td class="summary">Checks if the player is a core team member.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Name"><span class='state state-client state-server'>Player:Name(replace)</span></a></td>
+	<td class="summary">Gets a player's OOC name, dependent on U/C settings.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:RPName"><span class='state state-client state-server'>Player:RPName()</span></a></td>
+	<td class="summary">Get a player's current IC name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:getLocation"><span class='state state-client state-server'>Player:getLocation()</span></a></td>
+	<td class="summary">Get the current location of the player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Arrested"><span class='state state-client state-server'>Player:Arrested()</span></a></td>
+	<td class="summary">Check if a player is arrested.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Hostaged"><span class='state state-client state-server'>Player:Hostaged()</span></a></td>
+	<td class="summary">Check if a player is hostaged.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Blindfolded"><span class='state state-client state-server'>Player:Blindfolded()</span></a></td>
+	<td class="summary">Check if a player is blindfolded.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Sleeping"><span class='state state-client state-server'>Player:Sleeping()</span></a></td>
+	<td class="summary">Check if a player is sleeping.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Cuffed"><span class='state state-client state-server'>Player:Cuffed()</span></a></td>
+	<td class="summary">Check if a player is cuffed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Frozen"><span class='state state-client state-server'>Player:Frozen()</span></a></td>
+	<td class="summary">Check if a player is frozen/physgunfrozen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Ziptied"><span class='state state-client state-server'>Player:Ziptied()</span></a></td>
+	<td class="summary">Check if a player is ziptied.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Gagged"><span class='state state-client state-server'>Player:Gagged()</span></a></td>
+	<td class="summary">Check if a player is gagged.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Tranqed"><span class='state state-client state-server'>Player:Tranqed()</span></a></td>
+	<td class="summary">Check if a player is tranq'd.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Stunned"><span class='state state-client state-server'>Player:Stunned()</span></a></td>
+	<td class="summary">Check if a player is tased.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Injured"><span class='state state-client state-server'>Player:Injured()</span></a></td>
+	<td class="summary">Check if a player is injured.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:KnockedOut"><span class='state state-client state-server'>Player:KnockedOut()</span></a></td>
+	<td class="summary">Check if a player is knocked out.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Warranted"><span class='state state-client state-server'>Player:Warranted()</span></a></td>
+	<td class="summary">Check if a player is warrant.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Pass"><span class='state state-client state-server'>Player:Pass()</span></a></td>
+	<td class="summary">Check if a player has a pass.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Job"><span class='state state-client state-server'>Player:Job()</span></a></td>
+	<td class="summary">Get a player's job.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Description"><span class='state state-client state-server'>Player:Description()</span></a></td>
+	<td class="summary">Get a player's description.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Status"><span class='state state-client state-server'>Player:Status()</span></a></td>
+	<td class="summary">Get a player's status.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Clan"><span class='state state-client state-server'>Player:Clan()</span></a></td>
+	<td class="summary">Get a player's clan name and rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:ClanName"><span class='state state-client state-server'>Player:ClanName()</span></a></td>
+	<td class="summary">Get a player's clan name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:ClanID"><span class='state state-client state-server'>Player:ClanID()</span></a></td>
+	<td class="summary">Get a player's clan ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:MembershipLevel"><span class='state state-client state-server'>Player:MembershipLevel()</span></a></td>
+	<td class="summary">Get a player's membership level.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Masked"><span class='state state-client state-server'>Player:Masked()</span></a></td>
+	<td class="summary">Check if a player is currently masked.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:REP"><span class='state state-client state-server'>Player:REP(cat)</span></a></td>
+	<td class="summary">Get a player's REP.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GetPropLimit"><span class='state state-client state-server'>Player:GetPropLimit()</span></a></td>
+	<td class="summary">Get the player's prop limit.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:HasTags"><span class='state state-client state-server'>Player:HasTags()</span></a></td>
+	<td class="summary">Check if the current user's name has tags for their rank in it.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GetInjuryState"><span class='state state-client state-server'>Player:GetInjuryState()</span></a></td>
+	<td class="summary">Return an injury state, based on the player's current HP and injured state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:HasGodMode"><span class='state state-client state-server'>Player:HasGodMode()</span></a></td>
+	<td class="summary">Check if a player has god mode.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GetIcon"><span class='state state-client state-server'>Player:GetIcon()</span></a></td>
+	<td class="summary">Get the rank icon for a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GetIconReplacement"><span class='state state-client state-server'>Player:GetIconReplacement()</span></a></td>
+	<td class="summary">Get the rank icon's textual replacement for a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GetRankName"><span class='state state-client state-server'>Player:GetRankName()</span></a></td>
+	<td class="summary">Get the name of a given player's rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GetRankColor"><span class='state state-client state-server'>Player:GetRankColor()</span></a></td>
+	<td class="summary">Get the colour for a given player's rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GetRankSortOrder"><span class='state state-client state-server'>Player:GetRankSortOrder()</span></a></td>
+	<td class="summary">Get the sort order for a given player's rank.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GetAgendaGroup"><span class='state state-client state-server'>Player:GetAgendaGroup()</span></a></td>
+	<td class="summary">Get the agenda group the player is in.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GetAgendaLeader"><span class='state state-client state-server'>Player:GetAgendaLeader()</span></a></td>
+	<td class="summary">Get the agenda group the player leads.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GetPlayerChatColour"><span class='state state-client state-server'>Player:GetPlayerChatColour()</span></a></td>
+	<td class="summary">Get the player's chat colour.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Noclipping"><span class='state state-client state-server'>Player:Noclipping()</span></a></td>
+	<td class="summary">Get the players noclip state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:MembershipExpires"><span class='state state-client state-server'>Player:MembershipExpires()</span></a></td>
+	<td class="summary">Get the time that a users' membership expires.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:HasMembership"><span class='state state-client state-server'>Player:HasMembership()</span></a></td>
+	<td class="summary">Check if the player currently has active membership.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:EventMgr"><span class='state state-client state-server'>Player:EventMgr()</span></a></td>
+	<td class="summary">Returns if the player has Event Manager permissions.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Notify"><span class='state state-server'>Player:Notify(message[, class[, priority=false]])</span></a></td>
+	<td class="summary">Send a notification message to a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:NotifyTarget"><span class='state state-server'>Player:NotifyTarget(tArg, plys)</span></a></td>
+	<td class="summary">Send an error message to a player saying that they matched multiple players with a command target.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:NotifyCustom"><span class='state state-server'>Player:NotifyCustom(message[, icon[, colour[, length=3]]])</span></a></td>
+	<td class="summary">Send a notification message to a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:NotifyChoice"><span class='state state-server'>Player:NotifyChoice(message[, button1[, function1[, button2[, function2[, icon[, color[, dismissable=false]]]]]]])</span></a></td>
+	<td class="summary">Send a notification message to a player, with clickable buttons to effect commands.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:NotifyCenter"><span class='state state-server'>Player:NotifyCenter(message, icon, color, delay, showinconsole)</span></a></td>
+	<td class="summary">Send a notification to the center of a player's screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:printMessage"><span class='state state-server'>Player:printMessage(message)</span></a></td>
+	<td class="summary">Send a message to a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:PrintRadius"><span class='state state-server'>Player:PrintRadius(msg, pos, rad)</span></a></td>
+	<td class="summary">Prints a message to players within a radius of a specified position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Blind"><span class='state state-server'>Player:Blind(bool)</span></a></td>
+	<td class="summary">Manage a players blindfolded state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GiveDoor"><span class='state state-server'>Player:GiveDoor(door, name, unsellable, lock)</span></a></td>
+	<td class="summary">Give a door to a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:TakeDoor"><span class='state state-server'>Player:TakeDoor(door)</span></a></td>
+	<td class="summary">Take a door from a player, including child doors.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:SayRadio"><span class='state state-server'>Player:SayRadio(text)</span></a></td>
+	<td class="summary">Send a message as a radio broadcast.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:SayDistress"><span class='state state-server'>Player:SayDistress(text)</span></a></td>
+	<td class="summary">Say a message as a distress broadcast.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Emote"><span class='state state-server'>Player:Emote(text)</span></a></td>
+	<td class="summary">Send a message as an action performed by the player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Demote"><span class='state state-server'>Player:Demote()</span></a></td>
+	<td class="summary">Demote a player from their current team.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:PromoteLeader"><span class='state state-server'>Player:PromoteLeader()</span></a></td>
+	<td class="summary">Promotes a player to team leader.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:HasHolsteredWeapons"><span class='state state-server'>Player:HasHolsteredWeapons()</span></a></td>
+	<td class="summary">Check if a player has any holstered weapons.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:HasTempHolsteredWeapons"><span class='state state-server'>Player:HasTempHolsteredWeapons()</span></a></td>
+	<td class="summary">Check if a player has any temporary holstered weapons.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:ResetTempHolsteredWeapons"><span class='state state-server'>Player:ResetTempHolsteredWeapons()</span></a></td>
+	<td class="summary">Reset a player's holstered weapons.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:RemoveHolstered"><span class='state state-server'>Player:RemoveHolstered()</span></a></td>
+	<td class="summary">Removes Holstered weapons/mods from inventory</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:HolsterAll"><span class='state state-server'>Player:HolsterAll(invrem, tablerem)</span></a></td>
+	<td class="summary">Holsters all of a player's weapons.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:TemporaryHolsterAll"><span class='state state-server'>Player:TemporaryHolsterAll()</span></a></td>
+	<td class="summary">Holsters all of a player's weapons temporaryly (ex for being cuffed).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:UnHolsterTemporary"><span class='state state-server'>Player:UnHolsterTemporary()</span></a></td>
+	<td class="summary">UnHolsters all of a player's temporary-holstered weapons.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:DoorAccess"><span class='state state-server'>Player:DoorAccess(door)</span></a></td>
+	<td class="summary">Check if a player has access to lock a door.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:VehicleAccess"><span class='state state-server'>Player:VehicleAccess(veh)</span></a></td>
+	<td class="summary">Check if a player has access to a vehicle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:CanAfford"><span class='state state-server'>Player:CanAfford(amt)</span></a></td>
+	<td class="summary">Check if a player can afford an amount of money.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:GiveMoney"><span class='state state-server'>Player:GiveMoney(amt)</span></a></td>
+	<td class="summary">Give a player an amount of money.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Arrest"><span class='state state-server'>Player:Arrest(boolean, reset)</span></a></td>
+	<td class="summary">Arrest or unarrest a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:Bleed"><span class='state state-server'>Player:Bleed(boolean, seconds)</span></a></td>
+	<td class="summary">Make a player bleed or stop them from bleeding.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:EnableEventMgr"><span class='state state-server'>Player:EnableEventMgr()</span></a></td>
+	<td class="summary">Enables Event Manager permissions for player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Player:DisableEventMgr"><span class='state state-server'>Player:DisableEventMgr()</span></a></td>
+	<td class="summary">Disables Event Manager permissions for player.</td>
+	</tr>
+</table>
+</div>
+
+	<div class="ll-module-header"><h2 class="section-header "><a name="Methods"></a>Methods</h2></div>
+    <div class="ll-module-body">
+    <dl class="function">
+    <dt>
+    <a name = "Player:CanStaffChat"></a>
+    <strong><span class='state state-client state-server'>Player:CanStaffChat()</span></strong>
+    </dt>
+    <dd>
+    Check if a player can view staff chat.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player can use staff chat.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Nick"></a>
+    <strong><span class='state state-client state-server'>Player:Nick()</span></strong>
+    </dt>
+    <dd>
+    Get a player's nickname.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        string The player's nickname.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsOutside"></a>
+    <strong><span class='state state-client state-server'>Player:IsOutside()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is outside.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player is outside.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:ReturnOutside"></a>
+    <strong><span class='state state-client state-server'>Player:ReturnOutside(ply)</span></strong>
+    </dt>
+    <dd>
+    Function for Console Command to check if the player is outside.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ply</span>
+         The player to check against.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:GenderWord"></a>
+    <strong><span class='state state-client state-server'>Player:GenderWord()</span></strong>
+    </dt>
+    <dd>
+    Return the appropiate word for the player's gender.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        The word for the gender.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsGovernment"></a>
+    <strong><span class='state state-client state-server'>Player:IsGovernment()</span></strong>
+    </dt>
+    <dd>
+    Check if player is Pres, VP, SS, Swatleader, Swat, NDS, Policecleader, Police, Paramedic, Fireman
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a government member.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsPresident"></a>
+    <strong><span class='state state-client state-server'>Player:IsPresident()</span></strong>
+    </dt>
+    <dd>
+    Check if player is Pres or VP.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a the President or Vice President.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsPresidentAdministration"></a>
+    <strong><span class='state state-client state-server'>Player:IsPresidentAdministration()</span></strong>
+    </dt>
+    <dd>
+    Check if player is Pres, VP or NDS.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a the President, Vice President or NDS.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsLawenforcement"></a>
+    <strong><span class='state state-client state-server'>Player:IsLawenforcement()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a law enforcer (SS, Cop, SWAT)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a law enforcer.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsSwat"></a>
+    <strong><span class='state state-client state-server'>Player:IsSwat()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a SWAT member.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a SWAT member.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsPolice"></a>
+    <strong><span class='state state-client state-server'>Player:IsPolice()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Police Officer.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Police Officer.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsRescue"></a>
+    <strong><span class='state state-client state-server'>Player:IsRescue()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a rescue worker (EMS / Fire).
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a rescue worker.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsRebel"></a>
+    <strong><span class='state state-client state-server'>Player:IsRebel()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Rebel or Rebel Leader.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Rebel.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsMafia"></a>
+    <strong><span class='state state-client state-server'>Player:IsMafia()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Mafia or Mafia Leader.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Mafia Member.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsSecretService"></a>
+    <strong><span class='state state-client state-server'>Player:IsSecretService()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Secret Service Agent (Or Lead).
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is SS.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsActualPresident"></a>
+    <strong><span class='state state-client state-server'>Player:IsActualPresident()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the President.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the President.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsVicePresident"></a>
+    <strong><span class='state state-client state-server'>Player:IsVicePresident()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the VP.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the VP.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsSwatLeader"></a>
+    <strong><span class='state state-client state-server'>Player:IsSwatLeader()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the SWAT Leader.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the SWAT LEader.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsSSLeader"></a>
+    <strong><span class='state state-client state-server'>Player:IsSSLeader()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the SS Lead.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the SS Lead.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsNexusDeskSecretary"></a>
+    <strong><span class='state state-client state-server'>Player:IsNexusDeskSecretary()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Secretary.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Secretary.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsParamedic"></a>
+    <strong><span class='state state-client state-server'>Player:IsParamedic()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Paramedic.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Paramedic.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsFireman"></a>
+    <strong><span class='state state-client state-server'>Player:IsFireman()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Fireman.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Fireman.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsFirechief"></a>
+    <strong><span class='state state-client state-server'>Player:IsFirechief()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the Firechief.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the Firechief.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsSecurityGuard"></a>
+    <strong><span class='state state-client state-server'>Player:IsSecurityGuard()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Security Guard.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Security Guard.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsChef"></a>
+    <strong><span class='state state-client state-server'>Player:IsChef()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a Chef.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a Chef.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsDoctor"></a>
+    <strong><span class='state state-client state-server'>Player:IsDoctor()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a doctor.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a doctor.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsChauffeur"></a>
+    <strong><span class='state state-client state-server'>Player:IsChauffeur()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a taxi driver.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a taxi driver.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsArmsDealer"></a>
+    <strong><span class='state state-client state-server'>Player:IsArmsDealer()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a gundealer.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a gundealer.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsBlackmarketDealer"></a>
+    <strong><span class='state state-client state-server'>Player:IsBlackmarketDealer()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a BMD.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a BMD.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsMechanic"></a>
+    <strong><span class='state state-client state-server'>Player:IsMechanic()</span></strong>
+    </dt>
+    <dd>
+    Check if player is a mechanic.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is a mechanic.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsMafiaDon"></a>
+    <strong><span class='state state-client state-server'>Player:IsMafiaDon()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the Don.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the Don.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsRebelLeader"></a>
+    <strong><span class='state state-client state-server'>Player:IsRebelLeader()</span></strong>
+    </dt>
+    <dd>
+    Check if player is the Rebel Leader.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        bool If the player is the Rebel Leader.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:getTeamGroup"></a>
+    <strong><span class='state state-client state-server'>Player:getTeamGroup()</span></strong>
+    </dt>
+    <dd>
+    Get the current team group the player is in.
+ If there are multiple matches, the first one defined in the TEAMGROUPS table will be used.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        string The group the player is in, "" if none.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:GetSVRank"></a>
+    <strong><span class='state state-client state-server'>Player:GetSVRank()</span></strong>
+    </dt>
+    <dd>
+    Get the player's rank.
+ On server, this always returns the true value (if the player has had their data loaded, as we load from DB.), unless stream override is enabled.
+ On client, this returns a value based on the true value, current rank and hidden state.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        string User's current rank.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsRank"></a>
+    <strong><span class='state state-client state-server'>Player:IsRank(rank)</span></strong>
+    </dt>
+    <dd>
+    Check if a player is a specified rank.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">rank</span>
+         The rank to check against.
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player is the specified rank.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsUserGroup"></a>
+    <strong><span class='state state-client state-server'>Player:IsUserGroup(rank)</span></strong>
+    </dt>
+    <dd>
+    Check if a player is a specified rank.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">rank</span>
+         The rank to check against.
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player is the specified rank.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsOwner"></a>
+    <strong><span class='state state-client state-server'>Player:IsOwner()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player is of the owner rank.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player is the owner.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsSuperDeveloper"></a>
+    <strong><span class='state state-client state-server'>Player:IsSuperDeveloper()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has SuperDev permissions (Owner or SD)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsSuperAdmin"></a>
+    <strong><span class='state state-client state-server'>Player:IsSuperAdmin()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has SuperDev permissions (SuperDev perms or SuperAdmin rank)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsDeveloper"></a>
+    <strong><span class='state state-client state-server'>Player:IsDeveloper()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Developer permissions (SuperDev or Developer Rank)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsAdmin"></a>
+    <strong><span class='state state-client state-server'>Player:IsAdmin()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Administrative permissions (Developer, SuperAdmin or admin rank.)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsDevMod2"></a>
+    <strong><span class='state state-client state-server'>Player:IsDevMod2()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Developer Mod Stage 2 permissions (Developer, developermod2 rank.)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsModerator2"></a>
+    <strong><span class='state state-client state-server'>Player:IsModerator2()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Mod Stage 2 permissions (DevMod2, Admin or moderator2 rank.)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsDevMod"></a>
+    <strong><span class='state state-client state-server'>Player:IsDevMod()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Developer Mod permissions (DeveloperMod Stage 2, developermod rank.)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsModerator"></a>
+    <strong><span class='state state-client state-server'>Player:IsModerator()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Mod permissions (DevMod, Mod2 or moderator rank.)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsTrialDevMod"></a>
+    <strong><span class='state state-client state-server'>Player:IsTrialDevMod()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has TDevMod permissions (DevMod or trialdevmod rank)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsTrialMod"></a>
+    <strong><span class='state state-client state-server'>Player:IsTrialMod()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has TMod permissions (TDMod, Mod or trialmoderator rank)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsDeveloperOnly"></a>
+    <strong><span class='state state-client state-server'>Player:IsDeveloperOnly()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has DevOnly permissions (TDMod or developeronly rank)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsContributor"></a>
+    <strong><span class='state state-client state-server'>Player:IsContributor()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Contrib permissions (DevOnly or contributor rank)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsAssistant"></a>
+    <strong><span class='state state-client state-server'>Player:IsAssistant(strict)</span></strong>
+    </dt>
+    <dd>
+    Checks if the player has Assistant permissions (DevOnly for loose checks, trial mod or assistant rank)
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">strict</span>
+         If strict checking is enabled (for REP)
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        if the player has permissions.
+ TODO: This is a pile of shit function fucking burn it.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsVeteran"></a>
+    <strong><span class='state state-client state-server'>Player:IsVeteran()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player is a veteran.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player is a veteran.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsBusinessAdvisor"></a>
+    <strong><span class='state state-client state-server'>Player:IsBusinessAdvisor()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player is a business advisor.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player has the role.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsSecurityOfficer"></a>
+    <strong><span class='state state-client state-server'>Player:IsSecurityOfficer()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player is a security officer.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:IsCore"></a>
+    <strong><span class='state state-client state-server'>Player:IsCore()</span></strong>
+    </dt>
+    <dd>
+    Checks if the player is a core team member.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player is a core team member.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Name"></a>
+    <strong><span class='state state-client state-server'>Player:Name(replace)</span></strong>
+    </dt>
+    <dd>
+    Gets a player's OOC name, dependent on U/C settings.
+ If replace is true, will attempt to fetch U/C name, or "an administrator" if none is registered.
+ Otherwise provides regular nickname.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">replace</span>
+         If the name should be replaced by the undercover name (for command echos).
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        The players' name, registered U/C name, "An administrator" or "a moderator" dependent on internal state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:RPName"></a>
+    <strong><span class='state state-client state-server'>Player:RPName()</span></strong>
+    </dt>
+    <dd>
+    Get a player's current IC name.
+ If a fake name is set, it will be returned.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        The player's IC name.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:getLocation"></a>
+    <strong><span class='state state-client state-server'>Player:getLocation()</span></strong>
+    </dt>
+    <dd>
+    Get the current location of the player.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        string The player's location.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Arrested"></a>
+    <strong><span class='state state-client state-server'>Player:Arrested()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is arrested.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current arrest state.
+ MakeAccessor("Arrested", "cityrp_arrested")
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Hostaged"></a>
+    <strong><span class='state state-client state-server'>Player:Hostaged()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is hostaged.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current hostage state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Blindfolded"></a>
+    <strong><span class='state state-client state-server'>Player:Blindfolded()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is blindfolded.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        The current blindfold state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Sleeping"></a>
+    <strong><span class='state state-client state-server'>Player:Sleeping()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is sleeping.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current sleep state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Cuffed"></a>
+    <strong><span class='state state-client state-server'>Player:Cuffed()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is cuffed.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current cuff state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Frozen"></a>
+    <strong><span class='state state-client state-server'>Player:Frozen()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is frozen/physgunfrozen.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current freeze state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Ziptied"></a>
+    <strong><span class='state state-client state-server'>Player:Ziptied()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is ziptied.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current ziptie state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Gagged"></a>
+    <strong><span class='state state-client state-server'>Player:Gagged()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is gagged.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current gag state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Tranqed"></a>
+    <strong><span class='state state-client state-server'>Player:Tranqed()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is tranq'd.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current tranq state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Stunned"></a>
+    <strong><span class='state state-client state-server'>Player:Stunned()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is tased.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current tase state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Injured"></a>
+    <strong><span class='state state-client state-server'>Player:Injured()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is injured.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current injury state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:KnockedOut"></a>
+    <strong><span class='state state-client state-server'>Player:KnockedOut()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is knocked out.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [boolean] The current knock outage state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Warranted"></a>
+    <strong><span class='state state-client state-server'>Player:Warranted()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is warrant.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [string | nil] The current warrant type, or nil if none.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Pass"></a>
+    <strong><span class='state state-client state-server'>Player:Pass()</span></strong>
+    </dt>
+    <dd>
+    Check if a player has a pass.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [string | nil] The current pass or nil if none.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Job"></a>
+    <strong><span class='state state-client state-server'>Player:Job()</span></strong>
+    </dt>
+    <dd>
+    Get a player's job.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        string The current job.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Description"></a>
+    <strong><span class='state state-client state-server'>Player:Description()</span></strong>
+    </dt>
+    <dd>
+    Get a player's description.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        string The current description.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Status"></a>
+    <strong><span class='state state-client state-server'>Player:Status()</span></strong>
+    </dt>
+    <dd>
+    Get a player's status.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        string The current status.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Clan"></a>
+    <strong><span class='state state-client state-server'>Player:Clan()</span></strong>
+    </dt>
+    <dd>
+    Get a player's clan name and rank.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        The current clan and rank.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:ClanName"></a>
+    <strong><span class='state state-client state-server'>Player:ClanName()</span></strong>
+    </dt>
+    <dd>
+    Get a player's clan name.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        The current clan name.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:ClanID"></a>
+    <strong><span class='state state-client state-server'>Player:ClanID()</span></strong>
+    </dt>
+    <dd>
+    Get a player's clan ID.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The current clan ID.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:MembershipLevel"></a>
+    <strong><span class='state state-client state-server'>Player:MembershipLevel()</span></strong>
+    </dt>
+    <dd>
+    Get a player's membership level.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The current membership level.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Masked"></a>
+    <strong><span class='state state-client state-server'>Player:Masked()</span></strong>
+    </dt>
+    <dd>
+    Check if a player is currently masked.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Mask state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:REP"></a>
+    <strong><span class='state state-client state-server'>Player:REP(cat)</span></strong>
+    </dt>
+    <dd>
+    Get a player's REP.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">cat</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         The category to check, or all if empty.
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The number of REPs the player has.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:GetPropLimit"></a>
+    <strong><span class='state state-client state-server'>Player:GetPropLimit()</span></strong>
+    </dt>
+    <dd>
+    Get the player's prop limit.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        number The prop limit.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:HasTags"></a>
+    <strong><span class='state state-client state-server'>Player:HasTags()</span></strong>
+    </dt>
+    <dd>
+    Check if the current user's name has tags for their rank in it.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player is currently wearing appropriate tags.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:GetInjuryState"></a>
+    <strong><span class='state state-client state-server'>Player:GetInjuryState()</span></strong>
+    </dt>
+    <dd>
+    Return an injury state, based on the player's current HP and injured state.
+ 0 = Uninjured
+ 1 = Injured
+ 2 = Seriously Injured
+ 3 = Mortally Wounded
+ 4 = Cardiac Arrest
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        number The current injury state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:HasGodMode"></a>
+    <strong><span class='state state-client state-server'>Player:HasGodMode()</span></strong>
+    </dt>
+    <dd>
+    Check if a player has god mode.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player has god enabled.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:GetIcon"></a>
+    <strong><span class='state state-client state-server'>Player:GetIcon()</span></strong>
+    </dt>
+    <dd>
+    Get the rank icon for a player.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        string The rank icon path.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:GetIconReplacement"></a>
+    <strong><span class='state state-client state-server'>Player:GetIconReplacement()</span></strong>
+    </dt>
+    <dd>
+    Get the rank icon's textual replacement for a player.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        The replacement.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:GetRankName"></a>
+    <strong><span class='state state-client state-server'>Player:GetRankName()</span></strong>
+    </dt>
+    <dd>
+    Get the name of a given player's rank.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        The name.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:GetRankColor"></a>
+    <strong><span class='state state-client state-server'>Player:GetRankColor()</span></strong>
+    </dt>
+    <dd>
+    Get the colour for a given player's rank.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        The colour object.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:GetRankSortOrder"></a>
+    <strong><span class='state state-client state-server'>Player:GetRankSortOrder()</span></strong>
+    </dt>
+    <dd>
+    Get the sort order for a given player's rank.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        The sort order.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:GetAgendaGroup"></a>
+    <strong><span class='state state-client state-server'>Player:GetAgendaGroup()</span></strong>
+    </dt>
+    <dd>
+    Get the agenda group the player is in.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [string | false] The agenda group the player is in, or false if none.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:GetAgendaLeader"></a>
+    <strong><span class='state state-client state-server'>Player:GetAgendaLeader()</span></strong>
+    </dt>
+    <dd>
+    Get the agenda group the player leads.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        [string | false] The agenda group the player leads, or false if none.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:GetPlayerChatColour"></a>
+    <strong><span class='state state-client state-server'>Player:GetPlayerChatColour()</span></strong>
+    </dt>
+    <dd>
+    Get the player's chat colour.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+        colour A cached colour object.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:Noclipping"></a>
+    <strong><span class='state state-client state-server'>Player:Noclipping()</span></strong>
+    </dt>
+    <dd>
+    Get the players noclip state.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        Players noclip state.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:MembershipExpires"></a>
+    <strong><span class='state state-client state-server'>Player:MembershipExpires()</span></strong>
+    </dt>
+    <dd>
+    Get the time that a users' membership expires.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        Unix expiry time.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:HasMembership"></a>
+    <strong><span class='state state-client state-server'>Player:HasMembership()</span></strong>
+    </dt>
+    <dd>
+    Check if the player currently has active membership.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player has membership.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:EventMgr"></a>
+    <strong><span class='state state-client state-server'>Player:EventMgr()</span></strong>
+    </dt>
+    <dd>
+    Returns if the player has Event Manager permissions.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:Notify"></a>
+    <strong><span class='state state-server'>Player:Notify(message[, class[, priority=false]])</span></strong>
+    </dt>
+    <dd>
+    Send a notification message to a player.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         The message to send.
+        </li>
+        <li><span class="parameter">class</span>
+            <span class="types"><span class="type">number</span></span>
+         The numeric class of the message to send.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">priority</span>
+            <span class="types"><span class="type">bool</span></span>
+         A bool representing if the message should overwrite the "showhud" option. Defaults to no.
+         (<em>default</em> false)
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:NotifyTarget"></a>
+    <strong><span class='state state-server'>Player:NotifyTarget(tArg, plys)</span></strong>
+    </dt>
+    <dd>
+    Send an error message to a player saying that they matched multiple players with a command target.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tArg</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         The target argument that failed.
+        </li>
+        <li><span class="parameter">plys</span>
+            <span class="types"><span class="type">tab</span></span>
+         The players to send.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:NotifyCustom"></a>
+    <strong><span class='state state-server'>Player:NotifyCustom(message[, icon[, colour[, length=3]]])</span></strong>
+    </dt>
+    <dd>
+    Send a notification message to a player.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         The message to send.
+        </li>
+        <li><span class="parameter">icon</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         The icon for the message to have.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">colour</span>
+            <span class="types"><span class="type">Color</span></span>
+         Unused.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">length</span>
+            <span class="types"><span class="type">number</span></span>
+         OPTIONAL: The length of the time the message should be displayed for.
+         (<em>default</em> 3)
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:NotifyChoice"></a>
+    <strong><span class='state state-server'>Player:NotifyChoice(message[, button1[, function1[, button2[, function2[, icon[, color[, dismissable=false]]]]]]])</span></strong>
+    </dt>
+    <dd>
+    Send a notification message to a player, with clickable buttons to effect commands.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         The message to send.
+        </li>
+        <li><span class="parameter">button1</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         The tooltip text of the first button.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">function1</span>
+         Command to run on click, or table of tables ({{"label", "command"}, {"label 2", "different command"}})
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">button2</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         See button1.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">function2</span>
+         See function1.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">icon</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         The icon for the message to have.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">color</span>
+            <span class="types"><span class="type">Color</span></span>
+         The colour for the message to have.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">dismissable</span>
+            <span class="types"><span class="type">bool</span></span>
+         A bool representing if the checkbox should have a "dismiss" option.
+         (<em>default</em> false)
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:NotifyCenter"></a>
+    <strong><span class='state state-server'>Player:NotifyCenter(message, icon, color, delay, showinconsole)</span></strong>
+    </dt>
+    <dd>
+    Send a notification to the center of a player's screen.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+         The message to send.
+        </li>
+        <li><span class="parameter">icon</span>
+         The icon for the mesage.
+        </li>
+        <li><span class="parameter">color</span>
+         The colour fo the message.
+        </li>
+        <li><span class="parameter">delay</span>
+         The time the message will stay on screen.
+        </li>
+        <li><span class="parameter">showinconsole</span>
+         Boolean for if the message should show in console.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:printMessage"></a>
+    <strong><span class='state state-server'>Player:printMessage(message)</span></strong>
+    </dt>
+    <dd>
+    Send a message to a player.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+         The message to send.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:PrintRadius"></a>
+    <strong><span class='state state-server'>Player:PrintRadius(msg, pos, rad)</span></strong>
+    </dt>
+    <dd>
+    Prints a message to players within a radius of a specified position.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">msg</span>
+         The message to send.
+        </li>
+        <li><span class="parameter">pos</span>
+         The position to check.
+        </li>
+        <li><span class="parameter">rad</span>
+         The radius to send within.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:Blind"></a>
+    <strong><span class='state state-server'>Player:Blind(bool)</span></strong>
+    </dt>
+    <dd>
+    Manage a players blindfolded state.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bool</span>
+         If the player should be blindfolded or unblindfolded.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:GiveDoor"></a>
+    <strong><span class='state state-server'>Player:GiveDoor(door, name, unsellable, lock)</span></strong>
+    </dt>
+    <dd>
+    Give a door to a player.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">door</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The door entity to give.
+        </li>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         The name of the door to set.
+        </li>
+        <li><span class="parameter">unsellable</span>
+            <span class="types"><span class="type">bool</span></span>
+         If the door should be set to be unsellable.
+        </li>
+        <li><span class="parameter">lock</span>
+            <span class="types"><span class="type">bool</span></span>
+         If the door should spawn locked.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:TakeDoor"></a>
+    <strong><span class='state state-server'>Player:TakeDoor(door)</span></strong>
+    </dt>
+    <dd>
+    Take a door from a player, including child doors.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">door</span>
+            <span class="types"><span class="type">Entity</span></span>
+         The door entity to take.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:SayRadio"></a>
+    <strong><span class='state state-server'>Player:SayRadio(text)</span></strong>
+    </dt>
+    <dd>
+    Send a message as a radio broadcast.
+ If the player has sent a /panic call in the last 20 seconds, these are sent as distress class messages, rather than radio class.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+         The message to send.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:SayDistress"></a>
+    <strong><span class='state state-server'>Player:SayDistress(text)</span></strong>
+    </dt>
+    <dd>
+    Say a message as a distress broadcast.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+         The message to send.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:Emote"></a>
+    <strong><span class='state state-server'>Player:Emote(text)</span></strong>
+    </dt>
+    <dd>
+    Send a message as an action performed by the player.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+         The message to send.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:Demote"></a>
+    <strong><span class='state state-server'>Player:Demote()</span></strong>
+    </dt>
+    <dd>
+    Demote a player from their current team.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:PromoteLeader"></a>
+    <strong><span class='state state-server'>Player:PromoteLeader()</span></strong>
+    </dt>
+    <dd>
+    Promotes a player to team leader.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:HasHolsteredWeapons"></a>
+    <strong><span class='state state-server'>Player:HasHolsteredWeapons()</span></strong>
+    </dt>
+    <dd>
+    Check if a player has any holstered weapons.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:HasTempHolsteredWeapons"></a>
+    <strong><span class='state state-server'>Player:HasTempHolsteredWeapons()</span></strong>
+    </dt>
+    <dd>
+    Check if a player has any temporary holstered weapons.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:ResetTempHolsteredWeapons"></a>
+    <strong><span class='state state-server'>Player:ResetTempHolsteredWeapons()</span></strong>
+    </dt>
+    <dd>
+    Reset a player's holstered weapons.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:RemoveHolstered"></a>
+    <strong><span class='state state-server'>Player:RemoveHolstered()</span></strong>
+    </dt>
+    <dd>
+    Removes Holstered weapons/mods from inventory
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:HolsterAll"></a>
+    <strong><span class='state state-server'>Player:HolsterAll(invrem, tablerem)</span></strong>
+    </dt>
+    <dd>
+    Holsters all of a player's weapons.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">invrem</span>
+         If the items should also be removed from the inventory.
+        </li>
+        <li><span class="parameter">tablerem</span>
+         If the items should not be put in holstered tables.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:TemporaryHolsterAll"></a>
+    <strong><span class='state state-server'>Player:TemporaryHolsterAll()</span></strong>
+    </dt>
+    <dd>
+    Holsters all of a player's weapons temporaryly (ex for being cuffed).
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:UnHolsterTemporary"></a>
+    <strong><span class='state state-server'>Player:UnHolsterTemporary()</span></strong>
+    </dt>
+    <dd>
+    UnHolsters all of a player's temporary-holstered weapons.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:DoorAccess"></a>
+    <strong><span class='state state-server'>Player:DoorAccess(door)</span></strong>
+    </dt>
+    <dd>
+    Check if a player has access to lock a door.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">door</span>
+            <span class="types"><span class="type">ent</span></span>
+         Door to be checked.
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        If the player is allowed access to the door.
+    </ol>
+</dd>
+    <dt>
+    <a name = "Player:VehicleAccess"></a>
+    <strong><span class='state state-server'>Player:VehicleAccess(veh)</span></strong>
+    </dt>
+    <dd>
+    Check if a player has access to a vehicle.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">veh</span>
+         The vehicle to check access for.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:CanAfford"></a>
+    <strong><span class='state state-server'>Player:CanAfford(amt)</span></strong>
+    </dt>
+    <dd>
+    Check if a player can afford an amount of money.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amt</span>
+         The money to check against.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:GiveMoney"></a>
+    <strong><span class='state state-server'>Player:GiveMoney(amt)</span></strong>
+    </dt>
+    <dd>
+    Give a player an amount of money.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amt</span>
+         The amount of money to give.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:Arrest"></a>
+    <strong><span class='state state-server'>Player:Arrest(boolean, reset)</span></strong>
+    </dt>
+    <dd>
+    Arrest or unarrest a player.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">boolean</span>
+         If the player should be arrested or unarrested.
+        </li>
+        <li><span class="parameter">reset</span>
+         If the player's status should be reset.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:Bleed"></a>
+    <strong><span class='state state-server'>Player:Bleed(boolean, seconds)</span></strong>
+    </dt>
+    <dd>
+    Make a player bleed or stop them from bleeding.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">boolean</span>
+         If they should start bleeding.
+        </li>
+        <li><span class="parameter">seconds</span>
+         How long they should beleed for.
+        </li>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:EnableEventMgr"></a>
+    <strong><span class='state state-server'>Player:EnableEventMgr()</span></strong>
+    </dt>
+    <dd>
+    Enables Event Manager permissions for player.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+    <dt>
+    <a name = "Player:DisableEventMgr"></a>
+    <strong><span class='state state-server'>Player:DisableEventMgr()</span></strong>
+    </dt>
+    <dd>
+    Disables Event Manager permissions for player.
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+</dl>
+</div>
+</div>
+</div> <!-- id="content" -->
+</div>
+</div> <!-- id="main" -->
+<br class="clearfix">
+</div> <!-- id="container" -->
+</body>
+</html>
