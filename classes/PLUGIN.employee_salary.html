@@ -23,9 +23,9 @@
 				<div class="ll-kind-header">
 					<h1>CityRP 2</h1>
 					<div class="header-module">
-        				<li>Copyright: 2015-2021 Limelight Gaming</li>
+        				<li>Copyright: 2015-2025 Limelight Gaming</li>
         				<li>Release: CityRP 2</li>
-        				<li>Author: John Internet</li>
+        				<li>Author: Taylor</li>
 					</div>
 				</div>
 				<div class="ll-kind-body">
@@ -36,6 +36,7 @@
 
 				<div class="ll-kind-header"><h2>Contents</h2></div>
 				<ul class="ll-kind-body">
+					<li><a href="#Fields">Fields</a></li>
 					<li><a href="#Core_Methods">Core Methods </a></li>
 					<li><a href="#Data_Methods">Data Methods </a></li>
 					<li><a href="#Abstracted_Data_Methods">Abstracted Data Methods </a></li>
@@ -69,10 +70,10 @@
 					<li><a href="../classes/ITEM.base_vehicle.html">ITEM.base_vehicle</a></li>
 					<li><a href="../classes/ITEM.base_weapon.html">ITEM.base_weapon</a></li>
 					<li><a href="../classes/ITEM.html">ITEM</a></li>
-					<li><strong>PLUGIN</strong></li>
+					<li><a href="../classes/PLUGIN.html">PLUGIN</a></li>
 					<li><a href="../classes/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 					<li><a href="../classes/Player.html">Player</a></li>
-					<li><a href="../classes/PLUGIN.employee_salary.html">PLUGIN.employee_salary</a></li>
+					<li><strong>PLUGIN.employee_salary</strong></li>
 					<li><a href="../classes/PLUGIN.worldprops.html">PLUGIN.worldprops</a></li>
 					<li><a href="../classes/DB.html">DB</a></li>
 				</ul>
@@ -270,10 +271,9 @@
 
 
 			<div id="content">
-				<div class="ll-module-header"><h1>Class <code>PLUGIN</code></h1></div>
+				<div class="ll-module-header"><h1>Class <code>PLUGIN.employee_salary</code></h1></div>
 				<div class="ll-module-body">
-					Plugin Metatable
-The PLUGIN metatable ascribes some basic functionality to assist in writing plugins faster.
+					Employee Salary System
 
 
 
@@ -288,115 +288,159 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 <div class="ll-module-header"><h2>Class Overview</h2></div>
 <div class="ll-module-body">
 
+<h3><a href="#Fields">Fields</a></h3>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary.SalaryInterval">PLUGIN.employee_salary.SalaryInterval</a></td>
+	<td class="summary">Shared config
+ Salary interval</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary.EmployeeSalary">PLUGIN.employee_salary.EmployeeSalary</a></td>
+	<td class="summary">Table to store salary data</td>
+	</tr>
+</table>
 <h3><a href="#Core_Methods">Core Methods </a></h3>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:New"><span class='state state-client state-server'>PLUGIN:New(name[, author])</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:New"><span class='state state-client state-server'>PLUGIN.employee_salary:New(name[, author])</span></a></td>
 	<td class="summary">Create a new plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:CallAsHook"><span class='state state-client state-server'>PLUGIN:CallAsHook(name, ...)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:CallAsHook"><span class='state state-client state-server'>PLUGIN.employee_salary:CallAsHook(name, ...)</span></a></td>
 	<td class="summary">Call the hooks of this plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:Call"><span class='state state-client state-server'>PLUGIN:Call(name, ...)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:Call"><span class='state state-client state-server'>PLUGIN.employee_salary:Call(name, ...)</span></a></td>
 	<td class="summary">Call the hooks of this plugin, ignoring any output.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:Hook"><span class='state state-client state-server'>PLUGIN:Hook(name, func)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:Hook"><span class='state state-client state-server'>PLUGIN.employee_salary:Hook(name, func)</span></a></td>
 	<td class="summary">Adds a hook function to the plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:AddHook"><span class='state state-client state-server'>PLUGIN:AddHook(name, func)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:AddHook"><span class='state state-client state-server'>PLUGIN.employee_salary:AddHook(name, func)</span></a></td>
 	<td class="summary">Adds a hook function to the plugin, and also registers the hook with hook.Add</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:Enable"><span class='state state-client state-server'>PLUGIN:Enable()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:Enable"><span class='state state-client state-server'>PLUGIN.employee_salary:Enable()</span></a></td>
 	<td class="summary">Enable the plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:Disable"><span class='state state-client state-server'>PLUGIN:Disable()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:Disable"><span class='state state-client state-server'>PLUGIN.employee_salary:Disable()</span></a></td>
 	<td class="summary">Disable the plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:Enabled"><span class='state state-client state-server'>PLUGIN:Enabled()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:Enabled"><span class='state state-client state-server'>PLUGIN.employee_salary:Enabled()</span></a></td>
 	<td class="summary">Get if the plugin is enabled.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:IsValid"><span class='state state-client state-server'>PLUGIN:IsValid()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:IsValid"><span class='state state-client state-server'>PLUGIN.employee_salary:IsValid()</span></a></td>
 	<td class="summary">Checks if the plugin is valid (currently checks enabled status)</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:Register"><span class='state state-client state-server'>PLUGIN:Register([name=self.name])</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:Register"><span class='state state-client state-server'>PLUGIN.employee_salary:Register([name=self.name])</span></a></td>
 	<td class="summary">Registers the plugin.</td>
 	</tr>
 </table>
 <h3><a href="#Data_Methods">Data Methods </a></h3>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:CreateFolder"><span class='state state-client state-server'>PLUGIN:CreateFolder(fullPath)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:CreateFolder"><span class='state state-client state-server'>PLUGIN.employee_salary:CreateFolder(fullPath)</span></a></td>
 	<td class="summary">Create a folder, along with any intermedate folders.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:DataFolder"><span class='state state-client state-server'>PLUGIN:DataFolder()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:DataFolder"><span class='state state-client state-server'>PLUGIN.employee_salary:DataFolder()</span></a></td>
 	<td class="summary">Gets the data folder for this plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:CreateDataFolder"><span class='state state-client state-server'>PLUGIN:CreateDataFolder()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:CreateDataFolder"><span class='state state-client state-server'>PLUGIN.employee_salary:CreateDataFolder()</span></a></td>
 	<td class="summary">Creates this plugin's data folder.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:DataFile"><span class='state state-client state-server'>PLUGIN:DataFile(name)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:DataFile"><span class='state state-client state-server'>PLUGIN.employee_salary:DataFile(name)</span></a></td>
 	<td class="summary">Gets the path to a data file for this plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:MapFolder"><span class='state state-client state-server'>PLUGIN:MapFolder()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:MapFolder"><span class='state state-client state-server'>PLUGIN.employee_salary:MapFolder()</span></a></td>
 	<td class="summary">Gets the data folder for this plugin on the current map.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:CreateMapFolder"><span class='state state-client state-server'>PLUGIN:CreateMapFolder()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:CreateMapFolder"><span class='state state-client state-server'>PLUGIN.employee_salary:CreateMapFolder()</span></a></td>
 	<td class="summary">Creates this plugin's data folder for the current map.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:MapFile"><span class='state state-client state-server'>PLUGIN:MapFile(name)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:MapFile"><span class='state state-client state-server'>PLUGIN.employee_salary:MapFile(name)</span></a></td>
 	<td class="summary">Gets the path to a map file for this plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:OpenDataFile"><span class='state state-client state-server'>PLUGIN:OpenDataFile(name[, mode=r])</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:OpenDataFile"><span class='state state-client state-server'>PLUGIN.employee_salary:OpenDataFile(name[, mode=r])</span></a></td>
 	<td class="summary">Gets the file class for the given file.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:OpenMapFile"><span class='state state-client state-server'>PLUGIN:OpenMapFile(name[, mode=r])</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:OpenMapFile"><span class='state state-client state-server'>PLUGIN.employee_salary:OpenMapFile(name[, mode=r])</span></a></td>
 	<td class="summary">Gets the file class for the given file.</td>
 	</tr>
 </table>
 <h3><a href="#Abstracted_Data_Methods">Abstracted Data Methods </a></h3>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:ReadDataFile"><span class='state state-client state-server'>PLUGIN:ReadDataFile(name)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:ReadDataFile"><span class='state state-client state-server'>PLUGIN.employee_salary:ReadDataFile(name)</span></a></td>
 	<td class="summary">Reads a given data file.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:WriteDataFile"><span class='state state-client state-server'>PLUGIN:WriteDataFile(name, contents)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:WriteDataFile"><span class='state state-client state-server'>PLUGIN.employee_salary:WriteDataFile(name, contents)</span></a></td>
 	<td class="summary">Writes a given data file.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:ReadMapFile"><span class='state state-client state-server'>PLUGIN:ReadMapFile(name)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:ReadMapFile"><span class='state state-client state-server'>PLUGIN.employee_salary:ReadMapFile(name)</span></a></td>
 	<td class="summary">Reads a given data file.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN:WriteMapFile"><span class='state state-client state-server'>PLUGIN:WriteMapFile(name, contents)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.employee_salary:WriteMapFile"><span class='state state-client state-server'>PLUGIN.employee_salary:WriteMapFile(name, contents)</span></a></td>
 	<td class="summary">Writes a given data file.</td>
 	</tr>
 </table>
 </div>
 
+	<div class="ll-module-header"><h2 class="section-header "><a name="Fields"></a>Fields</h2></div>
+    <div class="ll-module-body">
+    <dl class="function">
+    <dt>
+    <a name = "PLUGIN.employee_salary.SalaryInterval"></a>
+    <strong>PLUGIN.employee_salary.SalaryInterval</strong>
+    </dt>
+    <dd>
+    Shared config
+ Salary interval
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+    <dt>
+    <a name = "PLUGIN.employee_salary.EmployeeSalary"></a>
+    <strong>PLUGIN.employee_salary.EmployeeSalary</strong>
+    </dt>
+    <dd>
+    Table to store salary data
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+    </ul>
+</dd>
+</dl>
+</div>
 	<div class="ll-module-header"><h2 class="section-header "><a name="Core_Methods"></a>Core Methods </h2></div>
     <div class="ll-module-body">
     <dl class="function">
     <dt>
-    <a name = "PLUGIN:New"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:New(name[, author])</span></strong>
+    <a name = "PLUGIN.employee_salary:New"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:New(name[, author])</span></strong>
     </dt>
     <dd>
     Create a new plugin.
@@ -426,10 +470,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:CallAsHook"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:CallAsHook(name, ...)</span></strong>
+    <a name = "PLUGIN.employee_salary:CallAsHook"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:CallAsHook(name, ...)</span></strong>
     </dt>
     <dd>
     Call the hooks of this plugin.
@@ -456,10 +504,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
            <span class="types"><span class="type">vararg</span></span>
         Returns from the called functions.
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:Call"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:Call(name, ...)</span></strong>
+    <a name = "PLUGIN.employee_salary:Call"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:Call(name, ...)</span></strong>
     </dt>
     <dd>
     Call the hooks of this plugin, ignoring any output.
@@ -486,14 +538,18 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
            <span class="types"><span class="type">vararg</span></span>
         Returns from the called functions.
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
     <h3>See also:</h3>
     <ul>
          <a href="../classes/PLUGIN.html#PLUGIN:CallAsHook">PLUGIN:CallAsHook</a>
     </ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:Hook"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:Hook(name, func)</span></strong>
+    <a name = "PLUGIN.employee_salary:Hook"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:Hook(name, func)</span></strong>
     </dt>
     <dd>
     Adds a hook function to the plugin.
@@ -522,10 +578,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:AddHook"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:AddHook(name, func)</span></strong>
+    <a name = "PLUGIN.employee_salary:AddHook"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:AddHook(name, func)</span></strong>
     </dt>
     <dd>
     Adds a hook function to the plugin, and also registers the hook with hook.Add
@@ -554,10 +614,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:Enable"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:Enable()</span></strong>
+    <a name = "PLUGIN.employee_salary:Enable"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:Enable()</span></strong>
     </dt>
     <dd>
     Enable the plugin.
@@ -575,10 +639,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:Disable"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:Disable()</span></strong>
+    <a name = "PLUGIN.employee_salary:Disable"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:Disable()</span></strong>
     </dt>
     <dd>
     Disable the plugin.
@@ -596,10 +664,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:Enabled"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:Enabled()</span></strong>
+    <a name = "PLUGIN.employee_salary:Enabled"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:Enabled()</span></strong>
     </dt>
     <dd>
     Get if the plugin is enabled.
@@ -617,10 +689,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:IsValid"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:IsValid()</span></strong>
+    <a name = "PLUGIN.employee_salary:IsValid"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:IsValid()</span></strong>
     </dt>
     <dd>
     Checks if the plugin is valid (currently checks enabled status)
@@ -638,14 +714,18 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
     <h3>See also:</h3>
     <ul>
          <a href="../classes/PLUGIN.html#PLUGIN:Enabled">PLUGIN:Enabled</a>
     </ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:Register"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:Register([name=self.name])</span></strong>
+    <a name = "PLUGIN.employee_salary:Register"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:Register([name=self.name])</span></strong>
     </dt>
     <dd>
     Registers the plugin.
@@ -663,6 +743,10 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
          (<em>default</em> self.name)
         </li>
     </ul>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
 </dl>
 </div>
@@ -670,8 +754,8 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
     <div class="ll-module-body">
     <dl class="function">
     <dt>
-    <a name = "PLUGIN:CreateFolder"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:CreateFolder(fullPath)</span></strong>
+    <a name = "PLUGIN.employee_salary:CreateFolder"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:CreateFolder(fullPath)</span></strong>
     </dt>
     <dd>
     Create a folder, along with any intermedate folders.
@@ -696,10 +780,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:DataFolder"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:DataFolder()</span></strong>
+    <a name = "PLUGIN.employee_salary:DataFolder"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:DataFolder()</span></strong>
     </dt>
     <dd>
     Gets the data folder for this plugin.
@@ -717,10 +805,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:CreateDataFolder"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:CreateDataFolder()</span></strong>
+    <a name = "PLUGIN.employee_salary:CreateDataFolder"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:CreateDataFolder()</span></strong>
     </dt>
     <dd>
     Creates this plugin's data folder.
@@ -738,10 +830,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:DataFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:DataFile(name)</span></strong>
+    <a name = "PLUGIN.employee_salary:DataFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:DataFile(name)</span></strong>
     </dt>
     <dd>
     Gets the path to a data file for this plugin.
@@ -764,10 +860,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
         Full path.
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:MapFolder"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:MapFolder()</span></strong>
+    <a name = "PLUGIN.employee_salary:MapFolder"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:MapFolder()</span></strong>
     </dt>
     <dd>
     Gets the data folder for this plugin on the current map.
@@ -785,10 +885,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:CreateMapFolder"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:CreateMapFolder()</span></strong>
+    <a name = "PLUGIN.employee_salary:CreateMapFolder"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:CreateMapFolder()</span></strong>
     </dt>
     <dd>
     Creates this plugin's data folder for the current map.
@@ -806,10 +910,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:MapFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:MapFile(name)</span></strong>
+    <a name = "PLUGIN.employee_salary:MapFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:MapFile(name)</span></strong>
     </dt>
     <dd>
     Gets the path to a map file for this plugin.
@@ -832,10 +940,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
         Full path.
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:OpenDataFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:OpenDataFile(name[, mode=r])</span></strong>
+    <a name = "PLUGIN.employee_salary:OpenDataFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:OpenDataFile(name[, mode=r])</span></strong>
     </dt>
     <dd>
     Gets the file class for the given file.
@@ -865,14 +977,18 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
     <h3>See also:</h3>
     <ul>
          <a href="https://wiki.facepunch.com/gmod/file.Open">file.Open</a>
     </ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:OpenMapFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:OpenMapFile(name[, mode=r])</span></strong>
+    <a name = "PLUGIN.employee_salary:OpenMapFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:OpenMapFile(name[, mode=r])</span></strong>
     </dt>
     <dd>
     Gets the file class for the given file.
@@ -902,6 +1018,10 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
     <h3>See also:</h3>
     <ul>
          <a href="https://wiki.facepunch.com/gmod/file.Open">file.Open</a>
@@ -913,8 +1033,8 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
     <div class="ll-module-body">
     <dl class="function">
     <dt>
-    <a name = "PLUGIN:ReadDataFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:ReadDataFile(name)</span></strong>
+    <a name = "PLUGIN.employee_salary:ReadDataFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:ReadDataFile(name)</span></strong>
     </dt>
     <dd>
     Reads a given data file.
@@ -937,10 +1057,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
         File contents.
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:WriteDataFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:WriteDataFile(name, contents)</span></strong>
+    <a name = "PLUGIN.employee_salary:WriteDataFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:WriteDataFile(name, contents)</span></strong>
     </dt>
     <dd>
     Writes a given data file.
@@ -969,10 +1093,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:ReadMapFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:ReadMapFile(name)</span></strong>
+    <a name = "PLUGIN.employee_salary:ReadMapFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:ReadMapFile(name)</span></strong>
     </dt>
     <dd>
     Reads a given data file.
@@ -995,10 +1123,14 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
         File contents.
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN:WriteMapFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN:WriteMapFile(name, contents)</span></strong>
+    <a name = "PLUGIN.employee_salary:WriteMapFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.employee_salary:WriteMapFile(name, contents)</span></strong>
     </dt>
     <dd>
     Writes a given data file.
@@ -1027,6 +1159,10 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
     </ol>
+	<h3>Inhereted from:</h3>
+	<ul>
+		<a href="../classes/PLUGIN.html#">PLUGIN</a>
+	</ul>
 </dd>
 </dl>
 </div>
