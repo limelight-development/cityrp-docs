@@ -23,9 +23,9 @@
 				<div class="ll-kind-header">
 					<h1>CityRP 2</h1>
 					<div class="header-module">
-        				<li>Copyright: 2015-2019 Limelight Gaming</li>
+        				<li>Copyright: 2015-2025 Limelight Gaming</li>
         				<li>Release: CityRP 2</li>
-        				<li>Author: Legacy Team</li>
+        				<li>Author: Joshua Piper <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#x3a;l&#105;&#x6d;&#101;&#x6c;&#105;&#x67;&#104;&#x74;&#64;&#x61;x&#105;&#x75;&#109;&#x2d;&#108;&#x75;&#109;&#x69;n&#97;&#x2e;&#99;&#x6f;&#46;&#x75;&#107;">&#x6c;&#105;&#x6d;&#101;&#x6c;&#105;&#x67;h&#116;&#x40;&#97;&#x78;&#105;&#x75;&#109;&#x2d;l&#117;&#x6d;&#105;&#x6e;&#97;&#x2e;&#99;&#x6f;&#46;&#x75;k</a></li>
 					</div>
 				</div>
 				<div class="ll-kind-body">
@@ -75,7 +75,7 @@
 					<li><a href="../modules/core.libraries.meska.skills.shared.meta.html">core.libraries.meska.skills.shared.meta</a></li>
 					<li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
 					<li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
-					<li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
+					<li><strong>cityrp.currency</strong></li>
 					<li><a href="../modules/dumper.html">dumper</a></li>
 					<li><a href="../modules/functions.html">functions</a></li>
 					<li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -121,7 +121,7 @@
 					<li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
 					<li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
 					<li><a href="../modules/core.plugins.laws.sv_init.html">core.plugins.laws.sv_init</a></li>
-					<li><strong>core.plugins.licenseplates.cl_init</strong></li>
+					<li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
 					<li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
 					<li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
 					<li><a href="../modules/core.plugins.lifealert.cl_init.html">core.plugins.lifealert.cl_init</a></li>
@@ -271,9 +271,9 @@
 
 
 			<div id="content">
-				<div class="ll-module-header"><h1>Module <code>core.plugins.licenseplates.cl_init</code></h1></div>
+				<div class="ll-module-header"><h1>Module <code>cityrp.currency</code></h1></div>
 				<div class="ll-module-body">
-					License Plates Client
+					Currency Library
 
 
 
@@ -291,8 +291,8 @@
 <h3><a href="#Functions">Functions</a></h3>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#setFrameState"><span class='state state-client'>setFrameState(bool, ent)</span></a></td>
-	<td class="summary">Set the state of the license plate frame.</td>
+	<td class="name" nowrap><a href="#cityrp.currency.format"><span class='state state-client state-server'>cityrp.currency.format(amount)</span></a></td>
+	<td class="summary">Formats a number into a currency string</td>
 	</tr>
 </table>
 </div>
@@ -301,11 +301,11 @@
     <div class="ll-module-body">
     <dl class="function">
     <dt>
-    <a name = "setFrameState"></a>
-    <strong><span class='state state-client'>setFrameState(bool, ent)</span></strong>
+    <a name = "cityrp.currency.format"></a>
+    <strong><span class='state state-client state-server'>cityrp.currency.format(amount)</span></strong>
     </dt>
     <dd>
-    Set the state of the license plate frame.
+    Formats a number into a currency string
     </ul>
     </ul>
     </ul>
@@ -314,13 +314,17 @@
     </ul>
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">bool</span>
-         Open or closed.
-        </li>
-        <li><span class="parameter">ent</span>
-         The entity having the frame changed.
+        <li><span class="parameter">amount</span>
+            <span class="types"><span class="type">number</span></span>
+         The numeric value to format
         </li>
     </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        A formatted currency string
+    </ol>
 </dd>
 </dl>
 </div>
