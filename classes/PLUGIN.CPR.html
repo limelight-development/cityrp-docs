@@ -23,9 +23,9 @@
 				<div class="ll-kind-header">
 					<h1>CityRP 2</h1>
 					<div class="header-module">
-        				<li>Copyright: 2015-2021 Limelight Gaming</li>
+        				<li>Copyright: 2015-2025 Limelight Gaming</li>
         				<li>Release: CityRP 2</li>
-        				<li>Author: John Internet.</li>
+        				<li>Author: Taylor</li>
 					</div>
 				</div>
 				<div class="ll-kind-body">
@@ -36,7 +36,6 @@
 
 				<div class="ll-kind-header"><h2>Contents</h2></div>
 				<ul class="ll-kind-body">
-					<li><a href="#Methods">Methods</a></li>
 					<li><a href="#Core_Methods">Core Methods </a></li>
 					<li><a href="#Data_Methods">Data Methods </a></li>
 					<li><a href="#Abstracted_Data_Methods">Abstracted Data Methods </a></li>
@@ -73,9 +72,9 @@
 					<li><a href="../classes/PLUGIN.html">PLUGIN</a></li>
 					<li><a href="../classes/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 					<li><a href="../classes/Player.html">Player</a></li>
-					<li><a href="../classes/PLUGIN.CPR.html">PLUGIN.CPR</a></li>
+					<li><strong>PLUGIN.CPR</strong></li>
 					<li><a href="../classes/PLUGIN.employee_salary.html">PLUGIN.employee_salary</a></li>
-					<li><strong>PLUGIN.worldprops</strong></li>
+					<li><a href="../classes/PLUGIN.worldprops.html">PLUGIN.worldprops</a></li>
 					<li><a href="../classes/DB.html">DB</a></li>
 				</ul>
 
@@ -275,9 +274,9 @@
 
 
 			<div id="content">
-				<div class="ll-module-header"><h1>Class <code>PLUGIN.worldprops</code></h1></div>
+				<div class="ll-module-header"><h1>Class <code>PLUGIN.CPR</code></h1></div>
 				<div class="ll-module-body">
-					World Props Module
+					Cardiopulmonary Resuscitation (CPR) Plugin
 
 
 
@@ -292,245 +291,115 @@
 <div class="ll-module-header"><h2>Class Overview</h2></div>
 <div class="ll-module-body">
 
-<h3><a href="#Methods">Methods</a></h3>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:SpawnProp"><span class='state state-server'>PLUGIN.worldprops:SpawnProp(data)</span></a></td>
-	<td class="summary">Spawn a world prop.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:LoadProps"><span class='state state-server'>PLUGIN.worldprops:LoadProps()</span></a></td>
-	<td class="summary">Loads the props from either the current map file or the legacy file.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:SaveProps"><span class='state state-server'>PLUGIN.worldprops:SaveProps()</span></a></td>
-	<td class="summary">Saves the props to the prop file.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:IsWorldProp"><span class='state state-server'>PLUGIN.worldprops:IsWorldProp(prop)</span></a></td>
-	<td class="summary">Checks if a given prop is a world prop.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:Command"><span class='state state-server'>PLUGIN.worldprops:Command(ply, args)</span></a></td>
-	<td class="summary">Command handler for /worldprops.</td>
-	</tr>
-</table>
 <h3><a href="#Core_Methods">Core Methods </a></h3>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:New"><span class='state state-client state-server'>PLUGIN.worldprops:New(name[, author])</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:New"><span class='state state-client state-server'>PLUGIN.CPR:New(name[, author])</span></a></td>
 	<td class="summary">Create a new plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:CallAsHook"><span class='state state-client state-server'>PLUGIN.worldprops:CallAsHook(name, ...)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:CallAsHook"><span class='state state-client state-server'>PLUGIN.CPR:CallAsHook(name, ...)</span></a></td>
 	<td class="summary">Call the hooks of this plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:Call"><span class='state state-client state-server'>PLUGIN.worldprops:Call(name, ...)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:Call"><span class='state state-client state-server'>PLUGIN.CPR:Call(name, ...)</span></a></td>
 	<td class="summary">Call the hooks of this plugin, ignoring any output.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:Hook"><span class='state state-client state-server'>PLUGIN.worldprops:Hook(name, func)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:Hook"><span class='state state-client state-server'>PLUGIN.CPR:Hook(name, func)</span></a></td>
 	<td class="summary">Adds a hook function to the plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:AddHook"><span class='state state-client state-server'>PLUGIN.worldprops:AddHook(name, func)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:AddHook"><span class='state state-client state-server'>PLUGIN.CPR:AddHook(name, func)</span></a></td>
 	<td class="summary">Adds a hook function to the plugin, and also registers the hook with hook.Add</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:Enable"><span class='state state-client state-server'>PLUGIN.worldprops:Enable()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:Enable"><span class='state state-client state-server'>PLUGIN.CPR:Enable()</span></a></td>
 	<td class="summary">Enable the plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:Disable"><span class='state state-client state-server'>PLUGIN.worldprops:Disable()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:Disable"><span class='state state-client state-server'>PLUGIN.CPR:Disable()</span></a></td>
 	<td class="summary">Disable the plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:Enabled"><span class='state state-client state-server'>PLUGIN.worldprops:Enabled()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:Enabled"><span class='state state-client state-server'>PLUGIN.CPR:Enabled()</span></a></td>
 	<td class="summary">Get if the plugin is enabled.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:IsValid"><span class='state state-client state-server'>PLUGIN.worldprops:IsValid()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:IsValid"><span class='state state-client state-server'>PLUGIN.CPR:IsValid()</span></a></td>
 	<td class="summary">Checks if the plugin is valid (currently checks enabled status)</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:Register"><span class='state state-client state-server'>PLUGIN.worldprops:Register([name=self.name])</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:Register"><span class='state state-client state-server'>PLUGIN.CPR:Register([name=self.name])</span></a></td>
 	<td class="summary">Registers the plugin.</td>
 	</tr>
 </table>
 <h3><a href="#Data_Methods">Data Methods </a></h3>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:CreateFolder"><span class='state state-client state-server'>PLUGIN.worldprops:CreateFolder(fullPath)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:CreateFolder"><span class='state state-client state-server'>PLUGIN.CPR:CreateFolder(fullPath)</span></a></td>
 	<td class="summary">Create a folder, along with any intermedate folders.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:DataFolder"><span class='state state-client state-server'>PLUGIN.worldprops:DataFolder()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:DataFolder"><span class='state state-client state-server'>PLUGIN.CPR:DataFolder()</span></a></td>
 	<td class="summary">Gets the data folder for this plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:CreateDataFolder"><span class='state state-client state-server'>PLUGIN.worldprops:CreateDataFolder()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:CreateDataFolder"><span class='state state-client state-server'>PLUGIN.CPR:CreateDataFolder()</span></a></td>
 	<td class="summary">Creates this plugin's data folder.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:DataFile"><span class='state state-client state-server'>PLUGIN.worldprops:DataFile(name)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:DataFile"><span class='state state-client state-server'>PLUGIN.CPR:DataFile(name)</span></a></td>
 	<td class="summary">Gets the path to a data file for this plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:MapFolder"><span class='state state-client state-server'>PLUGIN.worldprops:MapFolder()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:MapFolder"><span class='state state-client state-server'>PLUGIN.CPR:MapFolder()</span></a></td>
 	<td class="summary">Gets the data folder for this plugin on the current map.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:CreateMapFolder"><span class='state state-client state-server'>PLUGIN.worldprops:CreateMapFolder()</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:CreateMapFolder"><span class='state state-client state-server'>PLUGIN.CPR:CreateMapFolder()</span></a></td>
 	<td class="summary">Creates this plugin's data folder for the current map.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:MapFile"><span class='state state-client state-server'>PLUGIN.worldprops:MapFile(name)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:MapFile"><span class='state state-client state-server'>PLUGIN.CPR:MapFile(name)</span></a></td>
 	<td class="summary">Gets the path to a map file for this plugin.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:OpenDataFile"><span class='state state-client state-server'>PLUGIN.worldprops:OpenDataFile(name[, mode=r])</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:OpenDataFile"><span class='state state-client state-server'>PLUGIN.CPR:OpenDataFile(name[, mode=r])</span></a></td>
 	<td class="summary">Gets the file class for the given file.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:OpenMapFile"><span class='state state-client state-server'>PLUGIN.worldprops:OpenMapFile(name[, mode=r])</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:OpenMapFile"><span class='state state-client state-server'>PLUGIN.CPR:OpenMapFile(name[, mode=r])</span></a></td>
 	<td class="summary">Gets the file class for the given file.</td>
 	</tr>
 </table>
 <h3><a href="#Abstracted_Data_Methods">Abstracted Data Methods </a></h3>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:ReadDataFile"><span class='state state-client state-server'>PLUGIN.worldprops:ReadDataFile(name)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:ReadDataFile"><span class='state state-client state-server'>PLUGIN.CPR:ReadDataFile(name)</span></a></td>
 	<td class="summary">Reads a given data file.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:WriteDataFile"><span class='state state-client state-server'>PLUGIN.worldprops:WriteDataFile(name, contents)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:WriteDataFile"><span class='state state-client state-server'>PLUGIN.CPR:WriteDataFile(name, contents)</span></a></td>
 	<td class="summary">Writes a given data file.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:ReadMapFile"><span class='state state-client state-server'>PLUGIN.worldprops:ReadMapFile(name)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:ReadMapFile"><span class='state state-client state-server'>PLUGIN.CPR:ReadMapFile(name)</span></a></td>
 	<td class="summary">Reads a given data file.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PLUGIN.worldprops:WriteMapFile"><span class='state state-client state-server'>PLUGIN.worldprops:WriteMapFile(name, contents)</span></a></td>
+	<td class="name" nowrap><a href="#PLUGIN.CPR:WriteMapFile"><span class='state state-client state-server'>PLUGIN.CPR:WriteMapFile(name, contents)</span></a></td>
 	<td class="summary">Writes a given data file.</td>
 	</tr>
 </table>
 </div>
 
-	<div class="ll-module-header"><h2 class="section-header "><a name="Methods"></a>Methods</h2></div>
-    <div class="ll-module-body">
-    <dl class="function">
-    <dt>
-    <a name = "PLUGIN.worldprops:SpawnProp"></a>
-    <strong><span class='state state-server'>PLUGIN.worldprops:SpawnProp(data)</span></strong>
-    </dt>
-    <dd>
-    Spawn a world prop.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">data</span>
-            <span class="types"><span class="type">tab</span></span>
-         Data table containing model path, position, angle, colour and material.
-        </li>
-    </ul>
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-        Data table above, with added data.ent entry for the created entity.
-    </ol>
-</dd>
-    <dt>
-    <a name = "PLUGIN.worldprops:LoadProps"></a>
-    <strong><span class='state state-server'>PLUGIN.worldprops:LoadProps()</span></strong>
-    </dt>
-    <dd>
-    Loads the props from either the current map file or the legacy file.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-</dd>
-    <dt>
-    <a name = "PLUGIN.worldprops:SaveProps"></a>
-    <strong><span class='state state-server'>PLUGIN.worldprops:SaveProps()</span></strong>
-    </dt>
-    <dd>
-    Saves the props to the prop file.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-</dd>
-    <dt>
-    <a name = "PLUGIN.worldprops:IsWorldProp"></a>
-    <strong><span class='state state-server'>PLUGIN.worldprops:IsWorldProp(prop)</span></strong>
-    </dt>
-    <dd>
-    Checks if a given prop is a world prop.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">prop</span>
-            <span class="types"><span class="type">Entity</span></span>
-         Entity to check.
-        </li>
-    </ul>
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        If the entity is a world prop.
-    </ol>
-</dd>
-    <dt>
-    <a name = "PLUGIN.worldprops:Command"></a>
-    <strong><span class='state state-server'>PLUGIN.worldprops:Command(ply, args)</span></strong>
-    </dt>
-    <dd>
-    Command handler for /worldprops.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">ply</span>
-            <span class="types"><a class="type" href="../classes/Player.html#">Player</a></span>
-         Player calling the command.
-        </li>
-        <li><span class="parameter">args</span>
-            <span class="types"><span class="type">tab</span></span>
-         Arguments.
-        </li>
-    </ul>
-</dd>
-</dl>
-</div>
 	<div class="ll-module-header"><h2 class="section-header "><a name="Core_Methods"></a>Core Methods </h2></div>
     <div class="ll-module-body">
     <dl class="function">
     <dt>
-    <a name = "PLUGIN.worldprops:New"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:New(name[, author])</span></strong>
+    <a name = "PLUGIN.CPR:New"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:New(name[, author])</span></strong>
     </dt>
     <dd>
     Create a new plugin.
@@ -566,8 +435,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:CallAsHook"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:CallAsHook(name, ...)</span></strong>
+    <a name = "PLUGIN.CPR:CallAsHook"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:CallAsHook(name, ...)</span></strong>
     </dt>
     <dd>
     Call the hooks of this plugin.
@@ -600,8 +469,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:Call"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:Call(name, ...)</span></strong>
+    <a name = "PLUGIN.CPR:Call"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:Call(name, ...)</span></strong>
     </dt>
     <dd>
     Call the hooks of this plugin, ignoring any output.
@@ -638,8 +507,8 @@
     </ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:Hook"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:Hook(name, func)</span></strong>
+    <a name = "PLUGIN.CPR:Hook"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:Hook(name, func)</span></strong>
     </dt>
     <dd>
     Adds a hook function to the plugin.
@@ -674,8 +543,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:AddHook"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:AddHook(name, func)</span></strong>
+    <a name = "PLUGIN.CPR:AddHook"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:AddHook(name, func)</span></strong>
     </dt>
     <dd>
     Adds a hook function to the plugin, and also registers the hook with hook.Add
@@ -710,8 +579,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:Enable"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:Enable()</span></strong>
+    <a name = "PLUGIN.CPR:Enable"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:Enable()</span></strong>
     </dt>
     <dd>
     Enable the plugin.
@@ -735,8 +604,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:Disable"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:Disable()</span></strong>
+    <a name = "PLUGIN.CPR:Disable"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:Disable()</span></strong>
     </dt>
     <dd>
     Disable the plugin.
@@ -760,8 +629,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:Enabled"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:Enabled()</span></strong>
+    <a name = "PLUGIN.CPR:Enabled"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:Enabled()</span></strong>
     </dt>
     <dd>
     Get if the plugin is enabled.
@@ -785,8 +654,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:IsValid"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:IsValid()</span></strong>
+    <a name = "PLUGIN.CPR:IsValid"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:IsValid()</span></strong>
     </dt>
     <dd>
     Checks if the plugin is valid (currently checks enabled status)
@@ -814,8 +683,8 @@
     </ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:Register"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:Register([name=self.name])</span></strong>
+    <a name = "PLUGIN.CPR:Register"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:Register([name=self.name])</span></strong>
     </dt>
     <dd>
     Registers the plugin.
@@ -844,8 +713,8 @@
     <div class="ll-module-body">
     <dl class="function">
     <dt>
-    <a name = "PLUGIN.worldprops:CreateFolder"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:CreateFolder(fullPath)</span></strong>
+    <a name = "PLUGIN.CPR:CreateFolder"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:CreateFolder(fullPath)</span></strong>
     </dt>
     <dd>
     Create a folder, along with any intermedate folders.
@@ -876,8 +745,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:DataFolder"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:DataFolder()</span></strong>
+    <a name = "PLUGIN.CPR:DataFolder"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:DataFolder()</span></strong>
     </dt>
     <dd>
     Gets the data folder for this plugin.
@@ -901,8 +770,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:CreateDataFolder"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:CreateDataFolder()</span></strong>
+    <a name = "PLUGIN.CPR:CreateDataFolder"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:CreateDataFolder()</span></strong>
     </dt>
     <dd>
     Creates this plugin's data folder.
@@ -926,8 +795,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:DataFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:DataFile(name)</span></strong>
+    <a name = "PLUGIN.CPR:DataFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:DataFile(name)</span></strong>
     </dt>
     <dd>
     Gets the path to a data file for this plugin.
@@ -956,8 +825,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:MapFolder"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:MapFolder()</span></strong>
+    <a name = "PLUGIN.CPR:MapFolder"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:MapFolder()</span></strong>
     </dt>
     <dd>
     Gets the data folder for this plugin on the current map.
@@ -981,8 +850,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:CreateMapFolder"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:CreateMapFolder()</span></strong>
+    <a name = "PLUGIN.CPR:CreateMapFolder"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:CreateMapFolder()</span></strong>
     </dt>
     <dd>
     Creates this plugin's data folder for the current map.
@@ -1006,8 +875,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:MapFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:MapFile(name)</span></strong>
+    <a name = "PLUGIN.CPR:MapFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:MapFile(name)</span></strong>
     </dt>
     <dd>
     Gets the path to a map file for this plugin.
@@ -1036,8 +905,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:OpenDataFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:OpenDataFile(name[, mode=r])</span></strong>
+    <a name = "PLUGIN.CPR:OpenDataFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:OpenDataFile(name[, mode=r])</span></strong>
     </dt>
     <dd>
     Gets the file class for the given file.
@@ -1077,8 +946,8 @@
     </ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:OpenMapFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:OpenMapFile(name[, mode=r])</span></strong>
+    <a name = "PLUGIN.CPR:OpenMapFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:OpenMapFile(name[, mode=r])</span></strong>
     </dt>
     <dd>
     Gets the file class for the given file.
@@ -1123,8 +992,8 @@
     <div class="ll-module-body">
     <dl class="function">
     <dt>
-    <a name = "PLUGIN.worldprops:ReadDataFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:ReadDataFile(name)</span></strong>
+    <a name = "PLUGIN.CPR:ReadDataFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:ReadDataFile(name)</span></strong>
     </dt>
     <dd>
     Reads a given data file.
@@ -1153,8 +1022,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:WriteDataFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:WriteDataFile(name, contents)</span></strong>
+    <a name = "PLUGIN.CPR:WriteDataFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:WriteDataFile(name, contents)</span></strong>
     </dt>
     <dd>
     Writes a given data file.
@@ -1189,8 +1058,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:ReadMapFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:ReadMapFile(name)</span></strong>
+    <a name = "PLUGIN.CPR:ReadMapFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:ReadMapFile(name)</span></strong>
     </dt>
     <dd>
     Reads a given data file.
@@ -1219,8 +1088,8 @@
 	</ul>
 </dd>
     <dt>
-    <a name = "PLUGIN.worldprops:WriteMapFile"></a>
-    <strong><span class='state state-client state-server'>PLUGIN.worldprops:WriteMapFile(name, contents)</span></strong>
+    <a name = "PLUGIN.CPR:WriteMapFile"></a>
+    <strong><span class='state state-client state-server'>PLUGIN.CPR:WriteMapFile(name, contents)</span></strong>
     </dt>
     <dd>
     Writes a given data file.
