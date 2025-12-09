@@ -22,11 +22,6 @@
 			<div id="navigation">
 				<div class="ll-kind-header">
 					<h1>CityRP 2</h1>
-					<div class="header-module">
-        				<li>Copyright: 2015-2019 Limelight Gaming</li>
-        				<li>Release: CityRP 2</li>
-        				<li>Author: Legacy Team</li>
-					</div>
 				</div>
 				<div class="ll-kind-body">
 					<ul>
@@ -34,12 +29,6 @@
 					</ul>
 				</div>
 
-				<div class="ll-kind-header"><h2>Contents</h2></div>
-				<ul class="ll-kind-body">
-					<li><a href="#Functions">Functions</a></li>
-					<li><a href="#Tables">Tables</a></li>
-					<li><a href="#Fields">Fields</a></li>
-				</ul>
 
 
 
@@ -137,8 +126,8 @@
 					<li><a href="../modules/core.plugins.onlinelog.sh_init.html">core.plugins.onlinelog.sh_init</a></li>
 					<li><a href="../modules/core.plugins.onlinelog.sv_init.html">core.plugins.onlinelog.sv_init</a></li>
 					<li><a href="../modules/core.plugins.packaging.sv_init.html">core.plugins.packaging.sv_init</a></li>
-					<li><strong>core.plugins.passivemode.sv_init</strong></li>
-					<li><a href="../modules/core.plugins.perma_ents.maps.rp_evocity_v4b1_fl2.html">core.plugins.perma_ents.maps.rp_evocity_v4b1_fl2</a></li>
+					<li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+					<li><strong>core.plugins.perma_ents.maps.rp_evocity_v4b1_fl2</strong></li>
 					<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
 					<li><a href="../modules/cityrp.phonebook.html">cityrp.phonebook</a></li>
 					<li><a href="../modules/core.plugins.pradio.sv_init.html">core.plugins.pradio.sv_init</a></li>
@@ -275,9 +264,9 @@
 
 
 			<div id="content">
-				<div class="ll-module-header"><h1>Module <code>core.plugins.passivemode.sv_init</code></h1></div>
+				<div class="ll-module-header"><h1>Module <code>core.plugins.perma_ents.maps.rp_evocity_v4b1_fl2</code></h1></div>
 				<div class="ll-module-body">
-					Passive Mode
+					NPC Vendors
 
 
 
@@ -289,291 +278,7 @@
 
 
 
-<div class="ll-module-header"><h2>Module Overview</h2></div>
-<div class="ll-module-body">
 
-<h3><a href="#Functions">Functions</a></h3>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#cityrp.passivemode.activate"><span class='state state-server'>cityrp.passivemode.activate()</span></a></td>
-	<td class="summary">Activate passivemode, overwrite functions and refund contraband.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#cityrp.passivemode.deactivate"><span class='state state-server'>cityrp.passivemode.deactivate(calling_ply)</span></a></td>
-	<td class="summary">Deactivate passivemode, overwrite functions and refund contraband.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#cityrp.passivemode.hasAccess"><span class='state state-server'>cityrp.passivemode.hasAccess(ply, access)</span></a></td>
-	<td class="summary">Overwritten hasAccess which disallows weapons.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#cityrp.passivemode.itemuse"><span class='state state-server'>cityrp.passivemode.itemuse(ply, item)</span></a></td>
-	<td class="summary">Overwritten itemuse which disallows contraband.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#cityrp.passivemode.itemdrop"><span class='state state-server'>cityrp.passivemode.itemdrop(ply, item, dropAmount, position)</span></a></td>
-	<td class="summary">Overwritten itemdrop which disallows contraband.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#cityrp.passivemode.stripweapon"><span class='state state-server'>cityrp.passivemode.stripweapon(ply, class, wType, wName)</span></a></td>
-	<td class="summary">Check if a specific weapon is to be stripped from a player, and strip it if so.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#cityrp.passivemode.strip"><span class='state state-server'>cityrp.passivemode.strip()</span></a></td>
-	<td class="summary">Strips all weapons from all players, resets weapon mods and clears ragdoll weapons.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#cityrp.passivemode.contra"><span class='state state-server'>cityrp.passivemode.contra()</span></a></td>
-	<td class="summary">Refunds all contraband and pots for all players.</td>
-	</tr>
-</table>
-<h3><a href="#Tables">Tables</a></h3>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#cityrp.passivemode">cityrp.passivemode</a></td>
-	<td class="summary">Table containing all data for passivemode.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#cityrp.passivemode.functions">cityrp.passivemode.functions</a></td>
-	<td class="summary">Table which contains the old functions, replaced when passivemode is activated.</td>
-	</tr>
-</table>
-<h3><a href="#Fields">Fields</a></h3>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#cityrp.passivemode.active">cityrp.passivemode.active</a></td>
-	<td class="summary">States if passive mode has been activated already.</td>
-	</tr>
-</table>
-</div>
-
-	<div class="ll-module-header"><h2 class="section-header "><a name="Functions"></a>Functions</h2></div>
-    <div class="ll-module-body">
-    <dl class="function">
-    <dt>
-    <a name = "cityrp.passivemode.activate"></a>
-    <strong><span class='state state-server'>cityrp.passivemode.activate()</span></strong>
-    </dt>
-    <dd>
-    Activate passivemode, overwrite functions and refund contraband.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-</dd>
-    <dt>
-    <a name = "cityrp.passivemode.deactivate"></a>
-    <strong><span class='state state-server'>cityrp.passivemode.deactivate(calling_ply)</span></strong>
-    </dt>
-    <dd>
-    Deactivate passivemode, overwrite functions and refund contraband.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">calling_ply</span>
-         Optional param used to callback if it fails.
-        </li>
-    </ul>
-</dd>
-    <dt>
-    <a name = "cityrp.passivemode.hasAccess"></a>
-    <strong><span class='state state-server'>cityrp.passivemode.hasAccess(ply, access)</span></strong>
-    </dt>
-    <dd>
-    Overwritten hasAccess which disallows weapons.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">ply</span>
-         The player to check access for.
-        </li>
-        <li><span class="parameter">access</span>
-         The access to check against.
-        </li>
-    </ul>
-    <h3>Returns:</h3>
-    <ol>
-
-        False if access is weapons. Otherwise regular hasAccess return.
-    </ol>
-</dd>
-    <dt>
-    <a name = "cityrp.passivemode.itemuse"></a>
-    <strong><span class='state state-server'>cityrp.passivemode.itemuse(ply, item)</span></strong>
-    </dt>
-    <dd>
-    Overwritten itemuse which disallows contraband.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">ply</span>
-         The player using the item.
-        </li>
-        <li><span class="parameter">item</span>
-         The item being used.
-        </li>
-    </ul>
-    <h3>Returns:</h3>
-    <ol>
-
-        False if item is weed or contraband. Otherwise regular itemuse return.
-    </ol>
-</dd>
-    <dt>
-    <a name = "cityrp.passivemode.itemdrop"></a>
-    <strong><span class='state state-server'>cityrp.passivemode.itemdrop(ply, item, dropAmount, position)</span></strong>
-    </dt>
-    <dd>
-    Overwritten itemdrop which disallows contraband.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">ply</span>
-         The player using the item.
-        </li>
-        <li><span class="parameter">item</span>
-         The item being used.
-        </li>
-        <li><span class="parameter">dropAmount</span>
-         The number of items being dropped.
-        </li>
-        <li><span class="parameter">position</span>
-         The position at which the items were being dropped.
-        </li>
-    </ul>
-    <h3>Returns:</h3>
-    <ol>
-
-        False if item is weed or contraband. Otherwise regular itemdrop return.
-    </ol>
-</dd>
-    <dt>
-    <a name = "cityrp.passivemode.stripweapon"></a>
-    <strong><span class='state state-server'>cityrp.passivemode.stripweapon(ply, class, wType, wName)</span></strong>
-    </dt>
-    <dd>
-    Check if a specific weapon is to be stripped from a player, and strip it if so.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">ply</span>
-         The player being stripped.
-        </li>
-        <li><span class="parameter">class</span>
-         The class of the weapon being stripped.
-        </li>
-        <li><span class="parameter">wType</span>
-         The weapon type of the weapon being stripped.
-        </li>
-        <li><span class="parameter">wName</span>
-         The name of the weapon bineg stripped.
-        </li>
-    </ul>
-</dd>
-    <dt>
-    <a name = "cityrp.passivemode.strip"></a>
-    <strong><span class='state state-server'>cityrp.passivemode.strip()</span></strong>
-    </dt>
-    <dd>
-    Strips all weapons from all players, resets weapon mods and clears ragdoll weapons.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-</dd>
-    <dt>
-    <a name = "cityrp.passivemode.contra"></a>
-    <strong><span class='state state-server'>cityrp.passivemode.contra()</span></strong>
-    </dt>
-    <dd>
-    Refunds all contraband and pots for all players.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-</dd>
-</dl>
-</div>
-	<div class="ll-module-header"><h2 class="section-header "><a name="Tables"></a>Tables</h2></div>
-    <div class="ll-module-body">
-    <dl class="function">
-    <dt>
-    <a name = "cityrp.passivemode"></a>
-    <strong>cityrp.passivemode</strong>
-    </dt>
-    <dd>
-    Table containing all data for passivemode.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-</dd>
-    <dt>
-    <a name = "cityrp.passivemode.functions"></a>
-    <strong>cityrp.passivemode.functions</strong>
-    </dt>
-    <dd>
-    Table which contains the old functions, replaced when passivemode is activated.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-</dd>
-</dl>
-</div>
-	<div class="ll-module-header"><h2 class="section-header "><a name="Fields"></a>Fields</h2></div>
-    <div class="ll-module-body">
-    <dl class="function">
-    <dt>
-    <a name = "cityrp.passivemode.active"></a>
-    <strong>cityrp.passivemode.active</strong>
-    </dt>
-    <dd>
-    States if passive mode has been activated already.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-</dd>
-</dl>
-</div>
 </div>
 </div> <!-- id="content" -->
 </div>
