@@ -1,332 +1,253 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    	<title>CityRP Documentation</title>
-    	<link rel="stylesheet" href="../ldoc.css" type="text/css">
-
-		<link rel="stylesheet" href="../style.css" type="text/css">
-	</head>
-	<body>
-	<div id="container">
-		<div id="product">
-			<div id="product_logo"></div>
-			<div id="product_name"><big><b></b></big></div>
-			<div id="product_description"></div>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>core.libraries.sh_array</title>
+	<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<div id="container">
+	<div id="product">
+		<div id="product_logo"></div>
+		<div id="product_name"><big><b></b></big></div>
+		<div id="product_description"></div>
+	</div>
+	<div id="main">
+		<div id="navigation">
+<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#Functions">Functions</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Modules</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cl_init.html">cl_init</a></li>
+<li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+<li><a href="../modules/core.libraries.cl_chatbox.html">core.libraries.cl_chatbox</a></li>
+<li><a href="../modules/core.libraries.cl_hints.html">core.libraries.cl_hints</a></li>
+<li><a href="../modules/core.libraries.cl_inventory.html">core.libraries.cl_inventory</a></li>
+<li><a href="../modules/core.libraries.cl_temar.html">core.libraries.cl_temar</a></li>
+<li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../modules/core.libraries.sh_access.html">core.libraries.sh_access</a></li>
+<li><strong>core.libraries.sh_array</strong></li>
+<li><a href="../modules/core.libraries.sh_chatbox.html">core.libraries.sh_chatbox</a></li>
+<li><a href="../modules/core.libraries.sh_currency.html">core.libraries.sh_currency</a></li>
+<li><a href="../modules/core.libraries.sh_dumper.html">core.libraries.sh_dumper</a></li>
+<li><a href="../modules/core.libraries.sh_functions.html">core.libraries.sh_functions</a></li>
+<li><a href="../modules/core.libraries.sh_help.html">core.libraries.sh_help</a></li>
+<li><a href="../modules/core.libraries.sh_imagehosts.html">core.libraries.sh_imagehosts</a></li>
+<li><a href="../modules/core.libraries.sh_internet.html">core.libraries.sh_internet</a></li>
+<li><a href="../modules/core.libraries.sh_item.html">core.libraries.sh_item</a></li>
+<li><a href="../modules/core.libraries.sh_itemcore.html">core.libraries.sh_itemcore</a></li>
+<li><a href="../modules/core.libraries.sh_logging.html">core.libraries.sh_logging</a></li>
+<li><a href="../modules/core.libraries.sh_plugin.html">core.libraries.sh_plugin</a></li>
+<li><a href="../modules/core.libraries.sh_plugincore.html">core.libraries.sh_plugincore</a></li>
+<li><a href="../modules/core.libraries.sh_table.html">core.libraries.sh_table</a></li>
+<li><a href="../modules/core.libraries.sh_team.html">core.libraries.sh_team</a></li>
+<li><a href="../modules/core.libraries.sh_weighted_random.html">core.libraries.sh_weighted_random</a></li>
+<li><a href="../modules/core.libraries.sh_workarounds.html">core.libraries.sh_workarounds</a></li>
+<li><a href="../modules/core.libraries.sh_zones.html">core.libraries.sh_zones</a></li>
+<li><a href="../modules/core.libraries.sv_access.html">core.libraries.sv_access</a></li>
+<li><a href="../modules/core.libraries.sv_admin_core.html">core.libraries.sv_admin_core</a></li>
+<li><a href="../modules/core.libraries.sv_chatbox.html">core.libraries.sv_chatbox</a></li>
+<li><a href="../modules/core.libraries.sv_commands.html">core.libraries.sv_commands</a></li>
+<li><a href="../modules/core.libraries.sv_console.html">core.libraries.sv_console</a></li>
+<li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
+<li><a href="../modules/core.libraries.sv_gatekeeper.html">core.libraries.sv_gatekeeper</a></li>
+<li><a href="../modules/core.libraries.sv_inventory.html">core.libraries.sv_inventory</a></li>
+<li><a href="../modules/core.libraries.sv_item.html">core.libraries.sv_item</a></li>
+<li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
+<li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+<li><a href="../modules/core.libraries.sv_model.html">core.libraries.sv_model</a></li>
+<li><a href="../modules/core.libraries.sv_player.html">core.libraries.sv_player</a></li>
+<li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
+<li><a href="../modules/core.libraries.sv_team.html">core.libraries.sv_team</a></li>
+<li><a href="../modules/core.libraries.sv_temar.html">core.libraries.sv_temar</a></li>
+<li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+<li><a href="../modules/core.metatables.sh_permissions.html">core.metatables.sh_permissions</a></li>
+<li><a href="../modules/core.metatables.sh_player.html">core.metatables.sh_player</a></li>
+<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+<li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
+<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+<li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
+<li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_save_sv.html">core.plugins.billboards.sv.zad_save_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../modules/core.plugins.breathalyser.sv_init.html">core.plugins.breathalyser.sv_init</a></li>
+<li><a href="../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../modules/core.plugins.cruisecontrol.sv_init.html">core.plugins.cruisecontrol.sv_init</a></li>
+<li><a href="../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../modules/core.plugins.item_db_update.sv_init.html">core.plugins.item_db_update.sv_init</a></li>
+<li><a href="../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.phonebook.cl_init.html">core.plugins.phonebook.cl_init</a></li>
+<li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
+<li><a href="../modules/core.plugins.weapons_on_back.sh_init.html">core.plugins.weapons_on_back.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
+<li><a href="../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../modules/core.sh_enumerations.html">core.sh_enumerations</a></li>
+<li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../modules/db.html">db</a></li>
+<li><a href="../modules/env.html">env</a></li>
+<li><a href="../modules/init.html">init</a></li>
+<li><a href="../modules/sh_init.html">sh_init</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Topics</h2></div>
+<ul class="ll-kind-body">
+<li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../topics/items.html">Types of Items</a></li>
+<li><a href="../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
+<li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../topics/update-checklist.html">Update Checklist</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Credits</h2></div>
+<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
-		<!-- id="product" -->
+		<div id="content">
+<div class="ll-module-header"><h1>core.libraries.sh_array</h1></div>
+<div class="ll-module-body"><p>JS-Like Arrays</p></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="Array"></a><strong><span class="state state-client state-server">Array</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_array.lua#L88">Source ☍</a></dt>
+<dd>
 
-		<div id="main">
-
-			<!-- Menu -->
-			<div id="navigation">
-				<div class="ll-kind-header">
-					<h1>CityRP 2</h1>
-					<div class="header-module">
-        				<li>Copyright: 2015-2019 Limelight Gaming</li>
-        				<li>Release: CityRP 2</li>
-        				<li>Author: John Internet</li>
-					</div>
-				</div>
-				<div class="ll-kind-body">
-					<ul>
-						<li><a href="../index.html">Index</a></li>
-					</ul>
-				</div>
-
-				<div class="ll-kind-header"><h2>Contents</h2></div>
-				<ul class="ll-kind-body">
-					<li><a href="#Fields">Fields</a></li>
-				</ul>
-
-
-
-				<div class="ll-kind-header"><h2>Modules</h2></div>
-				<ul class="ll-kind-body nowrap">
-					<li><a href="../modules/GM.html">GM</a></li>
-					<li><a href="../modules/notification.html">notification</a></li>
-					<li><a href="../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
-					<li><a href="../modules/cityrp.hints.html">cityrp.hints</a></li>
-					<li><a href="../modules/cityrp.inventory.html">cityrp.inventory</a></li>
-					<li><a href="../modules/temar.html">temar</a></li>
-					<li><a href="../modules/core.libraries.meska.achievements.boot.html">core.libraries.meska.achievements.boot</a></li>
-					<li><a href="../modules/core.libraries.meska.achievements.client.hud.html">core.libraries.meska.achievements.client.hud</a></li>
-					<li><a href="../modules/core.libraries.meska.achievements.server.html">core.libraries.meska.achievements.server</a></li>
-					<li><a href="../modules/core.libraries.meska.client.html">core.libraries.meska.client</a></li>
-					<li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
-					<li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
-					<li><a href="../modules/core.libraries.meska.custombonus.boot.html">core.libraries.meska.custombonus.boot</a></li>
-					<li><a href="../modules/core.libraries.meska.custombonus.client.hud.html">core.libraries.meska.custombonus.client.hud</a></li>
-					<li><a href="../modules/core.libraries.meska.custombonus.server.html">core.libraries.meska.custombonus.server</a></li>
-					<li><a href="../modules/core.libraries.meska.dailybonus.boot.html">core.libraries.meska.dailybonus.boot</a></li>
-					<li><a href="../modules/core.libraries.meska.dailybonus.client.hud.html">core.libraries.meska.dailybonus.client.hud</a></li>
-					<li><a href="../modules/core.libraries.meska.dailybonus.server.html">core.libraries.meska.dailybonus.server</a></li>
-					<li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
-					<li><a href="../modules/core.libraries.meska.hooks.html">core.libraries.meska.hooks</a></li>
-					<li><a href="../modules/core.libraries.meska.html">core.libraries.meska</a></li>
-					<li><a href="../modules/core.libraries.meska.metrics.boot.html">core.libraries.meska.metrics.boot</a></li>
-					<li><a href="../modules/core.libraries.meska.metrics.server.html">core.libraries.meska.metrics.server</a></li>
-					<li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
-					<li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
-					<li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
-					<li><a href="../modules/core.libraries.meska.skills.boot.html">core.libraries.meska.skills.boot</a></li>
-					<li><a href="../modules/core.libraries.meska.skills.client.hud.html">core.libraries.meska.skills.client.hud</a></li>
-					<li><a href="../modules/core.libraries.meska.skills.server.html">core.libraries.meska.skills.server</a></li>
-					<li><a href="../modules/core.libraries.meska.skills.shared.meta.html">core.libraries.meska.skills.shared.meta</a></li>
-					<li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-					<li><strong>core.libraries.sh_array</strong></li>
-					<li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
-					<li><a href="../modules/dumper.html">dumper</a></li>
-					<li><a href="../modules/functions.html">functions</a></li>
-					<li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
-					<li><a href="../modules/internet.html">internet</a></li>
-					<li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
-					<li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
-					<li><a href="../modules/cityrp.table.html">cityrp.table</a></li>
-					<li><a href="../modules/cityrp.team.html">cityrp.team</a></li>
-					<li><a href="../modules/workarounds.html">workarounds</a></li>
-					<li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
-					<li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
-					<li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
-					<li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
-					<li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
-					<li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
-					<li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
-					<li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
-					<li><a href="../modules/acpig.html.html">acpig.html</a></li>
-					<li><a href="../modules/acpig.html">acpig</a></li>
-					<li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
-					<li><a href="../modules/core.plugins.admin_assist.cl_init.html">core.plugins.admin_assist.cl_init</a></li>
-					<li><a href="../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
-					<li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
-					<li><a href="../modules/core.plugins.adminhub.sh_init.html">core.plugins.adminhub.sh_init</a></li>
-					<li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
-					<li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
-					<li><a href="../modules/core.plugins.animations.sv_meta.html">core.plugins.animations.sv_meta</a></li>
-					<li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
-					<li><a href="../modules/core.plugins.anonymous.cl_init.html">core.plugins.anonymous.cl_init</a></li>
-					<li><a href="../modules/core.plugins.autokick.cl_init.html">core.plugins.autokick.cl_init</a></li>
-					<li><a href="../modules/core.plugins.autokick.sv_init.html">core.plugins.autokick.sv_init</a></li>
-					<li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
-					<li><a href="../modules/core.plugins.bodybags.sv_init.html">core.plugins.bodybags.sv_init</a></li>
-					<li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
-					<li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
-					<li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
-					<li><a href="../modules/cityrp.door.html">cityrp.door</a></li>
-					<li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
-					<li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
-					<li><a href="../modules/core.plugins.laws.sv_init.html">core.plugins.laws.sv_init</a></li>
-					<li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
-					<li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
-					<li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
-					<li><a href="../modules/core.plugins.lifealert.cl_init.html">core.plugins.lifealert.cl_init</a></li>
-					<li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
-					<li><a href="../modules/core.plugins.lifealert.sv_init.html">core.plugins.lifealert.sv_init</a></li>
-					<li><a href="../modules/core.plugins.mixtures.cl_init.html">core.plugins.mixtures.cl_init</a></li>
-					<li><a href="../modules/core.plugins.mixtures.sh_init.html">core.plugins.mixtures.sh_init</a></li>
-					<li><a href="../modules/core.plugins.mixtures.sv_init.html">core.plugins.mixtures.sv_init</a></li>
-					<li><a href="../modules/core.plugins.model-state.cl_init.html">core.plugins.model-state.cl_init</a></li>
-					<li><a href="../modules/core.plugins.onlinelog.cl_init.html">core.plugins.onlinelog.cl_init</a></li>
-					<li><a href="../modules/core.plugins.onlinelog.sh_init.html">core.plugins.onlinelog.sh_init</a></li>
-					<li><a href="../modules/core.plugins.onlinelog.sv_init.html">core.plugins.onlinelog.sv_init</a></li>
-					<li><a href="../modules/core.plugins.packaging.sv_init.html">core.plugins.packaging.sv_init</a></li>
-					<li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
-					<li><a href="../modules/core.plugins.perma_ents.maps.rp_evocity_v4b1_fl2.html">core.plugins.perma_ents.maps.rp_evocity_v4b1_fl2</a></li>
-					<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
-					<li><a href="../modules/cityrp.phonebook.html">cityrp.phonebook</a></li>
-					<li><a href="../modules/core.plugins.pradio.sv_init.html">core.plugins.pradio.sv_init</a></li>
-					<li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
-					<li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
-					<li><a href="../modules/core.plugins.radio.cl_init.html">core.plugins.radio.cl_init</a></li>
-					<li><a href="../modules/core.plugins.radio.sv_init.html">core.plugins.radio.sv_init</a></li>
-					<li><a href="../modules/referrals.html">referrals</a></li>
-					<li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
-					<li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
-					<li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
-					<li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
-					<li><a href="../modules/core.plugins.savedeaths.sv_init.html">core.plugins.savedeaths.sv_init</a></li>
-					<li><a href="../modules/core.plugins.spawnpoints.cl_init.html">core.plugins.spawnpoints.cl_init</a></li>
-					<li><a href="../modules/core.plugins.spawnpoints.sv_init.html">core.plugins.spawnpoints.sv_init</a></li>
-					<li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
-					<li><a href="../modules/core.plugins.stamina.sh_init.html">core.plugins.stamina.sh_init</a></li>
-					<li><a href="../modules/core.plugins.stamina.sv_init.html">core.plugins.stamina.sv_init</a></li>
-					<li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
-					<li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
-					<li><a href="../modules/core.plugins.test.sv_init.html">core.plugins.test.sv_init</a></li>
-					<li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
-					<li><a href="../modules/core.plugins.tracking.sv_init.html">core.plugins.tracking.sv_init</a></li>
-					<li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
-					<li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
-					<li><a href="../modules/core.plugins.typing.cl_init.html">core.plugins.typing.cl_init</a></li>
-					<li><a href="../modules/core.plugins.typing.sh_init.html">core.plugins.typing.sh_init</a></li>
-					<li><a href="../modules/core.plugins.typing.sv_init.html">core.plugins.typing.sv_init</a></li>
-					<li><a href="../modules/core.plugins.uniforms.sv_init.html">core.plugins.uniforms.sv_init</a></li>
-					<li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
-					<li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
-					<li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
-					<li><a href="../modules/core.plugins.unownable.sv_init.html">core.plugins.unownable.sv_init</a></li>
-					<li><a href="../modules/core.plugins.vadar_handfunctions.cl_init.html">core.plugins.vadar_handfunctions.cl_init</a></li>
-					<li><a href="../modules/core.plugins.vadar_handfunctions.sh_init.html">core.plugins.vadar_handfunctions.sh_init</a></li>
-					<li><a href="../modules/core.plugins.vadar_handfunctions.sv_init.html">core.plugins.vadar_handfunctions.sv_init</a></li>
-					<li><a href="../modules/core.plugins.vehicle_doors.sv_init.html">core.plugins.vehicle_doors.sv_init</a></li>
-					<li><a href="../modules/core.plugins.vehicle_skins.cl_init.html">core.plugins.vehicle_skins.cl_init</a></li>
-					<li><a href="../modules/core.plugins.vehicle_skins.sh_init.html">core.plugins.vehicle_skins.sh_init</a></li>
-					<li><a href="../modules/core.plugins.vehicle_skins.sv_init.html">core.plugins.vehicle_skins.sv_init</a></li>
-					<li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
-					<li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
-					<li><a href="../modules/core.plugins.vehicles.sh_vehicles.html">core.plugins.vehicles.sh_vehicles</a></li>
-					<li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
-					<li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
-					<li><a href="../modules/core.plugins.visible_protection.sh_init.html">core.plugins.visible_protection.sh_init</a></li>
-					<li><a href="../modules/core.plugins.visible_protection.sv_init.html">core.plugins.visible_protection.sv_init</a></li>
-					<li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
-					<li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
-					<li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
-					<li><a href="../modules/core.plugins.voiceradio.sv_init.html">core.plugins.voiceradio.sv_init</a></li>
-					<li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
-					<li><a href="../modules/core.plugins.warning.sh_init.html">core.plugins.warning.sh_init</a></li>
-					<li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
-					<li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
-					<li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
-					<li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
-					<li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
-					<li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
-					<li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
-				</ul>
-
-				<div class="ll-kind-header"><h2>Classes</h2></div>
-				<ul class="ll-kind-body nowrap">
-					<li><a href="../classes/PANEL.cityrp_Cards.html">PANEL.cityrp_Cards</a></li>
-					<li><a href="../classes/PANEL.cityrp_Character.html">PANEL.cityrp_Character</a></li>
-					<li><a href="../classes/PANEL.cityrp_Clan.html">PANEL.cityrp_Clan</a></li>
-					<li><a href="../classes/PANEL.cityrp_Commands.html">PANEL.cityrp_Commands</a></li>
-					<li><a href="../classes/PANEL.cityrp_Feedback.html">PANEL.cityrp_Feedback</a></li>
-					<li><a href="../classes/PANEL.cityrp_Credits.html">PANEL.cityrp_Credits</a></li>
-					<li><a href="../classes/DScaleItemPanel.html">DScaleItemPanel</a></li>
-					<li><a href="../classes/cityrp_LawRow.html">cityrp_LawRow</a></li>
-					<li><a href="../classes/PANEL.cityrp_Map.html">PANEL.cityrp_Map</a></li>
-					<li><a href="../classes/ITEM.base_accessory.html">ITEM.base_accessory</a></li>
-					<li><a href="../classes/ITEM.base_ammo.html">ITEM.base_ammo</a></li>
-					<li><a href="../classes/ITEM.base_clothing.html">ITEM.base_clothing</a></li>
-					<li><a href="../classes/ITEM.base_collectable.html">ITEM.base_collectable</a></li>
-					<li><a href="../classes/ITEM.base_food.html">ITEM.base_food</a></li>
-					<li><a href="../classes/ITEM.base_ingredients.html">ITEM.base_ingredients</a></li>
-					<li><a href="../classes/ITEM.base_modelbg.html">ITEM.base_modelbg</a></li>
-					<li><a href="../classes/ITEM.base_outfit.html">ITEM.base_outfit</a></li>
-					<li><a href="../classes/ITEM.base_schematic.html">ITEM.base_schematic</a></li>
-					<li><a href="../classes/ITEM.base_spawnable.html">ITEM.base_spawnable</a></li>
-					<li><a href="../classes/ITEM.base_suit.html">ITEM.base_suit</a></li>
-					<li><a href="../classes/ITEM.base_uniform.html">ITEM.base_uniform</a></li>
-					<li><a href="../classes/ITEM.base_vehicle.html">ITEM.base_vehicle</a></li>
-					<li><a href="../classes/ITEM.base_weapon.html">ITEM.base_weapon</a></li>
-					<li><a href="../classes/ITEM.html">ITEM</a></li>
-					<li><a href="../classes/PLUGIN.html">PLUGIN</a></li>
-					<li><a href="../classes/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
-					<li><a href="../classes/PLUGIN.CPR.html">PLUGIN.CPR</a></li>
-					<li><a href="../classes/PLUGIN.employee_salary.html">PLUGIN.employee_salary</a></li>
-					<li><a href="../classes/PLUGIN.worldprops.html">PLUGIN.worldprops</a></li>
-					<li><a href="../classes/DB.html">DB</a></li>
-				</ul>
-
-				<div class="ll-kind-header"><h2>Panels</h2></div>
-				<ul class="ll-kind-body nowrap">
-					<li><a href="../panels/dcoloredicon.html">dcoloredicon</a></li>
-					<li><a href="../panels/dfillicon.html">dfillicon</a></li>
-					<li><a href="../panels/diconlabel.html">diconlabel</a></li>
-					<li><a href="../panels/dinfolabel.html">dinfolabel</a></li>
-					<li><a href="../panels/dinfopanel.html">dinfopanel</a></li>
-					<li><a href="../panels/ditemtitle.html">ditemtitle</a></li>
-					<li><a href="../panels/dlimitedtextentry.html">dlimitedtextentry</a></li>
-					<li><a href="../panels/doptionpanel.html">doptionpanel</a></li>
-					<li><a href="../panels/dpropamt.html">dpropamt</a></li>
-					<li><a href="../panels/dradio.html">dradio</a></li>
-					<li><a href="../panels/dtexturedprogress.html">dtexturedprogress</a></li>
-					<li><a href="../panels/dwepinfo.html">dwepinfo</a></li>
-					<li><a href="../panels/hud_botleft.html">hud_botleft</a></li>
-					<li><a href="../panels/hud_topleft.html">hud_topleft</a></li>
-					<li><a href="../panels/hud_vehicle.html">hud_vehicle</a></li>
-					<li><a href="../panels/sh_urlpanel.html">sh_urlpanel</a></li>
-					<li><a href="../panels/functions.html">functions</a></li>
-				</ul>
-
-				<div class="ll-kind-header"><h2>Topics</h2></div>
-				<ul class="ll-kind-body ">
-					<li><a href="../topics/items.md.html">items</a></li>
-				</ul>
-
-				<div class="ll-kind-header"><h2>Credits</h2></div>
-				<ul class="ll-kind-body">
-					<li><p>Generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a>.</p></li>
-					<li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li>
-					<li><p>Last Updated at 2025-12-14 23:46:54.</p></li>
-				</div>
-</div>
-
-
-</div>
-
-
-			<div id="content">
-				<div class="ll-module-header"><h1>Module <code>core.libraries.sh_array</code></h1></div>
-				<div class="ll-module-body">
-					JS-Like Arrays
-
-
-
-				</div>
-
-
-
-
-
-
-
-<div class="ll-module-header"><h2>Module Overview</h2></div>
-<div class="ll-module-body">
-
-<h3><a href="#Fields">Fields</a></h3>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#...">...</a></td>
-	<td class="summary">Concat arrays together, returning a new array.</td>
-	</tr>
-</table>
-</div>
-
-	<div class="ll-module-header"><h2 class="section-header "><a name="Fields"></a>Fields</h2></div>
-    <div class="ll-module-body">
-    <dl class="function">
-    <dt>
-    <a name = "..."></a>
-    <strong>...</strong>
-    </dt>
-    <dd>
-    Concat arrays together, returning a new array.
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    </ul>
-    <ul>
-        <li><span class="parameter">...</span>
-
-<p> arrays
- function ARRAY:concat(...)</p>
-<pre><code>local out = Array()
-</code></pre>
-
-         (<em>optional</em>)
-        </li>
-    </ul>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">iterable</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
 </dd>
-</dl>
+</dl></div>
+		</div>
+	</div>
+	<br class="clearfix">
 </div>
-</div>
-</div> <!-- id="content" -->
-</div>
-</div> <!-- id="main" -->
-<br class="clearfix">
-</div> <!-- id="container" -->
 </body>
 </html>

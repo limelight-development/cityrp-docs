@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Console Logging Library</title>
+	<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<div id="container">
+	<div id="product">
+		<div id="product_logo"></div>
+		<div id="product_name"><big><b></b></big></div>
+		<div id="product_description"></div>
+	</div>
+	<div id="main">
+		<div id="navigation">
+<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-header"><h2>Modules</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cl_init.html">cl_init</a></li>
+<li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+<li><a href="../modules/core.libraries.cl_chatbox.html">core.libraries.cl_chatbox</a></li>
+<li><a href="../modules/core.libraries.cl_hints.html">core.libraries.cl_hints</a></li>
+<li><a href="../modules/core.libraries.cl_inventory.html">core.libraries.cl_inventory</a></li>
+<li><a href="../modules/core.libraries.cl_temar.html">core.libraries.cl_temar</a></li>
+<li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../modules/core.libraries.sh_access.html">core.libraries.sh_access</a></li>
+<li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
+<li><a href="../modules/core.libraries.sh_chatbox.html">core.libraries.sh_chatbox</a></li>
+<li><a href="../modules/core.libraries.sh_currency.html">core.libraries.sh_currency</a></li>
+<li><a href="../modules/core.libraries.sh_dumper.html">core.libraries.sh_dumper</a></li>
+<li><a href="../modules/core.libraries.sh_functions.html">core.libraries.sh_functions</a></li>
+<li><a href="../modules/core.libraries.sh_help.html">core.libraries.sh_help</a></li>
+<li><a href="../modules/core.libraries.sh_imagehosts.html">core.libraries.sh_imagehosts</a></li>
+<li><a href="../modules/core.libraries.sh_internet.html">core.libraries.sh_internet</a></li>
+<li><a href="../modules/core.libraries.sh_item.html">core.libraries.sh_item</a></li>
+<li><a href="../modules/core.libraries.sh_itemcore.html">core.libraries.sh_itemcore</a></li>
+<li><a href="../modules/core.libraries.sh_logging.html">core.libraries.sh_logging</a></li>
+<li><a href="../modules/core.libraries.sh_plugin.html">core.libraries.sh_plugin</a></li>
+<li><a href="../modules/core.libraries.sh_plugincore.html">core.libraries.sh_plugincore</a></li>
+<li><a href="../modules/core.libraries.sh_table.html">core.libraries.sh_table</a></li>
+<li><a href="../modules/core.libraries.sh_team.html">core.libraries.sh_team</a></li>
+<li><a href="../modules/core.libraries.sh_weighted_random.html">core.libraries.sh_weighted_random</a></li>
+<li><a href="../modules/core.libraries.sh_workarounds.html">core.libraries.sh_workarounds</a></li>
+<li><a href="../modules/core.libraries.sh_zones.html">core.libraries.sh_zones</a></li>
+<li><a href="../modules/core.libraries.sv_access.html">core.libraries.sv_access</a></li>
+<li><a href="../modules/core.libraries.sv_admin_core.html">core.libraries.sv_admin_core</a></li>
+<li><a href="../modules/core.libraries.sv_chatbox.html">core.libraries.sv_chatbox</a></li>
+<li><a href="../modules/core.libraries.sv_commands.html">core.libraries.sv_commands</a></li>
+<li><a href="../modules/core.libraries.sv_console.html">core.libraries.sv_console</a></li>
+<li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
+<li><a href="../modules/core.libraries.sv_gatekeeper.html">core.libraries.sv_gatekeeper</a></li>
+<li><a href="../modules/core.libraries.sv_inventory.html">core.libraries.sv_inventory</a></li>
+<li><a href="../modules/core.libraries.sv_item.html">core.libraries.sv_item</a></li>
+<li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
+<li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+<li><a href="../modules/core.libraries.sv_model.html">core.libraries.sv_model</a></li>
+<li><a href="../modules/core.libraries.sv_player.html">core.libraries.sv_player</a></li>
+<li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
+<li><a href="../modules/core.libraries.sv_team.html">core.libraries.sv_team</a></li>
+<li><a href="../modules/core.libraries.sv_temar.html">core.libraries.sv_temar</a></li>
+<li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+<li><a href="../modules/core.metatables.sh_permissions.html">core.metatables.sh_permissions</a></li>
+<li><a href="../modules/core.metatables.sh_player.html">core.metatables.sh_player</a></li>
+<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+<li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
+<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+<li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
+<li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_save_sv.html">core.plugins.billboards.sv.zad_save_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../modules/core.plugins.breathalyser.sv_init.html">core.plugins.breathalyser.sv_init</a></li>
+<li><a href="../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../modules/core.plugins.cruisecontrol.sv_init.html">core.plugins.cruisecontrol.sv_init</a></li>
+<li><a href="../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../modules/core.plugins.item_db_update.sv_init.html">core.plugins.item_db_update.sv_init</a></li>
+<li><a href="../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.phonebook.cl_init.html">core.plugins.phonebook.cl_init</a></li>
+<li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
+<li><a href="../modules/core.plugins.weapons_on_back.sh_init.html">core.plugins.weapons_on_back.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
+<li><a href="../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../modules/core.sh_enumerations.html">core.sh_enumerations</a></li>
+<li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../modules/db.html">db</a></li>
+<li><a href="../modules/env.html">env</a></li>
+<li><a href="../modules/init.html">init</a></li>
+<li><a href="../modules/sh_init.html">sh_init</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Topics</h2></div>
+<ul class="ll-kind-body">
+<li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../topics/items.html">Types of Items</a></li>
+<li><a href="../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
+<li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../topics/update-checklist.html">Update Checklist</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Credits</h2></div>
+<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Console Logging Library</h1></div><div class="ll-module-body"><h1>Console Logging Library</h1>
+<p>The CityRP console logging library (<code>cityrp.logging</code>) provides a robust, namespaced, level-filterable logging facility for developer diagnostics and runtime troubleshooting.</p>
+<h2>Overview</h2>
+<p><strong>Purpose</strong>: Provide structured logging with configurable levels for core systems and plugins.</p>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li>Hierarchical namespaced loggers with inheritance</li>
+<li>Configurable log levels (DEBUG, INFO, WARNING, ERROR, CRITICAL, FATAL)</li>
+<li>Special levels (ALWAYS, NEVER, INHERIT, DEFAULT)</li>
+<li>Colored console output via <code>MsgC</code></li>
+<li>Automatic persistence to <code>cityrp.logs</code> for WARNING+ messages</li>
+<li>Runtime configuration via console commands</li>
+<li>Safe handling of unvalidated input</li>
+<li>Performance-optimized with lazy evaluation and caching</li>
+<li>Extensible sink API for custom log destinations</li>
+</ul>
+<p><strong>Important</strong>: This library is for <strong>developer diagnostics only</strong>. For audit logging (player actions, admin actions, transactions), continue using <code>cityrp.logs.add()</code> directly.</p>
+<h2>Log Levels</h2>
+<h3>Numeric Mapping</h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Numeric Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INHERIT</code></td>
+<td>-1</td>
+<td>Recursively inherit from parent (default for non-root loggers)</td>
+</tr>
+<tr>
+<td><code>ALWAYS</code></td>
+<td>0</td>
+<td>Bypass logger-level filtering (sinks may still filter)</td>
+</tr>
+<tr>
+<td><code>DEBUG</code></td>
+<td>20</td>
+<td>Low-level diagnostic info</td>
+</tr>
+<tr>
+<td><code>INFO</code></td>
+<td>30</td>
+<td>Routine operational logs</td>
+</tr>
+<tr>
+<td><code>WARNING</code></td>
+<td>40</td>
+<td>Unexpected but non-breaking situations</td>
+</tr>
+<tr>
+<td><code>DEFAULT</code></td>
+<td>40</td>
+<td>Alias for WARNING (default for root logger)</td>
+</tr>
+<tr>
+<td><code>ERROR</code></td>
+<td>50</td>
+<td>Errors requiring investigation</td>
+</tr>
+<tr>
+<td><code>CRITICAL</code></td>
+<td>60</td>
+<td>Serious failures</td>
+</tr>
+<tr>
+<td><code>FATAL</code></td>
+<td>70</td>
+<td>Highest severity; immediate attention required</td>
+</tr>
+<tr>
+<td><code>NEVER</code></td>
+<td>100</td>
+<td>Suppress all output from this logger</td>
+</tr>
+</tbody>
+</table>
+<h3>Level Constants</h3>
+<p>Access level constants via <code>cityrp.logging.levels</code>:</p>
+<pre><code class="language-lua">cityrp.logging.levels.INHERIT   -- -1
+cityrp.logging.levels.ALWAYS    -- 0
+cityrp.logging.levels.DEBUG     -- 20
+cityrp.logging.levels.INFO      -- 30
+cityrp.logging.levels.WARNING   -- 40
+cityrp.logging.levels.DEFAULT   -- 40 (alias)
+cityrp.logging.levels.ERROR     -- 50
+cityrp.logging.levels.CRITICAL  -- 60
+cityrp.logging.levels.FATAL     -- 70
+cityrp.logging.levels.NEVER     -- 100
+</code></pre>
+<h3>Level Semantics</h3>
+<ul>
+<li><strong>INHERIT (-1)</strong>: Logger does not define its own level; resolve effective level by recursively checking parent. This is the implicit default for all non-root loggers until explicitly set.</li>
+<li><strong>ALWAYS (0)</strong>: Bypasses the logger's effective level check. Entry is always dispatched to sinks (subject to sink-level filtering). Useful for critical output that must not be suppressed.</li>
+<li><strong>NEVER (100)</strong>: Suppresses all log output from this logger. No sinks are called.</li>
+<li><strong>DEFAULT (40)</strong>: Alias for WARNING. Used as the default level for the root logger.</li>
+</ul>
+<h2>Logger API</h2>
+<h3>Acquiring Loggers</h3>
+<p><strong><code>cityrp.logging.GetLogger(namespace)</code></strong></p>
+<p>Returns a logger instance for the given dot-notated namespace string.</p>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;banking&quot;)
+local childLog = cityrp.logging.GetLogger(&quot;banking.sql&quot;)
+local rootLog = cityrp.logging.GetLogger(&quot;&quot;) -- or GetLogger(nil)
+</code></pre>
+<ul>
+<li>Namespaces are hierarchical: <code>&quot;banking.sql.query&quot;</code> → parent is <code>&quot;banking.sql&quot;</code> → parent is <code>&quot;banking&quot;</code> → parent is root</li>
+<li>Root logger namespace is the empty string <code>&quot;&quot;</code>. Calling <code>GetLogger(nil)</code> or <code>GetLogger(&quot;&quot;)</code> returns the root logger</li>
+<li>Loggers are singletons per namespace; repeated calls return the same instance</li>
+</ul>
+<h3>Logger Instance Methods</h3>
+<p>All logging methods are <strong>chainable</strong> (return the logger instance).</p>
+<h4>Core Logging Methods</h4>
+<pre><code class="language-lua">logger:Debug(msg_parts..., meta?)
+logger:Info(msg_parts..., meta?)
+logger:Warning(msg_parts..., meta?)
+logger:Error(msg_parts..., meta?)
+logger:Critical(msg_parts..., meta?)
+logger:Fatal(msg_parts..., meta?)
+</code></pre>
+<p>Accept varargs for message parts. Final table argument is treated as metadata.</p>
+<h4>Bypass Method</h4>
+<pre><code class="language-lua">logger:Raw(level, msg_parts..., meta?)
+</code></pre>
+<p>Bypasses the logger's effective level check. Always dispatches to sinks (subject to sink filtering). <code>level</code> is a numeric level (or level constant).</p>
+<h4>Configuration Methods</h4>
+<pre><code class="language-lua">logger:SetLevel(level)           -- Set explicit level (chainable)
+logger:GetLevel()                -- Get explicit level (may be nil if inheriting)
+logger:GetEffectiveLevel()       -- Get resolved effective level (after inheritance)
+</code></pre>
+<h4>Hierarchy Navigation</h4>
+<pre><code class="language-lua">logger:GetName()                 -- Returns namespace string (e.g., &quot;banking.sql&quot;; root returns &quot;&quot;)
+logger:GetDisplayName()          -- Returns display name (&quot;root&quot; for root logger)
+logger:GetParent()               -- Returns immediate parent logger instance
+logger:GetChild(child_segment)   -- Returns child logger for given segment
+logger:GetChildren()             -- Returns array of direct child logger instances
+logger:IsRoot()                  -- Returns true if this is the root logger
+</code></pre>
+<h4>Field Binding</h4>
+<pre><code class="language-lua">logger:WithFields(fields_table)
+</code></pre>
+<p>Returns a wrapper logger that merges <code>fields_table</code> into metadata on every log call. Useful for binding common context (e.g., request ID, user ID).</p>
+<h2>Basic Usage</h2>
+<h3>Simple Logging</h3>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;banking&quot;)
+log:Info(&quot;Banking plugin initialized&quot;, {version = &quot;1.2.0&quot;})
+log:Debug(&quot;Player balance lookup&quot;, {player = ply:SteamID64(), balance = 5000})
+</code></pre>
+<h3>Colored Output</h3>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;auth&quot;)
+log:Info(Color(0, 255, 0), &quot;Login success: &quot;, Color(255, 255, 255), ply:Name())
+</code></pre>
+<h3>Using Sanitization Helpers</h3>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;chat&quot;)
+log:Info(cityrp.logging.sanitizePlayer(ply), &quot; said: &quot;, msg)
+-- Output: [2025-12-14 13:22:10][chat][INFO] PlayerName (STEAM_0:1:12345) said: hello
+</code></pre>
+<h3>Lazy Messages</h3>
+<p>Defer expensive computation until the log level check passes:</p>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;expensive&quot;)
+log:Debug(function()
+	return &quot;Heavy computation result: &quot; .. compute_expensive()
+end)
+-- compute_expensive() is only called if DEBUG level is enabled
+</code></pre>
+<h3>WithFields (Bound Context)</h3>
+<p>Bind common metadata to all log entries:</p>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;http&quot;)
+local req_log = log:WithFields({request_id = &quot;abc123&quot;, endpoint = &quot;/api/balance&quot;})
+req_log:Info(&quot;Request started&quot;)
+req_log:Info(&quot;Request completed&quot;, {status = 200})
+-- Both entries include request_id and endpoint in metadata
+</code></pre>
+<h3>Chainable Calls</h3>
+<pre><code class="language-lua">cityrp.logging.GetLogger(&quot;startup&quot;)
+	:Info(&quot;Initializing subsystems&quot;)
+	:Debug(&quot;Loading config&quot;)
+	:Info(&quot;Startup complete&quot;)
+</code></pre>
+<h3>Bypass Level Filtering (Raw)</h3>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;console&quot;)
+log:Raw(cityrp.logging.levels.INFO, &quot;Command executed: &quot;, cmd)
+-- Always logs regardless of logger's effective level
+</code></pre>
+<h2>Message Parts (varargs API)</h2>
+<p>Message parts may include:</p>
+<ul>
+<li><strong>Strings</strong>: literal text</li>
+<li><strong>Color objects</strong>: <code>Color(r, g, b, a)</code> — used by console sink for colored output via <code>MsgC</code>; stripped by non-color sinks</li>
+<li><strong>Entities/Players</strong>: game objects; sinks are responsible for serialization (e.g., console shows name+steamid; DB stores steamid64)</li>
+<li><strong>Functions</strong>: lazy evaluation — function returning string to defer expensive computation</li>
+</ul>
+<p><strong>Metadata table</strong> (optional final argument):</p>
+<ul>
+<li>Plain Lua table containing structured key-value pairs for additional context</li>
+<li>Metadata is available to sinks for filtering, formatting, and persistence</li>
+<li>Any trailing table argument without metatable is treated as metadata</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-lua">logger:Info(&quot;Player &quot;, ply, &quot; connected from &quot;, ip, {country = &quot;US&quot;, new_player = true})
+</code></pre>
+<h2>Logger Hierarchy and Inheritance</h2>
+<h3>Dot-Notated Namespaces</h3>
+<p>Namespaces are dot-separated: <code>&quot;banking&quot;</code>, <code>&quot;banking.sql&quot;</code>, <code>&quot;banking.sql.query&quot;</code>.</p>
+<p>Parent-child relationships are implicit from the namespace structure.</p>
+<p>Root logger namespace is <code>&quot;&quot;</code> (empty string); displayed as <code>&quot;root&quot;</code> in output.</p>
+<h3>Inheritance Rules</h3>
+<ul>
+<li><strong>Level inheritance</strong>: If a logger's explicit level is <code>nil</code> (or <code>INHERIT</code>), the effective level is resolved by recursively checking the nearest ancestor with an explicit level, or the global default</li>
+<li><strong>Explicit overrides</strong>: Calling <code>SetLevel(level)</code> on a logger sets an explicit level that overrides inheritance</li>
+<li><strong>Caching and invalidation</strong>: Effective levels are cached. When a logger's level changes, it synchronously notifies its children to invalidate their caches</li>
+</ul>
+<h3>Example</h3>
+<pre><code class="language-lua">local parent = cityrp.logging.GetLogger(&quot;banking&quot;)
+parent:SetLevel(cityrp.logging.levels.DEBUG)
+
+local child = cityrp.logging.GetLogger(&quot;banking.sql&quot;)
+-- child inherits DEBUG from parent
+
+child:Info(&quot;Query executed&quot;)  -- dispatched because INFO &gt;= DEBUG
+
+child:SetLevel(cityrp.logging.levels.ERROR)
+child:Info(&quot;Query executed&quot;)  -- suppressed because INFO &lt; ERROR
+</code></pre>
+<h2>Runtime Configuration</h2>
+<h3>Console Commands (Server-only, RCON/Console)</h3>
+<p><strong><code>cityrp_log_set &lt;namespace&gt; &lt;level&gt;</code></strong></p>
+<p>Set the log level for a namespace.</p>
+<pre><code>cityrp_log_set banking DEBUG
+cityrp_log_set banking.sql 20
+cityrp_log_set root INFO
+</code></pre>
+<ul>
+<li><code>&lt;namespace&gt;</code>: dot-notated string (e.g., <code>&quot;banking.sql&quot;</code>) or <code>&quot;root&quot;</code> for root logger</li>
+<li><code>&lt;level&gt;</code>: numeric value or string token (e.g., <code>&quot;DEBUG&quot;</code>, <code>20</code>, <code>&quot;INHERIT&quot;</code>)</li>
+<li>Immediately updates the logger and invalidates child caches</li>
+<li>Writes updated configuration to <code>data/cityrp/log_levels.json</code></li>
+</ul>
+<p><strong><code>cityrp_log_get &lt;namespace&gt;</code></strong></p>
+<p>Get the explicit and effective log level for a namespace.</p>
+<pre><code>cityrp_log_get banking
+</code></pre>
+<p><strong><code>cityrp_log_list</code></strong></p>
+<p>List all configured namespaces and their explicit levels.</p>
+<pre><code>cityrp_log_list
+</code></pre>
+<h3>Persistence</h3>
+<ul>
+<li>All namespace → level mappings are stored in <code>data/cityrp/log_levels.json</code> (single JSON file)</li>
+<li>File is loaded at gamemode initialization</li>
+<li>File is written immediately (atomic write) when a level is changed via concommand</li>
+</ul>
+<p><strong>Format:</strong></p>
+<pre><code class="language-json">{
+	&quot;&quot;: 40,
+	&quot;banking&quot;: 20,
+	&quot;banking.sql&quot;: 10
+}
+</code></pre>
+<h3>Client vs Server State</h3>
+<ul>
+<li>Client and server logging state are independent</li>
+<li>Configuration (concommands, persistence) is server-only</li>
+<li>Client-side loggers respect client-side defaults but do not write to DB or forward to server</li>
+</ul>
+<h2>Sinks</h2>
+<h3>Default Sinks</h3>
+<p><strong>Console sink</strong> (<code>&quot;console&quot;</code>):</p>
+<ul>
+<li>Registered by default</li>
+<li>Uses <code>MsgC</code> for colored output on both server and client</li>
+<li>Colorizes output by level:
+<ul>
+<li>DEBUG: grey <code>Color(128, 128, 128)</code></li>
+<li>INFO: cyan <code>Color(0, 255, 255)</code></li>
+<li>WARNING: yellow <code>Color(255, 215, 0)</code></li>
+<li>ERROR: dark red <code>Color(128, 0, 0)</code></li>
+<li>CRITICAL: red <code>Color(192, 0, 0)</code></li>
+<li>FATAL: bright red <code>Color(255, 0, 0)</code></li>
+</ul>
+</li>
+<li>Format example: <code>[2025-12-14 13:22:10][banking.sql][INFO] Message text {metadata}</code></li>
+<li>When running as a multiplayer listen server, adds a CLIENT/SERVER realm indicator</li>
+</ul>
+<p><strong>cityrp.logs sink</strong> (<code>&quot;cityrp_logs&quot;</code>):</p>
+<ul>
+<li>Registered by default (server-only)</li>
+<li>Forwards entries at or above WARNING to <code>cityrp.logs.add</code> for database persistence</li>
+<li>Stores:
+<ul>
+<li><code>timestamp</code> (UNIX int)</li>
+<li><code>namespace</code> (string)</li>
+<li><code>level</code> (numeric)</li>
+<li><code>message</code> (resolved final string)</li>
+<li><code>meta</code> (JSON-encoded table)</li>
+</ul>
+</li>
+<li>Client-side logger state never writes to DB</li>
+</ul>
+<h3>Extensible Sink API</h3>
+<p>Register custom sinks via:</p>
+<pre><code class="language-lua">cityrp.logging.RegisterSink(name, sink_table)
+</code></pre>
+<p><strong>Sink table structure:</strong></p>
+<pre><code class="language-lua">{
+	Write = function(entry)
+		-- entry.timestamp (os.time())
+		-- entry.namespace (string)
+		-- entry.level (numeric)
+		-- entry.message_parts (array of strings, Color objects, entities, players)
+		-- entry.meta (table or nil)
+	end
+}
+</code></pre>
+<p>Sinks are responsible for:</p>
+<ul>
+<li>Formatting: Convert message_parts to final output (handle Color objects, serialize entities/players)</li>
+<li>Sanitization and escaping: Loggers may contain unvalidated user input; sinks must protect against injection/exploits</li>
+<li>Filtering: Sinks may filter entries by level, namespace, or any other criteria independent of logger-level filtering</li>
+</ul>
+<h2>Plugin Integration</h2>
+<h3>Automatic Logger Creation</h3>
+<p>When a plugin is registered, the core plugin system automatically creates a logger for the plugin:</p>
+<pre><code class="language-lua">plugin.logger = cityrp.logging.GetLogger(&quot;plugin.&lt;plugin_id&gt;&quot;)
+</code></pre>
+<p>Plugin objects expose:</p>
+<ul>
+<li><code>plugin.logger</code> — the plugin's logger instance</li>
+</ul>
+<p>Plugins may call <code>plugin.logger:Info(...)</code>, <code>plugin.logger:Debug(...)</code>, etc.</p>
+<h3>Lifecycle Event Logging</h3>
+<p>Core plugin system logs lifecycle events at DEBUG level using the plugin's logger:</p>
+<ul>
+<li>Plugin loaded: <code>plugin.logger:Debug(&quot;Plugin loaded&quot;)</code></li>
+</ul>
+<h3>Plugin Log Configuration</h3>
+<p>Per-plugin log level configuration is done via the same namespace-based concommand system:</p>
+<pre><code>cityrp_log_set plugin.my_plugin DEBUG
+</code></pre>
+<p>No separate per-plugin convars.</p>
+<h2>Sanitization Helpers</h2>
+<h3><code>cityrp.logging.sanitizePlayer(ply)</code></h3>
+<p>Returns an array for use in message parts:</p>
+<pre><code class="language-lua">{Color(r, g, b), &quot;PlayerName (STEAM_X:Y:Z)&quot;, Color(255, 255, 255)}
+</code></pre>
+<ul>
+<li>Player color priority: rank color if available, else team color, else white</li>
+<li>White reset color at end</li>
+</ul>
+<h3><code>cityrp.logging.sanitizeEntity(ent)</code></h3>
+<p>Returns an array:</p>
+<pre><code class="language-lua">{Color(0, 255, 255), &quot;EntityClass [123]&quot;, Color(255, 255, 255)}
+</code></pre>
+<ul>
+<li>Entity color: cyan/green</li>
+<li>Format: class and entindex</li>
+</ul>
+<h2>Performance and Optimization</h2>
+<h3>Best Practices</h3>
+<ol>
+<li><strong>Use DEBUG sparingly in production</strong>: Prefer INFO or higher</li>
+<li><strong>Use lazy message functions for expensive debug messages</strong>:
+<pre><code class="language-lua">logger:Debug(function() return expensive_trace() end)
+</code></pre>
+</li>
+<li><strong>Bind common metadata with <code>WithFields</code></strong> to avoid repeated allocations:
+<pre><code class="language-lua">local req_log = logger:WithFields({request_id = id})
+req_log:Info(&quot;Request started&quot;)
+</code></pre>
+</li>
+<li><strong>Limit metadata size</strong>: Library enforces safe limits (max 50 keys, strings truncated at 1024 chars by sinks)</li>
+</ol>
+<h3>Optimization Strategies</h3>
+<ul>
+<li><strong>Fast level checks</strong>: Early-return before formatting or metadata serialization if level filtered out</li>
+<li><strong>Lazy message formatting</strong>: Support message parts as functions to defer expensive string construction</li>
+<li><strong>Effective level caching</strong>: Cache resolved effective levels; invalidate synchronously when parent/ancestor levels change</li>
+<li><strong>Minimal allocations</strong>: Reuse buffers where safe; avoid churn in hot paths</li>
+</ul>
+<h2>Security and Safety</h2>
+<h3>Safety Guarantees</h3>
+<ul>
+<li><strong>Never errors</strong>: Logging calls never throw errors, even with nil or malformed input</li>
+<li><strong>Safe serialization</strong>: Metadata serializer is bounded and non-recursive; handles circular refs gracefully</li>
+<li><strong>Sanitization</strong>: Sinks are responsible for sanitizing and escaping metadata and message content for their output target (console, DB, network)</li>
+</ul>
+<h3>Security Notes</h3>
+<ul>
+<li><strong>Unvalidated user input</strong>: Loggers may receive unvalidated player-supplied input (e.g., chat messages, entity names). Sinks MUST sanitize and escape data to prevent injection attacks or exploits</li>
+<li><strong>Client logs</strong>: Client-side logs remain on the client. No client-to-server forwarding in any circumstance (no net messages, no admin-request mechanism)</li>
+<li><strong>DB sink</strong>: Server-only. Clients cannot write to DB directly or indirectly</li>
+<li><strong>Concommand permissions</strong>: Concommands are server console or RCON only; no player-executable commands</li>
+</ul>
+<h2>Migration from Legacy Logging</h2>
+<h3>Do NOT Replace cityrp.logs for Audit Events</h3>
+<ul>
+<li><code>cityrp.logs</code> remains the canonical system for persistent game-audit events (player actions, admin actions, transactions)</li>
+<li><code>cityrp.logging</code> is for developer diagnostics and runtime troubleshooting</li>
+<li>Use <code>cityrp.logs.add</code> for events that must be queryable and persistent for moderation/audit</li>
+<li>Use <code>cityrp.logging</code> for debug output, performance traces, and operational monitoring</li>
+</ul>
+<h3>Replacing Legacy Prints</h3>
+<p>Replace developer-facing <code>print()</code>, <code>ServerLog()</code>, <code>MsgN()</code> calls with <code>cityrp.logging</code>:</p>
+<p><strong>Old:</strong></p>
+<pre><code class="language-lua">print(&quot;Banking: Player &quot; .. ply:Name() .. &quot; balance: &quot; .. bal)
+</code></pre>
+<p><strong>New:</strong></p>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;banking&quot;)
+log:Debug(&quot;Player balance: &quot;, bal, {player = ply, balance = bal})
+</code></pre>
+<h2>Examples</h2>
+<h3>Basic Logging</h3>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;banking&quot;)
+log:Info(&quot;Banking plugin initialized&quot;, {version = &quot;1.2.0&quot;})
+log:Debug(&quot;Player balance lookup&quot;, {player = ply:SteamID64(), balance = 5000})
+</code></pre>
+<h3>Using Player/Entity Sanitization</h3>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;chat&quot;)
+log:Info(cityrp.logging.sanitizePlayer(ply), &quot; said: &quot;, msg)
+</code></pre>
+<h3>Lazy Evaluation</h3>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;expensive&quot;)
+log:Debug(function()
+	return &quot;Heavy computation result: &quot; .. compute_expensive()
+end)
+</code></pre>
+<h3>Bound Context with WithFields</h3>
+<pre><code class="language-lua">local log = cityrp.logging.GetLogger(&quot;http&quot;)
+local req_log = log:WithFields({request_id = &quot;abc123&quot;, endpoint = &quot;/api/balance&quot;})
+req_log:Info(&quot;Request started&quot;)
+req_log:Info(&quot;Request completed&quot;, {status = 200})
+</code></pre>
+<h3>Chainable Logging</h3>
+<pre><code class="language-lua">cityrp.logging.GetLogger(&quot;startup&quot;)
+	:Info(&quot;Initializing subsystems&quot;)
+	:Debug(&quot;Loading config&quot;)
+	:Info(&quot;Startup complete&quot;)
+</code></pre>
+<h3>Hierarchical Configuration</h3>
+<pre><code class="language-lua">-- Set parent to DEBUG
+cityrp.logging.GetLogger(&quot;banking&quot;):SetLevel(cityrp.logging.levels.DEBUG)
+
+-- Child inherits DEBUG
+local child = cityrp.logging.GetLogger(&quot;banking.sql&quot;)
+child:Info(&quot;Query executed&quot;)  -- dispatched
+
+-- Override child to ERROR
+child:SetLevel(cityrp.logging.levels.ERROR)
+child:Info(&quot;Query executed&quot;)  -- suppressed
+</code></pre>
+<h2>API Reference</h2>
+<h3>Global API</h3>
+<pre><code class="language-lua">-- Level management
+cityrp.logging.SetDefaultLevel(level)
+cityrp.logging.GetDefaultLevel()
+
+-- Logger factory
+cityrp.logging.GetLogger(namespace)
+
+-- Sink management
+cityrp.logging.RegisterSink(name, sink_table)
+cityrp.logging.UnregisterSink(name)
+
+-- Sanitization helpers
+cityrp.logging.sanitizePlayer(ply)
+cityrp.logging.sanitizeEntity(ent)
+
+-- Level constants
+cityrp.logging.levels.INHERIT
+cityrp.logging.levels.ALWAYS
+cityrp.logging.levels.DEBUG
+cityrp.logging.levels.INFO
+cityrp.logging.levels.WARNING
+cityrp.logging.levels.DEFAULT
+cityrp.logging.levels.ERROR
+cityrp.logging.levels.CRITICAL
+cityrp.logging.levels.FATAL
+cityrp.logging.levels.NEVER
+</code></pre>
+<h3>Logger Instance Methods</h3>
+<pre><code class="language-lua">-- Logging methods
+logger:Debug(...)
+logger:Info(...)
+logger:Warning(...)
+logger:Error(...)
+logger:Critical(...)
+logger:Fatal(...)
+logger:Raw(level, ...)
+
+-- Configuration
+logger:SetLevel(level)
+logger:GetLevel()
+logger:GetEffectiveLevel()
+
+-- Hierarchy
+logger:GetName()
+logger:GetDisplayName()
+logger:GetParent()
+logger:GetChild(segment)
+logger:GetChildren()
+logger:IsRoot()
+
+-- Context binding
+logger:WithFields(fields_table)
+</code></pre>
+<h3>Console Commands (Server-only)</h3>
+<pre><code>cityrp_log_set &lt;namespace&gt; &lt;level&gt;
+cityrp_log_get &lt;namespace&gt;
+cityrp_log_list
+</code></pre></div>
+		</div>
+	</div>
+	<br class="clearfix">
+</div>
+</body>
+</html>
