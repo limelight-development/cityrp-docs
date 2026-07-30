@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.plugins.animations.sv_init</title>
+	<title>core.libraries.sv_makeleader</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -19,7 +19,6 @@
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
 <li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
@@ -88,7 +87,7 @@
 <li><a href="../modules/core.libraries.sv_inventory.html">core.libraries.sv_inventory</a></li>
 <li><a href="../modules/core.libraries.sv_item.html">core.libraries.sv_item</a></li>
 <li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
-<li><a href="../modules/core.libraries.sv_makeleader.html">core.libraries.sv_makeleader</a></li>
+<li><strong>core.libraries.sv_makeleader</strong></li>
 <li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
 <li><a href="../modules/core.libraries.sv_model.html">core.libraries.sv_model</a></li>
 <li><a href="../modules/core.libraries.sv_player.html">core.libraries.sv_player</a></li>
@@ -113,7 +112,7 @@
 <li><a href="../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
 <li><a href="../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
 <li><a href="../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
-<li><strong>core.plugins.animations.sv_init</strong></li>
+<li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
 <li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
 <li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
 <li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
@@ -231,92 +230,52 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.plugins.animations.sv_init</h1></div>
-<div class="ll-module-body"><p>Lime-Animations - Fully featured animations plugin.</p></div>
+<div class="ll-module-header"><h1>core.libraries.sv_makeleader</h1></div>
+<div class="ll-module-body"><p>Leadership Transfer Request System (Server)</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="limeAnimation.animByItemCat"></a><strong><span class="state state-server">limeAnimation.animByItemCat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/sv_init.lua#L140">Source ☍</a></dt>
+<dt><a name="cityrp.makeleader.handleResponse"></a><strong><span class="state state-server">cityrp.makeleader.handleResponse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_makeleader.lua#L111">Source ☍</a></dt>
 <dd>
-<p>Helper function to return the correct animation to use based on item category when giving an item</p>
+<p>Handles the response from a player to a leadership transfer request.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">cat</span> <span class="types">any</span> The item category</li>
+<li><span class="parameter">target</span> <span class="types">Player</span> The player responding to the request</li>
+<li><span class="parameter">accepted</span> <span class="types">boolean</span> Whether the request was accepted</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.makeleader.sendRequest"></a><strong><span class="state state-server">cityrp.makeleader.sendRequest</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_makeleader.lua#L25">Source ☍</a></dt>
+<dd>
+<p>Sends a leadership transfer request to a player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">requester</span> <span class="types">Player</span> The player requesting the transfer</li>
+<li><span class="parameter">target</span> <span class="types">Player</span> The player being offered leadership</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">string</span> </li>
+<li><span class="types">boolean</span> </li>
 </ol>
-</dd>
-<dt><a name="limeAnimation.current"></a><strong><span class="state state-server">limeAnimation.current</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/sv_init.lua#L37">Source ☍</a></dt>
-<dd>
-<p>Get current animation.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player entity</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">unknown</span> Whether animation is running.</li>
-</ol>
-</dd>
-<dt><a name="limeAnimation.get"></a><strong><span class="state state-server">limeAnimation.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/sv_init.lua#L44">Source ☍</a></dt>
-<dd>
-<p>Get an animation from animations table.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">animation</span> <span class="types">any</span> The animation name.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> false.</li>
-</ol>
-</dd>
-<dt><a name="limeAnimation.run"></a><strong><span class="state state-server">limeAnimation.run</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/sv_init.lua#L68">Source ☍</a></dt>
-<dd>
-<p>Run an animation on a specific player.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player entity</li>
-<li><span class="parameter">animation</span> <span class="types">any</span> The animation name</li>
-<li><span class="parameter">timeout</span> <span class="types">any</span> The timeout function timeout.</li>
-<li><span class="parameter">timeoutFn</span> <span class="types">any</span> The timeout function.</li>
-</ul>
-
-</dd>
-<dt><a name="limeAnimation.stop"></a><strong><span class="state state-server">limeAnimation.stop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/sv_init.lua#L107">Source ☍</a></dt>
-<dd>
-<p>Stop specific/any animation.
-Also Fixes /handsdown animation.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player entity</li>
-</ul>
-
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="limeAnimation"></a><strong><span class="state state-server">limeAnimation</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/sv_init.lua#L9">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="limeAnimation.animForGive"></a><strong><span class="state state-server">limeAnimation.animForGive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/sv_init.lua#L127">Source ☍</a></dt>
-<dd>
-
-
-
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="limeAnimation.anims"></a><strong><span class="state state-server">limeAnimation.anims</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/sv_init.lua#L27">Source ☍</a></dt>
+<dt><a name="cityrp.makeleader.cooldowns"></a><strong><span class="state state-server">cityrp.makeleader.cooldowns</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_makeleader.lua#L9">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.makeleader.requesterIndex"></a><strong><span class="state state-server">cityrp.makeleader.requesterIndex</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_makeleader.lua#L10">Source ☍</a></dt>
+<dd>
+<p>Maps requester SteamID to target SteamID</p>
+
+
+
+</dd>
+<dt><a name="cityrp.makeleader.requests"></a><strong><span class="state state-server">cityrp.makeleader.requests</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_makeleader.lua#L8">Source ☍</a></dt>
 <dd>
 
 
