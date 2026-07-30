@@ -235,7 +235,7 @@
 <div class="ll-module-body"><p>Team / Job handing.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.team.add"></a><strong><span class="state state-client state-server">cityrp.team.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L32">Source ☍</a></dt>
+<dt><a name="cityrp.team.add"></a><strong><span class="state state-client state-server">cityrp.team.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L120">Source ☍</a></dt>
 <dd>
 <p>Add a new team.
 This is the main function which creates a team, including calling team.SetUp, along wtih all other data.</p>
@@ -260,7 +260,24 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">integer|unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.countLawEnforcement"></a><strong><span class="state state-client state-server">cityrp.team.countLawEnforcement</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L183">Source ☍</a></dt>
+<dt><a name="cityrp.team.buildCanMake"></a><strong><span class="state state-client state-server">cityrp.team.buildCanMake</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L78">Source ☍</a></dt>
+<dd>
+<p>Build a canmake category list for a job, starting from @{cityrp.team.defaultCanMake} and
+@{cityrp.team.defaultSubCategories}.
+@tab[opt] add Extra categories only this job should be able to purchase/manufacture.
+@tab[opt] remove Default (or default sub-) categories this job should NOT have access to.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">add</span> <span class="types">any</span></li>
+<li><span class="parameter">remove</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.team.countLawEnforcement"></a><strong><span class="state state-client state-server">cityrp.team.countLawEnforcement</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L271">Source ☍</a></dt>
 <dd>
 
 
@@ -269,7 +286,7 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.get"></a><strong><span class="state state-client state-server">cityrp.team.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L79">Source ☍</a></dt>
+<dt><a name="cityrp.team.get"></a><strong><span class="state state-client state-server">cityrp.team.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L167">Source ☍</a></dt>
 <dd>
 <p>Get a team from a name or index.</p>
 
@@ -282,7 +299,7 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">boolean|unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.getGovernment"></a><strong><span class="state state-client state-server">cityrp.team.getGovernment</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L165">Source ☍</a></dt>
+<dt><a name="cityrp.team.getGovernment"></a><strong><span class="state state-client state-server">cityrp.team.getGovernment</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L253">Source ☍</a></dt>
 <dd>
 <p>Get players in the Government team group.</p>
 
@@ -292,7 +309,7 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.getLawenforcement"></a><strong><span class="state state-client state-server">cityrp.team.getLawenforcement</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L175">Source ☍</a></dt>
+<dt><a name="cityrp.team.getLawenforcement"></a><strong><span class="state state-client state-server">cityrp.team.getLawenforcement</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L263">Source ☍</a></dt>
 <dd>
 <p>Get players in the Law Enforcement team group.</p>
 
@@ -302,7 +319,7 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.getlimit"></a><strong><span class="state state-client state-server">cityrp.team.getlimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L125">Source ☍</a></dt>
+<dt><a name="cityrp.team.getlimit"></a><strong><span class="state state-client state-server">cityrp.team.getlimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L213">Source ☍</a></dt>
 <dd>
 <p>Get the current team limit.</p>
 
@@ -315,7 +332,7 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">integer</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.getMafia"></a><strong><span class="state state-client state-server">cityrp.team.getMafia</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L213">Source ☍</a></dt>
+<dt><a name="cityrp.team.getMafia"></a><strong><span class="state state-client state-server">cityrp.team.getMafia</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L301">Source ☍</a></dt>
 <dd>
 <p>Get players in the Mafia team group.</p>
 
@@ -325,7 +342,7 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.getPresident"></a><strong><span class="state state-client state-server">cityrp.team.getPresident</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L145">Source ☍</a></dt>
+<dt><a name="cityrp.team.getPresident"></a><strong><span class="state state-client state-server">cityrp.team.getPresident</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L233">Source ☍</a></dt>
 <dd>
 <p>Get players in the Presidential team group.</p>
 
@@ -335,7 +352,7 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.getPresidentAdministration"></a><strong><span class="state state-client state-server">cityrp.team.getPresidentAdministration</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L155">Source ☍</a></dt>
+<dt><a name="cityrp.team.getPresidentAdministration"></a><strong><span class="state state-client state-server">cityrp.team.getPresidentAdministration</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L243">Source ☍</a></dt>
 <dd>
 <p>Get players in the Presidential Administration team group.</p>
 
@@ -345,7 +362,7 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.getRebels"></a><strong><span class="state state-client state-server">cityrp.team.getRebels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L203">Source ☍</a></dt>
+<dt><a name="cityrp.team.getRebels"></a><strong><span class="state state-client state-server">cityrp.team.getRebels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L291">Source ☍</a></dt>
 <dd>
 <p>Get players in the Rebel (anarchist) team group.</p>
 
@@ -355,7 +372,7 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.getRescue"></a><strong><span class="state state-client state-server">cityrp.team.getRescue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L193">Source ☍</a></dt>
+<dt><a name="cityrp.team.getRescue"></a><strong><span class="state state-client state-server">cityrp.team.getRescue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L281">Source ☍</a></dt>
 <dd>
 <p>Get players in the Rescue (FD) team group.</p>
 
@@ -365,7 +382,7 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.query"></a><strong><span class="state state-client state-server">cityrp.team.query</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L111">Source ☍</a></dt>
+<dt><a name="cityrp.team.query"></a><strong><span class="state state-client state-server">cityrp.team.query</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L199">Source ☍</a></dt>
 <dd>
 <p>Query a variable from a team.</p>
 
@@ -385,6 +402,24 @@ This is the main function which creates a team, including calling team.SetUp, al
 <div class="ll-module-body"><dl class="function">
 <dt><a name="cityrp.team"></a><strong><span class="state state-client state-server">cityrp.team</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L12">Source ☍</a></dt>
 <dd>
+
+
+
+</dd>
+<dt><a name="cityrp.team.defaultCanMake"></a><strong><span class="state state-client state-server">cityrp.team.defaultCanMake</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L20">Source ☍</a></dt>
+<dd>
+<p>The list of (top-level) item categories every job can purchase and manufacture from by default.
+Jobs that need extra restricted categories (or need to lose one of these) should use
+@{cityrp.team.buildCanMake} rather than writing out a full category list by hand.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.team.defaultSubCategories"></a><strong><span class="state state-client state-server">cityrp.team.defaultSubCategories</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L25">Source ☍</a></dt>
+<dd>
+<p>The list of sub-categories (e.g. &quot;Parent - Sub&quot; entries) every job gets by default, kept
+separate from @{cityrp.team.defaultCanMake} so sub-categories can be added/removed here
+without touching the top-level list. Empty by default.</p>
 
 
 

@@ -250,7 +250,56 @@
 <li><span class="types">unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.findCat"></a><strong><span class="state state-client state-server">cityrp.item.findCat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L151">Source ☍</a></dt>
+<dt><a name="cityrp.item.canAccessCategory"></a><strong><span class="state state-client state-server">cityrp.item.canAccessCategory</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L184">Source ☍</a></dt>
+<dd>
+<p>True if <code>cat</code> is covered by any entry in <code>list</code> (e.g. a team's canmake list).
+A parent entry (e.g. &quot;Clothing&quot;) grants every sub-category under it; a sub-category
+entry (e.g. &quot;Clothing - Government Clothing&quot;) grants only that exact category.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">list</span> <span class="types">any</span></li>
+<li><span class="parameter">cat</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.item.categoryMatches"></a><strong><span class="state state-client state-server">cityrp.item.categoryMatches</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L167">Source ☍</a></dt>
+<dd>
+<p>True if itemCat is exactly <code>selected</code>, or itemCat's parent category is <code>selected</code>.
+Also true if itemCat has no sub-category of its own (e.g. &quot;Mixtures&quot;) and <code>selected</code>
+is that same parent's &quot;Other&quot; bucket (e.g. &quot;Mixtures - Other&quot;) -- uncategorized items
+fall back into their parent's Other bucket once the parent has real sub-categories.
+Used both for shop/tab filtering and for team category-permission checks, so the
+matching rule can't drift between the two.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">itemCat</span> <span class="types">any</span></li>
+<li><span class="parameter">selected</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.item.categorySplit"></a><strong><span class="state state-client state-server">cityrp.item.categorySplit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L152">Source ☍</a></dt>
+<dd>
+<p>Splits a &quot;Parent - Sub&quot; category string into parent and sub parts.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">cat</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">unknown</span> </li>
+<li><span class="types">unknown|nil</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.item.findCat"></a><strong><span class="state state-client state-server">cityrp.item.findCat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L209">Source ☍</a></dt>
 <dd>
 <p>Retrieve a category.</p>
 
@@ -274,6 +323,19 @@
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">unknown</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.item.isGovernmentVehicle"></a><strong><span class="state state-client state-server">cityrp.item.isGovernmentVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L201">Source ☍</a></dt>
+<dd>
+<p>True if a vehicle item's category is one of the government vehicle sub-categories.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">cat</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
 </ol>
 </dd>
 <dt><a name="cityrp.item.new"></a><strong><span class="state state-client state-server">cityrp.item.new</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L27">Source ☍</a></dt>
@@ -307,6 +369,13 @@
 <div class="ll-module-body"><dl class="function">
 <dt><a name="cityrp.item"></a><strong><span class="state state-client state-server">cityrp.item</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L25">Source ☍</a></dt>
 <dd>
+
+
+
+</dd>
+<dt><a name="cityrp.item.governmentVehicleSubs"></a><strong><span class="state state-client state-server">cityrp.item.governmentVehicleSubs</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L192">Source ☍</a></dt>
+<dd>
+<p>Vehicles - Sub values that count as government-owned (exempt plates, manufacture REP gate).</p>
 
 
 
