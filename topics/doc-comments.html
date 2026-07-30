@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.libraries.cl_temar</title>
+	<title>Writing Doc Comments</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -15,13 +15,6 @@
 	<div id="main">
 		<div id="navigation">
 <div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
-<li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
-<li><a href="#Fields">Fields</a></li>
-</ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/DB.html">DB</a></li>
@@ -46,7 +39,6 @@
 <li><a href="../modules/core.libraries.cl_chatbox.html">core.libraries.cl_chatbox</a></li>
 <li><a href="../modules/core.libraries.cl_hints.html">core.libraries.cl_hints</a></li>
 <li><a href="../modules/core.libraries.cl_inventory.html">core.libraries.cl_inventory</a></li>
-<li><strong>core.libraries.cl_temar</strong></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -94,7 +86,6 @@
 <li><a href="../modules/core.libraries.sv_player.html">core.libraries.sv_player</a></li>
 <li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
 <li><a href="../modules/core.libraries.sv_team.html">core.libraries.sv_team</a></li>
-<li><a href="../modules/core.libraries.sv_temar.html">core.libraries.sv_temar</a></li>
 <li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
 <li><a href="../modules/core.metatables.sh_permissions.html">core.metatables.sh_permissions</a></li>
 <li><a href="../modules/core.metatables.sh_player.html">core.metatables.sh_player</a></li>
@@ -216,9 +207,11 @@
 <li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
 <li><a href="../modules/env.html">env</a></li>
 <li><a href="../modules/sh_init.html">sh_init</a></li>
+<li><a href="../modules/temar.html">temar</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
+<li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
 <li><a href="../topics/items.html">Types of Items</a></li>
@@ -231,65 +224,245 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.libraries.cl_temar</h1></div>
-<div class="ll-module-body"><p>Temar's help file.</p></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="temar.cluarun"></a><strong><span class="state state-client">temar.cluarun</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_temar.lua#L58">Source ☍</a></dt>
-<dd>
-<p>Run lua on the client.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">_</span> <span class="types">any</span></li>
-<li><span class="parameter">code</span> <span class="types">any</span></li>
-<li><span class="parameter">codeStr</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="temar.t"></a><strong><span class="state state-client">temar.t</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_temar.lua#L49">Source ☍</a></dt>
-<dd>
-<p>Get the local player's eye trace entity.</p>
-
-
-<h3>Returns:</h3>
+<div class="ll-module-header"><h1>Writing Doc Comments</h1></div><div class="ll-module-body"><h1>Writing Doc Comments</h1>
+<p>This site is built by <a href="https://github.com/limelight-development/cityrp2/blob/master/src/docs/generate.py"><code>generate.py</code></a> from two independent sources, so a doc comment lives or dies depending on which one actually reads it:</p>
 <ol>
-<li><span class="types">unknown</span> </li>
+<li><strong><code>lua-language-server</code>'s <code>--doc</code> JSON export.</strong> LuaLS parses the codebase and exports every doc comment it understands — that means real <a href="https://luals.github.io/wiki/annotations/">LuaCATS</a> annotations (<code>--- @param</code>, <code>--- @return</code>, <code>--- @class</code>, ...) attached <strong>immediately above</strong> a declaration, with no blank line in between. A blank line between the comment and the code it describes means LuaLS never associates the two, and the comment is silently dropped from the JSON entirely.</li>
+<li><strong><code>generate.py</code>'s own raw-source scan</strong>, used only for each file's <em>leading header comment</em> (description, <code>@namespace</code>, etc). This one tolerates a blank line before the code that follows, and accepts either a <code>--[[-- ... --]]--</code> block or a run of <code>---</code>/<code>--</code> line comments.</li>
 </ol>
-</dd>
-<dt><a name="temarpt"></a><strong><span class="state state-client">temarpt</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_temar.lua#L35">Source ☍</a></dt>
-<dd>
-<p>Print a table to a string.</p>
+<p>Everything else in this page is about what each of those two paths actually understands.</p>
+<h2>Pipeline</h2>
+<pre><code class="language-bash"># 1. LuaLS walks the gamemode and exports its own understanding of every doc comment.
+lua-language-server --doc=gamemodes/cityrp_2_by_limelightgaming/gamemode \
+                     --doc_out_path=src/docs
 
-<h3>Parameters:</h3>
+# 2. generate.py turns that JSON (plus src/docs/topics/*.md) into this site.
+python3 src/docs/generate.py --json src/docs/doc.json \
+                              --output src/docs/build \
+                              --style src/docs/style.css \
+                              --topics src/docs/topics
+</code></pre>
+<p>Files under <code>core/server</code>, <code>core/autogen</code>, <code>core/plugins/antihack</code>, <code>core/plugins/screengrab</code>, and every <code>core/items/&lt;category&gt;</code> subfolder are excluded from the export entirely — no doc comment in those paths will ever appear on the site.</p>
+<h2>Function/variable-level: use real LuaCATS annotations</h2>
+<p>Write these as <code>--- @tag ...</code> directly above the <code>function</code>/assignment they describe, no blank line. <code>generate.py</code> reads the native <code>args</code>/<code>returns</code> LuaLS already resolved from the function signature itself (so types are accurate even if you never repeat them) and only borrows the tag's text for the human-readable description.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Annotation</th>
+<th align="left">Syntax</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>@param</code></td>
+<td align="left"><code>--- @param &lt;name[?]&gt; &lt;type[|type...]&gt; [description]</code></td>
+<td align="left">Primary way to document a parameter. <code>?</code> suffix marks it optional.</td>
+</tr>
+<tr>
+<td align="left"><code>@return</code></td>
+<td align="left"><code>--- @return &lt;type&gt; [&lt;name&gt; [comment]]</code></td>
+<td align="left">Primary way to document a return value. One <code>@return</code> line per return value, in order.</td>
+</tr>
+<tr>
+<td align="left"><code>@class</code></td>
+<td align="left"><code>--- @class [(exact)] &lt;name&gt;[: &lt;parent&gt;...]</code></td>
+<td align="left">Defines a struct/type, optionally with inheritance.</td>
+</tr>
+<tr>
+<td align="left"><code>@field</code></td>
+<td align="left"><code>--- @field [scope] &lt;name[?]&gt; &lt;type&gt; [description]</code></td>
+<td align="left">Documents a field of a <code>@class</code>. <code>scope</code> is <code>public</code>/<code>protected</code>/<code>private</code>/<code>package</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>@type</code></td>
+<td align="left"><code>--- @type &lt;type&gt;</code></td>
+<td align="left">Declares the type of a variable, e.g. <code>--- @type string[]</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>@generic</code></td>
+<td align="left"><code>--- @generic &lt;name&gt; [:parent_type]</code></td>
+<td align="left">Generic type placeholder for reusable code.</td>
+</tr>
+<tr>
+<td align="left"><code>@overload</code></td>
+<td align="left"><code>--- @overload fun([param: type...]): [return_type]</code></td>
+<td align="left">Documents an additional call signature.</td>
+</tr>
+<tr>
+<td align="left"><code>@alias</code></td>
+<td align="left"><code>--- @alias &lt;name&gt; &lt;type&gt;</code></td>
+<td align="left">Names a type (or enum) for reuse elsewhere.</td>
+</tr>
+<tr>
+<td align="left"><code>@enum</code></td>
+<td align="left"><code>--- @enum [(key)] &lt;name&gt;</code></td>
+<td align="left">Marks a table as an enum, usable at runtime.</td>
+</tr>
+<tr>
+<td align="left"><code>@cast</code></td>
+<td align="left"><code>--- @cast &lt;value_name&gt; [+|-]&lt;type|?&gt;[, ...]</code></td>
+<td align="left">Narrows/widens a variable's type from this point on.</td>
+</tr>
+<tr>
+<td align="left"><code>@deprecated</code></td>
+<td align="left"><code>--- @deprecated</code></td>
+<td align="left">Marks the item outdated (LuaLS strikes it through in editors). This is the LuaCATS spelling — see also the codebase's own <code>@deprecated</code> callout below, which the two share.</td>
+</tr>
+<tr>
+<td align="left"><code>@nodiscard</code></td>
+<td align="left"><code>--- @nodiscard</code></td>
+<td align="left">Warns if the return value is ignored at the call site.</td>
+</tr>
+<tr>
+<td align="left"><code>@async</code></td>
+<td align="left"><code>--- @async</code></td>
+<td align="left">Marks a function as asynchronous.</td>
+</tr>
+<tr>
+<td align="left"><code>@see</code></td>
+<td align="left"><code>--- @see &lt;symbol&gt;</code></td>
+<td align="left">Cross-reference to another documented symbol.</td>
+</tr>
+<tr>
+<td align="left"><code>@operator</code></td>
+<td align="left"><code>--- @operator &lt;op&gt;[(param_type)]:&lt;return_type&gt;</code></td>
+<td align="left">Documents an operator metamethod (<code>__add</code>, etc).</td>
+</tr>
+<tr>
+<td align="left"><code>@package</code> / <code>@private</code> / <code>@protected</code></td>
+<td align="left"><code>--- @package</code> / <code>--- @private</code> / <code>--- @protected</code></td>
+<td align="left">Restricts where the item is considered accessible.</td>
+</tr>
+<tr>
+<td align="left"><code>@version</code></td>
+<td align="left"><code>--- @version [&lt;|&gt;]&lt;version&gt;</code></td>
+<td align="left">Required Lua/LuaJIT version.</td>
+</tr>
+<tr>
+<td align="left"><code>@meta</code></td>
+<td align="left"><code>--- @meta [name]</code></td>
+<td align="left">Marks a whole file as definition-only (not real, executable code).</td>
+</tr>
+<tr>
+<td align="left"><code>@as</code></td>
+<td align="left"><code>--[[@as &lt;type&gt;]]</code></td>
+<td align="left">Inline cast forcing a type onto an expression.</td>
+</tr>
+<tr>
+<td align="left"><code>@diagnostic</code></td>
+<td align="left"><code>--- @diagnostic &lt;state&gt;:&lt;diagnostic&gt;</code></td>
+<td align="left">Suppresses/enables a specific LuaLS diagnostic.</td>
+</tr>
+</tbody>
+</table>
+<p>Two annotations are explicitly <strong>not</strong> used here, even though LuaLS supports them:</p>
 <ul>
-<li><span class="parameter">t</span> <span class="types">any</span></li>
+<li><strong><code>@module</code></strong> — LuaLS reserves this for its own <code>require()</code>-return-type inference and silently drops any doc comment that uses it. Use the codebase's own <a href="#file-header-tags-this-codebases-own-set"><code>@namespace</code></a> tag instead (see below) — this is the single most common mistake when porting old LDoc comments.</li>
+<li><strong><code>@vararg</code></strong> — deprecated by LuaLS itself in favor of <code>--- @param ... &lt;type&gt; [description]</code> for documenting varargs.</li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">unknown</span> </li>
-</ol>
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="temar"></a><strong><span class="state state-client">temar</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_temar.lua#L11">Source ☍</a></dt>
-<dd>
+<p>Only <code>@param</code> and <code>@return</code> currently have their <em>description</em> folded back into the rendered page by <code>generate.py</code> (by parameter name, and by return position, respectively) — the other annotations above are understood natively by LuaLS/your editor for hover/autocomplete/type-checking, but <code>generate.py</code> doesn't render most of them specially yet.</p>
+<p>Minimal example:</p>
+<pre><code class="language-lua">--- Gets the value of an env-var.
+--- @param name string The env-var to get
+--- @return string The value found, nil otherwise
+function ENV:Get(name)
+	...
+end
+</code></pre>
+<h2>Function/table-level: this codebase's own tags</h2>
+<p>These are custom to <code>generate.py</code>, not LuaCATS — but like <code>@param</code>/<code>@return</code>, they're written <strong>directly above the function or table they describe</strong>, with no blank line, since <code>generate.py</code> only reads the tags attached to that specific declaration's own doc comment:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Tag</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>@section &lt;slug&gt;</code></td>
+<td align="left">Starts a new named subsection on the module page. Every following item in the file (until the next <code>@section</code>) is grouped under it, so in practice it's usually only written once per group rather than on every function.</td>
+</tr>
+<tr>
+<td align="left"><code>@state &lt;word&gt;</code></td>
+<td align="left">One of <code>client</code>, <code>server</code>, <code>menu</code>, <code>shared</code>, <code>global</code>, <code>clmenu</code> — drives the realm badge shown next to the item. If a function omits it, it falls back to whatever <code>@state</code> the file's header comment declared.</td>
+</tr>
+<tr>
+<td align="left"><code>@warns &lt;text&gt;</code></td>
+<td align="left">Renders a &quot;Warnings&quot; callout on that item.</td>
+</tr>
+<tr>
+<td align="left"><code>@bugs &lt;text&gt;</code></td>
+<td align="left">Renders a &quot;Known Issues&quot; callout on that item.</td>
+</tr>
+<tr>
+<td align="left"><code>@deprecated [text]</code></td>
+<td align="left">Renders a &quot;Deprecated&quot; callout on that item (falls back to a stock message if no text given).</td>
+</tr>
+<tr>
+<td align="left"><code>@internal [text]</code></td>
+<td align="left">Renders an &quot;Internal&quot; callout on that item (falls back to a stock message if no text given).</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-lua">--- Old warrant lookup, kept for legacy callers.
+--- @deprecated Use cityrp.warrants.issue instead.
+--- @bugs Does not account for expired warrants.
+--- @state server
+function cityrp.warrants.legacyLookup(ply)
+	...
+end
+</code></pre>
+<h2>File-header tags: this codebase's own set</h2>
+<p>The very first comment in a file (block or line-comment style, blank line before the code is fine) is scanned separately for these tags — they are <strong>not</strong> LuaCATS and LuaLS doesn't know about them:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Tag</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>@namespace &lt;name&gt;</code></td>
+<td align="left"><strong>Not <code>@module</code>.</strong> Groups every doc'd item in this file onto one page named <code>&lt;name&gt;</code>, merging with any other file that declares the same namespace (e.g. a <code>cl_*.lua</code>/<code>sv_*.lua</code> pair). Without it, the page falls back to the file's own dotted path (<code>core.libraries.sv_foo</code>). Must not contain <code>..</code>. Only makes sense here — write it once, on the file header.</td>
+</tr>
+<tr>
+<td align="left"><code>@state &lt;word&gt;</code></td>
+<td align="left">Same word list as the function-level tag above. Written on the file header, this becomes the <em>default</em> realm badge for every item in the file that doesn't declare its own <code>@state</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>@copyright</code>, <code>@release</code>, <code>@author</code></td>
+<td align="left">Accepted and parsed, but <strong>not currently rendered anywhere</strong> on the generated site — keep them for humans reading the source, don't rely on them showing up on the page.</td>
+</tr>
+</tbody>
+</table>
+<p>The file's own doc comment style can be either form — pick whichever reads better, both parse identically:</p>
+<pre><code class="language-lua">--[[-- One-line description.
+@copyright 2015-2026 Limelight Gaming
+@author Someone
+@namespace some.namespace
+--]]--
+</code></pre>
+<pre><code class="language-lua">--- One-line description.
+--- @copyright 2015-2026 Limelight Gaming
+--- @author Someone
+--- @namespace some.namespace
+</code></pre>
+<h2>Putting it together</h2>
+<pre><code class="language-lua">--- Player-facing warrant helpers.
+--- @namespace cityrp.warrants
 
-
-
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="ts"></a><strong><span class="state state-client">ts</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_temar.lua#L36">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-</dl></div>
+--- Issue a warrant against a player.
+--- @param ply Player The player to warrant.
+--- @param reason string Why the warrant was issued.
+--- @return boolean Whether the warrant was successfully issued.
+--- @state server
+function cityrp.warrants.issue(ply, reason)
+	...
+end
+</code></pre></div>
 		</div>
 	</div>
 	<br class="clearfix">
