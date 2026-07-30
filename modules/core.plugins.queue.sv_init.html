@@ -233,25 +233,15 @@
 <div class="ll-module-body"><p>Spawn Queue</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="joinqueue.precacheadmins"></a><strong><span class="state state-server">joinqueue.precacheadmins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L35">Source ☍</a></dt>
+<dt><a name="joinqueue.add"></a><strong><span class="state state-server">joinqueue.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L148">Source ☍</a></dt>
 <dd>
-<p>Function to populate joinqueue.admins with administrators.</p>
-
-
-
-</dd>
-<dt><a name="joinqueue.isAdmin"></a><strong><span class="state state-server">joinqueue.isAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L47">Source ☍</a></dt>
-<dd>
-<p>Function to check if a given steam id belongs to an administrator.</p>
+<p>Add a steamid to the queue.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">sid</span> <span class="types">any</span> The steamID to check.</li>
+<li><span class="parameter">sid</span> <span class="types">any</span> The steamID to add.</li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> If the steamID belongs to an administrator.</li>
-</ol>
+
 </dd>
 <dt><a name="joinqueue.checkqueue"></a><strong><span class="state state-server">joinqueue.checkqueue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L59">Source ☍</a></dt>
 <dd>
@@ -270,6 +260,26 @@ Ignores administrators, allowing bypass.</p>
 <li><span class="types">string|table|unknown|nil</span> If nil, no action taken. If string, the failure message to pass to the client.</li>
 </ol>
 </dd>
+<dt><a name="joinqueue.isAdmin"></a><strong><span class="state state-server">joinqueue.isAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L47">Source ☍</a></dt>
+<dd>
+<p>Function to check if a given steam id belongs to an administrator.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">sid</span> <span class="types">any</span> The steamID to check.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> If the steamID belongs to an administrator.</li>
+</ol>
+</dd>
+<dt><a name="joinqueue.list"></a><strong><span class="state state-server">joinqueue.list</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L129">Source ☍</a></dt>
+<dd>
+<p>Send a message to administrators with the current join queue order.</p>
+
+
+
+</dd>
 <dt><a name="joinqueue.place"></a><strong><span class="state state-server">joinqueue.place</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L113">Source ☍</a></dt>
 <dd>
 <p>Get a SteamID's place in the queue.</p>
@@ -283,9 +293,9 @@ Ignores administrators, allowing bypass.</p>
 <li><span class="types">integer|unknown</span> The player's place in the queue.</li>
 </ol>
 </dd>
-<dt><a name="joinqueue.list"></a><strong><span class="state state-server">joinqueue.list</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L129">Source ☍</a></dt>
+<dt><a name="joinqueue.precacheadmins"></a><strong><span class="state state-server">joinqueue.precacheadmins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L35">Source ☍</a></dt>
 <dd>
-<p>Send a message to administrators with the current join queue order.</p>
+<p>Function to populate joinqueue.admins with administrators.</p>
 
 
 
@@ -297,16 +307,6 @@ Ignores administrators, allowing bypass.</p>
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">sid</span> <span class="types">any</span> The steamID to remove.</li>
-</ul>
-
-</dd>
-<dt><a name="joinqueue.add"></a><strong><span class="state state-server">joinqueue.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L148">Source ☍</a></dt>
-<dd>
-<p>Add a steamid to the queue.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">sid</span> <span class="types">any</span> The steamID to add.</li>
 </ul>
 
 </dd>
@@ -362,16 +362,9 @@ If player was kicked,  this won't work.</p>
 
 
 </dd>
-<dt><a name="joinqueue.queue"></a><strong><span class="state state-server">joinqueue.queue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L13">Source ☍</a></dt>
+<dt><a name="joinqueue.admins"></a><strong><span class="state state-server">joinqueue.admins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L23">Source ☍</a></dt>
 <dd>
-<p>The current queue members.</p>
-
-
-
-</dd>
-<dt><a name="joinqueue.queueorder"></a><strong><span class="state state-server">joinqueue.queueorder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L15">Source ☍</a></dt>
-<dd>
-<p>The order of the queue.</p>
+<p>List of admins.</p>
 
 
 
@@ -383,9 +376,16 @@ If player was kicked,  this won't work.</p>
 
 
 </dd>
-<dt><a name="joinqueue.admins"></a><strong><span class="state state-server">joinqueue.admins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L23">Source ☍</a></dt>
+<dt><a name="joinqueue.queue"></a><strong><span class="state state-server">joinqueue.queue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L13">Source ☍</a></dt>
 <dd>
-<p>List of admins.</p>
+<p>The current queue members.</p>
+
+
+
+</dd>
+<dt><a name="joinqueue.queueorder"></a><strong><span class="state state-server">joinqueue.queueorder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L15">Source ☍</a></dt>
+<dd>
+<p>The order of the queue.</p>
 
 
 
@@ -407,9 +407,8 @@ If player was kicked,  this won't work.</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="joinqueue.queueid"></a><strong><span class="state state-server">joinqueue.queueid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L17">Source ☍</a></dt>
+<dt><a name="joinqueue.active"></a><strong><span class="state state-server">joinqueue.active</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L29">Source ☍</a></dt>
 <dd>
-<p>Current queue ID.</p>
 
 
 
@@ -421,8 +420,9 @@ If player was kicked,  this won't work.</p>
 
 
 </dd>
-<dt><a name="joinqueue.active"></a><strong><span class="state state-server">joinqueue.active</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L29">Source ☍</a></dt>
+<dt><a name="joinqueue.queueid"></a><strong><span class="state state-server">joinqueue.queueid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/queue/sv_init.lua#L17">Source ☍</a></dt>
 <dd>
+<p>Current queue ID.</p>
 
 
 

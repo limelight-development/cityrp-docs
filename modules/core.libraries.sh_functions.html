@@ -231,73 +231,6 @@
 <div class="ll-module-body"><p>Generic Shared Functions</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="mysql_escape"></a><strong><span class="state state-client state-server">mysql_escape</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L15">Source ☍</a></dt>
-<dd>
-<p>Escape a string, for use in mysql statements.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">str</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string|unknown</span> </li>
-</ol>
-</dd>
-<dt><a name="msg_admins"></a><strong><span class="state state-client state-server">msg_admins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L31">Source ☍</a></dt>
-<dd>
-<p>Send a message to all connected admins.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">msg</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="msg_mods"></a><strong><span class="state state-client state-server">msg_mods</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L41">Source ☍</a></dt>
-<dd>
-<p>Send a message to all connected moderators / admins.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">msg</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="msg_devs"></a><strong><span class="state state-client state-server">msg_devs</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L51">Source ☍</a></dt>
-<dd>
-<p>Send a message to all connected developers.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">msg</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="FixVehicleCollision"></a><strong><span class="state state-client state-server">FixVehicleCollision</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L61">Source ☍</a></dt>
-<dd>
-<p>Fix the collisions of a vehicle.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">vehicle</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="stringTimeToMins"></a><strong><span class="state state-client state-server">stringTimeToMins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L126">Source ☍</a></dt>
-<dd>
-<p>Turn a time string into a number of minutes.
-Strings with only a number are counted as minutes.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">str</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number|nil</span> </li>
-</ol>
-</dd>
 <dt><a name="cityrp.GetByID"></a><strong><span class="state state-client state-server">cityrp.GetByID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L166">Source ☍</a></dt>
 <dd>
 <p>Get a user by their user ID.</p>
@@ -311,22 +244,18 @@ Strings with only a number are counted as minutes.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="table.FullCopy"></a><strong><span class="state state-client state-server">table.FullCopy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L201">Source ☍</a></dt>
+<dt><a name="cityrp.replacecodes"></a><strong><span class="state state-client state-server">cityrp.replacecodes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L302">Source ☍</a></dt>
 <dd>
-<p>Create a deep copy of a table, copying vectors and angles by value.
-table.Copy and table.copy both leave userdata as references, so a copy made with either
-still shares its vectors and angles with the original. That matters for anything that
-mutates them in place, which is why the SWEP Construction Kit weapons each used to carry
-their own version of this. Entities are still copied by reference.
-Do not use on a table that contains itself, it will recurse forever.</p>
+<p>Replace player substitution codes in a string.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">tab</span> <span class="types">table|nil</span> The table to copy.</li>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">str</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">table|nil</span> The copied table, or nil if no table was given.</li>
+<li><span class="types">string</span> </li>
 </ol>
 </dd>
 <dt><a name="comma_value"></a><strong><span class="state state-client state-server">comma_value</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L224">Source ☍</a></dt>
@@ -356,59 +285,15 @@ Identical to string.Comma</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="IsInsideBox"></a><strong><span class="state state-client state-server">IsInsideBox</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L288">Source ☍</a></dt>
+<dt><a name="FixVehicleCollision"></a><strong><span class="state state-client state-server">FixVehicleCollision</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L61">Source ☍</a></dt>
 <dd>
-<p>Check if a point inside a box defined by the two corners.</p>
+<p>Fix the collisions of a vehicle.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">pos</span> <span class="types">any</span></li>
-<li><span class="parameter">point1</span> <span class="types">any</span></li>
-<li><span class="parameter">point2</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.replacecodes"></a><strong><span class="state state-client state-server">cityrp.replacecodes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L302">Source ☍</a></dt>
-<dd>
-<p>Replace player substitution codes in a string.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">str</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> </li>
-</ol>
-</dd>
-<dt><a name="SetClipboardText"></a><strong><span class="state state-client state-server">SetClipboardText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L353">Source ☍</a></dt>
-<dd>
-<p>Set a player's clipboard text.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">text</span> <span class="types">any</span></li>
+<li><span class="parameter">vehicle</span> <span class="types">any</span></li>
 </ul>
 
-</dd>
-<dt><a name="LookupEnum"></a><strong><span class="state state-client state-server">LookupEnum</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L367">Source ☍</a></dt>
-<dd>
-<p>Lookup an enumeration, given its prefix and value.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">value</span> <span class="types">any</span> The value of the enumeration.</li>
-<li><span class="parameter">prefix</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> </li>
-</ol>
 </dd>
 <dt><a name="FormatList"></a><strong><span class="state state-client state-server">FormatList</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L383">Source ☍</a></dt>
 <dd>
@@ -425,6 +310,121 @@ If there is only one item, it returns just that item.</p>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">string</span> string.</li>
+</ol>
+</dd>
+<dt><a name="IsInsideBox"></a><strong><span class="state state-client state-server">IsInsideBox</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L288">Source ☍</a></dt>
+<dd>
+<p>Check if a point inside a box defined by the two corners.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">pos</span> <span class="types">any</span></li>
+<li><span class="parameter">point1</span> <span class="types">any</span></li>
+<li><span class="parameter">point2</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="LookupEnum"></a><strong><span class="state state-client state-server">LookupEnum</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L367">Source ☍</a></dt>
+<dd>
+<p>Lookup an enumeration, given its prefix and value.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">value</span> <span class="types">any</span> The value of the enumeration.</li>
+<li><span class="parameter">prefix</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> </li>
+</ol>
+</dd>
+<dt><a name="msg_admins"></a><strong><span class="state state-client state-server">msg_admins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L31">Source ☍</a></dt>
+<dd>
+<p>Send a message to all connected admins.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">msg</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="msg_devs"></a><strong><span class="state state-client state-server">msg_devs</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L51">Source ☍</a></dt>
+<dd>
+<p>Send a message to all connected developers.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">msg</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="msg_mods"></a><strong><span class="state state-client state-server">msg_mods</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L41">Source ☍</a></dt>
+<dd>
+<p>Send a message to all connected moderators / admins.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">msg</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="mysql_escape"></a><strong><span class="state state-client state-server">mysql_escape</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L15">Source ☍</a></dt>
+<dd>
+<p>Escape a string, for use in mysql statements.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">str</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string|unknown</span> </li>
+</ol>
+</dd>
+<dt><a name="SetClipboardText"></a><strong><span class="state state-client state-server">SetClipboardText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L353">Source ☍</a></dt>
+<dd>
+<p>Set a player's clipboard text.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">text</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="stringTimeToMins"></a><strong><span class="state state-client state-server">stringTimeToMins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L126">Source ☍</a></dt>
+<dd>
+<p>Turn a time string into a number of minutes.
+Strings with only a number are counted as minutes.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">str</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number|nil</span> </li>
+</ol>
+</dd>
+<dt><a name="table.FullCopy"></a><strong><span class="state state-client state-server">table.FullCopy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L201">Source ☍</a></dt>
+<dd>
+<p>Create a deep copy of a table, copying vectors and angles by value.
+table.Copy and table.copy both leave userdata as references, so a copy made with either
+still shares its vectors and angles with the original. That matters for anything that
+mutates them in place, which is why the SWEP Construction Kit weapons each used to carry
+their own version of this. Entities are still copied by reference.
+Do not use on a table that contains itself, it will recurse forever.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">tab</span> <span class="types">table|nil</span> The table to copy.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table|nil</span> The copied table, or nil if no table was given.</li>
 </ol>
 </dd>
 </dl></div>

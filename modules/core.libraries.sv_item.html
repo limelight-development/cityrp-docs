@@ -231,30 +231,15 @@
 <div class="ll-module-body"><p>Item Management</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.item.use"></a><strong><span class="state state-server">cityrp.item.use</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L23">Source ☍</a></dt>
+<dt><a name="cityrp.item.destroy"></a><strong><span class="state state-server">cityrp.item.destroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L247">Source ☍</a></dt>
 <dd>
-<p>Have a player use an item.</p>
+<p>Destroys a player's item.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">ply</span> <span class="types">any</span></li>
 <li><span class="parameter">item</span> <span class="types">any</span></li>
-<li><span class="parameter">meta</span> <span class="types">any</span></li>
-<li><span class="parameter">force</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|unknown</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.item.remove"></a><strong><span class="state state-server">cityrp.item.remove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L104">Source ☍</a></dt>
-<dd>
-<p>Remove an item from a player (like a hat).</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">item</span> <span class="types">any</span></li>
+<li><span class="parameter">amt</span> <span class="types">any</span></li>
 <li><span class="parameter">meta</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
@@ -279,34 +264,38 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.removemod"></a><strong><span class="state state-server">cityrp.item.removemod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L232">Source ☍</a></dt>
+<dt><a name="cityrp.item.give"></a><strong><span class="state state-server">cityrp.item.give</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L493">Source ☍</a></dt>
 <dd>
-<p>Special function for removing a player's weapon mods on death. Added this because the other functions had bugs.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">item</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.item.destroy"></a><strong><span class="state state-server">cityrp.item.destroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L247">Source ☍</a></dt>
-<dd>
-<p>Destroys a player's item.</p>
+<p>Give an item to a player.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">ply</span> <span class="types">any</span></li>
 <li><span class="parameter">item</span> <span class="types">any</span></li>
 <li><span class="parameter">amt</span> <span class="types">any</span></li>
+<li><span class="parameter">tObj</span> <span class="types">any</span></li>
 <li><span class="parameter">meta</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.item.make"></a><strong><span class="state state-server">cityrp.item.make</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L391">Source ☍</a></dt>
+<dd>
+<p>Makes an item at the specified position.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">item</span> <span class="types">string</span> The item ID to create.</li>
+<li><span class="parameter">pos</span> <span class="types">Vector</span> The position to make the item at.</li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player who owns the item.</li>
+<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
+<li><span class="parameter">amt</span> <span class="types">number?</span> The quantity the item entity represents (defaults to 1).</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean|Entity</span> The created entity, or false on failure.</li>
 </ol>
 </dd>
 <dt><a name="cityrp.item.pickup"></a><strong><span class="state state-server">cityrp.item.pickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L289">Source ☍</a></dt>
@@ -318,6 +307,68 @@
 <li><span class="parameter">ply</span> <span class="types">any</span></li>
 <li><span class="parameter">item</span> <span class="types">any</span></li>
 <li><span class="parameter">meta</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.item.place"></a><strong><span class="state state-server">cityrp.item.place</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L412">Source ☍</a></dt>
+<dd>
+<p>Places an item (i.e. food)</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">item</span> <span class="types">any</span></li>
+<li><span class="parameter">amt</span> <span class="types">any</span></li>
+<li><span class="parameter">pos</span> <span class="types">any</span></li>
+<li><span class="parameter">meta</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.item.placefood"></a><strong><span class="state state-server">cityrp.item.placefood</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L404">Source ☍</a></dt>
+<dd>
+<p>Makes a food entity at the specified position.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">item</span> <span class="types">any</span></li>
+<li><span class="parameter">pos</span> <span class="types">any</span></li>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">meta</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.item.remove"></a><strong><span class="state state-server">cityrp.item.remove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L104">Source ☍</a></dt>
+<dd>
+<p>Remove an item from a player (like a hat).</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">item</span> <span class="types">any</span></li>
+<li><span class="parameter">meta</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.item.removemod"></a><strong><span class="state state-server">cityrp.item.removemod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L232">Source ☍</a></dt>
+<dd>
+<p>Special function for removing a player's weapon mods on death. Added this because the other functions had bugs.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">item</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
@@ -357,71 +408,20 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.make"></a><strong><span class="state state-server">cityrp.item.make</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L391">Source ☍</a></dt>
+<dt><a name="cityrp.item.use"></a><strong><span class="state state-server">cityrp.item.use</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L23">Source ☍</a></dt>
 <dd>
-<p>Makes an item at the specified position.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">item</span> <span class="types">string</span> The item ID to create.</li>
-<li><span class="parameter">pos</span> <span class="types">Vector</span> The position to make the item at.</li>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player who owns the item.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
-<li><span class="parameter">amt</span> <span class="types">number?</span> The quantity the item entity represents (defaults to 1).</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|Entity</span> The created entity, or false on failure.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.item.placefood"></a><strong><span class="state state-server">cityrp.item.placefood</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L404">Source ☍</a></dt>
-<dd>
-<p>Makes a food entity at the specified position.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">item</span> <span class="types">any</span></li>
-<li><span class="parameter">pos</span> <span class="types">any</span></li>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">meta</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.item.place"></a><strong><span class="state state-server">cityrp.item.place</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L412">Source ☍</a></dt>
-<dd>
-<p>Places an item (i.e. food)</p>
+<p>Have a player use an item.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">ply</span> <span class="types">any</span></li>
 <li><span class="parameter">item</span> <span class="types">any</span></li>
-<li><span class="parameter">amt</span> <span class="types">any</span></li>
-<li><span class="parameter">pos</span> <span class="types">any</span></li>
 <li><span class="parameter">meta</span> <span class="types">any</span></li>
+<li><span class="parameter">force</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">boolean</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.item.give"></a><strong><span class="state state-server">cityrp.item.give</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L493">Source ☍</a></dt>
-<dd>
-<p>Give an item to a player.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">item</span> <span class="types">any</span></li>
-<li><span class="parameter">amt</span> <span class="types">any</span></li>
-<li><span class="parameter">tObj</span> <span class="types">any</span></li>
-<li><span class="parameter">meta</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
+<li><span class="types">boolean|unknown</span> </li>
 </ol>
 </dd>
 </dl></div>

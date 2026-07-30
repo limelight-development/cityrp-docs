@@ -258,6 +258,15 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">integer|unknown</span> </li>
 </ol>
 </dd>
+<dt><a name="cityrp.team.countLawEnforcement"></a><strong><span class="state state-client state-server">cityrp.team.countLawEnforcement</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L183">Source ☍</a></dt>
+<dd>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">unknown</span> </li>
+</ol>
+</dd>
 <dt><a name="cityrp.team.get"></a><strong><span class="state state-client state-server">cityrp.team.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L79">Source ☍</a></dt>
 <dd>
 <p>Get a team from a name or index.</p>
@@ -269,54 +278,6 @@ This is the main function which creates a team, including calling team.SetUp, al
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">boolean|unknown</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.team.query"></a><strong><span class="state state-client state-server">cityrp.team.query</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L111">Source ☍</a></dt>
-<dd>
-<p>Query a variable from a team.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">key</span> <span class="types">any</span></li>
-<li><span class="parameter">default</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">unknown</span> return value.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.team.getlimit"></a><strong><span class="state state-client state-server">cityrp.team.getlimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L125">Source ☍</a></dt>
-<dd>
-<p>Get the current team limit.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">key</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">integer</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.team.getPresident"></a><strong><span class="state state-client state-server">cityrp.team.getPresident</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L145">Source ☍</a></dt>
-<dd>
-<p>Get players in the Presidential team group.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.team.getPresidentAdministration"></a><strong><span class="state state-client state-server">cityrp.team.getPresidentAdministration</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L155">Source ☍</a></dt>
-<dd>
-<p>Get players in the Presidential Administration team group.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
 </ol>
 </dd>
 <dt><a name="cityrp.team.getGovernment"></a><strong><span class="state state-client state-server">cityrp.team.getGovernment</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L165">Source ☍</a></dt>
@@ -339,18 +300,42 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.countLawEnforcement"></a><strong><span class="state state-client state-server">cityrp.team.countLawEnforcement</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L183">Source ☍</a></dt>
+<dt><a name="cityrp.team.getlimit"></a><strong><span class="state state-client state-server">cityrp.team.getlimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L125">Source ☍</a></dt>
 <dd>
+<p>Get the current team limit.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">key</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">integer</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.team.getMafia"></a><strong><span class="state state-client state-server">cityrp.team.getMafia</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L213">Source ☍</a></dt>
+<dd>
+<p>Get players in the Mafia team group.</p>
 
 
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">unknown</span> </li>
+<li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.getRescue"></a><strong><span class="state state-client state-server">cityrp.team.getRescue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L193">Source ☍</a></dt>
+<dt><a name="cityrp.team.getPresident"></a><strong><span class="state state-client state-server">cityrp.team.getPresident</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L145">Source ☍</a></dt>
 <dd>
-<p>Get players in the Rescue (FD) team group.</p>
+<p>Get players in the Presidential team group.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.team.getPresidentAdministration"></a><strong><span class="state state-client state-server">cityrp.team.getPresidentAdministration</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L155">Source ☍</a></dt>
+<dd>
+<p>Get players in the Presidential Administration team group.</p>
 
 
 <h3>Returns:</h3>
@@ -368,14 +353,29 @@ This is the main function which creates a team, including calling team.SetUp, al
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.team.getMafia"></a><strong><span class="state state-client state-server">cityrp.team.getMafia</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L213">Source ☍</a></dt>
+<dt><a name="cityrp.team.getRescue"></a><strong><span class="state state-client state-server">cityrp.team.getRescue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L193">Source ☍</a></dt>
 <dd>
-<p>Get players in the Mafia team group.</p>
+<p>Get players in the Rescue (FD) team group.</p>
 
 
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.team.query"></a><strong><span class="state state-client state-server">cityrp.team.query</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_team.lua#L111">Source ☍</a></dt>
+<dd>
+<p>Query a variable from a team.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
+<li><span class="parameter">key</span> <span class="types">any</span></li>
+<li><span class="parameter">default</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">unknown</span> return value.</li>
 </ol>
 </dd>
 </dl></div>

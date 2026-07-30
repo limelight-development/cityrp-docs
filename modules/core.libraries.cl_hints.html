@@ -232,27 +232,16 @@
 <div class="ll-module-body"><p>Clientside Hints System</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.hints.Register"></a><strong><span class="state state-client">cityrp.hints.Register</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L12">Source ☍</a></dt>
+<dt><a name="cityrp.hints.Cycle"></a><strong><span class="state state-client">cityrp.hints.Cycle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L69">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">key</span> <span class="types">any</span></li>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">desc</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.hints.Name"></a><strong><span class="state state-client">cityrp.hints.Name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L20">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">key</span> <span class="types">any</span></li>
+<li><span class="parameter">class</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">unknown</span> </li>
+<li><span class="types">unknown|nil</span> </li>
 </ol>
 </dd>
 <dt><a name="cityrp.hints.Get"></a><strong><span class="state state-client">cityrp.hints.Get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L24">Source ☍</a></dt>
@@ -267,13 +256,26 @@
 <li><span class="types">unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.hints.Set"></a><strong><span class="state state-client">cityrp.hints.Set</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L28">Source ☍</a></dt>
+<dt><a name="cityrp.hints.Name"></a><strong><span class="state state-client">cityrp.hints.Name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L20">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">key</span> <span class="types">any</span></li>
-<li><span class="parameter">enabled</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">unknown</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.hints.Register"></a><strong><span class="state state-client">cityrp.hints.Register</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L12">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">key</span> <span class="types">any</span></li>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
+<li><span class="parameter">desc</span> <span class="types">any</span></li>
 </ul>
 
 </dd>
@@ -288,17 +290,15 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.hints.Cycle"></a><strong><span class="state state-client">cityrp.hints.Cycle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L69">Source ☍</a></dt>
+<dt><a name="cityrp.hints.Set"></a><strong><span class="state state-client">cityrp.hints.Set</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L28">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">class</span> <span class="types">any</span></li>
+<li><span class="parameter">key</span> <span class="types">any</span></li>
+<li><span class="parameter">enabled</span> <span class="types">any</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">unknown|nil</span> </li>
-</ol>
+
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
@@ -309,19 +309,7 @@
 
 
 </dd>
-<dt><a name="cityrp.hints.stored"></a><strong><span class="state state-client">cityrp.hints.stored</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L9">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.hints.registered"></a><strong><span class="state state-client">cityrp.hints.registered</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L11">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.hints.cycling"></a><strong><span class="state state-client">cityrp.hints.cycling</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L42">Source ☍</a></dt>
+<dt><a name="cityrp.hints.cycleTime"></a><strong><span class="state state-client">cityrp.hints.cycleTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L44">Source ☍</a></dt>
 <dd>
 
 
@@ -333,7 +321,19 @@
 
 
 </dd>
-<dt><a name="cityrp.hints.cycleTime"></a><strong><span class="state state-client">cityrp.hints.cycleTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L44">Source ☍</a></dt>
+<dt><a name="cityrp.hints.cycling"></a><strong><span class="state state-client">cityrp.hints.cycling</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L42">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.hints.registered"></a><strong><span class="state state-client">cityrp.hints.registered</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L11">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.hints.stored"></a><strong><span class="state state-client">cityrp.hints.stored</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_hints.lua#L9">Source ☍</a></dt>
 <dd>
 
 

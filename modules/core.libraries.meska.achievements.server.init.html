@@ -234,46 +234,32 @@
 The achievements-system core functions.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="meska.achievements.tpl"></a><strong><span class="state state-server">meska.achievements.tpl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L25">Source ☍</a></dt>
+<dt><a name="meska.achievements.add"></a><strong><span class="state state-server">meska.achievements.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L181">Source ☍</a></dt>
 <dd>
 <hr />
-<p>The template for achievements</p>
+<p>Adds an achievement to the storage.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">config</span> <span class="types">any</span> Achievement configuration.</li>
+<li><span class="parameter">tmp</span> <span class="types">any</span> If false, store in db. Default: false. @func[opt] cb Callback Function with id as return value.</li>
+<li><span class="parameter">cb</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">table</span> The template.</li>
+<li><span class="types">integer|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="meska.achievements.load"></a><strong><span class="state state-server">meska.achievements.load</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L50">Source ☍</a></dt>
+<dt><a name="meska.achievements.award"></a><strong><span class="state state-server">meska.achievements.award</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L334">Source ☍</a></dt>
 <dd>
 <hr />
-<h2>Loads all achievements from DB.
-@func[opt] cb Callback Function.</h2>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="meska.achievements.loadFor"></a><strong><span class="state state-server">meska.achievements.loadFor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L122">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Loads the achievements of a player.</p>
+<p>Awards a player with achievements.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
+
 </dd>
 <dt><a name="meska.achievements.get"></a><strong><span class="state state-server">meska.achievements.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L154">Source ☍</a></dt>
 <dd>
@@ -304,37 +290,15 @@ The achievements-system core functions.</p></div>
 <li><span class="types">table</span> The achievements.</li>
 </ol>
 </dd>
-<dt><a name="meska.achievements.add"></a><strong><span class="state state-server">meska.achievements.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L181">Source ☍</a></dt>
+<dt><a name="meska.achievements.giveRewards"></a><strong><span class="state state-server">meska.achievements.giveRewards</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L326">Source ☍</a></dt>
 <dd>
 <hr />
-<p>Adds an achievement to the storage.</p>
+<p>Calls the rewards hook.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">config</span> <span class="types">any</span> Achievement configuration.</li>
-<li><span class="parameter">tmp</span> <span class="types">any</span> If false, store in db. Default: false. @func[opt] cb Callback Function with id as return value.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">integer|nil</span> </li>
-</ol>
-</dd>
-<dt><a name="meska.achievements.producer"></a><strong><span class="state state-server">meska.achievements.producer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L282">Source ☍</a></dt>
-<dd>
-<hr />
-<p>A generator that creates the achievements while
-respecting the underlaying asynchronous DB code-flow.
-It returns back to the consumer once all given achievements
-were created in the database. This prevents against race-conditions.</p>
-<h3>Deprecated:</h3>
-<ul>
-<li><span class='tag-deprecated'>This function is deprecated and may be removed in a future version.<br>Co-Routines no longer needed.</span></li>
-</ul>
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">achievements</span> <span class="types">any</span> Achievements table.</li>
-<li><span class="parameter">curIdx</span> <span class="types">any</span> The current table index.</li>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">achievement</span> <span class="types">any</span> Achievement.</li>
 </ul>
 
 </dd>
@@ -355,6 +319,33 @@ were created in the database. This prevents against race-conditions.</p>
 <li><span class="types">fun(...any):...unknown</span> The iterator containing the results of the producter.</li>
 </ol>
 </dd>
+<dt><a name="meska.achievements.load"></a><strong><span class="state state-server">meska.achievements.load</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L50">Source ☍</a></dt>
+<dd>
+<hr />
+<h2>Loads all achievements from DB.
+@func[opt] cb Callback Function.</h2>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">cb</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="meska.achievements.loadFor"></a><strong><span class="state state-server">meska.achievements.loadFor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L122">Source ☍</a></dt>
+<dd>
+<hr />
+<p>Loads the achievements of a player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">cb</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
 <dt><a name="meska.achievements.meetsRequirements"></a><strong><span class="state state-server">meska.achievements.meetsRequirements</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L317">Source ☍</a></dt>
 <dd>
 <hr />
@@ -367,26 +358,21 @@ were created in the database. This prevents against race-conditions.</p>
 </ul>
 
 </dd>
-<dt><a name="meska.achievements.giveRewards"></a><strong><span class="state state-server">meska.achievements.giveRewards</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L326">Source ☍</a></dt>
+<dt><a name="meska.achievements.producer"></a><strong><span class="state state-server">meska.achievements.producer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L282">Source ☍</a></dt>
 <dd>
 <hr />
-<p>Calls the rewards hook.</p>
-
-<h3>Parameters:</h3>
+<p>A generator that creates the achievements while
+respecting the underlaying asynchronous DB code-flow.
+It returns back to the consumer once all given achievements
+were created in the database. This prevents against race-conditions.</p>
+<h3>Deprecated:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">achievement</span> <span class="types">any</span> Achievement.</li>
+<li><span class='tag-deprecated'>This function is deprecated and may be removed in a future version.<br>Co-Routines no longer needed.</span></li>
 </ul>
-
-</dd>
-<dt><a name="meska.achievements.award"></a><strong><span class="state state-server">meska.achievements.award</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L334">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Awards a player with achievements.</p>
-
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">achievements</span> <span class="types">any</span> Achievements table.</li>
+<li><span class="parameter">curIdx</span> <span class="types">any</span> The current table index.</li>
 </ul>
 
 </dd>
@@ -398,16 +384,30 @@ were created in the database. This prevents against race-conditions.</p>
 
 
 </dd>
+<dt><a name="meska.achievements.tpl"></a><strong><span class="state state-server">meska.achievements.tpl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L25">Source ☍</a></dt>
+<dd>
+<hr />
+<p>The template for achievements</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">config</span> <span class="types">any</span> Achievement configuration.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> The template.</li>
+</ol>
+</dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="meska.achievements.storage"></a><strong><span class="state state-server">meska.achievements.storage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L16">Source ☍</a></dt>
+<dt><a name="meska.achievements.announceQueue"></a><strong><span class="state state-server">meska.achievements.announceQueue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L18">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="meska.achievements.announceQueue"></a><strong><span class="state state-server">meska.achievements.announceQueue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L18">Source ☍</a></dt>
+<dt><a name="meska.achievements.storage"></a><strong><span class="state state-server">meska.achievements.storage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/achievements/server/init.lua#L16">Source ☍</a></dt>
 <dd>
 
 

@@ -235,6 +235,18 @@ Because I wanted custom, dynamic animations.
 Give credit or reference if used in your creations.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
+<dt><a name="Deserialize"></a><strong><span class="state state-client state-server">Deserialize</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L62">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">sIn</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
 <dt><a name="GetLuaAnimations"></a><strong><span class="state state-client state-server">GetLuaAnimations</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L25">Source ☍</a></dt>
 <dd>
 
@@ -254,18 +266,6 @@ Give credit or reference if used in your creations.</p></div>
 </ul>
 
 </dd>
-<dt><a name="Deserialize"></a><strong><span class="state state-client state-server">Deserialize</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L62">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">sIn</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
 <dt><a name="Serialize"></a><strong><span class="state state-client state-server">Serialize</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L141">Source ☍</a></dt>
 <dd>
 
@@ -282,41 +282,6 @@ Give credit or reference if used in your creations.</p></div>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="TYPE_GESTURE"></a><strong><span class="state state-client state-server">TYPE_GESTURE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L12">Source ☍</a></dt>
-<dd>
-<p>Gestures are keyframed animations that use the current position and angles of the bones. They play once and then stop automatically.</p>
-
-
-
-</dd>
-<dt><a name="TYPE_POSTURE"></a><strong><span class="state state-client state-server">TYPE_POSTURE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L13">Source ☍</a></dt>
-<dd>
-<p>Postures are static animations that use the current position and angles of the bones. They stay that way until manually stopped. Use TimeToArrive if you want to have a posture lerp.</p>
-
-
-
-</dd>
-<dt><a name="TYPE_STANCE"></a><strong><span class="state state-client state-server">TYPE_STANCE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L14">Source ☍</a></dt>
-<dd>
-<p>Stances are keyframed animations that use the current position and angles of the bones. They play forever until manually stopped. Use RestartFrame to specify a frame to go to if the animation ends (instead of frame 1).</p>
-
-
-
-</dd>
-<dt><a name="TYPE_SEQUENCE"></a><strong><span class="state state-client state-server">TYPE_SEQUENCE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L15">Source ☍</a></dt>
-<dd>
-<p>Sequences are keyframed animations that use the reference pose. They play forever until manually stopped. Use RestartFrame to specify a frame to go to if the animation ends (instead of frame 1).</p>
-
-
-
-</dd>
-<dt><a name="INTERP_LINEAR"></a><strong><span class="state state-client state-server">INTERP_LINEAR</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L18">Source ☍</a></dt>
-<dd>
-<p>Straight linear interp.</p>
-
-
-
-</dd>
 <dt><a name="INTERP_COSINE"></a><strong><span class="state state-client state-server">INTERP_COSINE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L19">Source ☍</a></dt>
 <dd>
 <p>Best compatability / quality balance.</p>
@@ -333,6 +298,41 @@ Give credit or reference if used in your creations.</p></div>
 </dd>
 <dt><a name="INTERP_DEFAULT"></a><strong><span class="state state-client state-server">INTERP_DEFAULT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L21">Source ☍</a></dt>
 <dd>
+
+
+
+</dd>
+<dt><a name="INTERP_LINEAR"></a><strong><span class="state state-client state-server">INTERP_LINEAR</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L18">Source ☍</a></dt>
+<dd>
+<p>Straight linear interp.</p>
+
+
+
+</dd>
+<dt><a name="TYPE_GESTURE"></a><strong><span class="state state-client state-server">TYPE_GESTURE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L12">Source ☍</a></dt>
+<dd>
+<p>Gestures are keyframed animations that use the current position and angles of the bones. They play once and then stop automatically.</p>
+
+
+
+</dd>
+<dt><a name="TYPE_POSTURE"></a><strong><span class="state state-client state-server">TYPE_POSTURE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L13">Source ☍</a></dt>
+<dd>
+<p>Postures are static animations that use the current position and angles of the bones. They stay that way until manually stopped. Use TimeToArrive if you want to have a posture lerp.</p>
+
+
+
+</dd>
+<dt><a name="TYPE_SEQUENCE"></a><strong><span class="state state-client state-server">TYPE_SEQUENCE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L15">Source ☍</a></dt>
+<dd>
+<p>Sequences are keyframed animations that use the reference pose. They play forever until manually stopped. Use RestartFrame to specify a frame to go to if the animation ends (instead of frame 1).</p>
+
+
+
+</dd>
+<dt><a name="TYPE_STANCE"></a><strong><span class="state state-client state-server">TYPE_STANCE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/animations/animationsapi/sh_boneanimlib.lua#L14">Source ☍</a></dt>
+<dd>
+<p>Stances are keyframed animations that use the current position and angles of the bones. They play forever until manually stopped. Use RestartFrame to specify a frame to go to if the animation ends (instead of frame 1).</p>
 
 
 

@@ -233,37 +233,6 @@
 The custombonus-system core functions.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="meska.custombonus.loadFor"></a><strong><span class="state state-server">meska.custombonus.loadFor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/custombonus/server/init.lua#L20">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Loads all custombonuses for a player from DB.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player Entity. @func[opt] cb Callback Function.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="meska.custombonus.get"></a><strong><span class="state state-server">meska.custombonus.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/custombonus/server/init.lua#L59">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Gets total buffs of active custombonuses
-for player and skill/globally.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player Entity.</li>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">integer</span> Total buffs.</li>
-</ol>
-</dd>
 <dt><a name="meska.custombonus.add"></a><strong><span class="state state-server">meska.custombonus.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/custombonus/server/init.lua#L83">Source ☍</a></dt>
 <dd>
 <hr />
@@ -284,21 +253,35 @@ for player and skill/globally.</p>
 <li><span class="types">integer|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="meska.custombonus.update"></a><strong><span class="state state-server">meska.custombonus.update</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/custombonus/server/init.lua#L128">Source ☍</a></dt>
+<dt><a name="meska.custombonus.get"></a><strong><span class="state state-server">meska.custombonus.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/custombonus/server/init.lua#L59">Source ☍</a></dt>
 <dd>
 <hr />
-<p>Updates custombonus for a player.</p>
+<p>Gets total buffs of active custombonuses
+for player and skill/globally.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player.</li>
-<li><span class="parameter">id</span> <span class="types">any</span> The id.</li>
-<li><span class="parameter">buff</span> <span class="types">any</span> The buff. @func[opt] cb Callback Function.</li>
+<li><span class="parameter">ply</span> <span class="types">any</span> Player Entity.</li>
+<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">integer</span> Total buffs.</li>
+</ol>
+</dd>
+<dt><a name="meska.custombonus.loadFor"></a><strong><span class="state state-server">meska.custombonus.loadFor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/custombonus/server/init.lua#L20">Source ☍</a></dt>
+<dd>
+<hr />
+<p>Loads all custombonuses for a player from DB.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> Player Entity. @func[opt] cb Callback Function.</li>
 <li><span class="parameter">cb</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">nil</span> </li>
+<li><span class="types">table</span> </li>
 </ol>
 </dd>
 <dt><a name="meska.custombonus.remove"></a><strong><span class="state state-server">meska.custombonus.remove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/custombonus/server/init.lua#L164">Source ☍</a></dt>
@@ -325,6 +308,23 @@ for player and skill/globally.</p>
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">ply</span> <span class="types">any</span> Player Entity. @func[opt] cb Callback Function.</li>
+<li><span class="parameter">cb</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">nil</span> </li>
+</ol>
+</dd>
+<dt><a name="meska.custombonus.update"></a><strong><span class="state state-server">meska.custombonus.update</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/custombonus/server/init.lua#L128">Source ☍</a></dt>
+<dd>
+<hr />
+<p>Updates custombonus for a player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player.</li>
+<li><span class="parameter">id</span> <span class="types">any</span> The id.</li>
+<li><span class="parameter">buff</span> <span class="types">any</span> The buff. @func[opt] cb Callback Function.</li>
 <li><span class="parameter">cb</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>

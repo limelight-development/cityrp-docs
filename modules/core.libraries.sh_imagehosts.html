@@ -245,38 +245,6 @@ oversight - a good few of these links come in as http and rejecting them broke m
 protected. A URL with no scheme is assumed to be https.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.imageHosts.refresh"></a><strong><span class="state state-client state-server">cityrp.imageHosts.refresh</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L57">Source ☍</a></dt>
-<dd>
-<p>Rebuild the lookup caches from the definition tables.
-Only needed if <code>definitions</code> or <code>extensions</code> are edited at runtime.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.imageHosts.getHosts"></a><strong><span class="state state-client state-server">cityrp.imageHosts.getHosts</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L79">Source ☍</a></dt>
-<dd>
-<p>Get the currently enabled hostnames.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string[]</span> A copy of the enabled hostnames, in definition order.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.imageHosts.getHostList"></a><strong><span class="state state-client state-server">cityrp.imageHosts.getHostList</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L88">Source ☍</a></dt>
-<dd>
-<p>Get the enabled hostnames as one human-readable string, for prose shown to players.
-Use <code>getHosts()</code> instead where the caller lays the hostnames out itself.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">conjunction</span> <span class="types">string|nil</span> Word to join the last hostname with, defaults to &quot;or&quot;.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> The joined hostnames, or &quot;none&quot; if every host is disabled.</li>
-</ol>
-</dd>
 <dt><a name="cityrp.imageHosts.getExtensionList"></a><strong><span class="state state-client state-server">cityrp.imageHosts.getExtensionList</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L96">Source ☍</a></dt>
 <dd>
 <p>Get the accepted file extensions as one human-readable string.</p>
@@ -288,21 +256,6 @@ Use <code>getHosts()</code> instead where the caller lays the hostnames out itse
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">string</span> The joined extensions, or &quot;none&quot; if there are none.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.imageHosts.normalise"></a><strong><span class="state state-client state-server">cityrp.imageHosts.normalise</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L106">Source ☍</a></dt>
-<dd>
-<p>Normalise a player-supplied URL into a full http or https URL.
-Bare &quot;host/path&quot; input is assumed to be https; any scheme other than http or https is
-rejected, and the scheme is lowercased so later matching does not have to be case-aware.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">url</span> <span class="types">string</span> The raw URL or host/path as the player typed it.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string|nil</span> The normalised URL, or nil if it cannot be used at all.</li>
 </ol>
 </dd>
 <dt><a name="cityrp.imageHosts.getHost"></a><strong><span class="state state-client state-server">cityrp.imageHosts.getHost</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L136">Source ☍</a></dt>
@@ -320,17 +273,41 @@ authority cannot be read as an allowed host by one parser and a different host b
 <li><span class="types">string|nil</span> The lowercased hostname, or nil if it cannot be parsed safely.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.imageHosts.isAllowedHost"></a><strong><span class="state state-client state-server">cityrp.imageHosts.isAllowedHost</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L152">Source ☍</a></dt>
+<dt><a name="cityrp.imageHosts.getHostList"></a><strong><span class="state state-client state-server">cityrp.imageHosts.getHostList</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L88">Source ☍</a></dt>
 <dd>
-<p>Check a bare hostname against the allowlist.</p>
+<p>Get the enabled hostnames as one human-readable string, for prose shown to players.
+Use <code>getHosts()</code> instead where the caller lays the hostnames out itself.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">host</span> <span class="types">string</span> The hostname to check, without scheme or path.</li>
+<li><span class="parameter">conjunction</span> <span class="types">string|nil</span> Word to join the last hostname with, defaults to &quot;or&quot;.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">boolean</span> Whether the hostname is on the allowlist.</li>
+<li><span class="types">string</span> The joined hostnames, or &quot;none&quot; if every host is disabled.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.imageHosts.getHosts"></a><strong><span class="state state-client state-server">cityrp.imageHosts.getHosts</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L79">Source ☍</a></dt>
+<dd>
+<p>Get the currently enabled hostnames.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string[]</span> A copy of the enabled hostnames, in definition order.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.imageHosts.hasAllowedExtension"></a><strong><span class="state state-client state-server">cityrp.imageHosts.hasAllowedExtension</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L173">Source ☍</a></dt>
+<dd>
+<p>Check a URL's file extension against the accepted image formats.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">url</span> <span class="types">string</span> The URL to check.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> Whether the URL ends in an accepted image extension.</li>
 </ol>
 </dd>
 <dt><a name="cityrp.imageHosts.isAllowed"></a><strong><span class="state state-client state-server">cityrp.imageHosts.isAllowed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L162">Source ☍</a></dt>
@@ -346,18 +323,41 @@ authority cannot be read as an allowed host by one parser and a different host b
 <li><span class="types">boolean</span> Whether the URL points at an allowed host over https.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.imageHosts.hasAllowedExtension"></a><strong><span class="state state-client state-server">cityrp.imageHosts.hasAllowedExtension</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L173">Source ☍</a></dt>
+<dt><a name="cityrp.imageHosts.isAllowedHost"></a><strong><span class="state state-client state-server">cityrp.imageHosts.isAllowedHost</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L152">Source ☍</a></dt>
 <dd>
-<p>Check a URL's file extension against the accepted image formats.</p>
+<p>Check a bare hostname against the allowlist.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">url</span> <span class="types">string</span> The URL to check.</li>
+<li><span class="parameter">host</span> <span class="types">string</span> The hostname to check, without scheme or path.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">boolean</span> Whether the URL ends in an accepted image extension.</li>
+<li><span class="types">boolean</span> Whether the hostname is on the allowlist.</li>
 </ol>
+</dd>
+<dt><a name="cityrp.imageHosts.normalise"></a><strong><span class="state state-client state-server">cityrp.imageHosts.normalise</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L106">Source ☍</a></dt>
+<dd>
+<p>Normalise a player-supplied URL into a full http or https URL.
+Bare &quot;host/path&quot; input is assumed to be https; any scheme other than http or https is
+rejected, and the scheme is lowercased so later matching does not have to be case-aware.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">url</span> <span class="types">string</span> The raw URL or host/path as the player typed it.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string|nil</span> The normalised URL, or nil if it cannot be used at all.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.imageHosts.refresh"></a><strong><span class="state state-client state-server">cityrp.imageHosts.refresh</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L57">Source ☍</a></dt>
+<dd>
+<p>Rebuild the lookup caches from the definition tables.
+Only needed if <code>definitions</code> or <code>extensions</code> are edited at runtime.</p>
+
+
+
 </dd>
 <dt><a name="cityrp.imageHosts.validate"></a><strong><span class="state state-client state-server">cityrp.imageHosts.validate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L189">Source ☍</a></dt>
 <dd>
@@ -408,16 +408,16 @@ delete an entry only when the reason no longer needs recording.</p>
 
 
 </dd>
-<dt><a name="ImageHostDefinition.host"></a><strong><span class="state state-client state-server">ImageHostDefinition.host</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L27">Source ☍</a></dt>
+<dt><a name="ImageHostDefinition.enabled"></a><strong><span class="state state-client state-server">ImageHostDefinition.enabled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L28">Source ☍</a></dt>
 <dd>
-<p>The hostname players link to, matched exactly and case-insensitively.</p>
+<p>Whether the host is currently accepted.</p>
 
 
 
 </dd>
-<dt><a name="ImageHostDefinition.enabled"></a><strong><span class="state state-client state-server">ImageHostDefinition.enabled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L28">Source ☍</a></dt>
+<dt><a name="ImageHostDefinition.host"></a><strong><span class="state state-client state-server">ImageHostDefinition.host</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_imagehosts.lua#L27">Source ☍</a></dt>
 <dd>
-<p>Whether the host is currently accepted.</p>
+<p>The hostname players link to, matched exactly and case-insensitively.</p>
 
 
 

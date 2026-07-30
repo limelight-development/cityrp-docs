@@ -232,16 +232,17 @@
 <div class="ll-module-body"><p>The help library, for providing tips and command help for the F1 menu.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.help.addNew"></a><strong><span class="state state-client state-server">cityrp.help.addNew</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L25">Source ☍</a></dt>
+<dt><a name="cityrp.help.add"></a><strong><span class="state state-client state-server">cityrp.help.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L69">Source ☍</a></dt>
 <dd>
-<p>Add a new command to the help list.</p>
+<p>&lt;span style='color:red;font-weight:bold'&gt;Deprecated&lt;/span&gt;
+Add a help text.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">cat</span> <span class="types">any</span></li>
-<li><span class="parameter">cmd</span> <span class="types">any</span></li>
 <li><span class="parameter">help</span> <span class="types">any</span></li>
 <li><span class="parameter">tip</span> <span class="types">any</span></li>
+<li><span class="parameter">cmd</span> <span class="types">any</span></li>
 </ul>
 
 </dd>
@@ -256,19 +257,32 @@ This is automatically handled by addNew, but can be called.</p>
 </ul>
 
 </dd>
-<dt><a name="cityrp.help.add"></a><strong><span class="state state-client state-server">cityrp.help.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L69">Source ☍</a></dt>
+<dt><a name="cityrp.help.addNew"></a><strong><span class="state state-client state-server">cityrp.help.addNew</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L25">Source ☍</a></dt>
 <dd>
-<p>&lt;span style='color:red;font-weight:bold'&gt;Deprecated&lt;/span&gt;
-Add a help text.</p>
+<p>Add a new command to the help list.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">cat</span> <span class="types">any</span></li>
+<li><span class="parameter">cmd</span> <span class="types">any</span></li>
 <li><span class="parameter">help</span> <span class="types">any</span></li>
 <li><span class="parameter">tip</span> <span class="types">any</span></li>
-<li><span class="parameter">cmd</span> <span class="types">any</span></li>
 </ul>
 
+</dd>
+<dt><a name="cityrp.help.get"></a><strong><span class="state state-client state-server">cityrp.help.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L115">Source ☍</a></dt>
+<dd>
+<p>&lt;span style='color:red;font-weight:bold'&gt;Deprecated&lt;/span&gt;
+Get the help message from a command.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">command</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
 </dd>
 <dt><a name="cityrp.help.getData"></a><strong><span class="state state-client state-server">cityrp.help.getData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L78">Source ☍</a></dt>
 <dd>
@@ -309,20 +323,6 @@ Add a help text.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.help.get"></a><strong><span class="state state-client state-server">cityrp.help.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L115">Source ☍</a></dt>
-<dd>
-<p>&lt;span style='color:red;font-weight:bold'&gt;Deprecated&lt;/span&gt;
-Get the help message from a command.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">command</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
-</ol>
-</dd>
 <dt><a name="cityrp.help.getTip"></a><strong><span class="state state-client state-server">cityrp.help.getTip</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L125">Source ☍</a></dt>
 <dd>
 <p>&lt;span style='color:red;font-weight:bold'&gt;Deprecated&lt;/span&gt;
@@ -353,13 +353,13 @@ Get the use tip from a command.</p>
 
 
 </dd>
-<dt><a name="cityrp.help.stored"></a><strong><span class="state state-client state-server">cityrp.help.stored</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L9">Source ☍</a></dt>
+<dt><a name="cityrp.help.lookup"></a><strong><span class="state state-client state-server">cityrp.help.lookup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L10">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.help.lookup"></a><strong><span class="state state-client state-server">cityrp.help.lookup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L10">Source ☍</a></dt>
+<dt><a name="cityrp.help.stored"></a><strong><span class="state state-client state-server">cityrp.help.stored</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_help.lua#L9">Source ☍</a></dt>
 <dd>
 
 

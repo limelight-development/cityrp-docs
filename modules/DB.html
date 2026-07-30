@@ -234,40 +234,6 @@
 The DB class handles top level abstraction, implementing features which tmysql doesn't provide natively, wrapping a single connection.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="DB.Connect"></a><strong>DB.Connect</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L29">Source ☍</a></dt>
-<dd>
-<p>Initialize the internal database object.</p>
-
-
-
-</dd>
-<dt><a name="DB.IsConnected"></a><strong>DB.IsConnected</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L59">Source ☍</a></dt>
-<dd>
-<p>Check if the database is connected.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|unknown</span> </li>
-</ol>
-</dd>
-<dt><a name="DB.ReconnectIfDown"></a><strong>DB.ReconnectIfDown</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L68">Source ☍</a></dt>
-<dd>
-<p>Reconnect the DB if its down.</p>
-
-
-
-</dd>
-<dt><a name="DB.Escape"></a><strong>DB.Escape</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L78">Source ☍</a></dt>
-<dd>
-<p>Escape a string using the DB's inbuilt methods.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">str</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
 <dt><a name="DB.Cache"></a><strong>DB.Cache</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L86">Source ☍</a></dt>
 <dd>
 <p>Add a query and callback to the cache.</p>
@@ -289,14 +255,20 @@ The DB class handles top level abstraction, implementing features which tmysql d
 </ul>
 
 </dd>
-<dt><a name="DB.Run"></a><strong>DB.Run</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L106">Source ☍</a></dt>
+<dt><a name="DB.Connect"></a><strong>DB.Connect</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L29">Source ☍</a></dt>
 <dd>
-<p>Run a query on the DB with optional callback.</p>
+<p>Initialize the internal database object.</p>
+
+
+
+</dd>
+<dt><a name="DB.Escape"></a><strong>DB.Escape</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L78">Source ☍</a></dt>
+<dd>
+<p>Escape a string using the DB's inbuilt methods.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">query</span> <span class="types">any</span></li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
+<li><span class="parameter">str</span> <span class="types">any</span></li>
 </ul>
 
 </dd>
@@ -311,6 +283,29 @@ If final argument is a function, assumed to be callback function.</p>
 <li><span class="parameter"></span> <span class="types">unknown</span></li>
 </ul>
 
+</dd>
+<dt><a name="DB.IsConnected"></a><strong>DB.IsConnected</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L59">Source ☍</a></dt>
+<dd>
+<p>Check if the database is connected.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean|unknown</span> </li>
+</ol>
+</dd>
+<dt><a name="DB.New"></a><strong>DB.New</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L197">Source ☍</a></dt>
+<dd>
+<p>Create a new DB instance.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">cfg</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
 </dd>
 <dt><a name="DB.QueryParams"></a><strong>DB.QueryParams</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L156">Source ☍</a></dt>
 <dd>
@@ -328,18 +323,23 @@ Example: DB:QueryParams(&quot;INSERT INTO t (a,b) VALUES (?, ?)&quot;, {val1, va
 </ul>
 
 </dd>
-<dt><a name="DB.New"></a><strong>DB.New</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L197">Source ☍</a></dt>
+<dt><a name="DB.ReconnectIfDown"></a><strong>DB.ReconnectIfDown</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L68">Source ☍</a></dt>
 <dd>
-<p>Create a new DB instance.</p>
+<p>Reconnect the DB if its down.</p>
+
+
+
+</dd>
+<dt><a name="DB.Run"></a><strong>DB.Run</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L106">Source ☍</a></dt>
+<dd>
+<p>Run a query on the DB with optional callback.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">cfg</span> <span class="types">any</span></li>
+<li><span class="parameter">query</span> <span class="types">any</span></li>
+<li><span class="parameter">cb</span> <span class="types">any</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
+
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
@@ -353,12 +353,6 @@ Example: DB:QueryParams(&quot;INSERT INTO t (a,b) VALUES (?, ?)&quot;, {val1, va
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="DB.Connection"></a><strong>DB.Connection</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L44">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
 <dt><a name="DB.__call"></a><strong>DB.__call</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L209">Source ☍</a></dt>
 <dd>
 <p>Alias of DB:New</p>
@@ -369,6 +363,12 @@ Example: DB:QueryParams(&quot;INSERT INTO t (a,b) VALUES (?, ?)&quot;, {val1, va
 <dt><a name="DB.__index"></a><strong>DB.__index</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L213">Source ☍</a></dt>
 <dd>
 <p>Lookup table.</p>
+
+
+
+</dd>
+<dt><a name="DB.Connection"></a><strong>DB.Connection</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua#L44">Source ☍</a></dt>
+<dd>
 
 
 

@@ -231,22 +231,6 @@
 <div class="ll-module-body"><p>Trackers Client.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="surface.DrawTexturedRectRotatedPoint"></a><strong><span class="state state-client">surface.DrawTexturedRectRotatedPoint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/tracking/cl_init.lua#L15">Source ☍</a></dt>
-<dd>
-<p>Draw a rotated rectangle, rotated around non-origin point.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">x</span> <span class="types">any</span> The x centre of the rectangle.</li>
-<li><span class="parameter">y</span> <span class="types">any</span> The y centre of the rectangle.</li>
-<li><span class="parameter">w</span> <span class="types">any</span> The width of the rectangle.</li>
-<li><span class="parameter">h</span> <span class="types">any</span> The height of the shape</li>
-<li><span class="parameter">rot</span> <span class="types">any</span> Rotation angle (degrees)</li>
-<li><span class="parameter">x0</span> <span class="types">any</span> The rotation x origin.</li>
-<li><span class="parameter">y0</span> <span class="types">any</span> The rotation y origin.</li>
-</ul>
-
-</dd>
 <dt><a name="draw.Arc"></a><strong><span class="state state-client">draw.Arc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/tracking/cl_init.lua#L34">Source ☍</a></dt>
 <dd>
 <p>Draw an arc on screen.</p>
@@ -261,6 +245,32 @@
 <li><span class="parameter">endang</span> <span class="types">any</span> The ending angle of the arc.</li>
 <li><span class="parameter">roughness</span> <span class="types">any</span> Measure of how many &quot;points&quot; are created for the arc.</li>
 <li><span class="parameter">color</span> <span class="types">any</span> The color of the arc. Credits <a href="https://facepunch.com/showthread.php?t=1438016&amp;p=46533574&amp;viewfull=1#post46533574">https://facepunch.com/showthread.php?t=1438016&amp;p=46533574&amp;viewfull=1#post46533574</a></li>
+</ul>
+
+</dd>
+<dt><a name="surface.DrawArc"></a><strong><span class="state state-client">surface.DrawArc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/tracking/cl_init.lua#L113">Source ☍</a></dt>
+<dd>
+<p>Draw an pre-generated arc.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">arc</span> <span class="types">any</span> ArcData from surface.PrecacheArc</li>
+</ul>
+
+</dd>
+<dt><a name="surface.DrawTexturedRectRotatedPoint"></a><strong><span class="state state-client">surface.DrawTexturedRectRotatedPoint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/tracking/cl_init.lua#L15">Source ☍</a></dt>
+<dd>
+<p>Draw a rotated rectangle, rotated around non-origin point.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">x</span> <span class="types">any</span> The x centre of the rectangle.</li>
+<li><span class="parameter">y</span> <span class="types">any</span> The y centre of the rectangle.</li>
+<li><span class="parameter">w</span> <span class="types">any</span> The width of the rectangle.</li>
+<li><span class="parameter">h</span> <span class="types">any</span> The height of the shape</li>
+<li><span class="parameter">rot</span> <span class="types">any</span> Rotation angle (degrees)</li>
+<li><span class="parameter">x0</span> <span class="types">any</span> The rotation x origin.</li>
+<li><span class="parameter">y0</span> <span class="types">any</span> The rotation y origin.</li>
 </ul>
 
 </dd>
@@ -282,16 +292,6 @@
 <ol>
 <li><span class="types">table</span> </li>
 </ol>
-</dd>
-<dt><a name="surface.DrawArc"></a><strong><span class="state state-client">surface.DrawArc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/tracking/cl_init.lua#L113">Source ☍</a></dt>
-<dd>
-<p>Draw an pre-generated arc.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">arc</span> <span class="types">any</span> ArcData from surface.PrecacheArc</li>
-</ul>
-
 </dd>
 </dl></div>
 		</div>

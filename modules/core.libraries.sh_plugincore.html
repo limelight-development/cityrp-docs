@@ -233,19 +233,30 @@
 The PLUGIN metatable ascribes some basic functionality to assist in writing plugins faster.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="PLUGIN.New"></a><strong><span class="state state-client state-server">PLUGIN.New</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L17">Source ☍</a></dt>
+<dt><a name="PLUGIN.AddHook"></a><strong><span class="state state-client state-server">PLUGIN.AddHook</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L81">Source ☍</a></dt>
 <dd>
-<p>Create a new plugin.</p>
+<p>Adds a hook function to the plugin, and also registers the hook with hook.Add</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">author</span> <span class="types">any</span></li>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
 </ol>
+</dd>
+<dt><a name="PLUGIN.Call"></a><strong><span class="state state-client state-server">PLUGIN.Call</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L53">Source ☍</a></dt>
+<dd>
+<p>Call the hooks of this plugin, ignoring any output.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
+<li><span class="parameter"></span> <span class="types">unknown</span></li>
+</ul>
+
 </dd>
 <dt><a name="PLUGIN.CallAsHook"></a><strong><span class="state state-client state-server">PLUGIN.CallAsHook</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L32">Source ☍</a></dt>
 <dd>
@@ -270,40 +281,64 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 <li><span class="types">unknown|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="PLUGIN.Call"></a><strong><span class="state state-client state-server">PLUGIN.Call</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L53">Source ☍</a></dt>
+<dt><a name="PLUGIN.CreateDataFolder"></a><strong><span class="state state-client state-server">PLUGIN.CreateDataFolder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L155">Source ☍</a></dt>
 <dd>
-<p>Call the hooks of this plugin, ignoring any output.</p>
+<p>Creates this plugin's data folder.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter"></span> <span class="types">unknown</span></li>
-</ul>
 
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
 </dd>
-<dt><a name="PLUGIN.Hook"></a><strong><span class="state state-client state-server">PLUGIN.Hook</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L70">Source ☍</a></dt>
+<dt><a name="PLUGIN.CreateFolder"></a><strong><span class="state state-client state-server">PLUGIN.CreateFolder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L135">Source ☍</a></dt>
 <dd>
-<p>Adds a hook function to the plugin.</p>
+<p>Create a folder, along with any intermedate folders.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
+<li><span class="parameter">fullPath</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="PLUGIN.AddHook"></a><strong><span class="state state-client state-server">PLUGIN.AddHook</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L81">Source ☍</a></dt>
+<dt><a name="PLUGIN.CreateMapFolder"></a><strong><span class="state state-client state-server">PLUGIN.CreateMapFolder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L174">Source ☍</a></dt>
 <dd>
-<p>Adds a hook function to the plugin, and also registers the hook with hook.Add</p>
+<p>Creates this plugin's data folder for the current map.</p>
+
+
+
+</dd>
+<dt><a name="PLUGIN.DataFile"></a><strong><span class="state state-client state-server">PLUGIN.DataFile</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L162">Source ☍</a></dt>
+<dd>
+<p>Gets the path to a data file for this plugin.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
 </ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> </li>
+</ol>
+</dd>
+<dt><a name="PLUGIN.DataFolder"></a><strong><span class="state state-client state-server">PLUGIN.DataFolder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L149">Source ☍</a></dt>
+<dd>
+<p>Gets the data folder for this plugin.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> </li>
+</ol>
+</dd>
+<dt><a name="PLUGIN.Disable"></a><strong><span class="state state-client state-server">PLUGIN.Disable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L100">Source ☍</a></dt>
+<dd>
+<p>Disable the plugin.</p>
+
+
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
@@ -312,16 +347,6 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 <dt><a name="PLUGIN.Enable"></a><strong><span class="state state-client state-server">PLUGIN.Enable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L93">Source ☍</a></dt>
 <dd>
 <p>Enable the plugin.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="PLUGIN.Disable"></a><strong><span class="state state-client state-server">PLUGIN.Disable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L100">Source ☍</a></dt>
-<dd>
-<p>Disable the plugin.</p>
 
 
 <h3>Returns:</h3>
@@ -339,53 +364,23 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="PLUGIN.Register"></a><strong><span class="state state-client state-server">PLUGIN.Register</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L120">Source ☍</a></dt>
+<dt><a name="PLUGIN.Hook"></a><strong><span class="state state-client state-server">PLUGIN.Hook</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L70">Source ☍</a></dt>
 <dd>
-<p>Registers the plugin.
-@string[opt=self.name] name Name to register the plugin with, if not already defined.</p>
+<p>Adds a hook function to the plugin.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">name</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="PLUGIN.CreateFolder"></a><strong><span class="state state-client state-server">PLUGIN.CreateFolder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L135">Source ☍</a></dt>
-<dd>
-<p>Create a folder, along with any intermedate folders.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">fullPath</span> <span class="types">any</span></li>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="PLUGIN.DataFolder"></a><strong><span class="state state-client state-server">PLUGIN.DataFolder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L149">Source ☍</a></dt>
+<dt><a name="PLUGIN.MapFile"></a><strong><span class="state state-client state-server">PLUGIN.MapFile</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L181">Source ☍</a></dt>
 <dd>
-<p>Gets the data folder for this plugin.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> </li>
-</ol>
-</dd>
-<dt><a name="PLUGIN.CreateDataFolder"></a><strong><span class="state state-client state-server">PLUGIN.CreateDataFolder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L155">Source ☍</a></dt>
-<dd>
-<p>Creates this plugin's data folder.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="PLUGIN.DataFile"></a><strong><span class="state state-client state-server">PLUGIN.DataFile</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L162">Source ☍</a></dt>
-<dd>
-<p>Gets the path to a data file for this plugin.</p>
+<p>Gets the path to a map file for this plugin.</p>
 
 <h3>Parameters:</h3>
 <ul>
@@ -406,24 +401,18 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 <li><span class="types">string</span> </li>
 </ol>
 </dd>
-<dt><a name="PLUGIN.CreateMapFolder"></a><strong><span class="state state-client state-server">PLUGIN.CreateMapFolder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L174">Source ☍</a></dt>
+<dt><a name="PLUGIN.New"></a><strong><span class="state state-client state-server">PLUGIN.New</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L17">Source ☍</a></dt>
 <dd>
-<p>Creates this plugin's data folder for the current map.</p>
-
-
-
-</dd>
-<dt><a name="PLUGIN.MapFile"></a><strong><span class="state state-client state-server">PLUGIN.MapFile</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L181">Source ☍</a></dt>
-<dd>
-<p>Gets the path to a map file for this plugin.</p>
+<p>Create a new plugin.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">name</span> <span class="types">any</span></li>
+<li><span class="parameter">author</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">string</span> </li>
+<li><span class="types">table</span> </li>
 </ol>
 </dd>
 <dt><a name="PLUGIN.OpenDataFile"></a><strong><span class="state state-client state-server">PLUGIN.OpenDataFile</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L190">Source ☍</a></dt>
@@ -467,6 +456,30 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 <li><span class="types">string</span> </li>
 </ol>
 </dd>
+<dt><a name="PLUGIN.ReadMapFile"></a><strong><span class="state state-client state-server">PLUGIN.ReadMapFile</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L246">Source ☍</a></dt>
+<dd>
+<p>Reads a given data file.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> </li>
+</ol>
+</dd>
+<dt><a name="PLUGIN.Register"></a><strong><span class="state state-client state-server">PLUGIN.Register</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L120">Source ☍</a></dt>
+<dd>
+<p>Registers the plugin.
+@string[opt=self.name] name Name to register the plugin with, if not already defined.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
 <dt><a name="PLUGIN.WriteDataFile"></a><strong><span class="state state-client state-server">PLUGIN.WriteDataFile</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L233">Source ☍</a></dt>
 <dd>
 <p>Writes a given data file.</p>
@@ -479,19 +492,6 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="PLUGIN.ReadMapFile"></a><strong><span class="state state-client state-server">PLUGIN.ReadMapFile</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L246">Source ☍</a></dt>
-<dd>
-<p>Reads a given data file.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> </li>
 </ol>
 </dd>
 <dt><a name="PLUGIN.WriteMapFile"></a><strong><span class="state state-client state-server">PLUGIN.WriteMapFile</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L264">Source ☍</a></dt>
@@ -525,6 +525,12 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 
 </dd>
+<dt><a name="PLUGIN.isPluginClass"></a><strong><span class="state state-client state-server">PLUGIN.isPluginClass</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L125">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
 <dt><a name="PLUGIN.IsValid"></a><strong><span class="state state-client state-server">PLUGIN.IsValid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L115">Source ☍</a></dt>
 <dd>
 <p>Checks if the plugin is valid (currently checks enabled status)</p>
@@ -533,12 +539,6 @@ The PLUGIN metatable ascribes some basic functionality to assist in writing plug
 
 </dd>
 <dt><a name="PLUGIN.name"></a><strong><span class="state state-client state-server">PLUGIN.name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L122">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="PLUGIN.isPluginClass"></a><strong><span class="state state-client state-server">PLUGIN.isPluginClass</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugincore.lua#L125">Source ☍</a></dt>
 <dd>
 
 

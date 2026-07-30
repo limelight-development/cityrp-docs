@@ -232,66 +232,26 @@
 <div class="ll-module-body"><p>Remote Commands Library.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.remote.status"></a><strong><span class="state state-server">cityrp.remote.status</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L23">Source ☍</a></dt>
+<dt><a name="cityrp.inventory.itemExists"></a><strong><span class="state state-server">cityrp.inventory.itemExists</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L496">Source ☍</a></dt>
 <dd>
-<p>Set the status of a row.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">id</span> <span class="types">any</span> The ID of the row.</li>
-<li><span class="parameter">status</span> <span class="types">any</span> The new status to set.</li>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">item</span> <span class="types">any</span></li>
+<li><span class="parameter">quantity</span> <span class="types">any</span></li>
 </ul>
-
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
 </dd>
-<dt><a name="cityrp.remote.done"></a><strong><span class="state state-server">cityrp.remote.done</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L35">Source ☍</a></dt>
+<dt><a name="cityrp.remote.check"></a><strong><span class="state state-server">cityrp.remote.check</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L221">Source ☍</a></dt>
 <dd>
-<p>Mark a row as done by passing it's ID.</p>
+<p>Call the database for any unprocessed remote commands, and run any handlers attachmed to them.
+This function is internal, and should not be called.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">any</span> The ID of the row to mark as complete.</li>
-</ul>
 
-</dd>
-<dt><a name="cityrp.remote.exploit"></a><strong><span class="state state-server">cityrp.remote.exploit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L39">Source ☍</a></dt>
-<dd>
-<p>Flag as a row for requiring an exploit check.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">any</span> The ID of the row to mark as exploited.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.remote.stockDone"></a><strong><span class="state state-server">cityrp.remote.stockDone</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L43">Source ☍</a></dt>
-<dd>
-<p>Flag as a row as completed for the stock exchange?</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">any</span> The ID of the row to mark as complete.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.remote.stalled"></a><strong><span class="state state-server">cityrp.remote.stalled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L47">Source ☍</a></dt>
-<dd>
-<p>Flag a row as stalled (inventory manager)</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.remote.registerFunction"></a><strong><span class="state state-server">cityrp.remote.registerFunction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L53">Source ☍</a></dt>
-<dd>
-<p>Register a function to be called for a specific type of remote message.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">mType</span> <span class="types">any</span> The type of remote messages to watch for. This function takes two arguments, row and done. Row is a table, representing the row data. Done is a function which can be called to mark the row as processed.</li>
-<li><span class="parameter">func</span> <span class="types">any</span> The function to be called if found.</li>
-</ul>
 
 </dd>
 <dt><a name="cityrp.remote.checkRow"></a><strong><span class="state state-server">cityrp.remote.checkRow</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L71">Source ☍</a></dt>
@@ -307,6 +267,16 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
+<dt><a name="cityrp.remote.done"></a><strong><span class="state state-server">cityrp.remote.done</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L35">Source ☍</a></dt>
+<dd>
+<p>Mark a row as done by passing it's ID.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">id</span> <span class="types">any</span> The ID of the row to mark as complete.</li>
+</ul>
+
+</dd>
 <dt><a name="cityrp.remote.doPRAlert"></a><strong><span class="state state-server">cityrp.remote.doPRAlert</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L187">Source ☍</a></dt>
 <dd>
 <p>Small function to notify a player of a player report.</p>
@@ -321,12 +291,14 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.remote.check"></a><strong><span class="state state-server">cityrp.remote.check</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L221">Source ☍</a></dt>
+<dt><a name="cityrp.remote.exploit"></a><strong><span class="state state-server">cityrp.remote.exploit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L39">Source ☍</a></dt>
 <dd>
-<p>Call the database for any unprocessed remote commands, and run any handlers attachmed to them.
-This function is internal, and should not be called.</p>
+<p>Flag as a row for requiring an exploit check.</p>
 
-
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">id</span> <span class="types">any</span> The ID of the row to mark as exploited.</li>
+</ul>
 
 </dd>
 <dt><a name="cityrp.remote.membership"></a><strong><span class="state state-server">cityrp.remote.membership</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L416">Source ☍</a></dt>
@@ -370,23 +342,57 @@ This function is internal, and should not be called.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.inventory.itemExists"></a><strong><span class="state state-server">cityrp.inventory.itemExists</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L496">Source ☍</a></dt>
+<dt><a name="cityrp.remote.registerFunction"></a><strong><span class="state state-server">cityrp.remote.registerFunction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L53">Source ☍</a></dt>
 <dd>
+<p>Register a function to be called for a specific type of remote message.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">item</span> <span class="types">any</span></li>
-<li><span class="parameter">quantity</span> <span class="types">any</span></li>
+<li><span class="parameter">mType</span> <span class="types">any</span> The type of remote messages to watch for. This function takes two arguments, row and done. Row is a table, representing the row data. Done is a function which can be called to mark the row as processed.</li>
+<li><span class="parameter">func</span> <span class="types">any</span> The function to be called if found.</li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
-</ol>
+
+</dd>
+<dt><a name="cityrp.remote.stalled"></a><strong><span class="state state-server">cityrp.remote.stalled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L47">Source ☍</a></dt>
+<dd>
+<p>Flag a row as stalled (inventory manager)</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">id</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.remote.status"></a><strong><span class="state state-server">cityrp.remote.status</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L23">Source ☍</a></dt>
+<dd>
+<p>Set the status of a row.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">id</span> <span class="types">any</span> The ID of the row.</li>
+<li><span class="parameter">status</span> <span class="types">any</span> The new status to set.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.remote.stockDone"></a><strong><span class="state state-server">cityrp.remote.stockDone</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L43">Source ☍</a></dt>
+<dd>
+<p>Flag as a row as completed for the stock exchange?</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">id</span> <span class="types">any</span> The ID of the row to mark as complete.</li>
+</ul>
+
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.clans.lastreload"></a><strong><span class="state state-server">cityrp.clans.lastreload</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L151">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
 <dt><a name="cityrp.remote"></a><strong><span class="state state-server">cityrp.remote</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L8">Source ☍</a></dt>
 <dd>
 <p>Table for data storage and global access.</p>
@@ -404,12 +410,6 @@ This function is internal, and should not be called.</p>
 <dt><a name="cityrp.remote.noSave"></a><strong><span class="state state-server">cityrp.remote.noSave</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L12">Source ☍</a></dt>
 <dd>
 <p>List of servers which don't save data (so don't do membership, money or inventory shit on them).</p>
-
-
-
-</dd>
-<dt><a name="cityrp.clans.lastreload"></a><strong><span class="state state-server">cityrp.clans.lastreload</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L151">Source ☍</a></dt>
-<dd>
 
 
 

@@ -231,12 +231,6 @@
 <div class="ll-module-body"><p>Shared Networking Module</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="NETTYPE_NIL"></a><strong><span class="state state-client state-server">NETTYPE_NIL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L11">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
 <dt><a name="NETTYPE_ANGLE"></a><strong><span class="state state-client state-server">NETTYPE_ANGLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L12">Source ☍</a></dt>
 <dd>
 
@@ -251,6 +245,13 @@
 </dd>
 <dt><a name="NETTYPE_BOOL"></a><strong><span class="state state-client state-server">NETTYPE_BOOL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L14">Source ☍</a></dt>
 <dd>
+
+
+
+</dd>
+<dt><a name="NETTYPE_BYTE"></a><strong><span class="state state-client state-server">NETTYPE_BYTE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L24">Source ☍</a></dt>
+<dd>
+<p>Signed 8 bit.</p>
 
 
 
@@ -273,47 +274,9 @@
 
 
 </dd>
-<dt><a name="NETTYPE_NORM"></a><strong><span class="state state-client state-server">NETTYPE_NORM</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L18">Source ☍</a></dt>
+<dt><a name="NETTYPE_FLOAT"></a><strong><span class="state state-client state-server">NETTYPE_FLOAT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L37">Source ☍</a></dt>
 <dd>
-
-
-
-</dd>
-<dt><a name="NETTYPE_STR"></a><strong><span class="state state-client state-server">NETTYPE_STR</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L19">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="NETTYPE_TAB"></a><strong><span class="state state-client state-server">NETTYPE_TAB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L20">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="NETTYPE_VEC"></a><strong><span class="state state-client state-server">NETTYPE_VEC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L21">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="NETTYPE_NIBBLE"></a><strong><span class="state state-client state-server">NETTYPE_NIBBLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L23">Source ☍</a></dt>
-<dd>
-<p>Signed 4 bit.</p>
-
-
-
-</dd>
-<dt><a name="NETTYPE_BYTE"></a><strong><span class="state state-client state-server">NETTYPE_BYTE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L24">Source ☍</a></dt>
-<dd>
-<p>Signed 8 bit.</p>
-
-
-
-</dd>
-<dt><a name="NETTYPE_SHORT"></a><strong><span class="state state-client state-server">NETTYPE_SHORT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L25">Source ☍</a></dt>
-<dd>
-<p>Signed 16 bit.</p>
+<p>32 bit floating point value.</p>
 
 
 
@@ -332,16 +295,47 @@
 
 
 </dd>
-<dt><a name="NETTYPE_XLONG"></a><strong><span class="state state-client state-server">NETTYPE_XLONG</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L28">Source ☍</a></dt>
+<dt><a name="NETTYPE_MAX"></a><strong><span class="state state-client state-server">NETTYPE_MAX</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L39">Source ☍</a></dt>
 <dd>
-<p>Signed 128 bit.</p>
+<p>Increment this value if you add additional types.</p>
 
 
 
 </dd>
-<dt><a name="NETTYPE_UNIBBLE"></a><strong><span class="state state-client state-server">NETTYPE_UNIBBLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L30">Source ☍</a></dt>
+<dt><a name="NETTYPE_NIBBLE"></a><strong><span class="state state-client state-server">NETTYPE_NIBBLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L23">Source ☍</a></dt>
 <dd>
-<p>Unsigned 4 bit.</p>
+<p>Signed 4 bit.</p>
+
+
+
+</dd>
+<dt><a name="NETTYPE_NIL"></a><strong><span class="state state-client state-server">NETTYPE_NIL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L11">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NETTYPE_NORM"></a><strong><span class="state state-client state-server">NETTYPE_NORM</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L18">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NETTYPE_SHORT"></a><strong><span class="state state-client state-server">NETTYPE_SHORT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L25">Source ☍</a></dt>
+<dd>
+<p>Signed 16 bit.</p>
+
+
+
+</dd>
+<dt><a name="NETTYPE_STR"></a><strong><span class="state state-client state-server">NETTYPE_STR</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L19">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NETTYPE_TAB"></a><strong><span class="state state-client state-server">NETTYPE_TAB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L20">Source ☍</a></dt>
+<dd>
 
 
 
@@ -349,13 +343,6 @@
 <dt><a name="NETTYPE_UBYTE"></a><strong><span class="state state-client state-server">NETTYPE_UBYTE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L31">Source ☍</a></dt>
 <dd>
 <p>Unsigned 8 bit.</p>
-
-
-
-</dd>
-<dt><a name="NETTYPE_USHORT"></a><strong><span class="state state-client state-server">NETTYPE_USHORT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L32">Source ☍</a></dt>
-<dd>
-<p>Unsigned 16 bit.</p>
 
 
 
@@ -374,6 +361,20 @@
 
 
 </dd>
+<dt><a name="NETTYPE_UNIBBLE"></a><strong><span class="state state-client state-server">NETTYPE_UNIBBLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L30">Source ☍</a></dt>
+<dd>
+<p>Unsigned 4 bit.</p>
+
+
+
+</dd>
+<dt><a name="NETTYPE_USHORT"></a><strong><span class="state state-client state-server">NETTYPE_USHORT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L32">Source ☍</a></dt>
+<dd>
+<p>Unsigned 16 bit.</p>
+
+
+
+</dd>
 <dt><a name="NETTYPE_UXLONG"></a><strong><span class="state state-client state-server">NETTYPE_UXLONG</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L35">Source ☍</a></dt>
 <dd>
 <p>Unsigned 128 bit.</p>
@@ -381,16 +382,15 @@
 
 
 </dd>
-<dt><a name="NETTYPE_FLOAT"></a><strong><span class="state state-client state-server">NETTYPE_FLOAT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L37">Source ☍</a></dt>
+<dt><a name="NETTYPE_VEC"></a><strong><span class="state state-client state-server">NETTYPE_VEC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L21">Source ☍</a></dt>
 <dd>
-<p>32 bit floating point value.</p>
 
 
 
 </dd>
-<dt><a name="NETTYPE_MAX"></a><strong><span class="state state-client state-server">NETTYPE_MAX</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L39">Source ☍</a></dt>
+<dt><a name="NETTYPE_XLONG"></a><strong><span class="state state-client state-server">NETTYPE_XLONG</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/sh_init.lua#L28">Source ☍</a></dt>
 <dd>
-<p>Increment this value if you add additional types.</p>
+<p>Signed 128 bit.</p>
 
 
 

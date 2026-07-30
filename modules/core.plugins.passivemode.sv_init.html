@@ -240,6 +240,13 @@
 
 
 </dd>
+<dt><a name="cityrp.passivemode.contra"></a><strong><span class="state state-server">cityrp.passivemode.contra</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L169">Source ☍</a></dt>
+<dd>
+<p>Refunds all contraband and pots for all players.</p>
+
+
+
+</dd>
 <dt><a name="cityrp.passivemode.deactivate"></a><strong><span class="state state-server">cityrp.passivemode.deactivate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L56">Source ☍</a></dt>
 <dd>
 <p>Deactivate passivemode, overwrite functions and refund contraband.</p>
@@ -264,20 +271,6 @@
 <li><span class="types">boolean</span> if access is weapons. Otherwise regular hasAccess return.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.passivemode.itemuse"></a><strong><span class="state state-server">cityrp.passivemode.itemuse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L96">Source ☍</a></dt>
-<dd>
-<p>Overwritten itemuse which disallows contraband.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player using the item.</li>
-<li><span class="parameter">item</span> <span class="types">any</span> The item being used.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|unknown</span> if item is weed or contraband. Otherwise regular itemuse return.</li>
-</ol>
-</dd>
 <dt><a name="cityrp.passivemode.itemdrop"></a><strong><span class="state state-server">cityrp.passivemode.itemdrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L116">Source ☍</a></dt>
 <dd>
 <p>Overwritten itemdrop which disallows contraband.</p>
@@ -294,6 +287,27 @@
 <li><span class="types">boolean</span> if item is weed or contraband. Otherwise regular itemdrop return.</li>
 </ol>
 </dd>
+<dt><a name="cityrp.passivemode.itemuse"></a><strong><span class="state state-server">cityrp.passivemode.itemuse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L96">Source ☍</a></dt>
+<dd>
+<p>Overwritten itemuse which disallows contraband.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player using the item.</li>
+<li><span class="parameter">item</span> <span class="types">any</span> The item being used.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean|unknown</span> if item is weed or contraband. Otherwise regular itemuse return.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.passivemode.strip"></a><strong><span class="state state-server">cityrp.passivemode.strip</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L149">Source ☍</a></dt>
+<dd>
+<p>Strips all weapons from all players, resets weapon mods and clears ragdoll weapons.</p>
+
+
+
+</dd>
 <dt><a name="cityrp.passivemode.stripweapon"></a><strong><span class="state state-server">cityrp.passivemode.stripweapon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L142">Source ☍</a></dt>
 <dd>
 <p>Check if a specific weapon is to be stripped from a player, and strip it if so.</p>
@@ -305,20 +319,6 @@
 <li><span class="parameter">wType</span> <span class="types">any</span> The weapon type of the weapon being stripped.</li>
 <li><span class="parameter">wName</span> <span class="types">any</span> The name of the weapon bineg stripped.</li>
 </ul>
-
-</dd>
-<dt><a name="cityrp.passivemode.strip"></a><strong><span class="state state-server">cityrp.passivemode.strip</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L149">Source ☍</a></dt>
-<dd>
-<p>Strips all weapons from all players, resets weapon mods and clears ragdoll weapons.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.passivemode.contra"></a><strong><span class="state state-server">cityrp.passivemode.contra</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L169">Source ☍</a></dt>
-<dd>
-<p>Refunds all contraband and pots for all players.</p>
-
-
 
 </dd>
 </dl></div>
@@ -354,13 +354,13 @@
 
 
 </dd>
-<dt><a name="cityrp.passivemode.functions.itemuse"></a><strong><span class="state state-server">cityrp.passivemode.functions.itemuse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L43">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.functions.itemdrop"></a><strong><span class="state state-server">cityrp.passivemode.functions.itemdrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L45">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.passivemode.functions.itemdrop"></a><strong><span class="state state-server">cityrp.passivemode.functions.itemdrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L45">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.functions.itemuse"></a><strong><span class="state state-server">cityrp.passivemode.functions.itemuse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L43">Source ☍</a></dt>
 <dd>
 
 

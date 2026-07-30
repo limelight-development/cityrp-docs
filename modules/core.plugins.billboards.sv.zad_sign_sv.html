@@ -232,14 +232,16 @@
 Server-side billboard sign management functions.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="zad.f.OpenConfig"></a><strong>zad.f.OpenConfig</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sv/zad_sign_sv.lua#L22">Source ☍</a></dt>
+<dt><a name="zad.f.BuyAdvertTime"></a><strong>zad.f.BuyAdvertTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sv/zad_sign_sv.lua#L104">Source ☍</a></dt>
 <dd>
-<p>Open the sign configuration UI for a player.</p>
+<p>Purchase advert time on a billboard sign.
+Deducts money from the player and sets up the advert display with a timer.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to open the config for.</li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player purchasing advert time.</li>
 <li><span class="parameter">sign</span> <span class="types">Entity</span> The billboard sign entity.</li>
+<li><span class="parameter">sliderData</span> <span class="types">table</span> The configuration data for the advert.</li>
 </ul>
 
 </dd>
@@ -254,6 +256,17 @@ Server-side billboard sign management functions.</p></div>
 </ul>
 
 </dd>
+<dt><a name="zad.f.Entity_CleanUp"></a><strong>zad.f.Entity_CleanUp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sv/zad_sign_sv.lua#L217">Source ☍</a></dt>
+<dd>
+<p>Clean up all billboard entities owned by a player.
+Called when a player disconnects.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player whose entities should be cleaned up.</li>
+</ul>
+
+</dd>
 <dt><a name="zad.f.ForceCloseConfig"></a><strong>zad.f.ForceCloseConfig</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sv/zad_sign_sv.lua#L50">Source ☍</a></dt>
 <dd>
 <p>Force close the sign configuration UI for a player.</p>
@@ -265,16 +278,14 @@ Server-side billboard sign management functions.</p></div>
 </ul>
 
 </dd>
-<dt><a name="zad.f.BuyAdvertTime"></a><strong>zad.f.BuyAdvertTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sv/zad_sign_sv.lua#L104">Source ☍</a></dt>
+<dt><a name="zad.f.OpenConfig"></a><strong>zad.f.OpenConfig</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sv/zad_sign_sv.lua#L22">Source ☍</a></dt>
 <dd>
-<p>Purchase advert time on a billboard sign.
-Deducts money from the player and sets up the advert display with a timer.</p>
+<p>Open the sign configuration UI for a player.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player purchasing advert time.</li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player to open the config for.</li>
 <li><span class="parameter">sign</span> <span class="types">Entity</span> The billboard sign entity.</li>
-<li><span class="parameter">sliderData</span> <span class="types">table</span> The configuration data for the advert.</li>
 </ul>
 
 </dd>
@@ -286,17 +297,6 @@ Deducts money from the player and sets up the advert display with a timer.</p>
 <ul>
 <li><span class="parameter">sign</span> <span class="types">Entity</span> The billboard sign entity to update.</li>
 <li><span class="parameter">sliderData</span> <span class="types">table</span> The configuration data containing ImageIDs, interval, speed, skin, and color.</li>
-</ul>
-
-</dd>
-<dt><a name="zad.f.Entity_CleanUp"></a><strong>zad.f.Entity_CleanUp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sv/zad_sign_sv.lua#L217">Source ☍</a></dt>
-<dd>
-<p>Clean up all billboard entities owned by a player.
-Called when a player disconnects.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player whose entities should be cleaned up.</li>
 </ul>
 
 </dd>

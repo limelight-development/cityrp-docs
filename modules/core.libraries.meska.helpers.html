@@ -232,19 +232,6 @@
 The helper functions.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="meska.isPlayer"></a><strong><span class="state state-client state-server">meska.isPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/helpers.lua#L14">Source ☍</a></dt>
-<dd>
-<p>Checks for a valid player.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player entity.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> If the entity is a Player.</li>
-</ol>
-</dd>
 <dt><a name="meska.clearTable"></a><strong><span class="state state-client state-server">meska.clearTable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/helpers.lua#L22">Source ☍</a></dt>
 <dd>
 <p>Empties a table. Native approach to table.Empty</p>
@@ -255,17 +242,17 @@ The helper functions.</p></div>
 </ul>
 
 </dd>
-<dt><a name="meska.hasSkillsProp"></a><strong><span class="state state-client">meska.hasSkillsProp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/helpers.lua#L31">Source ☍</a></dt>
+<dt><a name="meska.dateFromTime"></a><strong><span class="state state-server">meska.dateFromTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/helpers.lua#L79">Source ☍</a></dt>
 <dd>
-<p>Checks if player has skill prop.</p>
+<p>Converts time to human-readable date.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player entity.</li>
+<li><span class="parameter">time</span> <span class="types">any</span> The timestamp.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">boolean</span> Skills table or false.</li>
+<li><span class="types">string|osdate|unknown</span> Whether result is valid.</li>
 </ol>
 </dd>
 <dt><a name="meska.hasAchievementsProp"></a><strong><span class="state state-server">meska.hasAchievementsProp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/helpers.lua#L49">Source ☍</a></dt>
@@ -294,6 +281,32 @@ The helper functions.</p></div>
 <li><span class="types">boolean</span> Custombonus table or false.</li>
 </ol>
 </dd>
+<dt><a name="meska.hasSkillsProp"></a><strong><span class="state state-client">meska.hasSkillsProp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/helpers.lua#L31">Source ☍</a></dt>
+<dd>
+<p>Checks if player has skill prop.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> Player entity.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> Skills table or false.</li>
+</ol>
+</dd>
+<dt><a name="meska.isPlayer"></a><strong><span class="state state-client state-server">meska.isPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/helpers.lua#L14">Source ☍</a></dt>
+<dd>
+<p>Checks for a valid player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> Player entity.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> If the entity is a Player.</li>
+</ol>
+</dd>
 <dt><a name="meska.validResult"></a><strong><span class="state state-server">meska.validResult</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/helpers.lua#L65">Source ☍</a></dt>
 <dd>
 <p>Checks if player has achievement prop.</p>
@@ -305,19 +318,6 @@ The helper functions.</p></div>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">boolean</span> Whether the result is valid.</li>
-</ol>
-</dd>
-<dt><a name="meska.dateFromTime"></a><strong><span class="state state-server">meska.dateFromTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/helpers.lua#L79">Source ☍</a></dt>
-<dd>
-<p>Converts time to human-readable date.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">time</span> <span class="types">any</span> The timestamp.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string|osdate|unknown</span> Whether result is valid.</li>
 </ol>
 </dd>
 </dl></div>

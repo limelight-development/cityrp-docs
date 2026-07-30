@@ -230,6 +230,20 @@
 <div class="ll-module-header"><h1>core.plugins.xp-bar.sv_init</h1></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
+<dt><a name="meska.xpbar.hide"></a><strong><span class="state state-server">meska.xpbar.hide</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/xp-bar/sv_init.lua#L53">Source ☍</a></dt>
+<dd>
+<p>Immediately hides the experience bar for a specified player.
+This function sends a network message to the client to hide the XP bar interface
+without any fade-out animation or transition effects.
+The function includes player validation to ensure the target is a valid entity
+before attempting to send the network message.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> Player The player entity for whom the XP bar should be hidden.</li>
+</ul>
+
+</dd>
 <dt><a name="meska.xpbar.show"></a><strong><span class="state state-server">meska.xpbar.show</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/xp-bar/sv_init.lua#L26">Source ☍</a></dt>
 <dd>
 <p>Displays an experience bar to a player with skill progression data.
@@ -247,20 +261,6 @@ including experience within current level and progress toward next level.</p>
 <li><span class="parameter">currentLevel</span> <span class="types">any</span> number The player's current skill level.</li>
 <li><span class="parameter">previousLevel</span> <span class="types">any</span> number The player's previous skill level before this gain.</li>
 <li><span class="parameter">nextLevelExp</span> <span class="types">any</span> number The total experience required to reach the next level.</li>
-</ul>
-
-</dd>
-<dt><a name="meska.xpbar.hide"></a><strong><span class="state state-server">meska.xpbar.hide</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/xp-bar/sv_init.lua#L53">Source ☍</a></dt>
-<dd>
-<p>Immediately hides the experience bar for a specified player.
-This function sends a network message to the client to hide the XP bar interface
-without any fade-out animation or transition effects.
-The function includes player validation to ensure the target is a valid entity
-before attempting to send the network message.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player The player entity for whom the XP bar should be hidden.</li>
 </ul>
 
 </dd>

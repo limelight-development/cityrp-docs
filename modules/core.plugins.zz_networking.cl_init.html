@@ -231,6 +231,31 @@
 <div class="ll-module-body"><p>Clientside Networking Module</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
+<dt><a name="recieveLPlyVarUpdate"></a><strong><span class="state state-client">recieveLPlyVarUpdate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/cl_init.lua#L68">Source ☍</a></dt>
+<dd>
+<p>Internal function, for when a player's Local Player Var is updated.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">length</span> <span class="types">any</span></li>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="recieveNSVarBootstrap"></a><strong><span class="state state-client">recieveNSVarBootstrap</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/cl_init.lua#L45">Source ☍</a></dt>
+<dd>
+<p>Internal function, for the batched spawn bootstrap of every player's NSVars.
+Reads (entity, key, type, value) entries until a continuation bit is false.
+Each entry has the exact same encoding as a single NSVar.Update, so this stays
+in lockstep with the server's batched send in sv_init.lua.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">length</span> <span class="types">number</span> The length of the net message.</li>
+<li><span class="parameter">svr</span> <span class="types">Player?</span> An empty variable, to ensure this has been sent from the server.</li>
+</ul>
+
+</dd>
 <dt><a name="recieveNSVarClean"></a><strong><span class="state state-client">recieveNSVarClean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/cl_init.lua#L14">Source ☍</a></dt>
 <dd>
 <p>Internal function, for when a player's NSVar is updated.</p>
@@ -249,31 +274,6 @@
 <ul>
 <li><span class="parameter">length</span> <span class="types">any</span></li>
 <li><span class="parameter">svr</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="recieveNSVarBootstrap"></a><strong><span class="state state-client">recieveNSVarBootstrap</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/cl_init.lua#L45">Source ☍</a></dt>
-<dd>
-<p>Internal function, for the batched spawn bootstrap of every player's NSVars.
-Reads (entity, key, type, value) entries until a continuation bit is false.
-Each entry has the exact same encoding as a single NSVar.Update, so this stays
-in lockstep with the server's batched send in sv_init.lua.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">length</span> <span class="types">number</span> The length of the net message.</li>
-<li><span class="parameter">svr</span> <span class="types">Player?</span> An empty variable, to ensure this has been sent from the server.</li>
-</ul>
-
-</dd>
-<dt><a name="recieveLPlyVarUpdate"></a><strong><span class="state state-client">recieveLPlyVarUpdate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/zz_networking/cl_init.lua#L68">Source ☍</a></dt>
-<dd>
-<p>Internal function, for when a player's Local Player Var is updated.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">length</span> <span class="types">any</span></li>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
 </ul>
 
 </dd>

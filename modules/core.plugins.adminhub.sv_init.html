@@ -232,44 +232,15 @@
 <div class="ll-module-body"><p>Serverside Adminhub.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.adminhub.OpenMenu"></a><strong><span class="state state-server">cityrp.adminhub.OpenMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/adminhub/sv_init.lua#L48">Source ☍</a></dt>
+<dt><a name="cityrp.adminhub.AddLogLine"></a><strong><span class="state state-server">cityrp.adminhub.AddLogLine</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/adminhub/sv_init.lua#L100">Source ☍</a></dt>
 <dd>
-<p>Function to open the menu on a client.</p>
+<p>Add a line to the logs.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player to open the menu on.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.adminhub.CloseMenu"></a><strong><span class="state state-server">cityrp.adminhub.CloseMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/adminhub/sv_init.lua#L62">Source ☍</a></dt>
-<dd>
-<p>Function to close the menu on a player.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player to close the menu on.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.adminhub.ToggleMenu"></a><strong><span class="state state-server">cityrp.adminhub.ToggleMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/adminhub/sv_init.lua#L72">Source ☍</a></dt>
-<dd>
-<p>Function to toggle the menu on a client.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player to toggle the menu on.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.adminhub.ChangeOpacity"></a><strong><span class="state state-server">cityrp.adminhub.ChangeOpacity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/adminhub/sv_init.lua#L83">Source ☍</a></dt>
-<dd>
-<p>Update the adminhub opacity on a player.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player to update.</li>
-<li><span class="parameter">opac</span> <span class="types">any</span> Opacity between 0 and 255.</li>
+<li><span class="parameter">event</span> <span class="types">any</span> Type of event to add.</li>
+<li><span class="parameter">text</span> <span class="types">any</span> The text of the event.</li>
+<li><span class="parameter">color</span> <span class="types">any</span> The colour to show on clients.</li>
 </ul>
 
 </dd>
@@ -284,15 +255,44 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.adminhub.AddLogLine"></a><strong><span class="state state-server">cityrp.adminhub.AddLogLine</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/adminhub/sv_init.lua#L100">Source ☍</a></dt>
+<dt><a name="cityrp.adminhub.ChangeOpacity"></a><strong><span class="state state-server">cityrp.adminhub.ChangeOpacity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/adminhub/sv_init.lua#L83">Source ☍</a></dt>
 <dd>
-<p>Add a line to the logs.</p>
+<p>Update the adminhub opacity on a player.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">event</span> <span class="types">any</span> Type of event to add.</li>
-<li><span class="parameter">text</span> <span class="types">any</span> The text of the event.</li>
-<li><span class="parameter">color</span> <span class="types">any</span> The colour to show on clients.</li>
+<li><span class="parameter">ply</span> <span class="types">any</span> Player to update.</li>
+<li><span class="parameter">opac</span> <span class="types">any</span> Opacity between 0 and 255.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.adminhub.CloseMenu"></a><strong><span class="state state-server">cityrp.adminhub.CloseMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/adminhub/sv_init.lua#L62">Source ☍</a></dt>
+<dd>
+<p>Function to close the menu on a player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player to close the menu on.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.adminhub.OpenMenu"></a><strong><span class="state state-server">cityrp.adminhub.OpenMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/adminhub/sv_init.lua#L48">Source ☍</a></dt>
+<dd>
+<p>Function to open the menu on a client.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player to open the menu on.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.adminhub.ToggleMenu"></a><strong><span class="state state-server">cityrp.adminhub.ToggleMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/adminhub/sv_init.lua#L72">Source ☍</a></dt>
+<dd>
+<p>Function to toggle the menu on a client.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player to toggle the menu on.</li>
 </ul>
 
 </dd>

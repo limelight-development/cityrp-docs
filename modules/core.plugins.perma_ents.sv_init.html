@@ -231,6 +231,17 @@
 <div class="ll-module-body"><p>Fixed Entity Spawning System.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
+<dt><a name="DeleteMapEntity"></a><strong><span class="state state-server">DeleteMapEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/perma_ents/sv_init.lua#L87">Source ☍</a></dt>
+<dd>
+<p>Delete a map entity on startup based on its map creation ID.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">id</span> <span class="types">any</span> Map creation ID to delete.</li>
+<li><span class="parameter">regMap</span> <span class="types">any</span> Optional argument to specify a map to spawn on. If nil, replaced with the last SetDefaultMap argument.</li>
+</ul>
+
+</dd>
 <dt><a name="RegisterPermanentEntity"></a><strong><span class="state state-server">RegisterPermanentEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/perma_ents/sv_init.lua#L49">Source ☍</a></dt>
 <dd>
 <p>Register a permanent entity.</p>
@@ -240,17 +251,6 @@
 <li><span class="parameter">class</span> <span class="types">any</span> The class of the entity.</li>
 <li><span class="parameter">position</span> <span class="types">any</span> The position of the entity to be spawned at. Alternatly, can also take a table containing the save-data.</li>
 <li><span class="parameter">angle</span> <span class="types">any</span> The angle of the entity.</li>
-<li><span class="parameter">regMap</span> <span class="types">any</span> Optional argument to specify a map to spawn on. If nil, replaced with the last SetDefaultMap argument.</li>
-</ul>
-
-</dd>
-<dt><a name="DeleteMapEntity"></a><strong><span class="state state-server">DeleteMapEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/perma_ents/sv_init.lua#L87">Source ☍</a></dt>
-<dd>
-<p>Delete a map entity on startup based on its map creation ID.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">any</span> Map creation ID to delete.</li>
 <li><span class="parameter">regMap</span> <span class="types">any</span> Optional argument to specify a map to spawn on. If nil, replaced with the last SetDefaultMap argument.</li>
 </ul>
 

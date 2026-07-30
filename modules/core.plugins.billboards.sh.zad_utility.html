@@ -233,18 +233,59 @@
 Shared utility functions for the billboard addon.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="zad.f.Notify"></a><strong>zad.f.Notify</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L17">Source ☍</a></dt>
+<dt><a name="zad.f.FunctionValidater"></a><strong>zad.f.FunctionValidater</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L50">Source ☍</a></dt>
 <dd>
-<p>Send a notification message to a player.
-Uses CityRP2's notification system if available, otherwise falls back to ChatPrint.</p>
+<p>Check if a value is a valid function.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to notify.</li>
-<li><span class="parameter">msg</span> <span class="types">string</span> The message to send.</li>
-<li><span class="parameter">ntfType</span> <span class="types">number</span> The notification type (0 = generic, 1 = error, 2 = hint, 3 = undo).</li>
+<li><span class="parameter">func</span> <span class="types">any</span> The value to check.</li>
 </ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> if the value is a function, false otherwise.</li>
+</ol>
+</dd>
+<dt><a name="zad.f.GetOwner"></a><strong>zad.f.GetOwner</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L88">Source ☍</a></dt>
+<dd>
+<p>Get the owner of an entity.
+Checks CityRP2's _Owner field first, then falls back to zad_Owner NWString.</p>
 
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity to get the owner of.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean|Player</span> owner player, or false if no valid owner.</li>
+</ol>
+</dd>
+<dt><a name="zad.f.GetPlayerRank"></a><strong>zad.f.GetPlayerRank</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L138">Source ☍</a></dt>
+<dd>
+<p>Get a player's server rank.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player to get the rank of.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> player's server rank.</li>
+</ol>
+</dd>
+<dt><a name="zad.f.HasValidCharacter"></a><strong>zad.f.HasValidCharacter</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L40">Source ☍</a></dt>
+<dd>
+<p>Check if a string contains only valid alphanumeric characters.
+Strips spaces and checks for non-word characters.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">aString</span> <span class="types">string</span> The string to validate.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> if string contains only valid characters, false otherwise.</li>
+</ol>
 </dd>
 <dt><a name="zad.f.InDistance"></a><strong>zad.f.InDistance</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L32">Source ☍</a></dt>
 <dd>
@@ -262,32 +303,47 @@ Uses squared distance for performance optimization.</p>
 <li><span class="types">boolean</span> if positions are within distance, false otherwise.</li>
 </ol>
 </dd>
-<dt><a name="zad.f.HasValidCharacter"></a><strong>zad.f.HasValidCharacter</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L40">Source ☍</a></dt>
+<dt><a name="zad.f.IsAdmin"></a><strong>zad.f.IsAdmin</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L130">Source ☍</a></dt>
 <dd>
-<p>Check if a string contains only valid alphanumeric characters.
-Strips spaces and checks for non-word characters.</p>
+<p>Check if a player has admin permissions for the addon.
+Checks the player's rank against zad.config.AdminRanks.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">aString</span> <span class="types">string</span> The string to validate.</li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player to check.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">boolean</span> if string contains only valid characters, false otherwise.</li>
+<li><span class="types">boolean</span> if player is an admin, false otherwise.</li>
 </ol>
 </dd>
-<dt><a name="zad.f.FunctionValidater"></a><strong>zad.f.FunctionValidater</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L50">Source ☍</a></dt>
+<dt><a name="zad.f.IsOwner"></a><strong>zad.f.IsOwner</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L112">Source ☍</a></dt>
 <dd>
-<p>Check if a value is a valid function.</p>
+<p>Check if a player owns an entity.
+Checks CityRP2's _Owner field first, then falls back to zad_Owner NWString.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">func</span> <span class="types">any</span> The value to check.</li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player to check ownership for.</li>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity to check ownership of.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">boolean</span> if the value is a function, false otherwise.</li>
+<li><span class="types">boolean</span> if player owns the entity or entity is world-owned, false otherwise.</li>
 </ol>
+</dd>
+<dt><a name="zad.f.Notify"></a><strong>zad.f.Notify</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L17">Source ☍</a></dt>
+<dd>
+<p>Send a notification message to a player.
+Uses CityRP2's notification system if available, otherwise falls back to ChatPrint.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player to notify.</li>
+<li><span class="parameter">msg</span> <span class="types">string</span> The message to send.</li>
+<li><span class="parameter">ntfType</span> <span class="types">number</span> The notification type (0 = generic, 1 = error, 2 = hint, 3 = undo).</li>
+</ul>
+
 </dd>
 <dt><a name="zad.f.SetOwner"></a><strong>zad.f.SetOwner</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L59">Source ☍</a></dt>
 <dd>
@@ -312,70 +368,6 @@ Sets ownership via CPPI, NWString, and CityRP2's _Owner field for compatibility.
 </ul>
 
 </dd>
-<dt><a name="zad.f.GetOwner"></a><strong>zad.f.GetOwner</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L88">Source ☍</a></dt>
-<dd>
-<p>Get the owner of an entity.
-Checks CityRP2's _Owner field first, then falls back to zad_Owner NWString.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity to get the owner of.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|Player</span> owner player, or false if no valid owner.</li>
-</ol>
-</dd>
-<dt><a name="zad.f.IsOwner"></a><strong>zad.f.IsOwner</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L112">Source ☍</a></dt>
-<dd>
-<p>Check if a player owns an entity.
-Checks CityRP2's _Owner field first, then falls back to zad_Owner NWString.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to check ownership for.</li>
-<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity to check ownership of.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> if player owns the entity or entity is world-owned, false otherwise.</li>
-</ol>
-</dd>
-<dt><a name="zad.f.IsAdmin"></a><strong>zad.f.IsAdmin</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L130">Source ☍</a></dt>
-<dd>
-<p>Check if a player has admin permissions for the addon.
-Checks the player's rank against zad.config.AdminRanks.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to check.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> if player is an admin, false otherwise.</li>
-</ol>
-</dd>
-<dt><a name="zad.f.GetPlayerRank"></a><strong>zad.f.GetPlayerRank</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L138">Source ☍</a></dt>
-<dd>
-<p>Get a player's server rank.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to get the rank of.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> player's server rank.</li>
-</ol>
-</dd>
-<dt><a name="zad.f.Timer_PrintAll"></a><strong>zad.f.Timer_PrintAll</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L154">Source ☍</a></dt>
-<dd>
-<p>Print all active addon timers to console.
-Debug function for administrators.</p>
-
-
-
-</dd>
 <dt><a name="zad.f.Timer_Create"></a><strong>zad.f.Timer_Create</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L164">Source ☍</a></dt>
 <dd>
 <p>Create a tracked timer.
@@ -388,6 +380,14 @@ Creates a timer and adds it to the internal timer list for tracking.</p>
 <li><span class="parameter">rep</span> <span class="types">number</span> The number of repetitions (0 for infinite).</li>
 <li><span class="parameter">func</span> <span class="types">function</span> The function to call when the timer fires.</li>
 </ul>
+
+</dd>
+<dt><a name="zad.f.Timer_PrintAll"></a><strong>zad.f.Timer_PrintAll</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L154">Source ☍</a></dt>
+<dd>
+<p>Print all active addon timers to console.
+Debug function for administrators.</p>
+
+
 
 </dd>
 <dt><a name="zad.f.Timer_Remove"></a><strong>zad.f.Timer_Remove</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_utility.lua#L174">Source ☍</a></dt>

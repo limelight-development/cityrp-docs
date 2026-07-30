@@ -233,6 +233,56 @@
 <div class="ll-module-body"><p>Access and Flags - Server.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.access.accessdb"></a><strong><span class="state state-server">cityrp.access.accessdb</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L483">Source ☍</a></dt>
+<dd>
+<p>Add an access modification to the database.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">aname</span> <span class="types">any</span></li>
+<li><span class="parameter">asteamid</span> <span class="types">any</span></li>
+<li><span class="parameter">tname</span> <span class="types">any</span></li>
+<li><span class="parameter">tsteamid</span> <span class="types">any</span></li>
+<li><span class="parameter">access</span> <span class="types">any</span></li>
+<li><span class="parameter">action</span> <span class="types">any</span></li>
+<li><span class="parameter">timeuntil</span> <span class="types">any</span></li>
+<li><span class="parameter">reason</span> <span class="types">any</span></li>
+<li><span class="parameter">areason</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.access.addcommands"></a><strong><span class="state state-server">cityrp.access.addcommands</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L464">Source ☍</a></dt>
+<dd>
+<p>Register and add access commands.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.access.BanTime"></a><strong><span class="state state-server">cityrp.access.BanTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L87">Source ☍</a></dt>
+<dd>
+<p>Check how long a player is blacklisted for.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">player</span> <span class="types">any</span></li>
+<li><span class="parameter">access</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string|integer</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.access.blacklistcommand"></a><strong><span class="state state-server">cityrp.access.blacklistcommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L430">Source ☍</a></dt>
+<dd>
+<p>Command callback to issue a team blacklist.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">player</span> <span class="types">any</span></li>
+<li><span class="parameter">arguments</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
 <dt><a name="cityrp.access.checkexpired"></a><strong><span class="state state-server">cityrp.access.checkexpired</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L22">Source ☍</a></dt>
 <dd>
 <p>Check if a player's blacklists have expired.</p>
@@ -254,41 +304,6 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.access.takeAccess"></a><strong><span class="state state-server">cityrp.access.takeAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L64">Source ☍</a></dt>
-<dd>
-<p>Remove a set of access tags from a player.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> The player to remove from.</li>
-<li><span class="parameter">access</span> <span class="types">string</span> Access tag string to remove.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.access.BanTime"></a><strong><span class="state state-server">cityrp.access.BanTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L87">Source ☍</a></dt>
-<dd>
-<p>Check how long a player is blacklisted for.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">any</span></li>
-<li><span class="parameter">access</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string|integer</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.access.Load"></a><strong><span class="state state-server">cityrp.access.Load</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L112">Source ☍</a></dt>
-<dd>
-<p>Load a player's access from the DB.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> The player to load.</li>
-</ul>
-
-</dd>
 <dt><a name="cityrp.access.giveaccesscommand"></a><strong><span class="state state-server">cityrp.access.giveaccesscommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L135">Source ☍</a></dt>
 <dd>
 <p>Command callback to give access.</p>
@@ -297,6 +312,26 @@
 <ul>
 <li><span class="parameter">player</span> <span class="types">any</span></li>
 <li><span class="parameter">arguments</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.access.list"></a><strong><span class="state state-server">cityrp.access.list</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L584">Source ☍</a></dt>
+<dd>
+<p>List access tags to a player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">player</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.access.Load"></a><strong><span class="state state-server">cityrp.access.Load</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L112">Source ☍</a></dt>
+<dd>
+<p>Load a player's access from the DB.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">player</span> <span class="types">Player</span> The player to load.</li>
 </ul>
 
 </dd>
@@ -314,6 +349,29 @@
 <ol>
 <li><span class="types">boolean</span> </li>
 </ol>
+</dd>
+<dt><a name="cityrp.access.playeraction"></a><strong><span class="state state-server">cityrp.access.playeraction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L504">Source ☍</a></dt>
+<dd>
+<p>Perform an action on a player in response to an access change.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">target</span> <span class="types">any</span></li>
+<li><span class="parameter">access</span> <span class="types">any</span></li>
+<li><span class="parameter">action</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.access.takeAccess"></a><strong><span class="state state-server">cityrp.access.takeAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L64">Source ☍</a></dt>
+<dd>
+<p>Remove a set of access tags from a player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">player</span> <span class="types">Player</span> The player to remove from.</li>
+<li><span class="parameter">access</span> <span class="types">string</span> Access tag string to remove.</li>
+</ul>
+
 </dd>
 <dt><a name="cityrp.access.takeaccesscommand"></a><strong><span class="state state-server">cityrp.access.takeaccesscommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L255">Source ☍</a></dt>
 <dd>
@@ -334,64 +392,6 @@
 <ul>
 <li><span class="parameter">player</span> <span class="types">any</span></li>
 <li><span class="parameter">arguments</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.access.blacklistcommand"></a><strong><span class="state state-server">cityrp.access.blacklistcommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L430">Source ☍</a></dt>
-<dd>
-<p>Command callback to issue a team blacklist.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">any</span></li>
-<li><span class="parameter">arguments</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.access.addcommands"></a><strong><span class="state state-server">cityrp.access.addcommands</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L464">Source ☍</a></dt>
-<dd>
-<p>Register and add access commands.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.access.accessdb"></a><strong><span class="state state-server">cityrp.access.accessdb</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L483">Source ☍</a></dt>
-<dd>
-<p>Add an access modification to the database.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">aname</span> <span class="types">any</span></li>
-<li><span class="parameter">asteamid</span> <span class="types">any</span></li>
-<li><span class="parameter">tname</span> <span class="types">any</span></li>
-<li><span class="parameter">tsteamid</span> <span class="types">any</span></li>
-<li><span class="parameter">access</span> <span class="types">any</span></li>
-<li><span class="parameter">action</span> <span class="types">any</span></li>
-<li><span class="parameter">timeuntil</span> <span class="types">any</span></li>
-<li><span class="parameter">reason</span> <span class="types">any</span></li>
-<li><span class="parameter">areason</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.access.playeraction"></a><strong><span class="state state-server">cityrp.access.playeraction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L504">Source ☍</a></dt>
-<dd>
-<p>Perform an action on a player in response to an access change.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">target</span> <span class="types">any</span></li>
-<li><span class="parameter">access</span> <span class="types">any</span></li>
-<li><span class="parameter">action</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.access.list"></a><strong><span class="state state-server">cityrp.access.list</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L584">Source ☍</a></dt>
-<dd>
-<p>List access tags to a player.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">any</span></li>
 </ul>
 
 </dd>

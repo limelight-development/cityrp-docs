@@ -244,18 +244,15 @@ Currently semi-broken, requires a manual catch to be added to the chatbox.</p>
 </ul>
 
 </dd>
-<dt><a name="table.copy"></a><strong><span class="state state-client">table.copy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L54">Source ☍</a></dt>
+<dt><a name="cityrp.chatBox.addGenericAction"></a><strong><span class="state state-client">cityrp.chatBox.addGenericAction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L87">Source ☍</a></dt>
 <dd>
-<p>Create a deep copy of an object.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">orig</span> <span class="types">any</span> The object to copy. in sh_functions.lua but not working?</li>
+<li><span class="parameter">class</span> <span class="types">any</span></li>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
+
 </dd>
 <dt><a name="cityrp.chatBox.addPlayerAction"></a><strong><span class="state state-client">cityrp.chatBox.addPlayerAction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L77">Source ☍</a></dt>
 <dd>
@@ -267,84 +264,24 @@ Currently semi-broken, requires a manual catch to be added to the chatbox.</p>
 </ul>
 
 </dd>
-<dt><a name="cityrp.chatBox.addGenericAction"></a><strong><span class="state state-client">cityrp.chatBox.addGenericAction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L87">Source ☍</a></dt>
+<dt><a name="cityrp.chatBox.chatText"></a><strong><span class="state state-client">cityrp.chatBox.chatText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1159">Source ☍</a></dt>
 <dd>
+<p>Process a message and add it to the chatbox.
+Called when a player says something or a message is received from the server.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">class</span> <span class="types">any</span></li>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.chatBox.getPosition"></a><strong><span class="state state-client">cityrp.chatBox.getPosition</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L256">Source ☍</a></dt>
-<dd>
-<p>Gets the chatbox position.
-@treturn[1] int The current X position.
-@treturn[1] int The current Y position.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">integer</span> </li>
-<li><span class="types">unknown</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.chatBox.getX"></a><strong><span class="state state-client">cityrp.chatBox.getX</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L271">Source ☍</a></dt>
-<dd>
-<p>Gets the chatbox's x position.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">integer</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.chatBox.getY"></a><strong><span class="state state-client">cityrp.chatBox.getY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L280">Source ☍</a></dt>
-<dd>
-<p>Gets the chatbox's y position.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">unknown</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.chatBox.getSpacing"></a><strong><span class="state state-client">cityrp.chatBox.getSpacing</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L290">Source ☍</a></dt>
-<dd>
-<p>Gets the chatbox's spacing between messages.
-Spacing scales with font size to prevent overlap.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number</span> distance.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.chatBox.wrapText"></a><strong><span class="state state-client">cityrp.chatBox.wrapText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L303">Source ☍</a></dt>
-<dd>
-<p>Provides a table of wrapped strings.</p>
-
-<h3>Parameters:</h3>
-<ul>
+<li><span class="parameter">index</span> <span class="types">any</span></li>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
 <li><span class="parameter">text</span> <span class="types">any</span></li>
-<li><span class="parameter">font</span> <span class="types">any</span></li>
-<li><span class="parameter">width</span> <span class="types">any</span></li>
-<li><span class="parameter">overhead</span> <span class="types">any</span></li>
-<li><span class="parameter">base</span> <span class="types">any</span></li>
+<li><span class="parameter">class</span> <span class="types">any</span></li>
+<li><span class="parameter">customColor</span> <span class="types">any</span></li>
 </ul>
 
 </dd>
 <dt><a name="cityrp.chatBox.createDermaAll"></a><strong><span class="state state-client">cityrp.chatBox.createDermaAll</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L348">Source ☍</a></dt>
 <dd>
 <p>Create the chatbox panels.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.createDermaButtons"></a><strong><span class="state state-client">cityrp.chatBox.createDermaButtons</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L363">Source ☍</a></dt>
-<dd>
-<p>Creates the chatbox control buttons.</p>
 
 
 
@@ -365,9 +302,9 @@ Spacing scales with font size to prevent overlap.</p>
 </ul>
 
 </dd>
-<dt><a name="cityrp.chatBox.createDermaCheckBoxes"></a><strong><span class="state state-client">cityrp.chatBox.createDermaCheckBoxes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L435">Source ☍</a></dt>
+<dt><a name="cityrp.chatBox.createDermaButtons"></a><strong><span class="state state-client">cityrp.chatBox.createDermaButtons</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L363">Source ☍</a></dt>
 <dd>
-<p>Create derma check boxes.</p>
+<p>Creates the chatbox control buttons.</p>
 
 
 
@@ -388,9 +325,91 @@ Spacing scales with font size to prevent overlap.</p>
 </ul>
 
 </dd>
+<dt><a name="cityrp.chatBox.createDermaCheckBoxes"></a><strong><span class="state state-client">cityrp.chatBox.createDermaCheckBoxes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L435">Source ☍</a></dt>
+<dd>
+<p>Create derma check boxes.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.createDermaFilters"></a><strong><span class="state state-client">cityrp.chatBox.createDermaFilters</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L572">Source ☍</a></dt>
+<dd>
+<p>Create a derma filter checkboxes.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.createDermaPanel"></a><strong><span class="state state-client">cityrp.chatBox.createDermaPanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L607">Source ☍</a></dt>
+<dd>
+<p>Create the main derma panel.</p>
+
+
+
+</dd>
 <dt><a name="cityrp.chatBox.createDermaTextEntry"></a><strong><span class="state state-client">cityrp.chatBox.createDermaTextEntry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L477">Source ☍</a></dt>
 <dd>
 <p>Create the derma text entry.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.filters.Paint"></a><strong><span class="state state-client">cityrp.chatBox.derma.filters.Paint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L578">Source ☍</a></dt>
+<dd>
+<p>Called every time the panel should be painted.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.filters.Think"></a><strong><span class="state state-client">cityrp.chatBox.derma.filters.Think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L589">Source ☍</a></dt>
+<dd>
+<p>Called every frame.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.panel.hide"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.hide</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L634">Source ☍</a></dt>
+<dd>
+<p>A function to hide the chat panel.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.panel.Paint"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.Paint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L651">Source ☍</a></dt>
+<dd>
+<p>Called every time the panel should be painted.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.panel.show"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.show</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L612">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">team</span> <span class="types">any</span></li>
+<li><span class="parameter">text</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.panel.Think"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.Think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L701">Source ☍</a></dt>
+<dd>
+<p>Called eveyr frame.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.scroll.OnMouseWheeled"></a><strong><span class="state state-client">cityrp.chatBox.derma.scroll.OnMouseWheeled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L717">Source ☍</a></dt>
+<dd>
+<p>Called when the panel is scrolled with the mouse wheel.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">delta</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.textEntry.OnEnter"></a><strong><span class="state state-client">cityrp.chatBox.derma.textEntry.OnEnter</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L526">Source ☍</a></dt>
+<dd>
 
 
 
@@ -413,150 +432,9 @@ Spacing scales with font size to prevent overlap.</p>
 
 
 </dd>
-<dt><a name="cityrp.chatBox.derma.textEntry.OnEnter"></a><strong><span class="state state-client">cityrp.chatBox.derma.textEntry.OnEnter</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L526">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
 <dt><a name="cityrp.chatBox.derma.textEntry.Think"></a><strong><span class="state state-client">cityrp.chatBox.derma.textEntry.Think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L557">Source ☍</a></dt>
 <dd>
 <p>Called every frame.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.createDermaFilters"></a><strong><span class="state state-client">cityrp.chatBox.createDermaFilters</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L572">Source ☍</a></dt>
-<dd>
-<p>Create a derma filter checkboxes.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.derma.filters.Paint"></a><strong><span class="state state-client">cityrp.chatBox.derma.filters.Paint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L578">Source ☍</a></dt>
-<dd>
-<p>Called every time the panel should be painted.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.derma.filters.Think"></a><strong><span class="state state-client">cityrp.chatBox.derma.filters.Think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L589">Source ☍</a></dt>
-<dd>
-<p>Called every frame.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.createDermaPanel"></a><strong><span class="state state-client">cityrp.chatBox.createDermaPanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L607">Source ☍</a></dt>
-<dd>
-<p>Create the main derma panel.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.derma.panel.show"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.show</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L612">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">team</span> <span class="types">any</span></li>
-<li><span class="parameter">text</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.chatBox.derma.panel.hide"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.hide</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L634">Source ☍</a></dt>
-<dd>
-<p>A function to hide the chat panel.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.derma.panel.Paint"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.Paint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L651">Source ☍</a></dt>
-<dd>
-<p>Called every time the panel should be painted.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.derma.panel.Think"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.Think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L701">Source ☍</a></dt>
-<dd>
-<p>Called eveyr frame.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.derma.scroll.OnMouseWheeled"></a><strong><span class="state state-client">cityrp.chatBox.derma.scroll.OnMouseWheeled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L717">Source ☍</a></dt>
-<dd>
-<p>Called when the panel is scrolled with the mouse wheel.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">delta</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.chatBox.playerBindPress"></a><strong><span class="state state-client">cityrp.chatBox.playerBindPress</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L741">Source ☍</a></dt>
-<dd>
-<p>Update the chatbox when the player presses a bind.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">any</span></li>
-<li><span class="parameter">bind</span> <span class="types">any</span></li>
-<li><span class="parameter">press</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.chatBox.messageAdd"></a><strong><span class="state state-client">cityrp.chatBox.messageAdd</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L779">Source ☍</a></dt>
-<dd>
-<p>Create and send a new message to the chatbox.
-@tparam[opt] {string,Color} title Optional the title table for the message.
-@tparam[opt] {string,Color} name Optional the name table for the message.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">title</span> <span class="types">any</span></li>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">text</span> <span class="types">any</span></li>
-<li><span class="parameter">filtered</span> <span class="types">any</span></li>
-<li><span class="parameter">icon</span> <span class="types">any</span></li>
-<li><span class="parameter">consoleSuffix</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.chatBox.printConsole"></a><strong><span class="state state-client">cityrp.chatBox.printConsole</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L844">Source ☍</a></dt>
-<dd>
-<p>Output a message to console.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">message</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.chatBox.extractClasses"></a><strong><span class="state state-client">cityrp.chatBox.extractClasses</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L877">Source ☍</a></dt>
-<dd>
-<p>Wrap text from string to blocks.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">message</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.chatBox.think"></a><strong><span class="state state-client">cityrp.chatBox.think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L920">Source ☍</a></dt>
-<dd>
-<p>Think hook function for the chatbox.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.hudPaint"></a><strong><span class="state state-client">cityrp.chatBox.hudPaint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L944">Source ☍</a></dt>
-<dd>
-<p>Called on HUDPaint.</p>
 
 
 
@@ -577,25 +455,153 @@ Spacing scales with font size to prevent overlap.</p>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.chatBox.chatText"></a><strong><span class="state state-client">cityrp.chatBox.chatText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1159">Source ☍</a></dt>
+<dt><a name="cityrp.chatBox.extractClasses"></a><strong><span class="state state-client">cityrp.chatBox.extractClasses</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L877">Source ☍</a></dt>
 <dd>
-<p>Process a message and add it to the chatbox.
-Called when a player says something or a message is received from the server.</p>
+<p>Wrap text from string to blocks.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">index</span> <span class="types">any</span></li>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">text</span> <span class="types">any</span></li>
-<li><span class="parameter">class</span> <span class="types">any</span></li>
-<li><span class="parameter">customColor</span> <span class="types">any</span></li>
+<li><span class="parameter">message</span> <span class="types">any</span></li>
 </ul>
 
+</dd>
+<dt><a name="cityrp.chatBox.getPosition"></a><strong><span class="state state-client">cityrp.chatBox.getPosition</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L256">Source ☍</a></dt>
+<dd>
+<p>Gets the chatbox position.
+@treturn[1] int The current X position.
+@treturn[1] int The current Y position.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">integer</span> </li>
+<li><span class="types">unknown</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getSpacing"></a><strong><span class="state state-client">cityrp.chatBox.getSpacing</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L290">Source ☍</a></dt>
+<dd>
+<p>Gets the chatbox's spacing between messages.
+Spacing scales with font size to prevent overlap.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> distance.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getX"></a><strong><span class="state state-client">cityrp.chatBox.getX</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L271">Source ☍</a></dt>
+<dd>
+<p>Gets the chatbox's x position.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">integer</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getY"></a><strong><span class="state state-client">cityrp.chatBox.getY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L280">Source ☍</a></dt>
+<dd>
+<p>Gets the chatbox's y position.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">unknown</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.hudPaint"></a><strong><span class="state state-client">cityrp.chatBox.hudPaint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L944">Source ☍</a></dt>
+<dd>
+<p>Called on HUDPaint.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.messageAdd"></a><strong><span class="state state-client">cityrp.chatBox.messageAdd</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L779">Source ☍</a></dt>
+<dd>
+<p>Create and send a new message to the chatbox.
+@tparam[opt] {string,Color} title Optional the title table for the message.
+@tparam[opt] {string,Color} name Optional the name table for the message.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">title</span> <span class="types">any</span></li>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
+<li><span class="parameter">text</span> <span class="types">any</span></li>
+<li><span class="parameter">filtered</span> <span class="types">any</span></li>
+<li><span class="parameter">icon</span> <span class="types">any</span></li>
+<li><span class="parameter">consoleSuffix</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.playerBindPress"></a><strong><span class="state state-client">cityrp.chatBox.playerBindPress</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L741">Source ☍</a></dt>
+<dd>
+<p>Update the chatbox when the player presses a bind.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">player</span> <span class="types">any</span></li>
+<li><span class="parameter">bind</span> <span class="types">any</span></li>
+<li><span class="parameter">press</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.printConsole"></a><strong><span class="state state-client">cityrp.chatBox.printConsole</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L844">Source ☍</a></dt>
+<dd>
+<p>Output a message to console.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">message</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.think"></a><strong><span class="state state-client">cityrp.chatBox.think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L920">Source ☍</a></dt>
+<dd>
+<p>Think hook function for the chatbox.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.wrapText"></a><strong><span class="state state-client">cityrp.chatBox.wrapText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L303">Source ☍</a></dt>
+<dd>
+<p>Provides a table of wrapped strings.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">text</span> <span class="types">any</span></li>
+<li><span class="parameter">font</span> <span class="types">any</span></li>
+<li><span class="parameter">width</span> <span class="types">any</span></li>
+<li><span class="parameter">overhead</span> <span class="types">any</span></li>
+<li><span class="parameter">base</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="table.copy"></a><strong><span class="state state-client">table.copy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L54">Source ☍</a></dt>
+<dd>
+<p>Create a deep copy of an object.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">orig</span> <span class="types">any</span> The object to copy. in sh_functions.lua but not working?</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
 <dt><a name="cityrp.chatBox.actions"></a><strong><span class="state state-client">cityrp.chatBox.actions</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L73">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.actions.generic"></a><strong><span class="state state-client">cityrp.chatBox.actions.generic</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L75">Source ☍</a></dt>
 <dd>
 
 
@@ -607,8 +613,35 @@ Called when a player says something or a message is received from the server.</p
 
 
 </dd>
-<dt><a name="cityrp.chatBox.actions.generic"></a><strong><span class="state state-client">cityrp.chatBox.actions.generic</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L75">Source ☍</a></dt>
+<dt><a name="cityrp.chatBox.derma"></a><strong><span class="state state-client">cityrp.chatBox.derma</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L188">Source ☍</a></dt>
 <dd>
+<p>Client derma store.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.buttons"></a><strong><span class="state state-client">cityrp.chatBox.derma.buttons</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L365">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.checkBoxes"></a><strong><span class="state state-client">cityrp.chatBox.derma.checkBoxes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L437">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.history"></a><strong><span class="state state-client">cityrp.chatBox.history</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L191">Source ☍</a></dt>
+<dd>
+<p>Table to store the chat history.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.history.messages"></a><strong><span class="state state-client">cityrp.chatBox.history.messages</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L193">Source ☍</a></dt>
+<dd>
+<p>Recently recieved messages in the history.</p>
 
 
 
@@ -634,27 +667,6 @@ Called when a player says something or a message is received from the server.</p
 
 
 </dd>
-<dt><a name="cityrp.chatBox.derma"></a><strong><span class="state state-client">cityrp.chatBox.derma</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L188">Source ☍</a></dt>
-<dd>
-<p>Client derma store.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.history"></a><strong><span class="state state-client">cityrp.chatBox.history</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L191">Source ☍</a></dt>
-<dd>
-<p>Table to store the chat history.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.history.messages"></a><strong><span class="state state-client">cityrp.chatBox.history.messages</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L193">Source ☍</a></dt>
-<dd>
-<p>Recently recieved messages in the history.</p>
-
-
-
-</dd>
 <dt><a name="cityrp.chatBox.sendhistory"></a><strong><span class="state state-client">cityrp.chatBox.sendhistory</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L198">Source ☍</a></dt>
 <dd>
 <p>Table to store the sent chat history.</p>
@@ -669,57 +681,10 @@ Called when a player says something or a message is received from the server.</p
 
 
 </dd>
-<dt><a name="cityrp.chatBox.derma.buttons"></a><strong><span class="state state-client">cityrp.chatBox.derma.buttons</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L365">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.derma.checkBoxes"></a><strong><span class="state state-client">cityrp.chatBox.derma.checkBoxes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L437">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
 <dt><a name="cityrp.chatBox"></a><strong><span class="state state-client">cityrp.chatBox</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L71">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.maximumLines"></a><strong><span class="state state-client">cityrp.chatBox.maximumLines</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L180">Source ☍</a></dt>
-<dd>
-<p>Create a table to store the messages, derma, and join spam attempts.
-The maximum number of lines which can be drawn at once.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.history.position"></a><strong><span class="state state-client">cityrp.chatBox.history.position</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L195">Source ☍</a></dt>
-<dd>
-<p>Current cursor position within history.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.sendhistory.position"></a><strong><span class="state state-client">cityrp.chatBox.sendhistory.position</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L202">Source ☍</a></dt>
-<dd>
-<p>Store the history cursor pos.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.sendhistory.useposition"></a><strong><span class="state state-client">cityrp.chatBox.sendhistory.useposition</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L204">Source ☍</a></dt>
-<dd>
-<p>Store for the current used position.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.chatBox.derma.textEntry"></a><strong><span class="state state-client">cityrp.chatBox.derma.textEntry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L479">Source ☍</a></dt>
 <dd>
 
 
@@ -737,6 +702,34 @@ The maximum number of lines which can be drawn at once.</p>
 
 
 </dd>
+<dt><a name="cityrp.chatBox.derma.scroll"></a><strong><span class="state state-client">cityrp.chatBox.derma.scroll</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L712">Source ☍</a></dt>
+<dd>
+<p>Create the scroll panel.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.textEntry"></a><strong><span class="state state-client">cityrp.chatBox.derma.textEntry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L479">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.history.position"></a><strong><span class="state state-client">cityrp.chatBox.history.position</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L195">Source ☍</a></dt>
+<dd>
+<p>Current cursor position within history.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.maximumLines"></a><strong><span class="state state-client">cityrp.chatBox.maximumLines</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L180">Source ☍</a></dt>
+<dd>
+<p>Create a table to store the messages, derma, and join spam attempts.
+The maximum number of lines which can be drawn at once.</p>
+
+
+
+</dd>
 <dt><a name="cityrp.chatBox.sayTeam"></a><strong><span class="state state-client">cityrp.chatBox.sayTeam</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L620">Source ☍</a></dt>
 <dd>
 
@@ -749,9 +742,16 @@ The maximum number of lines which can be drawn at once.</p>
 
 
 </dd>
-<dt><a name="cityrp.chatBox.derma.scroll"></a><strong><span class="state state-client">cityrp.chatBox.derma.scroll</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L712">Source ☍</a></dt>
+<dt><a name="cityrp.chatBox.sendhistory.position"></a><strong><span class="state state-client">cityrp.chatBox.sendhistory.position</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L202">Source ☍</a></dt>
 <dd>
-<p>Create the scroll panel.</p>
+<p>Store the history cursor pos.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.sendhistory.useposition"></a><strong><span class="state state-client">cityrp.chatBox.sendhistory.useposition</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L204">Source ☍</a></dt>
+<dd>
+<p>Store for the current used position.</p>
 
 
 

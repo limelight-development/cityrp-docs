@@ -236,14 +236,119 @@ Typically, functions which relate to generating the items / setting data (New, S
 However, functions which relate to the operation of the item (canUse, onDrop), are in lowerCamelCase.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="ITEM.New"></a><strong><span class="state state-client state-server">ITEM.New</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L66">Source ☍</a></dt>
+<dt><a name="ITEM.AutoFunction"></a><strong><span class="state state-client state-server">ITEM.AutoFunction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L134">Source ☍</a></dt>
 <dd>
-<p>Create a new item.</p>
+<p>Creates an automatically named setter function.
+It also returns a single param function, which sets a default value and returns the item.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">base</span> <span class="types">any</span></li>
-<li><span class="parameter">data</span> <span class="types">any</span></li>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
+<li><span class="parameter">key</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">function</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.CanDestroy"></a><strong><span class="state state-client state-server">ITEM.CanDestroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L473">Source ☍</a></dt>
+<dd>
+<p>Sets the canDestroy function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.CanDrop"></a><strong><span class="state state-client state-server">ITEM.CanDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L448">Source ☍</a></dt>
+<dd>
+<p>Sets the canDrop function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.CanGive"></a><strong><span class="state state-client state-server">ITEM.CanGive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L398">Source ☍</a></dt>
+<dd>
+<p>Sets the canGive function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.CanPickup"></a><strong><span class="state state-client state-server">ITEM.CanPickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L497">Source ☍</a></dt>
+<dd>
+<p>Sets the canPickup function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.CanPlace"></a><strong><span class="state state-client state-server">ITEM.CanPlace</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L548">Source ☍</a></dt>
+<dd>
+<p>Sets the canPlace function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.CanRemove"></a><strong><span class="state state-client state-server">ITEM.CanRemove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L422">Source ☍</a></dt>
+<dd>
+<p>Sets the canRemove function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.CanSell"></a><strong><span class="state state-client state-server">ITEM.CanSell</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L522">Source ☍</a></dt>
+<dd>
+<p>Sets the canSell function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.CanUse"></a><strong><span class="state state-client state-server">ITEM.CanUse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L372">Source ☍</a></dt>
+<dd>
+<p>Sets the canUse function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
@@ -274,14 +379,118 @@ Returns a new ITEM, with base set to the first item.</p>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="ITEM.SetData"></a><strong><span class="state state-client state-server">ITEM.SetData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L110">Source ☍</a></dt>
+<dt><a name="ITEM.New"></a><strong><span class="state state-client state-server">ITEM.New</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L66">Source ☍</a></dt>
 <dd>
-<p>Set a single key on the item.</p>
+<p>Create a new item.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">value</span> <span class="types">any</span> Value to set.</li>
+<li><span class="parameter">base</span> <span class="types">any</span></li>
+<li><span class="parameter">data</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.OnDestroy"></a><strong><span class="state state-client state-server">ITEM.OnDestroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L481">Source ☍</a></dt>
+<dd>
+<p>Sets the onDestroy function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.OnDrop"></a><strong><span class="state state-client state-server">ITEM.OnDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L456">Source ☍</a></dt>
+<dd>
+<p>Sets the onDrop function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.OnGive"></a><strong><span class="state state-client state-server">ITEM.OnGive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L406">Source ☍</a></dt>
+<dd>
+<p>Sets the onGive function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.OnPickup"></a><strong><span class="state state-client state-server">ITEM.OnPickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L505">Source ☍</a></dt>
+<dd>
+<p>Sets the onPickup function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.onPlace"></a><strong><span class="state state-client state-server">ITEM.onPlace</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L556">Source ☍</a></dt>
+<dd>
+<p>Sets the onPlace function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.OnRemove"></a><strong><span class="state state-client state-server">ITEM.OnRemove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L430">Source ☍</a></dt>
+<dd>
+<p>Sets the onRemove function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.OnSell"></a><strong><span class="state state-client state-server">ITEM.OnSell</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L530">Source ☍</a></dt>
+<dd>
+<p>Sets the onSell function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> </li>
+</ol>
+</dd>
+<dt><a name="ITEM.OnUse"></a><strong><span class="state state-client state-server">ITEM.OnUse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L380">Source ☍</a></dt>
+<dd>
+<p>Sets the onUse function for this item.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
@@ -301,132 +510,6 @@ Returns a new ITEM, with base set to the first item.</p>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">boolean</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.AutoFunction"></a><strong><span class="state state-client state-server">ITEM.AutoFunction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L134">Source ☍</a></dt>
-<dd>
-<p>Creates an automatically named setter function.
-It also returns a single param function, which sets a default value and returns the item.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">key</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">function</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.SetName"></a><strong><span class="state state-client state-server">ITEM.SetName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L223">Source ☍</a></dt>
-<dd>
-<p>Sets the name of an item.
-If plural is undefined, defaults to &quot;&lt;name&gt;s&quot;
-If plural is true, it's set to &quot;&lt;name&gt;&quot;</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">plural</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.SetModel"></a><strong><span class="state state-client state-server">ITEM.SetModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L235">Source ☍</a></dt>
-<dd>
-<p>Sets the model of the item.
-If model is true, the model and skin will be pulled from the store model.
-If autostore is true, model and skin will be pushed to the store model.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">model</span> <span class="types">any</span></li>
-<li><span class="parameter">skin</span> <span class="types">any</span></li>
-<li><span class="parameter">autoStore</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.SetStoreModel"></a><strong><span class="state state-client state-server">ITEM.SetStoreModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L255">Source ☍</a></dt>
-<dd>
-<p>Sets the store model of the item.
-If model is true, the model and skin will be pulled from the regular model.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">model</span> <span class="types">any</span></li>
-<li><span class="parameter">skin</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.SetSkin"></a><strong><span class="state state-client state-server">ITEM.SetSkin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L271">Source ☍</a></dt>
-<dd>
-<p>Sets the skin of the item.
-If skin is true, it is pulled from the store skin.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skin</span> <span class="types">any</span></li>
-<li><span class="parameter">autoStore</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.SetStoreSkin"></a><strong><span class="state state-client state-server">ITEM.SetStoreSkin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L288">Source ☍</a></dt>
-<dd>
-<p>Sets the store skin of the item.
-If skin is true, it is pulled from the item skin.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skin</span> <span class="types">any</span></li>
-<li><span class="parameter">autoStore</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.SetPlural"></a><strong><span class="state state-client state-server">ITEM.SetPlural</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L307">Source ☍</a></dt>
-<dd>
-<p>Sets the item's plural.
-If nil/false, item's name + s is used.
-If true, item's name is used.
-Otherwise passed name is used.
-@tparam[opt] string|true name</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.SetStore"></a><strong><span class="state state-client state-server">ITEM.SetStore</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L326">Source ☍</a></dt>
-<dd>
-<p>Set if the item is in store, and its batch amount.
-If boolean, store is directly set.
-If 0, store is set to false.
-Otherwise store is set true and the value</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">val</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
 </ol>
 </dd>
 <dt><a name="ITEM.Replaced"></a><strong><span class="state state-client state-server">ITEM.Replaced</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L342">Source ☍</a></dt>
@@ -459,208 +542,125 @@ If called with no args, replaced flag is cleared.
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="ITEM.CanUse"></a><strong><span class="state state-client state-server">ITEM.CanUse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L372">Source ☍</a></dt>
+<dt><a name="ITEM.SetData"></a><strong><span class="state state-client state-server">ITEM.SetData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L110">Source ☍</a></dt>
 <dd>
-<p>Sets the canUse function for this item.</p>
+<p>Set a single key on the item.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
+<li><span class="parameter">value</span> <span class="types">any</span> Value to set.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="ITEM.OnUse"></a><strong><span class="state state-client state-server">ITEM.OnUse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L380">Source ☍</a></dt>
+<dt><a name="ITEM.SetModel"></a><strong><span class="state state-client state-server">ITEM.SetModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L235">Source ☍</a></dt>
 <dd>
-<p>Sets the onUse function for this item.</p>
+<p>Sets the model of the item.
+If model is true, the model and skin will be pulled from the store model.
+If autostore is true, model and skin will be pushed to the store model.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
+<li><span class="parameter">model</span> <span class="types">any</span></li>
+<li><span class="parameter">skin</span> <span class="types">any</span></li>
+<li><span class="parameter">autoStore</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="ITEM.CanGive"></a><strong><span class="state state-client state-server">ITEM.CanGive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L398">Source ☍</a></dt>
+<dt><a name="ITEM.SetName"></a><strong><span class="state state-client state-server">ITEM.SetName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L223">Source ☍</a></dt>
 <dd>
-<p>Sets the canGive function for this item.</p>
+<p>Sets the name of an item.
+If plural is undefined, defaults to &quot;&lt;name&gt;s&quot;
+If plural is true, it's set to &quot;&lt;name&gt;&quot;</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
+<li><span class="parameter">plural</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="ITEM.OnGive"></a><strong><span class="state state-client state-server">ITEM.OnGive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L406">Source ☍</a></dt>
+<dt><a name="ITEM.SetPlural"></a><strong><span class="state state-client state-server">ITEM.SetPlural</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L307">Source ☍</a></dt>
 <dd>
-<p>Sets the onGive function for this item.</p>
+<p>Sets the item's plural.
+If nil/false, item's name + s is used.
+If true, item's name is used.
+Otherwise passed name is used.
+@tparam[opt] string|true name</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="ITEM.CanRemove"></a><strong><span class="state state-client state-server">ITEM.CanRemove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L422">Source ☍</a></dt>
+<dt><a name="ITEM.SetSkin"></a><strong><span class="state state-client state-server">ITEM.SetSkin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L271">Source ☍</a></dt>
 <dd>
-<p>Sets the canRemove function for this item.</p>
+<p>Sets the skin of the item.
+If skin is true, it is pulled from the store skin.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
+<li><span class="parameter">skin</span> <span class="types">any</span></li>
+<li><span class="parameter">autoStore</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="ITEM.OnRemove"></a><strong><span class="state state-client state-server">ITEM.OnRemove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L430">Source ☍</a></dt>
+<dt><a name="ITEM.SetStore"></a><strong><span class="state state-client state-server">ITEM.SetStore</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L326">Source ☍</a></dt>
 <dd>
-<p>Sets the onRemove function for this item.</p>
+<p>Set if the item is in store, and its batch amount.
+If boolean, store is directly set.
+If 0, store is set to false.
+Otherwise store is set true and the value</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
+<li><span class="parameter">val</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="ITEM.CanDrop"></a><strong><span class="state state-client state-server">ITEM.CanDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L448">Source ☍</a></dt>
+<dt><a name="ITEM.SetStoreModel"></a><strong><span class="state state-client state-server">ITEM.SetStoreModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L255">Source ☍</a></dt>
 <dd>
-<p>Sets the canDrop function for this item.</p>
+<p>Sets the store model of the item.
+If model is true, the model and skin will be pulled from the regular model.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
+<li><span class="parameter">model</span> <span class="types">any</span></li>
+<li><span class="parameter">skin</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="ITEM.OnDrop"></a><strong><span class="state state-client state-server">ITEM.OnDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L456">Source ☍</a></dt>
+<dt><a name="ITEM.SetStoreSkin"></a><strong><span class="state state-client state-server">ITEM.SetStoreSkin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L288">Source ☍</a></dt>
 <dd>
-<p>Sets the onDrop function for this item.</p>
+<p>Sets the store skin of the item.
+If skin is true, it is pulled from the item skin.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.CanDestroy"></a><strong><span class="state state-client state-server">ITEM.CanDestroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L473">Source ☍</a></dt>
-<dd>
-<p>Sets the canDestroy function for this item.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.OnDestroy"></a><strong><span class="state state-client state-server">ITEM.OnDestroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L481">Source ☍</a></dt>
-<dd>
-<p>Sets the onDestroy function for this item.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.CanPickup"></a><strong><span class="state state-client state-server">ITEM.CanPickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L497">Source ☍</a></dt>
-<dd>
-<p>Sets the canPickup function for this item.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.OnPickup"></a><strong><span class="state state-client state-server">ITEM.OnPickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L505">Source ☍</a></dt>
-<dd>
-<p>Sets the onPickup function for this item.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.CanSell"></a><strong><span class="state state-client state-server">ITEM.CanSell</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L522">Source ☍</a></dt>
-<dd>
-<p>Sets the canSell function for this item.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.OnSell"></a><strong><span class="state state-client state-server">ITEM.OnSell</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L530">Source ☍</a></dt>
-<dd>
-<p>Sets the onSell function for this item.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.CanPlace"></a><strong><span class="state state-client state-server">ITEM.CanPlace</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L548">Source ☍</a></dt>
-<dd>
-<p>Sets the canPlace function for this item.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="ITEM.onPlace"></a><strong><span class="state state-client state-server">ITEM.onPlace</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L556">Source ☍</a></dt>
-<dd>
-<p>Sets the onPlace function for this item.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
+<li><span class="parameter">skin</span> <span class="types">any</span></li>
+<li><span class="parameter">autoStore</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
@@ -679,7 +679,76 @@ If called with no args, replaced flag is cleared.
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="ITEM.uniqueID"></a><strong><span class="state state-client state-server">ITEM.uniqueID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L119">Source ☍</a></dt>
+<dt><a name="ITEM.__index"></a><strong><span class="state state-client state-server">ITEM.__index</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L563">Source ☍</a></dt>
+<dd>
+<p>The lookup index for the item metatable.</p>
+
+
+
+</dd>
+<dt><a name="ITEM.batch"></a><strong><span class="state state-client state-server">ITEM.batch</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L331">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="ITEM.canDestroy"></a><strong><span class="state state-client state-server">ITEM.canDestroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L468">Source ☍</a></dt>
+<dd>
+<p>Checks if a item can be destroyed.</p>
+
+
+
+</dd>
+<dt><a name="ITEM.canDrop"></a><strong><span class="state state-client state-server">ITEM.canDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L443">Source ☍</a></dt>
+<dd>
+<p>Checks if a item can be dropped.</p>
+
+
+
+</dd>
+<dt><a name="ITEM.canGive"></a><strong><span class="state state-client state-server">ITEM.canGive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L393">Source ☍</a></dt>
+<dd>
+<p>Checks if a item can be given.</p>
+
+
+
+</dd>
+<dt><a name="ITEM.canPickup"></a><strong><span class="state state-client state-server">ITEM.canPickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L492">Source ☍</a></dt>
+<dd>
+<p>Checks if a item can be picked up.</p>
+
+
+
+</dd>
+<dt><a name="ITEM.canPlace"></a><strong><span class="state state-client state-server">ITEM.canPlace</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L543">Source ☍</a></dt>
+<dd>
+<p>Checks if a item can be placed.</p>
+
+
+
+</dd>
+<dt><a name="ITEM.canRemove"></a><strong><span class="state state-client state-server">ITEM.canRemove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L417">Source ☍</a></dt>
+<dd>
+<p>Checks if a item can be removed.</p>
+
+
+
+</dd>
+<dt><a name="ITEM.canSell"></a><strong><span class="state state-client state-server">ITEM.canSell</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L517">Source ☍</a></dt>
+<dd>
+<p>Checks if a item can be sold up.</p>
+
+
+
+</dd>
+<dt><a name="ITEM.canUse"></a><strong><span class="state state-client state-server">ITEM.canUse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L367">Source ☍</a></dt>
+<dd>
+<p>Checks if a item can be used.</p>
+
+
+
+</dd>
+<dt><a name="ITEM.model"></a><strong><span class="state state-client state-server">ITEM.model</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L237">Source ☍</a></dt>
 <dd>
 
 
@@ -691,43 +760,49 @@ If called with no args, replaced flag is cleared.
 
 
 </dd>
-<dt><a name="ITEM.model"></a><strong><span class="state state-client state-server">ITEM.model</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L237">Source ☍</a></dt>
+<dt><a name="ITEM.onDestroy"></a><strong><span class="state state-client state-server">ITEM.onDestroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L482">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="ITEM.skin"></a><strong><span class="state state-client state-server">ITEM.skin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L238">Source ☍</a></dt>
+<dt><a name="ITEM.onDrop"></a><strong><span class="state state-client state-server">ITEM.onDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L457">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="ITEM.storemodel"></a><strong><span class="state state-client state-server">ITEM.storemodel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L244">Source ☍</a></dt>
+<dt><a name="ITEM.onGive"></a><strong><span class="state state-client state-server">ITEM.onGive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L407">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="ITEM.storeskin"></a><strong><span class="state state-client state-server">ITEM.storeskin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L245">Source ☍</a></dt>
+<dt><a name="ITEM.onPickup"></a><strong><span class="state state-client state-server">ITEM.onPickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L506">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="ITEM.onRemove"></a><strong><span class="state state-client state-server">ITEM.onRemove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L431">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="ITEM.onSell"></a><strong><span class="state state-client state-server">ITEM.onSell</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L531">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="ITEM.onUse"></a><strong><span class="state state-client state-server">ITEM.onUse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L381">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
 <dt><a name="ITEM.plural"></a><strong><span class="state state-client state-server">ITEM.plural</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L309">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="ITEM.store"></a><strong><span class="state state-client state-server">ITEM.store</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L328">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="ITEM.batch"></a><strong><span class="state state-client state-server">ITEM.batch</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L331">Source ☍</a></dt>
 <dd>
 
 
@@ -745,107 +820,32 @@ If called with no args, replaced flag is cleared.
 
 
 </dd>
-<dt><a name="ITEM.canUse"></a><strong><span class="state state-client state-server">ITEM.canUse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L367">Source ☍</a></dt>
-<dd>
-<p>Checks if a item can be used.</p>
-
-
-
-</dd>
-<dt><a name="ITEM.onUse"></a><strong><span class="state state-client state-server">ITEM.onUse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L381">Source ☍</a></dt>
+<dt><a name="ITEM.skin"></a><strong><span class="state state-client state-server">ITEM.skin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L238">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="ITEM.canGive"></a><strong><span class="state state-client state-server">ITEM.canGive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L393">Source ☍</a></dt>
-<dd>
-<p>Checks if a item can be given.</p>
-
-
-
-</dd>
-<dt><a name="ITEM.onGive"></a><strong><span class="state state-client state-server">ITEM.onGive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L407">Source ☍</a></dt>
+<dt><a name="ITEM.store"></a><strong><span class="state state-client state-server">ITEM.store</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L328">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="ITEM.canRemove"></a><strong><span class="state state-client state-server">ITEM.canRemove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L417">Source ☍</a></dt>
-<dd>
-<p>Checks if a item can be removed.</p>
-
-
-
-</dd>
-<dt><a name="ITEM.onRemove"></a><strong><span class="state state-client state-server">ITEM.onRemove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L431">Source ☍</a></dt>
+<dt><a name="ITEM.storemodel"></a><strong><span class="state state-client state-server">ITEM.storemodel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L244">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="ITEM.canDrop"></a><strong><span class="state state-client state-server">ITEM.canDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L443">Source ☍</a></dt>
-<dd>
-<p>Checks if a item can be dropped.</p>
-
-
-
-</dd>
-<dt><a name="ITEM.onDrop"></a><strong><span class="state state-client state-server">ITEM.onDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L457">Source ☍</a></dt>
+<dt><a name="ITEM.storeskin"></a><strong><span class="state state-client state-server">ITEM.storeskin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L245">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="ITEM.canDestroy"></a><strong><span class="state state-client state-server">ITEM.canDestroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L468">Source ☍</a></dt>
+<dt><a name="ITEM.uniqueID"></a><strong><span class="state state-client state-server">ITEM.uniqueID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L119">Source ☍</a></dt>
 <dd>
-<p>Checks if a item can be destroyed.</p>
-
-
-
-</dd>
-<dt><a name="ITEM.onDestroy"></a><strong><span class="state state-client state-server">ITEM.onDestroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L482">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="ITEM.canPickup"></a><strong><span class="state state-client state-server">ITEM.canPickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L492">Source ☍</a></dt>
-<dd>
-<p>Checks if a item can be picked up.</p>
-
-
-
-</dd>
-<dt><a name="ITEM.onPickup"></a><strong><span class="state state-client state-server">ITEM.onPickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L506">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="ITEM.canSell"></a><strong><span class="state state-client state-server">ITEM.canSell</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L517">Source ☍</a></dt>
-<dd>
-<p>Checks if a item can be sold up.</p>
-
-
-
-</dd>
-<dt><a name="ITEM.onSell"></a><strong><span class="state state-client state-server">ITEM.onSell</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L531">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="ITEM.canPlace"></a><strong><span class="state state-client state-server">ITEM.canPlace</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L543">Source ☍</a></dt>
-<dd>
-<p>Checks if a item can be placed.</p>
-
-
-
-</dd>
-<dt><a name="ITEM.__index"></a><strong><span class="state state-client state-server">ITEM.__index</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemcore.lua#L563">Source ☍</a></dt>
-<dd>
-<p>The lookup index for the item metatable.</p>
 
 
 

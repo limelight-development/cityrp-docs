@@ -234,6 +234,16 @@
 The configuration file.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
+<dt><a name="meska.database.escapeGateway"></a><strong>meska.database.escapeGateway</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L29">Source ☍</a></dt>
+<dd>
+<p>Define gateway for database escaping</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">str</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
 <dt><a name="meska.database.queryGateway"></a><strong>meska.database.queryGateway</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L22">Source ☍</a></dt>
 <dd>
 <p>Define gateway for database quries</p>
@@ -245,49 +255,12 @@ The configuration file.</p></div>
 </ul>
 
 </dd>
-<dt><a name="meska.database.escapeGateway"></a><strong>meska.database.escapeGateway</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L29">Source ☍</a></dt>
-<dd>
-<p>Define gateway for database escaping</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">str</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="meska.database.tables"></a><strong>meska.database.tables</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L34">Source ☍</a></dt>
-<dd>
-<p>Configure database tables</p>
-
-
-
-</dd>
-<dt><a name="meska.conf.rods"></a><strong>meska.conf.rods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L67">Source ☍</a></dt>
-<dd>
-<p>Skill specific configuration for:</p>
-<h3>Deprecated:</h3>
-<ul>
-<li><span class='tag-deprecated'>This function is deprecated and may be removed in a future version.<br>This will be moved to a separate skill-file. Fishing Skill config</span></li>
-</ul>
-
-
-</dd>
 <dt><a name="meska.conf.defaults"></a><strong>meska.conf.defaults</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L76">Source ☍</a></dt>
 <dd>
 <p>Default levels and exp at which the player starts.</p>
-<h3>Deprecated:</h3>
-<ul>
-<li><span class='tag-deprecated'>This function is deprecated and may be removed in a future version.<br>This will be moved to a separate skill-file.</span></li>
-</ul>
-
-
-</dd>
-<dt><a name="meska.conf.perks"></a><strong>meska.conf.perks</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L89">Source ☍</a></dt>
-<dd>
-<p>Default perks.</p>
 <h3>Deprecated:</h3>
 <ul>
 <li><span class='tag-deprecated'>This function is deprecated and may be removed in a future version.<br>This will be moved to a separate skill-file.</span></li>
@@ -305,6 +278,26 @@ The configuration file.</p></div>
 
 
 </dd>
+<dt><a name="meska.conf.perks"></a><strong>meska.conf.perks</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L89">Source ☍</a></dt>
+<dd>
+<p>Default perks.</p>
+<h3>Deprecated:</h3>
+<ul>
+<li><span class='tag-deprecated'>This function is deprecated and may be removed in a future version.<br>This will be moved to a separate skill-file.</span></li>
+</ul>
+
+
+</dd>
+<dt><a name="meska.conf.rods"></a><strong>meska.conf.rods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L67">Source ☍</a></dt>
+<dd>
+<p>Skill specific configuration for:</p>
+<h3>Deprecated:</h3>
+<ul>
+<li><span class='tag-deprecated'>This function is deprecated and may be removed in a future version.<br>This will be moved to a separate skill-file. Fishing Skill config</span></li>
+</ul>
+
+
+</dd>
 <dt><a name="meska.conf.skills"></a><strong>meska.conf.skills</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L161">Source ☍</a></dt>
 <dd>
 <p>[skill] = { [type] = { lvl, exp, ... } }
@@ -317,23 +310,16 @@ and level based on dailybonus and percentage of skill level</p>
 
 
 </dd>
+<dt><a name="meska.database.tables"></a><strong>meska.database.tables</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L34">Source ☍</a></dt>
+<dd>
+<p>Configure database tables</p>
+
+
+
+</dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="meska.conf.gmfolder"></a><strong>meska.conf.gmfolder</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L12">Source ☍</a></dt>
-<dd>
-<p>GM Folder</p>
-
-
-
-</dd>
-<dt><a name="meska.database"></a><strong>meska.database</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L18">Source ☍</a></dt>
-<dd>
-<p>Register database provider</p>
-
-
-
-</dd>
 <dt><a name="meska.cache"></a><strong>meska.cache</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L46">Source ☍</a></dt>
 <dd>
 <p>Register cache provider</p>
@@ -344,6 +330,20 @@ and level based on dailybonus and percentage of skill level</p>
 <dt><a name="meska.cache.enabled"></a><strong>meska.cache.enabled</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L56">Source ☍</a></dt>
 <dd>
 <p>Enable caching</p>
+
+
+
+</dd>
+<dt><a name="meska.conf.gmfolder"></a><strong>meska.conf.gmfolder</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L12">Source ☍</a></dt>
+<dd>
+<p>GM Folder</p>
+
+
+
+</dd>
+<dt><a name="meska.database"></a><strong>meska.database</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/config.lua#L18">Source ☍</a></dt>
+<dd>
+<p>Register database provider</p>
 
 
 

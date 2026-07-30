@@ -232,29 +232,6 @@
 The skill-system core functions.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="meska.skills.loadFor"></a><strong><span class="state state-server">meska.skills.loadFor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/skills/server/init.lua#L17">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Fetches player skills from db.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player Entity. @func[opt] cb Callback Function.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="meska.skills.capLevels"></a><strong><span class="state state-server">meska.skills.capLevels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/skills/server/init.lua#L75">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Caps all levels by meska.conf.defaults[skill].</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player Entity.</li>
-</ul>
-
-</dd>
 <dt><a name="meska.skills.announceLevel"></a><strong><span class="state state-server">meska.skills.announceLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/skills/server/init.lua#L98">Source ☍</a></dt>
 <dd>
 <hr />
@@ -268,20 +245,16 @@ The skill-system core functions.</p></div>
 </ul>
 
 </dd>
-<dt><a name="meska.skills.getProductsBySkillLevel"></a><strong><span class="state state-server">meska.skills.getProductsBySkillLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/skills/server/init.lua#L111">Source ☍</a></dt>
+<dt><a name="meska.skills.capLevels"></a><strong><span class="state state-server">meska.skills.capLevels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/skills/server/init.lua#L75">Source ☍</a></dt>
 <dd>
 <hr />
-<p>Gets eligable products by skill and level.</p>
+<p>Caps all levels by meska.conf.defaults[skill].</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">ply</span> <span class="types">any</span> Player Entity.</li>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table|nil</span> Products table or nil.</li>
-</ol>
+
 </dd>
 <dt><a name="meska.skills.getProductsBySkillFilter"></a><strong><span class="state state-server">meska.skills.getProductsBySkillFilter</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/skills/server/init.lua#L136">Source ☍</a></dt>
 <dd>
@@ -298,6 +271,33 @@ The skill-system core functions.</p></div>
 <ol>
 <li><span class="types">table|nil</span> Products table or nil.</li>
 </ol>
+</dd>
+<dt><a name="meska.skills.getProductsBySkillLevel"></a><strong><span class="state state-server">meska.skills.getProductsBySkillLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/skills/server/init.lua#L111">Source ☍</a></dt>
+<dd>
+<hr />
+<p>Gets eligable products by skill and level.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> Player Entity.</li>
+<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table|nil</span> Products table or nil.</li>
+</ol>
+</dd>
+<dt><a name="meska.skills.loadFor"></a><strong><span class="state state-server">meska.skills.loadFor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/skills/server/init.lua#L17">Source ☍</a></dt>
+<dd>
+<hr />
+<p>Fetches player skills from db.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> Player Entity. @func[opt] cb Callback Function.</li>
+<li><span class="parameter">cb</span> <span class="types">any</span></li>
+</ul>
+
 </dd>
 <dt><a name="meska.skills.setup"></a><strong><span class="state state-server">meska.skills.setup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/skills/server/init.lua#L172">Source ☍</a></dt>
 <dd>

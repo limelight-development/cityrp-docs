@@ -232,15 +232,16 @@
 <div class="ll-module-body"><p>Temar's help file.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="temar.p"></a><strong><span class="state state-server">temar.p</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L22">Source ☍</a></dt>
+<dt><a name="cityrp.limitspeed"></a><strong><span class="state state-server">cityrp.limitspeed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L323">Source ☍</a></dt>
 <dd>
-<p>Grab temar's user.</p>
+<p>Limit a vehicle's speed.</p>
 
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">veh</span> <span class="types">any</span></li>
+<li><span class="parameter">maxspeed</span> <span class="types">any</span></li>
+</ul>
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
-</ol>
 </dd>
 <dt><a name="temar.it"></a><strong><span class="state state-server">temar.it</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L36">Source ☍</a></dt>
 <dd>
@@ -255,6 +256,44 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
+<dt><a name="temar.m"></a><strong><span class="state state-server">temar.m</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L70">Source ☍</a></dt>
+<dd>
+<p>Message temar.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">msg</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="temar.map"></a><strong><span class="state state-server">temar.map</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L84">Source ☍</a></dt>
+<dd>
+<p>Restart the map.</p>
+
+
+
+</dd>
+<dt><a name="temar.p"></a><strong><span class="state state-server">temar.p</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L22">Source ☍</a></dt>
+<dd>
+<p>Grab temar's user.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="temar.pcall"></a><strong><span class="state state-server">temar.pcall</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L420">Source ☍</a></dt>
+<dd>
+<p>pcall a function and output the error to temar if it fails.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">func</span> <span class="types">any</span></li>
+<li><span class="parameter"></span> <span class="types">unknown</span></li>
+</ul>
+
+</dd>
 <dt><a name="temar.pos"></a><strong><span class="state state-server">temar.pos</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L61">Source ☍</a></dt>
 <dd>
 <p>Grab temar's eye trace hitpos.</p>
@@ -265,13 +304,13 @@
 <li><span class="types">unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="temar.m"></a><strong><span class="state state-server">temar.m</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L70">Source ☍</a></dt>
+<dt><a name="temar.pt"></a><strong><span class="state state-server">temar.pt</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L90">Source ☍</a></dt>
 <dd>
-<p>Message temar.</p>
+<p>Send a table to temar.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">msg</span> <span class="types">any</span></li>
+<li><span class="parameter">tbl</span> <span class="types">any</span></li>
 </ul>
 
 </dd>
@@ -285,34 +324,6 @@
 <li><span class="types">string</span> </li>
 </ol>
 </dd>
-<dt><a name="temar.map"></a><strong><span class="state state-server">temar.map</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L84">Source ☍</a></dt>
-<dd>
-<p>Restart the map.</p>
-
-
-
-</dd>
-<dt><a name="temar.pt"></a><strong><span class="state state-server">temar.pt</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L90">Source ☍</a></dt>
-<dd>
-<p>Send a table to temar.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">tbl</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.limitspeed"></a><strong><span class="state state-server">cityrp.limitspeed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L323">Source ☍</a></dt>
-<dd>
-<p>Limit a vehicle's speed.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">veh</span> <span class="types">any</span></li>
-<li><span class="parameter">maxspeed</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
 <dt><a name="temar.sinc"></a><strong><span class="state state-server">temar.sinc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L408">Source ☍</a></dt>
 <dd>
 <p>Include a file from lua/temar.</p>
@@ -322,17 +333,6 @@
 <li><span class="parameter">ply</span> <span class="types">any</span></li>
 <li><span class="parameter">_</span> <span class="types">any</span></li>
 <li><span class="parameter">file</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="temar.pcall"></a><strong><span class="state state-server">temar.pcall</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_temar.lua#L420">Source ☍</a></dt>
-<dd>
-<p>pcall a function and output the error to temar if it fails.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-<li><span class="parameter"></span> <span class="types">unknown</span></li>
 </ul>
 
 </dd>

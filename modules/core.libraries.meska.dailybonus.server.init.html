@@ -234,19 +234,21 @@
 The dailybonus-system core functions.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="meska.dailybonus.load"></a><strong><span class="state state-server">meska.dailybonus.load</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L20">Source ☍</a></dt>
+<dt><a name="meska.dailybonus.add"></a><strong><span class="state state-server">meska.dailybonus.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L102">Source ☍</a></dt>
 <dd>
 <hr />
-<h2>Loads all dailybonuses from DB or storage.
-@func[opt] cb Callback Function.</h2>
+<p>Adds dailybonus for a skill to the storage.</p>
 
 <h3>Parameters:</h3>
 <ul>
+<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
+<li><span class="parameter">buff</span> <span class="types">any</span> The buff.</li>
+<li><span class="parameter">tmp</span> <span class="types">any</span> If false, store in db. Default: false. @func[opt] cb Callback Function with id as return value.</li>
 <li><span class="parameter">cb</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">table</span> </li>
+<li><span class="types">integer|nil</span> </li>
 </ol>
 </dd>
 <dt><a name="meska.dailybonus.get"></a><strong><span class="state state-server">meska.dailybonus.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L60">Source ☍</a></dt>
@@ -278,38 +280,19 @@ for a skill.</p>
 <li><span class="types">table</span> Active dailybonuses.</li>
 </ol>
 </dd>
-<dt><a name="meska.dailybonus.add"></a><strong><span class="state state-server">meska.dailybonus.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L102">Source ☍</a></dt>
+<dt><a name="meska.dailybonus.load"></a><strong><span class="state state-server">meska.dailybonus.load</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L20">Source ☍</a></dt>
 <dd>
 <hr />
-<p>Adds dailybonus for a skill to the storage.</p>
+<h2>Loads all dailybonuses from DB or storage.
+@func[opt] cb Callback Function.</h2>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-<li><span class="parameter">buff</span> <span class="types">any</span> The buff.</li>
-<li><span class="parameter">tmp</span> <span class="types">any</span> If false, store in db. Default: false. @func[opt] cb Callback Function with id as return value.</li>
 <li><span class="parameter">cb</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">integer|nil</span> </li>
-</ol>
-</dd>
-<dt><a name="meska.dailybonus.update"></a><strong><span class="state state-server">meska.dailybonus.update</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L149">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Updates dailybonus.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-<li><span class="parameter">id</span> <span class="types">any</span> The id.</li>
-<li><span class="parameter">buff</span> <span class="types">any</span> The buff. @func[opt] cb Callback Function.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">nil</span> </li>
+<li><span class="types">table</span> </li>
 </ol>
 </dd>
 <dt><a name="meska.dailybonus.remove"></a><strong><span class="state state-server">meska.dailybonus.remove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L185">Source ☍</a></dt>
@@ -351,6 +334,23 @@ for a skill.</p>
 <li><span class="parameter">cb</span> <span class="types">any</span></li>
 </ul>
 
+</dd>
+<dt><a name="meska.dailybonus.update"></a><strong><span class="state state-server">meska.dailybonus.update</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L149">Source ☍</a></dt>
+<dd>
+<hr />
+<p>Updates dailybonus.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
+<li><span class="parameter">id</span> <span class="types">any</span> The id.</li>
+<li><span class="parameter">buff</span> <span class="types">any</span> The buff. @func[opt] cb Callback Function.</li>
+<li><span class="parameter">cb</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">nil</span> </li>
+</ol>
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>

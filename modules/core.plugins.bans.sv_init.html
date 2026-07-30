@@ -233,38 +233,7 @@
 Product: &quot;CityRP 2 (Roleplay)&quot;.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.loadAllBans"></a><strong><span class="state state-server">cityrp.loadAllBans</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L12">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="formattime"></a><strong><span class="state state-server">formattime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L31">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">time</span> <span class="types">any</span></li>
-<li><span class="parameter">showmins</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> </li>
-</ol>
-</dd>
 <dt><a name="cityrp.bans.ban"></a><strong><span class="state state-server">cityrp.bans.ban</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L76">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">targ</span> <span class="types">any</span></li>
-<li><span class="parameter">timeStr</span> <span class="types">any</span></li>
-<li><span class="parameter"></span> <span class="types">unknown</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.bans.gban"></a><strong><span class="state state-server">cityrp.bans.gban</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L96">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -288,12 +257,20 @@ Product: &quot;CityRP 2 (Roleplay)&quot;.</p></div>
 </ul>
 
 </dd>
-<dt><a name="cityrp.bans.unbanid"></a><strong><span class="state state-server">cityrp.bans.unbanid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L150">Source ☍</a></dt>
+<dt><a name="cityrp.bans.CheckPlayer"></a><strong><span class="state state-server">cityrp.bans.CheckPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L342">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">ply</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.bans.ClearBan"></a><strong><span class="state state-server">cityrp.bans.ClearBan</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L286">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
 <li><span class="parameter">targ</span> <span class="types">any</span></li>
 </ul>
 
@@ -328,12 +305,21 @@ Product: &quot;CityRP 2 (Roleplay)&quot;.</p></div>
 </ul>
 
 </dd>
-<dt><a name="cityrp.bans.ClearBan"></a><strong><span class="state state-server">cityrp.bans.ClearBan</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L286">Source ☍</a></dt>
+<dt><a name="cityrp.bans.DoBans"></a><strong><span class="state state-server">cityrp.bans.DoBans</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L301">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.bans.gban"></a><strong><span class="state state-server">cityrp.bans.gban</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L96">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
 <ul>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
 <li><span class="parameter">targ</span> <span class="types">any</span></li>
+<li><span class="parameter">timeStr</span> <span class="types">any</span></li>
+<li><span class="parameter"></span> <span class="types">unknown</span></li>
 </ul>
 
 </dd>
@@ -343,13 +329,7 @@ Product: &quot;CityRP 2 (Roleplay)&quot;.</p></div>
 
 
 </dd>
-<dt><a name="cityrp.bans.DoBans"></a><strong><span class="state state-server">cityrp.bans.DoBans</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L301">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.bans.CheckPlayer"></a><strong><span class="state state-server">cityrp.bans.CheckPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L342">Source ☍</a></dt>
+<dt><a name="cityrp.bans.SaveDisconnected"></a><strong><span class="state state-server">cityrp.bans.SaveDisconnected</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L390">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -370,19 +350,45 @@ Product: &quot;CityRP 2 (Roleplay)&quot;.</p></div>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.bans.SaveDisconnected"></a><strong><span class="state state-server">cityrp.bans.SaveDisconnected</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L390">Source ☍</a></dt>
+<dt><a name="cityrp.bans.unbanid"></a><strong><span class="state state-server">cityrp.bans.unbanid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L150">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">targ</span> <span class="types">any</span></li>
 </ul>
 
+</dd>
+<dt><a name="cityrp.loadAllBans"></a><strong><span class="state state-server">cityrp.loadAllBans</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L12">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="formattime"></a><strong><span class="state state-server">formattime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L31">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">time</span> <span class="types">any</span></li>
+<li><span class="parameter">showmins</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> </li>
+</ol>
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
 <dt><a name="cityrp.bans"></a><strong><span class="state state-server">cityrp.bans</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L7">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.bans._allbans"></a><strong><span class="state state-server">cityrp.bans._allbans</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L10">Source ☍</a></dt>
 <dd>
 
 
@@ -395,12 +401,6 @@ Product: &quot;CityRP 2 (Roleplay)&quot;.</p></div>
 
 </dd>
 <dt><a name="cityrp.bans.discplayers"></a><strong><span class="state state-server">cityrp.bans.discplayers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L9">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.bans._allbans"></a><strong><span class="state state-server">cityrp.bans._allbans</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/bans/sv_init.lua#L10">Source ☍</a></dt>
 <dd>
 
 

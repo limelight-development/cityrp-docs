@@ -233,24 +233,6 @@
 <div class="ll-module-body"><p>Unisec Keypads</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="usec.RandomPW"></a><strong><span class="state state-client state-server">usec.RandomPW</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L128">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="usec.IsPW"></a><strong><span class="state state-client state-server">usec.IsPW</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L132">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">pw</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
-</ol>
-</dd>
 <dt><a name="usec.InBounds"></a><strong><span class="state state-client state-server">usec.InBounds</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L149">Source ☍</a></dt>
 <dd>
 
@@ -267,6 +249,24 @@
 <ol>
 <li><span class="types">boolean</span> </li>
 </ol>
+</dd>
+<dt><a name="usec.IsPW"></a><strong><span class="state state-client state-server">usec.IsPW</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L132">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">pw</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="usec.RandomPW"></a><strong><span class="state state-client state-server">usec.RandomPW</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L128">Source ☍</a></dt>
+<dd>
+
+
+
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
@@ -290,6 +290,12 @@ If you don't want anyone to have permission, use a non-existant usergroup, such 
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
+<dt><a name="prevent.Wire_TriggerOutput"></a><strong><span class="state state-client state-server">prevent.Wire_TriggerOutput</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L195">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
 <dt><a name="usec"></a><strong><span class="state state-client state-server">usec</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L7">Source ☍</a></dt>
 <dd>
 
@@ -302,22 +308,86 @@ If you don't want anyone to have permission, use a non-existant usergroup, such 
 
 
 </dd>
-<dt><a name="usec.Config.ToolCategory"></a><strong><span class="state state-client state-server">usec.Config.ToolCategory</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L11">Source ☍</a></dt>
+<dt><a name="usec.Config.AllowPasscode"></a><strong><span class="state state-client state-server">usec.Config.AllowPasscode</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L38">Source ☍</a></dt>
 <dd>
-<p>The category of the tool in the spawnmenu</p>
+<p>Whether to require passcodes on doors for unauthorized users.</p>
 
 
 
 </dd>
-<dt><a name="usec.Config.ToolName"></a><strong><span class="state state-client state-server">usec.Config.ToolName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L12">Source ☍</a></dt>
+<dt><a name="usec.Config.AlwaysShowCable"></a><strong><span class="state state-client state-server">usec.Config.AlwaysShowCable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L34">Source ☍</a></dt>
 <dd>
-<p>The name of the tool</p>
+<p>Whether to show cables between fading doors and keypads</p>
 
 
 
 </dd>
-<dt><a name="usec.Config.ToolNameCopier"></a><strong><span class="state state-client state-server">usec.Config.ToolNameCopier</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L13">Source ☍</a></dt>
+<dt><a name="usec.Config.CrackerBlipEnabled"></a><strong><span class="state state-client state-server">usec.Config.CrackerBlipEnabled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L22">Source ☍</a></dt>
 <dd>
+<p>Whether to make the keypad cracker blip occasionally and loudly while cracking.</p>
+
+
+
+</dd>
+<dt><a name="usec.Config.CrackerBlipInterval"></a><strong><span class="state state-client state-server">usec.Config.CrackerBlipInterval</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L23">Source ☍</a></dt>
+<dd>
+<p>How often to blip, if enabled.</p>
+
+
+
+</dd>
+<dt><a name="usec.Config.CrackerBlipVolume"></a><strong><span class="state state-client state-server">usec.Config.CrackerBlipVolume</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L24">Source ☍</a></dt>
+<dd>
+<p>How loudly to blip, if enabled. 75 is quiet, 100 is loud.</p>
+
+
+
+</dd>
+<dt><a name="usec.Config.CrackerResetPW"></a><strong><span class="state state-client state-server">usec.Config.CrackerResetPW</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L26">Source ☍</a></dt>
+<dd>
+<p>Whether to make the keypad cracker randomize the passcode on a successful crack.</p>
+
+
+
+</dd>
+<dt><a name="usec.Config.CrackerSlot"></a><strong><span class="state state-client state-server">usec.Config.CrackerSlot</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L28">Source ☍</a></dt>
+<dd>
+<p>Which weapon slot to put the keypad cracker in.</p>
+
+
+
+</dd>
+<dt><a name="usec.Config.CrackerTimeout"></a><strong><span class="state state-client state-server">usec.Config.CrackerTimeout</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L25">Source ☍</a></dt>
+<dd>
+<p>How long after cracking a keypad that it can be cracked instantly again. 0 to disable.</p>
+
+
+
+</dd>
+<dt><a name="usec.Config.CrackerUseRealPW"></a><strong><span class="state state-client state-server">usec.Config.CrackerUseRealPW</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L27">Source ☍</a></dt>
+<dd>
+<p>Whether to use the real passcode of the keypad when cracking it.</p>
+
+
+
+</dd>
+<dt><a name="usec.Config.LimitFailMessage"></a><strong><span class="state state-client state-server">usec.Config.LimitFailMessage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L41">Source ☍</a></dt>
+<dd>
+<p>The message to display when a limit is reached. <code>%s</code> is replaced with &quot;Keypad&quot; or &quot;Door&quot; depending on which limit is hit.</p>
+
+
+
+</dd>
+<dt><a name="usec.Config.LockpickAllowed"></a><strong><span class="state state-client state-server">usec.Config.LockpickAllowed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L30">Source ☍</a></dt>
+<dd>
+<p>Whether players can lockpick fading doors directly.</p>
+
+
+
+</dd>
+<dt><a name="usec.Config.MaxLogs"></a><strong><span class="state state-client state-server">usec.Config.MaxLogs</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L43">Source ☍</a></dt>
+<dd>
+<p>How many usage logs to keep per keypad before old ones get tossed out.</p>
 
 
 
@@ -351,72 +421,9 @@ Whether to flicker and buzz if there is something in the way of the door.</p>
 
 
 </dd>
-<dt><a name="usec.Config.CrackerBlipEnabled"></a><strong><span class="state state-client state-server">usec.Config.CrackerBlipEnabled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L22">Source ☍</a></dt>
+<dt><a name="usec.Config.ShowCableInAdminCracker"></a><strong><span class="state state-client state-server">usec.Config.ShowCableInAdminCracker</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L36">Source ☍</a></dt>
 <dd>
-<p>Whether to make the keypad cracker blip occasionally and loudly while cracking.</p>
-
-
-
-</dd>
-<dt><a name="usec.Config.CrackerBlipInterval"></a><strong><span class="state state-client state-server">usec.Config.CrackerBlipInterval</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L23">Source ☍</a></dt>
-<dd>
-<p>How often to blip, if enabled.</p>
-
-
-
-</dd>
-<dt><a name="usec.Config.CrackerBlipVolume"></a><strong><span class="state state-client state-server">usec.Config.CrackerBlipVolume</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L24">Source ☍</a></dt>
-<dd>
-<p>How loudly to blip, if enabled. 75 is quiet, 100 is loud.</p>
-
-
-
-</dd>
-<dt><a name="usec.Config.CrackerTimeout"></a><strong><span class="state state-client state-server">usec.Config.CrackerTimeout</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L25">Source ☍</a></dt>
-<dd>
-<p>How long after cracking a keypad that it can be cracked instantly again. 0 to disable.</p>
-
-
-
-</dd>
-<dt><a name="usec.Config.CrackerResetPW"></a><strong><span class="state state-client state-server">usec.Config.CrackerResetPW</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L26">Source ☍</a></dt>
-<dd>
-<p>Whether to make the keypad cracker randomize the passcode on a successful crack.</p>
-
-
-
-</dd>
-<dt><a name="usec.Config.CrackerUseRealPW"></a><strong><span class="state state-client state-server">usec.Config.CrackerUseRealPW</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L27">Source ☍</a></dt>
-<dd>
-<p>Whether to use the real passcode of the keypad when cracking it.</p>
-
-
-
-</dd>
-<dt><a name="usec.Config.CrackerSlot"></a><strong><span class="state state-client state-server">usec.Config.CrackerSlot</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L28">Source ☍</a></dt>
-<dd>
-<p>Which weapon slot to put the keypad cracker in.</p>
-
-
-
-</dd>
-<dt><a name="usec.Config.LockpickAllowed"></a><strong><span class="state state-client state-server">usec.Config.LockpickAllowed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L30">Source ☍</a></dt>
-<dd>
-<p>Whether players can lockpick fading doors directly.</p>
-
-
-
-</dd>
-<dt><a name="usec.Config.UseDelay"></a><strong><span class="state state-client state-server">usec.Config.UseDelay</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L32">Source ☍</a></dt>
-<dd>
-<p>How long the &quot;Access Granted&quot; message is visible and the keypad is unusable on a non-timed keypad.</p>
-
-
-
-</dd>
-<dt><a name="usec.Config.AlwaysShowCable"></a><strong><span class="state state-client state-server">usec.Config.AlwaysShowCable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L34">Source ☍</a></dt>
-<dd>
-<p>Whether to show cables between fading doors and keypads</p>
+<p>Whether to show cables between fading doors and keypads while holding the ADMIN keypad cracker.</p>
 
 
 
@@ -428,20 +435,6 @@ Whether to flicker and buzz if there is something in the way of the door.</p>
 
 
 </dd>
-<dt><a name="usec.Config.ShowCableInAdminCracker"></a><strong><span class="state state-client state-server">usec.Config.ShowCableInAdminCracker</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L36">Source ☍</a></dt>
-<dd>
-<p>Whether to show cables between fading doors and keypads while holding the ADMIN keypad cracker.</p>
-
-
-
-</dd>
-<dt><a name="usec.Config.AllowPasscode"></a><strong><span class="state state-client state-server">usec.Config.AllowPasscode</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L38">Source ☍</a></dt>
-<dd>
-<p>Whether to require passcodes on doors for unauthorized users.</p>
-
-
-
-</dd>
 <dt><a name="usec.Config.ShowCursor"></a><strong><span class="state state-client state-server">usec.Config.ShowCursor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L39">Source ☍</a></dt>
 <dd>
 <p>Whether to show the cursor when the number pad is visible.</p>
@@ -449,16 +442,29 @@ Whether to flicker and buzz if there is something in the way of the door.</p>
 
 
 </dd>
-<dt><a name="usec.Config.LimitFailMessage"></a><strong><span class="state state-client state-server">usec.Config.LimitFailMessage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L41">Source ☍</a></dt>
+<dt><a name="usec.Config.ToolCategory"></a><strong><span class="state state-client state-server">usec.Config.ToolCategory</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L11">Source ☍</a></dt>
 <dd>
-<p>The message to display when a limit is reached. <code>%s</code> is replaced with &quot;Keypad&quot; or &quot;Door&quot; depending on which limit is hit.</p>
+<p>The category of the tool in the spawnmenu</p>
 
 
 
 </dd>
-<dt><a name="usec.Config.MaxLogs"></a><strong><span class="state state-client state-server">usec.Config.MaxLogs</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L43">Source ☍</a></dt>
+<dt><a name="usec.Config.ToolName"></a><strong><span class="state state-client state-server">usec.Config.ToolName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L12">Source ☍</a></dt>
 <dd>
-<p>How many usage logs to keep per keypad before old ones get tossed out.</p>
+<p>The name of the tool</p>
+
+
+
+</dd>
+<dt><a name="usec.Config.ToolNameCopier"></a><strong><span class="state state-client state-server">usec.Config.ToolNameCopier</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L13">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="usec.Config.UseDelay"></a><strong><span class="state state-client state-server">usec.Config.UseDelay</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L32">Source ☍</a></dt>
+<dd>
+<p>How long the &quot;Access Granted&quot; message is visible and the keypad is unusable on a non-timed keypad.</p>
 
 
 
@@ -466,12 +472,6 @@ Whether to flicker and buzz if there is something in the way of the door.</p>
 <dt><a name="usec.Config.UseWorkshop"></a><strong><span class="state state-client state-server">usec.Config.UseWorkshop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L45">Source ☍</a></dt>
 <dd>
 <p>If true, players will download the materials for this script from the workshop. False will be fastdl.</p>
-
-
-
-</dd>
-<dt><a name="prevent.Wire_TriggerOutput"></a><strong><span class="state state-client state-server">prevent.Wire_TriggerOutput</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/unisec-keypads/sh_init.lua#L195">Source ☍</a></dt>
-<dd>
 
 
 

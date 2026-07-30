@@ -233,77 +233,24 @@
 <div class="ll-module-body"><p>Console Pseudoplayer Library</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="CONSOLE.Name"></a><strong><span class="state state-server">CONSOLE.Name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L27">Source ☍</a></dt>
+<dt><a name="CONSOLE.ChatPrint"></a><strong><span class="state state-server">CONSOLE.ChatPrint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L109">Source ☍</a></dt>
 <dd>
-<p>Get the console pseudoplayer's name.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> Always returns &quot;Console&quot;.</li>
-</ol>
-</dd>
-<dt><a name="CONSOLE.SteamID"></a><strong><span class="state state-server">CONSOLE.SteamID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L33">Source ☍</a></dt>
-<dd>
-<p>Get the console pseudoplayer's SteamID.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> Always returns &quot;CONSOLE&quot;.</li>
-</ol>
-</dd>
-<dt><a name="CONSOLE.IsValid"></a><strong><span class="state state-server">CONSOLE.IsValid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L39">Source ☍</a></dt>
-<dd>
-<p>Check if the console pseudoplayer is valid.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Always returns true.</li>
-</ol>
-</dd>
-<dt><a name="CONSOLE.IsPlayer"></a><strong><span class="state state-server">CONSOLE.IsPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L45">Source ☍</a></dt>
-<dd>
-<p>Check if the console pseudoplayer is a player.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Always returns true for compatibility with player checks.</li>
-</ol>
-</dd>
-<dt><a name="CONSOLE.IsAdmin"></a><strong><span class="state state-server">CONSOLE.IsAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L51">Source ☍</a></dt>
-<dd>
-<p>Check if the console pseudoplayer has admin privileges.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Always returns true.</li>
-</ol>
-</dd>
-<dt><a name="CONSOLE.IsSuperAdmin"></a><strong><span class="state state-server">CONSOLE.IsSuperAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L57">Source ☍</a></dt>
-<dd>
-<p>Check if the console pseudoplayer has superadmin privileges.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Always returns true.</li>
-</ol>
-</dd>
-<dt><a name="CONSOLE.HasAccess"></a><strong><span class="state state-server">CONSOLE.HasAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L64">Source ☍</a></dt>
-<dd>
-<p>Check if the console pseudoplayer has specific access.</p>
+<p>Print a chat message to the console.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">tag</span> <span class="types">string</span> The access tag to check (ignored for console).</li>
+<li><span class="parameter">msg</span> <span class="types">string</span> The message to print.</li>
 </ul>
+
+</dd>
+<dt><a name="CONSOLE.EntIndex"></a><strong><span class="state state-server">CONSOLE.EntIndex</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L115">Source ☍</a></dt>
+<dd>
+<p>Get the console pseudoplayer's entity index.</p>
+
+
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">boolean</span> Always returns true.</li>
+<li><span class="types">number</span> Always returns the WorldIndex</li>
 </ol>
 </dd>
 <dt><a name="CONSOLE.EventMgr"></a><strong><span class="state state-server">CONSOLE.EventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L70">Source ☍</a></dt>
@@ -324,6 +271,69 @@
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">string</span> Always returns &quot;console&quot;.</li>
+</ol>
+</dd>
+<dt><a name="CONSOLE.HasAccess"></a><strong><span class="state state-server">CONSOLE.HasAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L64">Source ☍</a></dt>
+<dd>
+<p>Check if the console pseudoplayer has specific access.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">tag</span> <span class="types">string</span> The access tag to check (ignored for console).</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> Always returns true.</li>
+</ol>
+</dd>
+<dt><a name="CONSOLE.IsAdmin"></a><strong><span class="state state-server">CONSOLE.IsAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L51">Source ☍</a></dt>
+<dd>
+<p>Check if the console pseudoplayer has admin privileges.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> Always returns true.</li>
+</ol>
+</dd>
+<dt><a name="CONSOLE.IsPlayer"></a><strong><span class="state state-server">CONSOLE.IsPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L45">Source ☍</a></dt>
+<dd>
+<p>Check if the console pseudoplayer is a player.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> Always returns true for compatibility with player checks.</li>
+</ol>
+</dd>
+<dt><a name="CONSOLE.IsSuperAdmin"></a><strong><span class="state state-server">CONSOLE.IsSuperAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L57">Source ☍</a></dt>
+<dd>
+<p>Check if the console pseudoplayer has superadmin privileges.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> Always returns true.</li>
+</ol>
+</dd>
+<dt><a name="CONSOLE.IsValid"></a><strong><span class="state state-server">CONSOLE.IsValid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L39">Source ☍</a></dt>
+<dd>
+<p>Check if the console pseudoplayer is valid.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> Always returns true.</li>
+</ol>
+</dd>
+<dt><a name="CONSOLE.Name"></a><strong><span class="state state-server">CONSOLE.Name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L27">Source ☍</a></dt>
+<dd>
+<p>Get the console pseudoplayer's name.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> Always returns &quot;Console&quot;.</li>
 </ol>
 </dd>
 <dt><a name="CONSOLE.Notify"></a><strong><span class="state state-server">CONSOLE.Notify</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L84">Source ☍</a></dt>
@@ -359,24 +369,14 @@
 </ul>
 
 </dd>
-<dt><a name="CONSOLE.ChatPrint"></a><strong><span class="state state-server">CONSOLE.ChatPrint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L109">Source ☍</a></dt>
+<dt><a name="CONSOLE.SteamID"></a><strong><span class="state state-server">CONSOLE.SteamID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L33">Source ☍</a></dt>
 <dd>
-<p>Print a chat message to the console.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">msg</span> <span class="types">string</span> The message to print.</li>
-</ul>
-
-</dd>
-<dt><a name="CONSOLE.EntIndex"></a><strong><span class="state state-server">CONSOLE.EntIndex</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L115">Source ☍</a></dt>
-<dd>
-<p>Get the console pseudoplayer's entity index.</p>
+<p>Get the console pseudoplayer's SteamID.</p>
 
 
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">number</span> Always returns the WorldIndex</li>
+<li><span class="types">string</span> Always returns &quot;CONSOLE&quot;.</li>
 </ol>
 </dd>
 </dl></div>

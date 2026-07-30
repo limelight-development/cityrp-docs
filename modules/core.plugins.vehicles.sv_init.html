@@ -231,14 +231,34 @@
 <div class="ll-module-body"><p>Serverside Vehicle Plugin.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="vmRepositionPlayer"></a><strong><span class="state state-server">vmRepositionPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L20">Source ☍</a></dt>
+<dt><a name="CanPlayerEnterVehicleexitloc"></a><strong><span class="state state-server">CanPlayerEnterVehicleexitloc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1206">Source ☍</a></dt>
 <dd>
-<p>Adjust a players sitting position based on pre-defined configs.</p>
+<p>Set data regarding the player enting a vehicle, so they can be spat back out into the same place.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player having their position ajusted.</li>
-<li><span class="parameter">veh</span> <span class="types">any</span> The vehicle of which the player is sitting in.</li>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player entering the vehicle.</li>
+<li><span class="parameter">vehicle</span> <span class="types">any</span> the vehicle being entered.</li>
+<li><span class="parameter">role</span> <span class="types">any</span> Unused.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.remotedoor"></a><strong><span class="state state-server">cityrp.remotedoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1244">Source ☍</a></dt>
+<dd>
+<p>Toggle a remote door.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player firing off a remote door request.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.siren"></a><strong><span class="state state-server">cityrp.siren</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1460">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
 </ul>
 
 </dd>
@@ -255,35 +275,42 @@
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="vmEnterVehicle"></a><strong><span class="state state-server">vmEnterVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L119">Source ☍</a></dt>
+<dt><a name="onVehicleLightsUsed"></a><strong><span class="state state-server">onVehicleLightsUsed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1365">Source ☍</a></dt>
 <dd>
-<p>Hook called when a player enters a vehicle.
-Handles interactions with emergency lighting, team restricted vehicles and such.</p>
+<p>Inventory function called when attempting to load up civilian emergency lighting on a vehicle.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player entering the vehicle.</li>
-<li><span class="parameter">vehicle</span> <span class="types">any</span> The vehicle being entered.</li>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player loading lighting.</li>
+<li><span class="parameter">group</span> <span class="types">any</span> The type of lighting.</li>
+</ul>
+
+</dd>
+<dt><a name="PlayerLeaveVehicleexitloc"></a><strong><span class="state state-server">PlayerLeaveVehicleexitloc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1216">Source ☍</a></dt>
+<dd>
+<p>Set up so a player leaves to the same point they entered the vehicle from.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player leaving the vehicle.</li>
+<li><span class="parameter">vehicle</span> <span class="types">any</span> the vehicle being left.</li>
 <li><span class="parameter">role</span> <span class="types">any</span> Unused.</li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|nil</span> If the entry was allowed.</li>
-</ol>
+
 </dd>
-<dt><a name="vmGetVehicleExit"></a><strong><span class="state state-server">vmGetVehicleExit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L216">Source ☍</a></dt>
+<dt><a name="vmDoEnterVehicle"></a><strong><span class="state state-server">vmDoEnterVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L337">Source ☍</a></dt>
 <dd>
-<p>Hook called when a player exits a vehicle.</p>
+<p>Hook called when a player requests to enter a vehicle.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">player</span> <span class="types">any</span></li>
 <li><span class="parameter">vehicle</span> <span class="types">any</span></li>
-<li><span class="parameter">force</span> <span class="types">any</span></li>
+<li><span class="parameter">role</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">boolean|nil</span> </li>
+<li><span class="types">boolean|nil</span> If the entry was allowed.</li>
 </ol>
 </dd>
 <dt><a name="vmDoVehicleExit"></a><strong><span class="state state-server">vmDoVehicleExit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L279">Source ☍</a></dt>
@@ -298,15 +325,16 @@ Deals with third person, being injured from ejecting, etc.</p>
 </ul>
 
 </dd>
-<dt><a name="vmDoEnterVehicle"></a><strong><span class="state state-server">vmDoEnterVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L337">Source ☍</a></dt>
+<dt><a name="vmEnterVehicle"></a><strong><span class="state state-server">vmEnterVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L119">Source ☍</a></dt>
 <dd>
-<p>Hook called when a player requests to enter a vehicle.</p>
+<p>Hook called when a player enters a vehicle.
+Handles interactions with emergency lighting, team restricted vehicles and such.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">player</span> <span class="types">any</span></li>
-<li><span class="parameter">vehicle</span> <span class="types">any</span></li>
-<li><span class="parameter">role</span> <span class="types">any</span></li>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player entering the vehicle.</li>
+<li><span class="parameter">vehicle</span> <span class="types">any</span> The vehicle being entered.</li>
+<li><span class="parameter">role</span> <span class="types">any</span> Unused.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
@@ -328,6 +356,32 @@ Handles internal locking and passes onto exits.</p>
 <li><span class="types">boolean|nil</span> </li>
 </ol>
 </dd>
+<dt><a name="vmGetVehicleExit"></a><strong><span class="state state-server">vmGetVehicleExit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L216">Source ☍</a></dt>
+<dd>
+<p>Hook called when a player exits a vehicle.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">player</span> <span class="types">any</span></li>
+<li><span class="parameter">vehicle</span> <span class="types">any</span></li>
+<li><span class="parameter">force</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean|nil</span> </li>
+</ol>
+</dd>
+<dt><a name="vmRepositionPlayer"></a><strong><span class="state state-server">vmRepositionPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L20">Source ☍</a></dt>
+<dd>
+<p>Adjust a players sitting position based on pre-defined configs.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player having their position ajusted.</li>
+<li><span class="parameter">veh</span> <span class="types">any</span> The vehicle of which the player is sitting in.</li>
+</ul>
+
+</dd>
 <dt><a name="vmSpawnedVehicle"></a><strong><span class="state state-server">vmSpawnedVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L431">Source ☍</a></dt>
 <dd>
 <p>Called when a vehicle has been spawned.
@@ -337,60 +391,6 @@ Sets up skins, bodygroups, fixes collisions.</p>
 <ul>
 <li><span class="parameter">player</span> <span class="types">any</span> The player who spawned the vehicle.</li>
 <li><span class="parameter">vehicle</span> <span class="types">any</span> The vehicle which was spawned.</li>
-</ul>
-
-</dd>
-<dt><a name="CanPlayerEnterVehicleexitloc"></a><strong><span class="state state-server">CanPlayerEnterVehicleexitloc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1206">Source ☍</a></dt>
-<dd>
-<p>Set data regarding the player enting a vehicle, so they can be spat back out into the same place.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player entering the vehicle.</li>
-<li><span class="parameter">vehicle</span> <span class="types">any</span> the vehicle being entered.</li>
-<li><span class="parameter">role</span> <span class="types">any</span> Unused.</li>
-</ul>
-
-</dd>
-<dt><a name="PlayerLeaveVehicleexitloc"></a><strong><span class="state state-server">PlayerLeaveVehicleexitloc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1216">Source ☍</a></dt>
-<dd>
-<p>Set up so a player leaves to the same point they entered the vehicle from.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player leaving the vehicle.</li>
-<li><span class="parameter">vehicle</span> <span class="types">any</span> the vehicle being left.</li>
-<li><span class="parameter">role</span> <span class="types">any</span> Unused.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.remotedoor"></a><strong><span class="state state-server">cityrp.remotedoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1244">Source ☍</a></dt>
-<dd>
-<p>Toggle a remote door.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player firing off a remote door request.</li>
-</ul>
-
-</dd>
-<dt><a name="onVehicleLightsUsed"></a><strong><span class="state state-server">onVehicleLightsUsed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1365">Source ☍</a></dt>
-<dd>
-<p>Inventory function called when attempting to load up civilian emergency lighting on a vehicle.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player loading lighting.</li>
-<li><span class="parameter">group</span> <span class="types">any</span> The type of lighting.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.siren"></a><strong><span class="state state-server">cityrp.siren</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1460">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
 </ul>
 
 </dd>

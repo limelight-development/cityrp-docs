@@ -233,51 +233,93 @@
 <div class="ll-module-body"><p>Serverside Administration Module</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.acommands.getRankSteamID"></a><strong><span class="state state-server">cityrp.acommands.getRankSteamID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L38">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.adminChat"></a><strong><span class="state state-server">cityrp.acommands.adminChat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L153">Source ☍</a></dt>
 <dd>
-<p>Non-functional.</p>
+<p>Send a message to admin chat.
+Also adds the message to cross-server chat.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">steamid</span> <span class="types">any</span></li>
+<li><span class="parameter">ply</span> <span class="types">any</span> Player / Pseudoplayer sending the message.</li>
+<li><span class="parameter">text</span> <span class="types">any</span> The message to be sent.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.acommands.adminDo"></a><strong><span class="state state-server">cityrp.acommands.adminDo</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L299">Source ☍</a></dt>
+<dd>
+<p>Send an admin echo.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">admin</span> <span class="types">any</span> The running the echo.</li>
+<li><span class="parameter">text</span> <span class="types">any</span> The text of the echo.</li>
+<li><span class="parameter">icon</span> <span class="types">any</span> The icon for the echo.</li>
+<li><span class="parameter">cmdType</span> <span class="types">any</span> The ADMINCMD_ enumeration for the type of the command.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.acommands.adminHelp"></a><strong><span class="state state-server">cityrp.acommands.adminHelp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L127">Source ☍</a></dt>
+<dd>
+<p>Send a message to moderator chat.
+Also adds the message to cross-server chat.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> Player / Pseudoplayer sending the message.</li>
+<li><span class="parameter">text</span> <span class="types">any</span> The message to be sent.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.acommands.adminOOCChat"></a><strong><span class="state state-server">cityrp.acommands.adminOOCChat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L172">Source ☍</a></dt>
+<dd>
+<p>Sends a message to OOC, using the player's registered name if undercover.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> Player / Pseudoplayer sending the message.</li>
+<li><span class="parameter">text</span> <span class="types">any</span> The message to be sent.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.acommands.chatcheck"></a><strong><span class="state state-server">cityrp.acommands.chatcheck</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L219">Source ☍</a></dt>
+<dd>
+<p>Recall latest cross-server messages.
+Automatically called.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.acommands.FindPosition"></a><strong><span class="state state-server">cityrp.acommands.FindPosition</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L350">Source ☍</a></dt>
+<dd>
+<p>Find a position around an entity to be teleported to.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The entity to be teleported to.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">unknown</span> </li>
+<li><span class="types">boolean|unknown</span> || False] The position to be placed at, or false if not found.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.acommands.precacheadmins"></a><strong><span class="state state-server">cityrp.acommands.precacheadmins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L51">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.getAdmins"></a><strong><span class="state state-server">cityrp.acommands.getAdmins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L199">Source ☍</a></dt>
 <dd>
-<p>Prefill the admin / moderator cache, for fakename / hidden operations.
-Automatically called during bootstrap, no need to call again.</p>
+<p>Get a table of administrators.</p>
 
 
-
-</dd>
-<dt><a name="cityrp.acommands.isadmin"></a><strong><span class="state state-server">cityrp.acommands.isadmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L73">Source ☍</a></dt>
-<dd>
-<p>Get an administrator's registered name from their Steam ID.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">sid</span> <span class="types">any</span> SteamID to check.</li>
-</ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">string</span> || nil] Registered name, or nil if not registered.</li>
+<li><span class="types">table</span> List of player entities.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.acommands.ismoderator"></a><strong><span class="state state-server">cityrp.acommands.ismoderator</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L82">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.getModerators"></a><strong><span class="state state-server">cityrp.acommands.getModerators</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L186">Source ☍</a></dt>
 <dd>
-<p>Get a moderator's registered name from their Steam ID.</p>
+<p>Get a table of moderators.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">sid</span> <span class="types">any</span> SteamID to check.</li>
-</ul>
+
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">unknown</span> || nil] Registered name, or nil if not registered.</li>
+<li><span class="types">table</span> List of player entities.</li>
 </ol>
 </dd>
 <dt><a name="cityrp.acommands.GetPlayerByName"></a><strong><span class="state state-server">cityrp.acommands.GetPlayerByName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L91">Source ☍</a></dt>
@@ -304,107 +346,6 @@ Automatically called during bootstrap, no need to call again.</p>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table|unknown</span> || entity] Table of entities if multiple found, entity object if single found, empty table.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.acommands.adminHelp"></a><strong><span class="state state-server">cityrp.acommands.adminHelp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L127">Source ☍</a></dt>
-<dd>
-<p>Send a message to moderator chat.
-Also adds the message to cross-server chat.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player / Pseudoplayer sending the message.</li>
-<li><span class="parameter">text</span> <span class="types">any</span> The message to be sent.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.adminChat"></a><strong><span class="state state-server">cityrp.acommands.adminChat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L153">Source ☍</a></dt>
-<dd>
-<p>Send a message to admin chat.
-Also adds the message to cross-server chat.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player / Pseudoplayer sending the message.</li>
-<li><span class="parameter">text</span> <span class="types">any</span> The message to be sent.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.adminOOCChat"></a><strong><span class="state state-server">cityrp.acommands.adminOOCChat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L172">Source ☍</a></dt>
-<dd>
-<p>Sends a message to OOC, using the player's registered name if undercover.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player / Pseudoplayer sending the message.</li>
-<li><span class="parameter">text</span> <span class="types">any</span> The message to be sent.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.getModerators"></a><strong><span class="state state-server">cityrp.acommands.getModerators</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L186">Source ☍</a></dt>
-<dd>
-<p>Get a table of moderators.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> List of player entities.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.acommands.getAdmins"></a><strong><span class="state state-server">cityrp.acommands.getAdmins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L199">Source ☍</a></dt>
-<dd>
-<p>Get a table of administrators.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> List of player entities.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.acommands.chatcheck"></a><strong><span class="state state-server">cityrp.acommands.chatcheck</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L219">Source ☍</a></dt>
-<dd>
-<p>Recall latest cross-server messages.
-Automatically called.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.acommands.popup"></a><strong><span class="state state-server">cityrp.acommands.popup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L265">Source ☍</a></dt>
-<dd>
-<p>Popup a message on a player's screen.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">text</span> <span class="types">any</span></li>
-<li><span class="parameter">tArg</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.adminDo"></a><strong><span class="state state-server">cityrp.acommands.adminDo</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L299">Source ☍</a></dt>
-<dd>
-<p>Send an admin echo.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">admin</span> <span class="types">any</span> The running the echo.</li>
-<li><span class="parameter">text</span> <span class="types">any</span> The text of the echo.</li>
-<li><span class="parameter">icon</span> <span class="types">any</span> The icon for the echo.</li>
-<li><span class="parameter">cmdType</span> <span class="types">any</span> The ADMINCMD_ enumeration for the type of the command.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.FindPosition"></a><strong><span class="state state-server">cityrp.acommands.FindPosition</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L350">Source ☍</a></dt>
-<dd>
-<p>Find a position around an entity to be teleported to.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The entity to be teleported to.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|unknown</span> || False] The position to be placed at, or false if not found.</li>
 </ol>
 </dd>
 <dt><a name="cityrp.acommands.GetPlayerObject"></a><strong><span class="state state-server">cityrp.acommands.GetPlayerObject</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L377">Source ☍</a></dt>
@@ -438,6 +379,19 @@ Doesn't notify the player on failure.</p>
 <li><span class="types">boolean|table|nil</span> </li>
 </ol>
 </dd>
+<dt><a name="cityrp.acommands.getRankSteamID"></a><strong><span class="state state-server">cityrp.acommands.getRankSteamID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L38">Source ☍</a></dt>
+<dd>
+<p>Non-functional.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">steamid</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">unknown</span> </li>
+</ol>
+</dd>
 <dt><a name="cityrp.acommands.GetTPPos"></a><strong><span class="state state-server">cityrp.acommands.GetTPPos</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L431">Source ☍</a></dt>
 <dd>
 <p>Function to get the &quot;landing&quot; position when TPing from point to point.</p>
@@ -453,90 +407,9 @@ Doesn't notify the player on failure.</p>
 <li><span class="types">unknown</span> || nil] Vector when a position is found, nil on failure.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.acommands.ProcessTPRestrictions"></a><strong><span class="state state-server">cityrp.acommands.ProcessTPRestrictions</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L452">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.helpreply"></a><strong><span class="state state-server">cityrp.acommands.helpreply</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1656">Source ☍</a></dt>
 <dd>
-<p>Function to process teleport restrictions.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player attempting to teleport.</li>
-<li><span class="parameter">ent</span> <span class="types">any</span> The entity being teleported to.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|nil</span> Truthy or Falsy value, depending if the TP is allowed or barred.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.acommands.TPUser"></a><strong><span class="state state-server">cityrp.acommands.TPUser</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L463">Source ☍</a></dt>
-<dd>
-<p>Teleport a user</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player to be teleported.</li>
-<li><span class="parameter">pos</span> <span class="types">any</span> The position to teleport them to.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.phase"></a><strong><span class="state state-server">cityrp.acommands.phase</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L719">Source ☍</a></dt>
-<dd>
-<p>Phase a player.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player to phase.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.unphase"></a><strong><span class="state state-server">cityrp.acommands.unphase</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L767">Source ☍</a></dt>
-<dd>
-<p>Unphase a player.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player to unphase.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.SetRank"></a><strong><span class="state state-server">cityrp.acommands.SetRank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1119">Source ☍</a></dt>
-<dd>
-<p>Set a player's rank, checking if the rank is a real rank.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player to set a rank for.</li>
-<li><span class="parameter">rank</span> <span class="types">any</span> The rank to set.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.remotepm"></a><strong><span class="state state-server">cityrp.acommands.remotepm</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1557">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">steamid</span> <span class="types">any</span></li>
-<li><span class="parameter">targ</span> <span class="types">any</span></li>
-<li><span class="parameter">msg</span> <span class="types">any</span></li>
-<li><span class="parameter">source</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.sendremotepm"></a><strong><span class="state state-server">cityrp.acommands.sendremotepm</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1574">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">s</span> <span class="types">any</span></li>
-<li><span class="parameter">targ</span> <span class="types">any</span></li>
-<li><span class="parameter"></span> <span class="types">unknown</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.respond"></a><strong><span class="state state-server">cityrp.acommands.respond</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1595">Source ☍</a></dt>
-<dd>
-<p>Send an administrative response to a player.</p>
+<p>Send a help response to a player.</p>
 
 <h3>Parameters:</h3>
 <ul>
@@ -560,9 +433,92 @@ Doesn't notify the player on failure.</p>
 </ul>
 
 </dd>
-<dt><a name="cityrp.acommands.helpreply"></a><strong><span class="state state-server">cityrp.acommands.helpreply</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1656">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.isadmin"></a><strong><span class="state state-server">cityrp.acommands.isadmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L73">Source ☍</a></dt>
 <dd>
-<p>Send a help response to a player.</p>
+<p>Get an administrator's registered name from their Steam ID.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">sid</span> <span class="types">any</span> SteamID to check.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> || nil] Registered name, or nil if not registered.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.acommands.ismoderator"></a><strong><span class="state state-server">cityrp.acommands.ismoderator</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L82">Source ☍</a></dt>
+<dd>
+<p>Get a moderator's registered name from their Steam ID.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">sid</span> <span class="types">any</span> SteamID to check.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">unknown</span> || nil] Registered name, or nil if not registered.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.acommands.phase"></a><strong><span class="state state-server">cityrp.acommands.phase</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L719">Source ☍</a></dt>
+<dd>
+<p>Phase a player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player to phase.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.acommands.popup"></a><strong><span class="state state-server">cityrp.acommands.popup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L265">Source ☍</a></dt>
+<dd>
+<p>Popup a message on a player's screen.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">text</span> <span class="types">any</span></li>
+<li><span class="parameter">tArg</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.acommands.precacheadmins"></a><strong><span class="state state-server">cityrp.acommands.precacheadmins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L51">Source ☍</a></dt>
+<dd>
+<p>Prefill the admin / moderator cache, for fakename / hidden operations.
+Automatically called during bootstrap, no need to call again.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.acommands.ProcessTPRestrictions"></a><strong><span class="state state-server">cityrp.acommands.ProcessTPRestrictions</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L452">Source ☍</a></dt>
+<dd>
+<p>Function to process teleport restrictions.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player attempting to teleport.</li>
+<li><span class="parameter">ent</span> <span class="types">any</span> The entity being teleported to.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean|nil</span> Truthy or Falsy value, depending if the TP is allowed or barred.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.acommands.remotepm"></a><strong><span class="state state-server">cityrp.acommands.remotepm</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1557">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">any</span></li>
+<li><span class="parameter">steamid</span> <span class="types">any</span></li>
+<li><span class="parameter">targ</span> <span class="types">any</span></li>
+<li><span class="parameter">msg</span> <span class="types">any</span></li>
+<li><span class="parameter">source</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.acommands.respond"></a><strong><span class="state state-server">cityrp.acommands.respond</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1595">Source ☍</a></dt>
+<dd>
+<p>Send an administrative response to a player.</p>
 
 <h3>Parameters:</h3>
 <ul>
@@ -573,16 +529,54 @@ Doesn't notify the player on failure.</p>
 </ul>
 
 </dd>
+<dt><a name="cityrp.acommands.sendremotepm"></a><strong><span class="state state-server">cityrp.acommands.sendremotepm</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1574">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span></li>
+<li><span class="parameter">s</span> <span class="types">any</span></li>
+<li><span class="parameter">targ</span> <span class="types">any</span></li>
+<li><span class="parameter"></span> <span class="types">unknown</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.acommands.SetRank"></a><strong><span class="state state-server">cityrp.acommands.SetRank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1119">Source ☍</a></dt>
+<dd>
+<p>Set a player's rank, checking if the rank is a real rank.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player to set a rank for.</li>
+<li><span class="parameter">rank</span> <span class="types">any</span> The rank to set.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.acommands.TPUser"></a><strong><span class="state state-server">cityrp.acommands.TPUser</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L463">Source ☍</a></dt>
+<dd>
+<p>Teleport a user</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player to be teleported.</li>
+<li><span class="parameter">pos</span> <span class="types">any</span> The position to teleport them to.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.acommands.unphase"></a><strong><span class="state state-server">cityrp.acommands.unphase</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L767">Source ☍</a></dt>
+<dd>
+<p>Unphase a player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player to unphase.</li>
+</ul>
+
+</dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.acommands.admins"></a><strong><span class="state state-server">cityrp.acommands.admins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L52">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.acommands.Positions"></a><strong><span class="state state-server">cityrp.acommands.Positions</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L343">Source ☍</a></dt>
+<dt><a name="access_setrank_assistant"></a><strong><span class="state state-server">access_setrank_assistant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1193">Source ☍</a></dt>
 <dd>
 
 
@@ -600,7 +594,13 @@ Doesn't notify the player on failure.</p>
 
 
 </dd>
-<dt><a name="access_setrank_assistant"></a><strong><span class="state state-server">access_setrank_assistant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1193">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.admins"></a><strong><span class="state state-server">cityrp.acommands.admins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L52">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.acommands.Positions"></a><strong><span class="state state-server">cityrp.acommands.Positions</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L343">Source ☍</a></dt>
 <dd>
 
 
@@ -609,18 +609,9 @@ Doesn't notify the player on failure.</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="console"></a><strong><span class="state state-server">console</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L21">Source ☍</a></dt>
+<dt><a name="ADMINCMD_ALWAYSHIDE"></a><strong><span class="state state-server">ADMINCMD_ALWAYSHIDE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L291">Source ☍</a></dt>
 <dd>
-<p>Legacy console variable for backwards compatibility.</p>
-<h3>Deprecated:</h3>
-<ul>
-<li><span class='tag-deprecated'>This function is deprecated and may be removed in a future version.<br>Use CONSOLE instead. This is maintained for backwards compatibility with any external plugins.</span></li>
-</ul>
-
-
-</dd>
-<dt><a name="cityrp.acommands.chatlastid"></a><strong><span class="state state-server">cityrp.acommands.chatlastid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L223">Source ☍</a></dt>
-<dd>
+<p>Always Hide</p>
 
 
 
@@ -628,13 +619,6 @@ Doesn't notify the player on failure.</p>
 <dt><a name="ADMINCMD_ALWAYSSHOW"></a><strong><span class="state state-server">ADMINCMD_ALWAYSSHOW</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L290">Source ☍</a></dt>
 <dd>
 <p>Always Show</p>
-
-
-
-</dd>
-<dt><a name="ADMINCMD_ALWAYSHIDE"></a><strong><span class="state state-server">ADMINCMD_ALWAYSHIDE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L291">Source ☍</a></dt>
-<dd>
-<p>Always Hide</p>
 
 
 
@@ -653,15 +637,31 @@ Doesn't notify the player on failure.</p>
 
 
 </dd>
-<dt><a name="Rank"></a><strong><span class="state state-server">Rank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1127">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.chatlastid"></a><strong><span class="state state-server">cityrp.acommands.chatlastid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L223">Source ☍</a></dt>
 <dd>
-<p>List of ranks.</p>
 
 
 
 </dd>
 <dt><a name="cityrp.chatBox.oocdisable"></a><strong><span class="state state-server">cityrp.chatBox.oocdisable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1442">Source ☍</a></dt>
 <dd>
+
+
+
+</dd>
+<dt><a name="console"></a><strong><span class="state state-server">console</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L21">Source ☍</a></dt>
+<dd>
+<p>Legacy console variable for backwards compatibility.</p>
+<h3>Deprecated:</h3>
+<ul>
+<li><span class='tag-deprecated'>This function is deprecated and may be removed in a future version.<br>Use CONSOLE instead. This is maintained for backwards compatibility with any external plugins.</span></li>
+</ul>
+
+
+</dd>
+<dt><a name="Rank"></a><strong><span class="state state-server">Rank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1127">Source ☍</a></dt>
+<dd>
+<p>List of ranks.</p>
 
 
 
