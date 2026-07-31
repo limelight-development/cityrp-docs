@@ -89,6 +89,7 @@
 <li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
 <li><a href="../modules/core.libraries.sv_makeleader.html">core.libraries.sv_makeleader</a></li>
 <li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+<li><a href="../modules/core.libraries.sv_migrations.html">core.libraries.sv_migrations</a></li>
 <li><a href="../modules/core.libraries.sv_model.html">core.libraries.sv_model</a></li>
 <li><a href="../modules/core.libraries.sv_player.html">core.libraries.sv_player</a></li>
 <li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
@@ -132,6 +133,7 @@
 <li><a href="../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
 <li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
 <li><a href="../modules/core.plugins.breathalyser.sv_init.html">core.plugins.breathalyser.sv_init</a></li>
+<li><a href="../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
 <li><a href="../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
 <li><a href="../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
 <li><a href="../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
@@ -199,6 +201,7 @@
 <li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
 <li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
 <li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
 <li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
 <li><a href="../modules/core.plugins.weapons_on_back.sh_init.html">core.plugins.weapons_on_back.sh_init</a></li>
 <li><a href="../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
@@ -218,14 +221,21 @@
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
+<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
+<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
 <li><a href="../topics/items.html">Types of Items</a></li>
+<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../topics/meska.html">MESKA</a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../topics/waypoints.html">Waypoints</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Credits</h2></div>
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
@@ -246,7 +256,7 @@
 </ul>
 
 </dd>
-<dt><a name="Player.Arrested"></a><strong><span class="state state-client state-server">Player.Arrested</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L544">Source ☍</a></dt>
+<dt><a name="Player.Arrested"></a><strong><span class="state state-client state-server">Player.Arrested</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L550">Source ☍</a></dt>
 <dd>
 <p>Check if a player is arrested.</p>
 
@@ -277,7 +287,7 @@
 </ul>
 
 </dd>
-<dt><a name="Player.Blindfolded"></a><strong><span class="state state-client state-server">Player.Blindfolded</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L556">Source ☍</a></dt>
+<dt><a name="Player.Blindfolded"></a><strong><span class="state state-client state-server">Player.Blindfolded</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L562">Source ☍</a></dt>
 <dd>
 <p>Check if a player is blindfolded.</p>
 
@@ -374,7 +384,7 @@ TODO: Function name has typo - &quot;Recieve&quot; should be &quot;Receive&quot;
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="Player.ChatPrintF"></a><strong><span class="state state-server">Player.ChatPrintF</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1790">Source ☍</a></dt>
+<dt><a name="Player.ChatPrintF"></a><strong><span class="state state-server">Player.ChatPrintF</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1797">Source ☍</a></dt>
 <dd>
 <p>Add a chat print message which has been passed through string.format.
 See: <a>string.format</a></p>
@@ -385,7 +395,7 @@ See: <a>string.format</a></p>
 </ul>
 
 </dd>
-<dt><a name="Player.Clan"></a><strong><span class="state state-client state-server">Player.Clan</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L652">Source ☍</a></dt>
+<dt><a name="Player.Clan"></a><strong><span class="state state-client state-server">Player.Clan</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L658">Source ☍</a></dt>
 <dd>
 <p>Get a player's clan name and rank combined.</p>
 
@@ -395,7 +405,7 @@ See: <a>string.format</a></p>
 <li><span class="types">string</span> current clan name and rank (e.g., &quot;[Leader] Gang Name&quot;).</li>
 </ol>
 </dd>
-<dt><a name="Player.ClanID"></a><strong><span class="state state-client state-server">Player.ClanID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L664">Source ☍</a></dt>
+<dt><a name="Player.ClanID"></a><strong><span class="state state-client state-server">Player.ClanID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L670">Source ☍</a></dt>
 <dd>
 <p>Get a player's clan ID.</p>
 
@@ -405,7 +415,7 @@ See: <a>string.format</a></p>
 <li><span class="types">number</span> current clan ID, or 0 if not in a clan.</li>
 </ol>
 </dd>
-<dt><a name="Player.ClanName"></a><strong><span class="state state-client state-server">Player.ClanName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L658">Source ☍</a></dt>
+<dt><a name="Player.ClanName"></a><strong><span class="state state-client state-server">Player.ClanName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L664">Source ☍</a></dt>
 <dd>
 <p>Get a player's clan name.</p>
 
@@ -415,7 +425,7 @@ See: <a>string.format</a></p>
 <li><span class="types">string</span> current clan name.</li>
 </ol>
 </dd>
-<dt><a name="Player.Cuffed"></a><strong><span class="state state-client state-server">Player.Cuffed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L568">Source ☍</a></dt>
+<dt><a name="Player.Cuffed"></a><strong><span class="state state-client state-server">Player.Cuffed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L574">Source ☍</a></dt>
 <dd>
 <p>Check if a player is cuffed.</p>
 
@@ -432,7 +442,7 @@ See: <a>string.format</a></p>
 
 
 </dd>
-<dt><a name="Player.Description"></a><strong><span class="state state-client state-server">Player.Description</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L634">Source ☍</a></dt>
+<dt><a name="Player.Description"></a><strong><span class="state state-client state-server">Player.Description</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L640">Source ☍</a></dt>
 <dd>
 <p>Get a player's custom description.</p>
 
@@ -442,7 +452,7 @@ See: <a>string.format</a></p>
 <li><span class="types">string|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="Player.DisableEventMgr"></a><strong><span class="state state-server">Player.DisableEventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1851">Source ☍</a></dt>
+<dt><a name="Player.DisableEventMgr"></a><strong><span class="state state-server">Player.DisableEventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1858">Source ☍</a></dt>
 <dd>
 <p>Disables Event Manager permissions for player.</p>
 
@@ -472,7 +482,7 @@ See: <a>string.format</a></p>
 </ul>
 
 </dd>
-<dt><a name="Player.EnableEventMgr"></a><strong><span class="state state-server">Player.EnableEventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1844">Source ☍</a></dt>
+<dt><a name="Player.EnableEventMgr"></a><strong><span class="state state-server">Player.EnableEventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1851">Source ☍</a></dt>
 <dd>
 <p>Enables Event Manager permissions for player.</p>
 
@@ -490,7 +500,7 @@ Essentially /it.</p>
 </ul>
 
 </dd>
-<dt><a name="Player.EventMgr"></a><strong><span class="state state-client state-server">Player.EventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1074">Source ☍</a></dt>
+<dt><a name="Player.EventMgr"></a><strong><span class="state state-client state-server">Player.EventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1080">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Event Manager permissions.</p>
 
@@ -500,7 +510,7 @@ Essentially /it.</p>
 <li><span class="types">boolean</span> if the player has Event Manager permissions.</li>
 </ol>
 </dd>
-<dt><a name="Player.Frozen"></a><strong><span class="state state-client state-server">Player.Frozen</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L574">Source ☍</a></dt>
+<dt><a name="Player.Frozen"></a><strong><span class="state state-client state-server">Player.Frozen</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L580">Source ☍</a></dt>
 <dd>
 <p>Check if a player is frozen or physgun-frozen.</p>
 
@@ -510,7 +520,7 @@ Essentially /it.</p>
 <li><span class="types">boolean|nil</span> current freeze state.</li>
 </ol>
 </dd>
-<dt><a name="Player.Gagged"></a><strong><span class="state state-client state-server">Player.Gagged</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L586">Source ☍</a></dt>
+<dt><a name="Player.Gagged"></a><strong><span class="state state-client state-server">Player.Gagged</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L592">Source ☍</a></dt>
 <dd>
 <p>Check if a player is gagged.</p>
 
@@ -530,7 +540,7 @@ Essentially /it.</p>
 <li><span class="types">string</span> &quot;his&quot; for male, &quot;her&quot; for female.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetAgendaGroup"></a><strong><span class="state state-client state-server">Player.GetAgendaGroup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1006">Source ☍</a></dt>
+<dt><a name="Player.GetAgendaGroup"></a><strong><span class="state state-client state-server">Player.GetAgendaGroup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1012">Source ☍</a></dt>
 <dd>
 <p>Get the agenda group the player is in.</p>
 
@@ -540,7 +550,7 @@ Essentially /it.</p>
 <li><span class="types">boolean|string</span> agenda group (e.g., &quot;president&quot;, &quot;police&quot;), or false if none.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetAgendaLeader"></a><strong><span class="state state-client state-server">Player.GetAgendaLeader</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1017">Source ☍</a></dt>
+<dt><a name="Player.GetAgendaLeader"></a><strong><span class="state state-client state-server">Player.GetAgendaLeader</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1023">Source ☍</a></dt>
 <dd>
 <p>Get the agenda group the player leads.
 Only returns a value for leader positions (e.g., President, SWAT Leader, Police Commander).</p>
@@ -551,7 +561,7 @@ Only returns a value for leader positions (e.g., President, SWAT Leader, Police 
 <li><span class="types">boolean|string</span> agenda group the player leads, or false if none.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetDefaultModel"></a><strong><span class="state state-server">Player.GetDefaultModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1757">Source ☍</a></dt>
+<dt><a name="Player.GetDefaultModel"></a><strong><span class="state state-server">Player.GetDefaultModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1764">Source ☍</a></dt>
 <dd>
 <p>Get a player's default (team) model.</p>
 
@@ -561,7 +571,7 @@ Only returns a value for leader positions (e.g., President, SWAT Leader, Police 
 <li><span class="types">string</span> path.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetDefaultPropLimit"></a><strong><span class="state state-server">Player.GetDefaultPropLimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1650">Source ☍</a></dt>
+<dt><a name="Player.GetDefaultPropLimit"></a><strong><span class="state state-server">Player.GetDefaultPropLimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1652">Source ☍</a></dt>
 <dd>
 <p>Get a player's default (unmodified) prop limit.</p>
 
@@ -571,7 +581,7 @@ Only returns a value for leader positions (e.g., President, SWAT Leader, Police 
 <li><span class="types">number</span> Limit, -1 for unlimited.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetFace"></a><strong><span class="state state-client state-server">Player.GetFace</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1085">Source ☍</a></dt>
+<dt><a name="Player.GetFace"></a><strong><span class="state state-client state-server">Player.GetFace</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1091">Source ☍</a></dt>
 <dd>
 <p>Get the current face ID of the player.
 Extracts the face ID from the player's model path if applicable.</p>
@@ -582,7 +592,7 @@ Extracts the face ID from the player's model path if applicable.</p>
 <li><span class="types">number|nil</span> face ID, or nil if the model doesn't have a face ID.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetIcon"></a><strong><span class="state state-client state-server">Player.GetIcon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L929">Source ☍</a></dt>
+<dt><a name="Player.GetIcon"></a><strong><span class="state state-client state-server">Player.GetIcon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L935">Source ☍</a></dt>
 <dd>
 <p>Get the rank icon path for a player.</p>
 
@@ -592,7 +602,7 @@ Extracts the face ID from the player's model path if applicable.</p>
 <li><span class="types">string</span> rank icon file path.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetIconMaterial"></a><strong><span class="state state-client state-server">Player.GetIconMaterial</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L939">Source ☍</a></dt>
+<dt><a name="Player.GetIconMaterial"></a><strong><span class="state state-client state-server">Player.GetIconMaterial</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L945">Source ☍</a></dt>
 <dd>
 <p>Get the rank material for a player.
 Client-side only. Returns a cached material object for rendering.</p>
@@ -603,7 +613,7 @@ Client-side only. Returns a cached material object for rendering.</p>
 <li><span class="types">IMaterial</span> rank icon material.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetIconReplacement"></a><strong><span class="state state-client state-server">Player.GetIconReplacement</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L951">Source ☍</a></dt>
+<dt><a name="Player.GetIconReplacement"></a><strong><span class="state state-client state-server">Player.GetIconReplacement</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L957">Source ☍</a></dt>
 <dd>
 <p>Get the rank icon's textual replacement for a player.
 Returns an ASCII/symbol representation of the rank icon for use in text chat.</p>
@@ -614,7 +624,7 @@ Returns an ASCII/symbol representation of the rank icon for use in text chat.</p
 <li><span class="types">string</span> textual replacement (e.g., &quot;^&quot;, &quot;*&quot;, &quot;:)&quot;).</li>
 </ol>
 </dd>
-<dt><a name="Player.GetInjuryState"></a><strong><span class="state state-client state-server">Player.GetInjuryState</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L813">Source ☍</a></dt>
+<dt><a name="Player.GetInjuryState"></a><strong><span class="state state-client state-server">Player.GetInjuryState</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L819">Source ☍</a></dt>
 <dd>
 <p>Get the player's injury state based on current HP and injured status.
 Possible states:</p>
@@ -632,7 +642,7 @@ Possible states:</p>
 <li><span class="types">number</span> current injury state (0-4).</li>
 </ol>
 </dd>
-<dt><a name="Player.getLocation"></a><strong><span class="state state-client state-server">Player.getLocation</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L521">Source ☍</a></dt>
+<dt><a name="Player.getLocation"></a><strong><span class="state state-client state-server">Player.getLocation</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L527">Source ☍</a></dt>
 <dd>
 <p>Get the current location of the player.
 Returns &quot;*** Unknown ***&quot; if the player is blindfolded or in certain vehicles.</p>
@@ -643,7 +653,7 @@ Returns &quot;*** Unknown ***&quot; if the player is blindfolded or in certain v
 <li><span class="types">string</span> player's location name.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetMember"></a><strong><span class="state state-server">Player.GetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1803">Source ☍</a></dt>
+<dt><a name="Player.GetMember"></a><strong><span class="state state-server">Player.GetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1810">Source ☍</a></dt>
 <dd>
 <p>Check if a player has been granted Member entitlement (independent of whether they're wearing the tag).</p>
 
@@ -653,7 +663,7 @@ Returns &quot;*** Unknown ***&quot; if the player is blindfolded or in certain v
 <li><span class="types">boolean</span> if the player holds the Member flag.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetNetMember"></a><strong><span class="state state-client state-server">Player.GetNetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1055">Source ☍</a></dt>
+<dt><a name="Player.GetNetMember"></a><strong><span class="state state-client state-server">Player.GetNetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1061">Source ☍</a></dt>
 <dd>
 <p>Get the networked Member state. This is the networked sync of GetMember() (entitlement),
 not the final IsMember() value.</p>
@@ -678,7 +688,7 @@ not the final IsMember() value.</p>
 <li><span class="types">any</span> The value of the NSVar, or the default value.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetPropLimit"></a><strong><span class="state state-client state-server">Player.GetPropLimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L782">Source ☍</a></dt>
+<dt><a name="Player.GetPropLimit"></a><strong><span class="state state-client state-server">Player.GetPropLimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L788">Source ☍</a></dt>
 <dd>
 <p>Get the player's prop limit.</p>
 
@@ -688,7 +698,7 @@ not the final IsMember() value.</p>
 <li><span class="types">number</span> prop limit for this player.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetRankColor"></a><strong><span class="state state-client state-server">Player.GetRankColor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L965">Source ☍</a></dt>
+<dt><a name="Player.GetRankColor"></a><strong><span class="state state-client state-server">Player.GetRankColor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L971">Source ☍</a></dt>
 <dd>
 <p>Get the color for a given player's rank.</p>
 
@@ -698,7 +708,7 @@ not the final IsMember() value.</p>
 <li><span class="types">table</span> rank color as a Color object.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetRankKey"></a><strong><span class="state state-client state-server">Player.GetRankKey</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L903">Source ☍</a></dt>
+<dt><a name="Player.GetRankKey"></a><strong><span class="state state-client state-server">Player.GetRankKey</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L909">Source ☍</a></dt>
 <dd>
 <p>Determine the rank key for a player.
 Returns the staff rank if applicable, or membership tier based on spending level.</p>
@@ -709,7 +719,7 @@ Returns the staff rank if applicable, or membership tier based on spending level
 <li><span class="types">string</span> rank key (e.g., &quot;admin&quot;, &quot;diamondmember&quot;, &quot;default&quot;).</li>
 </ol>
 </dd>
-<dt><a name="Player.GetRankName"></a><strong><span class="state state-client state-server">Player.GetRankName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L958">Source ☍</a></dt>
+<dt><a name="Player.GetRankName"></a><strong><span class="state state-client state-server">Player.GetRankName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L964">Source ☍</a></dt>
 <dd>
 <p>Get the name of a given player's rank.</p>
 
@@ -719,7 +729,7 @@ Returns the staff rank if applicable, or membership tier based on spending level
 <li><span class="types">string</span> rank display name (e.g., &quot;Administrator&quot;, &quot;Moderator&quot;).</li>
 </ol>
 </dd>
-<dt><a name="Player.GetRankSortOrder"></a><strong><span class="state state-client state-server">Player.GetRankSortOrder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L973">Source ☍</a></dt>
+<dt><a name="Player.GetRankSortOrder"></a><strong><span class="state state-client state-server">Player.GetRankSortOrder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L979">Source ☍</a></dt>
 <dd>
 <p>Get the sort order for a given player's rank.
 Lower numbers indicate higher priority/importance.</p>
@@ -730,7 +740,7 @@ Lower numbers indicate higher priority/importance.</p>
 <li><span class="types">number</span> sort order (1 for owner, higher for lower ranks).</li>
 </ol>
 </dd>
-<dt><a name="Player.GetSVRank"></a><strong><span class="state state-client state-server">Player.GetSVRank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L254">Source ☍</a></dt>
+<dt><a name="Player.GetSVRank"></a><strong><span class="state state-client state-server">Player.GetSVRank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L260">Source ☍</a></dt>
 <dd>
 <p>Get the player's staff rank.
 On server, this always returns the true value (if the player has had their data loaded from the database), unless stream override is enabled.
@@ -742,7 +752,7 @@ On client, this returns a value based on the true value, current rank, and hidde
 <li><span class="types">string</span> user's current rank (e.g., &quot;owner&quot;, &quot;admin&quot;, &quot;moderator&quot;, &quot;user&quot;).</li>
 </ol>
 </dd>
-<dt><a name="Player.getTeamGroup"></a><strong><span class="state state-client state-server">Player.getTeamGroup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L240">Source ☍</a></dt>
+<dt><a name="Player.getTeamGroup"></a><strong><span class="state state-client state-server">Player.getTeamGroup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L246">Source ☍</a></dt>
 <dd>
 <p>Get the current team group the player is in.
 If there are multiple matches, the first one defined in the TEAMGROUPS table will be used.</p>
@@ -788,21 +798,21 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 </ul>
 
 </dd>
-<dt><a name="Player.GodDisable"></a><strong><span class="state state-server">Player.GodDisable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1725">Source ☍</a></dt>
+<dt><a name="Player.GodDisable"></a><strong><span class="state state-server">Player.GodDisable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1727">Source ☍</a></dt>
 <dd>
 <p>Disable god mode for a player.</p>
 
 
 
 </dd>
-<dt><a name="Player.GodEnable"></a><strong><span class="state state-server">Player.GodEnable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1719">Source ☍</a></dt>
+<dt><a name="Player.GodEnable"></a><strong><span class="state state-server">Player.GodEnable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1721">Source ☍</a></dt>
 <dd>
 <p>Enable god mode for a player.</p>
 
 
 
 </dd>
-<dt><a name="Player.HasGodMode"></a><strong><span class="state state-client state-server">Player.HasGodMode</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L826">Source ☍</a></dt>
+<dt><a name="Player.HasGodMode"></a><strong><span class="state state-client state-server">Player.HasGodMode</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L832">Source ☍</a></dt>
 <dd>
 <p>Check if a player has god mode enabled.</p>
 
@@ -822,7 +832,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="Player.HasMembership"></a><strong><span class="state state-client state-server">Player.HasMembership</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1048">Source ☍</a></dt>
+<dt><a name="Player.HasMembership"></a><strong><span class="state state-client state-server">Player.HasMembership</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1054">Source ☍</a></dt>
 <dd>
 <p>Check if the player currently has active membership.</p>
 
@@ -832,7 +842,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 <li><span class="types">boolean</span> if the player has active membership.</li>
 </ol>
 </dd>
-<dt><a name="Player.HasMemberTags"></a><strong><span class="state state-client state-server">Player.HasMemberTags</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1062">Source ☍</a></dt>
+<dt><a name="Player.HasMemberTags"></a><strong><span class="state state-client state-server">Player.HasMemberTags</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1068">Source ☍</a></dt>
 <dd>
 <p>Check if the player's name contains the community Member tag.
 Kept separate from HasTags(), which is for staff tags only. Shared, pure Nick() check.</p>
@@ -843,7 +853,7 @@ Kept separate from HasTags(), which is for staff tags only. Shared, pure Nick() 
 <li><span class="types">boolean</span> if the player is wearing the Member tag.</li>
 </ol>
 </dd>
-<dt><a name="Player.HasTags"></a><strong><span class="state state-client state-server">Player.HasTags</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L789">Source ☍</a></dt>
+<dt><a name="Player.HasTags"></a><strong><span class="state state-client state-server">Player.HasTags</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L795">Source ☍</a></dt>
 <dd>
 <p>Check if the player's name contains appropriate rank tags.
 Checks for configured Admin and Moderator tags in the player's nickname.</p>
@@ -875,7 +885,7 @@ Checks for configured Admin and Moderator tags in the player's nickname.</p>
 </ul>
 
 </dd>
-<dt><a name="Player.Hostaged"></a><strong><span class="state state-client state-server">Player.Hostaged</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L550">Source ☍</a></dt>
+<dt><a name="Player.Hostaged"></a><strong><span class="state state-client state-server">Player.Hostaged</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L556">Source ☍</a></dt>
 <dd>
 <p>Check if a player is hostaged.</p>
 
@@ -896,7 +906,7 @@ Checks for configured Admin and Moderator tags in the player's nickname.</p>
 </ul>
 
 </dd>
-<dt><a name="Player.Injured"></a><strong><span class="state state-client state-server">Player.Injured</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L604">Source ☍</a></dt>
+<dt><a name="Player.Injured"></a><strong><span class="state state-client state-server">Player.Injured</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L610">Source ☍</a></dt>
 <dd>
 <p>Check if a player is injured.</p>
 
@@ -917,7 +927,7 @@ Unlike IsPresident(), this returns true only for the President, not the VP.</p>
 <li><span class="types">boolean</span> if the player is the President.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsAdmin"></a><strong><span class="state state-client state-server">Player.IsAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L340">Source ☍</a></dt>
+<dt><a name="Player.IsAdmin"></a><strong><span class="state state-client state-server">Player.IsAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L346">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Administrative permissions.
 Includes: Developer permissions, Super Admin permissions, or Admin rank.</p>
@@ -938,7 +948,7 @@ Includes: Developer permissions, Super Admin permissions, or Admin rank.</p>
 <li><span class="types">boolean</span> if the player is a gun dealer.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsAssistant"></a><strong><span class="state state-client state-server">Player.IsAssistant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L426">Source ☍</a></dt>
+<dt><a name="Player.IsAssistant"></a><strong><span class="state state-client state-server">Player.IsAssistant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L432">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Assistant permissions.
 Includes: Trial Mod permissions, or assistant rank.
@@ -966,7 +976,7 @@ TODO: This is a pile of shit function fucking burn it.</p>
 <li><span class="types">boolean</span> if the player is a Black Market Dealer.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsBusinessAdvisor"></a><strong><span class="state state-client state-server">Player.IsBusinessAdvisor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L442">Source ☍</a></dt>
+<dt><a name="Player.IsBusinessAdvisor"></a><strong><span class="state state-client state-server">Player.IsBusinessAdvisor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L448">Source ☍</a></dt>
 <dd>
 <p>Check if the player is a business advisor.</p>
 
@@ -996,7 +1006,7 @@ TODO: This is a pile of shit function fucking burn it.</p>
 <li><span class="types">boolean</span> if the player is a Chef.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsContributor"></a><strong><span class="state state-client state-server">Player.IsContributor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L412">Source ☍</a></dt>
+<dt><a name="Player.IsContributor"></a><strong><span class="state state-client state-server">Player.IsContributor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L418">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Contributor permissions.
 Includes: Developer Only permissions or contributor rank.</p>
@@ -1007,7 +1017,7 @@ Includes: Developer Only permissions or contributor rank.</p>
 <li><span class="types">boolean</span> if the player has Contributor permissions.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsCore"></a><strong><span class="state state-client state-server">Player.IsCore</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L460">Source ☍</a></dt>
+<dt><a name="Player.IsCore"></a><strong><span class="state state-client state-server">Player.IsCore</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L466">Source ☍</a></dt>
 <dd>
 <p>Check if the player is a core team member.
 Includes: core rank, coremanager rank, business advisor, security officer, or owner.</p>
@@ -1018,7 +1028,7 @@ Includes: core rank, coremanager rank, business advisor, security officer, or ow
 <li><span class="types">boolean</span> if the player is a core team member.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsDeveloper"></a><strong><span class="state state-client state-server">Player.IsDeveloper</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L331">Source ☍</a></dt>
+<dt><a name="Player.IsDeveloper"></a><strong><span class="state state-client state-server">Player.IsDeveloper</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L337">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Developer permissions.
 Includes: Super Developer permissions or Developer rank.</p>
@@ -1029,7 +1039,7 @@ Includes: Super Developer permissions or Developer rank.</p>
 <li><span class="types">boolean</span> if the player has Developer permissions.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsDeveloperOnly"></a><strong><span class="state state-client state-server">Player.IsDeveloperOnly</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L403">Source ☍</a></dt>
+<dt><a name="Player.IsDeveloperOnly"></a><strong><span class="state state-client state-server">Player.IsDeveloperOnly</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L409">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Developer Only permissions.
 Includes: Trial Dev Mod permissions or developeronly rank.</p>
@@ -1040,7 +1050,7 @@ Includes: Trial Dev Mod permissions or developeronly rank.</p>
 <li><span class="types">boolean</span> if the player has Developer Only permissions.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsDevMod"></a><strong><span class="state state-client state-server">Player.IsDevMod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L367">Source ☍</a></dt>
+<dt><a name="Player.IsDevMod"></a><strong><span class="state state-client state-server">Player.IsDevMod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L373">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Developer Moderator permissions.
 Includes: Dev Mod 2 permissions or developermod rank.</p>
@@ -1051,7 +1061,7 @@ Includes: Dev Mod 2 permissions or developermod rank.</p>
 <li><span class="types">boolean</span> if the player has Dev Mod permissions.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsDevMod2"></a><strong><span class="state state-client state-server">Player.IsDevMod2</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L349">Source ☍</a></dt>
+<dt><a name="Player.IsDevMod2"></a><strong><span class="state state-client state-server">Player.IsDevMod2</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L355">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Developer Moderator Stage 2 permissions.
 Includes: Developer permissions, developermod2 rank, or developersmod rank.</p>
@@ -1125,7 +1135,7 @@ Includes: Secret Service, Police, SWAT.</p>
 <li><span class="types">boolean</span> if the player is a Mafia member.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsMafiaDon"></a><strong><span class="state state-client state-server">Player.IsMafiaDon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L221">Source ☍</a></dt>
+<dt><a name="Player.IsMafiaDon"></a><strong><span class="state state-client state-server">Player.IsMafiaDon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L227">Source ☍</a></dt>
 <dd>
 <p>Check if player is the Mafia Don.</p>
 
@@ -1133,6 +1143,16 @@ Includes: Secret Service, Police, SWAT.</p>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">boolean</span> if the player is the Mafia Don.</li>
+</ol>
+</dd>
+<dt><a name="Player.IsMaintenanceWorker"></a><strong><span class="state state-client state-server">Player.IsMaintenanceWorker</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L221">Source ☍</a></dt>
+<dd>
+<p>Check if player is a maintenance worker.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
 </ol>
 </dd>
 <dt><a name="Player.IsMechanic"></a><strong><span class="state state-client state-server">Player.IsMechanic</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L215">Source ☍</a></dt>
@@ -1145,7 +1165,7 @@ Includes: Secret Service, Police, SWAT.</p>
 <li><span class="types">boolean</span> if the player is a mechanic.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsMember"></a><strong><span class="state state-client state-server">Player.IsMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1068">Source ☍</a></dt>
+<dt><a name="Player.IsMember"></a><strong><span class="state state-client state-server">Player.IsMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1074">Source ☍</a></dt>
 <dd>
 <p>Check if a player currently has active Member status (entitled and wearing the tag), or Premium.</p>
 
@@ -1155,7 +1175,7 @@ Includes: Secret Service, Police, SWAT.</p>
 <li><span class="types">boolean</span> if the player should receive Member perks.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsModerator"></a><strong><span class="state state-client state-server">Player.IsModerator</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L376">Source ☍</a></dt>
+<dt><a name="Player.IsModerator"></a><strong><span class="state state-client state-server">Player.IsModerator</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L382">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Moderator permissions.
 Includes: Dev Mod permissions, Moderator 2 permissions, or moderator rank.</p>
@@ -1166,7 +1186,7 @@ Includes: Dev Mod permissions, Moderator 2 permissions, or moderator rank.</p>
 <li><span class="types">boolean</span> if the player has Moderator permissions.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsModerator2"></a><strong><span class="state state-client state-server">Player.IsModerator2</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L358">Source ☍</a></dt>
+<dt><a name="Player.IsModerator2"></a><strong><span class="state state-client state-server">Player.IsModerator2</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L364">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Moderator Stage 2 permissions.
 Includes: Dev Mod 2 permissions, Admin permissions, moderator2 rank, or seniormoderator rank.</p>
@@ -1198,7 +1218,7 @@ Uses a skybox trace to determine if the player has an unobstructed view of the s
 <li><span class="types">boolean</span> if the player is outside.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsOwner"></a><strong><span class="state state-client state-server">Player.IsOwner</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L304">Source ☍</a></dt>
+<dt><a name="Player.IsOwner"></a><strong><span class="state state-client state-server">Player.IsOwner</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L310">Source ☍</a></dt>
 <dd>
 <p>Check if the player is of the owner rank.</p>
 
@@ -1229,7 +1249,7 @@ Also returns true for Fire Chief.</p>
 <li><span class="types">boolean</span> if the player is a Police Officer.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsPoliceCommander"></a><strong><span class="state state-client state-server">Player.IsPoliceCommander</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L233">Source ☍</a></dt>
+<dt><a name="Player.IsPoliceCommander"></a><strong><span class="state state-client state-server">Player.IsPoliceCommander</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L239">Source ☍</a></dt>
 <dd>
 <p>Check if player is the Police Commander.</p>
 
@@ -1260,7 +1280,7 @@ Includes: President, Vice President, or NDS (Nexus Desk Secretary).</p>
 <li><span class="types">boolean</span> if the player is in the presidential administration.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsRank"></a><strong><span class="state state-client state-server">Player.IsRank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L287">Source ☍</a></dt>
+<dt><a name="Player.IsRank"></a><strong><span class="state state-client state-server">Player.IsRank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L293">Source ☍</a></dt>
 <dd>
 <p>Check if a player is a specified rank.</p>
 <pre><code class="language-lua">--  List of ranks.
@@ -1287,7 +1307,7 @@ rank:
 <li><span class="types">boolean</span> if the player is a Rebel or Rebel Leader.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsRebelLeader"></a><strong><span class="state state-client state-server">Player.IsRebelLeader</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L227">Source ☍</a></dt>
+<dt><a name="Player.IsRebelLeader"></a><strong><span class="state state-client state-server">Player.IsRebelLeader</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L233">Source ☍</a></dt>
 <dd>
 <p>Check if player is the Rebel Leader.</p>
 
@@ -1328,7 +1348,7 @@ Includes: EMS (Paramedics) and Fire Department.</p>
 <li><span class="types">boolean</span> if the player is a Security Guard.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsSecurityOfficer"></a><strong><span class="state state-client state-server">Player.IsSecurityOfficer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L451">Source ☍</a></dt>
+<dt><a name="Player.IsSecurityOfficer"></a><strong><span class="state state-client state-server">Player.IsSecurityOfficer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L457">Source ☍</a></dt>
 <dd>
 <p>Check if the player is a security officer.
 Includes: security rank or Super Developer permissions.</p>
@@ -1349,7 +1369,7 @@ Includes: security rank or Super Developer permissions.</p>
 <li><span class="types">boolean</span> if the player is the Secret Service Lead.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsStreamer"></a><strong><span class="state state-client state-server">Player.IsStreamer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L469">Source ☍</a></dt>
+<dt><a name="Player.IsStreamer"></a><strong><span class="state state-client state-server">Player.IsStreamer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L475">Source ☍</a></dt>
 <dd>
 <p>Check if a player is in streamer mode.
 This is a rank check for staff who activate &quot;streamer mode&quot; to hide their identity.</p>
@@ -1360,7 +1380,7 @@ This is a rank check for staff who activate &quot;streamer mode&quot; to hide th
 <li><span class="types">boolean</span> if streamer mode is active.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsSuperAdmin"></a><strong><span class="state state-client state-server">Player.IsSuperAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L322">Source ☍</a></dt>
+<dt><a name="Player.IsSuperAdmin"></a><strong><span class="state state-client state-server">Player.IsSuperAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L328">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Super Admin permissions.
 Includes: Super Developer permissions or Super Admin rank.</p>
@@ -1371,7 +1391,7 @@ Includes: Super Developer permissions or Super Admin rank.</p>
 <li><span class="types">boolean</span> if the player has Super Admin permissions.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsSuperDeveloper"></a><strong><span class="state state-client state-server">Player.IsSuperDeveloper</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L313">Source ☍</a></dt>
+<dt><a name="Player.IsSuperDeveloper"></a><strong><span class="state state-client state-server">Player.IsSuperDeveloper</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L319">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Super Developer permissions.
 Includes: Owner or Super Developer rank.</p>
@@ -1402,7 +1422,7 @@ Includes: Owner or Super Developer rank.</p>
 <li><span class="types">boolean</span> if the player is the SWAT Leader.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsTrialDevMod"></a><strong><span class="state state-client state-server">Player.IsTrialDevMod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L385">Source ☍</a></dt>
+<dt><a name="Player.IsTrialDevMod"></a><strong><span class="state state-client state-server">Player.IsTrialDevMod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L391">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Trial Developer Moderator permissions.
 Includes: Dev Mod permissions or trialdevmod rank.</p>
@@ -1413,7 +1433,7 @@ Includes: Dev Mod permissions or trialdevmod rank.</p>
 <li><span class="types">boolean</span> if the player has Trial Dev Mod permissions.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsTrialMod"></a><strong><span class="state state-client state-server">Player.IsTrialMod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L394">Source ☍</a></dt>
+<dt><a name="Player.IsTrialMod"></a><strong><span class="state state-client state-server">Player.IsTrialMod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L400">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Trial Moderator permissions.
 Includes: Trial Dev Mod permissions, Moderator permissions, or trialmoderator rank.</p>
@@ -1424,7 +1444,7 @@ Includes: Trial Dev Mod permissions, Moderator permissions, or trialmoderator ra
 <li><span class="types">boolean</span> if the player has Trial Moderator permissions.</li>
 </ol>
 </dd>
-<dt><a name="Player.IsVeteran"></a><strong><span class="state state-client state-server">Player.IsVeteran</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L434">Source ☍</a></dt>
+<dt><a name="Player.IsVeteran"></a><strong><span class="state state-client state-server">Player.IsVeteran</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L440">Source ☍</a></dt>
 <dd>
 <p>Check if the player is a veteran.</p>
 
@@ -1444,7 +1464,7 @@ Includes: Trial Dev Mod permissions, Moderator permissions, or trialmoderator ra
 <li><span class="types">boolean</span> if the player is the Vice President.</li>
 </ol>
 </dd>
-<dt><a name="Player.Job"></a><strong><span class="state state-client state-server">Player.Job</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L628">Source ☍</a></dt>
+<dt><a name="Player.Job"></a><strong><span class="state state-client state-server">Player.Job</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L634">Source ☍</a></dt>
 <dd>
 <p>Get a player's custom job title.</p>
 
@@ -1454,7 +1474,7 @@ Includes: Trial Dev Mod permissions, Moderator permissions, or trialmoderator ra
 <li><span class="types">string|nil</span> The current job.</li>
 </ol>
 </dd>
-<dt><a name="Player.KnockedOut"></a><strong><span class="state state-client state-server">Player.KnockedOut</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L610">Source ☍</a></dt>
+<dt><a name="Player.KnockedOut"></a><strong><span class="state state-client state-server">Player.KnockedOut</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L616">Source ☍</a></dt>
 <dd>
 <p>Check if a player is knocked out.</p>
 
@@ -1494,7 +1514,7 @@ Ie. don't reset data, don't reset prone state etc.</p>
 
 
 </dd>
-<dt><a name="Player.LoadData2"></a><strong><span class="state state-server">Player.LoadData2</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1401">Source ☍</a></dt>
+<dt><a name="Player.LoadData2"></a><strong><span class="state state-server">Player.LoadData2</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1402">Source ☍</a></dt>
 <dd>
 <p>Load the player's data from the result table.</p>
 <h3>Internal:</h3>
@@ -1507,7 +1527,7 @@ Ie. don't reset data, don't reset prone state etc.</p>
 </ul>
 
 </dd>
-<dt><a name="Player.LoadDataNew"></a><strong><span class="state state-server">Player.LoadDataNew</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1492">Source ☍</a></dt>
+<dt><a name="Player.LoadDataNew"></a><strong><span class="state state-server">Player.LoadDataNew</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1494">Source ☍</a></dt>
 <dd>
 <p>Load data for a new player.</p>
 <h3>Internal:</h3>
@@ -1517,7 +1537,7 @@ Ie. don't reset data, don't reset prone state etc.</p>
 
 
 </dd>
-<dt><a name="Player.Masked"></a><strong><span class="state state-client state-server">Player.Masked</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L715">Source ☍</a></dt>
+<dt><a name="Player.Masked"></a><strong><span class="state state-client state-server">Player.Masked</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L721">Source ☍</a></dt>
 <dd>
 <p>Check if a player is currently masked.
 Checks for mask-capable models, bodygroups, and accessories.
@@ -1529,7 +1549,7 @@ Returns false if the player is dead, hostaged, or cuffed.</p>
 <li><span class="types">boolean</span> if the player is masked.</li>
 </ol>
 </dd>
-<dt><a name="Player.MembershipExpires"></a><strong><span class="state state-client state-server">Player.MembershipExpires</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1041">Source ☍</a></dt>
+<dt><a name="Player.MembershipExpires"></a><strong><span class="state state-client state-server">Player.MembershipExpires</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1047">Source ☍</a></dt>
 <dd>
 <p>Get the time when the player's membership expires.</p>
 
@@ -1539,7 +1559,7 @@ Returns false if the player is dead, hostaged, or cuffed.</p>
 <li><span class="types">number</span> timestamp of membership expiry time.</li>
 </ol>
 </dd>
-<dt><a name="Player.MembershipLevel"></a><strong><span class="state state-client state-server">Player.MembershipLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L672">Source ☍</a></dt>
+<dt><a name="Player.MembershipLevel"></a><strong><span class="state state-client state-server">Player.MembershipLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L678">Source ☍</a></dt>
 <dd>
 <p>Get a player's membership level.
 Calculated based on total purchases (£5 spent equals 1 month).
@@ -1551,7 +1571,7 @@ Admins always return level 99.</p>
 <li><span class="types">number</span> current membership level (0 if no membership, 99 for admins).</li>
 </ol>
 </dd>
-<dt><a name="Player.Name"></a><strong><span class="state state-client state-server">Player.Name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L479">Source ☍</a></dt>
+<dt><a name="Player.Name"></a><strong><span class="state state-client state-server">Player.Name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L485">Source ☍</a></dt>
 <dd>
 <p>Get a player's OOC name, with optional undercover name replacement.
 If replace is true, will attempt to fetch undercover name, or generic names like &quot;An Administrator&quot; if none is registered.
@@ -1577,7 +1597,7 @@ This may return a fake name if the player has set one.</p>
 <li><span class="types">string</span> player's nickname.</li>
 </ol>
 </dd>
-<dt><a name="Player.Noclipping"></a><strong><span class="state state-client state-server">Player.Noclipping</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1035">Source ☍</a></dt>
+<dt><a name="Player.Noclipping"></a><strong><span class="state state-client state-server">Player.Noclipping</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1041">Source ☍</a></dt>
 <dd>
 <p>Get the player's noclip state.
 Returns true if the player is in noclip mode and not in a vehicle.</p>
@@ -1655,7 +1675,7 @@ Returns true if the player is in noclip mode and not in a vehicle.</p>
 </ul>
 
 </dd>
-<dt><a name="Player.Pass"></a><strong><span class="state state-client state-server">Player.Pass</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L622">Source ☍</a></dt>
+<dt><a name="Player.Pass"></a><strong><span class="state state-client state-server">Player.Pass</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L628">Source ☍</a></dt>
 <dd>
 <p>Check if a player has a pass.</p>
 <pre><code class="language-lua">The:
@@ -1672,7 +1692,7 @@ Returns true if the player is in noclip mode and not in a vehicle.</p>
 <li><span class="types">&quot;blue&quot;|&quot;green&quot;|&quot;grey&quot;|&quot;orange&quot;|&quot;red&quot;...(+1)</span> current pass or nil if none.</li>
 </ol>
 </dd>
-<dt><a name="Player.PlaySound"></a><strong><span class="state state-client state-server">Player.PlaySound</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1126">Source ☍</a></dt>
+<dt><a name="Player.PlaySound"></a><strong><span class="state state-client state-server">Player.PlaySound</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1132">Source ☍</a></dt>
 <dd>
 <p>Play a sound for the player.
 Can play either serverside (EmitSound - audible to nearby players) or clientside (surface.PlaySound - only to this player).</p>
@@ -1717,7 +1737,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.RefundAllAmmo"></a><strong><span class="state state-server">Player.RefundAllAmmo</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1592">Source ☍</a></dt>
+<dt><a name="Player.RefundAllAmmo"></a><strong><span class="state state-server">Player.RefundAllAmmo</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1594">Source ☍</a></dt>
 <dd>
 <p>Refund all ammo currently loaded onto a player.</p>
 
@@ -1731,7 +1751,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.REP"></a><strong><span class="state state-client state-server">Player.REP</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L749">Source ☍</a></dt>
+<dt><a name="Player.REP"></a><strong><span class="state state-client state-server">Player.REP</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L755">Source ☍</a></dt>
 <dd>
 <p>Get a player's REP count.</p>
 
@@ -1751,7 +1771,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.RestoreDefaultEquipment"></a><strong><span class="state state-server">Player.RestoreDefaultEquipment</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1733">Source ☍</a></dt>
+<dt><a name="Player.RestoreDefaultEquipment"></a><strong><span class="state state-server">Player.RestoreDefaultEquipment</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1735">Source ☍</a></dt>
 <dd>
 <p>Restore a player's default equipment.
 For example, keys, remote keys, toolgun and physgun.</p>
@@ -1762,7 +1782,7 @@ For example, keys, remote keys, toolgun and physgun.</p>
 </ul>
 
 </dd>
-<dt><a name="Player.RestoreDefaultModel"></a><strong><span class="state state-server">Player.RestoreDefaultModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1773">Source ☍</a></dt>
+<dt><a name="Player.RestoreDefaultModel"></a><strong><span class="state state-server">Player.RestoreDefaultModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1780">Source ☍</a></dt>
 <dd>
 <p>Restore a player's default model.
 Also unsets their custom model field.</p>
@@ -1770,7 +1790,7 @@ Also unsets their custom model field.</p>
 
 
 </dd>
-<dt><a name="Player.RestoreDefaultModelTimed"></a><strong><span class="state state-server">Player.RestoreDefaultModelTimed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1781">Source ☍</a></dt>
+<dt><a name="Player.RestoreDefaultModelTimed"></a><strong><span class="state state-server">Player.RestoreDefaultModelTimed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1788">Source ☍</a></dt>
 <dd>
 <p>Reset a player's default model, using the regular 10 second timer.</p>
 
@@ -1788,7 +1808,7 @@ Also unsets their custom model field.</p>
 
 
 </dd>
-<dt><a name="Player.RPName"></a><strong><span class="state state-client state-server">Player.RPName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L506">Source ☍</a></dt>
+<dt><a name="Player.RPName"></a><strong><span class="state state-client state-server">Player.RPName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L512">Source ☍</a></dt>
 <dd>
 <p>Get a player's current in-character (IC) name.
 If a fake name is set, it will be returned instead of the real IC name.</p>
@@ -1799,7 +1819,7 @@ If a fake name is set, it will be returned instead of the real IC name.</p>
 <li><span class="types">string</span> player's IC name.</li>
 </ol>
 </dd>
-<dt><a name="Player.SaveData"></a><strong><span class="state state-server">Player.SaveData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1507">Source ☍</a></dt>
+<dt><a name="Player.SaveData"></a><strong><span class="state state-server">Player.SaveData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1509">Source ☍</a></dt>
 <dd>
 <p>Save a player's data.</p>
 <h3>Internal:</h3>
@@ -1833,7 +1853,7 @@ If the player has sent a /panic call in the last 20 seconds, these are sent as d
 </ul>
 
 </dd>
-<dt><a name="Player.SetMember"></a><strong><span class="state state-server">Player.SetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1811">Source ☍</a></dt>
+<dt><a name="Player.SetMember"></a><strong><span class="state state-server">Player.SetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1818">Source ☍</a></dt>
 <dd>
 <p>Grant or revoke a player's Member entitlement.
 Persisted in _Flags, the same field Premium's &quot;d&quot; flag lives in, but read/written directly
@@ -1845,7 +1865,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 </ul>
 
 </dd>
-<dt><a name="Player.SetMembershipExpires"></a><strong><span class="state state-server">Player.SetMembershipExpires</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1796">Source ☍</a></dt>
+<dt><a name="Player.SetMembershipExpires"></a><strong><span class="state state-server">Player.SetMembershipExpires</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1803">Source ☍</a></dt>
 <dd>
 <p>Set when a player's membership expires.</p>
 
@@ -1855,7 +1875,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 </ul>
 
 </dd>
-<dt><a name="Player.SetNetMember"></a><strong><span class="state state-server">Player.SetNetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1829">Source ☍</a></dt>
+<dt><a name="Player.SetNetMember"></a><strong><span class="state state-server">Player.SetNetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1836">Source ☍</a></dt>
 <dd>
 <p>Set the networked Member state (the sync of GetMember()). Does not itself check tags or Premium.</p>
 
@@ -1865,7 +1885,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 </ul>
 
 </dd>
-<dt><a name="Player.SetPData"></a><strong><span class="state state-server">Player.SetPData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1584">Source ☍</a></dt>
+<dt><a name="Player.SetPData"></a><strong><span class="state state-server">Player.SetPData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1586">Source ☍</a></dt>
 <dd>
 <p>Override SetPData to disable saving on build/event servers.</p>
 
@@ -1878,7 +1898,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 <li><span class="types">nil</span> </li>
 </ol>
 </dd>
-<dt><a name="Player.SetPropLimit"></a><strong><span class="state state-server">Player.SetPropLimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1705">Source ☍</a></dt>
+<dt><a name="Player.SetPropLimit"></a><strong><span class="state state-server">Player.SetPropLimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1707">Source ☍</a></dt>
 <dd>
 <p>Set a player's custom prop limit.</p>
 
@@ -1888,14 +1908,14 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 </ul>
 
 </dd>
-<dt><a name="Player.SetSalary"></a><strong><span class="state state-server">Player.SetSalary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1532">Source ☍</a></dt>
+<dt><a name="Player.SetSalary"></a><strong><span class="state state-server">Player.SetSalary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1534">Source ☍</a></dt>
 <dd>
 <p>Set a player's salary based on third party adjustments.</p>
 
 
 
 </dd>
-<dt><a name="Player.Sleeping"></a><strong><span class="state state-client state-server">Player.Sleeping</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L562">Source ☍</a></dt>
+<dt><a name="Player.Sleeping"></a><strong><span class="state state-client state-server">Player.Sleeping</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L568">Source ☍</a></dt>
 <dd>
 <p>Check if a player is sleeping.</p>
 
@@ -1905,7 +1925,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 <li><span class="types">boolean|nil</span> current sleep state.</li>
 </ol>
 </dd>
-<dt><a name="Player.Status"></a><strong><span class="state state-client state-server">Player.Status</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L640">Source ☍</a></dt>
+<dt><a name="Player.Status"></a><strong><span class="state state-client state-server">Player.Status</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L646">Source ☍</a></dt>
 <dd>
 <p>Get a player's custom status.</p>
 
@@ -1915,7 +1935,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 <li><span class="types">string</span> current status, or empty string if none set.</li>
 </ol>
 </dd>
-<dt><a name="Player.Stunned"></a><strong><span class="state state-client state-server">Player.Stunned</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L598">Source ☍</a></dt>
+<dt><a name="Player.Stunned"></a><strong><span class="state state-client state-server">Player.Stunned</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L604">Source ☍</a></dt>
 <dd>
 <p>Check if a player is stunned (tased).</p>
 
@@ -1942,7 +1962,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 
 
 </dd>
-<dt><a name="Player.Tranqed"></a><strong><span class="state state-client state-server">Player.Tranqed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L592">Source ☍</a></dt>
+<dt><a name="Player.Tranqed"></a><strong><span class="state state-client state-server">Player.Tranqed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L598">Source ☍</a></dt>
 <dd>
 <p>Check if a player is tranquilized.</p>
 
@@ -1952,7 +1972,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 <li><span class="types">boolean|nil</span> current tranquilized state.</li>
 </ol>
 </dd>
-<dt><a name="Player.TweetName"></a><strong><span class="state state-client state-server">Player.TweetName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L646">Source ☍</a></dt>
+<dt><a name="Player.TweetName"></a><strong><span class="state state-client state-server">Player.TweetName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L652">Source ☍</a></dt>
 <dd>
 <p>Get a player's tweet/social media name.</p>
 
@@ -1992,7 +2012,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 </ul>
 
 </dd>
-<dt><a name="Player.Warranted"></a><strong><span class="state state-client state-server">Player.Warranted</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L616">Source ☍</a></dt>
+<dt><a name="Player.Warranted"></a><strong><span class="state state-client state-server">Player.Warranted</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L622">Source ☍</a></dt>
 <dd>
 <p>Check if a player has a warrant.</p>
 <pre><code class="language-lua">The:
@@ -2007,7 +2027,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 <li><span class="types">&quot;arrest&quot;|&quot;bolo&quot;|&quot;search&quot;|nil</span> current warrant type, or nil if none.</li>
 </ol>
 </dd>
-<dt><a name="Player.Ziptied"></a><strong><span class="state state-client state-server">Player.Ziptied</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L580">Source ☍</a></dt>
+<dt><a name="Player.Ziptied"></a><strong><span class="state state-client state-server">Player.Ziptied</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L586">Source ☍</a></dt>
 <dd>
 <p>Check if a player is ziptied.</p>
 
@@ -2135,13 +2155,13 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 
 
 </dd>
-<dt><a name="Player._EventMgr"></a><strong><span class="state state-server">Player._EventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1845">Source ☍</a></dt>
+<dt><a name="Player._EventMgr"></a><strong><span class="state state-server">Player._EventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1852">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player._EventMgr"></a><strong><span class="state state-server">Player._EventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1852">Source ☍</a></dt>
+<dt><a name="Player._EventMgr"></a><strong><span class="state state-server">Player._EventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1859">Source ☍</a></dt>
 <dd>
 
 
@@ -2207,13 +2227,13 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 
 
 </dd>
-<dt><a name="Player._initialPropLimit"></a><strong><span class="state state-server">Player._initialPropLimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1696">Source ☍</a></dt>
+<dt><a name="Player._initialPropLimit"></a><strong><span class="state state-server">Player._initialPropLimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1698">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player._initialPropLimit"></a><strong><span class="state state-server">Player._initialPropLimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1709">Source ☍</a></dt>
+<dt><a name="Player._initialPropLimit"></a><strong><span class="state state-server">Player._initialPropLimit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1711">Source ☍</a></dt>
 <dd>
 
 
@@ -2257,50 +2277,44 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 
 
 </dd>
-<dt><a name="Player._Purchases"></a><strong><span class="state state-server">Player._Purchases</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1360">Source ☍</a></dt>
+<dt><a name="Player._Purchases"></a><strong><span class="state state-server">Player._Purchases</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1361">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player._Purchases"></a><strong><span class="state state-server">Player._Purchases</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1442">Source ☍</a></dt>
+<dt><a name="Player._Purchases"></a><strong><span class="state state-server">Player._Purchases</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1444">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1364">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1365">Source ☍</a></dt>
 <dd>
 <p>Some default values to prevent bugs</p>
 
 
 
 </dd>
-<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1533">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1535">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1554">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1556">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1558">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1560">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1562">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1567">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1564">Source ☍</a></dt>
 <dd>
 
 
@@ -2318,13 +2332,19 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 
 
 </dd>
-<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1577">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1573">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player._SetPData"></a><strong><span class="state state-server">Player._SetPData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1581">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><strong><span class="state state-server">Player._Salary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1579">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="Player._SetPData"></a><strong><span class="state state-server">Player._SetPData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1583">Source ☍</a></dt>
 <dd>
 
 
@@ -2355,7 +2375,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 
 
 </dd>
-<dt><a name="Player._WarrantedTime"></a><strong><span class="state state-server">Player._WarrantedTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1445">Source ☍</a></dt>
+<dt><a name="Player._WarrantedTime"></a><strong><span class="state state-server">Player._WarrantedTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1447">Source ☍</a></dt>
 <dd>
 
 
@@ -2367,19 +2387,19 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 
 
 </dd>
-<dt><a name="Player.CustomModel"></a><strong><span class="state state-server">Player.CustomModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1774">Source ☍</a></dt>
+<dt><a name="Player.CustomModel"></a><strong><span class="state state-server">Player.CustomModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1781">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player.CustomModel"></a><strong><span class="state state-server">Player.CustomModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1782">Source ☍</a></dt>
+<dt><a name="Player.CustomModel"></a><strong><span class="state state-server">Player.CustomModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1789">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player.GetPlayerChatColour"></a><strong><span class="state state-client state-server">Player.GetPlayerChatColour</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1030">Source ☍</a></dt>
+<dt><a name="Player.GetPlayerChatColour"></a><strong><span class="state state-client state-server">Player.GetPlayerChatColour</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1036">Source ☍</a></dt>
 <dd>
 <p>Get the player's chat color.
 Alias for GetRankColor().</p>
@@ -2419,7 +2439,7 @@ Alias for GetRankColor().</p>
 
 
 </dd>
-<dt><a name="Player.IsUserGroup"></a><strong><span class="state state-client state-server">Player.IsUserGroup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L299">Source ☍</a></dt>
+<dt><a name="Player.IsUserGroup"></a><strong><span class="state state-client state-server">Player.IsUserGroup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L305">Source ☍</a></dt>
 <dd>
 <p>Check if a player is a specified rank.
 Alias for IsRank() for compatibility with Garry's Mod standard API.</p>
@@ -2434,7 +2454,7 @@ Alias for IsRank() for compatibility with Garry's Mod standard API.</p>
 
 
 </dd>
-<dt><a name="Player.peq"></a><strong><span class="state state-server">Player.peq</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1751">Source ☍</a></dt>
+<dt><a name="Player.peq"></a><strong><span class="state state-server">Player.peq</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1758">Source ☍</a></dt>
 <dd>
 
 

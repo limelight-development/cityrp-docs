@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Waypoints</title>
+	<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<div id="container">
+	<div id="product">
+		<div id="product_logo"></div>
+		<div id="product_name"><big><b></b></big></div>
+		<div id="product_description"></div>
+	</div>
+	<div id="main">
+		<div id="navigation">
+<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-header"><h2>Modules</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/DB.html">DB</a></li>
+<li><a href="../modules/GM.html">GM</a></li>
+<li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+<li><a href="../modules/core.libraries.cl_chatbox.html">core.libraries.cl_chatbox</a></li>
+<li><a href="../modules/core.libraries.cl_hints.html">core.libraries.cl_hints</a></li>
+<li><a href="../modules/core.libraries.cl_inventory.html">core.libraries.cl_inventory</a></li>
+<li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../modules/core.libraries.sh_access.html">core.libraries.sh_access</a></li>
+<li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
+<li><a href="../modules/core.libraries.sh_chatbox.html">core.libraries.sh_chatbox</a></li>
+<li><a href="../modules/core.libraries.sh_currency.html">core.libraries.sh_currency</a></li>
+<li><a href="../modules/core.libraries.sh_dumper.html">core.libraries.sh_dumper</a></li>
+<li><a href="../modules/core.libraries.sh_functions.html">core.libraries.sh_functions</a></li>
+<li><a href="../modules/core.libraries.sh_help.html">core.libraries.sh_help</a></li>
+<li><a href="../modules/core.libraries.sh_imagehosts.html">core.libraries.sh_imagehosts</a></li>
+<li><a href="../modules/core.libraries.sh_internet.html">core.libraries.sh_internet</a></li>
+<li><a href="../modules/core.libraries.sh_item.html">core.libraries.sh_item</a></li>
+<li><a href="../modules/core.libraries.sh_itemcore.html">core.libraries.sh_itemcore</a></li>
+<li><a href="../modules/core.libraries.sh_logging.html">core.libraries.sh_logging</a></li>
+<li><a href="../modules/core.libraries.sh_plugin.html">core.libraries.sh_plugin</a></li>
+<li><a href="../modules/core.libraries.sh_plugincore.html">core.libraries.sh_plugincore</a></li>
+<li><a href="../modules/core.libraries.sh_table.html">core.libraries.sh_table</a></li>
+<li><a href="../modules/core.libraries.sh_team.html">core.libraries.sh_team</a></li>
+<li><a href="../modules/core.libraries.sh_weighted_random.html">core.libraries.sh_weighted_random</a></li>
+<li><a href="../modules/core.libraries.sh_workarounds.html">core.libraries.sh_workarounds</a></li>
+<li><a href="../modules/core.libraries.sh_zones.html">core.libraries.sh_zones</a></li>
+<li><a href="../modules/core.libraries.sv_access.html">core.libraries.sv_access</a></li>
+<li><a href="../modules/core.libraries.sv_admin_core.html">core.libraries.sv_admin_core</a></li>
+<li><a href="../modules/core.libraries.sv_chatbox.html">core.libraries.sv_chatbox</a></li>
+<li><a href="../modules/core.libraries.sv_commands.html">core.libraries.sv_commands</a></li>
+<li><a href="../modules/core.libraries.sv_console.html">core.libraries.sv_console</a></li>
+<li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
+<li><a href="../modules/core.libraries.sv_gatekeeper.html">core.libraries.sv_gatekeeper</a></li>
+<li><a href="../modules/core.libraries.sv_inventory.html">core.libraries.sv_inventory</a></li>
+<li><a href="../modules/core.libraries.sv_item.html">core.libraries.sv_item</a></li>
+<li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
+<li><a href="../modules/core.libraries.sv_makeleader.html">core.libraries.sv_makeleader</a></li>
+<li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+<li><a href="../modules/core.libraries.sv_migrations.html">core.libraries.sv_migrations</a></li>
+<li><a href="../modules/core.libraries.sv_model.html">core.libraries.sv_model</a></li>
+<li><a href="../modules/core.libraries.sv_player.html">core.libraries.sv_player</a></li>
+<li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
+<li><a href="../modules/core.libraries.sv_team.html">core.libraries.sv_team</a></li>
+<li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+<li><a href="../modules/core.metatables.sh_permissions.html">core.metatables.sh_permissions</a></li>
+<li><a href="../modules/core.metatables.sh_player.html">core.metatables.sh_player</a></li>
+<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+<li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
+<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+<li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
+<li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_save_sv.html">core.plugins.billboards.sv.zad_save_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../modules/core.plugins.breathalyser.sv_init.html">core.plugins.breathalyser.sv_init</a></li>
+<li><a href="../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../modules/core.plugins.cruisecontrol.sv_init.html">core.plugins.cruisecontrol.sv_init</a></li>
+<li><a href="../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../modules/core.plugins.item_db_update.sv_init.html">core.plugins.item_db_update.sv_init</a></li>
+<li><a href="../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.phonebook.cl_init.html">core.plugins.phonebook.cl_init</a></li>
+<li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
+<li><a href="../modules/core.plugins.weapons_on_back.sh_init.html">core.plugins.weapons_on_back.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
+<li><a href="../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../modules/core.sh_enumerations.html">core.sh_enumerations</a></li>
+<li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../modules/env.html">env</a></li>
+<li><a href="../modules/sh_init.html">sh_init</a></li>
+<li><a href="../modules/temar.html">temar</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Topics</h2></div>
+<ul class="ll-kind-body">
+<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
+<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
+<li><a href="../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../topics/items.html">Types of Items</a></li>
+<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
+<li><a href="../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../topics/meska.html">MESKA</a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
+<li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../topics/waypoints.html">Waypoints</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Credits</h2></div>
+<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Waypoints</h1></div><div class="ll-module-body"><h1>Waypoints</h1>
+<p>The Waypoints plugin provides server-authoritative world navigation with a VMF-scaled minimap, hosted F1 map, compact compass and a through-wall marker. Saved locations, dynamic nearest-entity destinations and system destinations all use the same selection path.</p>
+<h2>Player commands</h2>
+<pre><code class="language-text">/waypoint &lt;location&gt;
+/waypoint goto &lt;location&gt;
+/waypoint clear
+/waypoint end
+/waypoint stop
+/waypoints list
+</code></pre>
+<p><code>/waypoints list</code> prints every currently available public destination, its
+category and the matching <code>/waypoint</code> command to the player's console. The
+former <code>/waypoints</code> Derma menu remains removed.</p>
+<p>The F1 <strong>Map</strong> interface is searchable and grouped by category. It includes saved map locations, dynamic <strong>Nearest</strong> destinations and locations registered by another system. It deliberately excludes the legacy <code>/place</code> coordinate table from ordinary player navigation.</p>
+<h2>VMF map projection</h2>
+<p>The HUD minimap and F1 Map use the same exported map artwork and reversible Source-world transform. The <code>rp_evocity_v4b1_fl2</code> definition currently uses:</p>
+<pre><code class="language-text">HUD image: rp_evocity_v4b1_fl2_gmod.png
+Image size: 3896 x 4096
+World X: -16368 to 12944
+World Y: -15446 to 15376
+Y axis: image top is maximum world Y
+</code></pre>
+<p>World positions are converted into normalized texture coordinates:</p>
+<pre><code class="language-text">u = (worldX - minX) / (maxX - minX)
+v = (maxY - worldY) / (maxY - minY)
+</code></pre>
+<p><code>WorldToMapUV</code> and <code>MapUVToWorld</code> expose both directions of the transform. The HUD minimap, F1 player marker, active waypoint marker and positioned map pins therefore share one coordinate system rather than separate manually tuned percentages.</p>
+<h2>Map material cache</h2>
+<p>The client downloads the 3896×4096 in-game derivative from the configured beta
+map path, validates its PNG signature and stores it under:</p>
+<pre><code class="language-text">data/cityrp/waypoints/maps/&lt;map&gt;_&lt;version&gt;.png
+</code></pre>
+<p>The cached file is loaded as the native HUD material. The hosted F1 page uses
+the same optimized <code>3896×4096</code> derivative and exact canvas ratio as the HUD.
+This avoids decoding a roughly 1.1 GB RGBA source texture, eliminates
+letterbox drift between pins and artwork, and cuts the map download from
+roughly 1.5 MB to 125 KB. A version change in the shared map definition
+produces a new HUD cache filename. The F1 page uses a versioned service-worker
+cache for its map, scripts, styles and pin images.</p>
+<h2>HUD minimap</h2>
+<p>The GTA-inspired minimap uses the same background and outline colours as the
+TEAM/ALL radio panel. Its default width matches the 294-pixel Limelight citizen
+HUD panel.</p>
+<p>The map remains centred on the player and rotates to keep the navigation heading
+at the top. On foot, the minimap, compass, full-map marker and F1 player arrow
+use camera yaw. While seated, they use the player model's vehicle-aligned render
+yaw, so free-looking cannot skew navigation away from the direction of travel.
+The redundant north pointer is hidden because the integrated compass provides
+cardinal orientation.
+The minimap shows the active destination as an edge-clamped marker when it is
+outside the visible crop, without repeating its name or distance under the map.
+The north-up F1 map uses the same white four-point player arrow and rotates it
+to the current model-facing heading.</p>
+<p>The minimap is enabled by default and remains fixed at the top right. Hold <code>C</code>
+and open <strong>HUD Options → Toggle Minimap</strong> to toggle it, choose <strong>Default Size</strong>
+or <strong>Small Size</strong>, and independently toggle its compass section. The former
+<code>/minimap</code> command and alternate screen anchors have been removed.</p>
+<p>The <code>−</code>, reset and <code>+</code> controls in the minimap's upper-right corner use the
+hosted F1 map styling at a smaller HUD scale and change its crop zoom. They
+accept mouse input while the player holds <code>C</code>. Visibility, size, compass and
+zoom preferences are archived client-side. Areas beyond the map image are
+filled with <code>#1a1a1a</code>.</p>
+<p>When a waypoint is active, the minimap draws the server-calculated route along
+the exported road surfaces. The <code>#0D47A1</code> road stroke uses rounded corners and
+caps. Its <code>#546E7A</code> off-road sections identify the connection from an off-road
+player or destination back to the nearest recognized road. The destination
+remains edge-clamped when it is outside the visible crop.</p>
+<h2>Hosted F1 city map</h2>
+<p>Pressing <code>M</code> opens the F1 menu directly on the Map tab. The console command <code>cityrp_open_map</code> exposes the same behaviour for custom binds.</p>
+<p>The F1 panel hosts the beta service-map interface so its category controls,
+location cards and full pin artwork remain identical to the browser map. It
+supports:</p>
+<ul>
+<li>mouse-wheel zoom;</li>
+<li>left-drag panning;</li>
+<li>a reset control;</li>
+<li>active-navigation state; and</li>
+<li>interactive server-authoritative location pins.</li>
+</ul>
+<p>Clicking a pin selects it and centres its anchor in the current map view. The
+location list remains searchable and filterable by the category controls at
+the top. Clicking either a row or its <strong>Set Waypoint</strong> button focuses the same
+pin before selecting the destination.</p>
+<p>Static locations use their saved world coordinates. Registered system destinations use their resolver coordinates. Dynamic destinations are refreshed from the current matching entity's <code>WorldSpaceCenter()</code>.</p>
+<p>The server sends those locations to the client through
+<code>CityRP.Waypoints.MapData</code>. The client converts Source world positions through
+<code>WorldToMapUV</code> and injects a JSON payload into the already-loaded DHTML page with
+<code>CityRPMapSetLocations</code>. This data exists only in that player's in-memory page:</p>
+<ul>
+<li>the game server does not POST coordinates to the website;</li>
+<li>the website does not receive database credentials;</li>
+<li>no public JSON file is modified on server startup; and</li>
+<li>a fresh server response replaces stale browser-map positions.</li>
+</ul>
+<p>This is preferable for the in-game F1 map because live and nearest resolvers can
+change. <code>!waypointexport</code> remains the controlled workflow for updating the
+standalone public map.</p>
+<h2>Nearest map category</h2>
+<p>The hosted F1 map includes a <strong>Nearest</strong> category. Its entries are list-only:</p>
+<ul>
+<li>they are visible in the category and location list;</li>
+<li>they do not create map pins;</li>
+<li>clicking the entire location row sets the waypoint; and</li>
+<li>the existing <strong>Set Waypoint</strong> button performs the same action.</li>
+</ul>
+<p>Nearest destinations resolve to the closest currently valid entity each time they are selected:</p>
+<table>
+<thead>
+<tr>
+<th>Identifier</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>locker</code></td>
+<td>Government Locker</td>
+</tr>
+<tr>
+<td><code>weed</code></td>
+<td>Drug Dealer</td>
+</tr>
+<tr>
+<td><code>meth</code></td>
+<td>Meth Dealer</td>
+</tr>
+<tr>
+<td><code>coal</code></td>
+<td>Coal Mine</td>
+</tr>
+<tr>
+<td><code>metal</code></td>
+<td>Metal Mine</td>
+</tr>
+<tr>
+<td><code>tree</code></td>
+<td>Pine Tree</td>
+</tr>
+<tr>
+<td><code>bin</code></td>
+<td>Rubbish Bin</td>
+</tr>
+<tr>
+<td><code>trash</code></td>
+<td>Trash Collector</td>
+</tr>
+<tr>
+<td><code>wood</code></td>
+<td>Wood Chopper</td>
+</tr>
+<tr>
+<td><code>rocks</code></td>
+<td>Construction Worker</td>
+</tr>
+<tr>
+<td><code>terminal</code></td>
+<td>ID Terminal</td>
+</tr>
+<tr>
+<td><code>vending_machine</code></td>
+<td>Vending Machine</td>
+</tr>
+<tr>
+<td><code>tesla_supercharger</code></td>
+<td>Tesla Supercharger</td>
+</tr>
+<tr>
+<td><code>fuel_station</code></td>
+<td>Fuel Station</td>
+</tr>
+<tr>
+<td><code>phonebooth</code></td>
+<td>Phonebooth</td>
+</tr>
+</tbody>
+</table>
+<h2>Persistent map locations</h2>
+<p>Roleplay Assistants and higher staff can save locations to the current map while looking at the required position:</p>
+<pre><code class="language-text">!waypointset &lt;name&gt; [hidden|visible]
+!waypointsetcategory &lt;location&gt; &lt;category&gt;
+!waypointdelete &lt;name&gt;
+</code></pre>
+<p>New locations begin in <strong>General</strong>.</p>
+<p>All privileged functions use documented acommands:</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>!waypointset &quot;Industrial Road&quot; visible</code></td>
+<td>Save or update the aimed position</td>
+</tr>
+<tr>
+<td><code>!waypointcategory add &quot;Fuel Stations&quot; red diamond</code></td>
+<td>Create, edit, list or remove categories</td>
+</tr>
+<tr>
+<td><code>!waypointsetcategory &quot;Inner City BP&quot; &quot;Fuel Stations&quot;</code></td>
+<td>Move a saved location</td>
+</tr>
+<tr>
+<td><code>!waypointhide &quot;Staff Garage&quot;</code></td>
+<td>Hide a saved pin</td>
+</tr>
+<tr>
+<td><code>!waypointshow &quot;Staff Garage&quot;</code></td>
+<td>Restore a saved pin</td>
+</tr>
+<tr>
+<td><code>!waypointdelete &quot;Old Location&quot;</code></td>
+<td>Delete a saved location</td>
+</tr>
+<tr>
+<td><code>!waypointplayer Vadar &quot;Inner City BP&quot;</code></td>
+<td>Assign or clear another player's route</td>
+</tr>
+<tr>
+<td><code>!waypointexport</code></td>
+<td>Print the current map JSON</td>
+</tr>
+<tr>
+<td><code>!waypointdebug roads</code></td>
+<td>Inspect the road graph and route</td>
+</tr>
+</tbody>
+</table>
+<p>The same examples and descriptions appear in the F1 Commands page for
+authorized staff.</p>
+<p>Locations are stored under:</p>
+<pre><code class="language-text">data/cityrp/plugins/waypoints/&lt;map&gt;.json
+</code></pre>
+<p>Repository-managed configurations may be placed under:</p>
+<pre><code class="language-text">gamemode/core/plugins/waypoints/maps/&lt;map&gt;.json
+</code></pre>
+<p>The server imports a changed packaged configuration once and records its checksum under <code>data/cityrp/plugins/waypoints/imports/</code>. Later in-game edits are therefore not overwritten on every restart.</p>
+<p>Staff can print the complete current map configuration to their client console:</p>
+<pre><code class="language-text">!waypointexport
+</code></pre>
+<p>The export is the correct source for a reviewed public-map update. An automatic
+server-to-website upload would require an authenticated write endpoint, replay
+protection, map/version validation and deployment rollback. Runtime DHTML
+injection avoids that operational and security surface for the in-game map.</p>
+<h2>Hidden locations</h2>
+<p>A saved location can remain addressable without appearing in the F1 location list:</p>
+<pre><code class="language-text">!waypointhide &lt;name&gt;
+!waypointshow &lt;name&gt;
+!waypointset &lt;name&gt; hidden
+</code></pre>
+<p>Hidden locations remain usable through direct selection, staff assignment and system integrations.</p>
+<p>Nearest entries are different from hidden saved points: they remain visible in the F1 list but are marked as list-only so the map does not draw a pin.</p>
+<h2>Categories</h2>
+<pre><code class="language-text">!waypointcategory add &lt;name&gt; [colour] [shape]
+!waypointcategory set &lt;name&gt; [colour] [shape]
+!waypointcategory remove &lt;name&gt;
+!waypointcategory list
+</code></pre>
+<p><code>create</code> aliases <code>add</code>, <code>edit</code> aliases <code>set</code>, and <code>delete</code> aliases <code>remove</code>. Removing a category moves its saved locations to <strong>General</strong>.</p>
+<p>Supported colours are <code>blue</code>, <code>green</code>, <code>orange</code>, <code>red</code>, <code>yellow</code>, <code>purple</code> and <code>white</code>. Supported shapes are <code>diamond</code>, <code>circle</code>, <code>square</code> and <code>triangle</code>.</p>
+<p>Multi-word category names use an underscore identifier, such as <code>City Services</code> becoming <code>city_services</code>.</p>
+<h2>Buildings and road routing</h2>
+<p>The map PNG is visual artwork only. Buildings, water and terrain may change
+without changing navigation. Road routing uses the packaged
+<code>rp_evocity_v4b1_fl2_roads.json</code>, which contains world-coordinate road polygons
+and holes exported from the VMF.</p>
+<p>On server startup, the plugin samples that geometry into a connected 256-unit
+road grid. A waypoint projects the player and destination onto their nearest
+road nodes, runs A* with diagonal corner protection, and simplifies the result
+only where the straight segment remains within the exported road surface. The
+server sends the resulting world-coordinate route with the waypoint. It
+recalculates only when the player moves more than three grid cells from the
+active route.</p>
+<p>The route geometry is independent from the PNG and therefore cannot mistake a
+building colour for a road. The current graph is bidirectional because the
+source data describes surfaces rather than lane direction. One-way support
+would require directed lane or edge metadata in a future export.</p>
+<p>Roleplay Assistants and higher staff can inspect the routing system with:</p>
+<pre><code class="language-text">!waypointdebug roads
+!waypointdebug route
+!waypointdebug status
+!waypointdebug off
+</code></pre>
+<p>The <code>roads</code> mode draws every recognized road-grid node in green over the base
+map, draws active route points in yellow and leaves the calculated path in its
+normal on-road and off-road colours.
+The minimap also displays the road-node and route-point counts. <code>route</code> and
+<code>status</code> print the graph load state, source path and active route coordinates to
+the console. This distinguishes a missing graph from a route-calculation or
+HUD-rendering problem.</p>
+<h2>Staff directions</h2>
+<pre><code class="language-text">!waypointplayer &lt;player&gt; &lt;location&gt;
+!waypointplayer &lt;player&gt; clear
+!waypointplayer &lt;player&gt; end
+!waypointplayer &lt;player&gt;
+</code></pre>
+<p>The player argument accepts a partial or full name, server UserID or legacy SteamID through CityRP's normal lookup. Without a destination, the waypoint uses the staff member's aimed position.</p>
+<p>Staff assignment may resolve the existing <code>/place</code> and <code>/warp</code> tables for compatibility. Those legacy coordinates are not exposed in the ordinary player menu.</p>
+<h2>Server API</h2>
+<pre><code class="language-lua">local waypoints = cityrp.plugin.get(&quot;Waypoints&quot;)
+
+waypoints:SetWaypoint(
+	ply,
+	&quot;Delivery&quot;,
+	Vector(100, 200, 300),
+	260,
+	&quot;example&quot;,
+	false,
+	&quot;orange&quot;,
+	&quot;triangle&quot;,
+	&quot;deliveries&quot;
+)
+
+waypoints:ClearWaypoint(ply, &quot;example&quot;)
+
+waypoints:RegisterDestination(
+	&quot;example&quot;,
+	&quot;Example Destination&quot;,
+	Vector(100, 200, 300),
+	260,
+	&quot;green&quot;,
+	&quot;circle&quot;,
+	&quot;services&quot;
+)
+</code></pre>
+<p>Source identifiers allow systems to clear only their own navigation without removing a staff or unrelated system waypoint.</p>
+<h2>Car Boosting</h2>
+<p>When Waypoints is loaded, Car Boosting replaces another active destination with a silent <code>Chop Shop</code> waypoint when delivery begins. It clears when delivery completes, fails or the player enters the destination radius.</p>
+<p>Without Waypoints, the Boosting objective HUD retains its own delivery bearing and distance.</p>
+<h2>Runtime checks</h2>
+<ol>
+<li>Clear the map material cache and confirm the PNG downloads and renders in both HUD and F1.</li>
+<li>Verify both minimap sizes, visibility and compass toggles from the <code>C</code> menu.</li>
+<li>Hold <code>C</code> and verify <code>+</code> and <code>−</code> change the minimap crop zoom.</li>
+<li>Walk and drive between known landmarks and verify world movement matches the minimap.</li>
+<li>Set distant waypoints and verify the blue route follows roads and reroutes after leaving them.</li>
+<li>Rotate on foot and in a vehicle, then look independently, and verify the expected heading remains correct.</li>
+<li>Press <code>M</code> and confirm F1 opens directly on the hosted Map panel.</li>
+<li>Verify F1 zoom, pan, reset, player position and active navigation marker.</li>
+<li>Compare saved pins against their corresponding doors, properties and service entities.</li>
+<li>Confirm Nearest entries draw no pins and both row/button actions resolve the closest live entity.</li>
+<li>Test saved categories, hidden points, staff assignment and automatic clearing inside the arrival radius.</li>
+</ol></div>
+		</div>
+	</div>
+	<br class="clearfix">
+</div>
+</body>
+</html>

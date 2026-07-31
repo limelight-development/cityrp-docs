@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Maintenance Work System</title>
+	<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<div id="container">
+	<div id="product">
+		<div id="product_logo"></div>
+		<div id="product_name"><big><b></b></big></div>
+		<div id="product_description"></div>
+	</div>
+	<div id="main">
+		<div id="navigation">
+<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-header"><h2>Modules</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/DB.html">DB</a></li>
+<li><a href="../modules/GM.html">GM</a></li>
+<li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+<li><a href="../modules/core.libraries.cl_chatbox.html">core.libraries.cl_chatbox</a></li>
+<li><a href="../modules/core.libraries.cl_hints.html">core.libraries.cl_hints</a></li>
+<li><a href="../modules/core.libraries.cl_inventory.html">core.libraries.cl_inventory</a></li>
+<li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../modules/core.libraries.sh_access.html">core.libraries.sh_access</a></li>
+<li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
+<li><a href="../modules/core.libraries.sh_chatbox.html">core.libraries.sh_chatbox</a></li>
+<li><a href="../modules/core.libraries.sh_currency.html">core.libraries.sh_currency</a></li>
+<li><a href="../modules/core.libraries.sh_dumper.html">core.libraries.sh_dumper</a></li>
+<li><a href="../modules/core.libraries.sh_functions.html">core.libraries.sh_functions</a></li>
+<li><a href="../modules/core.libraries.sh_help.html">core.libraries.sh_help</a></li>
+<li><a href="../modules/core.libraries.sh_imagehosts.html">core.libraries.sh_imagehosts</a></li>
+<li><a href="../modules/core.libraries.sh_internet.html">core.libraries.sh_internet</a></li>
+<li><a href="../modules/core.libraries.sh_item.html">core.libraries.sh_item</a></li>
+<li><a href="../modules/core.libraries.sh_itemcore.html">core.libraries.sh_itemcore</a></li>
+<li><a href="../modules/core.libraries.sh_logging.html">core.libraries.sh_logging</a></li>
+<li><a href="../modules/core.libraries.sh_plugin.html">core.libraries.sh_plugin</a></li>
+<li><a href="../modules/core.libraries.sh_plugincore.html">core.libraries.sh_plugincore</a></li>
+<li><a href="../modules/core.libraries.sh_table.html">core.libraries.sh_table</a></li>
+<li><a href="../modules/core.libraries.sh_team.html">core.libraries.sh_team</a></li>
+<li><a href="../modules/core.libraries.sh_weighted_random.html">core.libraries.sh_weighted_random</a></li>
+<li><a href="../modules/core.libraries.sh_workarounds.html">core.libraries.sh_workarounds</a></li>
+<li><a href="../modules/core.libraries.sh_zones.html">core.libraries.sh_zones</a></li>
+<li><a href="../modules/core.libraries.sv_access.html">core.libraries.sv_access</a></li>
+<li><a href="../modules/core.libraries.sv_admin_core.html">core.libraries.sv_admin_core</a></li>
+<li><a href="../modules/core.libraries.sv_chatbox.html">core.libraries.sv_chatbox</a></li>
+<li><a href="../modules/core.libraries.sv_commands.html">core.libraries.sv_commands</a></li>
+<li><a href="../modules/core.libraries.sv_console.html">core.libraries.sv_console</a></li>
+<li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
+<li><a href="../modules/core.libraries.sv_gatekeeper.html">core.libraries.sv_gatekeeper</a></li>
+<li><a href="../modules/core.libraries.sv_inventory.html">core.libraries.sv_inventory</a></li>
+<li><a href="../modules/core.libraries.sv_item.html">core.libraries.sv_item</a></li>
+<li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
+<li><a href="../modules/core.libraries.sv_makeleader.html">core.libraries.sv_makeleader</a></li>
+<li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+<li><a href="../modules/core.libraries.sv_migrations.html">core.libraries.sv_migrations</a></li>
+<li><a href="../modules/core.libraries.sv_model.html">core.libraries.sv_model</a></li>
+<li><a href="../modules/core.libraries.sv_player.html">core.libraries.sv_player</a></li>
+<li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
+<li><a href="../modules/core.libraries.sv_team.html">core.libraries.sv_team</a></li>
+<li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+<li><a href="../modules/core.metatables.sh_permissions.html">core.metatables.sh_permissions</a></li>
+<li><a href="../modules/core.metatables.sh_player.html">core.metatables.sh_player</a></li>
+<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+<li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
+<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+<li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
+<li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_save_sv.html">core.plugins.billboards.sv.zad_save_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../modules/core.plugins.breathalyser.sv_init.html">core.plugins.breathalyser.sv_init</a></li>
+<li><a href="../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../modules/core.plugins.cruisecontrol.sv_init.html">core.plugins.cruisecontrol.sv_init</a></li>
+<li><a href="../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../modules/core.plugins.item_db_update.sv_init.html">core.plugins.item_db_update.sv_init</a></li>
+<li><a href="../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.phonebook.cl_init.html">core.plugins.phonebook.cl_init</a></li>
+<li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
+<li><a href="../modules/core.plugins.weapons_on_back.sh_init.html">core.plugins.weapons_on_back.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
+<li><a href="../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../modules/core.sh_enumerations.html">core.sh_enumerations</a></li>
+<li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../modules/env.html">env</a></li>
+<li><a href="../modules/sh_init.html">sh_init</a></li>
+<li><a href="../modules/temar.html">temar</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Topics</h2></div>
+<ul class="ll-kind-body">
+<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
+<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
+<li><a href="../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../topics/items.html">Types of Items</a></li>
+<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
+<li><a href="../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../topics/meska.html">MESKA</a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
+<li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../topics/waypoints.html">Waypoints</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Credits</h2></div>
+<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Maintenance Work System</h1></div><div class="ll-module-body"><h1>Maintenance Work System</h1>
+<p>The Maintenance Work System adds periodic maintenance tasks to entities around the city, providing a new avenue for income and making the server feel more alive. Entities randomly break down and require player intervention to repair.</p>
+<h2>Overview</h2>
+<p>The maintenance system works by:</p>
+<ol>
+<li>Scanning the map for entities that support maintenance</li>
+<li>Randomly selecting entities to trigger maintenance events on</li>
+<li>Displaying active maintenance jobs to players via HUD</li>
+<li>Allowing players to fix maintenance issues for a reward</li>
+</ol>
+<h2>Configuration</h2>
+<p>The maintenance plugin can be configured in <code>sh_init.lua</code>:</p>
+<pre><code class="language-lua">PLUGIN.config[&quot;Maintenance Timer&quot;] = 300       -- Delay in seconds between triggering new maintenance events
+PLUGIN.config[&quot;Max Maintenance Jobs&quot;] = 3      -- Maximum number of active maintenance jobs at once
+PLUGIN.config[&quot;Reward Fee&quot;] = 1000             -- Amount to pay player for fixing maintenance issues
+PLUGIN.config[&quot;Fix Distance&quot;] = 200            -- Maximum distance in units to fix a maintenance issue
+PLUGIN.config[&quot;Fix Cooldown&quot;] = 300            -- Cooldown in seconds before an entity can break again after being fixed
+</code></pre>
+<h2>Maintenance Event Types</h2>
+<p>The system supports several maintenance event types:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Electronic</td>
+<td><strong>Active</strong></td>
+<td>Electronics fault with sparking visual effects</td>
+</tr>
+<tr>
+<td>Water</td>
+<td><strong>Active</strong></td>
+<td>Water leak with visual spray effects (area-based)</td>
+</tr>
+<tr>
+<td>Petrol</td>
+<td><strong>Active</strong></td>
+<td>Petrol leak with visual drip effects (area-based)</td>
+</tr>
+<tr>
+<td>Gas</td>
+<td><strong>Active</strong></td>
+<td>Gas leak with visual cloud effects (area-based)</td>
+</tr>
+<tr>
+<td>Restock</td>
+<td>Not Used</td>
+<td>Entity needs restocking (deprecated)</td>
+</tr>
+<tr>
+<td>Destock</td>
+<td><strong>Active</strong></td>
+<td>Vending machine expired stock; dispose trash bag for payout</td>
+</tr>
+</tbody>
+</table>
+<h3>Electronic Maintenance</h3>
+<p>Entities with electronic faults display sparking effects and become non-functional until repaired.</p>
+<p><strong>Supported Entities:</strong></p>
+<ul>
+<li>Phonebooths (<code>cityrp_phonebooth</code>)</li>
+<li>Vending Machines (<code>cityrp_nommachine</code>)</li>
+<li>Tesla Superchargers (<code>cityrp_tesla_supercharger</code>)</li>
+<li>Lift electrical boxes (map buttons)</li>
+</ul>
+<h3>Water Maintenance</h3>
+<p>Area-based water leaks that display water spray effects. Created by admins at specific map locations.</p>
+<p><strong>Status:</strong> Active (area-based)</p>
+<h3>Petrol Maintenance</h3>
+<p>Area-based petrol leaks that display drip effects. Created by admins at specific map locations.</p>
+<p><strong>Status:</strong> Active (area-based)</p>
+<h3>Gas Maintenance</h3>
+<p>Area-based gas leaks that display cloud effects. Created by admins at specific map locations.</p>
+<p><strong>Status:</strong> Active (area-based)</p>
+<h3>Destock Maintenance</h3>
+<p>Vending machines occasionally need expired products removed. Destocking is a two-step job:</p>
+<ol>
+<li>A maintenance worker uses the machine (<code>+use</code>) to clear the maintenance flag and spawn a <code>cityrp_trashbag</code></li>
+<li>The trash bag must be placed in a <code>cityrp_rubbish_bin</code> to claim the reward payout</li>
+</ol>
+<p>Clearing the machine restores normal use immediately — the worker does not need to finish the disposal step for the machine to work again. Payment is only granted when the bag is deposited. If a trash bag is abandoned, any player can pick it up and dispose of it for the reward.</p>
+<p><strong>Supported Entities:</strong></p>
+<ul>
+<li>Vending Machines (<code>cityrp_nommachine</code>) — randomly Electric or Destock when a job triggers</li>
+</ul>
+<p><strong>Testing:</strong> <code>maintforce destock</code></p>
+<h2>Area-Based Maintenance Points</h2>
+<p>Water, Petrol, and Gas maintenance are area-based and require admin setup. These are positions on the map where leaks can randomly occur.</p>
+<h3>Admin Commands</h3>
+<p><strong>Add a maintenance point:</strong></p>
+<pre><code>/maintpoint add &lt;type&gt;
+</code></pre>
+<p>Types: water, petrol, gas</p>
+<p>Looks at where you're aiming and adds a maintenance point of the specified type.</p>
+<p><strong>Remove nearby maintenance points:</strong></p>
+<pre><code>/maintpoint remove
+</code></pre>
+<p>Removes all maintenance points within 256 units of where you're aiming.</p>
+<p><strong>List maintenance points:</strong></p>
+<pre><code>/maintpoint list
+</code></pre>
+<p>Shows total count and breakdown by type for the current map.</p>
+<p><strong>Save maintenance points:</strong></p>
+<pre><code>/maintpoint save
+</code></pre>
+<p>Saves all maintenance points to the data folder. Points are automatically loaded on map start.</p>
+<h3>Maintenance Point Storage</h3>
+<p>Points are saved per-map in:</p>
+<pre><code>garrysmod/data/cityrp/plugins/maintenance/&lt;mapname&gt;.txt
+</code></pre>
+<p>The file is automatically created when you save points.</p>
+<h2>Adding Maintenance Support to Entities</h2>
+<p>To add maintenance support to a new entity:</p>
+<h3>1. Register the Entity Class</h3>
+<p>Add the entity class to <code>maintenanceEntClasses</code> in <code>sh_init.lua</code>:</p>
+<pre><code class="language-lua">PLUGIN.tab.maintenanceEntClasses = {
+    [&quot;ent_phonebooth&quot;] = &quot;Electronic&quot;,
+    [&quot;cityrp_nommachine&quot;] = &quot;Restock&quot;,
+    [&quot;your_entity_class&quot;] = &quot;Electronic&quot;, -- Your new entity
+}
+</code></pre>
+<h3>2. Initialize Maintenance in Entity</h3>
+<p>In your entity's <code>Initialize</code> function (server-side):</p>
+<pre><code class="language-lua">function ENT:Initialize()
+    -- ... your existing initialization code ...
+    
+    local maintenancePlugin = cityrp.plugin.get(&quot;maintenance&quot;)
+    if maintenancePlugin then
+        self.maintenance = maintenancePlugin.electric  -- or .restock
+        self.maintenance.disabled = false  -- for electric
+        -- OR
+        self.maintenance.needsRestock = false  -- for restock
+    end
+end
+</code></pre>
+<h3>3. Check Maintenance Status in Use Function</h3>
+<p>In your entity's <code>Use</code> function (server-side):</p>
+<pre><code class="language-lua">function ENT:Use(activator, caller)
+    -- Check if entity needs maintenance
+    if self.maintenance and self.maintenance.disabled then
+        activator:Notify(&quot;This entity is broken! Perhaps a mechanic could fix it?&quot;, NOTIFY_ERROR)
+        return
+    end
+    
+    -- OR for restock type:
+    if self.maintenance and self.maintenance.needsRestock then
+        activator:Notify(&quot;This entity needs restocking!&quot;, NOTIFY_ERROR)
+        return
+    end
+    
+    -- ... rest of your use logic ...
+end
+</code></pre>
+<h3>4. Add Client-Side Hints (Optional)</h3>
+<p>In your entity's <code>DrawTargetHUD</code> function (client-side):</p>
+<pre><code class="language-lua">function ENT:DrawTargetHUD(x, y, alpha)
+    y = GAMEMODE:DrawInformation(self.PrintName, FONT_TARGETID_HEAD, x, y, COL_BRAND, alpha)
+    
+    if self.maintenance and self.maintenance.disabled then
+        if cityrp.hints:Get(&quot;maintenance_work&quot;) then
+            y = GAMEMODE:DrawInformation(&quot;This entity is broken. Use ␂maintfix␃ to repair it.&quot;, FONT_TARGETID, x, y, Color(255, 150, 0, alpha), alpha)
+        else
+            y = GAMEMODE:DrawInformation(&quot;This entity is broken.&quot;, FONT_TARGETID, x, y, Color(255, 150, 0, alpha), alpha)
+        end
+    elseif cityrp.hints:Get(&quot;entities&quot;) then
+        y = GAMEMODE:DrawInformation(&quot;Press ␂+use␃ to interact.&quot;, FONT_TARGETID, x, y, COL_GUIDE, alpha)
+    end
+end
+</code></pre>
+<h2>Creating New Maintenance Types</h2>
+<p>To create a new maintenance type:</p>
+<ol>
+<li>Create a new file in the maintenance plugin directory (e.g., <code>sh_water.lua</code>)</li>
+<li>Define the maintenance type behavior:</li>
+</ol>
+<pre><code class="language-lua">---@state shared
+local PLUGIN = PLUGIN_SHARED
+
+PLUGIN.water = {}
+
+---Trigger water maintenance on an entity
+---@param e Entity The entity to trigger maintenance on
+function PLUGIN.water:triggerMaintenance(e)
+    self.leaking = true
+    
+    -- Add visual effects here (e.g., water spray particle effect)
+end
+
+---Fix water maintenance on an entity
+---@param e Entity The entity to fix
+---@param ply Player The player fixing the entity
+function PLUGIN.water:fixMaintenance(e, ply)
+    self.leaking = false
+    
+    ply:Notify(&quot;You fixed the water leak and earned $&quot; .. string.Comma(PLUGIN.config[&quot;Reward Fee&quot;]) .. &quot;!&quot;, NOTIFY_HINT)
+    ply:GiveMoney(PLUGIN.config[&quot;Reward Fee&quot;])
+    
+    PLUGIN.tab.activeJobs[e] = nil
+end
+</code></pre>
+<ol start="3">
+<li>Include the file in <code>sv_init.lua</code>:</li>
+</ol>
+<pre><code class="language-lua">include(&quot;sh_water.lua&quot;)
+AddCSLuaFile(&quot;sh_water.lua&quot;)
+</code></pre>
+<ol start="4">
+<li>Update entity classes to use the new type in <code>sh_init.lua</code>:</li>
+</ol>
+<pre><code class="language-lua">PLUGIN.tab.maintenanceEntClasses = {
+    [&quot;your_entity&quot;] = &quot;Water&quot;,
+}
+</code></pre>
+<h2>Player Commands</h2>
+<p>Players use the <strong>Mechanic Wrench</strong> SWEP to fix maintenance issues. Simply equip the wrench and left-click while aiming at a broken entity or standing near an area-based leak.</p>
+<h2>User Interface</h2>
+<h3>Active Jobs HUD</h3>
+<p>Active maintenance jobs are displayed in the top-right corner of the screen, showing:</p>
+<ul>
+<li>A header &quot;Maintenance Jobs&quot;</li>
+<li>List of entities that need maintenance</li>
+</ul>
+<h3>Entity Hints</h3>
+<p>When looking at an entity that needs maintenance:</p>
+<ul>
+<li>Entity displays its broken status</li>
+<li>If hints are enabled, shows the command to fix it (<code>maintfix</code>)</li>
+</ul>
+<h2>Hints System Integration</h2>
+<p>The maintenance system integrates with CityRP's hints system under the &quot;Maintenance Work&quot; category. Players can toggle maintenance hints in <strong>Options &gt; Limelight &gt; Hints</strong>.</p>
+<h2>System Behavior</h2>
+<ol>
+<li><strong>Entity Indexing</strong>: On server start, the system indexes all entities on the map that support maintenance</li>
+<li><strong>Point Loading</strong>: Area-based maintenance points are loaded from the data folder for the current map</li>
+<li><strong>Periodic Triggering</strong>: Every 300 seconds (configurable), the system checks if new maintenance events should be triggered</li>
+<li><strong>Max Jobs</strong>: The system maintains up to 3 active maintenance jobs at once (configurable), combining both entity-based and area-based jobs</li>
+<li><strong>Job Selection</strong>: Jobs are randomly selected from both entity and area-based pools. Vending machines randomly choose Electric or Destock.</li>
+<li><strong>Cooldowns</strong>: After an entity is fixed, it goes on a 5-minute cooldown (configurable) before it can break again</li>
+<li><strong>Client Sync</strong>: Active jobs are synchronized to all clients for HUD display</li>
+<li><strong>Distance Check</strong>: Players must be within 200 units (configurable) of an entity or leak to fix it</li>
+</ol>
+<h2>Future Enhancements</h2>
+<p>Planned features for future releases:</p>
+<ul>
+<li>Job-restricted maintenance (require specific jobs to fix certain types)</li>
+<li>Specialized tools or equipment requirements</li>
+<li>Difficulty-based rewards</li>
+<li>Integration with vehicle systems</li>
+<li>Damage effects for gas leaks</li>
+</ul></div>
+		</div>
+	</div>
+	<br class="clearfix">
+</div>
+</body>
+</html>

@@ -89,6 +89,7 @@
 <li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
 <li><a href="../modules/core.libraries.sv_makeleader.html">core.libraries.sv_makeleader</a></li>
 <li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+<li><a href="../modules/core.libraries.sv_migrations.html">core.libraries.sv_migrations</a></li>
 <li><a href="../modules/core.libraries.sv_model.html">core.libraries.sv_model</a></li>
 <li><a href="../modules/core.libraries.sv_player.html">core.libraries.sv_player</a></li>
 <li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
@@ -132,6 +133,7 @@
 <li><a href="../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
 <li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
 <li><a href="../modules/core.plugins.breathalyser.sv_init.html">core.plugins.breathalyser.sv_init</a></li>
+<li><a href="../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
 <li><a href="../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
 <li><a href="../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
 <li><a href="../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
@@ -199,6 +201,7 @@
 <li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
 <li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
 <li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
 <li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
 <li><a href="../modules/core.plugins.weapons_on_back.sh_init.html">core.plugins.weapons_on_back.sh_init</a></li>
 <li><a href="../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
@@ -218,14 +221,21 @@
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
+<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
+<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
 <li><a href="../topics/items.html">Types of Items</a></li>
+<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../topics/meska.html">MESKA</a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../topics/waypoints.html">Waypoints</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Credits</h2></div>
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
@@ -236,7 +246,24 @@
 Author: Voluptious, Faustie</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp_OpenF1Tab"></a><strong><span class="state state-client">cityrp_OpenF1Tab</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L216">Source ☍</a></dt>
+<dt><a name="cityrp_CloseF1"></a><strong><span class="state state-client">cityrp_CloseF1</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L30">Source ☍</a></dt>
+<dd>
+<p>Closes the active F1 menu using the same cleanup path as its close button.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> True when an active menu was closed.</li>
+</ol>
+</dd>
+<dt><a name="cityrp_ConsumeF1MapKey"></a><strong><span class="state state-client">cityrp_ConsumeF1MapKey</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L24">Source ☍</a></dt>
+<dd>
+<p>Marks an M press as having opened or selected the Map tab.</p>
+
+
+
+</dd>
+<dt><a name="cityrp_OpenF1Tab"></a><strong><span class="state state-client">cityrp_OpenF1Tab</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L239">Source ☍</a></dt>
 <dd>
 <p>=== Expose a global for DHTML: RUNLUA:cityrp_OpenF1Tab(&quot;Rules&quot;) ===</p>
 
@@ -246,7 +273,7 @@ Author: Voluptious, Faustie</p></div>
 </ul>
 
 </dd>
-<dt><a name="newf1"></a><strong><span class="state state-client">newf1</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L43">Source ☍</a></dt>
+<dt><a name="newf1"></a><strong><span class="state state-client">newf1</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L67">Source ☍</a></dt>
 <dd>
 
 
@@ -255,26 +282,25 @@ Author: Voluptious, Faustie</p></div>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="f1_categoriesToBeMade"></a><strong><span class="state state-client">f1_categoriesToBeMade</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L100">Source ☍</a></dt>
+<dt><a name="f1_categoriesToBeMade"></a><strong><span class="state state-client">f1_categoriesToBeMade</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L123">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="f1_cats"></a><strong><span class="state state-client">f1_cats</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L101">Source ☍</a></dt>
+<dt><a name="f1_cats"></a><strong><span class="state state-client">f1_cats</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L124">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="f1_panels"></a><strong><span class="state state-client">f1_panels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L88">Source ☍</a></dt>
+<dt><a name="f1_panels"></a><strong><span class="state state-client">f1_panels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L37">Source ☍</a></dt>
 <dd>
-<p>Clear the table</p>
 
 
 
 </dd>
-<dt><a name="nf1_tab"></a><strong><span class="state state-client">nf1_tab</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L48">Source ☍</a></dt>
+<dt><a name="nf1_tab"></a><strong><span class="state state-client">nf1_tab</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L72">Source ☍</a></dt>
 <dd>
 
 
@@ -283,13 +309,13 @@ Author: Voluptious, Faustie</p></div>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="f1_cats._Active"></a><strong><span class="state state-client">f1_cats._Active</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L196">Source ☍</a></dt>
+<dt><a name="f1_cats._Active"></a><strong><span class="state state-client">f1_cats._Active</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L219">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="f1_cats._Active.Panel"></a><strong><span class="state state-client">f1_cats._Active.Panel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L197">Source ☍</a></dt>
+<dt><a name="f1_cats._Active.Panel"></a><strong><span class="state state-client">f1_cats._Active.Panel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L220">Source ☍</a></dt>
 <dd>
 
 
