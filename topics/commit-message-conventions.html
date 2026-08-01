@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.plugins.licenseplates.sh_init</title>
+	<title>Commit Message Conventions</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -15,12 +15,6 @@
 	<div id="main">
 		<div id="navigation">
 <div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
-<li><a href="#Functions">Functions</a></li>
-<li><a href="#Fields">Fields</a></li>
-</ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/DB.html">DB</a></li>
@@ -162,7 +156,7 @@
 <li><a href="../modules/core.plugins.item_db_update.sv_init.html">core.plugins.item_db_update.sv_init</a></li>
 <li><a href="../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
 <li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
-<li><strong>core.plugins.licenseplates.sh_init</strong></li>
+<li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
 <li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
 <li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
 <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
@@ -241,67 +235,100 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.plugins.licenseplates.sh_init</h1></div>
-<div class="ll-module-body"><p>License Plates Shared</p></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="GetVehiclePlates"></a><strong><span class="state state-client state-server">GetVehiclePlates</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/licenseplates/sh_init.lua#L41">Source ☍</a></dt>
-<dd>
-<p>Get a set of vehicle plates from the registered name.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">vname</span> <span class="types">any</span> The name to check again.</li>
-</ul>
-<h3>Returns:</h3>
+<div class="ll-module-header"><h1>Commit Message Conventions</h1></div><div class="ll-module-body"><h1>Commit Message Conventions</h1>
+<h2>Internal commits</h2>
+<p>Internal (non-player-facing) commits are written in <a href="https://www.conventionalcommits.org/">Conventional Commits</a>
+style: a lowercase type, a colon, then a description — <code>fix: Permanent bans.</code>,
+<code>feat: Add migrations library.</code>, <code>chore: update photon.</code>. Common types in use here are <code>fix</code>,
+<code>feat</code>, <code>chore</code>, <code>docs</code>, <code>refactor</code>, <code>style</code>, <code>tests</code>, and <code>ci</code>. Pick the type that matches what
+changed, not what the change was for.</p>
+<h2>Public Changelogs</h2>
+<p>Player-facing commits are marked with a <code>public=</code> prefix. Everything from <code>public=</code> onward is
+captured as the changelog entry — including any lines after the first, so a commit body written
+under a <code>public=</code> subject line is part of the entry, not just the subject line itself.</p>
+<blockquote>
+<p>[!WARNING]
+When a PR is merged, GitHub combines the commit message subject and the extended description
+into a single commit message. If <code>public=</code> is on the subject line, the extended description
+(PR body, additional commit messages being squashed in, etc.) gets appended after it and
+becomes part of the captured changelog entry too — including any hashtags placed in that
+description.</p>
+</blockquote>
+<p>A <code>public=</code> commit looks like:</p>
+<pre><code>public=Chefs return to Evocity. Chefs now receive 10% extra EXP when cooking on a stove. #type:update #thread:28936 #thread:28602
+</code></pre>
+<h3>Hashtags</h3>
+<p>Hashtags are <code>#tag:value</code>, and by convention go at the end of the message, after the player-facing
+prose.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Tag</th>
+<th align="left">Meaning</th>
+<th align="left">Multiple values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>#cmd:text</code></td>
+<td align="left">A command to highlight</td>
+<td align="left">Arbitrary text — <code>/slashcommand</code> and <code>!bangcommand</code> are both fine, it's just displayed as-is. One value per tag; repeat the tag for more than one command.</td>
+</tr>
+<tr>
+<td align="left"><code>#contrib:name</code></td>
+<td align="left">Credit a contributor</td>
+<td align="left">Name or forum user ID. Comma-separated for multiple, and deduplicated case-insensitively.</td>
+</tr>
+<tr>
+<td align="left"><code>#map:name</code></td>
+<td align="left">Affected map</td>
+<td align="left">Resolved to a display name and link. One value per tag; repeat the tag for more than one map.</td>
+</tr>
+<tr>
+<td align="left"><code>#rev:id</code></td>
+<td align="left">Related revision</td>
+<td align="left">One value per tag; repeat the tag for more than one revision — a comma-joined value is not split apart, it just gets treated (and linked) as a single id.</td>
+</tr>
+<tr>
+<td align="left"><code>#thread:id</code></td>
+<td align="left">Forum thread</td>
+<td align="left">Comma-separated values are each turned into their own link. Repeating the tag also works.</td>
+</tr>
+<tr>
+<td align="left"><code>#image:url</code></td>
+<td align="left">Image</td>
+<td align="left">Comma-separated values are each turned into their own thumbnail. Repeating the tag also works.</td>
+</tr>
+<tr>
+<td align="left"><code>#type:value</code></td>
+<td align="left">Category</td>
+<td align="left">Not rendered as its own entry — it picks the accent colour, see below. One value only.</td>
+</tr>
+</tbody>
+</table>
+<p><code>#type:</code> accepts <code>info</code>, <code>new</code>, <code>update</code>, <code>fix</code>, <code>exploit</code>, or <code>remove</code>.</p>
+<p>So <code>#contrib:</code> is the one tag that's reliably comma-separated <em>and</em> deduplicated everywhere it's
+read. <code>#thread:</code> and <code>#image:</code> accept comma-separated values too. For everything else
+(<code>#cmd:</code>, <code>#map:</code>, <code>#rev:</code>), don't comma-join — repeat the tag once per value instead:</p>
+<pre><code>public=... #rev:114 #rev:115 #rev:116 #contrib:name 1,name 2 #cmd:/newcommand
+</code></pre>
+<h3>Accent colour</h3>
+<p>Each changelog entry gets an accent colour — used for its row on the changelog page and for its
+embed color where it's posted elsewhere. It's picked from keywords anywhere in the captured text
+(case-insensitive, first match wins, checked in this order):</p>
 <ol>
-<li><span class="types">unknown</span> Numeric list of license plate positions.</li>
+<li><code>exploit</code> → exploit</li>
+<li><code>remove</code> → remove</li>
+<li><code>bug</code> / <code>fix</code> / <code>hotfix</code> / <code>resolv</code> / <code>recover</code> → fix</li>
+<li><code>added</code> / <code>new</code> / <code>release</code> / <code>approved</code> → new</li>
+<li>otherwise → the default, update</li>
 </ol>
-</dd>
-<dt><a name="RegisterVehiclePlates"></a><strong><span class="state state-client state-server">RegisterVehiclePlates</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/licenseplates/sh_init.lua#L29">Source ☍</a></dt>
-<dd>
-<p>Register a vehicle with the license plates system.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">vname</span> <span class="types">any</span> The name to register the vehicle under.</li>
-<li><span class="parameter"></span> <span class="types">unknown</span></li>
-</ul>
-
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="DistanceFade"></a><strong><span class="state state-client state-server">DistanceFade</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/licenseplates/sh_init.lua#L16">Source ☍</a></dt>
-<dd>
-<p>Plugin configuration.
-Cut off distance</p>
-
-
-
-</dd>
-<dt><a name="OldTableName"></a><strong><span class="state state-client state-server">OldTableName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/licenseplates/sh_init.lua#L18">Source ☍</a></dt>
-<dd>
-<p>Previous sqlite table we're migrating from</p>
-
-
-
-</dd>
-<dt><a name="PlateTextColor"></a><strong><span class="state state-client state-server">PlateTextColor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/licenseplates/sh_init.lua#L17">Source ☍</a></dt>
-<dd>
-<p>Color of text on plate</p>
-
-
-
-</dd>
-<dt><a name="TableName"></a><strong><span class="state state-client state-server">TableName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/licenseplates/sh_init.lua#L19">Source ☍</a></dt>
-<dd>
-<p>Sqlite table name</p>
-
-
-
-</dd>
-</dl></div>
+<p>An explicit <code>#type:value</code> tag overrides whatever the keyword cascade picked.</p>
+<p><strong>This means word choice in the description silently affects the accent colour unless <code>#type:</code> is
+set explicitly.</strong> For example, <code>public=Fixed the new maintenance minigame</code> hits the <code>fix</code> branch
+(checked before the <code>new</code> branch), not <code>new</code>, because &quot;Fixed&quot; matches first. If the intended
+category doesn't match what the keyword cascade would pick, set <code>#type:</code> explicitly rather than
+relying on wording.</p></div>
 		</div>
 	</div>
 	<br class="clearfix">
