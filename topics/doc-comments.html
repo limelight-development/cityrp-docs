@@ -224,6 +224,7 @@
 <li><a href="../topics/items.html">Types of Items</a></li>
 <li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs</a></li>
@@ -241,7 +242,9 @@
 <li><strong><code>lua-language-server</code>'s <code>--doc</code> JSON export.</strong> LuaLS parses the codebase and exports every doc comment it understands — that means real <a href="https://luals.github.io/wiki/annotations/">LuaCATS</a> annotations (<code>--- @param</code>, <code>--- @return</code>, <code>--- @class</code>, ...) attached <strong>immediately above</strong> a declaration, with no blank line in between. A blank line between the comment and the code it describes means LuaLS never associates the two, and the comment is silently dropped from the JSON entirely.</li>
 <li><strong><code>generate.py</code>'s own raw-source scan</strong>, used only for each file's <em>leading header comment</em> (description, <code>@namespace</code>, etc). This one tolerates a blank line before the code that follows, and accepts either a <code>--[[-- ... --]]--</code> block or a run of <code>---</code>/<code>--</code> line comments.</li>
 </ol>
-<p>Everything else in this page is about what each of those two paths actually understands.</p>
+<p>Everything else in this page is about what each of those two paths actually understands. For the
+annotations themselves — every tag, its fields, the full type syntax, and the Garry's Mod-specific
+conventions — see <a href="luacats.md">LuaCATS Annotations</a>.</p>
 <h2>Pipeline</h2>
 <pre><code class="language-bash"># 1. LuaLS walks the gamemode and exports its own understanding of every doc comment.
 lua-language-server --doc=gamemodes/cityrp_2_by_limelightgaming/gamemode \
