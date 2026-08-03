@@ -68,6 +68,7 @@
 <li><a href="../modules/core.libraries.sh_internet.html">core.libraries.sh_internet</a></li>
 <li><a href="../modules/core.libraries.sh_item.html">core.libraries.sh_item</a></li>
 <li><a href="../modules/core.libraries.sh_itemcore.html">core.libraries.sh_itemcore</a></li>
+<li><a href="../modules/core.libraries.sh_itemmeta.html">core.libraries.sh_itemmeta</a></li>
 <li><a href="../modules/core.libraries.sh_logging.html">core.libraries.sh_logging</a></li>
 <li><a href="../modules/core.libraries.sh_plugin.html">core.libraries.sh_plugin</a></li>
 <li><a href="../modules/core.libraries.sh_plugincore.html">core.libraries.sh_plugincore</a></li>
@@ -228,6 +229,7 @@
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
 <li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
 <li><a href="../topics/items.html">Types of Items</a></li>
 <li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
@@ -246,7 +248,7 @@
 <div class="ll-module-header"><h1>core.derma.cl_inventory</h1></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="NumSlider.Paint"></a><strong><span class="state state-client">NumSlider.Paint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L685">Source ☍</a></dt>
+<dt><a name="NumSlider.Paint"></a><strong><span class="state state-client">NumSlider.Paint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L714">Source ☍</a></dt>
 <dd>
 
 
@@ -259,10 +261,11 @@
 <ul>
 <li><span class="parameter">itemID</span> <span class="types">any</span></li>
 <li><span class="parameter">meta</span> <span class="types">any</span></li>
+<li><span class="parameter">itemStacks</span> <span class="types">any</span></li>
 </ul>
 
 </dd>
-<dt><a name="ReloadContainer"></a><strong><span class="state state-client">ReloadContainer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L743">Source ☍</a></dt>
+<dt><a name="ReloadContainer"></a><strong><span class="state state-client">ReloadContainer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L772">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -274,7 +277,7 @@
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.inventory.updatePanel"></a><strong><span class="state state-client">cityrp.inventory.updatePanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L972">Source ☍</a></dt>
+<dt><a name="cityrp.inventory.updatePanel"></a><strong><span class="state state-client">cityrp.inventory.updatePanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L1039">Source ☍</a></dt>
 <dd>
 
 
@@ -286,38 +289,38 @@
 
 
 </dd>
-<dt><a name="item.count"></a><strong><span class="state state-client">item.count</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L408">Source ☍</a></dt>
+<dt><a name="item.count"></a><strong><span class="state state-client">item.count</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L426">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="item.description"></a><strong><span class="state state-client">item.description</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L413">Source ☍</a></dt>
+<dt><a name="item.description"></a><strong><span class="state state-client">item.description</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L431">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="item.name"></a><strong><span class="state state-client">item.name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L412">Source ☍</a></dt>
+<dt><a name="item.name"></a><strong><span class="state state-client">item.name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L430">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="itemName"></a><strong><span class="state state-client">itemName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L418">Source ☍</a></dt>
+<dt><a name="itemName"></a><strong><span class="state state-client">itemName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L436">Source ☍</a></dt>
 <dd>
 <p>itemName = item.name .. &quot; (&quot; .. item.count .. &quot;)&quot;</p>
 
 
 
 </dd>
-<dt><a name="lastItemOpen"></a><strong><span class="state state-client">lastItemOpen</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L414">Source ☍</a></dt>
+<dt><a name="lastItemOpen"></a><strong><span class="state state-client">lastItemOpen</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L432">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="NumSlider"></a><strong><span class="state state-client">NumSlider</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L668">Source ☍</a></dt>
+<dt><a name="NumSlider"></a><strong><span class="state state-client">NumSlider</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_inventory.lua#L697">Source ☍</a></dt>
 <dd>
 
 

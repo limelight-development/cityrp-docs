@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.plugins.perma_ents.sv_init</title>
+	<title>Item Metadata Schema</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -15,11 +15,6 @@
 	<div id="main">
 		<div id="navigation">
 <div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
-<li><a href="#Functions">Functions</a></li>
-</ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/DB.html">DB</a></li>
@@ -166,7 +161,7 @@
 <li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
 <li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
 <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
-<li><strong>core.plugins.perma_ents.sv_init</strong></li>
+<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
 <li><a href="../modules/core.plugins.phonebook.cl_init.html">core.plugins.phonebook.cl_init</a></li>
 <li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
@@ -244,35 +239,111 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.plugins.perma_ents.sv_init</h1></div>
-<div class="ll-module-body"><p>Fixed Entity Spawning System.</p></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="DeleteMapEntity"></a><strong><span class="state state-server">DeleteMapEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/perma_ents/sv_init.lua#L87">Source ☍</a></dt>
-<dd>
-<p>Delete a map entity on startup based on its map creation ID.</p>
-
-<h3>Parameters:</h3>
+<div class="ll-module-header"><h1>Item Metadata Schema</h1></div><div class="ll-module-body"><h1>Item Metadata Schema</h1>
+<p>This document describes the schema-based item metadata system.</p>
+<h2>Why this exists</h2>
+<p>Legacy metadata was stored as opaque strings (for example <code>plate=ABC-123</code>) and parsed manually in many files. That made refactors brittle and made field removal unsafe.</p>
+<p>The schema system allows items or bases to declare supported metadata fields and silently ignore removed/unknown fields.</p>
+<h2>Core APIs</h2>
+<p>Shared library: <code>core/libraries/sh_itemmeta.lua</code></p>
 <ul>
-<li><span class="parameter">id</span> <span class="types">any</span> Map creation ID to delete.</li>
-<li><span class="parameter">regMap</span> <span class="types">any</span> Optional argument to specify a map to spawn on. If nil, replaced with the last SetDefaultMap argument.</li>
+<li><code>cityrp.itemmeta.Normalize(itemOrID, rawMeta)</code></li>
+<li><code>cityrp.itemmeta.NormalizeKey(itemOrID, rawMeta)</code></li>
+<li><code>cityrp.itemmeta.Decode(itemOrID, rawMeta)</code></li>
+<li><code>cityrp.itemmeta.GetField(itemOrID, rawMeta, field, default)</code></li>
+<li><code>cityrp.itemmeta.SetField(itemOrID, rawMeta, field, value)</code></li>
+<li><code>cityrp.itemmeta.RemoveField(itemOrID, rawMeta, field)</code></li>
+<li><code>cityrp.itemmeta.NewContext(itemOrID, rawMeta)</code></li>
+<li><code>cityrp.itemmeta.Commit(ply, itemID, amount, oldMeta, context)</code></li>
+<li><code>cityrp.itemmeta.FormatName(itemOrID, baseName, rawMeta)</code></li>
+<li><code>cityrp.itemmeta.FormatDetails(itemOrID, rawMeta)</code></li>
+<li><code>cityrp.itemmeta.NormalizeDisplayKey(itemOrID, rawMeta)</code></li>
+<li><code>cityrp.itemmeta.GetMatchingStacks(itemOrID, stacks, inputMeta)</code></li>
+<li><code>cityrp.itemmeta.ResolveInventoryKey(itemOrID, stacks, inputMeta)</code></li>
 </ul>
-
-</dd>
-<dt><a name="RegisterPermanentEntity"></a><strong><span class="state state-server">RegisterPermanentEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/perma_ents/sv_init.lua#L49">Source ☍</a></dt>
-<dd>
-<p>Register a permanent entity.</p>
-
-<h3>Parameters:</h3>
+<p>Item hooks receive <code>(..., meta, metaContext)</code> — raw meta string first, then the mutable context. Dirty context is committed automatically from <code>onUse</code> when the item is kept (<code>return false</code>) and from <code>onGive</code> before the inventory transfer. Paths that remove the item (<code>destroy</code>/<code>sell</code>/<code>drop</code>/<code>place</code>) do not commit because the stack is leaving inventory.</p>
+<h2>Declaring schema on items</h2>
+<p>Use item metatable helpers:</p>
 <ul>
-<li><span class="parameter">class</span> <span class="types">any</span> The class of the entity.</li>
-<li><span class="parameter">position</span> <span class="types">any</span> The position of the entity to be spawned at. Alternatly, can also take a table containing the save-data.</li>
-<li><span class="parameter">angle</span> <span class="types">any</span> The angle of the entity.</li>
-<li><span class="parameter">regMap</span> <span class="types">any</span> Optional argument to specify a map to spawn on. If nil, replaced with the last SetDefaultMap argument.</li>
+<li><code>ITEM:SetMetaSchema(schema)</code></li>
+<li><code>ITEM:AddMetaField(name, definition)</code></li>
+<li><code>ITEM:RemoveMetaField(name)</code></li>
+<li><code>ITEM:SetMetaFieldOrder(order)</code></li>
+<li><code>ITEM:MetaContext(meta)</code></li>
 </ul>
-
-</dd>
-</dl></div>
+<p>Schema shape:</p>
+<pre><code class="language-lua">:SetMetaSchema({
+	fields = {
+		plate = {
+			type = &quot;string&quot;,
+			label = &quot;Plate&quot;
+		},
+		turbo = {
+			type = &quot;boolean&quot;,
+			title = false
+		}
+	},
+	order = {&quot;plate&quot;, &quot;turbo&quot;}
+})
+</code></pre>
+<p>Fields are optional by default: a missing value is omitted unless <code>default</code> is set.</p>
+<h2>Hidden fields</h2>
+<p>Mark field definitions with <code>hidden = true</code> to keep them in the storage/stacking key while excluding them from F1 names, F1 detail text, and display-key grouping:</p>
+<pre><code class="language-lua">appearance = {
+	type = &quot;string&quot;,
+	hidden = true
+}
+</code></pre>
+<p>Storage still uses the full canonical key (<code>NormalizeKey</code>). UI and fuzzy matching use the visible subset (<code>NormalizeDisplayKey</code>).</p>
+<h2>Title vs details</h2>
+<p>Mark a field with <code>title = false</code> to keep it in F1 details / display keys while omitting it from the short inventory title:</p>
+<pre><code class="language-lua">springs = {
+	type = &quot;number&quot;,
+	label = &quot;Springs&quot;,
+	title = false
+}
+</code></pre>
+<p>Example with <code>base_vehicle</code> (<code>plate</code> in title, <code>springs</code>/<code>turbo</code> details-only):</p>
+<ul>
+<li>title: <code>2013 Government Taurus (TEST)</code></li>
+<li>details: <code>Plate: TEST, Springs: 3, Turbo: On</code></li>
+</ul>
+<h2>Fuzzy inventory matching</h2>
+<p><code>GetMatchingStacks</code> and <code>ResolveInventoryKey</code> support:</p>
+<ul>
+<li>exact canonical keys</li>
+<li>legacy raw keys before normalization</li>
+<li>partial visible-field matches (for example <code>plate=ABC-123</code>)</li>
+<li>bare values for single visible-field items (for example <code>ABC-123</code> on license plates)</li>
+</ul>
+<p>When multiple hidden variants share the same visible metadata, binds that only specify visible fields resolve to the first stack for single-quantity <code>use</code>/<code>pickup</code>/<code>remove</code> commands. Multi-quantity or trade commands require a specific stack or the F1 menu.</p>
+<h2>Testing metadata (including multi-field)</h2>
+<p><code>/giveitem</code> accepts a <code>meta:</code> argument immediately after the amount. Multiple fields are separated with <code>;</code> (also <code>&amp;</code> / <code>|</code>):</p>
+<pre><code class="language-text">/giveitem &lt;player&gt; Policecar 1 meta:plate=TEST;springs=3;turbo=1 testing multi meta
+/giveitem &lt;player&gt; license_plate 1 meta:plate=ABC123 testing plate item
+</code></pre>
+<p><code>base_vehicle</code> already declares <code>plate</code>, <code>springs</code>, and <code>turbo</code>, so any vehicle item is a convenient multi-meta test target. After giving, F1 should show:</p>
+<ul>
+<li>title: <code>2013 Government Taurus (TEST)</code> (<code>springs</code>/<code>turbo</code> use <code>title = false</code>)</li>
+<li>details line: <code>Plate: TEST, Springs: 3, Turbo: On</code></li>
+</ul>
+<p>Boolean fields accept <code>1</code> / <code>0</code> / <code>true</code> / <code>false</code>. Do not put spaces inside the <code>meta:</code> token (argument parsing splits on spaces).</p>
+<h2>Silent field removal</h2>
+<p>Mark field definitions with <code>removed = true</code> (or use <code>ITEM:RemoveMetaField(&quot;field&quot;)</code>).</p>
+<p>When metadata is normalized:</p>
+<ul>
+<li>removed fields are dropped silently</li>
+<li>unknown fields are dropped silently for schema-based items</li>
+<li>invalid values are dropped silently (or clamped when min/max is set)</li>
+</ul>
+<h2>Migration file</h2>
+<p>Inventory meta is normalized by migration <code>0006_normalize_item_meta_schema</code>:</p>
+<ul>
+<li>empty/<code>NULL</code> meta values become the canonical empty key <code>&quot;0&quot;</code></li>
+<li>stacks that would collide on <code>(steamid, item, meta)</code> after that rewrite are merged (quantities summed) before the update</li>
+<li>plate values are left unchanged — spaces in plates are intentional (e.g. <code>BAD C0P</code> ≠ <code>BADC0P</code>)</li>
+</ul>
+<p>It runs automatically via the migrations runner (<code>core/libraries/sv_migrations.lua</code>).</p></div>
 		</div>
 	</div>
 	<br class="clearfix">

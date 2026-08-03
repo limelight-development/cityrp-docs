@@ -69,6 +69,7 @@
 <li><a href="../modules/core.libraries.sh_internet.html">core.libraries.sh_internet</a></li>
 <li><strong>core.libraries.sh_item</strong></li>
 <li><a href="../modules/core.libraries.sh_itemcore.html">core.libraries.sh_itemcore</a></li>
+<li><a href="../modules/core.libraries.sh_itemmeta.html">core.libraries.sh_itemmeta</a></li>
 <li><a href="../modules/core.libraries.sh_logging.html">core.libraries.sh_logging</a></li>
 <li><a href="../modules/core.libraries.sh_plugin.html">core.libraries.sh_plugin</a></li>
 <li><a href="../modules/core.libraries.sh_plugincore.html">core.libraries.sh_plugincore</a></li>
@@ -229,6 +230,7 @@
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
 <li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
 <li><a href="../topics/items.html">Types of Items</a></li>
 <li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
@@ -248,7 +250,7 @@
 <div class="ll-module-body"><p>Shared item and item category library.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.item.addCat"></a><strong><span class="state state-client state-server">cityrp.item.addCat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L144">Source ☍</a></dt>
+<dt><a name="cityrp.item.addCat"></a><strong><span class="state state-client state-server">cityrp.item.addCat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L162">Source ☍</a></dt>
 <dd>
 <p>Add a new category.</p>
 
@@ -263,7 +265,7 @@
 <li><span class="types">unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.canAccessCategory"></a><strong><span class="state state-client state-server">cityrp.item.canAccessCategory</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L194">Source ☍</a></dt>
+<dt><a name="cityrp.item.canAccessCategory"></a><strong><span class="state state-client state-server">cityrp.item.canAccessCategory</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L212">Source ☍</a></dt>
 <dd>
 <p>True if <code>cat</code> is covered by any entry in <code>list</code> (e.g. a team's canmake list).
 A parent entry (e.g. &quot;Clothing&quot;) grants every sub-category under it; a sub-category
@@ -279,7 +281,7 @@ entry (e.g. &quot;Clothing - Government Clothing&quot;) grants only that exact c
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.categoryMatches"></a><strong><span class="state state-client state-server">cityrp.item.categoryMatches</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L177">Source ☍</a></dt>
+<dt><a name="cityrp.item.categoryMatches"></a><strong><span class="state state-client state-server">cityrp.item.categoryMatches</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L195">Source ☍</a></dt>
 <dd>
 <p>True if itemCat is exactly <code>selected</code>, or itemCat's parent category is <code>selected</code>.
 Also true if itemCat has no sub-category of its own (e.g. &quot;Mixtures&quot;) and <code>selected</code>
@@ -298,7 +300,7 @@ matching rule can't drift between the two.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.categorySplit"></a><strong><span class="state state-client state-server">cityrp.item.categorySplit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L162">Source ☍</a></dt>
+<dt><a name="cityrp.item.categorySplit"></a><strong><span class="state state-client state-server">cityrp.item.categorySplit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L180">Source ☍</a></dt>
 <dd>
 <p>Splits a &quot;Parent - Sub&quot; category string into parent and sub parts.</p>
 
@@ -312,7 +314,7 @@ matching rule can't drift between the two.</p>
 <li><span class="types">unknown|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.findCat"></a><strong><span class="state state-client state-server">cityrp.item.findCat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L219">Source ☍</a></dt>
+<dt><a name="cityrp.item.findCat"></a><strong><span class="state state-client state-server">cityrp.item.findCat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L237">Source ☍</a></dt>
 <dd>
 <p>Retrieve a category.</p>
 
@@ -325,7 +327,7 @@ matching rule can't drift between the two.</p>
 <li><span class="types">unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.get"></a><strong><span class="state state-client state-server">cityrp.item.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L117">Source ☍</a></dt>
+<dt><a name="cityrp.item.get"></a><strong><span class="state state-client state-server">cityrp.item.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L135">Source ☍</a></dt>
 <dd>
 <p>Get an item by its name.</p>
 
@@ -338,7 +340,7 @@ matching rule can't drift between the two.</p>
 <li><span class="types">unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.isGovernmentVehicle"></a><strong><span class="state state-client state-server">cityrp.item.isGovernmentVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L211">Source ☍</a></dt>
+<dt><a name="cityrp.item.isGovernmentVehicle"></a><strong><span class="state state-client state-server">cityrp.item.isGovernmentVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L229">Source ☍</a></dt>
 <dd>
 <p>True if a vehicle item's category is one of the government vehicle sub-categories.</p>
 
@@ -351,7 +353,7 @@ matching rule can't drift between the two.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.new"></a><strong><span class="state state-client state-server">cityrp.item.new</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L29">Source ☍</a></dt>
+<dt><a name="cityrp.item.new"></a><strong><span class="state state-client state-server">cityrp.item.new</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L33">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -363,7 +365,7 @@ matching rule can't drift between the two.</p>
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.register"></a><strong><span class="state state-client state-server">cityrp.item.register</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L48">Source ☍</a></dt>
+<dt><a name="cityrp.item.register"></a><strong><span class="state state-client state-server">cityrp.item.register</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L52">Source ☍</a></dt>
 <dd>
 <p>Register a new item.</p>
 
@@ -377,16 +379,30 @@ matching rule can't drift between the two.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
+<dt><a name="cityrp.item.resolve"></a><strong><span class="state state-client state-server">cityrp.item.resolve</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L122">Source ☍</a></dt>
+<dd>
+<p>Resolve an item table from an item table or unique ID.
+Unlike cityrp.item.get, this does not perform fuzzy name matching.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">itemOrID</span> <span class="types">any</span> table|string|nil Item table or unique ID.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">unknown</span> </li>
+</ol>
+</dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.item"></a><strong><span class="state state-client state-server">cityrp.item</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L25">Source ☍</a></dt>
+<dt><a name="cityrp.item"></a><strong><span class="state state-client state-server">cityrp.item</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L29">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.item.governmentVehicleSubs"></a><strong><span class="state state-client state-server">cityrp.item.governmentVehicleSubs</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L202">Source ☍</a></dt>
+<dt><a name="cityrp.item.governmentVehicleSubs"></a><strong><span class="state state-client state-server">cityrp.item.governmentVehicleSubs</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L220">Source ☍</a></dt>
 <dd>
 <p>Vehicles - Sub values that count as government-owned (exempt plates, manufacture REP gate).</p>
 
@@ -396,7 +412,7 @@ matching rule can't drift between the two.</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.item.catIndex"></a><strong><span class="state state-client state-server">cityrp.item.catIndex</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L153">Source ☍</a></dt>
+<dt><a name="cityrp.item.catIndex"></a><strong><span class="state state-client state-server">cityrp.item.catIndex</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L171">Source ☍</a></dt>
 <dd>
 
 

@@ -67,6 +67,7 @@
 <li><a href="../modules/core.libraries.sh_internet.html">core.libraries.sh_internet</a></li>
 <li><a href="../modules/core.libraries.sh_item.html">core.libraries.sh_item</a></li>
 <li><a href="../modules/core.libraries.sh_itemcore.html">core.libraries.sh_itemcore</a></li>
+<li><a href="../modules/core.libraries.sh_itemmeta.html">core.libraries.sh_itemmeta</a></li>
 <li><a href="../modules/core.libraries.sh_logging.html">core.libraries.sh_logging</a></li>
 <li><a href="../modules/core.libraries.sh_plugin.html">core.libraries.sh_plugin</a></li>
 <li><a href="../modules/core.libraries.sh_plugincore.html">core.libraries.sh_plugincore</a></li>
@@ -227,6 +228,7 @@
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
 <li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
 <li><a href="../topics/items.html">Types of Items</a></li>
 <li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
@@ -246,7 +248,7 @@
 <div class="ll-module-body"><p>Generic Shared Functions</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.GetByID"></a><strong><span class="state state-client state-server">cityrp.GetByID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L166">Source ☍</a></dt>
+<dt><a name="cityrp.GetByID"></a><strong><span class="state state-client state-server">cityrp.GetByID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L209">Source ☍</a></dt>
 <dd>
 <p>Get a user by their user ID.</p>
 
@@ -259,7 +261,7 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.replacecodes"></a><strong><span class="state state-client state-server">cityrp.replacecodes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L302">Source ☍</a></dt>
+<dt><a name="cityrp.replacecodes"></a><strong><span class="state state-client state-server">cityrp.replacecodes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L345">Source ☍</a></dt>
 <dd>
 <p>Replace player substitution codes in a string.</p>
 
@@ -273,7 +275,21 @@
 <li><span class="types">string</span> </li>
 </ol>
 </dd>
-<dt><a name="comma_value"></a><strong><span class="state state-client state-server">comma_value</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L224">Source ☍</a></dt>
+<dt><a name="cityrp.toBoolean"></a><strong><span class="state state-client state-server">cityrp.toBoolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L92">Source ☍</a></dt>
+<dd>
+<p>Parse a value into a boolean.
+Unlike GMod's tobool, unrecognized strings return nil instead of true.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">value</span> <span class="types">any</span> any Value to parse.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean|nil</span> </li>
+</ol>
+</dd>
+<dt><a name="comma_value"></a><strong><span class="state state-client state-server">comma_value</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L267">Source ☍</a></dt>
 <dd>
 <p>Create a comma'd value f rom a number.
 Identical to string.Comma</p>
@@ -287,7 +303,7 @@ Identical to string.Comma</p>
 <li><span class="types">string</span> </li>
 </ol>
 </dd>
-<dt><a name="empty"></a><strong><span class="state state-client state-server">empty</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L239">Source ☍</a></dt>
+<dt><a name="empty"></a><strong><span class="state state-client state-server">empty</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L282">Source ☍</a></dt>
 <dd>
 <p>Check if a table is empty.</p>
 
@@ -310,7 +326,7 @@ Identical to string.Comma</p>
 </ul>
 
 </dd>
-<dt><a name="FormatList"></a><strong><span class="state state-client state-server">FormatList</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L383">Source ☍</a></dt>
+<dt><a name="FormatList"></a><strong><span class="state state-client state-server">FormatList</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L426">Source ☍</a></dt>
 <dd>
 <p>Format a list as a string.
 Seperates the last item with &quot;and&quot; (or &quot;or&quot;), using commas otherwise.
@@ -327,7 +343,7 @@ If there is only one item, it returns just that item.</p>
 <li><span class="types">string</span> string.</li>
 </ol>
 </dd>
-<dt><a name="IsInsideBox"></a><strong><span class="state state-client state-server">IsInsideBox</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L288">Source ☍</a></dt>
+<dt><a name="IsInsideBox"></a><strong><span class="state state-client state-server">IsInsideBox</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L331">Source ☍</a></dt>
 <dd>
 <p>Check if a point inside a box defined by the two corners.</p>
 
@@ -342,7 +358,7 @@ If there is only one item, it returns just that item.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="LookupEnum"></a><strong><span class="state state-client state-server">LookupEnum</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L367">Source ☍</a></dt>
+<dt><a name="LookupEnum"></a><strong><span class="state state-client state-server">LookupEnum</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L410">Source ☍</a></dt>
 <dd>
 <p>Lookup an enumeration, given its prefix and value.</p>
 
@@ -399,7 +415,7 @@ If there is only one item, it returns just that item.</p>
 <li><span class="types">string|unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="SetClipboardText"></a><strong><span class="state state-client state-server">SetClipboardText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L353">Source ☍</a></dt>
+<dt><a name="SetClipboardText"></a><strong><span class="state state-client state-server">SetClipboardText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L396">Source ☍</a></dt>
 <dd>
 <p>Set a player's clipboard text.</p>
 
@@ -410,7 +426,7 @@ If there is only one item, it returns just that item.</p>
 </ul>
 
 </dd>
-<dt><a name="stringTimeToMins"></a><strong><span class="state state-client state-server">stringTimeToMins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L126">Source ☍</a></dt>
+<dt><a name="stringTimeToMins"></a><strong><span class="state state-client state-server">stringTimeToMins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L169">Source ☍</a></dt>
 <dd>
 <p>Turn a time string into a number of minutes.
 Strings with only a number are counted as minutes.</p>
@@ -424,7 +440,7 @@ Strings with only a number are counted as minutes.</p>
 <li><span class="types">number|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="table.FullCopy"></a><strong><span class="state state-client state-server">table.FullCopy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L201">Source ☍</a></dt>
+<dt><a name="table.FullCopy"></a><strong><span class="state state-client state-server">table.FullCopy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L244">Source ☍</a></dt>
 <dd>
 <p>Create a deep copy of a table, copying vectors and angles by value.
 table.Copy and table.copy both leave userdata as references, so a copy made with either

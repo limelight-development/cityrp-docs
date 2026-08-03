@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.plugins.perma_ents.sv_init</title>
+	<title>core.libraries.sh_itemmeta</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -18,7 +18,7 @@
 <div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
-<li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -67,7 +67,7 @@
 <li><a href="../modules/core.libraries.sh_internet.html">core.libraries.sh_internet</a></li>
 <li><a href="../modules/core.libraries.sh_item.html">core.libraries.sh_item</a></li>
 <li><a href="../modules/core.libraries.sh_itemcore.html">core.libraries.sh_itemcore</a></li>
-<li><a href="../modules/core.libraries.sh_itemmeta.html">core.libraries.sh_itemmeta</a></li>
+<li><strong>core.libraries.sh_itemmeta</strong></li>
 <li><a href="../modules/core.libraries.sh_logging.html">core.libraries.sh_logging</a></li>
 <li><a href="../modules/core.libraries.sh_plugin.html">core.libraries.sh_plugin</a></li>
 <li><a href="../modules/core.libraries.sh_plugincore.html">core.libraries.sh_plugincore</a></li>
@@ -166,7 +166,7 @@
 <li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
 <li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
 <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
-<li><strong>core.plugins.perma_ents.sv_init</strong></li>
+<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
 <li><a href="../modules/core.plugins.phonebook.cl_init.html">core.plugins.phonebook.cl_init</a></li>
 <li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
@@ -244,32 +244,157 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.plugins.perma_ents.sv_init</h1></div>
-<div class="ll-module-body"><p>Fixed Entity Spawning System.</p></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
+<div class="ll-module-header"><h1>core.libraries.sh_itemmeta</h1></div>
+<div class="ll-module-body"><p>Shared item metadata helpers.</p></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="DeleteMapEntity"></a><strong><span class="state state-server">DeleteMapEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/perma_ents/sv_init.lua#L87">Source ☍</a></dt>
+<dt><a name="cityrp.itemmeta"></a><strong><span class="state state-client state-server">cityrp.itemmeta</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L7">Source ☍</a></dt>
 <dd>
-<p>Delete a map entity on startup based on its map creation ID.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">any</span> Map creation ID to delete.</li>
-<li><span class="parameter">regMap</span> <span class="types">any</span> Optional argument to specify a map to spawn on. If nil, replaced with the last SetDefaultMap argument.</li>
-</ul>
+
 
 </dd>
-<dt><a name="RegisterPermanentEntity"></a><strong><span class="state state-server">RegisterPermanentEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/perma_ents/sv_init.lua#L49">Source ☍</a></dt>
+<dt><a name="CityRPItemMetaContext"></a><strong><span class="state state-client state-server">CityRPItemMetaContext</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L29">Source ☍</a></dt>
 <dd>
-<p>Register a permanent entity.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">class</span> <span class="types">any</span> The class of the entity.</li>
-<li><span class="parameter">position</span> <span class="types">any</span> The position of the entity to be spawned at. Alternatly, can also take a table containing the save-data.</li>
-<li><span class="parameter">angle</span> <span class="types">any</span> The angle of the entity.</li>
-<li><span class="parameter">regMap</span> <span class="types">any</span> Optional argument to specify a map to spawn on. If nil, replaced with the last SetDefaultMap argument.</li>
-</ul>
+
+
+</dd>
+<dt><a name="CityRPItemMetaContext.data"></a><strong><span class="state state-client state-server">CityRPItemMetaContext.data</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L33">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaContext.dirty"></a><strong><span class="state state-client state-server">CityRPItemMetaContext.dirty</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L34">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaContext.item"></a><strong><span class="state state-client state-server">CityRPItemMetaContext.item</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L30">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaContext.key"></a><strong><span class="state state-client state-server">CityRPItemMetaContext.key</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L32">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaContext.rawMeta"></a><strong><span class="state state-client state-server">CityRPItemMetaContext.rawMeta</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L31">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField"></a><strong><span class="state state-client state-server">CityRPItemMetaField</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L11">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField.aliases"></a><strong><span class="state state-client state-server">CityRPItemMetaField.aliases</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L20">Source ☍</a></dt>
+<dd>
+<p>Legacy field aliases.</p>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField.default"></a><strong><span class="state state-client state-server">CityRPItemMetaField.default</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L13">Source ☍</a></dt>
+<dd>
+<p>Default value used when the field is missing.</p>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField.display"></a><strong><span class="state state-client state-server">CityRPItemMetaField.display</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L22">Source ☍</a></dt>
+<dd>
+<p>Custom display formatter.</p>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField.enum"></a><strong><span class="state state-client state-server">CityRPItemMetaField.enum</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L19">Source ☍</a></dt>
+<dd>
+<p>Allowed values list.</p>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField.hidden"></a><strong><span class="state state-client state-server">CityRPItemMetaField.hidden</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L15">Source ☍</a></dt>
+<dd>
+<p>If true, excluded from display names, F1 details, and display keys.</p>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField.label"></a><strong><span class="state state-client state-server">CityRPItemMetaField.label</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L21">Source ☍</a></dt>
+<dd>
+<p>Display label used in UI formatting.</p>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField.max"></a><strong><span class="state state-client state-server">CityRPItemMetaField.max</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L18">Source ☍</a></dt>
+<dd>
+<p>Maximum numeric value.</p>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField.min"></a><strong><span class="state state-client state-server">CityRPItemMetaField.min</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L17">Source ☍</a></dt>
+<dd>
+<p>Minimum numeric value.</p>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField.removed"></a><strong><span class="state state-client state-server">CityRPItemMetaField.removed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L14">Source ☍</a></dt>
+<dd>
+<p>If true, the field is silently ignored.</p>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField.title"></a><strong><span class="state state-client state-server">CityRPItemMetaField.title</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L16">Source ☍</a></dt>
+<dd>
+<p>If false, excluded from item titles but still shown in F1 details. Defaults to true.</p>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaField.type"></a><strong><span class="state state-client state-server">CityRPItemMetaField.type</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L12">Source ☍</a></dt>
+<dd>
+<p>Allowed values: &quot;string&quot;, &quot;number&quot;, &quot;boolean&quot;.</p>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaSchema"></a><strong><span class="state state-client state-server">CityRPItemMetaSchema</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L24">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaSchema.display"></a><strong><span class="state state-client state-server">CityRPItemMetaSchema.display</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L27">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaSchema.fields"></a><strong><span class="state state-client state-server">CityRPItemMetaSchema.fields</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L25">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CityRPItemMetaSchema.order"></a><strong><span class="state state-client state-server">CityRPItemMetaSchema.order</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_itemmeta.lua#L26">Source ☍</a></dt>
+<dd>
+
+
 
 </dd>
 </dl></div>
