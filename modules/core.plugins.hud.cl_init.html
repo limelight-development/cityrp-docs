@@ -46,6 +46,7 @@
 <li><a href="../modules/core.libraries.cl_chatbox.html">core.libraries.cl_chatbox</a></li>
 <li><a href="../modules/core.libraries.cl_hints.html">core.libraries.cl_hints</a></li>
 <li><a href="../modules/core.libraries.cl_inventory.html">core.libraries.cl_inventory</a></li>
+<li><a href="../modules/core.libraries.cl_ui.html">core.libraries.cl_ui</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -170,7 +171,6 @@
 <li><a href="../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
 <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
 <li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
-<li><a href="../modules/core.plugins.phonebook.cl_init.html">core.plugins.phonebook.cl_init</a></li>
 <li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
@@ -252,30 +252,30 @@
 Stuff and things.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="LimelightHUD.AutoUpdate"></a><strong><span class="state state-client">LimelightHUD.AutoUpdate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L225">Source ☍</a></dt>
+<dt><a name="LimelightHUD.AutoUpdate"></a><strong><span class="state state-client">LimelightHUD.AutoUpdate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L331">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="LimelightHUD.GetScaleFactor"></a><strong><span class="state state-client">LimelightHUD.GetScaleFactor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L136">Source ☍</a></dt>
+<dt><a name="LimelightHUD.GetScaleFactor"></a><strong><span class="state state-client">LimelightHUD.GetScaleFactor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L171">Source ☍</a></dt>
 <dd>
 <p>Returns scale factor based on how wide the current users monitor is
-compared toa 1920 pixel wide monitors</p>
+compared to a 1920 pixel wide monitor, multiplied by user's scale preference.</p>
 
 
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">number|unknown</span> to multiple pixels by to scale them appropriately</li>
+<li><span class="types">number</span> scale factor to multiply pixels by to scale them appropriately.</li>
 </ol>
 </dd>
-<dt><a name="LimelightHUD.Init"></a><strong><span class="state state-client">LimelightHUD.Init</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L160">Source ☍</a></dt>
+<dt><a name="LimelightHUD.Init"></a><strong><span class="state state-client">LimelightHUD.Init</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L236">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="LimelightHUD.NLRPanel.Paint"></a><strong><span class="state state-client">LimelightHUD.NLRPanel.Paint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L180">Source ☍</a></dt>
+<dt><a name="LimelightHUD.NLRPanel.Paint"></a><strong><span class="state state-client">LimelightHUD.NLRPanel.Paint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L286">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -285,7 +285,15 @@ compared toa 1920 pixel wide monitors</p>
 </ul>
 
 </dd>
-<dt><a name="LimelightHUD.SetAllVisible"></a><strong><span class="state state-client">LimelightHUD.SetAllVisible</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L214">Source ☍</a></dt>
+<dt><a name="LimelightHUD.RebuildHUD"></a><strong><span class="state state-client">LimelightHUD.RebuildHUD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L177">Source ☍</a></dt>
+<dd>
+<p>Rebuilds the HUD with the current scale factor.
+Call this when scale settings change.</p>
+
+
+
+</dd>
+<dt><a name="LimelightHUD.SetAllVisible"></a><strong><span class="state state-client">LimelightHUD.SetAllVisible</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L320">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -294,13 +302,13 @@ compared toa 1920 pixel wide monitors</p>
 </ul>
 
 </dd>
-<dt><a name="LimelightHUD.Think"></a><strong><span class="state state-client">LimelightHUD.Think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L247">Source ☍</a></dt>
+<dt><a name="LimelightHUD.Think"></a><strong><span class="state state-client">LimelightHUD.Think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L352">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="math.CeilPower2"></a><strong><span class="state state-client">math.CeilPower2</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L140">Source ☍</a></dt>
+<dt><a name="math.CeilPower2"></a><strong><span class="state state-client">math.CeilPower2</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L183">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -315,13 +323,13 @@ compared toa 1920 pixel wide monitors</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="LimelightHUD"></a><strong><span class="state state-client">LimelightHUD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L36">Source ☍</a></dt>
+<dt><a name="LimelightHUD"></a><strong><span class="state state-client">LimelightHUD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L40">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="LimelightHUD.Panels"></a><strong><span class="state state-client">LimelightHUD.Panels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L162">Source ☍</a></dt>
+<dt><a name="LimelightHUD.Panels"></a><strong><span class="state state-client">LimelightHUD.Panels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L238">Source ☍</a></dt>
 <dd>
 
 
@@ -330,37 +338,37 @@ compared toa 1920 pixel wide monitors</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="LimelightHUD.NLRPanel"></a><strong><span class="state state-client">LimelightHUD.NLRPanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L173">Source ☍</a></dt>
+<dt><a name="LimelightHUD.NLRPanel"></a><strong><span class="state state-client">LimelightHUD.NLRPanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L253">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="LimelightHUD.NLRPanel.moving"></a><strong><span class="state state-client">LimelightHUD.NLRPanel.moving</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L310">Source ☍</a></dt>
+<dt><a name="LimelightHUD.NLRPanel.moving"></a><strong><span class="state state-client">LimelightHUD.NLRPanel.moving</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L415">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="LimelightHUD.NLRPanel.nlrExpired"></a><strong><span class="state state-client">LimelightHUD.NLRPanel.nlrExpired</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L315">Source ☍</a></dt>
+<dt><a name="LimelightHUD.NLRPanel.nlrExpired"></a><strong><span class="state state-client">LimelightHUD.NLRPanel.nlrExpired</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L420">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="LimelightHUD.NLRPanel.tooClose"></a><strong><span class="state state-client">LimelightHUD.NLRPanel.tooClose</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L296">Source ☍</a></dt>
+<dt><a name="LimelightHUD.NLRPanel.tooClose"></a><strong><span class="state state-client">LimelightHUD.NLRPanel.tooClose</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L401">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="LimelightHUD.ShouldDraw"></a><strong><span class="state state-client">LimelightHUD.ShouldDraw</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L230">Source ☍</a></dt>
+<dt><a name="LimelightHUD.ShouldDraw"></a><strong><span class="state state-client">LimelightHUD.ShouldDraw</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L336">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="LimelightHUD.Visible"></a><strong><span class="state state-client">LimelightHUD.Visible</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L216">Source ☍</a></dt>
+<dt><a name="LimelightHUD.Visible"></a><strong><span class="state state-client">LimelightHUD.Visible</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/hud/cl_init.lua#L322">Source ☍</a></dt>
 <dd>
 
 
