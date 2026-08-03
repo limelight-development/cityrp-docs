@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.libraries.sv_admin_core</title>
+	<title>core.plugins.login_rewards.cl_init</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -18,8 +18,7 @@
 <div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
-<li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -78,7 +77,7 @@
 <li><a href="../modules/core.libraries.sh_workarounds.html">core.libraries.sh_workarounds</a></li>
 <li><a href="../modules/core.libraries.sh_zones.html">core.libraries.sh_zones</a></li>
 <li><a href="../modules/core.libraries.sv_access.html">core.libraries.sv_access</a></li>
-<li><strong>core.libraries.sv_admin_core</strong></li>
+<li><a href="../modules/core.libraries.sv_admin_core.html">core.libraries.sv_admin_core</a></li>
 <li><a href="../modules/core.libraries.sv_chatbox.html">core.libraries.sv_chatbox</a></li>
 <li><a href="../modules/core.libraries.sv_commands.html">core.libraries.sv_commands</a></li>
 <li><a href="../modules/core.libraries.sv_console.html">core.libraries.sv_console</a></li>
@@ -166,7 +165,7 @@
 <li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
 <li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
 <li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
-<li><a href="../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><strong>core.plugins.login_rewards.cl_init</strong></li>
 <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
 <li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
 <li><a href="../modules/core.plugins.phonebook.cl_init.html">core.plugins.phonebook.cl_init</a></li>
@@ -246,110 +245,23 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.libraries.sv_admin_core</h1></div>
-<div class="ll-module-body"><p>Serverside Administration Core Module</p></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
+<div class="ll-module-header"><h1>core.plugins.login_rewards.cl_init</h1></div>
+<div class="ll-module-body"><p>Login rewards client-side calendar and gift popup.</p></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.acommands.AddCommand"></a><strong><span class="state state-server">cityrp.acommands.AddCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L20">Source ☍</a></dt>
-<dd>
-<p>Add a command with a ! prefix.
-Used be only used for admin commands.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">cmd</span> <span class="types">any</span></li>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-<li><span class="parameter">args</span> <span class="types">any</span></li>
-<li><span class="parameter">access</span> <span class="types">any</span></li>
-<li><span class="parameter">emgr</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.Deprecate"></a><strong><span class="state state-server">cityrp.acommands.Deprecate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L41">Source ☍</a></dt>
-<dd>
-<p>Deprecate an admin command.
-This shows a warning to the user when used.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">cmd</span> <span class="types">any</span></li>
-<li><span class="parameter">msg</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.HandleCommand"></a><strong><span class="state state-server">cityrp.acommands.HandleCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L60">Source ☍</a></dt>
-<dd>
-<p>Handle a cityrp_admin console command.
-Automatically called by the server when a console command is sent.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player who called the command.</li>
-<li><span class="parameter">_</span> <span class="types">any</span> Unused.</li>
-<li><span class="parameter">args</span> <span class="types">any</span> Tabulated list of arguments.</li>
-<li><span class="parameter">aStr</span> <span class="types">any</span> A string containing all the arguments.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string|nil</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.acommands.luarun"></a><strong><span class="state state-server">cityrp.acommands.luarun</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L132">Source ☍</a></dt>
-<dd>
-<p>The callback to allow lua to be ran.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player running lua.</li>
-<li><span class="parameter">_</span> <span class="types">any</span> unused.</li>
-<li><span class="parameter">_</span> <span class="types">any</span></li>
-<li><span class="parameter">code</span> <span class="types">any</span> The code string to be ran.</li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.parse"></a><strong><span class="state state-server">cityrp.acommands.parse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L177">Source ☍</a></dt>
-<dd>
-<p>Parse a string into a command and a table of arguments, respecting quoting rules.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">str</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">unknown</span> </li>
-<li><span class="types">table</span> </li>
-<li><span class="types">unknown</span> </li>
-</ol>
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="access_luarun"></a><strong><span class="state state-server">access_luarun</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L122">Source ☍</a></dt>
+<dt><a name="cityrp._loginRewardPopup"></a><strong><span class="state state-client">cityrp._loginRewardPopup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/login_rewards/cl_init.lua#L305">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.acommands"></a><strong><span class="state state-server">cityrp.acommands</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L8">Source ☍</a></dt>
+<dt><a name="cityrp._loginRewardsCalendar"></a><strong><span class="state state-client">cityrp._loginRewardsCalendar</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/login_rewards/cl_init.lua#L530">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.acommands.aliases"></a><strong><span class="state state-server">cityrp.acommands.aliases</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L10">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.acommands.commands"></a><strong><span class="state state-server">cityrp.acommands.commands</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L9">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.acommands.deprecated"></a><strong><span class="state state-server">cityrp.acommands.deprecated</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L11">Source ☍</a></dt>
+<dt><a name="cityrp._loginRewardsCalendar._statusText"></a><strong><span class="state state-client">cityrp._loginRewardsCalendar._statusText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/login_rewards/cl_init.lua#L547">Source ☍</a></dt>
 <dd>
 
 
