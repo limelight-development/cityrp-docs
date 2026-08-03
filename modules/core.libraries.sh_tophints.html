@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.libraries.cl_inventory</title>
+	<title>core.libraries.sh_tophints</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -19,7 +19,7 @@
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -44,7 +44,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.cl_chatbox.html">core.libraries.cl_chatbox</a></li>
 <li><a href="../modules/core.libraries.cl_hints.html">core.libraries.cl_hints</a></li>
-<li><strong>core.libraries.cl_inventory</strong></li>
+<li><a href="../modules/core.libraries.cl_inventory.html">core.libraries.cl_inventory</a></li>
 <li><a href="../modules/core.libraries.cl_ui.html">core.libraries.cl_ui</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
@@ -75,7 +75,7 @@
 <li><a href="../modules/core.libraries.sh_plugincore.html">core.libraries.sh_plugincore</a></li>
 <li><a href="../modules/core.libraries.sh_table.html">core.libraries.sh_table</a></li>
 <li><a href="../modules/core.libraries.sh_team.html">core.libraries.sh_team</a></li>
-<li><a href="../modules/core.libraries.sh_tophints.html">core.libraries.sh_tophints</a></li>
+<li><strong>core.libraries.sh_tophints</strong></li>
 <li><a href="../modules/core.libraries.sh_weighted_random.html">core.libraries.sh_weighted_random</a></li>
 <li><a href="../modules/core.libraries.sh_workarounds.html">core.libraries.sh_workarounds</a></li>
 <li><a href="../modules/core.libraries.sh_zones.html">core.libraries.sh_zones</a></li>
@@ -247,68 +247,188 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.libraries.cl_inventory</h1></div>
-<div class="ll-module-body"><p>Inventory Management</p></div>
+<div class="ll-module-header"><h1>core.libraries.sh_tophints</h1></div>
+<div class="ll-module-body"><p>Top-of-screen cycling tips API (<code>cityrp.topHints</code>).
+Distinct from entity look-at hints (<code>cityrp.hints</code>).
+Loaded as a core library so other plugins can RegisterPrefix/AddHint from sh_init
+regardless of alphabetical plugin load order.</p>
+<p>Shared registrations (library defaults + plugin sh_init) are available on both
+realms — no server→client config sync is required for the tip pool.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.inventory.canFit"></a><strong><span class="state state-client">cityrp.inventory.canFit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_inventory.lua#L77">Source ☍</a></dt>
+<dt><a name="cityrp.topHints.AddHint"></a><strong><span class="state state-client state-server">cityrp.topHints.AddHint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L103">Source ☍</a></dt>
 <dd>
-<p>Check if a certain size will fit in the local player's inventory.</p>
+<p>Add a hint to the shared pool.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">size</span> <span class="types">any</span></li>
+<li><span class="parameter">data</span> <span class="types">string|table|TopHintsHint</span> Hint text or table</li>
+<li><span class="parameter">source</span> <span class="types">string?</span> Optional source key for ClearSource</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">boolean</span> </li>
+<li><span class="types">number|nil</span> Index in hints, or nil if invalid</li>
 </ol>
 </dd>
-<dt><a name="cityrp.inventory.GetAmount"></a><strong><span class="state state-client">cityrp.inventory.GetAmount</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_inventory.lua#L81">Source ☍</a></dt>
+<dt><a name="cityrp.topHints.ClearSource"></a><strong><span class="state state-client state-server">cityrp.topHints.ClearSource</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L129">Source ☍</a></dt>
 <dd>
+<p>Remove all registered hints (and optionally prefixes) for a source key.
+Use before re-registering on hot reload.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">item</span> <span class="types">any</span></li>
-<li><span class="parameter">meta</span> <span class="types">any</span></li>
+<li><span class="parameter">source</span> <span class="types">string</span></li>
+<li><span class="parameter">clearPrefixes</span> <span class="types">boolean?</span> Also drop prefixes whose id equals source</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.topHints.GetHintIcon"></a><strong><span class="state state-client state-server">cityrp.topHints.GetHintIcon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L175">Source ☍</a></dt>
+<dd>
+<p>Resolve icon path for a hint (hint override, then prefix icon).</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">hint</span> <span class="types">TopHintsHint</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">integer|unknown</span> </li>
+<li><span class="types">string|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.inventory.getMaximumSpace"></a><strong><span class="state state-client">cityrp.inventory.getMaximumSpace</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_inventory.lua#L44">Source ☍</a></dt>
+<dt><a name="cityrp.topHints.GetPool"></a><strong><span class="state state-client state-server">cityrp.topHints.GetPool</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L162">Source ☍</a></dt>
 <dd>
-<p>Get the maximum inventory space of the local player.</p>
+<p>Build a shallow copy of the display pool.</p>
 
 
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">integer</span> </li>
+<li><span class="types">TopHintsHint[]</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.inventory.getSize"></a><strong><span class="state state-client">cityrp.inventory.getSize</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_inventory.lua#L60">Source ☍</a></dt>
+<dt><a name="cityrp.topHints.GetPrefix"></a><strong><span class="state state-client state-server">cityrp.topHints.GetPrefix</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L152">Source ☍</a></dt>
 <dd>
-<p>Get the currently used inventory space of the local player.</p>
+<p>Resolve a prefix by id.</p>
 
-
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">id</span> <span class="types">string|nil</span></li>
+</ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">integer</span> </li>
+<li><span class="types">TopHintsPrefix|nil</span> </li>
 </ol>
+</dd>
+<dt><a name="cityrp.topHints.RegisterPrefix"></a><strong><span class="state state-client state-server">cityrp.topHints.RegisterPrefix</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L90">Source ☍</a></dt>
+<dd>
+<p>Register or replace a named prefix (module tag + colour + optional icon).</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">id</span> <span class="types">string</span> Prefix id referenced by hints</li>
+<li><span class="parameter">data</span> <span class="types">table|TopHintsPrefix</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.topHints.RemoveHint"></a><strong><span class="state state-client state-server">cityrp.topHints.RemoveHint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L116">Source ☍</a></dt>
+<dd>
+<p>Remove a registered hint by index.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">index</span> <span class="types">number</span></li>
+</ul>
+
 </dd>
 </dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.inventory"></a><strong><span class="state state-client">cityrp.inventory</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_inventory.lua#L11">Source ☍</a></dt>
+<dt><a name="cityrp.topHints"></a><strong><span class="state state-client state-server">cityrp.topHints</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L13">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.inventory.stored"></a><strong><span class="state state-client">cityrp.inventory.stored</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_inventory.lua#L13">Source ☍</a></dt>
+<dt><a name="cityrp.topHints.cycleSeconds"></a><strong><span class="state state-client state-server">cityrp.topHints.cycleSeconds</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L26">Source ☍</a></dt>
 <dd>
-<p>Items currently stored on the client.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.topHints.hints"></a><strong><span class="state state-client state-server">cityrp.topHints.hints</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L28">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.topHints.prefixes"></a><strong><span class="state state-client state-server">cityrp.topHints.prefixes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L27">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.topHints.shuffleHints"></a><strong><span class="state state-client state-server">cityrp.topHints.shuffleHints</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L31">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="TopHintsHint"></a><strong><span class="state state-client state-server">TopHintsHint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L20">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="TopHintsHint.icon"></a><strong><span class="state state-client state-server">TopHintsHint.icon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L23">Source ☍</a></dt>
+<dd>
+<p>Optional icon override</p>
+
+
+
+</dd>
+<dt><a name="TopHintsHint.prefix"></a><strong><span class="state state-client state-server">TopHintsHint.prefix</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L22">Source ☍</a></dt>
+<dd>
+<p>Optional prefix id</p>
+
+
+
+</dd>
+<dt><a name="TopHintsHint.source"></a><strong><span class="state state-client state-server">TopHintsHint.source</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L24">Source ☍</a></dt>
+<dd>
+<p>Registration source key for clear/reload</p>
+
+
+
+</dd>
+<dt><a name="TopHintsHint.text"></a><strong><span class="state state-client state-server">TopHintsHint.text</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L21">Source ☍</a></dt>
+<dd>
+<p>Hint body text</p>
+
+
+
+</dd>
+<dt><a name="TopHintsPrefix"></a><strong><span class="state state-client state-server">TopHintsPrefix</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L15">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="TopHintsPrefix.color"></a><strong><span class="state state-client state-server">TopHintsPrefix.color</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L17">Source ☍</a></dt>
+<dd>
+<p>Prefix colour</p>
+
+
+
+</dd>
+<dt><a name="TopHintsPrefix.icon"></a><strong><span class="state state-client state-server">TopHintsPrefix.icon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L18">Source ☍</a></dt>
+<dd>
+<p>Optional silkicon path (icon16/...)</p>
+
+
+
+</dd>
+<dt><a name="TopHintsPrefix.label"></a><strong><span class="state state-client state-server">TopHintsPrefix.label</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua#L16">Source ☍</a></dt>
+<dd>
+<p>Display label (shown as [label])</p>
 
 
 
