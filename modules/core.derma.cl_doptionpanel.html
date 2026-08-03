@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.libraries.sh_access</title>
+	<title>core.derma.cl_doptionpanel</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -19,7 +19,6 @@
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
 <li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
@@ -30,7 +29,7 @@
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
 <li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
 <li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><strong>core.derma.cl_doptionpanel</strong></li>
 <li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
 <li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
 <li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
@@ -60,7 +59,7 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><strong>core.libraries.sh_access</strong></li>
+<li><a href="../modules/core.libraries.sh_access.html">core.libraries.sh_access</a></li>
 <li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
 <li><a href="../modules/core.libraries.sh_chatbox.html">core.libraries.sh_chatbox</a></li>
 <li><a href="../modules/core.libraries.sh_currency.html">core.libraries.sh_currency</a></li>
@@ -249,92 +248,43 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.libraries.sh_access</h1></div>
-<div class="ll-module-body"><p>Access and Flags - Shared.</p></div>
+<div class="ll-module-header"><h1>core.derma.cl_doptionpanel</h1></div>
+<div class="ll-module-body"><p>Market / Inv Options Button Panel</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.access.decompose"></a><strong><span class="state state-client state-server">cityrp.access.decompose</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L53">Source ☍</a></dt>
+<dt><a name="cityrp.ui.AddCopyBindButton"></a><strong><span class="state state-client">cityrp.ui.AddCopyBindButton</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_doptionpanel.lua#L174">Source ☍</a></dt>
 <dd>
-<p>Decompose an access string into a character lookup table.</p>
+<p>Add a styled &quot;Copy Bind&quot; button that opens the fan-out menu.
+Works with both DIconLayout (inventory) and DOptionPanel (market).</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">accessString</span> <span class="types">string</span> The access string to decompose.</li>
+<li><span class="parameter">parent</span> <span class="types">Panel</span></li>
+<li><span class="parameter">item</span> <span class="types">table</span></li>
+<li><span class="parameter">meta</span> <span class="types">string?</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">table</span> Table keyed by character, true for each character present in the string.</li>
+<li><span class="types">Panel</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.access.getAccess"></a><strong><span class="state state-client state-server">cityrp.access.getAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L95">Source ☍</a></dt>
+<dt><a name="cityrp.ui.OpenItemCopyBindMenu"></a><strong><span class="state state-client">cityrp.ui.OpenItemCopyBindMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_doptionpanel.lua#L150">Source ☍</a></dt>
 <dd>
-<p>Get a player's access table (character -&gt; true lookup), building it from the access string if it's missing.</p>
-<h3>Internal:</h3>
-<ul>
-<li><span class='tag-internal'>This function is internal. Whilst you can call it, you probably shouldn't.<br>Does not guard against non-local-player misuse; use hasAccess() instead.</span></li>
-</ul>
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> Player to check.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> The player's access table.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.access.getAccessString"></a><strong><span class="state state-client state-server">cityrp.access.getAccessString</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L66">Source ☍</a></dt>
-<dd>
-<p>Get a player's access string.</p>
-<h3>Internal:</h3>
-<ul>
-<li><span class='tag-internal'>This function is internal. Whilst you can call it, you probably shouldn't.<br>Does not guard against non-local-player misuse; use hasAccess() instead.</span></li>
-</ul>
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> Player to check.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> The player's access string.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.access.hasAccess"></a><strong><span class="state state-client state-server">cityrp.access.hasAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L107">Source ☍</a></dt>
-<dd>
-<p>Check if a player has the required access.</p>
+<p>Open a fan-out menu of copyable item binds (Use / Drop / Give / Manufacture).
+Meta is appended for inventory actions so vehicle plates and other variants bind correctly.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> Player to check.</li>
-<li><span class="parameter">access</span> <span class="types">string</span> Access tag string to check.</li>
+<li><span class="parameter">item</span> <span class="types">table</span> Item definition</li>
+<li><span class="parameter">meta</span> <span class="types">string?</span> Inventory meta key (display key when variants share a visible identity)</li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> If the player has all the flags.</li>
-</ol>
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.access.flags"></a><strong><span class="state state-client state-server">cityrp.access.flags</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L12">Source ☍</a></dt>
-<dd>
-<p>Flag definitions.
-These represent roles/permissions resolved via metatable methods, rather than characters stored in an access string.</p>
-
-
 
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.access"></a><strong><span class="state state-client state-server">cityrp.access</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L7">Source ☍</a></dt>
+<dt><a name="cityrp.ui"></a><strong><span class="state state-client">cityrp.ui</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_doptionpanel.lua#L97">Source ☍</a></dt>
 <dd>
-
-
-
-</dd>
-<dt><a name="cityrp.access.logger"></a><strong><span class="state state-client state-server">cityrp.access.logger</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L8">Source ☍</a></dt>
-<dd>
-<p>Logger metatable.</p>
 
 
 
