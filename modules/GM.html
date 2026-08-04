@@ -1139,7 +1139,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <ul>
 <li><span class="parameter">ply</span> <span class="types">Player</span> The player demoting the target.</li>
 <li><span class="parameter">tgt</span> <span class="types">Player</span> The player being demoted.</li>
-<li><span class="parameter">from</span> <span class="types">TEAM</span> The team they're being demoted from.</li>
+<li><span class="parameter">from</span> <span class="types">`TEAM_AFK`|`TEAM_ARMSDEALER`|`TEAM_BLACKMARKETDEALER`|`TEAM_CHEF`|`TEAM_CITIZEN`...(+21)</span> The team they're being demoted from.</li>
 <li><span class="parameter">reason</span> <span class="types">string</span> The reason they're being demoted.</li>
 </ul>
 <h3>Returns:</h3>
@@ -1244,8 +1244,11 @@ created (false, via pMeta:LoadDataNew).</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">state</span> <span class="types">any</span></li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> Serverside Inventory Metatable.
+@copyright 2015-2025 Limelight Gaming
+@release CityRP 2
+@author Temar</li>
+<li><span class="parameter">state</span> <span class="types">boolean</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
@@ -1288,7 +1291,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <ul>
 <li><span class="parameter">ply</span> <span class="types">Player</span> The player promoting the target.</li>
 <li><span class="parameter">tgt</span> <span class="types">Player</span> The player being promoted.</li>
-<li><span class="parameter">from</span> <span class="types">TEAM</span> The team they're being promoted to.</li>
+<li><span class="parameter">from</span> <span class="types">`TEAM_AFK`|`TEAM_ARMSDEALER`|`TEAM_BLACKMARKETDEALER`|`TEAM_CHEF`|`TEAM_CITIZEN`...(+21)</span> The team they're being promoted to.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
@@ -1686,7 +1689,7 @@ Coded by Voluptious.</p>
 <ul>
 <li><span class="parameter">ply</span> <span class="types">Player</span> The player warranting.</li>
 <li><span class="parameter">tgt</span> <span class="types">Player</span> The player being warranted.</li>
-<li><span class="parameter">class</span> <span class="types">WARRANT</span> The warrant class.</li>
+<li><span class="parameter">class</span> <span class="types">&quot;arrest&quot;|&quot;bolo&quot;|&quot;search&quot;</span> The warrant class.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
