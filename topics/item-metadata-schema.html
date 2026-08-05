@@ -160,6 +160,7 @@
 <li><a href="../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
 <li><a href="../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
 <li><a href="../modules/core.plugins.item_db_update.sv_init.html">core.plugins.item_db_update.sv_init</a></li>
+<li><a href="../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
 <li><a href="../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
 <li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
 <li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
@@ -252,6 +253,9 @@
 <h2>Core APIs</h2>
 <p>Shared library: <code>core/libraries/sh_itemmeta.lua</code></p>
 <ul>
+<li><code>cityrp.itemmeta.GetSchema(itemOrID)</code></li>
+<li><code>cityrp.itemmeta.GetEditableFields(itemOrID)</code></li>
+<li><code>cityrp.itemmeta.Encode(data)</code></li>
 <li><code>cityrp.itemmeta.Normalize(itemOrID, rawMeta)</code></li>
 <li><code>cityrp.itemmeta.NormalizeKey(itemOrID, rawMeta)</code></li>
 <li><code>cityrp.itemmeta.Decode(itemOrID, rawMeta)</code></li>
@@ -333,6 +337,12 @@
 <li>details line: <code>Plate: TEST, Springs: 3, Turbo: On</code></li>
 </ul>
 <p>Boolean fields accept <code>1</code> / <code>0</code> / <code>true</code> / <code>false</code>. Do not put spaces inside the <code>meta:</code> token (argument parsing splits on spaces).</p>
+<h3>Building the metadata in a menu instead</h3>
+<p>Running <code>/giveitem</code> or <code>/takeitem</code> with no arguments at all opens a picker (the <code>itemgrantmenu</code> plugin) instead of the usage error. It builds one input per schema field from <code>GetEditableFields</code>, so the field names, types, enums, <code>min</code>/<code>max</code> and defaults come straight from the item rather than having to be remembered — a <code>boolean</code> or <code>enum</code> field gets a drop-down, a <code>number</code> field an entry that coerces and clamps to its declared range, and a <code>string</code> field free text.</p>
+<p>The metadata section only appears for items that declare a schema. There is no free-text passthrough for items that don't: a value with no field to hold it and no type to check it against is exactly what the schema exists to prevent. Taking a stack that already carries schemaless metadata still works — the stored value is passed back untouched — it just cannot be typed in by hand. Use the <code>meta:</code> token for that.</p>
+<p>A field that declares no <code>label</code> is captioned from its own key (<code>serial_number</code> becomes &quot;Serial number&quot;), which is also the fallback <code>FormatDetails</code> uses, so the menu and the F1 detail line caption a field the same way.</p>
+<p>The menu submits through the ordinary command handler, so every check, notification and log entry is identical to typing the command. It is not restricted by the token's space rule, though: because the arguments are already split when they reach the handler, a value with a space in it (<code>BAD C0P</code>) can be entered in the menu even though it cannot be typed as <code>meta:plate=BAD C0P</code>.</p>
+<p>In take mode the item list starts on the target's actual stacks, showing each one's quantity and its formatted detail text, so an item held under several metadata variants can be picked apart precisely.</p>
 <h2>Silent field removal</h2>
 <p>Mark field definitions with <code>removed = true</code> (or use <code>ITEM:RemoveMetaField(&quot;field&quot;)</code>).</p>
 <p>When metadata is normalized:</p>

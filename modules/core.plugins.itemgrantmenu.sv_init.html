@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.plugins.billboards.sh.zad_entlist</title>
+	<title>core.plugins.itemgrantmenu.sv_init</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -19,7 +19,7 @@
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -126,7 +126,7 @@
 <li><a href="../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
 <li><a href="../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
 <li><a href="../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
-<li><strong>core.plugins.billboards.sh.zad_entlist</strong></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
 <li><a href="../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
 <li><a href="../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
 <li><a href="../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
@@ -166,7 +166,7 @@
 <li><a href="../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
 <li><a href="../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
 <li><a href="../modules/core.plugins.item_db_update.sv_init.html">core.plugins.item_db_update.sv_init</a></li>
-<li><a href="../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
+<li><strong>core.plugins.itemgrantmenu.sv_init</strong></li>
 <li><a href="../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
 <li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
 <li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
@@ -251,26 +251,32 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.plugins.billboards.sh.zad_entlist</h1></div>
-<div class="ll-module-body"><p>Zeros AdvertKit Entity List Management.
-Shared entity list tracking for billboard entities.</p></div>
+<div class="ll-module-header"><h1>core.plugins.itemgrantmenu.sv_init</h1></div>
+<div class="ll-module-body"><p>Item grant menu, server side.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="zad.f.EntList_Add"></a><strong>zad.f.EntList_Add</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_entlist.lua#L19">Source ☍</a></dt>
+<dt><a name="cityrp.itemgrant.open"></a><strong><span class="state state-server">cityrp.itemgrant.open</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/itemgrantmenu/sv_init.lua#L107">Source ☍</a></dt>
 <dd>
-<p>Add an entity to the global entity list for tracking.</p>
+<p>Opens the item grant menu for a part-typed command.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity to add to the tracking list.</li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player who ran the command.</li>
+<li><span class="parameter">command</span> <span class="types">string</span> The command name.</li>
+<li><span class="parameter">arguments</span> <span class="types">table&lt;number, string&gt;</span> What the command was given.</li>
 </ul>
-
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
 </dd>
 </dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="zad.EntList"></a><strong>zad.EntList</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/billboards/sh/zad_entlist.lua#L14">Source ☍</a></dt>
+<dt><a name="cityrp.itemgrant"></a><strong><span class="state state-server">cityrp.itemgrant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/itemgrantmenu/sv_init.lua#L100">Source ☍</a></dt>
 <dd>
+<p>Entry point for the item commands, which check for it so a disabled plugin
+leaves them working.</p>
 
 
 
