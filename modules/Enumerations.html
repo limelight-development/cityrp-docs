@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Enumerations</title>
+	<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<div id="container">
+	<div id="product">
+		<div id="product_logo"></div>
+		<div id="product_name"><big><b></b></big></div>
+		<div id="product_description"></div>
+	</div>
+	<div id="main">
+		<div id="navigation">
+<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Modules</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/DB.html">DB</a></li>
+<li><strong>Enumerations</strong></li>
+<li><a href="../modules/GM.html">GM</a></li>
+<li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
+<li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+<li><a href="../modules/core.libraries.cl_chatbox.html">core.libraries.cl_chatbox</a></li>
+<li><a href="../modules/core.libraries.cl_hints.html">core.libraries.cl_hints</a></li>
+<li><a href="../modules/core.libraries.cl_inventory.html">core.libraries.cl_inventory</a></li>
+<li><a href="../modules/core.libraries.cl_ui.html">core.libraries.cl_ui</a></li>
+<li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
+<li><a href="../modules/core.libraries.sh_chatbox.html">core.libraries.sh_chatbox</a></li>
+<li><a href="../modules/core.libraries.sh_dumper.html">core.libraries.sh_dumper</a></li>
+<li><a href="../modules/core.libraries.sh_functions.html">core.libraries.sh_functions</a></li>
+<li><a href="../modules/core.libraries.sh_help.html">core.libraries.sh_help</a></li>
+<li><a href="../modules/core.libraries.sh_imagehosts.html">core.libraries.sh_imagehosts</a></li>
+<li><a href="../modules/core.libraries.sh_internet.html">core.libraries.sh_internet</a></li>
+<li><a href="../modules/core.libraries.sh_itemcore.html">core.libraries.sh_itemcore</a></li>
+<li><a href="../modules/core.libraries.sh_itemmeta.html">core.libraries.sh_itemmeta</a></li>
+<li><a href="../modules/core.libraries.sh_logging.html">core.libraries.sh_logging</a></li>
+<li><a href="../modules/core.libraries.sh_plugin.html">core.libraries.sh_plugin</a></li>
+<li><a href="../modules/core.libraries.sh_plugincore.html">core.libraries.sh_plugincore</a></li>
+<li><a href="../modules/core.libraries.sh_table.html">core.libraries.sh_table</a></li>
+<li><a href="../modules/core.libraries.sh_team.html">core.libraries.sh_team</a></li>
+<li><a href="../modules/core.libraries.sh_tophints.html">core.libraries.sh_tophints</a></li>
+<li><a href="../modules/core.libraries.sh_weighted_random.html">core.libraries.sh_weighted_random</a></li>
+<li><a href="../modules/core.libraries.sh_workarounds.html">core.libraries.sh_workarounds</a></li>
+<li><a href="../modules/core.libraries.sh_zones.html">core.libraries.sh_zones</a></li>
+<li><a href="../modules/core.libraries.sv_access.html">core.libraries.sv_access</a></li>
+<li><a href="../modules/core.libraries.sv_admin_core.html">core.libraries.sv_admin_core</a></li>
+<li><a href="../modules/core.libraries.sv_chatbox.html">core.libraries.sv_chatbox</a></li>
+<li><a href="../modules/core.libraries.sv_commands.html">core.libraries.sv_commands</a></li>
+<li><a href="../modules/core.libraries.sv_console.html">core.libraries.sv_console</a></li>
+<li><a href="../modules/core.libraries.sv_entity.html">core.libraries.sv_entity</a></li>
+<li><a href="../modules/core.libraries.sv_gatekeeper.html">core.libraries.sv_gatekeeper</a></li>
+<li><a href="../modules/core.libraries.sv_inventory.html">core.libraries.sv_inventory</a></li>
+<li><a href="../modules/core.libraries.sv_item.html">core.libraries.sv_item</a></li>
+<li><a href="../modules/core.libraries.sv_logs.html">core.libraries.sv_logs</a></li>
+<li><a href="../modules/core.libraries.sv_makeleader.html">core.libraries.sv_makeleader</a></li>
+<li><a href="../modules/core.libraries.sv_membership.html">core.libraries.sv_membership</a></li>
+<li><a href="../modules/core.libraries.sv_migrations.html">core.libraries.sv_migrations</a></li>
+<li><a href="../modules/core.libraries.sv_model.html">core.libraries.sv_model</a></li>
+<li><a href="../modules/core.libraries.sv_player.html">core.libraries.sv_player</a></li>
+<li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
+<li><a href="../modules/core.libraries.sv_team.html">core.libraries.sv_team</a></li>
+<li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+<li><a href="../modules/core.metatables.sh_permissions.html">core.metatables.sh_permissions</a></li>
+<li><a href="../modules/core.metatables.sh_player.html">core.metatables.sh_player</a></li>
+<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+<li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
+<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+<li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
+<li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_save_sv.html">core.plugins.billboards.sv.zad_save_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../modules/core.plugins.breathalyser.sv_init.html">core.plugins.breathalyser.sv_init</a></li>
+<li><a href="../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../modules/core.plugins.cruisecontrol.sv_init.html">core.plugins.cruisecontrol.sv_init</a></li>
+<li><a href="../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../modules/core.plugins.item_db_update.sv_init.html">core.plugins.item_db_update.sv_init</a></li>
+<li><a href="../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../modules/core.plugins.weapons_on_back.cl_init.html">core.plugins.weapons_on_back.cl_init</a></li>
+<li><a href="../modules/core.plugins.weapons_on_back.sh_init.html">core.plugins.weapons_on_back.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.cl_init.html">core.plugins.zz_networking.cl_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.sh_init.html">core.plugins.zz_networking.sh_init</a></li>
+<li><a href="../modules/core.plugins.zz_networking.sv_init.html">core.plugins.zz_networking.sv_init</a></li>
+<li><a href="../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../modules/env.html">env</a></li>
+<li><a href="../modules/sh_init.html">sh_init</a></li>
+<li><a href="../modules/temar.html">temar</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Topics</h2></div>
+<ul class="ll-kind-body">
+<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
+<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
+<li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
+<li><a href="../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
+<li><a href="../topics/items.html">Types of Items</a></li>
+<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
+<li><a href="../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../topics/meska.html">MESKA</a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
+<li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../topics/waypoints.html">Waypoints</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Credits</h2></div>
+<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Enumerations</h1></div>
+<div class="ll-module-body"><p>Shared enumerations and constants for CityRP.</p></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="ADVERT_COLORS"></a><strong><span class="state state-client state-server">ADVERT_COLORS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L84">Source ☍</a></dt>
+<dd>
+<p>Advert color options</p>
+
+
+
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="CLASS_ANGLE"></a><strong><span class="state state-client state-server">CLASS_ANGLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L19">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CLASS_BOOL"></a><strong><span class="state state-client state-server">CLASS_BOOL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L16">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CLASS_BYTE"></a><strong><span class="state state-client state-server">CLASS_BYTE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L20">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CLASS_ENTITY"></a><strong><span class="state state-client state-server">CLASS_ENTITY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L18">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CLASS_FLOAT"></a><strong><span class="state state-client state-server">CLASS_FLOAT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L21">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CLASS_LONG"></a><strong><span class="state state-client state-server">CLASS_LONG</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L14">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CLASS_SHORT"></a><strong><span class="state state-client state-server">CLASS_SHORT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L15">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CLASS_STRING"></a><strong><span class="state state-client state-server">CLASS_STRING</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L13">Source ☍</a></dt>
+<dd>
+<p>Networking Classes.
+DEPRECATED ::- Use NETCLASS_, see plugins/zz_networking.
+LEGACY ::- No longer recommended for use, but not removed.</p>
+
+
+
+</dd>
+<dt><a name="CLASS_VECTOR"></a><strong><span class="state state-client state-server">CLASS_VECTOR</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L17">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL"></a><strong><span class="state state-client state-server">COL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L174">Source ☍</a></dt>
+<dd>
+<pre><code class="language-lua">COL:
+    | `COL_WHITE`
+    | `COL_BLACK`
+    | `COL_RED`
+    | `COL_REDMUTED`
+    | `COL_GREEN`
+    | `COL_BLUE`
+    | `COL_GREY`
+    | `COL_DGREY`
+    | `COL_INVIS`
+    | `COL_REJECT`
+    | `COL_ACCEPT`
+    | `COL_UI_GREY`
+    | `COL_UI_GREEN`
+    | `COL_UI_RED`
+    | `COL_UI_DARKRED`
+    | `COL_UI_PALERED`
+    | `COL_UI_ORANGE`
+    | `COL_UI_AMBER`
+    | `COL_UI_PALEBLUE`
+    | `COL_BRAND`
+    | `COL_STEEL`
+    | `COL_STORM`
+    | `COL_STEEL_WHITE`
+    | `COL_BASE`
+    | `COL_NAME`
+    | `COL_ADVERT`
+    | `COL_OOC`
+    | `COL_LOOC`
+    | `COL_TWEET`
+    | `COL_BROADCAST`
+    | `COL_BROADCAST_SUB`
+    | `COL_POLBROAD`
+    | `COL_POLBROAD_SUB`
+    | `COL_SWATBROAD`
+    | `COL_SWATBROAD_SUB`
+    | `COL_FIREBROAD`
+    | `COL_FIREBROAD_SUB`
+    | `COL_TAXI`
+    | `COL_TAXIBROAD`
+    | `COL_TAXIBROAD_SUB`
+    | `COL_REQUEST`
+    | `COL_RADIO`
+    | `COL_ADMIN`
+    | `COL_PM`
+    | `COL_CLAN`
+    | `COL_PRADIO`
+    | `COL_LIFEALERT`
+    | `COL_HELP`
+    | `COL_NOTIFY`
+    | `COL_JOINLEAVE`
+    | `COL_MASKED`
+    | `COL_SLEEPEFFECT`
+    | `COL_INJURED`
+    | `COL_INJURED_MED`
+    | `COL_INJURED_SER`
+    | `COL_INJURED_MORT`
+    | `COL_INJURED_ARR`
+    | `COL_HOSTAGE`
+    | `COL_VEHNAME`
+    | `COL_VEHLOCKGUIDE`
+    | `COL_VEHLOCKTEXT`
+    | `COL_BREACHTEXT`
+    | `COL_MONEY`
+    | `COL_ITEMTEXT`
+    | `COL_NOTEHEAD`
+    | `COL_CONTRANAME`
+    | `COL_GUIDE`
+    | `COL_STORMZY`
+    | `COL_TYRONE`
+    | `COL_GMRESTART`
+    | `COL_UVLIGHT_OFF`
+    | `COL_UVLIGHT_COOL`
+    | `COL_UVLIGHT_HOT`
+    | `COL_RANK_OWNER`
+    | `COL_RANK_SA`
+    | `COL_RANK_ADMIN`
+    | `COL_RANK_DEV`
+    | `COL_RANK_MOD`
+    | `COL_RANK_CONTRIB`
+    | `COL_RANK_VET`
+    | `COL_RANK_OTHER`
+    | `COL_RANK_COREMANAGER`
+    | `COL_RANK_CORE`
+    | `COL_RANK_BUSINESS`
+    | `COL_RANK_SECURITY`
+</code></pre>
+
+
+
+</dd>
+<dt><a name="COL_ACCEPT"></a><strong><span class="state state-client state-server">COL_ACCEPT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L75">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_ADMIN"></a><strong><span class="state state-client state-server">COL_ADMIN</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L113">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_ADVERT"></a><strong><span class="state state-client state-server">COL_ADVERT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L81">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_BASE"></a><strong><span class="state state-client state-server">COL_BASE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L78">Source ☍</a></dt>
+<dd>
+<p>Chatbox</p>
+
+
+
+</dd>
+<dt><a name="COL_BLACK"></a><strong><span class="state state-client state-server">COL_BLACK</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L48">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_BLUE"></a><strong><span class="state state-client state-server">COL_BLUE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L52">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_BRAND"></a><strong><span class="state state-client state-server">COL_BRAND</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L69">Source ☍</a></dt>
+<dd>
+<p>Limelight Colours</p>
+
+
+
+</dd>
+<dt><a name="COL_BREACHTEXT"></a><strong><span class="state state-client state-server">COL_BREACHTEXT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L139">Source ☍</a></dt>
+<dd>
+<p>Misc HUD Colours</p>
+
+
+
+</dd>
+<dt><a name="COL_BROADCAST"></a><strong><span class="state state-client state-server">COL_BROADCAST</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L100">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_BROADCAST_SUB"></a><strong><span class="state state-client state-server">COL_BROADCAST_SUB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L101">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_CLAN"></a><strong><span class="state state-client state-server">COL_CLAN</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L116">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_CONTRANAME"></a><strong><span class="state state-client state-server">COL_CONTRANAME</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L143">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_DGREY"></a><strong><span class="state state-client state-server">COL_DGREY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L54">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_FIREBROAD"></a><strong><span class="state state-client state-server">COL_FIREBROAD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L106">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_FIREBROAD_SUB"></a><strong><span class="state state-client state-server">COL_FIREBROAD_SUB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L107">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_GMRESTART"></a><strong><span class="state state-client state-server">COL_GMRESTART</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L151">Source ☍</a></dt>
+<dd>
+<p>Other Colours</p>
+
+
+
+</dd>
+<dt><a name="COL_GREEN"></a><strong><span class="state state-client state-server">COL_GREEN</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L51">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_GREY"></a><strong><span class="state state-client state-server">COL_GREY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L53">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_GUIDE"></a><strong><span class="state state-client state-server">COL_GUIDE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L144">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_GUIDE_NEGATIVE"></a><strong><span class="state state-client state-server">COL_GUIDE_NEGATIVE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L145">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_HELP"></a><strong><span class="state state-client state-server">COL_HELP</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L119">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_HOSTAGE"></a><strong><span class="state state-client state-server">COL_HOSTAGE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L131">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_INJURED"></a><strong><span class="state state-client state-server">COL_INJURED</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L126">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_INJURED_ARR"></a><strong><span class="state state-client state-server">COL_INJURED_ARR</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L130">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_INJURED_MED"></a><strong><span class="state state-client state-server">COL_INJURED_MED</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L127">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_INJURED_MORT"></a><strong><span class="state state-client state-server">COL_INJURED_MORT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L129">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_INJURED_SER"></a><strong><span class="state state-client state-server">COL_INJURED_SER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L128">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_INVIS"></a><strong><span class="state state-client state-server">COL_INVIS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L55">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_ITEMTEXT"></a><strong><span class="state state-client state-server">COL_ITEMTEXT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L141">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_JOINLEAVE"></a><strong><span class="state state-client state-server">COL_JOINLEAVE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L121">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_LIFEALERT"></a><strong><span class="state state-client state-server">COL_LIFEALERT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L118">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_LOOC"></a><strong><span class="state state-client state-server">COL_LOOC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L97">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_MASKED"></a><strong><span class="state state-client state-server">COL_MASKED</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L124">Source ☍</a></dt>
+<dd>
+<p>Player HUD Colours</p>
+
+
+
+</dd>
+<dt><a name="COL_MONEY"></a><strong><span class="state state-client state-server">COL_MONEY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L140">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_NAME"></a><strong><span class="state state-client state-server">COL_NAME</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L79">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_NOTEHEAD"></a><strong><span class="state state-client state-server">COL_NOTEHEAD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L142">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_NOTIFY"></a><strong><span class="state state-client state-server">COL_NOTIFY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L120">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_OOC"></a><strong><span class="state state-client state-server">COL_OOC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L96">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_PM"></a><strong><span class="state state-client state-server">COL_PM</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L114">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_POLBROAD"></a><strong><span class="state state-client state-server">COL_POLBROAD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L102">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_POLBROAD_SUB"></a><strong><span class="state state-client state-server">COL_POLBROAD_SUB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L103">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_PRADIO"></a><strong><span class="state state-client state-server">COL_PRADIO</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L117">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RADIO"></a><strong><span class="state state-client state-server">COL_RADIO</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L112">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RANK_ADMIN"></a><strong><span class="state state-client state-server">COL_RANK_ADMIN</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L163">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RANK_BUSINESS"></a><strong><span class="state state-client state-server">COL_RANK_BUSINESS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L171">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RANK_CONTRIB"></a><strong><span class="state state-client state-server">COL_RANK_CONTRIB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L166">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RANK_CORE"></a><strong><span class="state state-client state-server">COL_RANK_CORE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L170">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RANK_COREMANAGER"></a><strong><span class="state state-client state-server">COL_RANK_COREMANAGER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L169">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RANK_DEV"></a><strong><span class="state state-client state-server">COL_RANK_DEV</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L164">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RANK_MOD"></a><strong><span class="state state-client state-server">COL_RANK_MOD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L165">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RANK_OTHER"></a><strong><span class="state state-client state-server">COL_RANK_OTHER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L168">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RANK_OWNER"></a><strong><span class="state state-client state-server">COL_RANK_OWNER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L161">Source ☍</a></dt>
+<dd>
+<p>Rank Colours</p>
+
+
+
+</dd>
+<dt><a name="COL_RANK_SA"></a><strong><span class="state state-client state-server">COL_RANK_SA</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L162">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RANK_SECURITY"></a><strong><span class="state state-client state-server">COL_RANK_SECURITY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L172">Source ☍</a></dt>
+<dd>
+<p>Color(84, 154, 249)--</p>
+
+
+
+</dd>
+<dt><a name="COL_RANK_VET"></a><strong><span class="state state-client state-server">COL_RANK_VET</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L167">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_RED"></a><strong><span class="state state-client state-server">COL_RED</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L49">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_REDMUTED"></a><strong><span class="state state-client state-server">COL_REDMUTED</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L50">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_REJECT"></a><strong><span class="state state-client state-server">COL_REJECT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L74">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_REQUEST"></a><strong><span class="state state-client state-server">COL_REQUEST</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L111">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_SLEEPEFFECT"></a><strong><span class="state state-client state-server">COL_SLEEPEFFECT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L125">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_STEEL"></a><strong><span class="state state-client state-server">COL_STEEL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L70">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_STEEL_WHITE"></a><strong><span class="state state-client state-server">COL_STEEL_WHITE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L72">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_STORM"></a><strong><span class="state state-client state-server">COL_STORM</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L71">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_STORMZY"></a><strong><span class="state state-client state-server">COL_STORMZY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L147">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_SWATBROAD"></a><strong><span class="state state-client state-server">COL_SWATBROAD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L104">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_SWATBROAD_SUB"></a><strong><span class="state state-client state-server">COL_SWATBROAD_SUB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L105">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_TAXI"></a><strong><span class="state state-client state-server">COL_TAXI</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L108">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_TAXIBROAD"></a><strong><span class="state state-client state-server">COL_TAXIBROAD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L109">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_TAXIBROAD_SUB"></a><strong><span class="state state-client state-server">COL_TAXIBROAD_SUB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L110">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_TWEET"></a><strong><span class="state state-client state-server">COL_TWEET</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L98">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_TYRONE"></a><strong><span class="state state-client state-server">COL_TYRONE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L148">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_UI_AMBER"></a><strong><span class="state state-client state-server">COL_UI_AMBER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L65">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_UI_DARKRED"></a><strong><span class="state state-client state-server">COL_UI_DARKRED</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L62">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_UI_GREEN"></a><strong><span class="state state-client state-server">COL_UI_GREEN</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L60">Source ☍</a></dt>
+<dd>
+<p>COL_UI_GREY2 = Color(241, 241, 241, 230) -- Broken on Guidelines</p>
+
+
+
+</dd>
+<dt><a name="COL_UI_GREY"></a><strong><span class="state state-client state-server">COL_UI_GREY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L58">Source ☍</a></dt>
+<dd>
+<p>Limelight UI Guidelines Colours
+0.9 * 255 = 230</p>
+
+
+
+</dd>
+<dt><a name="COL_UI_ORANGE"></a><strong><span class="state state-client state-server">COL_UI_ORANGE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L64">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_UI_PALEBLUE"></a><strong><span class="state state-client state-server">COL_UI_PALEBLUE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L66">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_UI_PALERED"></a><strong><span class="state state-client state-server">COL_UI_PALERED</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L63">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_UI_RED"></a><strong><span class="state state-client state-server">COL_UI_RED</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L61">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_UVLIGHT_COOL"></a><strong><span class="state state-client state-server">COL_UVLIGHT_COOL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L157">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_UVLIGHT_HOT"></a><strong><span class="state state-client state-server">COL_UVLIGHT_HOT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L158">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_UVLIGHT_OFF"></a><strong><span class="state state-client state-server">COL_UVLIGHT_OFF</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L156">Source ☍</a></dt>
+<dd>
+<p>UV Light Heat Warning Tints
+Vectors (0-1 range), not Color objects - these feed $selfillumtint on the
+bulb's overridden material rather than a full-brightness render colour.</p>
+
+
+
+</dd>
+<dt><a name="COL_VEHLOCKGUIDE"></a><strong><span class="state state-client state-server">COL_VEHLOCKGUIDE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L135">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_VEHLOCKTEXT"></a><strong><span class="state state-client state-server">COL_VEHLOCKTEXT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L136">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="COL_VEHNAME"></a><strong><span class="state state-client state-server">COL_VEHNAME</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L134">Source ☍</a></dt>
+<dd>
+<p>Car HUD Colours</p>
+
+
+
+</dd>
+<dt><a name="COL_WHITE"></a><strong><span class="state state-client state-server">COL_WHITE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L47">Source ☍</a></dt>
+<dd>
+<p>Colours. Use and cache as much as possible.
+Generic Colours</p>
+
+
+
+</dd>
+<dt><a name="Colour"></a><strong><span class="state state-client state-server">Colour</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L261">Source ☍</a></dt>
+<dd>
+<pre><code class="language-lua">Colour:
+    | `COL`
+    | `Color`
+</code></pre>
+
+
+
+</dd>
+<dt><a name="FONT"></a><strong><span class="state state-client state-server">FONT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L41">Source ☍</a></dt>
+<dd>
+<pre><code class="language-lua">FONT:
+    | `FONT_TARGETID_HEAD`
+    | `FONT_TARGETID`
+</code></pre>
+
+
+
+</dd>
+<dt><a name="FONT_TARGETID"></a><strong><span class="state state-client state-server">FONT_TARGETID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L39">Source ☍</a></dt>
+<dd>
+<p>The name of the body font for the Target HUD.</p>
+
+
+
+</dd>
+<dt><a name="FONT_TARGETID_HEAD"></a><strong><span class="state state-client state-server">FONT_TARGETID_HEAD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L36">Source ☍</a></dt>
+<dd>
+<p>The name of the header font for the Target HUD (however, this is typically the same as the body font).</p>
+
+
+
+</dd>
+<dt><a name="HUD_MODE_CHATONLY"></a><strong><span class="state state-client state-server">HUD_MODE_CHATONLY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L315">Source ☍</a></dt>
+<dd>
+<p>Only chat visible (for recording)</p>
+
+
+
+</dd>
+<dt><a name="HUD_MODE_FULL"></a><strong><span class="state state-client state-server">HUD_MODE_FULL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L313">Source ☍</a></dt>
+<dd>
+<p>HUD display modes
+Full HUD visible</p>
+
+
+
+</dd>
+<dt><a name="HUD_MODE_HIDDEN"></a><strong><span class="state state-client state-server">HUD_MODE_HIDDEN</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L314">Source ☍</a></dt>
+<dd>
+<p>Everything hidden (current /hud behavior)</p>
+
+
+
+</dd>
+<dt><a name="MDL_ALL"></a><strong><span class="state state-client state-server">MDL_ALL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L266">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="MDL_MBR"></a><strong><span class="state state-client state-server">MDL_MBR</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L267">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="MDL_MBRLVL"></a><strong><span class="state state-client state-server">MDL_MBRLVL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L269">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="MDL_NONE"></a><strong><span class="state state-client state-server">MDL_NONE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L265">Source ☍</a></dt>
+<dd>
+<p>/setmodel Restriction Types</p>
+
+
+
+</dd>
+<dt><a name="MDL_REP"></a><strong><span class="state state-client state-server">MDL_REP</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L268">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="PASS"></a><strong><span class="state state-client state-server">PASS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L318">Source ☍</a></dt>
+<dd>
+<pre><code class="language-lua">PASS:
+    | &quot;grey&quot;
+    | &quot;green&quot;
+    | &quot;blue&quot;
+    | &quot;orange&quot;
+    | &quot;red&quot;
+</code></pre>
+
+
+
+</dd>
+<dt><a name="SNDLVL_20dB"></a><strong><span class="state state-client state-server">SNDLVL_20dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L273">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_25dB"></a><strong><span class="state state-client state-server">SNDLVL_25dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L274">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_30dB"></a><strong><span class="state state-client state-server">SNDLVL_30dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L275">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_35dB"></a><strong><span class="state state-client state-server">SNDLVL_35dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L276">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_40dB"></a><strong><span class="state state-client state-server">SNDLVL_40dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L277">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_45dB"></a><strong><span class="state state-client state-server">SNDLVL_45dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L278">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_50dB"></a><strong><span class="state state-client state-server">SNDLVL_50dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L279">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_55dB"></a><strong><span class="state state-client state-server">SNDLVL_55dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L280">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_60dB"></a><strong><span class="state state-client state-server">SNDLVL_60dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L281">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_65dB"></a><strong><span class="state state-client state-server">SNDLVL_65dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L282">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_70dB"></a><strong><span class="state state-client state-server">SNDLVL_70dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L283">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_75dB"></a><strong><span class="state state-client state-server">SNDLVL_75dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L284">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_80dB"></a><strong><span class="state state-client state-server">SNDLVL_80dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L285">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_85dB"></a><strong><span class="state state-client state-server">SNDLVL_85dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L286">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_90dB"></a><strong><span class="state state-client state-server">SNDLVL_90dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L287">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_95dB"></a><strong><span class="state state-client state-server">SNDLVL_95dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L288">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_100dB"></a><strong><span class="state state-client state-server">SNDLVL_100dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L289">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_105dB"></a><strong><span class="state state-client state-server">SNDLVL_105dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L290">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_110dB"></a><strong><span class="state state-client state-server">SNDLVL_110dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L291">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_115dB"></a><strong><span class="state state-client state-server">SNDLVL_115dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L292">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_120dB"></a><strong><span class="state state-client state-server">SNDLVL_120dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L293">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_125dB"></a><strong><span class="state state-client state-server">SNDLVL_125dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L294">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_130dB"></a><strong><span class="state state-client state-server">SNDLVL_130dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L295">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_135dB"></a><strong><span class="state state-client state-server">SNDLVL_135dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L296">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_140dB"></a><strong><span class="state state-client state-server">SNDLVL_140dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L297">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_145dB"></a><strong><span class="state state-client state-server">SNDLVL_145dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L298">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_150dB"></a><strong><span class="state state-client state-server">SNDLVL_150dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L299">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_155dB"></a><strong><span class="state state-client state-server">SNDLVL_155dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L300">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_180dB"></a><strong><span class="state state-client state-server">SNDLVL_180dB</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L301">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_GLOBAL"></a><strong><span class="state state-client state-server">SNDLVL_GLOBAL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L303">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_GUNFIRE"></a><strong><span class="state state-client state-server">SNDLVL_GUNFIRE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L309">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_HORN"></a><strong><span class="state state-client state-server">SNDLVL_HORN</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L308">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_IDLE"></a><strong><span class="state state-client state-server">SNDLVL_IDLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L304">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_NONE"></a><strong><span class="state state-client state-server">SNDLVL_NONE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L272">Source ☍</a></dt>
+<dd>
+<p>Sound Levels</p>
+
+
+
+</dd>
+<dt><a name="SNDLVL_NORM"></a><strong><span class="state state-client state-server">SNDLVL_NORM</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L306">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_ROCKET"></a><strong><span class="state state-client state-server">SNDLVL_ROCKET</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L310">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_STATIC"></a><strong><span class="state state-client state-server">SNDLVL_STATIC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L305">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SNDLVL_TALKING"></a><strong><span class="state state-client state-server">SNDLVL_TALKING</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L307">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="WARRANT"></a><strong><span class="state state-client state-server">WARRANT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/sh_enumerations.lua#L317">Source ☍</a></dt>
+<dd>
+<pre><code class="language-lua">WARRANT:
+    | &quot;bolo&quot;
+    | &quot;search&quot;
+    | &quot;arrest&quot;
+</code></pre>
+
+
+
+</dd>
+</dl></div>
+		</div>
+	</div>
+	<br class="clearfix">
+</div>
+</body>
+</html>
