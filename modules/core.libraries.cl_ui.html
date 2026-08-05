@@ -262,6 +262,23 @@ This library ensures consistent UI sizing across different screen resolutions
 and respects user-defined HUD scale preferences (cl_llhud_scale ConVar).</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.ui.AddTitleBarCloseButton"></a><strong><span class="state state-client">cityrp.ui.AddTitleBarCloseButton</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_ui.lua#L173">Source ☍</a></dt>
+<dd>
+<p>Adds a text-only close button to a frame title bar, matching the cooking stove UI.
+The stock DFrame close control is hidden by the cityrp.ui chrome; this draws
+a plain centred X on the dark header rather than a coloured box.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">frame</span> <span class="types">Panel</span> The menu frame. Must already be sized for layout to settle.</li>
+<li><span class="parameter">titleBarHeight</span> <span class="types">number</span> Title bar height from the styled frame.</li>
+<li><span class="parameter">onClose</span> <span class="types">function</span> Called when pressed.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">Panel</span> The close button.</li>
+</ol>
+</dd>
 <dt><a name="cityrp.ui.CreateScaledFont"></a><strong><span class="state state-client">cityrp.ui.CreateScaledFont</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_ui.lua#L66">Source ☍</a></dt>
 <dd>
 <p>Creates a resolution-aware font that scales with the UI scale factor.

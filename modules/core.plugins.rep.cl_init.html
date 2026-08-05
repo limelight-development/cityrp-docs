@@ -19,7 +19,6 @@
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -260,39 +259,30 @@
 <div class="ll-module-body"><p>Roleplay Experience Point (REP) system.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="rep_menu"></a><strong><span class="state state-client">rep_menu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/rep/cl_init.lua#L11">Source ☍</a></dt>
+<dt><a name="rep_menu"></a><strong><span class="state state-client">rep_menu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/rep/cl_init.lua#L196">Source ☍</a></dt>
 <dd>
-<p>Roleplay Experience Point (REP) system.</p>
+<p>Opens the REP management menu.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">mode</span> <span class="types">any</span></li>
-<li><span class="parameter">target</span> <span class="types">any</span></li>
-<li><span class="parameter">data</span> <span class="types">any</span></li>
+<li><span class="parameter">mode</span> <span class="types">string</span> The mode to open in: give, take, or view.</li>
+<li><span class="parameter">target</span> <span class="types">string</span> The player the menu is being opened for.</li>
+<li><span class="parameter">data</span> <span class="types">table?</span> List of REP rows for the target player.</li>
 </ul>
 
 </dd>
-<dt><a name="table_filled"></a><strong><span class="state state-client">table_filled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/rep/cl_init.lua#L208">Source ☍</a></dt>
+<dt><a name="table_filled"></a><strong><span class="state state-client">table_filled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/rep/cl_init.lua#L422">Source ☍</a></dt>
 <dd>
-<p>Check if a table has data (only works for numericly indexed tables).</p>
+<p>Returns whether a numerically indexed table has any rows.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">tbl</span> <span class="types">any</span></li>
+<li><span class="parameter">tbl</span> <span class="types">table?</span> The table to check.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">boolean</span> </li>
+<li><span class="types">boolean</span> Whether the table has data.</li>
 </ol>
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="modes"></a><strong><span class="state state-client">modes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/rep/cl_init.lua#L12">Source ☍</a></dt>
-<dd>
-
-
-
 </dd>
 </dl></div>
 		</div>
