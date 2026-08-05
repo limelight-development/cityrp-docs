@@ -51,6 +51,7 @@
 <li><a href="../modules/core.libraries.cl_chatbox.html">core.libraries.cl_chatbox</a></li>
 <li><a href="../modules/core.libraries.cl_hints.html">core.libraries.cl_hints</a></li>
 <li><a href="../modules/core.libraries.cl_inventory.html">core.libraries.cl_inventory</a></li>
+<li><a href="../modules/core.libraries.cl_propprotection.html">core.libraries.cl_propprotection</a></li>
 <li><a href="../modules/core.libraries.cl_ui.html">core.libraries.cl_ui</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
@@ -66,6 +67,7 @@
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
 <li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
 <li><a href="../modules/core.libraries.sh_chatbox.html">core.libraries.sh_chatbox</a></li>
+<li><a href="../modules/core.libraries.sh_cppi.html">core.libraries.sh_cppi</a></li>
 <li><a href="../modules/core.libraries.sh_dumper.html">core.libraries.sh_dumper</a></li>
 <li><a href="../modules/core.libraries.sh_functions.html">core.libraries.sh_functions</a></li>
 <li><a href="../modules/core.libraries.sh_help.html">core.libraries.sh_help</a></li>
@@ -97,6 +99,7 @@
 <li><a href="../modules/core.libraries.sv_migrations.html">core.libraries.sv_migrations</a></li>
 <li><a href="../modules/core.libraries.sv_model.html">core.libraries.sv_model</a></li>
 <li><a href="../modules/core.libraries.sv_player.html">core.libraries.sv_player</a></li>
+<li><a href="../modules/core.libraries.sv_propprotection.html">core.libraries.sv_propprotection</a></li>
 <li><a href="../modules/core.libraries.sv_remote.html">core.libraries.sv_remote</a></li>
 <li><a href="../modules/core.libraries.sv_team.html">core.libraries.sv_team</a></li>
 <li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
@@ -327,7 +330,7 @@
 <li><span class="types">number</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.CanExitVehicle"></a><strong><span class="state state-server">GM.CanExitVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2343">Source ☍</a></dt>
+<dt><a name="GM.CanExitVehicle"></a><strong><span class="state state-server">GM.CanExitVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2423">Source ☍</a></dt>
 <dd>
 <p>Called to check if a player is able to exit a vehicle.</p>
 
@@ -341,7 +344,7 @@
 <li><span class="types">boolean</span> If the player is allowed to exit.</li>
 </ol>
 </dd>
-<dt><a name="GM.CanPlayerSuicide"></a><strong><span class="state state-server">GM.CanPlayerSuicide</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L781">Source ☍</a></dt>
+<dt><a name="GM.CanPlayerSuicide"></a><strong><span class="state state-server">GM.CanPlayerSuicide</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L784">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts suicide.</p>
 
@@ -354,7 +357,7 @@
 <li><span class="types">boolean</span> If the suicide was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.CanTool"></a><strong><span class="state state-server">GM.CanTool</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1328">Source ☍</a></dt>
+<dt><a name="GM.CanTool"></a><strong><span class="state state-server">GM.CanTool</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1387">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to use their toolgun.</p>
 
@@ -385,7 +388,7 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.CheckPassword"></a><strong><span class="state state-server">GM.CheckPassword</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2699">Source ☍</a></dt>
+<dt><a name="GM.CheckPassword"></a><strong><span class="state state-server">GM.CheckPassword</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2779">Source ☍</a></dt>
 <dd>
 <p>Called when a player joins and attempts to check their password.</p>
 
@@ -417,7 +420,7 @@
 
 
 </dd>
-<dt><a name="GM.DoPlayerDeath"></a><strong><span class="state state-server">GM.DoPlayerDeath</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1828">Source ☍</a></dt>
+<dt><a name="GM.DoPlayerDeath"></a><strong><span class="state state-server">GM.DoPlayerDeath</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1906">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -449,7 +452,19 @@
 <li><span class="types">number</span> New y position.</li>
 </ol>
 </dd>
-<dt><a name="GM.EntityTakeDamage"></a><strong><span class="state state-server">GM.EntityTakeDamage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2067">Source ☍</a></dt>
+<dt><a name="GM.EntityKeyValue"></a><strong><span class="state state-server">GM.EntityKeyValue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L995">Source ☍</a></dt>
+<dd>
+<p>Called when a mapper-set keyvalue is read on an entity, for prop protection overrides.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity carrying the keyvalue.</li>
+<li><span class="parameter">key</span> <span class="types">string</span> The keyvalue name.</li>
+<li><span class="parameter">value</span> <span class="types">string</span> The keyvalue value.</li>
+</ul>
+
+</dd>
+<dt><a name="GM.EntityTakeDamage"></a><strong><span class="state state-server">GM.EntityTakeDamage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2145">Source ☍</a></dt>
 <dd>
 <p>Called when an entity takes damage.</p>
 
@@ -477,7 +492,21 @@
 <li><span class="types">unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.GravGunPunt"></a><strong><span class="state state-server">GM.GravGunPunt</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L805">Source ☍</a></dt>
+<dt><a name="GM.GravGunPickupAllowed"></a><strong><span class="state state-server">GM.GravGunPickupAllowed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L820">Source ☍</a></dt>
+<dd>
+<p>Called to check if a player is allowed to pick up an entity with the gravity gun.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> Picking up player.</li>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity being picked up.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean|nil</span> nil defers to the engine default.</li>
+</ol>
+</dd>
+<dt><a name="GM.GravGunPunt"></a><strong><span class="state state-server">GM.GravGunPunt</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L808">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to punt an entity with the gravity gun.</p>
 
@@ -557,7 +586,7 @@
 
 
 </dd>
-<dt><a name="GM.InitPostEntity"></a><strong><span class="state state-server">GM.InitPostEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L562">Source ☍</a></dt>
+<dt><a name="GM.InitPostEntity"></a><strong><span class="state state-server">GM.InitPostEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L565">Source ☍</a></dt>
 <dd>
 <p>Called when all of the map entities have been initialized.</p>
 
@@ -574,7 +603,7 @@
 <li><span class="types">boolean</span> If the local player is using a camera weapon.</li>
 </ol>
 </dd>
-<dt><a name="GM.KeyPress"></a><strong><span class="state state-server">GM.KeyPress</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2400">Source ☍</a></dt>
+<dt><a name="GM.KeyPress"></a><strong><span class="state state-server">GM.KeyPress</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2480">Source ☍</a></dt>
 <dd>
 <p>Called when a player presses a key.</p>
 
@@ -585,7 +614,7 @@
 </ul>
 
 </dd>
-<dt><a name="GM.KeyRelease"></a><strong><span class="state state-server">GM.KeyRelease</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2418">Source ☍</a></dt>
+<dt><a name="GM.KeyRelease"></a><strong><span class="state state-server">GM.KeyRelease</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2498">Source ☍</a></dt>
 <dd>
 <p>Called when a player releases a key.</p>
 
@@ -606,6 +635,20 @@
 </ul>
 
 </dd>
+<dt><a name="GM.OnPhysgunReload"></a><strong><span class="state state-server">GM.OnPhysgunReload</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L966">Source ☍</a></dt>
+<dd>
+<p>Called when a player reloads the physgun on an entity, to check if it may be dropped/removed.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">weapon</span> <span class="types">Weapon</span> The physgun.</li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The acting player.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean|nil</span> nil defers to the engine default.</li>
+</ol>
+</dd>
 <dt><a name="GM.OnUpdateDatabase"></a><strong><span class="state state-server">GM.OnUpdateDatabase</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L243">Source ☍</a></dt>
 <dd>
 <p>Called whenever the database is updated.
@@ -614,7 +657,7 @@ Typically on a 60s timer.</p>
 
 
 </dd>
-<dt><a name="GM.PhysgunDrop"></a><strong><span class="state state-server">GM.PhysgunDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L944">Source ☍</a></dt>
+<dt><a name="GM.PhysgunDrop"></a><strong><span class="state state-server">GM.PhysgunDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1003">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to drop an entity with the physics gun.</p>
 
@@ -625,7 +668,7 @@ Typically on a 60s timer.</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PhysgunPickup"></a><strong><span class="state state-server">GM.PhysgunPickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L926">Source ☍</a></dt>
+<dt><a name="GM.PhysgunPickup"></a><strong><span class="state state-server">GM.PhysgunPickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L943">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to pick up an entity with the physics gun.</p>
 
@@ -639,7 +682,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean|nil</span> If the pickup was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerArrest"></a><strong><span class="state state-server">GM.PlayerArrest</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L318">Source ☍</a></dt>
+<dt><a name="GM.PlayerArrest"></a><strong><span class="state state-server">GM.PlayerArrest</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L321">Source ☍</a></dt>
 <dd>
 <p>Called when a player is arresting another player.</p>
 
@@ -665,7 +708,7 @@ Typically on a 60s timer.</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerCanArrest"></a><strong><span class="state state-server">GM.PlayerCanArrest</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L955">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanArrest"></a><strong><span class="state state-server">GM.PlayerCanArrest</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1014">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to arrest another player.</p>
 
@@ -679,7 +722,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean|nil</span> If the pickup arrest was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanDemote"></a><strong><span class="state state-server">GM.PlayerCanDemote</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L538">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanDemote"></a><strong><span class="state state-server">GM.PlayerCanDemote</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L541">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to demote another player.</p>
 
@@ -694,7 +737,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">string|nil</span> If the demote was not allowed, a reason to display to the player. If no string is provided, no error is shown.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanDrop"></a><strong><span class="state state-server">GM.PlayerCanDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L376">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanDrop"></a><strong><span class="state state-server">GM.PlayerCanDrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L379">Source ☍</a></dt>
 <dd>
 <p>Called when a player drops a weapon.</p>
 
@@ -710,7 +753,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean|nil</span> If the drop is allowed, nil for default (allowed).</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanDropItem"></a><strong><span class="state state-server">GM.PlayerCanDropItem</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L394">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanDropItem"></a><strong><span class="state state-server">GM.PlayerCanDropItem</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L397">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to drop an item on the ground.</p>
 
@@ -727,7 +770,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">string</span> Error message to display to the player, if any.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanEarnContraband"></a><strong><span class="state state-server">GM.PlayerCanEarnContraband</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L516">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanEarnContraband"></a><strong><span class="state state-server">GM.PlayerCanEarnContraband</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L519">Source ☍</a></dt>
 <dd>
 <p>Checks if a player can earn contraband.</p>
 
@@ -740,7 +783,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the earn was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanGainFrag"></a><strong><span class="state state-server">GM.PlayerCanGainFrag</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1679">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanGainFrag"></a><strong><span class="state state-server">GM.PlayerCanGainFrag</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1757">Source ☍</a></dt>
 <dd>
 <p>Hook function called when a player gains a kill.</p>
 
@@ -754,7 +797,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the frag is allowed to be counted.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanGiveItem"></a><strong><span class="state state-server">GM.PlayerCanGiveItem</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L404">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanGiveItem"></a><strong><span class="state state-server">GM.PlayerCanGiveItem</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L407">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to give an item to another player.</p>
 
@@ -771,7 +814,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">string</span> Error message to display to the player, if any.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanHearPlayersVoice"></a><strong><span class="state state-server">GM.PlayerCanHearPlayersVoice</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L575">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanHearPlayersVoice"></a><strong><span class="state state-server">GM.PlayerCanHearPlayersVoice</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L578">Source ☍</a></dt>
 <dd>
 <p>Hook function called to check if a player can be heard.</p>
 
@@ -785,7 +828,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the voice can be heard.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanHolster"></a><strong><span class="state state-server">GM.PlayerCanHolster</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L368">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanHolster"></a><strong><span class="state state-server">GM.PlayerCanHolster</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L371">Source ☍</a></dt>
 <dd>
 <p>Called when a player holsters a weapon.</p>
 
@@ -800,7 +843,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean|nil</span> If the holster is allowed, nil for default (allowed).</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanJoinTeam"></a><strong><span class="state state-server">GM.PlayerCanJoinTeam</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L478">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanJoinTeam"></a><strong><span class="state state-server">GM.PlayerCanJoinTeam</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L481">Source ☍</a></dt>
 <dd>
 <p>Check if a player can join a team.</p>
 
@@ -814,7 +857,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the player can join the team.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanKnockOut"></a><strong><span class="state state-server">GM.PlayerCanKnockOut</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L419">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanKnockOut"></a><strong><span class="state state-server">GM.PlayerCanKnockOut</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L422">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to knock out another player.</p>
 
@@ -828,7 +871,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the knockout is allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanOwnDoor"></a><strong><span class="state state-server">GM.PlayerCanOwnDoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L355">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanOwnDoor"></a><strong><span class="state state-server">GM.PlayerCanOwnDoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L358">Source ☍</a></dt>
 <dd>
 <p>Called when a player buys a door.</p>
 
@@ -842,7 +885,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean|nil</span> If the purchase is allowed, nil for default (allowed).</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanPromote"></a><strong><span class="state state-server">GM.PlayerCanPromote</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L551">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanPromote"></a><strong><span class="state state-server">GM.PlayerCanPromote</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L554">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to promote another player.</p>
 
@@ -856,7 +899,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the promote was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanRamDoor"></a><strong><span class="state state-server">GM.PlayerCanRamDoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L441">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanRamDoor"></a><strong><span class="state state-server">GM.PlayerCanRamDoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L444">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to ram a door.</p>
 
@@ -871,7 +914,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the ram is allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanRemoveItem"></a><strong><span class="state state-server">GM.PlayerCanRemoveItem</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L412">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanRemoveItem"></a><strong><span class="state state-server">GM.PlayerCanRemoveItem</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L415">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to remove an item.</p>
 
@@ -886,7 +929,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">string</span> Error message to display to the player, if any.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanSayIC"></a><strong><span class="state state-server">GM.PlayerCanSayIC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L589">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanSayIC"></a><strong><span class="state state-server">GM.PlayerCanSayIC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L592">Source ☍</a></dt>
 <dd>
 <p>Check if a player can say IC text.</p>
 
@@ -900,7 +943,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the chat will be shown.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanSayLOOC"></a><strong><span class="state state-server">GM.PlayerCanSayLOOC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L634">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanSayLOOC"></a><strong><span class="state state-server">GM.PlayerCanSayLOOC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L637">Source ☍</a></dt>
 <dd>
 <p>Check if a player can say Local OOC text.</p>
 
@@ -914,7 +957,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the chat will be shown.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanSayOOC"></a><strong><span class="state state-server">GM.PlayerCanSayOOC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L603">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanSayOOC"></a><strong><span class="state state-server">GM.PlayerCanSayOOC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L606">Source ☍</a></dt>
 <dd>
 <p>Check if a player can say OOC text.</p>
 
@@ -928,7 +971,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the chat will be shown.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanUnarrest"></a><strong><span class="state state-server">GM.PlayerCanUnarrest</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L970">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanUnarrest"></a><strong><span class="state state-server">GM.PlayerCanUnarrest</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1029">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to unarrest another player.</p>
 
@@ -942,7 +985,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean|nil</span> If the pickup was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanUnwarrant"></a><strong><span class="state state-server">GM.PlayerCanUnwarrant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L523">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanUnwarrant"></a><strong><span class="state state-server">GM.PlayerCanUnwarrant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L526">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to unwarrant a player.</p>
 
@@ -956,7 +999,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the unwarrant was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanUseCommand"></a><strong><span class="state state-server">GM.PlayerCanUseCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L643">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanUseCommand"></a><strong><span class="state state-server">GM.PlayerCanUseCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L646">Source ☍</a></dt>
 <dd>
 <p>Check if a player can run a command.</p>
 
@@ -971,7 +1014,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the command is allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanUseDoor"></a><strong><span class="state state-server">GM.PlayerCanUseDoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L461">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanUseDoor"></a><strong><span class="state state-server">GM.PlayerCanUseDoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L464">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to use a door.</p>
 
@@ -985,7 +1028,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the use is allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanUseItem"></a><strong><span class="state state-server">GM.PlayerCanUseItem</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L384">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanUseItem"></a><strong><span class="state state-server">GM.PlayerCanUseItem</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L387">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to use an item.</p>
 
@@ -1000,7 +1043,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the use is allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanViewDoor"></a><strong><span class="state state-server">GM.PlayerCanViewDoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L361">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanViewDoor"></a><strong><span class="state state-server">GM.PlayerCanViewDoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L364">Source ☍</a></dt>
 <dd>
 <p>Called when a player views a door.</p>
 
@@ -1027,7 +1070,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanWakeUp"></a><strong><span class="state state-server">GM.PlayerCanWakeUp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L433">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanWakeUp"></a><strong><span class="state state-server">GM.PlayerCanWakeUp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L436">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to wake up another player.</p>
 
@@ -1041,7 +1084,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the wakeup is allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanWarrant"></a><strong><span class="state state-server">GM.PlayerCanWarrant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L426">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanWarrant"></a><strong><span class="state state-server">GM.PlayerCanWarrant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L429">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to warrant another player.</p>
 
@@ -1055,7 +1098,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean</span> If the warrant is allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerDataLoaded"></a><strong><span class="state state-server">GM.PlayerDataLoaded</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1523">Source ☍</a></dt>
+<dt><a name="GM.PlayerDataLoaded"></a><strong><span class="state state-server">GM.PlayerDataLoaded</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1600">Source ☍</a></dt>
 <dd>
 <p>Called after a player's data has finished loading and their default,
 session-scoped fields have been applied. <code>success</code> distinguishes an
@@ -1070,7 +1113,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerDeath"></a><strong><span class="state state-server">GM.PlayerDeath</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1909">Source ☍</a></dt>
+<dt><a name="GM.PlayerDeath"></a><strong><span class="state state-server">GM.PlayerDeath</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1987">Source ☍</a></dt>
 <dd>
 <p>Called when a player dies.</p>
 
@@ -1083,7 +1126,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerDeathSound"></a><strong><span class="state state-server">GM.PlayerDeathSound</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2483">Source ☍</a></dt>
+<dt><a name="GM.PlayerDeathSound"></a><strong><span class="state state-server">GM.PlayerDeathSound</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2563">Source ☍</a></dt>
 <dd>
 <p>Called to check if the default death sound should be played.</p>
 
@@ -1093,7 +1136,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <li><span class="types">boolean</span> If true, the default death sound is not played.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerDeathThink"></a><strong><span class="state state-server">GM.PlayerDeathThink</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1664">Source ☍</a></dt>
+<dt><a name="GM.PlayerDeathThink"></a><strong><span class="state state-server">GM.PlayerDeathThink</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1742">Source ☍</a></dt>
 <dd>
 <p>Called every frame that a player is dead.</p>
 
@@ -1106,7 +1149,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <li><span class="types">boolean|unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerDemote"></a><strong><span class="state state-server">GM.PlayerDemote</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L277">Source ☍</a></dt>
+<dt><a name="GM.PlayerDemote"></a><strong><span class="state state-server">GM.PlayerDemote</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L280">Source ☍</a></dt>
 <dd>
 <p>Called when a player is demoting another player.</p>
 <pre><code class="language-lua">from:
@@ -1150,7 +1193,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <li><span class="types">boolean|nil</span> If the demote is allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerDisconnected"></a><strong><span class="state state-server">GM.PlayerDisconnected</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2303">Source ☍</a></dt>
+<dt><a name="GM.PlayerDisconnected"></a><strong><span class="state state-server">GM.PlayerDisconnected</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2381">Source ☍</a></dt>
 <dd>
 <p>Called when a player has disconnected.</p>
 
@@ -1169,7 +1212,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerGiveSWEP"></a><strong><span class="state state-server">GM.PlayerGiveSWEP</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2384">Source ☍</a></dt>
+<dt><a name="GM.PlayerGiveSWEP"></a><strong><span class="state state-server">GM.PlayerGiveSWEP</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2464">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to give a SWEP.</p>
 
@@ -1184,7 +1227,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerHostage"></a><strong><span class="state state-server">GM.PlayerHostage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L328">Source ☍</a></dt>
+<dt><a name="GM.PlayerHostage"></a><strong><span class="state state-server">GM.PlayerHostage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L331">Source ☍</a></dt>
 <dd>
 <p>Called when a player hostages player.</p>
 
@@ -1198,7 +1241,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <li><span class="types">boolean|nil</span> If the hostage is allowed, nil for default (allowed).</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerInitialized"></a><strong><span class="state state-server">GM.PlayerInitialized</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1444">Source ☍</a></dt>
+<dt><a name="GM.PlayerInitialized"></a><strong><span class="state state-server">GM.PlayerInitialized</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1521">Source ☍</a></dt>
 <dd>
 <p>Called when the player has initialized.</p>
 
@@ -1208,7 +1251,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerInitialSpawn"></a><strong><span class="state state-server">GM.PlayerInitialSpawn</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1606">Source ☍</a></dt>
+<dt><a name="GM.PlayerInitialSpawn"></a><strong><span class="state state-server">GM.PlayerInitialSpawn</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1683">Source ☍</a></dt>
 <dd>
 <p>Called when a player initially spawns.</p>
 
@@ -1218,7 +1261,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerKnockOut"></a><strong><span class="state state-server">GM.PlayerKnockOut</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L298">Source ☍</a></dt>
+<dt><a name="GM.PlayerKnockOut"></a><strong><span class="state state-server">GM.PlayerKnockOut</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L301">Source ☍</a></dt>
 <dd>
 <p>Called when a player is knocking out another player.</p>
 
@@ -1232,7 +1275,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <li><span class="types">boolean|nil</span> If the knockout is allowed, nil for default (allowed).</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerLoadout"></a><strong><span class="state state-server">GM.PlayerLoadout</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1951">Source ☍</a></dt>
+<dt><a name="GM.PlayerLoadout"></a><strong><span class="state state-server">GM.PlayerLoadout</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2029">Source ☍</a></dt>
 <dd>
 <p>Called when a player's weapons should be given.</p>
 
@@ -1258,7 +1301,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerPromoteLeader"></a><strong><span class="state state-server">GM.PlayerPromoteLeader</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L288">Source ☍</a></dt>
+<dt><a name="GM.PlayerPromoteLeader"></a><strong><span class="state state-server">GM.PlayerPromoteLeader</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L291">Source ☍</a></dt>
 <dd>
 <p>Called when a player is promoting another player.</p>
 <pre><code class="language-lua">from:
@@ -1301,7 +1344,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <li><span class="types">boolean|nil</span> If the promotion is allowed, nil for default.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerRanAdminCommand"></a><strong><span class="state state-server">GM.PlayerRanAdminCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L693">Source ☍</a></dt>
+<dt><a name="GM.PlayerRanAdminCommand"></a><strong><span class="state state-server">GM.PlayerRanAdminCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L696">Source ☍</a></dt>
 <dd>
 <p>Called after an admin command is ran.</p>
 
@@ -1313,7 +1356,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerRanCommand"></a><strong><span class="state state-server">GM.PlayerRanCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L686">Source ☍</a></dt>
+<dt><a name="GM.PlayerRanCommand"></a><strong><span class="state state-server">GM.PlayerRanCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L689">Source ☍</a></dt>
 <dd>
 <p>Called after a command is ran.</p>
 
@@ -1325,7 +1368,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerSaid"></a><strong><span class="state state-server">GM.PlayerSaid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L679">Source ☍</a></dt>
+<dt><a name="GM.PlayerSaid"></a><strong><span class="state state-server">GM.PlayerSaid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L682">Source ☍</a></dt>
 <dd>
 <p>Called after a player sends a message in chat.</p>
 
@@ -1337,7 +1380,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerSaidLOOC"></a><strong><span class="state state-server">GM.PlayerSaidLOOC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L672">Source ☍</a></dt>
+<dt><a name="GM.PlayerSaidLOOC"></a><strong><span class="state state-server">GM.PlayerSaidLOOC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L675">Source ☍</a></dt>
 <dd>
 <p>Called after a player sends a message in Local OOC.</p>
 
@@ -1348,7 +1391,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerSaidOOC"></a><strong><span class="state state-server">GM.PlayerSaidOOC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L666">Source ☍</a></dt>
+<dt><a name="GM.PlayerSaidOOC"></a><strong><span class="state state-server">GM.PlayerSaidOOC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L669">Source ☍</a></dt>
 <dd>
 <p>Called after a player sends a message in OOC.</p>
 
@@ -1359,7 +1402,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerSay"></a><strong><span class="state state-server">GM.PlayerSay</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L701">Source ☍</a></dt>
+<dt><a name="GM.PlayerSay"></a><strong><span class="state state-server">GM.PlayerSay</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L704">Source ☍</a></dt>
 <dd>
 <p>Hook function for when any message is sent to the server.</p>
 
@@ -1374,7 +1417,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <li><span class="types">string</span> Override string to send in chat.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerSetHandsModel"></a><strong><span class="state state-server">GM.PlayerSetHandsModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1802">Source ☍</a></dt>
+<dt><a name="GM.PlayerSetHandsModel"></a><strong><span class="state state-server">GM.PlayerSetHandsModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1880">Source ☍</a></dt>
 <dd>
 <p>Choose the model for hands according to their player model.</p>
 
@@ -1385,7 +1428,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerSetModel"></a><strong><span class="state state-server">GM.PlayerSetModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1694">Source ☍</a></dt>
+<dt><a name="GM.PlayerSetModel"></a><strong><span class="state state-server">GM.PlayerSetModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1772">Source ☍</a></dt>
 <dd>
 <p>Loadout hook function called when a player's model needs to be set.</p>
 
@@ -1395,7 +1438,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerShouldTakeDamage"></a><strong><span class="state state-server">GM.PlayerShouldTakeDamage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1814">Source ☍</a></dt>
+<dt><a name="GM.PlayerShouldTakeDamage"></a><strong><span class="state state-server">GM.PlayerShouldTakeDamage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1892">Source ☍</a></dt>
 <dd>
 <p>Called when a player should take damage.</p>
 
@@ -1409,7 +1452,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerShouldTaunt"></a><strong><span class="state state-server">GM.PlayerShouldTaunt</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L983">Source ☍</a></dt>
+<dt><a name="GM.PlayerShouldTaunt"></a><strong><span class="state state-server">GM.PlayerShouldTaunt</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1042">Source ☍</a></dt>
 <dd>
 <p>Called when player tries to act something out.
 Coded by Voluptious.</p>
@@ -1424,7 +1467,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean|nil</span> If the act was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerSpawn"></a><strong><span class="state state-server">GM.PlayerSpawn</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1701">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawn"></a><strong><span class="state state-server">GM.PlayerSpawn</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1779">Source ☍</a></dt>
 <dd>
 <p>Called when a player spawns.</p>
 
@@ -1434,7 +1477,7 @@ Coded by Voluptious.</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerSpawnedEffect"></a><strong><span class="state state-server">GM.PlayerSpawnedEffect</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1122">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnedEffect"></a><strong><span class="state state-server">GM.PlayerSpawnedEffect</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1181">Source ☍</a></dt>
 <dd>
 <p>Called when a player has spawned an effect.</p>
 
@@ -1446,7 +1489,7 @@ Coded by Voluptious.</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerSpawnedProp"></a><strong><span class="state state-server">GM.PlayerSpawnedProp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1109">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnedProp"></a><strong><span class="state state-server">GM.PlayerSpawnedProp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1168">Source ☍</a></dt>
 <dd>
 <p>Called when a player has spawned a prop.</p>
 
@@ -1458,7 +1501,7 @@ Coded by Voluptious.</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerSpawnedRagdoll"></a><strong><span class="state state-server">GM.PlayerSpawnedRagdoll</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1201">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnedRagdoll"></a><strong><span class="state state-server">GM.PlayerSpawnedRagdoll</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1260">Source ☍</a></dt>
 <dd>
 <p>Called when a player has spawned a ragdoll.</p>
 
@@ -1470,7 +1513,29 @@ Coded by Voluptious.</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerSpawnEffect"></a><strong><span class="state state-server">GM.PlayerSpawnEffect</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1091">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnedSENT"></a><strong><span class="state state-server">GM.PlayerSpawnedSENT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L978">Source ☍</a></dt>
+<dd>
+<p>Called when a player spawns a SENT, to assign them ownership of it.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The spawner.</li>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> The spawned SENT.</li>
+</ul>
+
+</dd>
+<dt><a name="GM.PlayerSpawnedVehicle"></a><strong><span class="state state-server">GM.PlayerSpawnedVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L986">Source ☍</a></dt>
+<dd>
+<p>Called when a player spawns a vehicle, to tag its default ownership.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The spawner.</li>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> The spawned vehicle.</li>
+</ul>
+
+</dd>
+<dt><a name="GM.PlayerSpawnEffect"></a><strong><span class="state state-server">GM.PlayerSpawnEffect</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1150">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to spawn an effect.</p>
 
@@ -1484,7 +1549,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean</span> If the spawn was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerSpawnNPC"></a><strong><span class="state state-server">GM.PlayerSpawnNPC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1002">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnNPC"></a><strong><span class="state state-server">GM.PlayerSpawnNPC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1061">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to spawn an NPC.</p>
 
@@ -1499,7 +1564,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean</span> If the act was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerSpawnProp"></a><strong><span class="state state-server">GM.PlayerSpawnProp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1020">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnProp"></a><strong><span class="state state-server">GM.PlayerSpawnProp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1079">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to spawn a prop.</p>
 
@@ -1514,7 +1579,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean</span> If the spawn was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerSpawnRagdoll"></a><strong><span class="state state-server">GM.PlayerSpawnRagdoll</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1182">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnRagdoll"></a><strong><span class="state state-server">GM.PlayerSpawnRagdoll</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1241">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to spawn a ragdoll.</p>
 
@@ -1528,7 +1593,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean</span> If the spawn was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerSpawnSENT"></a><strong><span class="state state-server">GM.PlayerSpawnSENT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2392">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnSENT"></a><strong><span class="state state-server">GM.PlayerSpawnSENT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2472">Source ☍</a></dt>
 <dd>
 <p>Called when attempts to spawn a SENT.</p>
 
@@ -1542,7 +1607,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerSpawnSWEP"></a><strong><span class="state state-server">GM.PlayerSpawnSWEP</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2375">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnSWEP"></a><strong><span class="state state-server">GM.PlayerSpawnSWEP</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2455">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to spawn a SWEP.</p>
 
@@ -1557,7 +1622,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerSpawnVehicle"></a><strong><span class="state state-server">GM.PlayerSpawnVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1215">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnVehicle"></a><strong><span class="state state-server">GM.PlayerSpawnVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1274">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to spawn a vehicle.</p>
 
@@ -1571,7 +1636,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean</span> If the spawn was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerSpray"></a><strong><span class="state state-server">GM.PlayerSpray</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1687">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpray"></a><strong><span class="state state-server">GM.PlayerSpray</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1765">Source ☍</a></dt>
 <dd>
 <p>Called when a player should be allowed to spray.</p>
 
@@ -1607,7 +1672,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean</span> If their flashlight is allowed to change state.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerTraceAttack"></a><strong><span class="state state-server">GM.PlayerTraceAttack</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1819">Source ☍</a></dt>
+<dt><a name="GM.PlayerTraceAttack"></a><strong><span class="state state-server">GM.PlayerTraceAttack</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1897">Source ☍</a></dt>
 <dd>
 <p>Called when a player is attacked by a trace.</p>
 
@@ -1623,7 +1688,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerUnarrest"></a><strong><span class="state state-server">GM.PlayerUnarrest</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L336">Source ☍</a></dt>
+<dt><a name="GM.PlayerUnarrest"></a><strong><span class="state state-server">GM.PlayerUnarrest</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L339">Source ☍</a></dt>
 <dd>
 <p>Called when a player unarrests player.</p>
 
@@ -1637,7 +1702,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean|nil</span> If the unarrest is allowed, nil for default (allowed).</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerUnwarrant"></a><strong><span class="state state-server">GM.PlayerUnwarrant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L349">Source ☍</a></dt>
+<dt><a name="GM.PlayerUnwarrant"></a><strong><span class="state state-server">GM.PlayerUnwarrant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L352">Source ☍</a></dt>
 <dd>
 <p>Called when a player unwarrants player.</p>
 
@@ -1665,7 +1730,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean|unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerWakeUp"></a><strong><span class="state state-server">GM.PlayerWakeUp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L308">Source ☍</a></dt>
+<dt><a name="GM.PlayerWakeUp"></a><strong><span class="state state-server">GM.PlayerWakeUp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L311">Source ☍</a></dt>
 <dd>
 <p>Called when a player is waking up another player.</p>
 
@@ -1679,7 +1744,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean|nil</span> If the wakeup is allowed, nil for default (allowed).</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerWarrant"></a><strong><span class="state state-server">GM.PlayerWarrant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L343">Source ☍</a></dt>
+<dt><a name="GM.PlayerWarrant"></a><strong><span class="state state-server">GM.PlayerWarrant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L346">Source ☍</a></dt>
 <dd>
 <p>Called when a player warrants a player.</p>
 <pre><code class="language-lua">class:
@@ -1699,7 +1764,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean|nil</span> If the warranting is allowed, nil for default (allowed).</li>
 </ol>
 </dd>
-<dt><a name="GM.PlyCanPickupAdmin"></a><strong><span class="state state-server">GM.PlyCanPickupAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L875">Source ☍</a></dt>
+<dt><a name="GM.PlyCanPickupAdmin"></a><strong><span class="state state-server">GM.PlyCanPickupAdmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L892">Source ☍</a></dt>
 <dd>
 <p>Can a player with extended access (admin/mod) pickup this entity?</p>
 
@@ -1713,7 +1778,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean|nil</span> If the pickup was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlyCanPickupRegular"></a><strong><span class="state state-server">GM.PlyCanPickupRegular</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L811">Source ☍</a></dt>
+<dt><a name="GM.PlyCanPickupRegular"></a><strong><span class="state state-server">GM.PlyCanPickupRegular</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L828">Source ☍</a></dt>
 <dd>
 <p>Can a regular player pickup this entity?</p>
 
@@ -1759,7 +1824,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.SetupSalary"></a><strong><span class="state state-server">GM.SetupSalary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1393">Source ☍</a></dt>
+<dt><a name="GM.SetupSalary"></a><strong><span class="state state-server">GM.SetupSalary</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1470">Source ☍</a></dt>
 <dd>
 <p>Set up a player's salary timer.</p>
 
@@ -1769,7 +1834,7 @@ Coded by Voluptious.</p>
 </ul>
 
 </dd>
-<dt><a name="GM.ShowHelp"></a><strong><span class="state state-server">GM.ShowHelp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2005">Source ☍</a></dt>
+<dt><a name="GM.ShowHelp"></a><strong><span class="state state-server">GM.ShowHelp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2083">Source ☍</a></dt>
 <dd>
 <p>Called when a player presses F1.</p>
 
@@ -1779,7 +1844,7 @@ Coded by Voluptious.</p>
 </ul>
 
 </dd>
-<dt><a name="GM.ShowSpare2"></a><strong><span class="state state-server">GM.ShowSpare2</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2011">Source ☍</a></dt>
+<dt><a name="GM.ShowSpare2"></a><strong><span class="state state-server">GM.ShowSpare2</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2089">Source ☍</a></dt>
 <dd>
 <p>Called when a player presses F4.</p>
 
@@ -1789,7 +1854,7 @@ Coded by Voluptious.</p>
 </ul>
 
 </dd>
-<dt><a name="GM.ShowTeam"></a><strong><span class="state state-server">GM.ShowTeam</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2020">Source ☍</a></dt>
+<dt><a name="GM.ShowTeam"></a><strong><span class="state state-server">GM.ShowTeam</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2098">Source ☍</a></dt>
 <dd>
 <p>Called when a player presses F2.</p>
 
@@ -1799,7 +1864,7 @@ Coded by Voluptious.</p>
 </ul>
 
 </dd>
-<dt><a name="GM.ShutDown"></a><strong><span class="state state-server">GM.ShutDown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1993">Source ☍</a></dt>
+<dt><a name="GM.ShutDown"></a><strong><span class="state state-server">GM.ShutDown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2071">Source ☍</a></dt>
 <dd>
 <p>Called when the server shuts down or the map changes.</p>
 
@@ -1826,7 +1891,7 @@ Coded by Voluptious.</p>
 
 
 </dd>
-<dt><a name="GM.VehicleHPChange"></a><strong><span class="state state-server">GM.VehicleHPChange</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L789">Source ☍</a></dt>
+<dt><a name="GM.VehicleHPChange"></a><strong><span class="state state-server">GM.VehicleHPChange</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L792">Source ☍</a></dt>
 <dd>
 <p>Hook function called when vehicle HP changes.</p>
 
@@ -1841,7 +1906,7 @@ Coded by Voluptious.</p>
 <li><span class="types">number</span> Modified delta.</li>
 </ol>
 </dd>
-<dt><a name="GM.VehicleHPChanged"></a><strong><span class="state state-server">GM.VehicleHPChanged</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L798">Source ☍</a></dt>
+<dt><a name="GM.VehicleHPChanged"></a><strong><span class="state state-server">GM.VehicleHPChanged</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L801">Source ☍</a></dt>
 <dd>
 <p>Hook function called after vehicle HP changes.</p>
 
@@ -1874,7 +1939,7 @@ These are documented in init.lua</p>
 </ul>
 
 </dd>
-<dt><a name="pTable"></a><strong><span class="state state-server">pTable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2629">Source ☍</a></dt>
+<dt><a name="pTable"></a><strong><span class="state state-server">pTable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2709">Source ☍</a></dt>
 <dd>
 <p>For when PrintTable doesnt work</p>
 
@@ -1898,19 +1963,19 @@ These are documented in init.lua</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="BetaWhitelist"></a><strong><span class="state state-server">BetaWhitelist</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2667">Source ☍</a></dt>
+<dt><a name="BetaWhitelist"></a><strong><span class="state state-server">BetaWhitelist</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2747">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.AllowedTools"></a><strong><span class="state state-server">cityrp.AllowedTools</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1277">Source ☍</a></dt>
+<dt><a name="cityrp.AllowedTools"></a><strong><span class="state state-server">cityrp.AllowedTools</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1336">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.BlockedTools"></a><strong><span class="state state-server">cityrp.BlockedTools</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1249">Source ☍</a></dt>
+<dt><a name="cityrp.BlockedTools"></a><strong><span class="state state-server">cityrp.BlockedTools</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1308">Source ☍</a></dt>
 <dd>
 <p>This is the file name of the tool to block</p>
 
@@ -1965,13 +2030,13 @@ These are documented in init.lua</p>
 
 
 </dd>
-<dt><a name="cityrp.BlockedTools.lamp"></a><strong><span class="state state-server">cityrp.BlockedTools.lamp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1273">Source ☍</a></dt>
+<dt><a name="cityrp.BlockedTools.lamp"></a><strong><span class="state state-server">cityrp.BlockedTools.lamp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1332">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.BlockedTools.light"></a><strong><span class="state state-server">cityrp.BlockedTools.light</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1272">Source ☍</a></dt>
+<dt><a name="cityrp.BlockedTools.light"></a><strong><span class="state state-server">cityrp.BlockedTools.light</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L1331">Source ☍</a></dt>
 <dd>
 
 

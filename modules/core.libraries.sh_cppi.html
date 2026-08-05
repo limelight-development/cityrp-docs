@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Types of Items</title>
+	<title>core.libraries.sh_cppi</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -15,6 +15,13 @@
 	<div id="main">
 		<div id="navigation">
 <div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/DB.html">DB</a></li>
@@ -60,7 +67,7 @@
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
 <li><a href="../modules/core.libraries.sh_array.html">core.libraries.sh_array</a></li>
 <li><a href="../modules/core.libraries.sh_chatbox.html">core.libraries.sh_chatbox</a></li>
-<li><a href="../modules/core.libraries.sh_cppi.html">core.libraries.sh_cppi</a></li>
+<li><strong>core.libraries.sh_cppi</strong></li>
 <li><a href="../modules/core.libraries.sh_dumper.html">core.libraries.sh_dumper</a></li>
 <li><a href="../modules/core.libraries.sh_functions.html">core.libraries.sh_functions</a></li>
 <li><a href="../modules/core.libraries.sh_help.html">core.libraries.sh_help</a></li>
@@ -248,87 +255,158 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>Types of Items</h1></div><div class="ll-module-body"><p>Items are one of the most simple parts to CityRP 2, yet one of the widest ranging, due to their use within every sector of the gamemode, and constant development.</p>
-<h2>Types of Items</h2>
-<p>Items currently fall into 3 distinct categories.</p>
-<table>
-<thead>
-<tr>
-<th>Item Type</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Table</td>
-<td>Deprecated, Majority of Items</td>
-</tr>
-<tr>
-<td>Parented Table</td>
-<td>Deprecated, Mostly Vehicles</td>
-</tr>
-<tr>
-<td>Item Class</td>
-<td>Active, Development</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>[!WARNING]
-<code>cityrp.item.register({})</code> (Table Items and Table Items with Inherence, below) is deprecated. <strong>New items must use the Class-Based Items pattern</strong> (<code>ITEM:New(...)</code>) described at the end of this page. The two table-based patterns are documented here only because they still make up most existing items.</p>
-</blockquote>
-<h3>Table Items</h3>
-<p>Table items are the simplest, being mearly a table and a call to item.register.</p>
-<pre><code class="language-lua">local ITEM = {}
-ITEM.name = &quot;My Special Item&quot;
-ITEM.cost = 999
-ITEM.description = [[Stuff and things are done by my super cool item.]]
-ITEM.uniqueID = &quot;specialitem&quot;
+<div class="ll-module-header"><h1>core.libraries.sh_cppi</h1></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="CPPI.GetInterfaceVersion"></a><strong><span class="state state-client state-server">CPPI.GetInterfaceVersion</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L28">Source ☍</a></dt>
+<dd>
+<p>CPPI: version of the CPPI standard this interface implements. Required.
+2.0 is a CityRP-local extension of the standard - there's no published 2.0 spec,
+this just means &quot;CPPI 1.3 plus our own additions&quot; (see OwnerSID on Entity, and any
+other CityRP-specific behaviour documented alongside it).</p>
 
-cityrp.item.register(ITEM)
-</code></pre>
-<p>Whilst the simplest, these are also often the largest, if code is repeated, due to the fact that elements must be duplicated in their entirety. For example, for the suit items, even though there may be 10 or more suits with the same price, they must be repeated each time.</p>
-<h3>Table Items with Inherence</h3>
-<p>Similar to the table items, these items simple pass a table to cityrp.item.register. However, passing a second argument to register will cause it to take that already-registered item, and use it as a parent.</p>
-<pre><code class="language-lua">if not cityrp.plugin.get(&quot;Vehicles&quot;) then return end
 
-local ITEM = {}
-ITEM.name = &quot;1981 Ford F150&quot;
-ITEM.cost = 160000
-ITEM.model = &quot;models/talonvehicles/tal_f150_1981.mdl&quot;
-ITEM.uniqueID = &quot;81fordf150&quot;
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> </li>
+</ol>
+</dd>
+<dt><a name="CPPI.GetName"></a><strong><span class="state state-client state-server">CPPI.GetName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L13">Source ☍</a></dt>
+<dd>
+<p>CPPI: name of the active prop protection. Required.</p>
 
-cityrp.item.register(ITEM, &quot;base_vehicle&quot;)
-</code></pre>
-<p>This means that utility functions and shared information can stay on the base, reducing the duplication between files.</p>
-<p>However, this has the downside of requiring that each base item is registered, and thus may accidentally become available to end users.</p>
-<h3>Class-Based Items.</h3>
-<p>To combat this, the alternative is class-based items. These use a completely different style to tabular items, can contain multiple items in the same file with ease, and can base themselves without registration.</p>
-<pre><code class="language-lua">local BASE = ITEM:New(&quot;base_accessory&quot;)
-	:SetCost(10000)
-	:SetModel(&quot;models/modified/backpack_2.mdl&quot;, 1, true)
-	:SetCategory(&quot;Accessories&quot;)
-	:SetDescription([[A modern camping backpack to carry all your gear.]])
-	:SetOffEmote(&quot;takes off their backpack.&quot;)
 
-BASE:Clone()
-	:SetName(&quot;Navy and Tangerine Camping Backpack&quot;)
-	:SetOnEmote(&quot;puts on their navy and tangerine camping backpack.&quot;)
-	:Register(&quot;backpacknavy_2&quot;)
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> </li>
+</ol>
+</dd>
+<dt><a name="CPPI.GetNameFromSID"></a><strong><span class="state state-client state-server">CPPI.GetNameFromSID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L41">Source ☍</a></dt>
+<dd>
+<p>CPPI: resolves a player's name from their SteamID64/CommunityID, checking online
+players first, then (server-only) an in-memory cache warmed by online players, then
+(server-only, rate-limited) a DB lookup. This replaces GetNameFromUID - Player:
+UniqueID() is deprecated by GMod and not guaranteed unique, so this codebase keys
+everything by SteamID64/CommunityID instead. Not part of the CPPI 1.3 standard
+(which specifies a UID-based GetNameFromUID); a CPPI 2.0 (CityRP-local) addition.</p>
+<h3>Warnings:</h3>
+<ul>
+<li><span class='tag-warning'>On the client, this only works for online players.</span></li>
+</ul>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">sid</span> <span class="types">string</span> A SteamID64/CommunityID - NOT a classic SteamID32 (STEAM_0:...).</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string|number|nil</span> nil if no match, CPPI_DEFER if a lookup is pending/unsupported.</li>
+</ol>
+</dd>
+<dt><a name="CPPI.GetVersion"></a><strong><span class="state state-client state-server">CPPI.GetVersion</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L19">Source ☍</a></dt>
+<dd>
+<p>CPPI: version of the active prop protection. Required.</p>
 
-BASE:Clone()
-	:SetName(&quot;Olive and Blue Camping Backpack&quot;)
-	:SetSkin(2, true)
-	:SetOnEmote(&quot;puts on their olive and blue camping backpack.&quot;)
-	:Register(&quot;backpackolive_2&quot;)
 
-BASE:Clone()
-	:SetName(&quot;Red, White and Green Camping Backpack&quot;)
-	:SetSkin(3, true)
-	:SetOnEmote(&quot;puts on their red, white and green camping backpack.&quot;)
-	:Register(&quot;backpackred_2&quot;)
-</code></pre>
-<p>In the above example, the base item is the accessory base, but the camping backpacks have data which is shared between each element, which is also put into the base. The base is then cloned, data updated, and then only then is it registered.</p></div>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> </li>
+</ol>
+</dd>
+<dt><a name="CPPI.LookupNameFromSID"></a><strong><span class="state state-client state-server">CPPI.LookupNameFromSID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L266">Source ☍</a></dt>
+<dd>
+<p>Resolves an offline player's name from CPPI.NameCache, or (rate-limited) issues a
+DB lookup and returns CPPI_DEFER while it's pending.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">sid</span> <span class="types">string</span> SteamID64/CommunityID.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string|number|nil</span> nil if sid isn't well-formed, CPPI_DEFER if pending.</li>
+</ol>
+</dd>
+<dt><a name="GAMEMODE.CPPIAssignOwnership"></a><strong><span class="state state-client state-server">GAMEMODE.CPPIAssignOwnership</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L318">Source ☍</a></dt>
+<dd>
+<p>CPPI: called when ply assumes ownership of ent. Recommended, not required.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> Serverside Inventory Metatable.
+@copyright 2015-2025 Limelight Gaming
+@release CityRP 2
+@author Temar</li>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> Shared Entity Metafunctions.
+@copyright 2015-2019 Limelight Gaming
+@release CityRP 2
+@author Legacy Team</li>
+</ul>
+
+</dd>
+<dt><a name="GAMEMODE.CPPIFriendsChanged"></a><strong><span class="state state-client state-server">GAMEMODE.CPPIFriendsChanged</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L323">Source ☍</a></dt>
+<dd>
+<p>CPPI: called when ply's friends list changes. Recommended, not required.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> Serverside Inventory Metatable.
+@copyright 2015-2025 Limelight Gaming
+@release CityRP 2
+@author Temar</li>
+<li><span class="parameter">friends</span> <span class="types">table</span> The player's new friends list.</li>
+</ul>
+
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="CPPI"></a><strong><span class="state state-client state-server">CPPI</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L5">Source ☍</a></dt>
+<dd>
+<p>CPPI (Common Prop Protection Interface), implemented by Simple Prop Protection.</p>
+
+
+
+</dd>
+<dt><a name="CPPI.NameCache"></a><strong><span class="state state-client state-server">CPPI.NameCache</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L226">Source ☍</a></dt>
+<dd>
+<p>In-memory cache backing CPPI.LookupNameFromSID, keyed by SteamID64/CommunityID.
+Each entry is {name = string|nil, lastHit = number, lastQuery = number|nil}, where
+name is nil until a DB lookup resolves it, and lastQuery rate-limits re-querying
+the same SID.</p>
+
+
+
+</dd>
+<dt><a name="CPPI.NameCacheSettings"></a><strong><span class="state state-client state-server">CPPI.NameCacheSettings</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L229">Source ☍</a></dt>
+<dd>
+<p>Tuning for CPPI.NameCache's query rate-limit and cleanup timer.</p>
+
+
+
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="CPPI.Logger"></a><strong><span class="state state-client state-server">CPPI.Logger</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L6">Source ☍</a></dt>
+<dd>
+<p>Logger metatable.</p>
+
+
+
+</dd>
+<dt><a name="CPPI_DEFER"></a><strong><span class="state state-client state-server">CPPI_DEFER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L9">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="CPPI_NOTIMPLEMENTED"></a><strong><span class="state state-client state-server">CPPI_NOTIMPLEMENTED</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L8">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+</dl></div>
 		</div>
 	</div>
 	<br class="clearfix">

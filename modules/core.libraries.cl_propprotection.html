@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Types of Items</title>
+	<title>core.libraries.cl_propprotection</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -15,6 +15,13 @@
 	<div id="main">
 		<div id="navigation">
 <div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/DB.html">DB</a></li>
@@ -44,7 +51,7 @@
 <li><a href="../modules/core.libraries.cl_chatbox.html">core.libraries.cl_chatbox</a></li>
 <li><a href="../modules/core.libraries.cl_hints.html">core.libraries.cl_hints</a></li>
 <li><a href="../modules/core.libraries.cl_inventory.html">core.libraries.cl_inventory</a></li>
-<li><a href="../modules/core.libraries.cl_propprotection.html">core.libraries.cl_propprotection</a></li>
+<li><strong>core.libraries.cl_propprotection</strong></li>
 <li><a href="../modules/core.libraries.cl_ui.html">core.libraries.cl_ui</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
@@ -248,87 +255,99 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>Types of Items</h1></div><div class="ll-module-body"><p>Items are one of the most simple parts to CityRP 2, yet one of the widest ranging, due to their use within every sector of the gamemode, and constant development.</p>
-<h2>Types of Items</h2>
-<p>Items currently fall into 3 distinct categories.</p>
-<table>
-<thead>
-<tr>
-<th>Item Type</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Table</td>
-<td>Deprecated, Majority of Items</td>
-</tr>
-<tr>
-<td>Parented Table</td>
-<td>Deprecated, Mostly Vehicles</td>
-</tr>
-<tr>
-<td>Item Class</td>
-<td>Active, Development</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>[!WARNING]
-<code>cityrp.item.register({})</code> (Table Items and Table Items with Inherence, below) is deprecated. <strong>New items must use the Class-Based Items pattern</strong> (<code>ITEM:New(...)</code>) described at the end of this page. The two table-based patterns are documented here only because they still make up most existing items.</p>
-</blockquote>
-<h3>Table Items</h3>
-<p>Table items are the simplest, being mearly a table and a call to item.register.</p>
-<pre><code class="language-lua">local ITEM = {}
-ITEM.name = &quot;My Special Item&quot;
-ITEM.cost = 999
-ITEM.description = [[Stuff and things are done by my super cool item.]]
-ITEM.uniqueID = &quot;specialitem&quot;
+<div class="ll-module-header"><h1>core.libraries.cl_propprotection</h1></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="SPropProtection.AdminPanel"></a><strong><span class="state state-client">SPropProtection.AdminPanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_propprotection.lua#L69">Source ☍</a></dt>
+<dd>
+<p>Populates the Q-menu &quot;Admin&quot; panel with spp_* settings and per-player/global
+cleanup buttons. No-ops for non-admins.</p>
 
-cityrp.item.register(ITEM)
-</code></pre>
-<p>Whilst the simplest, these are also often the largest, if code is repeated, due to the fact that elements must be duplicated in their entirety. For example, for the suit items, even though there may be 10 or more suits with the same price, they must be repeated each time.</p>
-<h3>Table Items with Inherence</h3>
-<p>Similar to the table items, these items simple pass a table to cityrp.item.register. However, passing a second argument to register will cause it to take that already-registered item, and use it as a parent.</p>
-<pre><code class="language-lua">if not cityrp.plugin.get(&quot;Vehicles&quot;) then return end
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">Panel</span> <span class="types">Panel</span> The DForm/derma panel to populate.</li>
+</ul>
 
-local ITEM = {}
-ITEM.name = &quot;1981 Ford F150&quot;
-ITEM.cost = 160000
-ITEM.model = &quot;models/talonvehicles/tal_f150_1981.mdl&quot;
-ITEM.uniqueID = &quot;81fordf150&quot;
+</dd>
+<dt><a name="SPropProtection.ClientPanel"></a><strong><span class="state state-client">SPropProtection.ClientPanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_propprotection.lua#L169">Source ☍</a></dt>
+<dd>
+<p>Populates the Q-menu &quot;Client&quot; panel with the caller's own cleanup button and
+friends list checkboxes.</p>
 
-cityrp.item.register(ITEM, &quot;base_vehicle&quot;)
-</code></pre>
-<p>This means that utility functions and shared information can stay on the base, reducing the duplication between files.</p>
-<p>However, this has the downside of requiring that each base item is registered, and thus may accidentally become available to end users.</p>
-<h3>Class-Based Items.</h3>
-<p>To combat this, the alternative is class-based items. These use a completely different style to tabular items, can contain multiple items in the same file with ease, and can base themselves without registration.</p>
-<pre><code class="language-lua">local BASE = ITEM:New(&quot;base_accessory&quot;)
-	:SetCost(10000)
-	:SetModel(&quot;models/modified/backpack_2.mdl&quot;, 1, true)
-	:SetCategory(&quot;Accessories&quot;)
-	:SetDescription([[A modern camping backpack to carry all your gear.]])
-	:SetOffEmote(&quot;takes off their backpack.&quot;)
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">Panel</span> <span class="types">Panel</span> The DForm/derma panel to populate.</li>
+</ul>
 
-BASE:Clone()
-	:SetName(&quot;Navy and Tangerine Camping Backpack&quot;)
-	:SetOnEmote(&quot;puts on their navy and tangerine camping backpack.&quot;)
-	:Register(&quot;backpacknavy_2&quot;)
+</dd>
+<dt><a name="SPropProtection.GetLocalFriends"></a><strong><span class="state state-client">SPropProtection.GetLocalFriends</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_propprotection.lua#L24">Source ☍</a></dt>
+<dd>
+<p>Returns the online players the local player has marked as friends, via the
+spp_friend_* client convars set from the Q-menu Client panel. Client-side friend
+data only exists for the local player - there's no way to ask about anyone else.</p>
 
-BASE:Clone()
-	:SetName(&quot;Olive and Blue Camping Backpack&quot;)
-	:SetSkin(2, true)
-	:SetOnEmote(&quot;puts on their olive and blue camping backpack.&quot;)
-	:Register(&quot;backpackolive_2&quot;)
 
-BASE:Clone()
-	:SetName(&quot;Red, White and Green Camping Backpack&quot;)
-	:SetSkin(3, true)
-	:SetOnEmote(&quot;puts on their red, white and green camping backpack.&quot;)
-	:Register(&quot;backpackred_2&quot;)
-</code></pre>
-<p>In the above example, the base item is the accessory base, but the camping backpacks have data which is shared between each element, which is also put into the base. The base is then cloned, data updated, and then only then is it registered.</p></div>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> A table of Player.</li>
+</ol>
+</dd>
+<dt><a name="SPropProtection.HUDPaint"></a><strong><span class="state state-client">SPropProtection.HUDPaint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_propprotection.lua#L38">Source ☍</a></dt>
+<dd>
+<p>Draws an &quot;Owner: &lt;name&gt;&quot; overlay near screen-centre for whatever the local player
+is looking at.</p>
+
+
+
+</dd>
+<dt><a name="SPropProtection.PopulateToolMenu"></a><strong><span class="state state-client">SPropProtection.PopulateToolMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_propprotection.lua#L236">Source ☍</a></dt>
+<dd>
+<p>Registers the &quot;Simple Prop Protection&quot; Admin/Client entries under the Utilities
+tool menu category.</p>
+
+
+
+</dd>
+<dt><a name="SPropProtection.SpawnMenuOpen"></a><strong><span class="state state-client">SPropProtection.SpawnMenuOpen</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_propprotection.lua#L222">Source ☍</a></dt>
+<dd>
+<p>Re-populates the Admin/Client panels (if open) whenever the spawn menu re-opens.</p>
+
+
+
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="SPropProtection"></a><strong><span class="state state-client">SPropProtection</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_propprotection.lua#L5">Source ☍</a></dt>
+<dd>
+<p>Simple Prop Protection - client-side HUD and Q-menu panels.
+Originally by Spacetech (code.google.com/p/simplepropprotection).</p>
+
+
+
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="SPropProtection.AdminCPanel"></a><strong><span class="state state-client">SPropProtection.AdminCPanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_propprotection.lua#L8">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SPropProtection.ClientCPanel"></a><strong><span class="state state-client">SPropProtection.ClientCPanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_propprotection.lua#L9">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="SPropProtection.Version"></a><strong><span class="state state-client">SPropProtection.Version</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_propprotection.lua#L6">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+</dl></div>
 		</div>
 	</div>
 	<br class="clearfix">
