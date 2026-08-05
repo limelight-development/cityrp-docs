@@ -288,6 +288,12 @@
 <td align="left">Consistency, easier global theming later, reduces reliance on GMod globals. Custom one-off colors are still fine as inline <code>Color(...)</code> calls.</td>
 </tr>
 <tr>
+<td align="left"><strong>Running a CityRP command from code</strong></td>
+<td align="left"><code>ply:ConCommand(&quot;cityrp &lt;cmd&gt; &lt;args&gt;&quot;)</code> (clientside UI)&lt;br&gt;<code>cityrp.command.consoleCommand(ply, cmd, argsTable)</code> (serverside)</td>
+<td align="left"><code>ply:ConCommand(&quot;say /&lt;cmd&gt; &lt;args&gt;&quot;)</code></td>
+<td align="left">Both end up in <code>cityrp.command.consoleCommand</code>; <code>say /</code> only adds the chat pipeline in front of it, where a <code>PlayerSay</code> hook can swallow the message, <code>cityrp.replacecodes</code> rewrites <code>%</code>/<code>$q</code> codes inside the arguments, &gt;452 characters are dropped silently, and the arguments are re-quoted by a naive scanner. See <a href="../../../AGENTS.md">AGENTS.md</a> footgun #13.</td>
+</tr>
+<tr>
 <td align="left"><strong>Console Entity</strong></td>
 <td align="left"><code>CONSOLE</code></td>
 <td align="left"><code>console</code> (lowercase)</td>
