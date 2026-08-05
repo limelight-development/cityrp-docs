@@ -262,24 +262,38 @@
 Author: Voluptious, Faustie</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp_CloseF1"></a><strong><span class="state state-client">cityrp_CloseF1</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L30">Source ☍</a></dt>
+<dt><a name="cityrp_CloseF1"></a><strong><span class="state state-client">cityrp_CloseF1</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L43">Source ☍</a></dt>
 <dd>
-<p>Closes the active F1 menu using the same cleanup path as its close button.</p>
+<p>Closes one F1 menu frame and drops it from the tracked set.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">frame</span> <span class="types">Panel?</span> Frame to close; defaults to activeF1Frame.</li>
+<li><span class="parameter">suppressReopen</span> <span class="types">boolean?</span> When true, ignore the next cityrp_Menu open briefly.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> True when the frame was closed.</li>
+</ol>
+</dd>
+<dt><a name="cityrp_CloseF1All"></a><strong><span class="state state-client">cityrp_CloseF1All</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L64">Source ☍</a></dt>
+<dd>
+<p>Closes every tracked F1 frame, including orphaned popups.</p>
 
 
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">boolean</span> True when an active menu was closed.</li>
+<li><span class="types">boolean</span> True when at least one frame was closed.</li>
 </ol>
 </dd>
-<dt><a name="cityrp_ConsumeF1MapKey"></a><strong><span class="state state-client">cityrp_ConsumeF1MapKey</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L24">Source ☍</a></dt>
+<dt><a name="cityrp_ConsumeF1MapKey"></a><strong><span class="state state-client">cityrp_ConsumeF1MapKey</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L26">Source ☍</a></dt>
 <dd>
 <p>Marks an M press as having opened or selected the Map tab.</p>
 
 
 
 </dd>
-<dt><a name="cityrp_OpenF1Tab"></a><strong><span class="state state-client">cityrp_OpenF1Tab</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L249">Source ☍</a></dt>
+<dt><a name="cityrp_OpenF1Tab"></a><strong><span class="state state-client">cityrp_OpenF1Tab</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L304">Source ☍</a></dt>
 <dd>
 <p>=== Expose a global for DHTML: RUNLUA:cityrp_OpenF1Tab(&quot;Rules&quot;) ===</p>
 
@@ -289,7 +303,7 @@ Author: Voluptious, Faustie</p></div>
 </ul>
 
 </dd>
-<dt><a name="newf1"></a><strong><span class="state state-client">newf1</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L77">Source ☍</a></dt>
+<dt><a name="newf1"></a><strong><span class="state state-client">newf1</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L116">Source ☍</a></dt>
 <dd>
 
 
@@ -298,25 +312,25 @@ Author: Voluptious, Faustie</p></div>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="f1_categoriesToBeMade"></a><strong><span class="state state-client">f1_categoriesToBeMade</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L133">Source ☍</a></dt>
+<dt><a name="f1_categoriesToBeMade"></a><strong><span class="state state-client">f1_categoriesToBeMade</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L188">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="f1_cats"></a><strong><span class="state state-client">f1_cats</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L134">Source ☍</a></dt>
+<dt><a name="f1_cats"></a><strong><span class="state state-client">f1_cats</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L189">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="f1_panels"></a><strong><span class="state state-client">f1_panels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L37">Source ☍</a></dt>
+<dt><a name="f1_panels"></a><strong><span class="state state-client">f1_panels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L36">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="nf1_tab"></a><strong><span class="state state-client">nf1_tab</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L82">Source ☍</a></dt>
+<dt><a name="nf1_tab"></a><strong><span class="state state-client">nf1_tab</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L127">Source ☍</a></dt>
 <dd>
 
 
@@ -325,13 +339,13 @@ Author: Voluptious, Faustie</p></div>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="f1_cats._Active"></a><strong><span class="state state-client">f1_cats._Active</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L229">Source ☍</a></dt>
+<dt><a name="f1_cats._Active"></a><strong><span class="state state-client">f1_cats._Active</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L284">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="f1_cats._Active.Panel"></a><strong><span class="state state-client">f1_cats._Active.Panel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L230">Source ☍</a></dt>
+<dt><a name="f1_cats._Active.Panel"></a><strong><span class="state state-client">f1_cats._Active.Panel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_main.lua#L285">Source ☍</a></dt>
 <dd>
 
 
