@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.libraries.meska.dailybonus.server.init</title>
+	<title>core.plugins.idcard.cl_init</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -19,8 +19,6 @@
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
-<li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -52,7 +50,7 @@
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
 <li><a href="../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
-<li><strong>core.libraries.meska.dailybonus.server.init</strong></li>
+<li><a href="../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
 <li><a href="../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
@@ -161,7 +159,7 @@
 <li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
 <li><a href="../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
 <li><a href="../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
-<li><a href="../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><strong>core.plugins.idcard.cl_init</strong></li>
 <li><a href="../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
 <li><a href="../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
 <li><a href="../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
@@ -250,146 +248,26 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.libraries.meska.dailybonus.server.init</h1></div>
-<div class="ll-module-body"><p>Metrics-Skill-Achievement Framework (MESKA)
-The dailybonus-system core functions.</p></div>
+<div class="ll-module-header"><h1>core.plugins.idcard.cl_init</h1></div>
+<div class="ll-module-body"><p>Name: &quot;cl_init.lua&quot;.
+Product: &quot;CityRP 2 (Roleplay)&quot;.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="meska.dailybonus.add"></a><strong><span class="state state-server">meska.dailybonus.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L102">Source ☍</a></dt>
+<dt><a name="OpenPinnedIDCard"></a><strong><span class="state state-client">OpenPinnedIDCard</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/idcard/cl_init.lua#L121">Source ☍</a></dt>
 <dd>
-<hr />
-<p>Adds dailybonus for a skill to the storage.</p>
+<p>Pins an ID card to the bottom-right of the local player's screen, replacing
+whatever card is currently pinned (single slot). Used both by the
+restrained-search menu's &quot;Take ID&quot; button and by /giveid.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-<li><span class="parameter">buff</span> <span class="types">any</span> The buff.</li>
-<li><span class="parameter">tmp</span> <span class="types">any</span> If false, store in db. Default: false. @func[opt] cb Callback Function with id as return value.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
+<li><span class="parameter">ent</span> <span class="types">any</span></li>
+<li><span class="parameter">data</span> <span class="types">any</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">integer|nil</span> </li>
+<li><span class="types">unknown</span> </li>
 </ol>
-</dd>
-<dt><a name="meska.dailybonus.get"></a><strong><span class="state state-server">meska.dailybonus.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L60">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Gets total buffs of active dailybonuses
-for a skill.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">integer</span> Total buffs.</li>
-</ol>
-</dd>
-<dt><a name="meska.dailybonus.getAllActive"></a><strong><span class="state state-server">meska.dailybonus.getAllActive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L76">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Gets all active dailybonuses for a skill.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> Active dailybonuses.</li>
-</ol>
-</dd>
-<dt><a name="meska.dailybonus.load"></a><strong><span class="state state-server">meska.dailybonus.load</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L20">Source ☍</a></dt>
-<dd>
-<hr />
-<h2>Loads all dailybonuses from DB or storage.
-@func[opt] cb Callback Function.</h2>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="meska.dailybonus.remove"></a><strong><span class="state state-server">meska.dailybonus.remove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L185">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Removes a dailybonus.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-<li><span class="parameter">id</span> <span class="types">any</span> The id. @func[opt] cb Callback Function.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">nil</span> </li>
-</ol>
-</dd>
-<dt><a name="meska.dailybonus.syncToClient"></a><strong><span class="state state-server">meska.dailybonus.syncToClient</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L219">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Syncs dailybonus to a player.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player Entity or nil. @func[opt] cb Callback Function.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="meska.dailybonus.syncToClients"></a><strong><span class="state state-server">meska.dailybonus.syncToClients</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L240">Source ☍</a></dt>
-<dd>
-<hr />
-<h2>Syncs dailybonus to all players.
-@func[opt] cb Callback Function.</h2>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="meska.dailybonus.update"></a><strong><span class="state state-server">meska.dailybonus.update</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L149">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Updates dailybonus.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-<li><span class="parameter">id</span> <span class="types">any</span> The id.</li>
-<li><span class="parameter">buff</span> <span class="types">any</span> The buff. @func[opt] cb Callback Function.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">nil</span> </li>
-</ol>
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="meska.dailybonus.storage"></a><strong><span class="state state-server">meska.dailybonus.storage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L14">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="meska.dailybonus.cacheKey"></a><strong><span class="state state-server">meska.dailybonus.cacheKey</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L12">Source ☍</a></dt>
-<dd>
-
-
-
 </dd>
 </dl></div>
 		</div>
