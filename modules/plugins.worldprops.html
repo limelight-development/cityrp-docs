@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.derma.cl_credits_table</title>
+	<title>plugins.worldprops</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -18,7 +18,7 @@
 <div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
-<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -30,7 +30,7 @@
 <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><strong>core.derma.cl_credits_table</strong></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
 <li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
 <li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
 <li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
@@ -220,7 +220,7 @@
 <li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
 <li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
 <li><a href="../modules/env.html">env</a></li>
-<li><a href="../modules/plugins.worldprops.html">plugins.worldprops</a></li>
+<li><strong>plugins.worldprops</strong></li>
 <li><a href="../modules/sh_init.html">sh_init</a></li>
 <li><a href="../modules/temar.html">temar</a></li>
 </ul>
@@ -249,11 +249,55 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.derma.cl_credits_table</h1></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
+<div class="ll-module-header"><h1>plugins.worldprops</h1></div>
+<div class="ll-module-body"><p>World Props Module.
+Persists and restores the set of world-owned static props for the current map.</p></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp_credits"></a><strong><span class="state state-client">cityrp_credits</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_credits_table.lua#L1">Source ☍</a></dt>
+<dt><a name="WorldPropData"></a><strong><span class="state state-server">WorldPropData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/worldprops/sv_init.lua#L12">Source ☍</a></dt>
 <dd>
+
+
+
+</dd>
+<dt><a name="WorldPropData.angle"></a><strong><span class="state state-server">WorldPropData.angle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/worldprops/sv_init.lua#L15">Source ☍</a></dt>
+<dd>
+<p>World angle of the prop.</p>
+
+
+
+</dd>
+<dt><a name="WorldPropData.color"></a><strong><span class="state state-server">WorldPropData.color</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/worldprops/sv_init.lua#L16">Source ☍</a></dt>
+<dd>
+<p>Render color of the prop.</p>
+
+
+
+</dd>
+<dt><a name="WorldPropData.ent"></a><strong><span class="state state-server">WorldPropData.ent</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/worldprops/sv_init.lua#L18">Source ☍</a></dt>
+<dd>
+<p>The spawned prop_physics entity, once spawned.</p>
+
+
+
+</dd>
+<dt><a name="WorldPropData.material"></a><strong><span class="state state-server">WorldPropData.material</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/worldprops/sv_init.lua#L17">Source ☍</a></dt>
+<dd>
+<p>Custom material override, if any.</p>
+
+
+
+</dd>
+<dt><a name="WorldPropData.name"></a><strong><span class="state state-server">WorldPropData.name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/worldprops/sv_init.lua#L13">Source ☍</a></dt>
+<dd>
+<p>Model path of the prop.</p>
+
+
+
+</dd>
+<dt><a name="WorldPropData.position"></a><strong><span class="state state-server">WorldPropData.position</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/worldprops/sv_init.lua#L14">Source ☍</a></dt>
+<dd>
+<p>World position of the prop.</p>
 
 
 
