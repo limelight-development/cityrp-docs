@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.cl_scoreboard</title>
+	<title>cityrp.pcasino</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -19,6 +19,7 @@
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
 <li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
@@ -29,8 +30,8 @@
 <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
-<li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
-<li><strong>core.cl_scoreboard</strong></li>
+<li><strong>cityrp.pcasino</strong></li>
+<li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
 <li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
 <li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
@@ -256,26 +257,54 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.cl_scoreboard</h1></div>
+<div class="ll-module-header"><h1>cityrp.pcasino</h1></div>
+<div class="ll-module-body"><p>Perfect Casino Integration (client).</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="GM.CreateScoreboard"></a><strong><span class="state state-client">GM.CreateScoreboard</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/cl_scoreboard.lua#L6">Source ☍</a></dt>
+<dt><a name="cityrp.pcasino.BoundGrantMeta"></a><strong><span class="state state-client state-server">cityrp.pcasino.BoundGrantMeta</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sh_init.lua#L38">Source ☍</a></dt>
 <dd>
-<p>Create the scoreboard.</p>
+<p>Build the inventory meta key used when granting a bound casino prize.</p>
 
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">itemID</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string|unknown|nil</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.pcasino.IsBoundMeta"></a><strong><span class="state state-client state-server">cityrp.pcasino.IsBoundMeta</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sh_init.lua#L28">Source ☍</a></dt>
+<dd>
 
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">item</span> <span class="types">string|table</span></li>
+<li><span class="parameter">meta</span> <span class="types">(string|table)?</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.pcasino.OpenOddsMenu"></a><strong><span class="state state-client">cityrp.pcasino.OpenOddsMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/cl_odds.lua#L89">Source ☍</a></dt>
+<dd>
+<p>Build the odds browser.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">focusId</span> <span class="types">any</span></li>
+</ul>
 
 </dd>
-<dt><a name="GM.ScoreboardHide"></a><strong><span class="state state-client">GM.ScoreboardHide</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/cl_scoreboard.lua#L30">Source ☍</a></dt>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.pcasino.BoundPrizeItems"></a><strong><span class="state state-client state-server">cityrp.pcasino.BoundPrizeItems</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sh_init.lua#L18">Source ☍</a></dt>
 <dd>
-<p>Hide the scoreboard.</p>
-
-
-
-</dd>
-<dt><a name="GM.ScoreboardShow"></a><strong><span class="state state-client">GM.ScoreboardShow</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/cl_scoreboard.lua#L16">Source ☍</a></dt>
-<dd>
-<p>Show the scoreboard.</p>
+<p>Item uniqueIDs that receive hidden tradable=false meta when granted by the casino.
+Already definition-locked prizes (M3, Ninja, Dragon's Breath, Golden Vape) are omitted.
+Trabbi is intentionally left tradable as the joke prize.</p>
 
 
 
@@ -283,7 +312,7 @@
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="GAMEMODE.ShowScoreboard"></a><strong><span class="state state-client">GAMEMODE.ShowScoreboard</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/cl_scoreboard.lua#L18">Source ☍</a></dt>
+<dt><a name="cityrp.pcasino"></a><strong><span class="state state-client">cityrp.pcasino</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/cl_init.lua#L7">Source ☍</a></dt>
 <dd>
 
 

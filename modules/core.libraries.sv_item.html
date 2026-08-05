@@ -28,6 +28,7 @@
 <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
 <li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
@@ -232,6 +233,7 @@
 <ul class="ll-kind-body">
 <li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
 <li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
@@ -257,7 +259,7 @@
 <div class="ll-module-body"><p>Item Management</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.item.destroy"></a><strong><span class="state state-server">cityrp.item.destroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L270">Source ☍</a></dt>
+<dt><a name="cityrp.item.destroy"></a><strong><span class="state state-server">cityrp.item.destroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L280">Source ☍</a></dt>
 <dd>
 <p>Destroys a player's item.</p>
 
@@ -290,7 +292,7 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.give"></a><strong><span class="state state-server">cityrp.item.give</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L513">Source ☍</a></dt>
+<dt><a name="cityrp.item.give"></a><strong><span class="state state-server">cityrp.item.give</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L533">Source ☍</a></dt>
 <dd>
 <p>Give an item to a player.</p>
 
@@ -307,7 +309,7 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.make"></a><strong><span class="state state-server">cityrp.item.make</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L412">Source ☍</a></dt>
+<dt><a name="cityrp.item.make"></a><strong><span class="state state-server">cityrp.item.make</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L432">Source ☍</a></dt>
 <dd>
 <p>Makes an item at the specified position.</p>
 
@@ -324,7 +326,7 @@
 <li><span class="types">boolean|Entity</span> The created entity, or false on failure.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.pickup"></a><strong><span class="state state-server">cityrp.item.pickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L311">Source ☍</a></dt>
+<dt><a name="cityrp.item.pickup"></a><strong><span class="state state-server">cityrp.item.pickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L321">Source ☍</a></dt>
 <dd>
 <p>Pick up a player's vehicle</p>
 
@@ -339,7 +341,7 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.place"></a><strong><span class="state state-server">cityrp.item.place</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L433">Source ☍</a></dt>
+<dt><a name="cityrp.item.place"></a><strong><span class="state state-server">cityrp.item.place</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L453">Source ☍</a></dt>
 <dd>
 <p>Places an item (i.e. food)</p>
 
@@ -356,7 +358,7 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.placefood"></a><strong><span class="state state-server">cityrp.item.placefood</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L425">Source ☍</a></dt>
+<dt><a name="cityrp.item.placefood"></a><strong><span class="state state-server">cityrp.item.placefood</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L445">Source ☍</a></dt>
 <dd>
 <p>Makes a food entity at the specified position.</p>
 
@@ -387,7 +389,7 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.removemod"></a><strong><span class="state state-server">cityrp.item.removemod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L255">Source ☍</a></dt>
+<dt><a name="cityrp.item.removemod"></a><strong><span class="state state-server">cityrp.item.removemod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L265">Source ☍</a></dt>
 <dd>
 <p>Special function for removing a player's weapon mods on death. Added this because the other functions had bugs.</p>
 
@@ -401,7 +403,7 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.sell"></a><strong><span class="state state-server">cityrp.item.sell</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L351">Source ☍</a></dt>
+<dt><a name="cityrp.item.sell"></a><strong><span class="state state-server">cityrp.item.sell</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L361">Source ☍</a></dt>
 <dd>
 <p>Sell a players item.</p>
 
@@ -417,7 +419,7 @@
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.item.spawn"></a><strong><span class="state state-server">cityrp.item.spawn</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L391">Source ☍</a></dt>
+<dt><a name="cityrp.item.spawn"></a><strong><span class="state state-server">cityrp.item.spawn</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L411">Source ☍</a></dt>
 <dd>
 <p>Create an item entity and set the player.</p>
 

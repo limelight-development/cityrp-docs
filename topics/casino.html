@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.cl_scoreboard</title>
+	<title>LimeCasino deployment math</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -15,12 +15,6 @@
 	<div id="main">
 		<div id="navigation">
 <div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
-<li><a href="#Functions">Functions</a></li>
-<li><a href="#Fields">Fields</a></li>
-</ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/DB.html">DB</a></li>
@@ -30,7 +24,7 @@
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
 <li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
-<li><strong>core.cl_scoreboard</strong></li>
+<li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
 <li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
 <li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
@@ -256,40 +250,201 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.cl_scoreboard</h1></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="GM.CreateScoreboard"></a><strong><span class="state state-client">GM.CreateScoreboard</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/cl_scoreboard.lua#L6">Source ☍</a></dt>
-<dd>
-<p>Create the scoreboard.</p>
-
-
-
-</dd>
-<dt><a name="GM.ScoreboardHide"></a><strong><span class="state state-client">GM.ScoreboardHide</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/cl_scoreboard.lua#L30">Source ☍</a></dt>
-<dd>
-<p>Hide the scoreboard.</p>
-
-
-
-</dd>
-<dt><a name="GM.ScoreboardShow"></a><strong><span class="state state-client">GM.ScoreboardShow</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/cl_scoreboard.lua#L16">Source ☍</a></dt>
-<dd>
-<p>Show the scoreboard.</p>
-
-
-
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="GAMEMODE.ShowScoreboard"></a><strong><span class="state state-client">GAMEMODE.ShowScoreboard</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/cl_scoreboard.lua#L18">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-</dl></div>
+<div class="ll-module-header"><h1>LimeCasino deployment math</h1></div><div class="ll-module-body"><h1>LimeCasino deployment math</h1>
+<p>How CityRP’s pCasino machines are tuned, how to place them, and how players read the odds.</p>
+<p>Canonical machine configs live in <a href="../../../addons/pcasino/presets/"><code>addons/pcasino/presets/*.json</code></a>. Runtime copies are generated into <a href="../../../addons/pcasino/lua/perfectcasino/config/sh_presets.lua"><code>addons/pcasino/lua/perfectcasino/config/sh_presets.lua</code></a> by the math toolkit. <strong>Do not hand-edit the Lua file.</strong></p>
+<h2>Targets</h2>
+<table>
+<thead>
+<tr>
+<th>Machine</th>
+<th align="right">Bet</th>
+<th>Volatility</th>
+<th align="right">Cash RTP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Classic Slots — Low</td>
+<td align="right">$500</td>
+<td>low-medium</td>
+<td align="right">95%</td>
+</tr>
+<tr>
+<td>Classic Slots — Mid</td>
+<td align="right">$1,000</td>
+<td>low-medium</td>
+<td align="right">95%</td>
+</tr>
+<tr>
+<td>Classic Slots — High</td>
+<td align="right">$2,500</td>
+<td>medium</td>
+<td align="right">95%</td>
+</tr>
+<tr>
+<td>Wheel Slots — Low</td>
+<td align="right">$5,000</td>
+<td>medium</td>
+<td align="right">95%</td>
+</tr>
+<tr>
+<td>Wheel Slots — Mid</td>
+<td align="right">$10,000</td>
+<td>medium-high</td>
+<td align="right">95%</td>
+</tr>
+<tr>
+<td>Wheel Slots — High</td>
+<td align="right">$25,000</td>
+<td>medium-high</td>
+<td align="right">95%</td>
+</tr>
+<tr>
+<td>Mystery Wheel</td>
+<td align="right">free spin only</td>
+<td>high</td>
+<td align="right">n/a (prize wheel)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cash RTP</strong> is expected cash returned per dollar wagered over the long run, including:</p>
+<ul>
+<li>line / pair pays</li>
+<li>jackpot pot payouts (player <code>betAdd</code> contributions <strong>and</strong> the <code>startValue</code> re-seed pCasino injects after every jackpot hit)</li>
+<li>mini-wheel cash and mini-wheel jackpots</li>
+<li>the <strong>cash</strong> expected value of Mystery Wheel spins earned as mini-wheel prizes</li>
+</ul>
+<p>Non-tradable item prizes (cars, Dragon’s Breath, etc.) are <strong>$0 toward cash RTP</strong>. They are prestige odds, tracked separately.</p>
+<p>House edge on cash is therefore ~5%. Items do not inflate the money supply when won.</p>
+<h2>How pCasino RNG actually works</h2>
+<p>There are no reel strips and no built-in RTP field.</p>
+<ol>
+<li><strong>Slots</strong> build a weighted bag from <code>chance</code> weights and pick three symbols independently (<code>table.Random</code>).</li>
+<li><strong>Combos</strong> are matched with “best pay / jackpot preferred” rules in <code>CheckForCombo</code>.</li>
+<li>Cash line payout is <code>bet * (1 + p)</code> (stake returned plus profit multiplier <code>p</code>).</li>
+<li><strong>Mini-wheel</strong> (advanced) and <strong>Mystery Wheel</strong> are uniform: <code>math.random(12)</code> / <code>math.random(20)</code>. Rarity = fewer segments of that prize, not weighted slices.</li>
+</ol>
+<p>So “higher bet → better chance at a Big Wheel spin” is done by putting <strong>more <code>prize_wheel</code> segments</strong> on that machine’s mini-wheel (1 / 2 / 3 of 12), with chest rates climbing modestly as well.</p>
+<h2>Mystery Wheel layout (20 × 5%)</h2>
+<p>Free spins only (<code>buySpin.buy = false</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th align="right">Count</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nothing</td>
+<td align="right">4</td>
+<td></td>
+</tr>
+<tr>
+<td>Cash</td>
+<td align="right">9</td>
+<td>$1 … $100,000</td>
+</tr>
+<tr>
+<td>Spin Again</td>
+<td align="right">1</td>
+<td>recursive; raises cash EV slightly</td>
+</tr>
+<tr>
+<td>Consolation items</td>
+<td align="right">2</td>
+<td>Trabbi, Golden Vape</td>
+</tr>
+<tr>
+<td>Grand prizes</td>
+<td align="right">3</td>
+<td>Dragon’s Breath, BMW M3 GTR, Kawasaki Ninja</td>
+</tr>
+<tr>
+<td>Extra car</td>
+<td align="right">1</td>
+<td>BMW i8</td>
+</tr>
+</tbody>
+</table>
+<p>Expected <strong>cash</strong> from one spin is about <strong>$10,211</strong> (items excluded). That figure is folded into advanced-slot RTP when a mini-wheel awards <code>prize_wheel</code>.</p>
+<p>Grand prize odds on the wheel itself: <strong>5% per named segment</strong> (1 in 20). Getting onto the wheel is the scarce part — see each advanced machine’s “Big Wheel chance / spin” in <code>/odds</code>.</p>
+<h2>Mini-wheel design</h2>
+<table>
+<thead>
+<tr>
+<th>Advanced machine</th>
+<th align="right">Big Wheel segments</th>
+<th align="right">Jackpot segments</th>
+<th>Rest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$5,000</td>
+<td align="right">1/12</td>
+<td align="right">1/12</td>
+<td>cash + nothing</td>
+</tr>
+<tr>
+<td>$10,000</td>
+<td align="right">2/12</td>
+<td align="right">1/12</td>
+<td>cash + nothing</td>
+</tr>
+<tr>
+<td>$25,000</td>
+<td align="right">3/12</td>
+<td align="right">1/12</td>
+<td>cash + nothing</td>
+</tr>
+</tbody>
+</table>
+<p>Mini-wheel cash amounts are multiples of that machine’s bet. Items stay on the <strong>big</strong> wheel so the prize hierarchy stays clear.</p>
+<h2>Jackpot <code>startValue</code> footgun</h2>
+<p>After a jackpot pays, pCasino resets the pot to <code>startValue</code>. That seed is <strong>new money</strong> created each cycle, not player contributions. Exact RTP <strong>must</strong> include <code>P(jackpot award) × startValue / bet</code> on top of the <code>betAdd</code> contribution rate. Ignoring it makes advanced machines look “95%” on paper while simulating well over 100% cash return.</p>
+<p>Presets keep <code>startValue</code> modest (about 5× bet on classic, 1× bet on wheel slots) so the seed does not dominate.</p>
+<h2>Placing machines (staff)</h2>
+<ol>
+<li>Equip the pCasino toolgun → right-click to open the config menu.</li>
+<li>Pick the entity type (Slot Machine / Wheel Slot Machine / Mystery Wheel).</li>
+<li>Open <strong>Load LimeCasino Preset</strong> and click the matching preset.</li>
+<li>Left-click to place. Settings are saved into <code>pcasino_ents</code> as usual.</li>
+</ol>
+<p>JSON under <code>addons/pcasino/presets/</code> is the hand-config recipe if you ever need to type values manually.</p>
+<h2>Player transparency</h2>
+<p><code>/odds</code> opens a browser of the <strong>published</strong> presets: bet, volatility, cash RTP, paylines with probabilities, mini-wheel segments, and Mystery Wheel segments. It reads the same data the toolgun loads — not live entity drift — so what players see matches what we intended to deploy.</p>
+<h2>Proving the math</h2>
+<p>Player-facing guide (Lua ↔ Python mapping, item hunts, FAQ):</p>
+<p><a href="../../../addons/pcasino/tools/README.md"><code>addons/pcasino/tools/README.md</code></a></p>
+<p>From that folder:</p>
+<pre><code class="language-bash">python3 casino_math.py --spins 500000
+python3 casino_math.py --hunt bmwm3gtr46 --skip-rtp
+python3 casino_math.py --list-items
+</code></pre>
+<p>The toolkit:</p>
+<ul>
+<li>enumerates every weighted reel outcome (exact RTP / hit rate)</li>
+<li>folds mini-wheel + Mystery Wheel cash EV into advanced RTP</li>
+<li>Monte Carlo–checks cash return and house net</li>
+<li><strong><code>--hunt &lt;item_id&gt;</code></strong> — expected spins / $ wagered / net cash to a Mystery prize on each advanced machine</li>
+<li>runs a rough multi-machine floor stress mix</li>
+</ul>
+<p>Regenerate <code>sh_presets.lua</code> whenever you edit a JSON preset:</p>
+<pre><code class="language-bash">python3 casino_math.py --emit-lua ../lua/perfectcasino/config/sh_presets.lua --skip-rtp
+</code></pre>
+<h2>Hunt equalization (advanced machines)</h2>
+<p>Single-segment Mystery items (M3 GTR, Ninja, Dragon’s Breath, Rolex, Police Uniform, i8, …) are tuned so **expected cash cost is <del>the same** on Adv Low / Mid / High (</del>$7.5M wagered, ~$375k expected net loss at 95% RTP). Magical Cake has <strong>two</strong> wheel segments, so it is roughly twice as likely. Per-spin odds still rise with bet (1 → 2 → 3 Big Wheel mini-segments, plus chest rate).</p>
+<p>Casino-granted i8 / Rolex / Police Uniform / Magical Cake stacks carry hidden <code>tradable=false</code> metadata and cannot be given, dropped, or inventory-sold. Trabbi stays tradable.</p>
+<h2>Economy notes</h2>
+<ul>
+<li>Cars / Dragon’s Breath are bound / non-tradable — flashy without a cash secondary market.</li>
+<li>Mystery Wheel cash is real money; it is budgeted inside the 95% advanced RTP, not stacked on top.</li>
+<li>Expect session variance: published RTP is long-run. Short samples on high-volatility wheel slots will swing around 95%.</li>
+<li>Access flag <code>P</code> and <code>/selfexclude</code> still gate play.</li>
+</ul></div>
 		</div>
 	</div>
 	<br class="clearfix">
