@@ -260,7 +260,7 @@
 <div class="ll-module-body"><p>Market / Inv Options Button Panel</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.ui.AddCopyBindButton"></a><strong><span class="state state-client">cityrp.ui.AddCopyBindButton</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_doptionpanel.lua#L174">Source ☍</a></dt>
+<dt><a name="cityrp.ui.AddCopyBindButton"></a><strong><span class="state state-client">cityrp.ui.AddCopyBindButton</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_doptionpanel.lua#L238">Source ☍</a></dt>
 <dd>
 <p>Add a styled &quot;Copy Bind&quot; button that opens the fan-out menu.
 Works with both DIconLayout (inventory) and DOptionPanel (market).</p>
@@ -270,28 +270,30 @@ Works with both DIconLayout (inventory) and DOptionPanel (market).</p>
 <li><span class="parameter">parent</span> <span class="types">Panel</span></li>
 <li><span class="parameter">item</span> <span class="types">table</span></li>
 <li><span class="parameter">meta</span> <span class="types">string?</span></li>
+<li><span class="parameter">showManufactureUse</span> <span class="types">boolean?</span> When nil, inferred from the item's onUse handler.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">Panel</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.ui.OpenItemCopyBindMenu"></a><strong><span class="state state-client">cityrp.ui.OpenItemCopyBindMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_doptionpanel.lua#L150">Source ☍</a></dt>
+<dt><a name="cityrp.ui.OpenItemCopyBindMenu"></a><strong><span class="state state-client">cityrp.ui.OpenItemCopyBindMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_doptionpanel.lua#L203">Source ☍</a></dt>
 <dd>
-<p>Open a fan-out menu of copyable item binds (Use / Drop / Give / Manufacture).
+<p>Open a fan-out menu of copyable item binds (Use / Drop / Give / Manufacture / Manufacture &amp; Use).
 Meta is appended for inventory actions so vehicle plates and other variants bind correctly.</p>
 
 <h3>Parameters:</h3>
 <ul>
 <li><span class="parameter">item</span> <span class="types">table</span> Item definition</li>
 <li><span class="parameter">meta</span> <span class="types">string?</span> Inventory meta key (display key when variants share a visible identity)</li>
+<li><span class="parameter">showManufactureUse</span> <span class="types">boolean?</span> When nil, inferred from the item's onUse handler.</li>
 </ul>
 
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.ui"></a><strong><span class="state state-client">cityrp.ui</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_doptionpanel.lua#L97">Source ☍</a></dt>
+<dt><a name="cityrp.ui"></a><strong><span class="state state-client">cityrp.ui</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/derma/cl_doptionpanel.lua#L143">Source ☍</a></dt>
 <dd>
 
 
