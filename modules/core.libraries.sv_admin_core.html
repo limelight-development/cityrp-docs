@@ -252,6 +252,7 @@
 <li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
 <li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
@@ -277,51 +278,54 @@
 <div class="ll-module-body"><p>Serverside Administration Core Module</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.acommands.AddCommand"></a><strong><span class="state state-server">cityrp.acommands.AddCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L20">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.AddCommand"></a><strong><span class="state state-server">cityrp.acommands.AddCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L23">Source ☍</a></dt>
 <dd>
 <p>Add a command with a ! prefix.
-Used be only used for admin commands.</p>
+Must only be used for admin/staff commands.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">cmd</span> <span class="types">any</span></li>
-<li><span class="parameter">func</span> <span class="types">any</span></li>
-<li><span class="parameter">args</span> <span class="types">any</span></li>
-<li><span class="parameter">access</span> <span class="types">any</span></li>
-<li><span class="parameter">emgr</span> <span class="types">any</span></li>
+<li><span class="parameter">cmd</span> <span class="types">string</span> Command name to add (minus prefix).</li>
+<li><span class="parameter">func</span> <span class="types">fun(ply: Player, ...any):any</span> Function to call after access check, or command name to alias.</li>
+<li><span class="parameter">args</span> <span class="types">number?</span> Number of arguments required. Defaults to 1.</li>
+<li><span class="parameter">access</span> <span class="types">string?</span> Access tag letter(s) required by the user. Defaults to <code>&quot;b&quot;</code>.</li>
+<li><span class="parameter">emgr</span> <span class="types">boolean?</span> Event Manager access bypasses main access. Defaults to false.</li>
+<li><span class="parameter">category</span> <span class="types">string?</span> Help/F1 category key (see cityrp.command.categoryAliases).</li>
+<li><span class="parameter">help</span> <span class="types">string?</span> Syntax string (e.g. <code>&quot;&lt;player&gt; &lt;reason&gt;&quot;</code>).</li>
+<li><span class="parameter">tip</span> <span class="types">string?</span> Short description shown in the F1 commands menu.</li>
 </ul>
 
 </dd>
-<dt><a name="cityrp.acommands.Deprecate"></a><strong><span class="state state-server">cityrp.acommands.Deprecate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L41">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.Deprecate"></a><strong><span class="state state-server">cityrp.acommands.Deprecate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L63">Source ☍</a></dt>
 <dd>
 <p>Deprecate an admin command.
-This shows a warning to the user when used.</p>
+Shows a warning to the user when the command is used.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">cmd</span> <span class="types">any</span></li>
-<li><span class="parameter">msg</span> <span class="types">any</span></li>
+<li><span class="parameter">cmd</span> <span class="types">string</span> Command to deprecate.</li>
+<li><span class="parameter">msg</span> <span class="types">string?</span> Additional message to show. If this is a single word, it is treated as a command.</li>
 </ul>
 
 </dd>
-<dt><a name="cityrp.acommands.HandleCommand"></a><strong><span class="state state-server">cityrp.acommands.HandleCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L60">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.HandleCommand"></a><strong><span class="state state-server">cityrp.acommands.HandleCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L82">Source ☍</a></dt>
 <dd>
 <p>Handle a cityrp_admin console command.
 Automatically called by the server when a console command is sent.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player who called the command.</li>
-<li><span class="parameter">_</span> <span class="types">any</span> Unused.</li>
-<li><span class="parameter">args</span> <span class="types">any</span> Tabulated list of arguments.</li>
-<li><span class="parameter">aStr</span> <span class="types">any</span> A string containing all the arguments.</li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player who called the command.</li>
+<li><span class="parameter">_</span> <span class="types">string</span> Unused.</li>
+<li><span class="parameter">args</span> <span class="types">string[]</span> Tabulated list of arguments.</li>
+<li><span class="parameter">aStr</span> <span class="types">string</span> A string containing all the arguments.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">string|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.acommands.luarun"></a><strong><span class="state state-server">cityrp.acommands.luarun</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L132">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.luarun"></a><strong><span class="state state-server">cityrp.acommands.luarun</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L159">Source ☍</a></dt>
 <dd>
 <p>The callback to allow lua to be ran.</p>
 
@@ -334,7 +338,7 @@ Automatically called by the server when a console command is sent.</p>
 </ul>
 
 </dd>
-<dt><a name="cityrp.acommands.parse"></a><strong><span class="state state-server">cityrp.acommands.parse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L177">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.parse"></a><strong><span class="state state-server">cityrp.acommands.parse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L204">Source ☍</a></dt>
 <dd>
 <p>Parse a string into a command and a table of arguments, respecting quoting rules.</p>
 
@@ -352,7 +356,7 @@ Automatically called by the server when a console command is sent.</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="access_luarun"></a><strong><span class="state state-server">access_luarun</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L122">Source ☍</a></dt>
+<dt><a name="access_luarun"></a><strong><span class="state state-server">access_luarun</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L149">Source ☍</a></dt>
 <dd>
 
 

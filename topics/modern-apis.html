@@ -246,6 +246,7 @@
 <li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
 <li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
@@ -320,6 +321,18 @@
 <td align="left"><code>CONSOLE</code></td>
 <td align="left"><code>console</code> (lowercase)</td>
 <td align="left"><code>console</code> is a deprecated alias kept only for backwards compatibility with external plugins — see <code>admin/sv_init.lua</code>.</td>
+</tr>
+<tr>
+<td align="left"><strong>Player chat commands</strong> (<code>/</code> prefix; aka normal / slash-commands)</td>
+<td align="left"><code>cityrp.command.add(name, access, minArgs, callback, category, syntax, tip[, emgr])</code></td>
+<td align="left">Raw <code>PlayerSay</code> / <code>concommand</code> parsers for gamemode commands; staff tools registered as <code>/</code></td>
+<td align="left">Non-privileged player RP/job tools only — generally available to all players. <strong>Always</strong> pass category (key from <code>categoryAliases</code>), syntax (<code>&quot;&lt;none&gt;&quot;</code> if none; shown on invalid-syntax errors), and a short tip description for the F1 commands menu. Callback is <code>(ply, arguments)</code> table. See <a href="commands.md">commands.md</a> and <a href="../../../AGENTS.md">AGENTS.md</a> footgun #14.</td>
+</tr>
+<tr>
+<td align="left"><strong>Staff chat commands</strong> (<code>!</code> prefix; aka privileged / admin / staff commands)</td>
+<td align="left"><code>cityrp.acommands.AddCommand(name, func, minArgs, access, emgr, category, syntax, tip)</code></td>
+<td align="left">Staff tools on <code>/</code> (even with a restricted access flag); ad-hoc <code>PlayerSay</code> handlers for <code>!</code></td>
+<td align="left"><strong>Always</strong> use this if the command requires staff privileges of any kind — including RP Assistant. Same mandatory category/syntax/tip metadata as player commands. Callback is <code>(ply, ...)</code> varargs. When moving a staff tool from <code>/</code> to <code>!</code>, leave <code>cityrp.command.redirectToAcommand(oldName)</code> so <code>/old</code> only notifies to use <code>!old</code>. Prefer <code>cityrp.player.resolveTarget</code> and <code>cityrp.command.parseMoney</code> over copy-pasted lookup/money parsing. See <a href="commands.md">commands.md</a> and <a href="../../../AGENTS.md">AGENTS.md</a> footgun #14.</td>
 </tr>
 </tbody>
 </table>

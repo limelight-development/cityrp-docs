@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>cityrp.settings</title>
+	<title>Chat Commands (`/` vs `!`)</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -15,12 +15,6 @@
 	<div id="main">
 		<div id="navigation">
 <div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
-<li><a href="#Functions">Functions</a></li>
-<li><a href="#Fields">Fields</a></li>
-</ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/DB.html">DB</a></li>
@@ -31,7 +25,7 @@
 <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
 <li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
 <li><a href="../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
-<li><strong>cityrp.settings</strong></li>
+<li><a href="../modules/cityrp.settings.html">cityrp.settings</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
 <li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
@@ -274,273 +268,105 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>cityrp.settings</h1></div>
-<div class="ll-module-body"><p>Client-side settings registry for the CityRP settings panel.
-Plugins register categories and individual settings here; the player_settings
-plugin renders them in a unified GUI. Existing ConVars, cookies, and chat
-commands are wired through rather than replaced.</p></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.settings.CanSeeStaffSettings"></a><strong><span class="state state-client">cityrp.settings.CanSeeStaffSettings</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L75">Source ☍</a></dt>
-<dd>
-<p>Returns whether the local player can see staff-only settings.</p>
-
-
-<h3>Returns:</h3>
+<div class="ll-module-header"><h1>Chat Commands (`/` vs `!`)</h1></div><div class="ll-module-body"><h1>Chat Commands (<code>/</code> vs <code>!</code>)</h1>
+<p>CityRP has two separate command systems. Choosing the wrong one &quot;works&quot; at runtime (access
+flags still gate execution) but lands the tool under the wrong chat prefix, the wrong F1
+grouping conventions, and breaks the standardised split from the acommands migration.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Kind</th>
+<th align="left">Prefix</th>
+<th align="left">Names players use</th>
+<th align="left">Registration API</th>
+<th align="left">Who it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Normal / slash-commands</strong></td>
+<td align="left"><code>/</code></td>
+<td align="left"><code>/reclaim</code>, <code>/showid</code></td>
+<td align="left"><code>cityrp.command.add</code></td>
+<td align="left">Non-privileged player RP/job tools. Generally available to all players (job checks may still apply inside the callback).</td>
+</tr>
+<tr>
+<td align="left"><strong>Privileged / staff / admin commands</strong></td>
+<td align="left"><code>!</code></td>
+<td align="left"><code>!place</code>, <code>!tr</code></td>
+<td align="left"><code>cityrp.acommands.AddCommand</code></td>
+<td align="left">Anything that requires staff privileges — including RP Assistant.</td>
+</tr>
+</tbody>
+</table>
+<p>If a command needs staff privileges of any kind, use <code>cityrp.acommands.AddCommand</code>. Do <strong>not</strong>
+register it with <code>cityrp.command.add</code> and a restricted access flag. RP Assistant (<code>+</code> access /
+<code>&quot;assistant&quot;</code> category) is still a privileged command and belongs on <code>!</code>.</p>
+<p>See also the <a href="modern-apis.md">Modern APIs</a> rows for both systems, and <a href="../../../AGENTS.md">AGENTS.md</a>
+footgun #14.</p>
+<h2>Metadata is mandatory</h2>
+<p>Every command — <code>/</code> and <code>!</code> — must ship with:</p>
 <ol>
-<li><span class="types">boolean</span> True when the player is a trial mod or above.</li>
+<li><strong><code>category</code></strong> — a key from <code>cityrp.command.categoryAliases</code> (e.g. <code>&quot;roleplay&quot;</code>,
+<code>&quot;government&quot;</code>, <code>&quot;assistant&quot;</code>, <code>&quot;moderator&quot;</code>). Controls F1 grouping.</li>
+<li><strong><code>help</code> / syntax</strong> — argument shape such as <code>&quot;&lt;player&gt; &lt;amount&gt;&quot;</code>, or <code>&quot;&lt;none&gt;&quot;</code> when
+there are no arguments. Shown in invalid-syntax / missing-argument error notifications.</li>
+<li><strong><code>tip</code></strong> — a short, clear description of what the command does. Shown in the F1 commands
+menu. Omitting it yields <code>&quot;No description.&quot;</code> in F1.</li>
 </ol>
-</dd>
-<dt><a name="cityrp.settings.Close"></a><strong><span class="state state-client">cityrp.settings.Close</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L135">Source ☍</a></dt>
-<dd>
-<p>Closes the settings panel when it is open.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.settings.GetCategoryEntries"></a><strong><span class="state state-client">cityrp.settings.GetCategoryEntries</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L105">Source ☍</a></dt>
-<dd>
-<p>Returns settings for a category that are visible to the local player.</p>
-
-<h3>Parameters:</h3>
+<p>Write tips as a short sentence players/staff can scan: what it does, not how it's implemented.
+Examples from the codebase: <code>&quot;Open or close the Nexus garage door.&quot;</code>,
+<code>&quot;Send a help-ticket response to a player.&quot;</code>, <code>&quot;To go to the given place&quot;</code>.</p>
+<h2>Signatures</h2>
+<h3>Player commands (<code>/</code>)</h3>
+<pre><code class="language-lua">cityrp.command.add(name, access, minArgs, callback, category, syntax, tip[, emgr])
+</code></pre>
 <ul>
-<li><span class="parameter">categoryId</span> <span class="types">string</span> Category identifier.</li>
+<li>Callback is <code>(ply, arguments)</code> — <code>arguments</code> is a string table.</li>
+<li>Access <code>&quot;b&quot;</code> is the usual &quot;any player&quot; flag for non-privileged tools.</li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">CityRPSettingsEntry[]</span> Visible settings for the category.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.settings.GetVisibleCategories"></a><strong><span class="state state-client">cityrp.settings.GetVisibleCategories</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L82">Source ☍</a></dt>
-<dd>
-<p>Returns categories visible to the local player, sorted by order then name.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">CityRPSettingsCategory[]</span> Visible categories.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.settings.Open"></a><strong><span class="state state-client">cityrp.settings.Open</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L128">Source ☍</a></dt>
-<dd>
-<p>Opens the settings panel, creating it when needed.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.settings.Register"></a><strong><span class="state state-client">cityrp.settings.Register</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L57">Source ☍</a></dt>
-<dd>
-<p>Registers a single setting row in the unified settings panel.</p>
-
-<h3>Parameters:</h3>
+<pre><code class="language-lua">cityrp.command.add(
+	&quot;nexusgarage&quot;,
+	&quot;b&quot;,
+	0,
+	function(ply)
+		-- ...
+	end,
+	&quot;government&quot;,
+	&quot;&lt;none&gt;&quot;,
+	&quot;Open or close the Nexus garage door.&quot;
+)
+</code></pre>
+<h3>Staff commands (<code>!</code>)</h3>
+<pre><code class="language-lua">cityrp.acommands.AddCommand(name, func, minArgs, access, emgr, category, syntax, tip)
+</code></pre>
 <ul>
-<li><span class="parameter">entry</span> <span class="types">CityRPSettingsEntry</span> Setting definition.</li>
+<li>Callback is <code>(ply, ...)</code> — varargs, not a table.</li>
+<li>Parameter order differs from <code>cityrp.command.add</code> (notably <code>emgr</code> before <code>category</code>).</li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> False when the id was already taken.</li>
-</ol>
-</dd>
-<dt><a name="cityrp.settings.RegisterCategory"></a><strong><span class="state state-client">cityrp.settings.RegisterCategory</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L45">Source ☍</a></dt>
-<dd>
-<p>Registers a sidebar category for grouping settings.</p>
-
-<h3>Parameters:</h3>
+<pre><code class="language-lua">cityrp.acommands.AddCommand(&quot;tr&quot;, cityrp.acommands.helpreply, 2, &quot;+&quot;, false, &quot;assistant&quot;,
+	&quot;&lt;player&gt; &lt;message&gt;&quot;,
+	&quot;Send a help-ticket response to a player.&quot;
+)
+</code></pre>
+<h2>Moving a staff tool off <code>/</code></h2>
+<p>When converting a staff tool from <code>/</code> to <code>!</code>, leave a redirect so old muscle memory fails
+loudly instead of silently:</p>
+<pre><code class="language-lua">cityrp.command.redirectToAcommand(&quot;place&quot;)           -- /place → &quot;use !place&quot;
+cityrp.command.redirectToAcommand(&quot;warp&quot;, &quot;place&quot;)   -- /warp  → &quot;use !place&quot;
+</code></pre>
+<p>Redirects notify the player and are excluded from F1.</p>
+<h2>Helpers</h2>
+<p>Prefer these over copy-pasted lookup/parsing:</p>
 <ul>
-<li><span class="parameter">id</span> <span class="types">string</span> Unique category identifier.</li>
-<li><span class="parameter">name</span> <span class="types">string</span> Display name shown in the sidebar.</li>
-<li><span class="parameter">order</span> <span class="types">number?</span> Sort order (lower appears first).</li>
-<li><span class="parameter">staffOnly</span> <span class="types">boolean?</span> When true, only trial mods and above see this category.</li>
+<li><code>cityrp.player.resolveTarget</code> / <code>cityrp.acommands.GetPlayerObject</code> for player targets</li>
+<li><code>cityrp.command.parseMoney</code> for money amounts</li>
 </ul>
-
-</dd>
-<dt><a name="cityrp.settings.Toggle"></a><strong><span class="state state-client">cityrp.settings.Toggle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L142">Source ☍</a></dt>
-<dd>
-<p>Toggles the settings panel open or closed.</p>
-
-
-
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.settings"></a><strong><span class="state state-client">cityrp.settings</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L10">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.settings.categories"></a><strong><span class="state state-client">cityrp.settings.categories</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L12">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.settings.entries"></a><strong><span class="state state-client">cityrp.settings.entries</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L13">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="cityrp.settings.registeredIds"></a><strong><span class="state state-client">cityrp.settings.registeredIds</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L14">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsCategory"></a><strong><span class="state state-client">CityRPSettingsCategory</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L16">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsCategory.id"></a><strong><span class="state state-client">CityRPSettingsCategory.id</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L17">Source ☍</a></dt>
-<dd>
-<p>Unique category identifier.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsCategory.name"></a><strong><span class="state state-client">CityRPSettingsCategory.name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L18">Source ☍</a></dt>
-<dd>
-<p>Display name shown in the sidebar.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsCategory.order"></a><strong><span class="state state-client">CityRPSettingsCategory.order</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L19">Source ☍</a></dt>
-<dd>
-<p>Sort order (lower appears first).</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsCategory.staffOnly"></a><strong><span class="state state-client">CityRPSettingsCategory.staffOnly</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L20">Source ☍</a></dt>
-<dd>
-<p>When true, only trial mods and above see this category.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry"></a><strong><span class="state state-client">CityRPSettingsEntry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L22">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.action"></a><strong><span class="state state-client">CityRPSettingsEntry.action</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L34">Source ☍</a></dt>
-<dd>
-<p>Callback for button-type entries.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.category"></a><strong><span class="state state-client">CityRPSettingsEntry.category</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L24">Source ☍</a></dt>
-<dd>
-<p>Category id this entry belongs to.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.choices"></a><strong><span class="state state-client">CityRPSettingsEntry.choices</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L32">Source ☍</a></dt>
-<dd>
-<p>Combo options as <code>{label = string, value = string}</code> rows, or a resolver.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.convar"></a><strong><span class="state state-client">CityRPSettingsEntry.convar</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L28">Source ☍</a></dt>
-<dd>
-<p>Client ConVar name for checkbox, slider, combo, and text types.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.decimals"></a><strong><span class="state state-client">CityRPSettingsEntry.decimals</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L31">Source ☍</a></dt>
-<dd>
-<p>Decimal places for sliders.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.description"></a><strong><span class="state state-client">CityRPSettingsEntry.description</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L27">Source ☍</a></dt>
-<dd>
-<p>Secondary help text.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.hintKey"></a><strong><span class="state state-client">CityRPSettingsEntry.hintKey</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L35">Source ☍</a></dt>
-<dd>
-<p>Hint registry key for hint-type entries.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.id"></a><strong><span class="state state-client">CityRPSettingsEntry.id</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L23">Source ☍</a></dt>
-<dd>
-<p>Unique setting identifier.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.label"></a><strong><span class="state state-client">CityRPSettingsEntry.label</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L26">Source ☍</a></dt>
-<dd>
-<p>Primary label for the control.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.max"></a><strong><span class="state state-client">CityRPSettingsEntry.max</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L30">Source ☍</a></dt>
-<dd>
-<p>Maximum value for sliders.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.min"></a><strong><span class="state state-client">CityRPSettingsEntry.min</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L29">Source ☍</a></dt>
-<dd>
-<p>Minimum value for sliders.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.onSelect"></a><strong><span class="state state-client">CityRPSettingsEntry.onSelect</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L33">Source ☍</a></dt>
-<dd>
-<p>Callback for combo rows without a convar.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.order"></a><strong><span class="state state-client">CityRPSettingsEntry.order</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L38">Source ☍</a></dt>
-<dd>
-<p>Sort order within a category (lower appears first).</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.staffOnly"></a><strong><span class="state state-client">CityRPSettingsEntry.staffOnly</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L36">Source ☍</a></dt>
-<dd>
-<p>When true, only trial mods and above see this entry.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.type"></a><strong><span class="state state-client">CityRPSettingsEntry.type</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L25">Source ☍</a></dt>
-<dd>
-<p>One of: header, label, checkbox, slider, combo, button, hint, text.</p>
-
-
-
-</dd>
-<dt><a name="CityRPSettingsEntry.visible"></a><strong><span class="state state-client">CityRPSettingsEntry.visible</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_settings.lua#L37">Source ☍</a></dt>
-<dd>
-<p>Optional visibility predicate evaluated when building the panel.</p>
-
-
-
-</dd>
-</dl></div>
+<h2>Invoking from code</h2>
+<p>Do not dispatch via <code>say /cmd</code>. From clientside UI use
+<code>LocalPlayer():ConCommand(&quot;cityrp &lt;cmd&gt; &lt;args&gt;&quot;)</code>; from serverside prefer
+<code>cityrp.command.consoleCommand(ply, cmd, argsTable)</code>. See <a href="../../../AGENTS.md">AGENTS.md</a>
+footgun #13 and the <a href="modern-apis.md">Modern APIs</a> &quot;Running a CityRP command from code&quot; row.</p></div>
 		</div>
 	</div>
 	<br class="clearfix">

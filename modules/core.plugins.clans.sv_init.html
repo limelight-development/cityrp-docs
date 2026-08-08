@@ -252,6 +252,7 @@
 <li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
 <li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
@@ -276,7 +277,7 @@
 <div class="ll-module-header"><h1>core.plugins.clans.sv_init</h1></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.clans.announce"></a><strong><span class="state state-server">cityrp.clans.announce</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L537">Source ☍</a></dt>
+<dt><a name="cityrp.clans.announce"></a><strong><span class="state state-server">cityrp.clans.announce</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L553">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -286,7 +287,7 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.clans.commands.create"></a><strong><span class="state state-server">cityrp.clans.commands.create</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L285">Source ☍</a></dt>
+<dt><a name="cityrp.clans.commands.create"></a><strong><span class="state state-server">cityrp.clans.commands.create</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L293">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -296,7 +297,7 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.clans.commands.leave"></a><strong><span class="state state-server">cityrp.clans.commands.leave</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L447">Source ☍</a></dt>
+<dt><a name="cityrp.clans.commands.leave"></a><strong><span class="state state-server">cityrp.clans.commands.leave</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L455">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -305,17 +306,7 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.clans.commands.setleader"></a><strong><span class="state state-server">cityrp.clans.commands.setleader</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L399">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">any</span></li>
-<li><span class="parameter">arguments</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.clans.commands.setrank"></a><strong><span class="state state-server">cityrp.clans.commands.setrank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L355">Source ☍</a></dt>
+<dt><a name="cityrp.clans.commands.setleader"></a><strong><span class="state state-server">cityrp.clans.commands.setleader</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L407">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -325,7 +316,17 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.clans.kick"></a><strong><span class="state state-server">cityrp.clans.kick</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L497">Source ☍</a></dt>
+<dt><a name="cityrp.clans.commands.setrank"></a><strong><span class="state state-server">cityrp.clans.commands.setrank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L363">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">player</span> <span class="types">any</span></li>
+<li><span class="parameter">arguments</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.clans.kick"></a><strong><span class="state state-server">cityrp.clans.kick</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L505">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -336,7 +337,7 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.clans.loadclan"></a><strong><span class="state state-server">cityrp.clans.loadclan</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L580">Source ☍</a></dt>
+<dt><a name="cityrp.clans.loadclan"></a><strong><span class="state state-server">cityrp.clans.loadclan</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L596">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -345,7 +346,7 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.clans.loadplayers"></a><strong><span class="state state-server">cityrp.clans.loadplayers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L645">Source ☍</a></dt>
+<dt><a name="cityrp.clans.loadplayers"></a><strong><span class="state state-server">cityrp.clans.loadplayers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L661">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -354,7 +355,7 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.clans.radio"></a><strong><span class="state state-server">cityrp.clans.radio</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L518">Source ☍</a></dt>
+<dt><a name="cityrp.clans.radio"></a><strong><span class="state state-server">cityrp.clans.radio</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L526">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -364,7 +365,7 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.clans.setrank"></a><strong><span class="state state-server">cityrp.clans.setrank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L474">Source ☍</a></dt>
+<dt><a name="cityrp.clans.setrank"></a><strong><span class="state state-server">cityrp.clans.setrank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L482">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -452,7 +453,7 @@
 
 
 </dd>
-<dt><a name="models"></a><strong><span class="state state-server">models</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L610">Source ☍</a></dt>
+<dt><a name="models"></a><strong><span class="state state-server">models</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/clans/sv_init.lua#L626">Source ☍</a></dt>
 <dd>
 
 

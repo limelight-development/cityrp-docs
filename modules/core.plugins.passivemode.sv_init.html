@@ -253,6 +253,7 @@
 <li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
 <li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
@@ -278,21 +279,21 @@
 <div class="ll-module-body"><p>Passive Mode</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.passivemode.activate"></a><strong><span class="state state-server">cityrp.passivemode.activate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L38">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.activate"></a><strong><span class="state state-server">cityrp.passivemode.activate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L41">Source ☍</a></dt>
 <dd>
 <p>Activate passivemode, overwrite functions and refund contraband.</p>
 
 
 
 </dd>
-<dt><a name="cityrp.passivemode.contra"></a><strong><span class="state state-server">cityrp.passivemode.contra</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L169">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.contra"></a><strong><span class="state state-server">cityrp.passivemode.contra</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L172">Source ☍</a></dt>
 <dd>
 <p>Refunds all contraband and pots for all players.</p>
 
 
 
 </dd>
-<dt><a name="cityrp.passivemode.deactivate"></a><strong><span class="state state-server">cityrp.passivemode.deactivate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L56">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.deactivate"></a><strong><span class="state state-server">cityrp.passivemode.deactivate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L59">Source ☍</a></dt>
 <dd>
 <p>Deactivate passivemode, overwrite functions and refund contraband.</p>
 
@@ -302,7 +303,7 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.passivemode.hasAccess"></a><strong><span class="state state-server">cityrp.passivemode.hasAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L80">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.hasAccess"></a><strong><span class="state state-server">cityrp.passivemode.hasAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L83">Source ☍</a></dt>
 <dd>
 <p>Overwritten hasAccess which disallows weapons.</p>
 
@@ -316,7 +317,7 @@
 <li><span class="types">boolean</span> if access is weapons. Otherwise regular hasAccess return.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.passivemode.itemdrop"></a><strong><span class="state state-server">cityrp.passivemode.itemdrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L116">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.itemdrop"></a><strong><span class="state state-server">cityrp.passivemode.itemdrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L119">Source ☍</a></dt>
 <dd>
 <p>Overwritten itemdrop which disallows contraband.</p>
 
@@ -332,7 +333,7 @@
 <li><span class="types">boolean</span> if item is weed or contraband. Otherwise regular itemdrop return.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.passivemode.itemuse"></a><strong><span class="state state-server">cityrp.passivemode.itemuse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L96">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.itemuse"></a><strong><span class="state state-server">cityrp.passivemode.itemuse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L99">Source ☍</a></dt>
 <dd>
 <p>Overwritten itemuse which disallows contraband.</p>
 
@@ -346,14 +347,14 @@
 <li><span class="types">boolean|unknown</span> if item is weed or contraband. Otherwise regular itemuse return.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.passivemode.strip"></a><strong><span class="state state-server">cityrp.passivemode.strip</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L149">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.strip"></a><strong><span class="state state-server">cityrp.passivemode.strip</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L152">Source ☍</a></dt>
 <dd>
 <p>Strips all weapons from all players, resets weapon mods and clears ragdoll weapons.</p>
 
 
 
 </dd>
-<dt><a name="cityrp.passivemode.stripweapon"></a><strong><span class="state state-server">cityrp.passivemode.stripweapon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L142">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.stripweapon"></a><strong><span class="state state-server">cityrp.passivemode.stripweapon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L145">Source ☍</a></dt>
 <dd>
 <p>Check if a specific weapon is to be stripped from a player, and strip it if so.</p>
 
@@ -393,25 +394,25 @@
 
 
 </dd>
-<dt><a name="cityrp.passivemode.functions.hasAccess"></a><strong><span class="state state-server">cityrp.passivemode.functions.hasAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L41">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.functions.hasAccess"></a><strong><span class="state state-server">cityrp.passivemode.functions.hasAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L44">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.passivemode.functions.itemdrop"></a><strong><span class="state state-server">cityrp.passivemode.functions.itemdrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L45">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.functions.itemdrop"></a><strong><span class="state state-server">cityrp.passivemode.functions.itemdrop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L48">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.passivemode.functions.itemuse"></a><strong><span class="state state-server">cityrp.passivemode.functions.itemuse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L43">Source ☍</a></dt>
+<dt><a name="cityrp.passivemode.functions.itemuse"></a><strong><span class="state state-server">cityrp.passivemode.functions.itemuse</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L46">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="contrabandEnts"></a><strong><span class="state state-server">contrabandEnts</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L172">Source ☍</a></dt>
+<dt><a name="contrabandEnts"></a><strong><span class="state state-server">contrabandEnts</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/passivemode/sv_init.lua#L175">Source ☍</a></dt>
 <dd>
 
 

@@ -252,6 +252,7 @@
 <li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
 <li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
@@ -279,22 +280,22 @@
 <div class="ll-module-body"><dl class="function">
 <dt><a name="cityrp.command.add"></a><strong><span class="state state-server">cityrp.command.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L44">Source ☍</a></dt>
 <dd>
-<p>Add a new command.</p>
+<p>Add a new player command (<code>/</code> prefix).</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">command</span> <span class="types">any</span></li>
-<li><span class="parameter">access</span> <span class="types">any</span></li>
-<li><span class="parameter">arguments</span> <span class="types">any</span></li>
-<li><span class="parameter">callback</span> <span class="types">any</span></li>
-<li><span class="parameter">category</span> <span class="types">any</span></li>
-<li><span class="parameter">help</span> <span class="types">any</span></li>
-<li><span class="parameter">tip</span> <span class="types">any</span></li>
-<li><span class="parameter">emgr</span> <span class="types">any</span></li>
+<li><span class="parameter">command</span> <span class="types">string</span> Command string to add.</li>
+<li><span class="parameter">access</span> <span class="types">string</span> Access flag.</li>
+<li><span class="parameter">arguments</span> <span class="types">number</span> Number of arguments to require.</li>
+<li><span class="parameter">callback</span> <span class="types">fun(ply: Player, arguments: string[])</span> Command callback.</li>
+<li><span class="parameter">category</span> <span class="types">string?</span> Category to add the command help under.</li>
+<li><span class="parameter">help</span> <span class="types">string?</span> Syntax string (e.g. <code>&quot;&lt;player&gt; &lt;amount&gt;&quot;</code>).</li>
+<li><span class="parameter">tip</span> <span class="types">string?</span> Command description shown in the F1 menu.</li>
+<li><span class="parameter">emgr</span> <span class="types">boolean?</span> Event Manager bypass.</li>
 </ul>
 
 </dd>
-<dt><a name="cityrp.command.consoleCommand"></a><strong><span class="state state-server">cityrp.command.consoleCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L87">Source ☍</a></dt>
+<dt><a name="cityrp.command.consoleCommand"></a><strong><span class="state state-server">cityrp.command.consoleCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L150">Source ☍</a></dt>
 <dd>
 <p>Handle a player console command.</p>
 
@@ -309,7 +310,7 @@
 <li><span class="types">nil</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.command.deprecate"></a><strong><span class="state state-server">cityrp.command.deprecate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L70">Source ☍</a></dt>
+<dt><a name="cityrp.command.deprecate"></a><strong><span class="state state-server">cityrp.command.deprecate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L133">Source ☍</a></dt>
 <dd>
 <p>Deprecate a command.
 This shows a warning to the user when used.</p>
@@ -318,6 +319,46 @@ This shows a warning to the user when used.</p>
 <ul>
 <li><span class="parameter">cmd</span> <span class="types">any</span></li>
 <li><span class="parameter">msg</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.command.notifyAcommandRedirect"></a><strong><span class="state state-server">cityrp.command.notifyAcommandRedirect</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L95">Source ☍</a></dt>
+<dd>
+<p>Shared notification for staff commands that moved from <code>/</code> to <code>!</code>.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player who typed the old command.</li>
+<li><span class="parameter">oldCmd</span> <span class="types">string</span> The old <code>/</code> command name.</li>
+<li><span class="parameter">acommandName</span> <span class="types">string</span> The <code>!</code> command to use instead.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.command.parseMoney"></a><strong><span class="state state-server">cityrp.command.parseMoney</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L108">Source ☍</a></dt>
+<dd>
+<p>Parse a money amount argument and notify on failure.
+Money amounts are always integers; fractional values are rejected.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player to notify.</li>
+<li><span class="parameter">arg</span> <span class="types">string</span> Raw argument string.</li>
+<li><span class="parameter">opts</span> <span class="types">{ allowZero: boolean?, allowNegative: boolean? }?</span> Options: <code>allowZero</code>, <code>allowNegative</code>.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number?</span> amount, or nil on failure.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.command.redirectToAcommand"></a><strong><span class="state state-server">cityrp.command.redirectToAcommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L77">Source ☍</a></dt>
+<dd>
+<p>Register a non-executing <code>/</code> stub that tells the player to use an acommand instead.
+Used for hard cutover when a staff tool moves from <code>/</code> to <code>!</code>. Redirects are excluded from F1.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">oldCmd</span> <span class="types">string</span> The old <code>/</code> command name (without prefix).</li>
+<li><span class="parameter">acommandName</span> <span class="types">string?</span> The <code>!</code> command to suggest (defaults to oldCmd).</li>
 </ul>
 
 </dd>
