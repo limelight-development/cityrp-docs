@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.plugins.accessories.sv_init</title>
+	<title>cityrp.daynight</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -18,6 +18,7 @@
 <div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
+<li><a href="#Functions">Functions</a></li>
 <li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
@@ -27,7 +28,7 @@
 <li><a href="../modules/GM.html">GM</a></li>
 <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
-<li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><strong>cityrp.daynight</strong></li>
 <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
 <li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
 <li><a href="../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
@@ -111,7 +112,7 @@
 <li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
 <li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
-<li><strong>core.plugins.accessories.sv_init</strong></li>
+<li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
 <li><a href="../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
@@ -275,24 +276,64 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.plugins.accessories.sv_init</h1></div>
-<div class="ll-module-body"><p>Name: &quot;sv_init.lua&quot;.
-Product: &quot;CityRP (Roleplay)&quot;.</p></div>
+<div class="ll-module-header"><h1>cityrp.daynight</h1></div>
+<div class="ll-module-body"><p>Lightweight day / night cycle — client (sky, fog, HUD clock).</p></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.daynight.FormatTime"></a><strong><span class="state state-client state-server">cityrp.daynight.FormatTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/daynight/sh_init.lua#L523">Source ☍</a></dt>
+<dd>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.daynight.GetPeriod"></a><strong><span class="state state-client state-server">cityrp.daynight.GetPeriod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/daynight/sh_init.lua#L513">Source ☍</a></dt>
+<dd>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.daynight.GetTime"></a><strong><span class="state state-client state-server">cityrp.daynight.GetTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/daynight/sh_init.lua#L508">Source ☍</a></dt>
+<dd>
+<p>Public API mirror used by other plugins.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.daynight.IsNight"></a><strong><span class="state state-client state-server">cityrp.daynight.IsNight</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/daynight/sh_init.lua#L518">Source ☍</a></dt>
+<dd>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+</dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="CityAccessories"></a><strong><span class="state state-server">CityAccessories</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/accessories/sv_init.lua#L16">Source ☍</a></dt>
+<dt><a name="cityrp.daynight"></a><strong><span class="state state-client state-server">cityrp.daynight</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/daynight/sh_init.lua#L9">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="CityAccessories.accData"></a><strong><span class="state state-server">CityAccessories.accData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/accessories/sv_init.lua#L17">Source ☍</a></dt>
+<dt><a name="cityrp.daynight.skyRender"></a><strong><span class="state state-client">cityrp.daynight.skyRender</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/daynight/cl_init.lua#L12">Source ☍</a></dt>
 <dd>
+<p>Live skypaint values fed to the SkyPaint matproxy every frame.</p>
 
 
 
 </dd>
-<dt><a name="CityAccessories.WornAccessories"></a><strong><span class="state state-server">CityAccessories.WornAccessories</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/accessories/sv_init.lua#L18">Source ☍</a></dt>
+<dt><a name="g_SkyPaint"></a><strong><span class="state state-client">g_SkyPaint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/daynight/cl_init.lua#L123">Source ☍</a></dt>
 <dd>
 
 

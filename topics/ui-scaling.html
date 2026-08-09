@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.plugins.accessories.sv_init</title>
+	<title>UI Scaling</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -15,11 +15,6 @@
 	<div id="main">
 		<div id="navigation">
 <div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
-<li><a href="#Fields">Fields</a></li>
-</ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/DB.html">DB</a></li>
@@ -111,7 +106,7 @@
 <li><a href="../modules/core.metatables.sv_player.html">core.metatables.sv_player</a></li>
 <li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
-<li><strong>core.plugins.accessories.sv_init</strong></li>
+<li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
 <li><a href="../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
@@ -275,30 +270,106 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.plugins.accessories.sv_init</h1></div>
-<div class="ll-module-body"><p>Name: &quot;sv_init.lua&quot;.
-Product: &quot;CityRP (Roleplay)&quot;.</p></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="CityAccessories"></a><strong><span class="state state-server">CityAccessories</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/accessories/sv_init.lua#L16">Source ☍</a></dt>
-<dd>
+<div class="ll-module-header"><h1>UI Scaling</h1></div><div class="ll-module-body"><h1>UI Scaling</h1>
+<p>The <code>cityrp.ui</code> library (<code>gamemode/core/libraries/cl_ui.lua</code>) is the mandatory way to scale client UI — Derma panels, entity menus, HUD overlays, and any other screen-space layout or drawing. It combines automatic resolution scaling (1920×1080 reference) with the player's <code>cl_llhud_scale</code> preference and keeps every consumer in sync when either input changes.</p>
+<h2>When to use it</h2>
+<p>Use <code>cityrp.ui</code> for <strong>any</strong> client-side UI dimension that should track screen size or the player's scale setting:</p>
+<ul>
+<li>Panel sizes, margins, padding, and positions</li>
+<li>Font sizes</li>
+<li>Icon and button dimensions</li>
+<li><code>draw.*</code> coordinates in custom <code>Paint</code> functions</li>
+</ul>
+<p>Do <strong>not</strong> roll your own scale factor. Ad-hoc <code>ScrW() / 1920</code> math, calling <code>LimelightHUD.GetScaleFactor()</code> directly, or hardcoded pixel values that never rebuild on scale change are legacy patterns — they drift from the HUD, ignore <code>cl_llhud_scale</code>, and break when resolution changes mid-session.</p>
+<h2>Core API</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>cityrp.ui.Scale(value)</code></td>
+<td align="left">Scale a single pixel measurement to the nearest whole pixel. Use for widths, heights, margins, positions, and any other screen-space dimension.</td>
+</tr>
+<tr>
+<td align="left"><code>cityrp.ui.GetScaleFactor()</code></td>
+<td align="left">Return the raw, unrounded scale multiplier. Use only when you need the factor itself (e.g. proportional math before a single final round), not for individual pixel measurements — prefer <code>Scale()</code> for those.</td>
+</tr>
+<tr>
+<td align="left"><code>cityrp.ui.CreateScaledFont(name, baseFont, baseSize[, weight])</code></td>
+<td align="left">Create a font at the current scale. <code>baseSize</code> is the size at 1920×1080.</td>
+</tr>
+<tr>
+<td align="left"><code>cityrp.ui.OnScaleChanged(id, callback)</code></td>
+<td align="left">Register a debounced callback that fires when <code>cl_llhud_scale</code> or screen resolution changes. Use to rebuild fonts and relayout panels.</td>
+</tr>
+<tr>
+<td align="left"><code>cityrp.ui.Shade(colour, amount)</code></td>
+<td align="left">Lighten or darken a colour for hover/pressed states. Cache the result at style time, not inside <code>Paint</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>cityrp.ui.ScaleCheckBox(checkbox, font)</code></td>
+<td align="left">Apply a scaled font to a <code>DCheckBoxLabel</code> and grow its tick box to match.</td>
+</tr>
+<tr>
+<td align="left"><code>cityrp.ui.AddTitleBarCloseButton(frame, titleBarHeight, onClose)</code></td>
+<td align="left">Add the shared text-only close button used on CityRP menu title bars.</td>
+</tr>
+</tbody>
+</table>
+<h2>Standard patterns</h2>
+<h3>Scale dimensions</h3>
+<pre><code class="language-lua">local pad = cityrp.ui.Scale(10)
+frame:SetSize(cityrp.ui.Scale(400), cityrp.ui.Scale(300))
+button:DockMargin(pad, pad, pad, pad)
+</code></pre>
+<h3>Scaled fonts</h3>
+<p>Build fonts once at load and rebuild them when the scale changes:</p>
+<pre><code class="language-lua">local function createMyMenuFonts()
+	cityrp.ui.CreateScaledFont(&quot;MyMenuTitle&quot;, &quot;Roboto&quot;, 17, 500)
+	cityrp.ui.CreateScaledFont(&quot;MyMenuBody&quot;, &quot;Roboto&quot;, 13, 400)
+end
 
-
-
-</dd>
-<dt><a name="CityAccessories.accData"></a><strong><span class="state state-server">CityAccessories.accData</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/accessories/sv_init.lua#L17">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="CityAccessories.WornAccessories"></a><strong><span class="state state-server">CityAccessories.WornAccessories</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/accessories/sv_init.lua#L18">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-</dl></div>
+createMyMenuFonts()
+cityrp.ui.OnScaleChanged(&quot;mymenu&quot;, createMyMenuFonts)
+</code></pre>
+<h3>Relayout on scale change</h3>
+<p>If a panel's geometry depends on scaled values, rebuild or relayout inside the <code>OnScaleChanged</code> callback — not only the fonts. Menus that watched only <code>cl_llhud_scale</code> but not resolution kept the sizes they were built with when the screen size changed underneath them; <code>OnScaleChanged</code> watches both.</p>
+<h2>What not to do</h2>
+<table>
+<thead>
+<tr>
+<th align="left">❌ Forbidden</th>
+<th align="left">✅ Use instead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>ScrW() / 1920</code> (or similar resolution ratios)</td>
+<td align="left"><code>cityrp.ui.Scale()</code> / <code>cityrp.ui.GetScaleFactor()</code></td>
+</tr>
+<tr>
+<td align="left"><code>LimelightHUD.GetScaleFactor()</code> in new code</td>
+<td align="left"><code>cityrp.ui.GetScaleFactor()</code></td>
+</tr>
+<tr>
+<td align="left"><code>surface.CreateFont</code> with a fixed <code>size</code> for UI text</td>
+<td align="left"><code>cityrp.ui.CreateScaledFont</code></td>
+</tr>
+<tr>
+<td align="left">Hardcoded pixel sizes with no scale rebuild</td>
+<td align="left"><code>cityrp.ui.Scale()</code> + <code>cityrp.ui.OnScaleChanged</code></td>
+</tr>
+<tr>
+<td align="left"><code>cvars.AddChangeCallback(&quot;cl_llhud_scale&quot;, ...)</code> alone</td>
+<td align="left"><code>cityrp.ui.OnScaleChanged</code> (also watches resolution)</td>
+</tr>
+</tbody>
+</table>
+<p>Existing HUD derma under <code>gamemode/core/derma/cl_hud_*.lua</code> still calls <code>LimelightHUD.GetScaleFactor()</code> directly — that predates <code>cityrp.ui</code>. New or refactored UI code must go through the library.</p></div>
 		</div>
 	</div>
 	<br class="clearfix">

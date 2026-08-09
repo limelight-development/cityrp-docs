@@ -22,6 +22,7 @@
 <li><a href="../modules/GM.html">GM</a></li>
 <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
 <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
 <li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
 <li><a href="../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
@@ -261,6 +262,7 @@
 <li><a href="../topics/meska.html">MESKA</a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../topics/ui-scaling.html">UI Scaling</a></li>
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
 </ul>
@@ -333,6 +335,12 @@
 <td align="left"><code>cityrp.acommands.AddCommand(name, func, minArgs, access, emgr, category, syntax, tip)</code></td>
 <td align="left">Staff tools on <code>/</code> (even with a restricted access flag); ad-hoc <code>PlayerSay</code> handlers for <code>!</code></td>
 <td align="left"><strong>Always</strong> use this if the command requires staff privileges of any kind — including RP Assistant. Same mandatory category/syntax/tip metadata as player commands. Callback is <code>(ply, ...)</code> varargs. When moving a staff tool from <code>/</code> to <code>!</code>, leave <code>cityrp.command.redirectToAcommand(oldName)</code> so <code>/old</code> only notifies to use <code>!old</code>. Prefer <code>cityrp.player.resolveTarget</code> and <code>cityrp.command.parseMoney</code> over copy-pasted lookup/money parsing. See <a href="commands.md">commands.md</a> and <a href="../../../AGENTS.md">AGENTS.md</a> footgun #14.</td>
+</tr>
+<tr>
+<td align="left"><strong>UI Scaling</strong> (Derma panels, entity menus, HUD overlays, custom <code>Paint</code>)</td>
+<td align="left"><code>cityrp.ui.Scale()</code>, <code>cityrp.ui.GetScaleFactor()</code>, <code>cityrp.ui.CreateScaledFont()</code>, <code>cityrp.ui.OnScaleChanged()</code></td>
+<td align="left">Ad-hoc <code>ScrW() / 1920</code> scaling; calling <code>LimelightHUD.GetScaleFactor()</code> directly; fixed <code>surface.CreateFont</code> sizes; hardcoded pixel dimensions that never rebuild on scale change</td>
+<td align="left">One resolution- and preference-aware scale for all UI; fonts and layout stay in sync when <code>cl_llhud_scale</code> or screen size changes. See <a href="ui-scaling.md">ui-scaling.md</a> and <a href="../../../AGENTS.md">AGENTS.md</a> footgun #15.</td>
 </tr>
 </tbody>
 </table>

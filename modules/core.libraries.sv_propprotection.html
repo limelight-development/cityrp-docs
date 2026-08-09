@@ -29,6 +29,7 @@
 <li><a href="../modules/GM.html">GM</a></li>
 <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
 <li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
 <li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
 <li><a href="../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
@@ -268,6 +269,7 @@
 <li><a href="../topics/meska.html">MESKA</a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../topics/ui-scaling.html">UI Scaling</a></li>
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
 </ul>
@@ -338,9 +340,9 @@ SQLite settings table and pushes the new config to every player.</p>
 <dt><a name="SPropProtection.CanTool"></a><strong><span class="state state-server">SPropProtection.CanTool</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_propprotection.lua#L342">Source ☍</a></dt>
 <dd>
 <p>Generic tool-use ownership check. CityRP-specific carve-outs (submaterial Assistant/
-EventMgr override, vehicle-weld REP/Mechanic override) are NOT handled here - they
-live in GM:CanTool (gamemode/init.lua), which consults this function for anything
-not already decided by those carve-outs.</p>
+EventMgr override, vehicle-weld REP/Mechanic override, vehicle MaterialURL owner
+override) are NOT handled here - they live in GM:CanTool (gamemode/init.lua), which
+consults this function for anything not already decided by those carve-outs.</p>
 
 <h3>Parameters:</h3>
 <ul>
