@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Update Checklist</title>
+	<title>cityrp.teslaChargerPrice</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -15,6 +15,12 @@
 	<div id="main">
 		<div id="navigation">
 <div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/DB.html">DB</a></li>
@@ -28,7 +34,7 @@
 <li><a href="../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
 <li><a href="../modules/cityrp.settings.html">cityrp.settings</a></li>
 <li><a href="../modules/cityrp.teslaCharger.html">cityrp.teslaCharger</a></li>
-<li><a href="../modules/cityrp.teslaChargerPrice.html">cityrp.teslaChargerPrice</a></li>
+<li><strong>cityrp.teslaChargerPrice</strong></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
 <li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
@@ -273,86 +279,42 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>Update Checklist</h1></div><div class="ll-module-body"><h1>Update Checklist</h1>
-<p>This document outlines the checklist of required items for publishing updates to the master branch. Some items may not be relevant for each update.</p>
-<h3>Definition</h3>
-<p>An &quot;update&quot; refers to any change with gamemode impact. Minor documentation changes, code style fixes, or other non-gameplay changes do not require the full checklist.</p>
-<h2>All Updates</h2>
-<p>The checklist of required items for publishing any update to master.</p>
+<div class="ll-module-header"><h1>cityrp.teslaChargerPrice</h1></div>
+<div class="ll-module-body"><p>Tesla Charger plugin (client).</p>
+<p>Scaled owner price UI for Homecharger and Supercharger entities.</p></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.teslaChargerPrice.Open"></a><strong><span class="state state-client">cityrp.teslaChargerPrice.Open</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/tesla_charger/cl_init.lua#L126">Source ☍</a></dt>
+<dd>
+<p>Opens the owner price-setting panel for a Tesla charger entity.</p>
+
+<h3>Parameters:</h3>
 <ul>
-<li><input disabled="" type="checkbox"> <strong>Testing</strong>: Updates must be tested before being merged.</li>
-<li><input disabled="" type="checkbox"> <strong>Review</strong>: Updates must be reviewed before being merged, unless written by dev management or gamemasters.</li>
-<li><input disabled="" type="checkbox"> <strong>Security Review</strong>: Validate that changes do not introduce SQL injection, XSS, or other security vulnerabilities. This should be conducted during development and by the reviewer.</li>
-<li><input disabled="" type="checkbox"> <strong>Performance Check</strong>: Ensure changes do not introduce performance regressions, especially in hot paths (think hooks, networking). This is informal as we don't have the framework in place to do full testing.</li>
-<li><input disabled="" type="checkbox"> <strong>Maintainability</strong>: Ensure code is readable, well-structured, and follows established patterns to facilitate future maintenance and updates.</li>
-<li><input disabled="" type="checkbox"> <strong>Backwards Compatibility</strong>: Verify that changes do not break existing save data, inventory items, or player progress.</li>
+<li><span class="parameter">charger</span> <span class="types">Entity</span> Serverside Entity Metafunctions.
+@copyright 2015-2019 Limelight Gaming
+@release CityRP 2
+@author Legacy Team</li>
+<li><span class="parameter">sliderValue</span> <span class="types">number?</span> Optional slider value to restore after a scale rebuild.</li>
+<li><span class="parameter">adminBypass</span> <span class="types">boolean?</span> True when an admin is editing a charger they do not own.</li>
 </ul>
-<h3>Documentation</h3>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Internal Documentation</strong>: Update internal API references, documentation topics and developer guides as needed.</li>
-<li><input disabled="" type="checkbox"> <strong>Public Documentation</strong>: Assist the event/assistant team in creating guides, familiarisation materials, and tutorials for new systems.</li>
-</ul>
-<h2>Named Updates</h2>
-<p>The checklist of required items for publishing a named (major) update. Some items may not be relevant for each update.</p>
-<h3>Approval</h3>
-<p>Creating and releasing an update as a named update must be pre-approved by development management, as it often requires cross-team coordination (e.g., media for graphics, writing). An update qualifies as a named update if it meets <strong>any one</strong> of the following criteria:</p>
-<ul>
-<li>Affects two or more areas of the gamemode, OR</li>
-<li>Introduces entirely new mechanics that would benefit from describing, detailing and showcasing, OR</li>
-<li>Combines two or more suggestions to make a pack update, OR</li>
-<li>Overhauls important parts of the gameplay experience.</li>
-</ul>
-<p>Exceptions to these guidelines can be authorised by development management.</p>
-<h3>Ingame</h3>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Hints</strong>: Add hints to the hints system.</li>
-</ul>
-<h3>Code</h3>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Comments</strong>: Ensure functions and libraries are commented appropriately.</li>
-<li><input disabled="" type="checkbox"> <strong>Guidelines</strong>: Ensure guidelines are met.
-<ul>
-<li>If updating old code, the code can be left on old standards.</li>
-</ul>
-</li>
-<li><input disabled="" type="checkbox"> <strong>Database Migrations</strong>: If database schema changes are required, ensure migrations are tested and documented.</li>
-</ul>
-<h3>Server Content</h3>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Team Briefing</strong>: If new content is required, ensure team is briefed for a full restart of main.
-<ul>
-<li>Ideally, upload model content in advance for a clean release.</li>
-</ul>
-</li>
-</ul>
-<h3>Testing</h3>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Content Variation</strong>: Test in line with content variation.
-<ul>
-<li>If non-staff are affected, test with non-staff.</li>
-</ul>
-</li>
-</ul>
-<h3>Release</h3>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Media Content</strong>: Prepare media content, screenshots, video if applicable.
-<ul>
-<li>Liaise with media in advance to prepare content.</li>
-<li>Ensure a written version of the thread is available for graphics-based threads.</li>
-</ul>
-</li>
-<li><input disabled="" type="checkbox"> <strong>Release Thread</strong>: Collaborate with media team to prepare the release thread.</li>
-<li><input disabled="" type="checkbox"> <strong>RP Assistants</strong>: Brief RP assistants, allow them to pre-write guides and tutorials.</li>
-<li><input disabled="" type="checkbox"> <strong>Staff Briefing</strong>: Brief staff if staff-relevant changes occur (can be put in a HR ticket).</li>
-<li><input disabled="" type="checkbox"> <strong>Welcome Menu</strong>: Update Welcome Menu.</li>
-<li><input disabled="" type="checkbox"> <strong>Homepage Banner</strong>: Add banner to homepage.</li>
-<li><input disabled="" type="checkbox"> <strong>Steam Group</strong>: Steam Group Message.</li>
-<li><input disabled="" type="checkbox"> <strong>Scope Limitations</strong>: Document any known scope limitations in the GitHub PR or GitHub Issue. Systems should not be releasing with known bugs, but may release with known and accepted scope limitations.</li>
-</ul>
-<h3>Economy Balance Release Schedule</h3>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Timed Release</strong>: If there will be time-restricted economy-affecting changes (limited stock), pre-post the update thread with a set release time (e.g., 7pm GMT).</li>
-</ul></div>
+
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.teslaChargerPrice"></a><strong><span class="state state-client">cityrp.teslaChargerPrice</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/tesla_charger/cl_init.lua#L15">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.teslaChargerPriceUI"></a><strong><span class="state state-client">cityrp.teslaChargerPriceUI</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/tesla_charger/cl_init.lua#L152">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+</dl></div>
 		</div>
 	</div>
 	<br class="clearfix">
