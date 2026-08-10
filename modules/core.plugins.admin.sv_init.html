@@ -458,7 +458,7 @@ Doesn't notify the player on failure.</p>
 <li><span class="types">unknown</span> || nil] Vector when a position is found, nil on failure.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.acommands.helpreply"></a><strong><span class="state state-server">cityrp.acommands.helpreply</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1786">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.helpreply"></a><strong><span class="state state-server">cityrp.acommands.helpreply</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1842">Source ☍</a></dt>
 <dd>
 <p>Send a help response to a player.</p>
 
@@ -471,7 +471,7 @@ Doesn't notify the player on failure.</p>
 </ul>
 
 </dd>
-<dt><a name="cityrp.acommands.icIssue"></a><strong><span class="state state-server">cityrp.acommands.icIssue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1744">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.icIssue"></a><strong><span class="state state-server">cityrp.acommands.icIssue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1800">Source ☍</a></dt>
 <dd>
 <p>Send an &quot;IC Issue&quot; response to a player.</p>
 
@@ -554,20 +554,39 @@ Automatically called during bootstrap, no need to call again.</p>
 <li><span class="types">boolean|nil</span> Truthy or Falsy value, depending if the TP is allowed or barred.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.acommands.remotepm"></a><strong><span class="state state-server">cityrp.acommands.remotepm</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1672">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.queueRemotePM"></a><strong><span class="state state-server">cityrp.acommands.queueRemotePM</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1734">Source ☍</a></dt>
 <dd>
+<p>Queue a remote PM (or a reply to one) into the shared cross-server chat table.
+Shared by the !pm command and by /r (and !r, an alias of /r) when replying
+to a received remote PM.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">name</span> <span class="types">any</span></li>
-<li><span class="parameter">steamid</span> <span class="types">any</span></li>
-<li><span class="parameter">targ</span> <span class="types">any</span></li>
-<li><span class="parameter">msg</span> <span class="types">any</span></li>
-<li><span class="parameter">source</span> <span class="types">any</span></li>
+<li><span class="parameter">ply</span> <span class="types">any</span> The player sending the message.</li>
+<li><span class="parameter">destServer</span> <span class="types">any</span> The destination server ID to route the message to (the <code>goto</code> column).</li>
+<li><span class="parameter">targ</span> <span class="types">any</span> The destination player search string (or SteamID, when replying).</li>
+<li><span class="parameter">msg</span> <span class="types">any</span> The message text.</li>
+<li><span class="parameter">cb</span> <span class="types">any</span> function? Optional callback, called once the row has been written.</li>
 </ul>
 
 </dd>
-<dt><a name="cityrp.acommands.respond"></a><strong><span class="state state-server">cityrp.acommands.respond</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1716">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.remotepm"></a><strong><span class="state state-server">cityrp.acommands.remotepm</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1701">Source ☍</a></dt>
+<dd>
+<p>Deliver a queued remote (cross-server) private message to a local player.
+Called automatically by cityrp.acommands.chatcheck() when it finds a queued
+'rpm' row in the shared chat table addressed to this server.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">any</span> The display name of the sender.</li>
+<li><span class="parameter">steamid</span> <span class="types">any</span> The SteamID of the sender.</li>
+<li><span class="parameter">targ</span> <span class="types">any</span> The search string for the local target player.</li>
+<li><span class="parameter">msg</span> <span class="types">any</span> The message body.</li>
+<li><span class="parameter">source</span> <span class="types">any</span> The origin server ID, so a reply can be routed back.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.acommands.respond"></a><strong><span class="state state-server">cityrp.acommands.respond</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1772">Source ☍</a></dt>
 <dd>
 <p>Send an administrative response to a player.</p>
 
@@ -576,18 +595,6 @@ Automatically called during bootstrap, no need to call again.</p>
 <li><span class="parameter">ply</span> <span class="types">any</span> The player sending the message.</li>
 <li><span class="parameter">targ</span> <span class="types">any</span> The search param for the player to send a message to.</li>
 <li><span class="parameter">msg</span> <span class="types">any</span> The first part of the message to send.</li>
-<li><span class="parameter"></span> <span class="types">unknown</span></li>
-</ul>
-
-</dd>
-<dt><a name="cityrp.acommands.sendremotepm"></a><strong><span class="state state-server">cityrp.acommands.sendremotepm</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1689">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">s</span> <span class="types">any</span></li>
-<li><span class="parameter">targ</span> <span class="types">any</span></li>
 <li><span class="parameter"></span> <span class="types">unknown</span></li>
 </ul>
 
@@ -695,6 +702,12 @@ Automatically called during bootstrap, no need to call again.</p>
 
 </dd>
 <dt><a name="cityrp.acommands.chatlastid"></a><strong><span class="state state-server">cityrp.acommands.chatlastid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L225">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.acommands.onRemotePMCooldown"></a><strong><span class="state state-server">cityrp.acommands.onRemotePMCooldown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1691">Source ☍</a></dt>
 <dd>
 
 
