@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>core.libraries.meska.dailybonus.server.init</title>
+	<title>Item Actions</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -15,13 +15,6 @@
 	<div id="main">
 		<div id="navigation">
 <div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
-<li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
-<li><a href="#Fields">Fields</a></li>
-</ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/DB.html">DB</a></li>
@@ -61,7 +54,7 @@
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
 <li><a href="../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
-<li><strong>core.libraries.meska.dailybonus.server.init</strong></li>
+<li><a href="../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
 <li><a href="../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
@@ -278,148 +271,69 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.libraries.meska.dailybonus.server.init</h1></div>
-<div class="ll-module-body"><p>Metrics-Skill-Achievement Framework (MESKA)
-The dailybonus-system core functions.</p></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="meska.dailybonus.add"></a><strong><span class="state state-server">meska.dailybonus.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L102">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Adds dailybonus for a skill to the storage.</p>
+<div class="ll-module-header"><h1>Item Actions</h1></div><div class="ll-module-body"><h1>Item Actions</h1>
+<p>Every item action (Use, Give, Remove, Drop, Destroy, Pickup, Sell, Place — the same set the inventory panel uses to generate its buttons) follows the same two-hook pattern: a <code>canX</code> check that decides whether the action is allowed at all, and an <code>onX</code> handler that performs the action's effect and can veto the library's default follow-up behaviour.</p>
+<h2><code>canX</code> — is this allowed?</h2>
+<p><code>canX(ply, ...)</code> is checked before the action runs. It returns a boolean, and optionally a reason string to show the player if it returns <code>false</code>.</p>
+<pre><code class="language-lua">function ITEM:canDrop(ply, pos, amt)
+	return false, &quot;You cannot drop this car.&quot;
+end
+</code></pre>
+<p>If <code>canX</code> returns <code>false</code>, the action is stopped immediately — <code>onX</code> is never called, and no server-side state (inventory, money) changes.</p>
+<h2><code>onX</code> — do the thing, optionally overriding the default effect</h2>
+<p><code>onX(ply, ...)</code> is called once <code>canX</code> has passed. Most actions have a default effect that runs immediately afterwards — deducting the item from the player's inventory, giving money, spawning an entity, and so on. <code>onX</code> can suppress that default effect by explicitly returning <code>false</code> (optionally with a message string, shown to the player the same way <code>canX</code>'s does). Any other return value — including no return at all — lets the default effect proceed.</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Default effect if <code>onX</code> doesn't return <code>false</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>onUse</code></td>
+<td>Item removed from inventory</td>
+</tr>
+<tr>
+<td><code>onGive</code></td>
+<td>Item transferred to the recipient, money/logs recorded</td>
+</tr>
+<tr>
+<td><code>onDrop</code></td>
+<td>Item removed from inventory, entity spawned in the world</td>
+</tr>
+<tr>
+<td><code>onPlace</code></td>
+<td>Item removed from inventory, entity spawned in the world</td>
+</tr>
+<tr>
+<td><code>onDestroy</code></td>
+<td>Item removed from inventory</td>
+</tr>
+<tr>
+<td><code>onSell</code></td>
+<td>Item removed from inventory, money given to the player</td>
+</tr>
+<tr>
+<td><code>onPickup</code></td>
+<td>The owned vehicle entity is removed</td>
+</tr>
+<tr>
+<td><code>onRemove</code></td>
+<td>None — <code>onRemove</code> <em>is</em> the effect (e.g. unequipping a worn item); there's nothing further to suppress</td>
+</tr>
+</tbody>
+</table>
+<p>This mirrors the way DOM event handlers work: <code>canX</code> is like checking whether an event is cancellable in advance, and returning <code>false</code> from <code>onX</code> is like calling <code>preventDefault()</code> — the handler still ran, it just declined the library's default follow-up.</p>
+<h2>Worked example</h2>
+<p>The <code>bmwm3gtr46</code> vehicle item is untradeable and undroppable. It uses <code>canGive</code>/<code>canDrop</code> to refuse the action outright with a player-facing reason, and — as defence in depth, in case a caller ever bypasses the <code>can</code> gate — also has <code>onGive</code>/<code>onDrop</code> return <code>false</code> with the same message:</p>
+<pre><code class="language-lua">function ITEM:canDrop(ply, pos) return false, &quot;You cannot drop this car.&quot; end
+function ITEM:canGive(ply, to, amt) return false, &quot;You cannot trade this car.&quot; end
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-<li><span class="parameter">buff</span> <span class="types">any</span> The buff.</li>
-<li><span class="parameter">tmp</span> <span class="types">any</span> If false, store in db. Default: false. @func[opt] cb Callback Function with id as return value.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">integer|nil</span> </li>
-</ol>
-</dd>
-<dt><a name="meska.dailybonus.get"></a><strong><span class="state state-server">meska.dailybonus.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L60">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Gets total buffs of active dailybonuses
-for a skill.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">integer</span> Total buffs.</li>
-</ol>
-</dd>
-<dt><a name="meska.dailybonus.getAllActive"></a><strong><span class="state state-server">meska.dailybonus.getAllActive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L76">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Gets all active dailybonuses for a skill.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> Active dailybonuses.</li>
-</ol>
-</dd>
-<dt><a name="meska.dailybonus.load"></a><strong><span class="state state-server">meska.dailybonus.load</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L20">Source ☍</a></dt>
-<dd>
-<hr />
-<h2>Loads all dailybonuses from DB or storage.
-@func[opt] cb Callback Function.</h2>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> </li>
-</ol>
-</dd>
-<dt><a name="meska.dailybonus.remove"></a><strong><span class="state state-server">meska.dailybonus.remove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L185">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Removes a dailybonus.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-<li><span class="parameter">id</span> <span class="types">any</span> The id. @func[opt] cb Callback Function.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">nil</span> </li>
-</ol>
-</dd>
-<dt><a name="meska.dailybonus.syncToClient"></a><strong><span class="state state-server">meska.dailybonus.syncToClient</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L219">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Syncs dailybonus to a player.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player Entity or nil. @func[opt] cb Callback Function.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="meska.dailybonus.syncToClients"></a><strong><span class="state state-server">meska.dailybonus.syncToClients</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L240">Source ☍</a></dt>
-<dd>
-<hr />
-<h2>Syncs dailybonus to all players.
-@func[opt] cb Callback Function.</h2>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-<dt><a name="meska.dailybonus.update"></a><strong><span class="state state-server">meska.dailybonus.update</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L149">Source ☍</a></dt>
-<dd>
-<hr />
-<p>Updates dailybonus.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">skill</span> <span class="types">any</span> The skill.</li>
-<li><span class="parameter">id</span> <span class="types">any</span> The id.</li>
-<li><span class="parameter">buff</span> <span class="types">any</span> The buff. @func[opt] cb Callback Function.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">nil</span> </li>
-</ol>
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="meska.dailybonus.storage"></a><strong><span class="state state-server">meska.dailybonus.storage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L14">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="meska.dailybonus.cacheKey"></a><strong><span class="state state-server">meska.dailybonus.cacheKey</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/meska/dailybonus/server/init.lua#L12">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-</dl></div>
+function ITEM:onGive(ply, amt, to) return false, &quot;You cannot trade this car.&quot; end
+function ITEM:onDrop(ply, pos) return false, &quot;You cannot drop this car.&quot; end
+</code></pre>
+<p>In practice, <code>canX</code> alone is enough to block a normal action — use it when you simply want to disallow something. Reach for the <code>onX</code> override when the handler needs to run custom logic first and only conditionally allow the default effect afterwards (for example, consuming an item only if using it succeeded).</p></div>
 		</div>
 	</div>
 	<br class="clearfix">
