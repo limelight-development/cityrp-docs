@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>cityrp.chatBox</title>
+	<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<div id="container">
+	<div id="product">
+		<div id="product_logo"></div>
+		<div id="product_name"><big><b></b></big></div>
+		<div id="product_description"></div>
+	</div>
+	<div id="main">
+		<div id="navigation">
+<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Topics</h2></div>
+<ul class="ll-kind-body">
+<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
+<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
+<li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
+<li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
+<li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
+<li><a href="../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../topics/item-actions.html">Item Actions</a></li>
+<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
+<li><a href="../topics/items.html">Types of Items</a></li>
+<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
+<li><a href="../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../topics/meska.html">MESKA</a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
+<li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../topics/plugins.html">Plugins</a></li>
+<li><a href="../topics/ui-scaling.html">UI Scaling</a></li>
+<li><a href="../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../topics/waypoints.html">Waypoints</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Items</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/ITEM.html">ITEM</a></li>
+<li><a href="../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
+<li><a href="../modules/ITEM.Ammo.html">ITEM.Ammo</a></li>
+<li><a href="../modules/ITEM.Card.html">ITEM.Card</a></li>
+<li><a href="../modules/ITEM.Clothing.html">ITEM.Clothing</a></li>
+<li><a href="../modules/ITEM.Collectable.html">ITEM.Collectable</a></li>
+<li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
+<li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
+<li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
+<li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
+<li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
+<li><a href="../modules/ITEM.Sticker.html">ITEM.Sticker</a></li>
+<li><a href="../modules/ITEM.Suit.html">ITEM.Suit</a></li>
+<li><a href="../modules/ITEM.Uniform.html">ITEM.Uniform</a></li>
+<li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
+<li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
+<li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Modules</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Array.html">Array</a></li>
+<li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
+<li><a href="../modules/CPPI.html">CPPI</a></li>
+<li><a href="../modules/DB.html">DB</a></li>
+<li><a href="../modules/Enumerations.html">Enumerations</a></li>
+<li><a href="../modules/GM.html">GM</a></li>
+<li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
+<li><a href="../modules/Migrations.html">Migrations</a></li>
+<li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
+<li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../modules/bwep.html">bwep</a></li>
+<li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
+<li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+<li><strong>cityrp.chatBox</strong></li>
+<li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
+<li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
+<li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
+<li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
+<li><a href="../modules/cityrp.hints.html">cityrp.hints</a></li>
+<li><a href="../modules/cityrp.imageHosts.html">cityrp.imageHosts</a></li>
+<li><a href="../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+<li><a href="../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../modules/cityrp.itemmeta.html">cityrp.itemmeta</a></li>
+<li><a href="../modules/cityrp.layers.html">cityrp.layers</a></li>
+<li><a href="../modules/cityrp.legacy.functions.html">cityrp.legacy.functions</a></li>
+<li><a href="../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
+<li><a href="../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
+<li><a href="../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../modules/cityrp.logging.html">cityrp.logging</a></li>
+<li><a href="../modules/cityrp.logs.html">cityrp.logs</a></li>
+<li><a href="../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
+<li><a href="../modules/cityrp.membership.html">cityrp.membership</a></li>
+<li><a href="../modules/cityrp.model.html">cityrp.model</a></li>
+<li><a href="../modules/cityrp.network.html">cityrp.network</a></li>
+<li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
+<li><a href="../modules/cityrp.player.html">cityrp.player</a></li>
+<li><a href="../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+<li><a href="../modules/cityrp.remote.html">cityrp.remote</a></li>
+<li><a href="../modules/cityrp.settings.html">cityrp.settings</a></li>
+<li><a href="../modules/cityrp.table.html">cityrp.table</a></li>
+<li><a href="../modules/cityrp.team.html">cityrp.team</a></li>
+<li><a href="../modules/cityrp.teslaCharger.html">cityrp.teslaCharger</a></li>
+<li><a href="../modules/cityrp.teslaChargerPrice.html">cityrp.teslaChargerPrice</a></li>
+<li><a href="../modules/cityrp.topHints.html">cityrp.topHints</a></li>
+<li><a href="../modules/cityrp.ui.html">cityrp.ui</a></li>
+<li><a href="../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+<li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../modules/core.libraries.sv_access.html">core.libraries.sv_access</a></li>
+<li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
+<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
+<li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
+<li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
+<li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../modules/core.plugins.giveprops.sv_init.html">core.plugins.giveprops.sv_init</a></li>
+<li><a href="../modules/core.plugins.holdem.cl.cl_camera.html">core.plugins.holdem.cl.cl_camera</a></li>
+<li><a href="../modules/core.plugins.holdem.cl.cl_cards.html">core.plugins.holdem.cl.cl_cards</a></li>
+<li><a href="../modules/core.plugins.holdem.cl.cl_chips.html">core.plugins.holdem.cl.cl_chips</a></li>
+<li><a href="../modules/core.plugins.holdem.cl.cl_hud.html">core.plugins.holdem.cl.cl_hud</a></li>
+<li><a href="../modules/core.plugins.holdem.cl.cl_render.html">core.plugins.holdem.cl.cl_render</a></li>
+<li><a href="../modules/core.plugins.holdem.cl.cl_ui.html">core.plugins.holdem.cl.cl_ui</a></li>
+<li><a href="../modules/core.plugins.holdem.cl.cl_vec2.html">core.plugins.holdem.cl.cl_vec2</a></li>
+<li><a href="../modules/core.plugins.holdem.cl_init.html">core.plugins.holdem.cl_init</a></li>
+<li><a href="../modules/core.plugins.holdem.sh_cards.html">core.plugins.holdem.sh_cards</a></li>
+<li><a href="../modules/core.plugins.holdem.sh_config.html">core.plugins.holdem.sh_config</a></li>
+<li><a href="../modules/core.plugins.holdem.sh_init.html">core.plugins.holdem.sh_init</a></li>
+<li><a href="../modules/core.plugins.holdem.sv.sv_commands.html">core.plugins.holdem.sv.sv_commands</a></li>
+<li><a href="../modules/core.plugins.holdem.sv.sv_game.html">core.plugins.holdem.sv.sv_game</a></li>
+<li><a href="../modules/core.plugins.holdem.sv.sv_net.html">core.plugins.holdem.sv.sv_net</a></li>
+<li><a href="../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
+<li><a href="../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../modules/core.plugins.lite_character.cl_editor.html">core.plugins.lite_character.cl_editor</a></li>
+<li><a href="../modules/core.plugins.lite_character.cl_init.html">core.plugins.lite_character.cl_init</a></li>
+<li><a href="../modules/core.plugins.lite_character.cl_notches.html">core.plugins.lite_character.cl_notches</a></li>
+<li><a href="../modules/core.plugins.lite_character.sh_debug.html">core.plugins.lite_character.sh_debug</a></li>
+<li><a href="../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
+<li><a href="../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
+<li><a href="../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
+<li><a href="../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../modules/dumper.html">dumper</a></li>
+<li><a href="../modules/env.html">env</a></li>
+<li><a href="../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
+<li><a href="../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
+<li><a href="../modules/plugins.worldprops.html">plugins.worldprops</a></li>
+<li><a href="../modules/sh_init.html">sh_init</a></li>
+<li><a href="../modules/temar.html">temar</a></li>
+<li><a href="../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Credits</h2></div>
+<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>cityrp.chatBox</h1></div>
+<div class="ll-module-body"><p>Clientside code relating to the chatbox.</p></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
+<div class="ll-module-body"><dl class="function">
+<h3 class="section-header">Functions</h3>
+<dt><a name="cityrp.chatBox.createDermaAll"></a><strong><span class="state state-client">cityrp.chatBox.createDermaAll</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L802">Source ☍</a></dt>
+<dd>
+<p>Creates every chatbox derma panel and hides the main chat panel.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.getButtonHeight"></a><strong><span class="state state-client">cityrp.chatBox.getButtonHeight</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L608">Source ☍</a></dt>
+<dd>
+<p>Height of the scroll and filter buttons. Fills the bar rather than sitting
+at a fixed 16px, so they are a real target at any chat text size.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> button height in pixels.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getButtonStripWidth"></a><strong><span class="state state-client">cityrp.chatBox.getButtonStripWidth</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L615">Source ☍</a></dt>
+<dd>
+<p>Total width the button strip occupies at the right of the bar, including the
+gap that separates it from the text entry.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> reserved width in pixels.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getHorizontalPadding"></a><strong><span class="state state-client">cityrp.chatBox.getHorizontalPadding</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L570">Source ☍</a></dt>
+<dd>
+<p>Horizontal inset between the log backdrop and message content.
+Keeps rank icons off the panel edge without shifting the backdrop away
+from the input bar below it.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> in pixels.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getInputEntryHeight"></a><strong><span class="state state-client">cityrp.chatBox.getInputEntryHeight</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L597">Source ☍</a></dt>
+<dd>
+<p>Height of the chat text entry inside the bar.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> entry height in pixels.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getInputHeight"></a><strong><span class="state state-client">cityrp.chatBox.getInputHeight</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L578">Source ☍</a></dt>
+<dd>
+<p>Height of the chat input bar, derived from the chat font rather than fixed.
+The bar used to be a hardcoded 24px, so raising cityrp_chatbox_textsize
+clipped the top off the text.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> bar height in pixels.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getPosition"></a><strong><span class="state state-client">cityrp.chatBox.getPosition</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L507">Source ☍</a></dt>
+<dd>
+<p>Gets the chatbox position.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> The current X position.</li>
+<li><span class="types">number</span> The current Y position.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getSpacing"></a><strong><span class="state state-client">cityrp.chatBox.getSpacing</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L562">Source ☍</a></dt>
+<dd>
+<p>Gets the chatbox's spacing between messages.
+Spacing scales with font size to prevent overlap.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> distance.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getWidth"></a><strong><span class="state state-client">cityrp.chatBox.getWidth</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L654">Source ☍</a></dt>
+<dd>
+<p>Gets the chatbox width for the current screen resolution.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> chatbox width in pixels.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getX"></a><strong><span class="state state-client">cityrp.chatBox.getX</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L543">Source ☍</a></dt>
+<dd>
+<p>Gets the chatbox's x position.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> The current X position.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getY"></a><strong><span class="state state-client">cityrp.chatBox.getY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L552">Source ☍</a></dt>
+<dd>
+<p>Gets the chatbox's y position.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> The current Y position.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.layoutButtons"></a><strong><span class="state state-client">cityrp.chatBox.layoutButtons</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L626">Source ☍</a></dt>
+<dd>
+<p>Positions the scroll and filter buttons against the current bar geometry.
+Laid out from the right edge so the strip stays together whatever the width.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">chatWidth</span> <span class="types">number</span> Current width of the input bar.</li>
+<li><span class="parameter">barHeight</span> <span class="types">number</span> Current height of the input bar.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.wrapText"></a><strong><span class="state state-client">cityrp.chatBox.wrapText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L760">Source ☍</a></dt>
+<dd>
+<p>Provides a table of wrapped strings.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">text</span> <span class="types">string</span> The string to wrap.</li>
+<li><span class="parameter">font</span> <span class="types">string</span> The font to check widths against.</li>
+<li><span class="parameter">width</span> <span class="types">number</span> Maximum line width to explode at.</li>
+<li><span class="parameter">overhead</span> <span class="types">number?</span> The buffer between text width and maximum width for the first line.</li>
+<li><span class="parameter">base</span> <span class="types">table</span> Table to insert the lines in.</li>
+</ul>
+
+</dd>
+<h3 class="section-header">Globals</h3>
+<dt><a name="chat.AddText"></a><strong><span class="state state-client">chat.AddText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L21">Source ☍</a></dt>
+<dd>
+<p>Overrides the stock chat.AddText to add text to the chatbox as well as the console. Currently semi-broken: matching a system message to a chatbox entry requires a manual catch to be added to <code>catches</code> above.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter"></span> <span class="types">string|number|Player</span> Vararg; players are converted to their name, strings are taken as-is, numbers are stringified, and other values are discarded.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.addGenericAction"></a><strong><span class="state state-client">cityrp.chatBox.addGenericAction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L70">Source ☍</a></dt>
+<dd>
+<p>Registers a handler for a generic (non-player-originated) chat message class.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">class</span> <span class="types">string</span> The message class to handle.</li>
+<li><span class="parameter">func</span> <span class="types">fun(...any)</span> The handler function.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.addPlayerAction"></a><strong><span class="state state-client">cityrp.chatBox.addPlayerAction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L57">Source ☍</a></dt>
+<dd>
+<p>Registers a handler for a player-originated chat message class (e.g. &quot;ic&quot;, &quot;advert&quot;). Rendering functions registered by name are resolved to whatever function is currently registered under that name at call time.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">class</span> <span class="types">string</span> The message class to handle.</li>
+<li><span class="parameter">func</span> <span class="types">string|fun(...any)</span> The handler function, or the name of another registered class to alias.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.getInputBackground"></a><strong><span class="state state-client">cityrp.chatBox.getInputBackground</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L209">Source ☍</a></dt>
+<dd>
+<p>Backdrop colour for the chat input bar and the filter box.
+Follows the log panel's tint and opacity so the two read as one surface. The
+bar was fixed at black 150 regardless of the setting, so raising the opacity
+or tinting the log left the bar a visibly different shade to the panel
+sitting directly above it.</p>
+<p>Only once the panel is actually switched on, though. With it off there is
+nothing above the bar to match, and tinting the bar on its own would just
+recolour a surface the player never asked to change.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">Color</span> The colour to fill the bar with.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.getInputOffset"></a><strong><span class="state state-client">cityrp.chatBox.getInputOffset</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L229">Source ☍</a></dt>
+<dd>
+<p>How far below the chat position the input bar sits. getPosition has to know
+this to keep the bar clear of the HUD, so it is shared rather than repeated.
+Gap between the chat position and the top of the input bar.
+Derived from the line spacing rather than fixed, so it keeps pace with the
+chat text size. The newest message's baseline sits barely above the chat
+position, and a flat 6px left the bar sitting on top of that last line.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> offset in pixels.</li>
+</ol>
+</dd>
+<h3 class="section-header">Internals</h3>
+<dt><a name="cityrp.chatBox.add"></a><strong><span class="state state-server">cityrp.chatBox.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_chatbox.lua#L19">Source ☍</a></dt>
+<dd>
+<p>Adds a new chatbox line, optionally attributed to a player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">recipientFilter</span> <span class="types">(CRecipientFilter|Player|table&lt;integer, Player&gt;)?</span> Players to send the message to, or nil to broadcast.</li>
+<li><span class="parameter">ply</span> <span class="types">Player?</span> Player who is making the message, or nil for a system message.</li>
+<li><span class="parameter">filter</span> <span class="types">string</span> The type of message being sent.</li>
+<li><span class="parameter">text</span> <span class="types">string</span> The message body.</li>
+<li><span class="parameter">color</span> <span class="types">Color?</span> Optional custom color for the message.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.addInRadius"></a><strong><span class="state state-server">cityrp.chatBox.addInRadius</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_chatbox.lua#L49">Source ☍</a></dt>
+<dd>
+<p>Adds a new chatbox line to players within a radius of a position.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> Player who is making the message.</li>
+<li><span class="parameter">filter</span> <span class="types">string</span> The type of message being sent.</li>
+<li><span class="parameter">text</span> <span class="types">string</span> The message body.</li>
+<li><span class="parameter">position</span> <span class="types">Vector</span> The position to send from.</li>
+<li><span class="parameter">radius</span> <span class="types">number</span> The radius to send the message in.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.chatText"></a><strong><span class="state state-client">cityrp.chatBox.chatText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1837">Source ☍</a></dt>
+<dd>
+<p>Processes an incoming chat message and routes it to the appropriate chatbox rendering, based on its class and whether it originated from a player. Called when a player says something or a message is received from the server.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">index</span> <span class="types">(number|table|Player)?</span> The sending player's UserID, entity, or player data table; nil/0 for non-player-originated messages.</li>
+<li><span class="parameter">name</span> <span class="types">string</span> The display name to use for the message.</li>
+<li><span class="parameter">text</span> <span class="types">string</span> The message text.</li>
+<li><span class="parameter">class</span> <span class="types">string</span> The message class, e.g. &quot;ic&quot;, &quot;ooc&quot;, &quot;radio&quot;.</li>
+<li><span class="parameter">customColor</span> <span class="types">Color?</span> Custom colour override for the message, where the class supports it.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.createDermaButton"></a><strong><span class="state state-client">cityrp.chatBox.createDermaButton</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L876">Source ☍</a></dt>
+<dd>
+<p>Creates a derma button parented to the chatbox panel, if one with the given name doesn't already exist.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">string</span> The internal name of the button.</li>
+<li><span class="parameter">text</span> <span class="types">string</span> The label of the button.</li>
+<li><span class="parameter">x</span> <span class="types">number</span> The x position of the button.</li>
+<li><span class="parameter">width</span> <span class="types">number</span> The width of the button.</li>
+<li><span class="parameter">toolTip</span> <span class="types">string</span> The hover text for the button.</li>
+<li><span class="parameter">doClick</span> <span class="types">fun()</span> Called when the button is clicked.</li>
+<li><span class="parameter">think</span> <span class="types">fun(self: Panel)</span> Called every frame; typically used to update the button's disabled state.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.createDermaButtons"></a><strong><span class="state state-client">cityrp.chatBox.createDermaButtons</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L815">Source ☍</a></dt>
+<dd>
+<p>Creates the chatbox control buttons (scroll up/down, bottom, filters), if they don't already exist.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.createDermaCheckBox"></a><strong><span class="state state-client">cityrp.chatBox.createDermaCheckBox</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L933">Source ☍</a></dt>
+<dd>
+<p>Creates a derma check box (optionally labelled) parented to the chat panel, if one with the given name doesn't already exist.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">string</span> The internal name of the checkbox.</li>
+<li><span class="parameter">conVar</span> <span class="types">string</span> The attached ConVar to change.</li>
+<li><span class="parameter">x</span> <span class="types">number</span> The x position of the checkbox.</li>
+<li><span class="parameter">toolTip</span> <span class="types">string</span> The hover text for the checkbox.</li>
+<li><span class="parameter">label</span> <span class="types">string?</span> The label for the checkbox; if omitted, a plain DCheckBox is created instead of a DCheckBoxLabel.</li>
+<li><span class="parameter">parent</span> <span class="types">Panel?</span> Parent for the checkbox, defaults to the chat panel.</li>
+<li><span class="parameter">y</span> <span class="types">number?</span> The y position to put the checkbox, defaults to 4.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.createDermaCheckBoxes"></a><strong><span class="state state-client">cityrp.chatBox.createDermaCheckBoxes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L919">Source ☍</a></dt>
+<dd>
+<p>Initializes the derma.checkBoxes table if it doesn't already exist.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.createDermaFilters"></a><strong><span class="state state-client">cityrp.chatBox.createDermaFilters</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1057">Source ☍</a></dt>
+<dd>
+<p>Creates the filter panel and its check boxes (OOC, LOOC, IC, radio, join/leave), if it doesn't already exist.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.createDermaPanel"></a><strong><span class="state state-client">cityrp.chatBox.createDermaPanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1090">Source ☍</a></dt>
+<dd>
+<p>Creates the main chat input panel, its scroll panel, and their show/hide helpers, if the panel doesn't already exist.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.createDermaTextEntry"></a><strong><span class="state state-client">cityrp.chatBox.createDermaTextEntry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L961">Source ☍</a></dt>
+<dd>
+<p>Create the derma text entry.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.filters.Paint"></a><strong><span class="state state-client">cityrp.chatBox.derma.filters.Paint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1063">Source ☍</a></dt>
+<dd>
+<p>Called every time the panel should be painted.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.filters.Think"></a><strong><span class="state state-client">cityrp.chatBox.derma.filters.Think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1072">Source ☍</a></dt>
+<dd>
+<p>Called every frame.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.panel.hide"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.hide</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1117">Source ☍</a></dt>
+<dd>
+<p>A function to hide the chat panel.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.panel.Paint"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.Paint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1134">Source ☍</a></dt>
+<dd>
+<p>Called every time the panel should be painted.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.panel.show"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.show</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1095">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">team</span> <span class="types">any</span></li>
+<li><span class="parameter">text</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.panel.Think"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.Think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1199">Source ☍</a></dt>
+<dd>
+<p>Called eveyr frame.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.scroll.OnMouseWheeled"></a><strong><span class="state state-client">cityrp.chatBox.derma.scroll.OnMouseWheeled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1239">Source ☍</a></dt>
+<dd>
+<p>Called when the panel is scrolled with the mouse wheel.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">delta</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.textEntry.OnEnter"></a><strong><span class="state state-client">cityrp.chatBox.derma.textEntry.OnEnter</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1011">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.textEntry.OnKeyCodeTyped"></a><strong><span class="state state-client">cityrp.chatBox.derma.textEntry.OnKeyCodeTyped</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L969">Source ☍</a></dt>
+<dd>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">key</span> <span class="types">any</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">unknown</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.derma.textEntry.OnTextChanged"></a><strong><span class="state state-client">cityrp.chatBox.derma.textEntry.OnTextChanged</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1002">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.textEntry.Think"></a><strong><span class="state state-client">cityrp.chatBox.derma.textEntry.Think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1042">Source ☍</a></dt>
+<dd>
+<p>Called every frame.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.explodeByTags"></a><strong><span class="state state-client">cityrp.chatBox.explodeByTags</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1767">Source ☍</a></dt>
+<dd>
+<p>Explodes a string on a separator, treating any run of characters between an open and close tag as a single unbreakable piece.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">variable</span> <span class="types">string</span> The input string to explode.</li>
+<li><span class="parameter">seperator</span> <span class="types">string</span> The separator to explode by.</li>
+<li><span class="parameter">open</span> <span class="types">string</span> The opening tag.</li>
+<li><span class="parameter">close</span> <span class="types">string</span> The closing tag.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table</span> The exploded pieces, in order.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.extractClasses"></a><strong><span class="state state-client">cityrp.chatBox.extractClasses</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1401">Source ☍</a></dt>
+<dd>
+<p>Wraps a message's text into rendered blocks, populating message.blocks and message.lines in place.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">message</span> <span class="types">table</span> The message table, as built by messageAdd.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.hudPaint"></a><strong><span class="state state-client">cityrp.chatBox.hudPaint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1544">Source ☍</a></dt>
+<dd>
+<p>Called on HUDPaint.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.messageAdd"></a><strong><span class="state state-client">cityrp.chatBox.messageAdd</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1301">Source ☍</a></dt>
+<dd>
+<p>Builds a message from its parts, extracts it into wrapped blocks, prints it to console, and (unless filtered) adds it to the chatbox and history.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">title</span> <span class="types">{ [1]: string, [2]: Color }?</span> The title text and colour, e.g. a message class label.</li>
+<li><span class="parameter">name</span> <span class="types">{ [1]: string, [2]: Color }?</span> The sender name text and colour.</li>
+<li><span class="parameter">text</span> <span class="types">{ [1]: string, [2]: Color }</span> The message text and colour.</li>
+<li><span class="parameter">filtered</span> <span class="types">boolean?</span> Whether the message is filtered and thus should not be displayed in the chatbox (still printed to console).</li>
+<li><span class="parameter">icon</span> <span class="types">{ [1]: string, [2]: string }?</span> The icon for the message: a material path (without extension) and a fallback character to print in console.</li>
+<li><span class="parameter">consoleSuffix</span> <span class="types">string?</span> A prefix to put before the message text in console.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.playerBindPress"></a><strong><span class="state state-client">cityrp.chatBox.playerBindPress</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1263">Source ☍</a></dt>
+<dd>
+<p>Handles the toggleconsole/messagemode/messagemode2 binds, opening or closing the chat panel as appropriate. Hooked to PlayerBindPress below.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">player</span> <span class="types">Player</span> The local player who pressed the bind.</li>
+<li><span class="parameter">bind</span> <span class="types">string</span> The bind which was pressed.</li>
+<li><span class="parameter">press</span> <span class="types">boolean</span> Whether the bind is being pressed (true) or released (false).</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean?</span> True if the engine's default action for the bind should be suppressed.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.chatBox.printConsole"></a><strong><span class="state state-client">cityrp.chatBox.printConsole</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1368">Source ☍</a></dt>
+<dd>
+<p>Prints a built message table to console, one line per block that ends in a newline.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">message</span> <span class="types">table</span> The message table, as built by messageAdd and extracted by extractClasses.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.chatBox.rewrapAll"></a><strong><span class="state state-client">cityrp.chatBox.rewrapAll</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1474">Source ☍</a></dt>
+<dd>
+<p>Re-wraps every stored message against the current width and font.
+Wrapping is baked in when a message arrives, so without this a width or text
+size change would only affect messages received after it.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.think"></a><strong><span class="state state-client">cityrp.chatBox.think</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1493">Source ☍</a></dt>
+<dd>
+<p>Think hook function for the chatbox.</p>
+
+
+
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.chatBox.actions"></a><strong><span class="state state-client">cityrp.chatBox.actions</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L50">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.actions.generic"></a><strong><span class="state state-client">cityrp.chatBox.actions.generic</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L52">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.actions.player"></a><strong><span class="state state-client">cityrp.chatBox.actions.player</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L51">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma"></a><strong><span class="state state-client">cityrp.chatBox.derma</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L437">Source ☍</a></dt>
+<dd>
+<p>Client derma store.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.buttons"></a><strong><span class="state state-client">cityrp.chatBox.derma.buttons</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L817">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.checkBoxes"></a><strong><span class="state state-client">cityrp.chatBox.derma.checkBoxes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L921">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.history"></a><strong><span class="state state-client">cityrp.chatBox.history</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L443">Source ☍</a></dt>
+<dd>
+<p>Table to store the chat history.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.history.messages"></a><strong><span class="state state-client">cityrp.chatBox.history.messages</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L445">Source ☍</a></dt>
+<dd>
+<p>Recently recieved messages in the history.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.joinSpam"></a><strong><span class="state state-client">cityrp.chatBox.joinSpam</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L431">Source ☍</a></dt>
+<dd>
+<p>List of messages spamming join.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.leaveSpam"></a><strong><span class="state state-client">cityrp.chatBox.leaveSpam</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L433">Source ☍</a></dt>
+<dd>
+<p>List of messages spamming leave.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.messages"></a><strong><span class="state state-client">cityrp.chatBox.messages</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L435">Source ☍</a></dt>
+<dd>
+<p>Recent message.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.sendhistory"></a><strong><span class="state state-client">cityrp.chatBox.sendhistory</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L450">Source ☍</a></dt>
+<dd>
+<p>Table to store the sent chat history.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.sendhistory.messages"></a><strong><span class="state state-client">cityrp.chatBox.sendhistory.messages</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L452">Source ☍</a></dt>
+<dd>
+<p>Table to store the chat message sent.</p>
+
+
+
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.chatBox"></a><strong><span class="state state-client">cityrp.chatBox</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L48">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.actionTypes"></a><strong><span class="state state-client state-server">cityrp.chatBox.actionTypes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_chatbox.lua#L20">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.filters"></a><strong><span class="state state-client">cityrp.chatBox.derma.filters</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1059">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.panel"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1092">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.panel.lastHeight"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.lastHeight</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1217">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.panel.lastWidth"></a><strong><span class="state state-client">cityrp.chatBox.derma.panel.lastWidth</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1216">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.scroll"></a><strong><span class="state state-client">cityrp.chatBox.derma.scroll</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1234">Source ☍</a></dt>
+<dd>
+<p>Create the scroll panel.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.derma.textEntry"></a><strong><span class="state state-client">cityrp.chatBox.derma.textEntry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L963">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.history.position"></a><strong><span class="state state-client">cityrp.chatBox.history.position</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L447">Source ☍</a></dt>
+<dd>
+<p>Current cursor position within history.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.maximumLines"></a><strong><span class="state state-client">cityrp.chatBox.maximumLines</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L413">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.sayTeam"></a><strong><span class="state state-client">cityrp.chatBox.sayTeam</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1103">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.sayText"></a><strong><span class="state state-client">cityrp.chatBox.sayText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L1104">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.sendhistory.position"></a><strong><span class="state state-client">cityrp.chatBox.sendhistory.position</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L454">Source ☍</a></dt>
+<dd>
+<p>Store the history cursor pos.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.chatBox.sendhistory.useposition"></a><strong><span class="state state-client">cityrp.chatBox.sendhistory.useposition</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_chatbox.lua#L456">Source ☍</a></dt>
+<dd>
+<p>Store for the current used position.</p>
+
+
+
+</dd>
+</dl></div>
+		</div>
+	</div>
+	<br class="clearfix">
+</div>
+</body>
+</html>
