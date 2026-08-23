@@ -47,6 +47,7 @@
 <li><a href="../topics/plugins.html">Plugins</a></li>
 <li><a href="../topics/ui-scaling.html">UI Scaling</a></li>
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
@@ -91,6 +92,7 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -123,12 +125,12 @@
 <li><a href="../modules/cityrp.topHints.html">cityrp.topHints</a></li>
 <li><a href="../modules/cityrp.ui.html">cityrp.ui</a></li>
 <li><a href="../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
 <li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
 <li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
 <li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
 <li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
 <li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
@@ -155,7 +157,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.sv_access.html">core.libraries.sv_access</a></li>
 <li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
 <li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
 <li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
@@ -170,10 +171,12 @@
 <li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
 <li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
 <li><a href="../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.cl_boneanimlib.html">core.plugins.animations.animationsapi.cl_boneanimlib</a></li>
 <li><a href="../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
 <li><a href="../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
+<li><a href="../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
 <li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
-<li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
 <li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
 <li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
 <li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
@@ -273,6 +276,7 @@
 <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
 <li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
 <li><strong>core.plugins.vehicles.sh_init</strong></li>
 <li><a href="../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
@@ -309,7 +313,7 @@
 <div class="ll-module-body"><p>Shared Vehicles Plugin.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="HandleRollercoasterAnimation"></a><strong><span class="state state-client state-server">HandleRollercoasterAnimation</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L66">Source ☍</a></dt>
+<dt><a name="HandleRollercoasterAnimation"></a><strong><span class="state state-client state-server">HandleRollercoasterAnimation</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L69">Source ☍</a></dt>
 <dd>
 <p>Function to handle the roller coaster animations.</p>
 
@@ -323,235 +327,235 @@
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="carLighting"></a><strong><span class="state state-client state-server">carLighting</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L73">Source ☍</a></dt>
+<dt><a name="carLighting"></a><strong><span class="state state-client state-server">carLighting</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L76">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/crsk_autos/bmw/i8_2015.mdl"></a><strong><span class="state state-client state-server">carLighting.models/crsk_autos/bmw/i8_2015.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L108">Source ☍</a></dt>
+<dt><a name="carLighting.models/crsk_autos/bmw/i8_2015.mdl"></a><strong><span class="state state-client state-server">carLighting.models/crsk_autos/bmw/i8_2015.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L111">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/crsk_autos/rolls-royce/phantom_viii_2018.mdl"></a><strong><span class="state state-client state-server">carLighting.models/crsk_autos/rolls-royce/phantom_viii_2018.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L110">Source ☍</a></dt>
+<dt><a name="carLighting.models/crsk_autos/rolls-royce/phantom_viii_2018.mdl"></a><strong><span class="state state-client state-server">carLighting.models/crsk_autos/rolls-royce/phantom_viii_2018.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L113">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/lonewolfie/chev_suburban.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/chev_suburban.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L98">Source ☍</a></dt>
+<dt><a name="carLighting.models/lonewolfie/chev_suburban.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/chev_suburban.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L101">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/lonewolfie/chev_tahoe.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/chev_tahoe.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L100">Source ☍</a></dt>
+<dt><a name="carLighting.models/lonewolfie/chev_tahoe.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/chev_tahoe.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L103">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/lonewolfie/dodge_charger_2015.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/dodge_charger_2015.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L79">Source ☍</a></dt>
+<dt><a name="carLighting.models/lonewolfie/dodge_charger_2015.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/dodge_charger_2015.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L82">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/lonewolfie/dodge_monaco.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/dodge_monaco.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L103">Source ☍</a></dt>
+<dt><a name="carLighting.models/lonewolfie/dodge_monaco.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/dodge_monaco.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L106">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/lonewolfie/dodge_ram_1500_outdoorsman.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/dodge_ram_1500_outdoorsman.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L91">Source ☍</a></dt>
+<dt><a name="carLighting.models/lonewolfie/dodge_ram_1500_outdoorsman.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/dodge_ram_1500_outdoorsman.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L94">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/lonewolfie/gmc_savana.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/gmc_savana.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L96">Source ☍</a></dt>
+<dt><a name="carLighting.models/lonewolfie/gmc_savana.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/gmc_savana.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L99">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/lonewolfie/kamaz.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/kamaz.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L106">Source ☍</a></dt>
+<dt><a name="carLighting.models/lonewolfie/kamaz.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/kamaz.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L109">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/lonewolfie/lam_reventon.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/lam_reventon.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L109">Source ☍</a></dt>
+<dt><a name="carLighting.models/lonewolfie/lam_reventon.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/lam_reventon.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L112">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/lonewolfie/mer_g65.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/mer_g65.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L84">Source ☍</a></dt>
+<dt><a name="carLighting.models/lonewolfie/mer_g65.mdl"></a><strong><span class="state state-client state-server">carLighting.models/lonewolfie/mer_g65.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L87">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/metrohd/audi_a6.mdl"></a><strong><span class="state state-client state-server">carLighting.models/metrohd/audi_a6.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L74">Source ☍</a></dt>
+<dt><a name="carLighting.models/metrohd/audi_a6.mdl"></a><strong><span class="state state-client state-server">carLighting.models/metrohd/audi_a6.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L77">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/sentry/boss429.mdl"></a><strong><span class="state state-client state-server">carLighting.models/sentry/boss429.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L107">Source ☍</a></dt>
+<dt><a name="carLighting.models/sentry/boss429.mdl"></a><strong><span class="state state-client state-server">carLighting.models/sentry/boss429.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L110">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/sentry/crownvic_new.mdl"></a><strong><span class="state state-client state-server">carLighting.models/sentry/crownvic_new.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L80">Source ☍</a></dt>
+<dt><a name="carLighting.models/sentry/crownvic_new.mdl"></a><strong><span class="state state-client state-server">carLighting.models/sentry/crownvic_new.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L83">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/sentry/grandcaravan.mdl"></a><strong><span class="state state-client state-server">carLighting.models/sentry/grandcaravan.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L76">Source ☍</a></dt>
+<dt><a name="carLighting.models/sentry/grandcaravan.mdl"></a><strong><span class="state state-client state-server">carLighting.models/sentry/grandcaravan.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L79">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/sentry/rv.mdl"></a><strong><span class="state state-client state-server">carLighting.models/sentry/rv.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L94">Source ☍</a></dt>
+<dt><a name="carLighting.models/sentry/rv.mdl"></a><strong><span class="state state-client state-server">carLighting.models/sentry/rv.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L97">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/talonvehicles/silverado2500hd.mdl"></a><strong><span class="state state-client state-server">carLighting.models/talonvehicles/silverado2500hd.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L97">Source ☍</a></dt>
+<dt><a name="carLighting.models/talonvehicles/silverado2500hd.mdl"></a><strong><span class="state state-client state-server">carLighting.models/talonvehicles/silverado2500hd.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L100">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/talonvehicles/tal_chev_suburban_2015.mdl"></a><strong><span class="state state-client state-server">carLighting.models/talonvehicles/tal_chev_suburban_2015.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L99">Source ☍</a></dt>
+<dt><a name="carLighting.models/talonvehicles/tal_chev_suburban_2015.mdl"></a><strong><span class="state state-client state-server">carLighting.models/talonvehicles/tal_chev_suburban_2015.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L102">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/talonvehicles/tal_f150.mdl"></a><strong><span class="state state-client state-server">carLighting.models/talonvehicles/tal_f150.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L83">Source ☍</a></dt>
+<dt><a name="carLighting.models/talonvehicles/tal_f150.mdl"></a><strong><span class="state state-client state-server">carLighting.models/talonvehicles/tal_f150.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L86">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/talonvehicles/tal_f150_1981.mdl"></a><strong><span class="state state-client state-server">carLighting.models/talonvehicles/tal_f150_1981.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L105">Source ☍</a></dt>
+<dt><a name="carLighting.models/talonvehicles/tal_f150_1981.mdl"></a><strong><span class="state state-client state-server">carLighting.models/talonvehicles/tal_f150_1981.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L108">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/talonvehicles/tal_gm_silverado_3500.mdl"></a><strong><span class="state state-client state-server">carLighting.models/talonvehicles/tal_gm_silverado_3500.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L104">Source ☍</a></dt>
+<dt><a name="carLighting.models/talonvehicles/tal_gm_silverado_3500.mdl"></a><strong><span class="state state-client state-server">carLighting.models/talonvehicles/tal_gm_silverado_3500.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L107">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/ast_db5.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/ast_db5.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L81">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/ast_db5.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/ast_db5.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L84">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/bmwm5e34.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/bmwm5e34.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L101">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/bmwm5e34.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/bmwm5e34.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L104">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/bus.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/bus.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L89">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/bus.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/bus.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L92">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/for_raptor.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/for_raptor.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L93">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/for_raptor.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/for_raptor.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L96">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/ford_transit.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/ford_transit.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L77">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/ford_transit.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/ford_transit.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L80">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/gmcvan.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/gmcvan.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L78">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/gmcvan.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/gmcvan.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L81">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/hummerh1.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/hummerh1.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L86">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/hummerh1.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/hummerh1.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L89">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/jeep_grandche.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/jeep_grandche.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L102">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/jeep_grandche.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/jeep_grandche.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L105">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/landrover12.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/landrover12.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L92">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/landrover12.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/landrover12.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L95">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/mer_e63.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/mer_e63.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L82">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/mer_e63.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/mer_e63.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L85">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/mitsu_evox.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/mitsu_evox.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L87">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/mitsu_evox.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/mitsu_evox.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L90">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/nissan_gtr.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/nissan_gtr.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L85">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/nissan_gtr.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/nissan_gtr.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L88">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/prius.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/prius.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L90">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/prius.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/prius.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L93">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/tesla_models.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/tesla_models.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L88">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/tesla_models.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/tesla_models.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L91">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/trucks/gmc_c5500.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/trucks/gmc_c5500.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L75">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/trucks/gmc_c5500.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/trucks/gmc_c5500.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L78">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/vol_s60.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/vol_s60.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L95">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/vol_s60.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/vol_s60.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L98">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="carLighting.models/tdmcars/wrangler.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/wrangler.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L111">Source ☍</a></dt>
+<dt><a name="carLighting.models/tdmcars/wrangler.mdl"></a><strong><span class="state state-client state-server">carLighting.models/tdmcars/wrangler.mdl</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L114">Source ☍</a></dt>
 <dd>
 
 
@@ -560,25 +564,25 @@
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="ARROWS"></a><strong><span class="state state-client state-server">ARROWS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L72">Source ☍</a></dt>
+<dt><a name="ARROWS"></a><strong><span class="state state-client state-server">ARROWS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L75">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.wirePuzzle"></a><strong><span class="state state-client state-server">cityrp.wirePuzzle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L354">Source ☍</a></dt>
+<dt><a name="cityrp.wirePuzzle"></a><strong><span class="state state-client state-server">cityrp.wirePuzzle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L357">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="POLICE"></a><strong><span class="state state-client state-server">POLICE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L70">Source ☍</a></dt>
+<dt><a name="POLICE"></a><strong><span class="state state-client state-server">POLICE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L73">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="WARNING"></a><strong><span class="state state-client state-server">WARNING</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L71">Source ☍</a></dt>
+<dt><a name="WARNING"></a><strong><span class="state state-client state-server">WARNING</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sh_init.lua#L74">Source ☍</a></dt>
 <dd>
 
 

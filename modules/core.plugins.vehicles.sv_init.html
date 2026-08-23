@@ -45,6 +45,7 @@
 <li><a href="../topics/plugins.html">Plugins</a></li>
 <li><a href="../topics/ui-scaling.html">UI Scaling</a></li>
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
@@ -89,6 +90,7 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -121,12 +123,12 @@
 <li><a href="../modules/cityrp.topHints.html">cityrp.topHints</a></li>
 <li><a href="../modules/cityrp.ui.html">cityrp.ui</a></li>
 <li><a href="../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
 <li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
 <li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_customizationMenu.html">core.derma.cl_customizationMenu</a></li>
 <li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
 <li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
 <li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
@@ -153,7 +155,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.sv_access.html">core.libraries.sv_access</a></li>
 <li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
 <li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
 <li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
@@ -168,10 +169,12 @@
 <li><a href="../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
 <li><a href="../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
 <li><a href="../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../modules/core.plugins.animations.animationsapi.cl_boneanimlib.html">core.plugins.animations.animationsapi.cl_boneanimlib</a></li>
 <li><a href="../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
 <li><a href="../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
+<li><a href="../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
 <li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
-<li><a href="../modules/core.plugins.animationui.cl_init.html">core.plugins.animationui.cl_init</a></li>
 <li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
 <li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
 <li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
@@ -271,6 +274,7 @@
 <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
 <li><a href="../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
 <li><a href="../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
 <li><a href="../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
@@ -307,7 +311,7 @@
 <div class="ll-module-body"><p>Serverside Vehicle Plugin.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="CanPlayerEnterVehicleexitloc"></a><strong><span class="state state-server">CanPlayerEnterVehicleexitloc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1459">Source ☍</a></dt>
+<dt><a name="CanPlayerEnterVehicleexitloc"></a><strong><span class="state state-server">CanPlayerEnterVehicleexitloc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1516">Source ☍</a></dt>
 <dd>
 <p>Set data regarding the player enting a vehicle, so they can be spat back out into the same place.</p>
 
@@ -319,7 +323,7 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.remotedoor"></a><strong><span class="state state-server">cityrp.remotedoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1497">Source ☍</a></dt>
+<dt><a name="cityrp.remotedoor"></a><strong><span class="state state-server">cityrp.remotedoor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1554">Source ☍</a></dt>
 <dd>
 <p>Toggle a remote door.</p>
 
@@ -329,7 +333,7 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.siren"></a><strong><span class="state state-server">cityrp.siren</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1726">Source ☍</a></dt>
+<dt><a name="cityrp.siren"></a><strong><span class="state state-server">cityrp.siren</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1783">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -338,7 +342,7 @@
 </ul>
 
 </dd>
-<dt><a name="getVehicleFilter"></a><strong><span class="state state-server">getVehicleFilter</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L181">Source ☍</a></dt>
+<dt><a name="getVehicleFilter"></a><strong><span class="state state-server">getVehicleFilter</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L182">Source ☍</a></dt>
 <dd>
 <p>Fetch a vehicle filter for a given vehicle.</p>
 
@@ -351,7 +355,7 @@
 <li><span class="types">table</span> </li>
 </ol>
 </dd>
-<dt><a name="onVehicleLightsUsed"></a><strong><span class="state state-server">onVehicleLightsUsed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1631">Source ☍</a></dt>
+<dt><a name="onVehicleLightsUsed"></a><strong><span class="state state-server">onVehicleLightsUsed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1688">Source ☍</a></dt>
 <dd>
 <p>Inventory function called when attempting to load up civilian emergency lighting on a vehicle.</p>
 
@@ -362,7 +366,7 @@
 </ul>
 
 </dd>
-<dt><a name="PlayerLeaveVehicleexitloc"></a><strong><span class="state state-server">PlayerLeaveVehicleexitloc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1469">Source ☍</a></dt>
+<dt><a name="PlayerLeaveVehicleexitloc"></a><strong><span class="state state-server">PlayerLeaveVehicleexitloc</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L1526">Source ☍</a></dt>
 <dd>
 <p>Set up so a player leaves to the same point they entered the vehicle from.</p>
 
@@ -374,7 +378,7 @@
 </ul>
 
 </dd>
-<dt><a name="vmDoEnterVehicle"></a><strong><span class="state state-server">vmDoEnterVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L495">Source ☍</a></dt>
+<dt><a name="vmDoEnterVehicle"></a><strong><span class="state state-server">vmDoEnterVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L496">Source ☍</a></dt>
 <dd>
 <p>Hook called when a player requests to enter a vehicle.</p>
 
@@ -389,7 +393,7 @@
 <li><span class="types">boolean|nil</span> If the entry was allowed.</li>
 </ol>
 </dd>
-<dt><a name="vmDoVehicleExit"></a><strong><span class="state state-server">vmDoVehicleExit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L425">Source ☍</a></dt>
+<dt><a name="vmDoVehicleExit"></a><strong><span class="state state-server">vmDoVehicleExit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L426">Source ☍</a></dt>
 <dd>
 <p>Hook called when a player attempts to exit the vehicle.
 Calls vmGetVehicleExit.
@@ -403,7 +407,7 @@ while the player is still seated (or when the exit is denied for speed/locks).</
 </ul>
 
 </dd>
-<dt><a name="vmEnterVehicle"></a><strong><span class="state state-server">vmEnterVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L229">Source ☍</a></dt>
+<dt><a name="vmEnterVehicle"></a><strong><span class="state state-server">vmEnterVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L230">Source ☍</a></dt>
 <dd>
 <p>Hook called when a player enters a vehicle.
 Handles interactions with emergency lighting, team restricted vehicles and such.</p>
@@ -419,7 +423,7 @@ Handles interactions with emergency lighting, team restricted vehicles and such.
 <li><span class="types">boolean|nil</span> If the entry was allowed.</li>
 </ol>
 </dd>
-<dt><a name="vmExitCar"></a><strong><span class="state state-server">vmExitCar</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L542">Source ☍</a></dt>
+<dt><a name="vmExitCar"></a><strong><span class="state state-server">vmExitCar</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L543">Source ☍</a></dt>
 <dd>
 <p>Called when a player presses a key to request exit from the vehicle.
 Handles internal locking and passes onto exits.</p>
@@ -434,7 +438,7 @@ Handles internal locking and passes onto exits.</p>
 <li><span class="types">boolean|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="vmGetVehicleExit"></a><strong><span class="state state-server">vmGetVehicleExit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L383">Source ☍</a></dt>
+<dt><a name="vmGetVehicleExit"></a><strong><span class="state state-server">vmGetVehicleExit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L384">Source ☍</a></dt>
 <dd>
 <p>Hook called when a player exits a vehicle.</p>
 
@@ -449,7 +453,7 @@ Handles internal locking and passes onto exits.</p>
 <li><span class="types">boolean?</span> Return false to deny the exit; return nil to allow default behaviour.</li>
 </ol>
 </dd>
-<dt><a name="vmGetVehicleExitPos"></a><strong><span class="state state-server">vmGetVehicleExitPos</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L354">Source ☍</a></dt>
+<dt><a name="vmGetVehicleExitPos"></a><strong><span class="state state-server">vmGetVehicleExitPos</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L355">Source ☍</a></dt>
 <dd>
 <p>Resolve where somebody leaving a vehicle should be placed.
 Prefers the seat's own entry in the vehicle's <code>Customexits</code> table, and falls back to the
@@ -465,7 +469,7 @@ model's exit attachments when that point is not clear of the vehicle.</p>
 <li><span class="types">Angle?</span> Eye angles to face them in on arrival.</li>
 </ol>
 </dd>
-<dt><a name="vmRepositionPlayer"></a><strong><span class="state state-server">vmRepositionPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L126">Source ☍</a></dt>
+<dt><a name="vmRepositionPlayer"></a><strong><span class="state state-server">vmRepositionPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L127">Source ☍</a></dt>
 <dd>
 <p>Adjust a players sitting position based on pre-defined configs.</p>
 
@@ -476,7 +480,7 @@ model's exit attachments when that point is not clear of the vehicle.</p>
 </ul>
 
 </dd>
-<dt><a name="vmSpawnedVehicle"></a><strong><span class="state state-server">vmSpawnedVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L589">Source ☍</a></dt>
+<dt><a name="vmSpawnedVehicle"></a><strong><span class="state state-server">vmSpawnedVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/sv_init.lua#L601">Source ☍</a></dt>
 <dd>
 <p>Called when a vehicle has been spawned.
 Sets up skins, bodygroups, fixes collisions.</p>
