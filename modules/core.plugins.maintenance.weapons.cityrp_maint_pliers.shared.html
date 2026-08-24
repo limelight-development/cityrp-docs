@@ -19,7 +19,6 @@
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
 <li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
@@ -31,6 +30,7 @@
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
 <li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
@@ -43,6 +43,7 @@
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs</a></li>
+<li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
 <li><a href="../topics/ui-scaling.html">UI Scaling</a></li>
@@ -127,6 +128,7 @@
 <li><a href="../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
 <li><a href="../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
 <li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
@@ -157,7 +159,7 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
 <li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
 <li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
@@ -193,6 +195,11 @@
 <li><a href="../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
 <li><a href="../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
 <li><a href="../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.entities.cityrp_bodybag.cl_init.html">core.plugins.bodybags.entities.cityrp_bodybag.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.entities.cityrp_bodybag.shared.html">core.plugins.bodybags.entities.cityrp_bodybag.shared</a></li>
+<li><a href="../modules/core.plugins.bodybags.entities.cityrp_evidence.cl_init.html">core.plugins.bodybags.entities.cityrp_evidence.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.entities.cityrp_evidence.init.html">core.plugins.bodybags.entities.cityrp_evidence.init</a></li>
+<li><a href="../modules/core.plugins.bodybags.entities.cityrp_evidence.shared.html">core.plugins.bodybags.entities.cityrp_evidence.shared</a></li>
 <li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
 <li><a href="../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
 <li><a href="../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
@@ -298,6 +305,7 @@
 <li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
 <li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
 <li><a href="../modules/dumper.html">dumper</a></li>
+<li><a href="../modules/entities.cityrp_peephole.html">entities.cityrp_peephole</a></li>
 <li><a href="../modules/env.html">env</a></li>
 <li><a href="../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
 <li><a href="../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
@@ -341,22 +349,7 @@ Description: Maintenance Pliers - Used for electric fault repairs.</p></div>
 
 
 </dd>
-<dt><a name="SWEP.CreateModels"></a><strong><span class="state state-client state-server">SWEP.CreateModels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L530">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">tab</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
 <dt><a name="SWEP.DrawHUD"></a><strong><span class="state state-client state-server">SWEP.DrawHUD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L608">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="SWEP.DrawWorldModel"></a><strong><span class="state state-client state-server">SWEP.DrawWorldModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L426">Source ☍</a></dt>
 <dd>
 
 
@@ -385,16 +378,6 @@ Description: Maintenance Pliers - Used for electric fault repairs.</p></div>
 <li><span class="types">unknown|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="SWEP.Holster"></a><strong><span class="state state-client state-server">SWEP.Holster</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L111">Source ☍</a></dt>
-<dd>
-<p>Cancels any in-progress repair/minigame when the weapon is holstered.</p>
-
-
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Always allows the holster.</li>
-</ol>
-</dd>
 <dt><a name="SWEP.IsStoredTargetInRange"></a><strong><span class="state state-client state-server">SWEP.IsStoredTargetInRange</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L181">Source ☍</a></dt>
 <dd>
 <p>Returns whether the stored repair target is still valid and in cancel range.</p>
@@ -407,13 +390,6 @@ Description: Maintenance Pliers - Used for electric fault repairs.</p></div>
 <ol>
 <li><span class="types">boolean</span> </li>
 </ol>
-</dd>
-<dt><a name="SWEP.OnRemove"></a><strong><span class="state state-client state-server">SWEP.OnRemove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L141">Source ☍</a></dt>
-<dd>
-<p>Ensures Holster's cleanup runs when the weapon is removed outright.</p>
-
-
-
 </dd>
 <dt><a name="SWEP.ResetBonePositions"></a><strong><span class="state state-client state-server">SWEP.ResetBonePositions</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L566">Source ☍</a></dt>
 <dd>
@@ -454,42 +430,9 @@ Description: Maintenance Pliers - Used for electric fault repairs.</p></div>
 </ul>
 
 </dd>
-<dt><a name="SWEP.ViewModelDrawn"></a><strong><span class="state state-client state-server">SWEP.ViewModelDrawn</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L363">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="SWEP.VElements"></a><strong><span class="state state-client state-server">SWEP.VElements</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L36">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="SWEP.ViewModelBoneMods"></a><strong><span class="state state-client state-server">SWEP.ViewModelBoneMods</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L42">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="SWEP.WElements"></a><strong><span class="state state-client state-server">SWEP.WElements</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L39">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="SWEP.HoldType"></a><strong><span class="state state-client state-server">SWEP.HoldType</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L27">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
 <dt><a name="SWEP.Primary.Delay"></a><strong><span class="state state-client state-server">SWEP.Primary.Delay</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L48">Source ☍</a></dt>
 <dd>
 
@@ -507,36 +450,6 @@ Description: Maintenance Pliers - Used for electric fault repairs.</p></div>
 <dd>
 <p>Repair timer settings
 Time in seconds to complete repair</p>
-
-
-
-</dd>
-<dt><a name="SWEP.ShowViewModel"></a><strong><span class="state state-client state-server">SWEP.ShowViewModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L30">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="SWEP.ShowWorldModel"></a><strong><span class="state state-client state-server">SWEP.ShowWorldModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L31">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="SWEP.UseHands"></a><strong><span class="state state-client state-server">SWEP.UseHands</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L28">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="SWEP.ViewModelFlip"></a><strong><span class="state state-client state-server">SWEP.ViewModelFlip</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L25">Source ☍</a></dt>
-<dd>
-
-
-
-</dd>
-<dt><a name="SWEP.ViewModelFOV"></a><strong><span class="state state-client state-server">SWEP.ViewModelFOV</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/weapons/cityrp_maint_pliers/shared.lua#L24">Source ☍</a></dt>
-<dd>
 
 
 

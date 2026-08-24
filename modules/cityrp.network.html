@@ -19,6 +19,7 @@
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
 <li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
@@ -30,6 +31,7 @@
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
 <li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
@@ -42,6 +44,7 @@
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs</a></li>
+<li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
 <li><a href="../topics/ui-scaling.html">UI Scaling</a></li>
@@ -126,6 +129,7 @@
 <li><a href="../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
 <li><a href="../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
 <li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
@@ -156,7 +160,7 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.metatables.sh_entity.html">core.metatables.sh_entity</a></li>
+<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
 <li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
 <li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
@@ -192,6 +196,11 @@
 <li><a href="../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
 <li><a href="../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
 <li><a href="../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.entities.cityrp_bodybag.cl_init.html">core.plugins.bodybags.entities.cityrp_bodybag.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.entities.cityrp_bodybag.shared.html">core.plugins.bodybags.entities.cityrp_bodybag.shared</a></li>
+<li><a href="../modules/core.plugins.bodybags.entities.cityrp_evidence.cl_init.html">core.plugins.bodybags.entities.cityrp_evidence.cl_init</a></li>
+<li><a href="../modules/core.plugins.bodybags.entities.cityrp_evidence.init.html">core.plugins.bodybags.entities.cityrp_evidence.init</a></li>
+<li><a href="../modules/core.plugins.bodybags.entities.cityrp_evidence.shared.html">core.plugins.bodybags.entities.cityrp_evidence.shared</a></li>
 <li><a href="../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
 <li><a href="../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
 <li><a href="../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
@@ -297,6 +306,7 @@
 <li><a href="../modules/core.sv_commands.html">core.sv_commands</a></li>
 <li><a href="../modules/core.sv_configuration.html">core.sv_configuration</a></li>
 <li><a href="../modules/dumper.html">dumper</a></li>
+<li><a href="../modules/entities.cityrp_peephole.html">entities.cityrp_peephole</a></li>
 <li><a href="../modules/env.html">env</a></li>
 <li><a href="../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
 <li><a href="../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
@@ -310,9 +320,1004 @@
 		</div>
 		<div id="content">
 <div class="ll-module-header"><h1>cityrp.network</h1></div>
-<div class="ll-module-body"><p>Clientside Networking Module</p></div>
+<div class="ll-module-body"><p>Clientside receiving, handshake and pull-on-visible resync for the CityRP networking library.
+Storing values directly on the entity (<code>sh_store.lua</code>) retires the plugin this library replaces'
+worst clientside bug for free: <code>PLUGIN.NSVars[entIndex]</code>, keyed by raw index, was never cleared on
+disconnect, so a recycled edict inherited whatever the previous occupant left behind. GMod hands a
+newly-created entity a fresh Lua table regardless of which index it reuses, so <code>ent.__netvars</code> simply
+does not exist yet for it -- there is nothing to clean up, and nothing here needs to try.</p>
+<p>The one real gap that storage model leaves is timing: a value can arrive (via Update or Resync)
+referencing an entity this client hasn't networked yet. Those are buffered by raw index in <code>pending</code>
+until <code>OnEntityCreated</code> actually produces the entity, and swept on a TTL in case it never does (e.g.
+the entity never entered this client's PVS at all).</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.network.AnnounceReady"></a><strong><span class="state state-client">cityrp.network.AnnounceReady</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/cl_receive.lua#L39">Source ☍</a></dt>
+<dd>
+<p>Announces that this client's net channel is up and ready to receive the manifest.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.ApplyIndexed"></a><strong><span class="state state-client">cityrp.network.ApplyIndexed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/cl_receive.lua#L225">Source ☍</a></dt>
+<dd>
+<p>Applies a decoded entity-scoped value (Entity/Player/Vehicle/Weapon), buffering it if the entity
+hasn't appeared yet.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">index</span> <span class="types">integer</span></li>
+<li><span class="parameter">netvar</span> <span class="types">NetVar</span> A registered network variable, mid-configuration or sealed.
+Every field below is set through the chained builder methods; construct with
+<code>cityrp.network.Register</code>, never with <code>setmetatable</code> directly.</li>
+<li><span class="parameter">value</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.ApplyUnindexed"></a><strong><span class="state state-client">cityrp.network.ApplyUnindexed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/cl_receive.lua#L237">Source ☍</a></dt>
+<dd>
+<p>Applies a decoded no-index value: Global goes to the global table, LocalPlayer to <code>LocalPlayer()</code>.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">netvar</span> <span class="types">NetVar</span> A registered network variable, mid-configuration or sealed.
+Every field below is set through the chained builder methods; construct with
+<code>cityrp.network.Register</code>, never with <code>setmetatable</code> directly.</li>
+<li><span class="parameter">value</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.ApplyValue"></a><strong><span class="state state-client state-server">cityrp.network.ApplyValue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L72">Source ☍</a></dt>
+<dd>
+<p>Validates (if the var has an <code>:Enum()</code>-set <code>validate</code> function), applies a value to storage, and
+fires the var's <code>:SetHook()</code> hook if the value changed. Shared by the server's own
+<code>SetNetVar</code>/<code>SetGlobal</code> (<code>sv_send.lua</code>) -- so the server's own copy of a value updates immediately
+regardless of who receives the resulting net message, and so the delta guard that decides whether
+to bother networking at all lives in exactly one place -- and the client's receive path
+(<code>cl_receive.lua</code>), once an update has actually been decoded.
+for a <code>:Predictable()</code> var's client-side local apply, see <code>GenerateAccessor</code> below.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">netvar</span> <span class="types">NetVar</span> The var being applied.</li>
+<li><span class="parameter">ent</span> <span class="types">Entity?</span> The entity to store on. Ignored (may be nil) for Global scope.</li>
+<li><span class="parameter">value</span> <span class="types">any</span> The decoded value.</li>
+<li><span class="parameter">predicted</span> <span class="types">boolean?</span> Passed through to the <code>:SetHook()</code> hook as its 5th argument -- true only</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> Whether the value actually changed (false for a redundant re-set or a rejected invalid one).</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.BufferPending"></a><strong><span class="state state-client">cityrp.network.BufferPending</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/cl_receive.lua#L128">Source ☍</a></dt>
+<dd>
+<p>Buffers a decoded value for an entity index that doesn't resolve to a valid entity yet.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">index</span> <span class="types">integer</span></li>
+<li><span class="parameter">id</span> <span class="types">integer</span></li>
+<li><span class="parameter">value</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.CollectSendableVars"></a><strong><span class="state state-server">cityrp.network.CollectSendableVars</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L377">Source ☍</a></dt>
+<dd>
+<p>Collects this entity's currently-set entity-scoped vars (<code>IsEntityScope</code>) that <code>ply</code> is allowed
+to see. Global and LocalPlayer-scoped vars never go through resync -- Global is broadcast
+independently of any entity's visibility, and LocalPlayer is always pushed straight to its one
+owner.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">{ netvar: NetVar, value: any }[]</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.DecodeEntry"></a><strong><span class="state state-client">cityrp.network.DecodeEntry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/cl_receive.lua#L174">Source ☍</a></dt>
+<dd>
+<p>Reads one var entry (<code>[id][isNil][value?]</code>). On any decode failure the rest of the current net
+message is unsalvageable -- an id this client doesn't recognise, or a Custom codec with no local
+<code>:Read()</code>, means the byte length of what follows can't be known -- so callers must stop reading
+immediately rather than try to continue. Safe to do because the server never batches a
+non-batchable (Custom-codec) entry with anything else, and both callers below already discard any
+message that arrives before this client's own manifest.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar?</span> nil on failure.</li>
+<li><span class="types">any</span> </li>
+<li><span class="types">boolean</span> False if the rest of this message must be discarded.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.DequeueEntity"></a><strong><span class="state state-server">cityrp.network.DequeueEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L90">Source ☍</a></dt>
+<dd>
+<p>Removes <code>ent</code> from <code>ply</code>'s resync queue, clearing <code>ply</code> from <code>pendingPlayers</code> if that empties it.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.DrainOnePlayer"></a><strong><span class="state state-server">cityrp.network.DrainOnePlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L397">Source ☍</a></dt>
+<dd>
+<p>Drains up to <code>take</code> entities from <code>ply</code>'s resync queue and sends whatever they're owed.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+<li><span class="parameter">take</span> <span class="types">integer</span></li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">integer</span> How many queue entries were consumed (valid or not).</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.DrainPending"></a><strong><span class="state state-client">cityrp.network.DrainPending</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/cl_receive.lua#L136">Source ☍</a></dt>
+<dd>
+<p>Applies any values buffered for <code>ent</code>, now that it actually exists.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.DrainResyncQueues"></a><strong><span class="state state-server">cityrp.network.DrainResyncQueues</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L431">Source ☍</a></dt>
+<dd>
+<p>Drains every player's resync queue, round-robin, within the configured per-frame budgets.
+The cursor persists across frames (<code>drainCursorPly</code>) so a player who was last in line this frame
+is first in line next frame -- with enough players queued to exceed the per-frame budget, this is
+what guarantees everyone is eventually served instead of the same players always winning the race.
+If the previous cursor's queue emptied out between frames, the round-robin simply restarts from
+the first candidate rather than trying to preserve a &quot;position&quot; a table with unstable iteration
+order can't actually promise -- a minor, self-correcting fairness wrinkle.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.EnqueueAllEntitiesForResync"></a><strong><span class="state state-server">cityrp.network.EnqueueAllEntitiesForResync</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L473">Source ☍</a></dt>
+<dd>
+<p>Queues every currently-known networked entity for resync to <code>ply</code>. Used for the join bootstrap --
+reusing the resync path means a large join gets the same per-frame rate limiting as any other
+resync, rather than a separate one-off bulk-send path to reason about and maintain.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.FindVar"></a><strong><span class="state state-client state-server">cityrp.network.FindVar</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L52">Source ☍</a></dt>
+<dd>
+<p>Looks up a registered var by name, logging (once per call, not once per name) if it isn't one.
+Shared by every public getter/setter so &quot;unregistered name&quot; fails the same way everywhere.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">string</span> The var name to look up.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar?</span> The registered var, or nil (and a logged error) if <code>name</code> isn't registered.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.FlushResyncRequests"></a><strong><span class="state state-client">cityrp.network.FlushResyncRequests</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/cl_receive.lua#L298">Source ☍</a></dt>
+<dd>
+<p>Sends one batched resync request for every entity queued since the last flush.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.GenerateAccessor"></a><strong><span class="state state-client state-server">cityrp.network.GenerateAccessor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L172">Source ☍</a></dt>
+<dd>
+<p>Defines <code>Get&lt;Name&gt;()</code> (both realms) and <code>Set&lt;Name&gt;()</code> for a var registered with <code>:Accessor(name)</code>,
+on the metatable <code>ACCESSOR_METATABLE</code> maps its scope to (Entity for Global/Entity scope, Player
+for Player/LocalPlayer, Vehicle/Weapon for those). A no-op for a var with no accessor name set.
+Idempotent -- safe to call more than once for the same var.</p>
+<p><code>Set&lt;Name&gt;()</code> is server-only -- setting is server-authoritative -- UNLESS <code>:Predictable()</code> was
+also called, in which case the client gets its own <code>Set&lt;Name&gt;()</code> too: a purely local apply
+(<code>ApplyValue</code> with <code>predicted = true</code>, storage + hook only, never a network send) rather than the
+server's <code>SetNetVar</code>/<code>SetGlobal</code>, which don't exist on the client realm at all (<code>sv_send.lua</code> is
+server-only). <code>:Predictable()</code> only makes sense for <code>:SetLocalPlayer()</code>, so a scope mismatch here
+is a logged error, not a silently-generated footgun.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">netvar</span> <span class="types">NetVar</span> The var to generate accessors for.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.GenerateAccessors"></a><strong><span class="state state-client state-server">cityrp.network.GenerateAccessors</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L199">Source ☍</a></dt>
+<dd>
+<p>Generates accessors for every currently-registered var. Called once from <code>Seal()</code>, after which
+new registrations no longer occur -- see <code>sh_registry.lua</code>.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.GetGlobal"></a><strong><span class="state state-client state-server">cityrp.network.GetGlobal</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L145">Source ☍</a></dt>
+<dd>
+<p>Reads a Global-scoped networked value.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">string</span> The registered var name.</li>
+<li><span class="parameter">default</span> <span class="types">any</span> Returned if the value has never been set, or on any error path.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">any</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.GetQueue"></a><strong><span class="state state-server">cityrp.network.GetQueue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L69">Source ☍</a></dt>
+<dd>
+<p>Gets (creating if needed) a player's resync queue.
+A queue is a plain weak-keyed set of entities, not an ordered array. Photon's original resync
+queue is an array plus a drain cursor needing periodic &quot;backlog reclamation&quot; to stop the backing
+array growing forever; a weak-keyed set has no backing array to grow, and dropping an entity from
+it is an ordinary key removal. The trade-off is that iteration order (<code>pairs</code>) is unspecified
+rather than FIFO, which is fine -- fairness across players already comes from the round-robin in
+<code>DrainResyncQueues</code>, not per-player ordering.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">table&lt;Entity, boolean&gt;</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.GetSignedBits"></a><strong><span class="state state-client state-server">cityrp.network.GetSignedBits</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L92">Source ☍</a></dt>
+<dd>
+<p>Number of bits required to write <code>value</code> with <code>net.WriteInt</code>, clamped to 1-32. Always reserves a
+sign-headroom bit -- without it, an exact power of two (e.g. 4, needing 3 unsigned bits) would
+not fit the signed range those same 3 bits provide (-4..3), silently truncating.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">value</span> <span class="types">number</span> The (integral) value that will be written.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">integer</span> Bits required, 1-32.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.GetUnsignedBits"></a><strong><span class="state state-client state-server">cityrp.network.GetUnsignedBits</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L113">Source ☍</a></dt>
+<dd>
+<p>Number of bits required to write <code>value</code> with <code>net.WriteUInt</code>, clamped to 1-32. Unlike
+<code>GetSignedBits</code>, no sign-headroom bit is reserved -- callers must already know <code>value</code> is
+non-negative.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">value</span> <span class="types">number</span> The (integral, non-negative) value that will be written.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">integer</span> Bits required, 1-32.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.GetValueCodec"></a><strong><span class="state state-client state-server">cityrp.network.GetValueCodec</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L377">Source ☍</a></dt>
+<dd>
+<p>Determines which codec <code>Auto</code> should tag a value as. Mirrors the closed set bounded by
+<code>AUTO_TAG_MAX</code> -- every branch here must return an ID whose codec table entry actually exists
+and is self-contained (no extra argument required to read it back).</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">value</span> <span class="types">any</span> The value to classify.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetCodecId</span> The codec ID to tag and write it with.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.IsEntityScope"></a><strong><span class="state state-client state-server">cityrp.network.IsEntityScope</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L52">Source ☍</a></dt>
+<dd>
+<p>Whether <code>scope</code> stores on an entity and uses entity-index wire framing.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">scope</span> <span class="types">NetScope</span> Where a <code>NetVar</code>'s value lives and who it is sent to by default.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.IsFloatValue"></a><strong><span class="state state-client state-server">cityrp.network.IsFloatValue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L82">Source ☍</a></dt>
+<dd>
+<p>Whether a Lua number is non-integral. Written without GMod's <code>math.floor(value, 0)</code> two-arg
+form this codebase's predecessor relied on -- the second argument is silently ignored either way.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">value</span> <span class="types">number</span> The number to check.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> True if flooring <code>value</code> would change it.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.IsNormalVector"></a><strong><span class="state state-client state-server">cityrp.network.IsNormalVector</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L130">Source ☍</a></dt>
+<dd>
+<p>Whether a vector's components are all small enough to use the compact <code>Normal</code> wire encoding.
+Checks magnitude, not raw value -- a component of -1000 must not qualify just for being &lt; 1.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">vec</span> <span class="types">Vector</span> The vector to check.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> True if every component's magnitude is at most 1.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.IsRecipientsEmpty"></a><strong><span class="state state-server">cityrp.network.IsRecipientsEmpty</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L103">Source ☍</a></dt>
+<dd>
+<p>Whether a resolved recipient value (from <code>:Filter()</code>/<code>:SendOmit()</code>) contains no one.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">recipients</span> <span class="types">CRecipientFilter|Player|Player[]|nil</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.MarkReady"></a><strong><span class="state state-server">cityrp.network.MarkReady</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L576">Source ☍</a></dt>
+<dd>
+<p>Completes a player's handshake: sends the manifest and initial bootstrap, marks them ready, and
+runs anything queued by <code>WaitForPlayer</code>. Idempotent -- a client that re-announces before receiving
+anything back is a safe no-op.
+<code>__netReady</code> does not gate live <code>Update</code>/<code>Resync</code> sends (see <code>SendUpdate</code>'s own comment for why);
+it gates the <em>server's</em> willingness to accept a resync request from this player and to count them
+as a resync candidate, both of which would be meaningless before their manifest exists.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.PassesRecipientCheck"></a><strong><span class="state state-server">cityrp.network.PassesRecipientCheck</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L145">Source ☍</a></dt>
+<dd>
+<p>Whether <code>ply</code> should receive this var's current value, for resync and bootstrap purposes.
+PVS/PAS are treated as bandwidth filters, not secrecy boundaries: they always pass here, because
+resync/bootstrap only ever consider a var for a player who is (or is about to be) in a position to
+receive it anyway. Only <code>:Filter()</code> can actually withhold a value from a specific player -- this is
+also why <code>:Filter()</code>'s callback doubles as the authorization check, rather than needing a second,
+separately-maintained predicate that could drift out of sync with the one used for live sends.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">netvar</span> <span class="types">NetVar</span> A registered network variable, mid-configuration or sealed.
+Every field below is set through the chained builder methods; construct with
+<code>cityrp.network.Register</code>, never with <code>setmetatable</code> directly.</li>
+<li><span class="parameter">ent</span> <span class="types">Entity?</span> nil for the no-index (Global/LocalPlayer) group.</li>
+<li><span class="parameter">value</span> <span class="types">any</span></li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.QueueEntity"></a><strong><span class="state state-server">cityrp.network.QueueEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L81">Source ☍</a></dt>
+<dd>
+<p>Adds <code>ent</code> to <code>ply</code>'s resync queue and marks <code>ply</code> as having pending work.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.ReadAutoValue"></a><strong><span class="state state-client state-server">cityrp.network.ReadAutoValue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L449">Source ☍</a></dt>
+<dd>
+<p>Reads a value written by <code>WriteAutoValue</code>.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">any</span> The decoded value, or nil if the tag was Nil.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.ReadIndexHeader"></a><strong><span class="state state-client">cityrp.network.ReadIndexHeader</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/cl_receive.lua#L211">Source ☍</a></dt>
+<dd>
+<p>Reads an index header written by <code>WriteIndexHeader</code> in sv_send.lua: whether an entity index
+follows, and the index itself if so. Shared by the Update and Resync receivers below so this
+wire shape is decoded in exactly one place -- see the matching <code>WriteIndexHeader</code> for why
+(AGENTS.md footgun #11: paired literals, or paired shapes, drift when edited independently).</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+<li><span class="types">integer?</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.ReadSignedComponent"></a><strong><span class="state state-client state-server">cityrp.network.ReadSignedComponent</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L154">Source ☍</a></dt>
+<dd>
+<p>Reads one component written by <code>WriteSignedComponent</code>.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> The decoded component.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.RecipientsContain"></a><strong><span class="state state-server">cityrp.network.RecipientsContain</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L116">Source ☍</a></dt>
+<dd>
+<p>Whether <code>ply</code> is a member of a resolved recipient value.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">recipients</span> <span class="types">CRecipientFilter|Player|Player[]|nil</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> </li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.Register"></a><strong><span class="state state-client state-server">cityrp.network.Register</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L119">Source ☍</a></dt>
+<dd>
+<p>Registers a new network variable, or returns the existing one if <code>name</code> is already registered.
+Must be called before the registry seals (on <code>Initialize</code>) -- see <code>Seal</code> below.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">string</span> The variable's name. Must be unique.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> The (possibly just-created) <code>NetVar</code>, ready for chained configuration.</li>
+</ol>
+</dd>
+<dt><a name="cityrp.network.RequestResync"></a><strong><span class="state state-client">cityrp.network.RequestResync</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/cl_receive.lua#L322">Source ☍</a></dt>
+<dd>
+<p>Queues <code>ent</code> for resync, debounced to at most one request per frame regardless of how many
+entities become visible in that frame.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.Seal"></a><strong><span class="state state-client state-server">cityrp.network.Seal</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L531">Source ☍</a></dt>
+<dd>
+<p>Seals the registry: assigns every var a stable numeric ID and locks out further registration.
+Only the server actually assigns IDs, by sorting registered names -- the client waits for the
+server's manifest to populate <code>byId</code> by name instead, so the two realms never need to agree on
+sort order or registration order. Safe to call more than once; later calls are no-ops.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.SendGlobalsAndLocal"></a><strong><span class="state state-server">cityrp.network.SendGlobalsAndLocal</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L531">Source ☍</a></dt>
+<dd>
+<p>Sends every current Global value and <code>ply</code>'s own LocalPlayer-scoped values in one no-index group.
+Part of the join bootstrap; Global/LocalPlayer vars aren't entity-visibility-driven so they don't
+go through the resync queue the way entity-scoped vars do. Global values still run through
+<code>PassesRecipientCheck</code> here -- a Global var has no owning entity to gate resync eligibility on
+<code>IsValid</code>/PVS, so without this check a <code>:Filter()</code>-restricted Global value would reach every new
+or reconnecting player regardless of the filter, the moment they join.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.SendGroups"></a><strong><span class="state state-server">cityrp.network.SendGroups</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L202">Source ☍</a></dt>
+<dd>
+<p>Sends a batch of <code>{ent, vars = {{netvar, value}, ...}}</code> groups to one player as one or more
+<code>cityrp.network.Resync</code> messages, splitting on the byte threshold between groups.
+A non-batchable (custom-codec) var is never shared with any other entry -- it is always flushed
+into, and sent as, a message of its own -- so an undecodable custom value can only ever corrupt
+that one message, not a whole batch of unrelated vars riding alongside it.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+<li><span class="parameter">groups</span> <span class="types">{ ent: Entity?, vars: { netvar: NetVar, value: any }[] }[]</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.SendManifest"></a><strong><span class="state state-server">cityrp.network.SendManifest</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L508">Source ☍</a></dt>
+<dd>
+<p>Sends the sealed registry as <code>id -&gt; name/scope/codec/arg</code>. Sent once per player, on their first
+<code>cityrp.network.Sync</code> announce -- see <code>MarkReady</code> below. The ID width travels in the header so the
+two realms can never disagree about it, which is what keeps a load-order difference between them
+from corrupting every value the way it could in the plugin this library replaces.
+A Custom-coded var's real <code>codecArg</code> (the <code>opt</code> passed to its <code>:Write()</code>/<code>:Read()</code>) is whatever the
+registering plugin's own shared code chose -- not necessarily numeric, and not something the
+receiving client needs from the wire anyway, since decoding it already requires that client to
+have run the same local <code>:Read(fn, opt)</code> call. A placeholder <code>0</code> goes out instead of the real
+value so a non-numeric <code>opt</code> can never break <code>net.WriteUInt</code> here.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.SendUpdate"></a><strong><span class="state state-server">cityrp.network.SendUpdate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L278">Source ☍</a></dt>
+<dd>
+<p>Sends a single var change. Resolves recipients before <code>net.Start</code> so an empty <code>:Filter()</code> result
+skips networking entirely instead of leaving a started message with nowhere to send.
+Reaches every currently-connected player for Broadcast/PVS/PAS/Omit, including ones who haven't
+finished their handshake yet -- deliberately: filtering the recipient list down to &quot;ready&quot; players
+would mean reimplementing PVS/PAS membership in Lua just to exclude a few joining players from an
+engine call that already does that natively. Instead <code>cl_receive.lua</code> discards any Update/Resync
+payload before its own manifest has arrived, which costs that player nothing: <code>MarkReady</code> sends a
+full bootstrap right after the manifest, so a live update missed during the join race is already
+reflected in the state that bootstrap sends moments later.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">netvar</span> <span class="types">NetVar</span> A registered network variable, mid-configuration or sealed.
+Every field below is set through the chained builder methods; construct with
+<code>cityrp.network.Register</code>, never with <code>setmetatable</code> directly.</li>
+<li><span class="parameter">ent</span> <span class="types">Entity?</span> nil for Global scope.</li>
+<li><span class="parameter">value</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.SetGlobal"></a><strong><span class="state state-server">cityrp.network.SetGlobal</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L353">Source ☍</a></dt>
+<dd>
+<p>Sets a Global-scoped networked value and, if it changed, broadcasts it (subject to <code>:Filter()</code>).</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">string</span> The registered var name.</li>
+<li><span class="parameter">value</span> <span class="types">any</span> The new value. <code>nil</code> clears it.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.WaitForPlayer"></a><strong><span class="state state-server">cityrp.network.WaitForPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L557">Source ☍</a></dt>
+<dd>
+<p>Runs <code>fn(ply)</code> once <code>ply</code>'s handshake has completed, or immediately if it already has.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+<li><span class="parameter">fn</span> <span class="types">fun(ply: Player)</span></li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.WriteAutoValue"></a><strong><span class="state state-client state-server">cityrp.network.WriteAutoValue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L440">Source ☍</a></dt>
+<dd>
+<p>Writes a value self-describingly: a codec tag, then the value via that codec.
+This is what backs both the <code>Auto</code> codec and every key/value inside a <code>Table</code>.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">value</span> <span class="types">any</span> The value to write. <code>nil</code> writes only the tag.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.WriteIndexHeader"></a><strong><span class="state state-server">cityrp.network.WriteIndexHeader</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L186">Source ☍</a></dt>
+<dd>
+<p>Writes an index header: whether an entity index follows, and the index itself if so. Shared by
+every send path that needs this exact shape (<code>SendGroups</code>'s per-group header and <code>SendUpdate</code>'s
+per-message header) so the wire format for &quot;does this carry an index&quot; is defined once -- see the
+matching <code>ReadIndexHeader</code> in <code>cl_receive.lua</code> (AGENTS.md footgun #11).</p>
+<p>A player entity's index is always within the engine's player-slot range, so <code>MAX_PLAYER_BITS</code> is
+enough to encode it -- narrower than the general <code>ENTITY_INDEX_BITS</code> (<code>MAX_EDICT_BITS</code>) every
+non-player entity needs. Which width applies can't be inferred from <code>netvar.scope</code> alone -- a
+Player-scoped and an Entity-scoped var can share the same group/index header when they target the
+same physical player entity (<code>SendGroups</code> groups by entity, not scope) -- so the leading
+<code>isPlayer</code> bool is checked against the entity itself, and travels on the wire since the reader
+doesn't have <code>ent</code> yet; it's what this index will construct.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">hasIndex</span> <span class="types">boolean</span></li>
+<li><span class="parameter">ent</span> <span class="types">Entity?</span> Required (and used) only when <code>hasIndex</code> is true.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.WriteSignedComponent"></a><strong><span class="state state-client state-server">cityrp.network.WriteSignedComponent</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L139">Source ☍</a></dt>
+<dd>
+<p>Writes one signed vector/angle component, choosing between a raw float and a compact signed
+integer depending on which the value actually needs. Emits its own leading flag bit. Values
+outside the 32-bit signed integer range are forced onto the float path -- <code>GetSignedBits</code> clamps
+to 32, which would otherwise silently truncate a huge whole-number component.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">component</span> <span class="types">number</span> The component to write.</li>
+</ul>
+
+</dd>
+<dt><a name="cityrp.network.WriteVarEntry"></a><strong><span class="state state-server">cityrp.network.WriteVarEntry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L158">Source ☍</a></dt>
+<dd>
+<p>Writes one var entry: <code>[id][isNil][value?]</code>. Shared by the single-entry live Update path and the
+grouped Resync path.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">netvar</span> <span class="types">NetVar</span> A registered network variable, mid-configuration or sealed.
+Every field below is set through the chained builder methods; construct with
+<code>cityrp.network.Register</code>, never with <code>setmetatable</code> directly.</li>
+<li><span class="parameter">value</span> <span class="types">any</span></li>
+</ul>
+
+</dd>
+<dt><a name="Entity.GetNetVar"></a><strong><span class="state state-client state-server">Entity.GetNetVar</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L123">Source ☍</a></dt>
+<dd>
+<p>Reads a networked value from this entity.
+Unregistered names and Global-scoped vars both return <code>default</code> with a logged error -- use
+<code>cityrp.network.GetGlobal</code> for Global-scoped vars.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">string</span> The registered var name.</li>
+<li><span class="parameter">default</span> <span class="types">any</span> Returned if the value has never been set, or on any of the error paths above.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">any</span> </li>
+</ol>
+</dd>
+<dt><a name="Entity.SetNetVar"></a><strong><span class="state state-server">Entity.SetNetVar</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L326">Source ☍</a></dt>
+<dd>
+<p>Sets a networked value on this entity and, if it changed, sends the update.
+Errors (logged, not thrown) for an unregistered name, a Global-scoped var (use
+<code>cityrp.network.SetGlobal</code>), or a LocalPlayer-scoped var set on a non-player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">string</span> The registered var name.</li>
+<li><span class="parameter">value</span> <span class="types">any</span> The new value. <code>nil</code> clears it.</li>
+</ul>
+
+</dd>
+<dt><a name="NetVar.Accessor"></a><strong><span class="state state-client state-server">NetVar.Accessor</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L501">Source ☍</a></dt>
+<dd>
+<p>Generates <code>Get&lt;name&gt;()</code> (both realms) and <code>Set&lt;name&gt;()</code> (server only), attaching to the metatable
+that best matches this var's scope -- <code>FindMetaTable(&quot;Player&quot;)</code> for <code>:SetPlayer()</code>/
+<code>:SetLocalPlayer()</code>, <code>FindMetaTable(&quot;Vehicle&quot;)</code>/<code>FindMetaTable(&quot;Weapon&quot;)</code> for those, and
+<code>FindMetaTable(&quot;Entity&quot;)</code> otherwise -- see <code>sh_store.lua</code>'s <code>GenerateAccessor</code> for why that
+distinction exists.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span> <span class="types">string</span> Suffix for the generated method names.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.AutoHook"></a><strong><span class="state state-client state-server">NetVar.AutoHook</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L474">Source ☍</a></dt>
+<dd>
+<p>Shorthand for <code>:SetHook()</code> that derives the hook name from the var's own name, for the common
+case of not caring what it's called -- <code>&quot;CityRP.Network.&quot; .. name .. &quot;.Changed&quot;</code>, matching this
+codebase's existing <code>CityRP.&lt;Module&gt;.&lt;Event&gt;</code> hook naming (<code>CityRP.DayNight.PeriodChanged</code>,
+<code>CityRP.Networking.Register</code>, etc).</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.Broadcast"></a><strong><span class="state state-client state-server">NetVar.Broadcast</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L413">Source ☍</a></dt>
+<dd>
+<p>Sends updates to every player (the default for every scope except LocalPlayer, which is always
+owner-only regardless of this setting).</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.Data"></a><strong><span class="state state-client state-server">NetVar.Data</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L303">Source ☍</a></dt>
+<dd>
+<p>Fixed-length byte string via <code>net.WriteData</code>/<code>net.ReadData</code>.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">maxLen</span> <span class="types">integer</span> Byte length. Both realms must agree on this value; it also travels in the manifest.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.Enum"></a><strong><span class="state state-client state-server">NetVar.Enum</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L361">Source ☍</a></dt>
+<dd>
+<p>Declares this var as an enum over <code>list</code>, a sequential (<code>ipairs</code>-ordered) array of its legal
+values. Picks between two wire strategies by comparing their actual bit cost:</p>
+<ul>
+<li><strong>Direct value</strong> (batchable): <code>list</code> is entirely integers. The value itself goes on the wire,
+sized to its min/max via <code>:Integer</code>/<code>:UInteger</code> -- signed only if <code>min</code> is negative. No offset
+from <code>min</code> is applied even when every value shares a large common magnitude (e.g. <code>{100,101}</code>)
+-- an offset would itself need a <code>CODEC_CUSTOM</code> closure, exactly the cost this path avoids.</li>
+<li><strong>Mapped index</strong> (not batchable): the value's index in <code>list</code> goes on the wire instead, via an
+auto-generated <code>:Write()</code>/<code>:Read()</code> pair sized to <code>#list</code>. Cheaper for a small set of
+large-magnitude or widely-spread values, at the cost of <code>CODEC_CUSTOM</code> -- never sharing a
+resync message with sibling vars on the same entity.</li>
+</ul>
+<p>For an all-integer <code>list</code>, the mapped index is used only if it beats the direct-value encoding by
+more than <code>RESYNC_GROUP_OVERHEAD_BITS</code>. A <code>list</code> containing anything non-integer always uses the
+mapped index; there is no numeric value to size a direct encoding from.</p>
+<p>Either way, <code>Set</code>ting a value not present in <code>list</code> is rejected -- logged, not stored/sent -- by
+<code>ApplyValue</code>'s <code>validate</code> check. <code>nil</code> (clearing the var) always bypasses this check.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">list</span> <span class="types">any[]</span> The enum's legal values, in wire-assignment order. Must be non-empty; a mapped-index list must also have no duplicates.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.Filter"></a><strong><span class="state state-client state-server">NetVar.Filter</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L450">Source ☍</a></dt>
+<dd>
+<p>Sends updates only to whoever <code>fn</code> returns, and doubles as the authorization check used by
+resync and late-join sync -- see <code>sv_send.lua</code>. Keep <code>fn</code> cheap and side-effect free: it can run
+once per update and again per resync candidate.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">fn</span> <span class="types">fun(ent: Entity, value: any):CRecipientFilter|Player|Player[]|nil</span> Recipients, or nil for none.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.Integer"></a><strong><span class="state state-client state-server">NetVar.Integer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L268">Source ☍</a></dt>
+<dd>
+<p><code>net.WriteInt</code>/<code>net.WriteUInt</code> only accept 1-32 bits -- the plugin this library replaces declared
+64- and 128-bit integer types that could never actually be written. <code>:Long()</code> below is the
+closest working replacement for those call sites, not a wider integer.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">bits</span> <span class="types">integer</span> Bit width, 1-32.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.Long"></a><strong><span class="state state-client state-server">NetVar.Long</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L295">Source ☍</a></dt>
+<dd>
+<p>Widest integer GLua numbers can actually represent exactly (2^53). An alias of <code>:Double()</code> --
+there is no true 64-bit integer codec, because a Lua number cannot hold one losslessly regardless
+of how it is framed on the wire.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.Predictable"></a><strong><span class="state state-client state-server">NetVar.Predictable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L489">Source ☍</a></dt>
+<dd>
+<p>Allows client-side prediction: <code>:Accessor()</code>'s generated <code>Set&lt;Name&gt;()</code> becomes available on the
+CLIENT too, applying locally (storage + <code>:SetHook()</code> only -- never a network send, the client has
+no authority to send) instead of being server-only. A later confirmed value -- whether that same
+client's predicted action being confirmed, or an unrelated server-side change -- arrives through
+the normal decode path and overwrites the locally-applied one, correcting any drift.</p>
+<p>Only meaningful for <code>:SetLocalPlayer()</code> -- a client predicting some other entity's state isn't
+coherent, so <code>:Accessor()</code> logs an error and skips generating the client setter on a scope
+mismatch rather than silently letting a broadcast/entity-scoped var be mutated client-side with
+nothing to correct it.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.Read"></a><strong><span class="state state-client state-server">NetVar.Read</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L215">Source ☍</a></dt>
+<dd>
+<p>Sets a custom deserializer to pair with <code>:Write()</code>.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">readFn</span> <span class="types">fun(arg: any):any</span> Called with <code>opt</code> to read the value back.</li>
+<li><span class="parameter">opt</span> <span class="types">any</span> Passed through as <code>arg</code>; typically the same value given to <code>:Write()</code>.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SendOmit"></a><strong><span class="state state-client state-server">NetVar.SendOmit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L439">Source ☍</a></dt>
+<dd>
+<p>Sends updates to everyone except whoever <code>fn</code> returns (<code>net.SendOmit</code>).</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">fn</span> <span class="types">fun(ent: Entity, value: any):Player|Player[]|nil</span> Players to exclude.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SendPAS"></a><strong><span class="state state-client state-server">NetVar.SendPAS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L431">Source ☍</a></dt>
+<dd>
+<p>Sends updates only to players who can potentially hear the entity's position (<code>net.SendPAS</code>).
+Same bandwidth-not-secrecy caveat as <code>:SendPVS()</code>.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SendPVS"></a><strong><span class="state state-client state-server">NetVar.SendPVS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L423">Source ☍</a></dt>
+<dd>
+<p>Sends updates only to players who can potentially see the entity's position (<code>net.SendPVS</code>).
+Treated as a bandwidth filter, not a secrecy boundary: resync always includes a PVS var, because
+the client is asking precisely because the entity just entered its PVS. Use <code>:Filter()</code> for
+anything that must not reach a player at all.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SetDefault"></a><strong><span class="state state-client state-server">NetVar.SetDefault</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L518">Source ☍</a></dt>
+<dd>
+<p>Sets the value <code>Entity:GetNetVar</code>/<code>cityrp.network.GetGlobal</code> returns before anything is set.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">value</span> <span class="types">any</span> The default value.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SetEntity"></a><strong><span class="state state-client state-server">NetVar.SetEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L149">Source ☍</a></dt>
+<dd>
+<p>Scopes this var to a single entity (the default scope).</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SetGlobal"></a><strong><span class="state state-client state-server">NetVar.SetGlobal</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L191">Source ☍</a></dt>
+<dd>
+<p>Scopes this var globally -- one value, no owning entity. Use <code>cityrp.network.SetGlobal</code>/<code>GetGlobal</code>
+rather than an entity method.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SetHook"></a><strong><span class="state state-client state-server">NetVar.SetHook</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L464">Source ☍</a></dt>
+<dd>
+<p>Runs <code>hook.Run(hookName, ent, newValue, oldValue, predicted)</code> on both realms whenever this var
+changes. <code>predicted</code> is <code>true</code> only for a client-side local apply from a <code>:Predictable()</code> var's
+client <code>Set&lt;Name&gt;()</code>; every other trigger (a normal server <code>Set</code>, or either realm decoding a
+confirmed value off the wire) passes <code>nil</code>.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">hookName</span> <span class="types">string</span> The hook name to run.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SetLocalPlayer"></a><strong><span class="state state-client state-server">NetVar.SetLocalPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L167">Source ☍</a></dt>
+<dd>
+<p>Scopes this var to a single owning player's private state. Never broadcast: sent only to the
+owner via <code>net.Send(ply)</code>, regardless of any <code>:Filter()</code>/<code>:SendPVS()</code> call. Like <code>:SetPlayer()</code>,
+<code>:Accessor()</code> attaches to <code>FindMetaTable(&quot;Player&quot;)</code>.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SetNoSync"></a><strong><span class="state state-client state-server">NetVar.SetNoSync</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L510">Source ☍</a></dt>
+<dd>
+<p>Excludes this var from join sync and resync -- it is only ever pushed on change. Use for
+fire-and-forget events rather than durable state; a client that was out of PVS during the push
+will never receive it.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SetPlayer"></a><strong><span class="state state-client state-server">NetVar.SetPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L158">Source ☍</a></dt>
+<dd>
+<p>Scopes this var to a player. Storage/wire format are identical to <code>:SetEntity()</code> -- a player is an
+entity -- but <code>:Accessor()</code> attaches to <code>FindMetaTable(&quot;Player&quot;)</code> rather than Entity's, so a
+same-named method Player's own metatable already defines natively can't shadow it.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SetVehicle"></a><strong><span class="state state-client state-server">NetVar.SetVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L175">Source ☍</a></dt>
+<dd>
+<p>Scopes this var to a vehicle. Storage/wire format identical to <code>:SetEntity()</code>; only
+<code>:Accessor()</code>'s target metatable (<code>FindMetaTable(&quot;Vehicle&quot;)</code>) differs -- see <code>:SetPlayer()</code>.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.SetWeapon"></a><strong><span class="state state-client state-server">NetVar.SetWeapon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L183">Source ☍</a></dt>
+<dd>
+<p>Scopes this var to a weapon. Same rationale as <code>:SetVehicle()</code>, targeting
+<code>FindMetaTable(&quot;Weapon&quot;)</code> instead.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.UInteger"></a><strong><span class="state state-client state-server">NetVar.UInteger</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L281">Source ☍</a></dt>
+<dd>
+<p>Unsigned counterpart to <code>:Integer(bits)</code>. Same 1-32 bit range and the same fallback on misuse.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">bits</span> <span class="types">integer</span> Bit width, 1-32.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
+<dt><a name="NetVar.Write"></a><strong><span class="state state-client state-server">NetVar.Write</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L204">Source ☍</a></dt>
+<dd>
+<p>Sets a custom serializer, bypassing the built-in codec table. Because the manifest cannot
+describe an arbitrary function, vars using this are sent one per message rather than batched --
+see <code>sv_send.lua</code>.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">writeFn</span> <span class="types">fun(value: any, arg: any)</span> Called with the value (and <code>opt</code>) to write it.</li>
+<li><span class="parameter">opt</span> <span class="types">any</span> Passed through to <code>writeFn</code>/the matching <code>:Read()</code> call as <code>arg</code>.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">NetVar</span> For chaining.</li>
+</ol>
+</dd>
 <dt><a name="recieveLPlyVarUpdate"></a><strong><span class="state state-client">recieveLPlyVarUpdate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/networking/cl_init.lua#L69">Source ☍</a></dt>
 <dd>
 <p>Internal function, for when a player's Local Player Var is updated.</p>
@@ -360,10 +1365,744 @@ in lockstep with the server's batched send in sv_init.lua.</p>
 
 </dd>
 </dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.network.codecs"></a><strong><span class="state state-client state-server">cityrp.network.codecs</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L168">Source ☍</a></dt>
+<dd>
+<p>Codec definitions, indexed by <code>NetCodecId</code>. Each entry is <code>{name, write, read, batchable}</code>.
+<code>write(value, arg)</code> / <code>read(arg)</code> -- <code>arg</code> is the codec argument from the <code>NetVar</code> (bit width for
+<code>Integer</code>/<code>UInteger</code>, byte length for <code>Data</code>), ignored by fixed-shape codecs. <code>batchable = false</code>
+(currently only <code>Custom</code>) marks a codec that can't safely share a batched message, since an
+undecodable value must not corrupt any entry after it -- see <code>sv_send.lua</code>.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.ENTITY_LIKE_SCOPES"></a><strong><span class="state state-client state-server">cityrp.network.ENTITY_LIKE_SCOPES</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L41">Source ☍</a></dt>
+<dd>
+<p>Scopes whose value is stored on an entity and travels with an entity index on the wire, as
+opposed to Global (no entity at all) or LocalPlayer (never carries an index -- the recipient
+is implicit). <code>SetVehicle()</code>/<code>SetWeapon()</code> behave exactly like <code>SetEntity()</code> here; the only
+thing they change is <code>:Accessor()</code>'s target metatable. Consulted via <code>IsEntityScope</code> below
+rather than repeating this set as an ad hoc <code>or</code>-chain at every call site that cares -- adding a
+future metatable-specific scope (NPC, NextBot, ...) then only ever needs one line changed here.</p>
+
+
+
+</dd>
+</dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.network"></a><strong><span class="state state-client">cityrp.network</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/cl_receive.lua#L18">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.idBits"></a><strong><span class="state state-client">cityrp.network.idBits</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/cl_receive.lua#L72">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetCodecId"></a><strong><span class="state state-client state-server">NetCodecId</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L25">Source ☍</a></dt>
+<dd>
+<p>Numeric codec IDs. Freely renumberable -- unlike the manifest-assigned <code>NetVar</code> IDs in
+<code>sh_registry.lua</code> (which travel between realms and must never desync), these are never sent or
+persisted; both realms assign them identically from this shared file at every boot. <code>Player</code> is
+inserted in the self-contained/fixed-argument block rather than appended so <code>AUTO_TAG_MAX</code> stays a
+simple contiguous bound.</p>
+
+
+
+</dd>
+<h3 class="section-header">codecIds</h3>
+<dt><a name="cityrp.network.CODEC_ANGLE"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_ANGLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L42">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_AUTO"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_AUTO</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L54">Source ☍</a></dt>
+<dd>
+<p>Meta codec: the value's shape is written to the wire as a per-value tag instead of being fixed
+by the manifest. Never chosen by <code>GetValueCodec</code> as a nested <code>Auto</code>/<code>Table</code> entry's tag.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_BIT"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_BIT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L64">Source ☍</a></dt>
+<dd>
+<p>Raw single bit via <code>net.WriteBit</code>/<code>net.ReadBit</code>, returning <code>0</code>/<code>1</code> rather than a real boolean.
+Declared-only, like <code>Integer</code>/<code>UInteger</code> -- <code>Auto</code> already covers booleans via <code>CODEC_BOOL</code>.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_BOOL"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_BOOL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L28">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_BYTE"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_BYTE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L31">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_COLOR"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_COLOR</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L43">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_CUSTOM"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_CUSTOM</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L61">Source ☍</a></dt>
+<dd>
+<p>User-supplied <code>:Write(fn, opt)</code> / <code>:Read(fn, opt)</code>. Cannot be described by the manifest, so vars
+using it are sent one per message rather than batched -- see <code>sv_send.lua</code>.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_DATA"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_DATA</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L51">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_DOUBLE"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_DOUBLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L38">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_ENTITY"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_ENTITY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L44">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_FLOAT"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_FLOAT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L37">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_INT"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_INT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L35">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_INTEGER"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_INTEGER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L57">Source ☍</a></dt>
+<dd>
+<p>Explicit bit-width signed integer, 1-32 bits. Declared-only; <code>Auto</code> always prefers the fixed
+Nibble/Byte/Short/Int tiers instead, so a var must call <code>:Integer(bits)</code> to get this codec.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_MAX"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_MAX</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L65">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_NIBBLE"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_NIBBLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L29">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_NIL"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_NIL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L27">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_NORMAL"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_NORMAL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L41">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_PLAYER"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_PLAYER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L49">Source ☍</a></dt>
+<dd>
+<p>Narrower counterpart to <code>CODEC_ENTITY</code> for a value known to be a player: <code>net.WritePlayer</code>/
+<code>net.ReadPlayer</code> size the index off <code>MAX_PLAYER_BITS</code> (the engine's own player-slot-count bound)
+instead of the wider <code>MAX_EDICT_BITS</code> every other entity needs. <code>GetValueCodec</code> picks this over
+<code>CODEC_ENTITY</code> automatically whenever the value actually is a player.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_SHORT"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_SHORT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L33">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_STRING"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_STRING</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L39">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_TABLE"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_TABLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L50">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_UBYTE"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_UBYTE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L32">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_UINT"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_UINT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L36">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_UINTEGER"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_UINTEGER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L58">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_UNIBBLE"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_UNIBBLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L30">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_USHORT"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_USHORT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L34">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_VECTOR"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_VECTOR</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_codecs.lua#L40">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetScope"></a><strong><span class="state state-client state-server">NetScope</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L21">Source ☍</a></dt>
+<dd>
+<p>Where a <code>NetVar</code>'s value lives and who it is sent to by default.</p>
+
+
+
+</dd>
+<h3 class="section-header">Scopes</h3>
+<dt><a name="cityrp.network.byId"></a><strong><span class="state state-client state-server">cityrp.network.byId</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L98">Source ☍</a></dt>
+<dd>
+<p>Registered vars by their sealed numeric ID. Empty until <code>Seal</code> runs (server: immediately, from
+its own sort; client: incrementally, as manifest entries arrive -- see <code>cl_receive.lua</code>).</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.ENTITY_INDEX_BITS"></a><strong><span class="state state-client state-server">cityrp.network.ENTITY_INDEX_BITS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L23">Source ☍</a></dt>
+<dd>
+<p>Bits used to write/read an entity index on the wire for Entity/Player-scoped vars. <code>MAX_EDICT_BITS</code>
+is the engine's own answer to &quot;how many bits does any entity index need&quot; (what <code>net.WriteEntity</code>
+itself is sized on), so this is guaranteed correct for whatever the server's actual edict limit
+is, rather than a separately-guessed &quot;safely large&quot; literal that could drift from the real limit.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.NETVAR"></a><strong><span class="state state-client state-server">cityrp.network.NETVAR</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L89">Source ☍</a></dt>
+<dd>
+<p>A registered network variable, mid-configuration or sealed.
+Every field below is set through the chained builder methods; construct with
+<code>cityrp.network.Register</code>, never with <code>setmetatable</code> directly.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.RECIPIENT_BROADCAST"></a><strong><span class="state state-client state-server">cityrp.network.RECIPIENT_BROADCAST</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L58">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.RECIPIENT_FILTER"></a><strong><span class="state state-client state-server">cityrp.network.RECIPIENT_FILTER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L62">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.RECIPIENT_OMIT"></a><strong><span class="state state-client state-server">cityrp.network.RECIPIENT_OMIT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L61">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.RECIPIENT_PAS"></a><strong><span class="state state-client state-server">cityrp.network.RECIPIENT_PAS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L60">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.RECIPIENT_PVS"></a><strong><span class="state state-client state-server">cityrp.network.RECIPIENT_PVS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L59">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.registry"></a><strong><span class="state state-client state-server">cityrp.network.registry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L93">Source ☍</a></dt>
+<dd>
+<p>Registered vars by name. Populated by <code>cityrp.network.Register</code>, consumed by <code>Seal</code>.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.RESYNC_GROUP_OVERHEAD_BITS"></a><strong><span class="state state-client state-server">cityrp.network.RESYNC_GROUP_OVERHEAD_BITS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L322">Source ☍</a></dt>
+<dd>
+<p>Approximate extra bits a mapped-index <code>:Enum()</code> (<code>CODEC_CUSTOM</code>) costs per resync versus a
+batchable one, assuming worst case: its own <code>WriteIndexHeader</code> plus the group/var/end framing
+bools <code>SendGroups</code> adds around a non-batchable entry -- see <code>sv_send.lua</code>. Deliberately a little
+above the literal ~20-bit tally, so a marginal bit saving isn't enough to justify losing
+batchability (see <code>:Enum()</code>).</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.SCOPE_ENTITY"></a><strong><span class="state state-client state-server">cityrp.network.SCOPE_ENTITY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L23">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.SCOPE_GLOBAL"></a><strong><span class="state state-client state-server">cityrp.network.SCOPE_GLOBAL</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L28">Source ☍</a></dt>
+<dd>
+<p>Stored in the library, not on any entity; has no owning entity at all.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.SCOPE_LOCALPLAYER"></a><strong><span class="state state-client state-server">cityrp.network.SCOPE_LOCALPLAYER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L26">Source ☍</a></dt>
+<dd>
+<p>Stored on the owning player; sent only to that player, never broadcast.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.SCOPE_PLAYER"></a><strong><span class="state state-client state-server">cityrp.network.SCOPE_PLAYER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L24">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.SCOPE_VEHICLE"></a><strong><span class="state state-client state-server">cityrp.network.SCOPE_VEHICLE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L31">Source ☍</a></dt>
+<dd>
+<p>Storage and wire format identical to <code>SCOPE_ENTITY</code> -- only <code>:Accessor()</code>'s generated methods
+differ, attaching to <code>FindMetaTable(&quot;Vehicle&quot;)</code> instead of <code>FindMetaTable(&quot;Entity&quot;)</code>.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.SCOPE_WEAPON"></a><strong><span class="state state-client state-server">cityrp.network.SCOPE_WEAPON</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L32">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="cityrp.network.sealed"></a><strong><span class="state state-client state-server">cityrp.network.sealed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L108">Source ☍</a></dt>
+<dd>
+<p>Whether the registry has sealed. <code>Register</code> after this point is an error.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.sortedIds"></a><strong><span class="state state-client state-server">cityrp.network.sortedIds</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L104">Source ☍</a></dt>
+<dd>
+<p>Every assigned ID, in order. Populated once by <code>Seal</code> (server only -- the client never assigns its
+own IDs) so repeat consumers like <code>SendManifest</code> and <code>cityrp_network_dump</code> don't each rebuild and
+sort this from <code>byId</code> on every call to a value that cannot change after sealing.</p>
+
+
+
+</dd>
+<dt><a name="NetRecipientMode"></a><strong><span class="state state-client state-server">NetRecipientMode</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L57">Source ☍</a></dt>
+<dd>
+<p>How a <code>NetVar</code>'s updates choose their recipients.</p>
+
+
+
+</dd>
+<dt><a name="NetVar"></a><strong><span class="state state-client state-server">NetVar</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L67">Source ☍</a></dt>
+<dd>
+<p>A registered network variable, mid-configuration or sealed.
+Every field below is set through the chained builder methods; construct with
+<code>cityrp.network.Register</code>, never with <code>setmetatable</code> directly.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.__index"></a><strong><span class="state state-client state-server">NetVar.__index</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L88">Source ☍</a></dt>
+<dd>
+<p>A registered network variable, mid-configuration or sealed.
+Every field below is set through the chained builder methods; construct with
+<code>cityrp.network.Register</code>, never with <code>setmetatable</code> directly.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.accessorName"></a><strong><span class="state state-client state-server">NetVar.accessorName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L77">Source ☍</a></dt>
+<dd>
+<p>If set, generates <code>Get&lt;Name&gt;()</code>/<code>Set&lt;Name&gt;()</code> (setter server-only unless <code>predictable</code>) on the metatable <code>:Accessor()</code>'s scope maps to -- see <code>sh_store.lua</code>'s <code>GenerateAccessor</code>.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.Angle"></a><strong><span class="state state-client state-server">NetVar.Angle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L251">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.Auto"></a><strong><span class="state state-client state-server">NetVar.Auto</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L261">Source ☍</a></dt>
+<dd>
+<p>Explicitly requests the self-describing codec (the default when no codec method is called).</p>
+
+
+
+</dd>
+<dt><a name="NetVar.Bit"></a><strong><span class="state state-client state-server">NetVar.Bit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L234">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.Bool"></a><strong><span class="state state-client state-server">NetVar.Bool</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L233">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.Byte"></a><strong><span class="state state-client state-server">NetVar.Byte</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L237">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.codec"></a><strong><span class="state state-client state-server">NetVar.codec</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L70">Source ☍</a></dt>
+<dd>
+<p>The wire codec. <code>CODEC_AUTO</code> unless a codec constructor was called.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.codecArg"></a><strong><span class="state state-client state-server">NetVar.codecArg</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L71">Source ☍</a></dt>
+<dd>
+<p>Codec-specific argument (bit width for Integer/UInteger, byte length for Data).</p>
+
+
+
+</dd>
+<dt><a name="NetVar.Color"></a><strong><span class="state state-client state-server">NetVar.Color</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L252">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.customRead"></a><strong><span class="state state-client state-server">NetVar.customRead</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L73">Source ☍</a></dt>
+<dd>
+<p>Set by <code>:Read()</code>; used when <code>codec == CODEC_CUSTOM</code>.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.customWrite"></a><strong><span class="state state-client state-server">NetVar.customWrite</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L72">Source ☍</a></dt>
+<dd>
+<p>Set by <code>:Write()</code>; used when <code>codec == CODEC_CUSTOM</code>.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.default"></a><strong><span class="state state-client state-server">NetVar.default</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L85">Source ☍</a></dt>
+<dd>
+<p>The value <code>Entity:GetNetVar</code> returns before anything has been set.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.Double"></a><strong><span class="state state-client state-server">NetVar.Double</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L245">Source ☍</a></dt>
+<dd>
+<p>64-bit IEEE double via <code>net.WriteDouble</code>. Also the target for <code>:Long()</code> -- see below.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.Entity"></a><strong><span class="state state-client state-server">NetVar.Entity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L253">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.enumList"></a><strong><span class="state state-client state-server">NetVar.enumList</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L83">Source ☍</a></dt>
+<dd>
+<p>The list passed to <code>:Enum()</code>, kept for introspection (<code>cityrp_network_dump</code>).</p>
+
+
+
+</dd>
+<dt><a name="NetVar.Float"></a><strong><span class="state state-client state-server">NetVar.Float</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L243">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.hasDefault"></a><strong><span class="state state-client state-server">NetVar.hasDefault</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L84">Source ☍</a></dt>
+<dd>
+<p>Whether <code>:SetDefault()</code> was called.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.hookName"></a><strong><span class="state state-client state-server">NetVar.hookName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L76">Source ☍</a></dt>
+<dd>
+<p>Hook run on change, both realms: <code>hook.Run(hookName, ent, newValue, oldValue, predicted)</code>.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.id"></a><strong><span class="state state-client state-server">NetVar.id</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L86">Source ☍</a></dt>
+<dd>
+<p>Assigned at seal. <code>nil</code> before the registry seals.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.Int"></a><strong><span class="state state-client state-server">NetVar.Int</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L241">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.name"></a><strong><span class="state state-client state-server">NetVar.name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L68">Source ☍</a></dt>
+<dd>
+<p>The registered name. Unique; this is what travels in the manifest.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.Nibble"></a><strong><span class="state state-client state-server">NetVar.Nibble</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L235">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.Nil"></a><strong><span class="state state-client state-server">NetVar.Nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L232">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.Normal"></a><strong><span class="state state-client state-server">NetVar.Normal</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L250">Source ☍</a></dt>
+<dd>
+<p>Compact vector codec for components known to stay within +/-1 (e.g. a direction). A component
+outside that range still encodes correctly, just without the compact path's benefit.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.noSync"></a><strong><span class="state state-client state-server">NetVar.noSync</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L79">Source ☍</a></dt>
+<dd>
+<p>If true, excluded from join sync and resync -- push-only.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.Player"></a><strong><span class="state state-client state-server">NetVar.Player</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L258">Source ☍</a></dt>
+<dd>
+<p>Narrower than <code>:Entity()</code> for a value known to always be a player: sizes the index off
+<code>MAX_PLAYER_BITS</code> instead of the wider <code>MAX_EDICT_BITS</code> every other entity needs. <code>:Auto()</code>
+already picks this over <code>:Entity()</code> on its own whenever the value actually is a player, so this
+constructor is for declaring the narrower shape explicitly up front, not required for the saving.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.predictable"></a><strong><span class="state state-client state-server">NetVar.predictable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L78">Source ☍</a></dt>
+<dd>
+<p>If true, <code>:Accessor()</code> also generates a client-side <code>Set&lt;Name&gt;()</code> that applies locally (storage + hook only, no network send) instead of being server-only -- see <code>:Predictable()</code>.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.recipientFn"></a><strong><span class="state state-client state-server">NetVar.recipientFn</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L75">Source ☍</a></dt>
+<dd>
+<p>Backing function for <code>:SendOmit()</code>/<code>:Filter()</code>.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.recipientMode"></a><strong><span class="state state-client state-server">NetVar.recipientMode</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L74">Source ☍</a></dt>
+<dd>
+<p>How a <code>NetVar</code>'s updates choose their recipients.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.scope"></a><strong><span class="state state-client state-server">NetVar.scope</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L69">Source ☍</a></dt>
+<dd>
+<p>Where the value is stored and who receives it by default.</p>
+
+
+
+</dd>
+<dt><a name="NetVar.Short"></a><strong><span class="state state-client state-server">NetVar.Short</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L239">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.String"></a><strong><span class="state state-client state-server">NetVar.String</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L246">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.Table"></a><strong><span class="state state-client state-server">NetVar.Table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L259">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.UByte"></a><strong><span class="state state-client state-server">NetVar.UByte</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L238">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.UInt"></a><strong><span class="state state-client state-server">NetVar.UInt</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L242">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.UNibble"></a><strong><span class="state state-client state-server">NetVar.UNibble</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L236">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.UShort"></a><strong><span class="state state-client state-server">NetVar.UShort</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L240">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<dt><a name="NetVar.validate"></a><strong><span class="state state-client state-server">NetVar.validate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L80">Source ☍</a></dt>
+<dd>
+<p>Optional value validator, set by <code>:Enum()</code>. Checked by</p>
+
+
+
+</dd>
+<dt><a name="NetVar.Vector"></a><strong><span class="state state-client state-server">NetVar.Vector</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L247">Source ☍</a></dt>
+<dd>
+
+
+
+</dd>
+<h3 class="section-header">wireConstants</h3>
+<dt><a name="cityrp.network.CODEC_ARG_BITS"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_ARG_BITS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L38">Source ☍</a></dt>
+<dd>
+<p>Bits used to write a manifest entry's codec argument (bit width, byte length, etc).</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.CODEC_BITS"></a><strong><span class="state state-client state-server">cityrp.network.CODEC_BITS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L36">Source ☍</a></dt>
+<dd>
+<p>Bits used to write a <code>NetCodecId</code> value.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.globals"></a><strong><span class="state state-client state-server">cityrp.network.globals</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L45">Source ☍</a></dt>
+<dd>
+<p>Global-scoped values, by name. Entity/Player/LocalPlayer-scoped values live on the entity itself
+instead -- see the <code>Entity.__netvars</code> field below.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.MANIFEST_COUNT_BITS"></a><strong><span class="state state-client state-server">cityrp.network.MANIFEST_COUNT_BITS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L32">Source ☍</a></dt>
+<dd>
+<p>Bits used to write the manifest's entry count.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.MANIFEST_IDBITS_FIELD"></a><strong><span class="state state-client state-server">cityrp.network.MANIFEST_IDBITS_FIELD</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L30">Source ☍</a></dt>
+<dd>
+<p>Fixed-width wire format constants shared between <code>sv_send.lua</code> and <code>cl_receive.lua</code>. Defined once
+here, rather than as literals repeated on both realms, so the two can never drift apart --
+see AGENTS.md footgun #11 (client/server-paired literals must be edited together).
+Bits used to write <code>cityrp.network.idBits</code> itself in the manifest header.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.RESYNC_COUNT_BITS"></a><strong><span class="state state-client state-server">cityrp.network.RESYNC_COUNT_BITS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L40">Source ☍</a></dt>
+<dd>
+<p>Bits used to write how many entity indices a resync request contains.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.resyncQueues"></a><strong><span class="state state-server">cityrp.network.resyncQueues</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L41">Source ☍</a></dt>
+<dd>
+<p>Per-player resync queues: <code>ply -&gt; {[Entity] = true}</code>. Both axes are weak so a disconnect or an
+entity removal cleans itself up even if the explicit <code>PlayerDisconnected</code>/<code>EntityRemoved</code> hooks
+below somehow miss it (which, per AGENTS.md footgun #3, a third-party <code>hook.Add</code> on the same event
+returning non-nil first genuinely could) -- see <code>GetQueue</code>'s note for why this is a plain
+weak-keyed set rather than an ordered array.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.SCOPE_BITS"></a><strong><span class="state state-client state-server">cityrp.network.SCOPE_BITS</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L34">Source ☍</a></dt>
+<dd>
+<p>Bits used to write a <code>NetScope</code> value.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.network.waitQueue"></a><strong><span class="state state-server">cityrp.network.waitQueue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L53">Source ☍</a></dt>
+<dd>
+<p>Callbacks waiting on a player's handshake to finish. <code>WaitForPlayer</code> queues here; cleared (and
+run) once that player's manifest and bootstrap have been sent.</p>
+
+
+
+</dd>
 <dt><a name="cityrp_network"></a><strong><span class="state state-server">cityrp_network</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/networking/sv_init.lua#L201">Source ☍</a></dt>
 <dd>
+
+
+
+</dd>
+<dt><a name="Entity"></a><strong><span class="state state-client state-server">Entity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L99">Source ☍</a></dt>
+<dd>
+<p>The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</p>
+
+
+
+</dd>
+<dt><a name="Entity.__netvars"></a><strong><span class="state state-client state-server">Entity.__netvars</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L100">Source ☍</a></dt>
+<dd>
+<p>Networked values set locally or received over the network, by var name. <code>nil</code> until the first value is stored.</p>
 
 
 
