@@ -204,6 +204,7 @@
 <li><a href="../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
 <li><a href="../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
 <li><a href="../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
 <li><a href="../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
 <li><a href="../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
 <li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
@@ -352,12 +353,13 @@
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.pcasino.AutoExcludeTiers"></a><strong><span class="state state-server">cityrp.pcasino.AutoExcludeTiers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L54">Source ☍</a></dt>
+<dt><a name="cityrp.pcasino.AutoExcludeTiers"></a><strong><span class="state state-server">cityrp.pcasino.AutoExcludeTiers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L76">Source ☍</a></dt>
 <dd>
-<p>Ascending net-loss tiers that trigger automatic, escalating self-exclusion.
-Each entry's <code>duration</code> is played-time seconds the exclusion lasts. The loss
-tally is NOT reset when a tier fires, so a player who keeps playing once an
-exclusion lifts escalates straight to the next tier rather than restarting.</p>
+<p>Ascending tiers that trigger automatic, escalating self-exclusion.
+A tier is reached when <em>either</em> tally passes its own threshold. <code>duration</code> is
+played-time seconds the exclusion lasts. Neither tally is reset when a tier
+fires, so a player who keeps playing once an exclusion lifts escalates straight
+to the next tier rather than restarting.</p>
 
 
 
@@ -371,10 +373,14 @@ Trabbi is intentionally left tradable as the joke prize.</p>
 
 
 </dd>
-<dt><a name="cityrp.pcasino.LossWarningTiers"></a><strong><span class="state state-server">cityrp.pcasino.LossWarningTiers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L48">Source ☍</a></dt>
+<dt><a name="cityrp.pcasino.WarningTiers"></a><strong><span class="state state-server">cityrp.pcasino.WarningTiers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L66">Source ☍</a></dt>
 <dd>
-<p>Ascending net-loss tiers (RP cash, this sitting) that trigger an in-game reminder only.
-Each tier notifies the player once per session; the last tier also pings staff.</p>
+<p>Ascending tiers that trigger an in-game reminder only, once per tier per session.
+A tier is reached when <em>either</em> tally passes its own threshold. The loss side is
+floored well above a single top-tier spin (advanced_high stakes $25,000) so one
+unlucky bet never reads as a loss pattern: tier 1 needs 4 full losses back to back.
+The wagered side is set at 20x the matching loss tier: roughly where an
+average-luck player at the published 95% RTP would be down the loss figure.</p>
 
 
 
@@ -388,23 +394,30 @@ Each tier notifies the player once per session; the last tier also pings staff.<
 
 
 </dd>
-<dt><a name="cityrp.pcasino.SessionExcludedTier"></a><strong><span class="state state-server">cityrp.pcasino.SessionExcludedTier</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L65">Source ☍</a></dt>
+<dt><a name="cityrp.pcasino.SessionExcludedTier"></a><strong><span class="state state-server">cityrp.pcasino.SessionExcludedTier</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L89">Source ☍</a></dt>
 <dd>
 <p>[SteamID64] = index into AutoExcludeTiers already applied.</p>
 
 
 
 </dd>
-<dt><a name="cityrp.pcasino.SessionLoss"></a><strong><span class="state state-server">cityrp.pcasino.SessionLoss</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L61">Source ☍</a></dt>
+<dt><a name="cityrp.pcasino.SessionNet"></a><strong><span class="state state-server">cityrp.pcasino.SessionNet</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L83">Source ☍</a></dt>
 <dd>
-<p>[SteamID64] = net cash lost at the casino this sitting.</p>
+<p>[SteamID64] = net cash position at the casino this sitting (negative while down).</p>
 
 
 
 </dd>
-<dt><a name="cityrp.pcasino.SessionWarnedTier"></a><strong><span class="state state-server">cityrp.pcasino.SessionWarnedTier</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L63">Source ☍</a></dt>
+<dt><a name="cityrp.pcasino.SessionWagered"></a><strong><span class="state state-server">cityrp.pcasino.SessionWagered</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L85">Source ☍</a></dt>
 <dd>
-<p>[SteamID64] = index into LossWarningTiers already notified for.</p>
+<p>[SteamID64] = total cash staked at the casino this sitting.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.pcasino.SessionWarnedTier"></a><strong><span class="state state-server">cityrp.pcasino.SessionWarnedTier</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L87">Source ☍</a></dt>
+<dd>
+<p>[SteamID64] = index into WarningTiers already notified for.</p>
 
 
 

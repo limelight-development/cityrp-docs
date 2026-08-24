@@ -203,6 +203,7 @@
 <li><a href="../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
 <li><a href="../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
 <li><a href="../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
 <li><a href="../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
 <li><a href="../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
 <li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
@@ -309,8 +310,10 @@
 		</div>
 		<div id="content">
 <div class="ll-module-header"><h1>ITEM</h1></div>
-<div class="ll-module-body"><p>Accessory Base Item</p>
-<p>The accessory base contains a bunch of special functions for use with accessories.</p></div>
+<div class="ll-module-body"><p>Item metatable.
+The ITEM metatable is a bit weird, having some quirks.
+Typically, functions which relate to generating the items / setting data (New, SetDescription) are in UpperCamelCase.
+However, functions which relate to the operation of the item (canUse, onDrop), are in lowerCamelCase.</p></div>
 
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
@@ -1849,7 +1852,7 @@ Defaults to always allowing use. Called as a hook when a player attempts to use 
 
 
 </dd>
-<dt><a name="ITEM.Dress.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.Dress.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/items/base/sh_base_uniform.lua#L11">Source ☍</a></dt>
+<dt><a name="ITEM.Dress.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.Dress.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/uniforms/items/sh_base_uniform.lua#L11">Source ☍</a></dt>
 <dd>
 <p>Sets the male/female uniform model table.</p>
 
@@ -2379,7 +2382,7 @@ Defaults to always allowing use. Called as a hook when a player attempts to use 
 
 
 </dd>
-<dt><a name="ITEM.Meth.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.Meth.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/items/base/sh_base_uniform.lua#L11">Source ☍</a></dt>
+<dt><a name="ITEM.Meth.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.Meth.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/uniforms/items/sh_base_uniform.lua#L11">Source ☍</a></dt>
 <dd>
 <p>Sets the male/female uniform model table.</p>
 
@@ -2822,7 +2825,7 @@ Defaults to always allowing use. Called as a hook when a player attempts to use 
 
 
 </dd>
-<dt><a name="ITEM.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/items/base/sh_base_uniform.lua#L11">Source ☍</a></dt>
+<dt><a name="ITEM.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/uniforms/items/sh_base_uniform.lua#L11">Source ☍</a></dt>
 <dd>
 <p>Sets the male/female uniform model table.</p>
 
@@ -3321,7 +3324,7 @@ Defaults to always allowing use. Called as a hook when a player attempts to use 
 
 
 </dd>
-<dt><a name="ITEM.SuitTie.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.SuitTie.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/items/base/sh_base_uniform.lua#L11">Source ☍</a></dt>
+<dt><a name="ITEM.SuitTie.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.SuitTie.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/uniforms/items/sh_base_uniform.lua#L11">Source ☍</a></dt>
 <dd>
 <p>Sets the male/female uniform model table.</p>
 
@@ -3810,7 +3813,7 @@ Defaults to always allowing use. Called as a hook when a player attempts to use 
 
 
 </dd>
-<dt><a name="ITEM.SwatColorTape.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.SwatColorTape.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/items/base/sh_base_uniform.lua#L11">Source ☍</a></dt>
+<dt><a name="ITEM.SwatColorTape.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.SwatColorTape.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/uniforms/items/sh_base_uniform.lua#L11">Source ☍</a></dt>
 <dd>
 <p>Sets the male/female uniform model table.</p>
 
@@ -4299,7 +4302,7 @@ Defaults to always allowing use. Called as a hook when a player attempts to use 
 
 
 </dd>
-<dt><a name="ITEM.SwatID.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.SwatID.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/items/base/sh_base_uniform.lua#L11">Source ☍</a></dt>
+<dt><a name="ITEM.SwatID.SetUniforms"></a><strong><span class="state state-client state-server">ITEM.SwatID.SetUniforms</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/uniforms/items/sh_base_uniform.lua#L11">Source ☍</a></dt>
 <dd>
 <p>Sets the male/female uniform model table.</p>
 

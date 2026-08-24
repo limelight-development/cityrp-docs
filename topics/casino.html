@@ -197,6 +197,7 @@
 <li><a href="../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
 <li><a href="../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
 <li><a href="../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
 <li><a href="../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
 <li><a href="../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
 <li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
@@ -495,22 +496,22 @@ python3 casino_math.py --list-items
 <li>Cars / Dragon’s Breath are bound / non-tradable — flashy without a cash secondary market.</li>
 <li>Mystery Wheel cash is real money; it is budgeted inside the 95% advanced RTP, not stacked on top.</li>
 <li>Expect session variance: published RTP is long-run. Short samples on high-volatility wheel slots will swing around 95%.</li>
-<li>Access tag <code>P</code> and <code>/selfexclude</code> still gate play.</li>
+<li>Access tag <code>P</code> and <code>/selfexclude</code> still gate play — but only new bets. An advanced machine's pending Big Wheel spin (won on a bet placed before an exclusion landed) can still be claimed; <code>pcasino_wheel_slot_machine:Use()</code> lets that claim through before the bet-gate check runs.</li>
 </ul>
-<h2>Session loss monitoring</h2>
-<p><code>gamemode/core/plugins/pcasino/sv_init.lua</code> tracks each player's net cash lost at the casino since they connected (all machine types, since every payout routes through <code>PerfectCasino.Config.AddMoney</code>, which fires <code>pCasinoMoneyChanged</code>):</p>
+<h2>Session gambling monitoring</h2>
+<p><code>gamemode/core/plugins/pcasino/sv_init.lua</code> keeps two per-sitting tallies for every player, fed by <code>pCasinoMoneyChanged</code> (all machine types, since every cash movement routes through <code>PerfectCasino.Config.AddMoney</code>):</p>
 <ul>
-<li><strong>Warning tiers</strong> (<code>cityrp.pcasino.LossWarningTiers</code>, currently $100k / $250k) send an in-game reminder pointing at <code>/selfexclude</code>, once per tier per session. The top tier also logs to the admin hub.</li>
-<li><strong>Auto-exclusion tiers</strong> (<code>cityrp.pcasino.AutoExcludeTiers</code>) escalate: $1M net loss → 15 minutes, $3M → 1 hour, $5M → 24 hours (played time), each via the same <code>cityrp.access.selfTakeAccess</code> path <code>/selfexclude</code> uses, and each alerts staff. The loss tally is <em>not</em> reset when a tier fires, so a player who keeps playing once a short exclusion lifts escalates straight to the next tier instead of restarting the clock.</li>
+<li><strong>Net loss</strong> (<code>cityrp.pcasino.SessionNet</code>) — stakes minus payouts, floored at zero. What the player is actually down.</li>
+<li><strong>Turnover</strong> (<code>cityrp.pcasino.SessionWagered</code>) — everything staked, however it resolved. Catches the long grinder whom variance kept afloat.</li>
 </ul>
-<p>The tally resets on disconnect — it is a same-sitting safeguard, not a persistent affordability check. Tune the thresholds if machine bets/RTP change enough that normal variance starts tripping them.</p>
-<h2>Session loss monitoring</h2>
-<p><code>gamemode/core/plugins/pcasino/sv_init.lua</code> tracks each player's net cash lost at the casino since they connected (all machine types, since every payout routes through <code>PerfectCasino.Config.AddMoney</code>, which fires <code>pCasinoMoneyChanged</code>):</p>
+<p>Non-cash prizes (Mystery Wheel items) move neither tally, so a player who wins an expensive item still reads as down whatever cash they staked for it.</p>
 <ul>
-<li><strong>Warning tiers</strong> (<code>cityrp.pcasino.LossWarningTiers</code>, currently $100k / $250k) send an in-game reminder pointing at <code>/selfexclude</code>, once per tier per session. The top tier also logs to the admin hub.</li>
-<li><strong>Auto-exclusion tiers</strong> (<code>cityrp.pcasino.AutoExcludeTiers</code>) escalate: $1M net loss → 15 minutes, $3M → 1 hour, $5M → 24 hours (played time), each via the same <code>cityrp.access.selfTakeAccess</code> path <code>/selfexclude</code> uses, and each alerts staff. The loss tally is <em>not</em> reset when a tier fires, so a player who keeps playing once a short exclusion lifts escalates straight to the next tier instead of restarting the clock.</li>
+<li><strong>Warning tiers</strong> (<code>cityrp.pcasino.WarningTiers</code>) escalate on a single shared ladder that <em>either</em> tally can advance: $100k net loss <strong>or</strong> $2M staked → in-game reminder pointing at <code>/selfexclude</code>; $200k / $4M → second reminder, which also logs to the admin hub. Each tier fires once per session and the notice names whichever tally actually tripped. The loss floor sits well above a single top-tier spin (advanced_high stakes $25,000) so one unlucky bet never reads as a loss pattern — tier 1 needs 4 full losses back to back.</li>
+<li><strong>Auto-exclusion tiers</strong> (<code>cityrp.pcasino.AutoExcludeTiers</code>) escalate on their own single shared ladder the same way: $250k net loss <strong>or</strong> $5M staked → 15 minutes; $750k / $15M → 1 hour; $1.25M / $25M → 24 hours (played time). Each fires via the same <code>cityrp.access.selfTakeAccess</code> path <code>/selfexclude</code> uses and alerts staff. Neither tally is reset when a tier fires, so a player who keeps playing once a short exclusion lifts escalates straight to the next tier instead of restarting the clock.</li>
 </ul>
-<p>The tally resets on disconnect — it is a same-sitting safeguard, not a persistent affordability check. Tune the thresholds if machine bets/RTP change enough that normal variance starts tripping them.</p></div>
+<p>Both ladders are shared rather than per-tally, so a player can be notified at most twice by warnings and excluded at most three times total — reaching a tier via loss and later via turnover doesn't fire it twice.</p>
+<p>The turnover thresholds sit at 20× their matching loss thresholds, which is roughly where an average-luck player at the published 95% RTP would be down the loss figure — so on typical luck the two ladders reach a tier at about the same time, the loss ladder fires first for an unlucky player, and the turnover ladder still eventually catches a lucky one.</p>
+<p>Both tallies reset on disconnect — this is a same-sitting safeguard, not a persistent affordability check. Tune the thresholds if machine bets/RTP change enough that normal variance starts tripping them.</p></div>
 		</div>
 	</div>
 	<br class="clearfix">
