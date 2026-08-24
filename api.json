@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-23T23:04:24Z",
+  "generated": "2026-08-24T00:08:50Z",
   "modules": [
     {
       "name": "Array",
@@ -5136,12 +5136,12 @@
           "params": [
             {
               "name": "time",
-              "type": "any",
+              "type": "number?",
               "desc": ""
             },
             {
               "name": "showmins",
-              "type": "any",
+              "type": "boolean",
               "desc": ""
             }
           ],
@@ -8227,12 +8227,12 @@
           "params": [
             {
               "name": "ply",
-              "type": "any",
-              "desc": ""
+              "type": "Player",
+              "desc": " The player metatable, with CityRP's own additions to Garry's Mod's `Player`."
             },
             {
               "name": "state",
-              "type": "any",
+              "type": "boolean",
               "desc": ""
             }
           ],
@@ -76669,6 +76669,38 @@
           "members": []
         },
         {
+          "name": "cityrp.plugin.SendsSubResourcesToClient",
+          "kind": "Functions",
+          "module": "cityrp.plugin",
+          "file": "core/libraries/sh_plugin.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Whether any of one plugin's sub-resources will be sent to the client.\n\n The loader `AddCSLuaFile`s sub-resources *after* the plugin loop in `sh_init.lua` has already\n decided whether to send the plugin's `.meta.lua`, so a plugin with no `cl_init.lua`/`sh_init.lua`\n of its own can still materialise its folder clientside through them - `breathalyser` is exactly\n that shape. Left alone, the client discovers such a plugin with no metadata at all and resolves\n it with its dependencies and availability conditions never evaluated.\n\n This deliberately mirrors what `includeSubResourceFiles` and `LoadSubResourceItems`/`Derma`\n actually send rather than merely testing whether the folders exist: sending the sidecar for a\n plugin that sends nothing else would materialise the folder clientside on its own, which is the\n opposite failure and the reason the `sendsToClient` gate exists in the first place.",
+          "params": [
+            {
+              "name": "entry",
+              "type": "PluginCandidate",
+              "desc": "The plugin to test."
+            }
+          ],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "Whether the client will receive any file from this plugin's sub-resources."
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "cityrp.plugin.status",
           "kind": "Fields",
           "module": "cityrp.plugin",
@@ -95667,46 +95699,6 @@
       "symbols": [
         {
           "name": "CityAccessories.CLWornAccessories",
-          "kind": "Fields",
-          "module": "core.plugins.accessories.cl_init",
-          "file": "core/plugins/accessories/cl_init.lua",
-          "states": [
-            "client"
-          ],
-          "desc": "Clientside WornAccessories table",
-          "params": [],
-          "returns": [],
-          "deprecated": null,
-          "internal": false,
-          "warns": [],
-          "bugs": [],
-          "uniqueids": [],
-          "section": null,
-          "family": null,
-          "members": []
-        },
-        {
-          "name": "pmdlgroup",
-          "kind": "Fields",
-          "module": "core.plugins.accessories.cl_init",
-          "file": "core/plugins/accessories/cl_init.lua",
-          "states": [
-            "client"
-          ],
-          "desc": "",
-          "params": [],
-          "returns": [],
-          "deprecated": null,
-          "internal": false,
-          "warns": [],
-          "bugs": [],
-          "uniqueids": [],
-          "section": null,
-          "family": null,
-          "members": []
-        },
-        {
-          "name": "pScale",
           "kind": "Fields",
           "module": "core.plugins.accessories.cl_init",
           "file": "core/plugins/accessories/cl_init.lua",

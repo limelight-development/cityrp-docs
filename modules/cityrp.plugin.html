@@ -381,8 +381,30 @@ can still send a failed plugin's files to the client - only inclusion is gated, 
 <li><span class="types">PluginEntry[]</span> Every discovered, available plugin, in load order.</li>
 </ol>
 </dd>
+<dt><a name="cityrp.plugin.SendsSubResourcesToClient"></a><strong><span class="state state-client state-server">cityrp.plugin.SendsSubResourcesToClient</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L952">Source ☍</a></dt>
+<dd>
+<p>Whether any of one plugin's sub-resources will be sent to the client.</p>
+<p>The loader <code>AddCSLuaFile</code>s sub-resources <em>after</em> the plugin loop in <code>sh_init.lua</code> has already
+decided whether to send the plugin's <code>.meta.lua</code>, so a plugin with no <code>cl_init.lua</code>/<code>sh_init.lua</code>
+of its own can still materialise its folder clientside through them - <code>breathalyser</code> is exactly
+that shape. Left alone, the client discovers such a plugin with no metadata at all and resolves
+it with its dependencies and availability conditions never evaluated.</p>
+<p>This deliberately mirrors what <code>includeSubResourceFiles</code> and <code>LoadSubResourceItems</code>/<code>Derma</code>
+actually send rather than merely testing whether the folders exist: sending the sidecar for a
+plugin that sends nothing else would materialise the folder clientside on its own, which is the
+opposite failure and the reason the <code>sendsToClient</code> gate exists in the first place.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">entry</span> <span class="types">PluginCandidate</span> The plugin to test.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> Whether the client will receive any file from this plugin's sub-resources.</li>
+</ol>
+</dd>
 <h3 class="section-header">Subresources</h3>
-<dt><a name="cityrp.plugin.LoadSubResourceDerma"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceDerma</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1068">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.LoadSubResourceDerma"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceDerma</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1111">Source ☍</a></dt>
 <dd>
 <p>Includes every <code>derma/*.lua</code> file under one loaded folder plugin, same prefix rules as
 <code>core/derma</code>: the server sends every file but only includes <code>sh_</code>-prefixed ones, the client
@@ -394,7 +416,7 @@ includes everything it received.</p>
 </ul>
 
 </dd>
-<dt><a name="cityrp.plugin.LoadSubResourceEntities"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceEntities</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1017">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.LoadSubResourceEntities"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceEntities</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1060">Source ☍</a></dt>
 <dd>
 <p>Loads the <code>entities/</code> and <code>weapons/</code> sub-resources of every loaded folder plugin, in load order.
 File-based plugins (#2507) never have sub-resources. A plugin that failed to resolve, or a
@@ -406,7 +428,7 @@ missing <code>entities</code>/<code>weapons</code> folder, is skipped silently.<
 </ul>
 
 </dd>
-<dt><a name="cityrp.plugin.LoadSubResourceItems"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceItems</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1043">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.LoadSubResourceItems"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceItems</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1086">Source ☍</a></dt>
 <dd>
 <p>Includes every <code>items/*.lua</code> file under one loaded folder plugin, same convention as <code>core/items</code>:
 included and <code>AddCSLuaFile</code>'d unconditionally, so item files decide their own realm behaviour.
