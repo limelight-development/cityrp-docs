@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>cityrp.pcasino</title>
+	<title>core.plugins.maintenance.entities.cityrp_rockfall.shared</title>
 	<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
@@ -19,7 +19,6 @@
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
 <li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
@@ -114,7 +113,7 @@
 <li><a href="../modules/cityrp.membership.html">cityrp.membership</a></li>
 <li><a href="../modules/cityrp.model.html">cityrp.model</a></li>
 <li><a href="../modules/cityrp.network.html">cityrp.network</a></li>
-<li><strong>cityrp.pcasino</strong></li>
+<li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
 <li><a href="../modules/cityrp.player.html">cityrp.player</a></li>
 <li><a href="../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
 <li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
@@ -258,7 +257,7 @@
 <li><a href="../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
 <li><a href="../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
 <li><a href="../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
-<li><a href="../modules/core.plugins.maintenance.entities.cityrp_rockfall.shared.html">core.plugins.maintenance.entities.cityrp_rockfall.shared</a></li>
+<li><strong>core.plugins.maintenance.entities.cityrp_rockfall.shared</strong></li>
 <li><a href="../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
 <li><a href="../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
 <li><a href="../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
@@ -321,114 +320,106 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>cityrp.pcasino</h1></div>
-<div class="ll-module-body"><p>Perfect Casino Integration (client).</p></div>
+<div class="ll-module-header"><h1>core.plugins.maintenance.entities.cityrp_rockfall.shared</h1></div>
+<div class="ll-module-body"><p>Name: &quot;Rockfall Entity&quot;.
+Product: &quot;CityRP 2 (Roleplay)&quot;.
+Description: A rockfall that needs to be cleaned up by a maintenance worker with a shovel.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.pcasino.BoundGrantMeta"></a><strong><span class="state state-client state-server">cityrp.pcasino.BoundGrantMeta</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sh_init.lua#L38">Source ☍</a></dt>
+<dt><a name="ENT.BeginRise"></a><strong><span class="state state-client state-server">ENT.BeginRise</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/entities/cityrp_rockfall/shared.lua#L60">Source ☍</a></dt>
 <dd>
-<p>Build the inventory meta key used when granting a bound casino prize.</p>
+<p>Begin rising from underground to its final resting position.</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">itemID</span> <span class="types">any</span></li>
+<li><span class="parameter">finalPos</span> <span class="types">Vector</span> The resting position the rockfall should end up at.</li>
+</ul>
+
+</dd>
+<dt><a name="ENT.CleanUp"></a><strong><span class="state state-client state-server">ENT.CleanUp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/entities/cityrp_rockfall/shared.lua#L122">Source ☍</a></dt>
+<dd>
+<p>Clean up this rockfall and reward the player.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player cleaning up the rockfall</li>
+</ul>
+
+</dd>
+<dt><a name="ENT.GetRiseDepth"></a><strong><span class="state state-client state-server">ENT.GetRiseDepth</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/entities/cityrp_rockfall/shared.lua#L45">Source ☍</a></dt>
+<dd>
+<p>Returns how far underground the rockfall should start, based on the model's height.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">number</span> </li>
+</ol>
+</dd>
+<dt><a name="ENT.IsRising"></a><strong><span class="state state-client state-server">ENT.IsRising</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/entities/cityrp_rockfall/shared.lua#L71">Source ☍</a></dt>
+<dd>
+<p>@<em>return</em> <code>rising</code> — Whether the rockfall is still emerging and not yet fixable.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">boolean</span> Whether the rockfall is still emerging and not yet fixable.</li>
+</ol>
+</dd>
+<dt><a name="ENT.MoveTo"></a><strong><span class="state state-client state-server">ENT.MoveTo</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/entities/cityrp_rockfall/shared.lua#L77">Source ☍</a></dt>
+<dd>
+<p>Moves the physics object directly, since Entity:SetPos() alone won't drag it along.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">pos</span> <span class="types">Vector</span></li>
+</ul>
+
+</dd>
+<dt><a name="ENT.SpawnFunction"></a><strong><span class="state state-client state-server">ENT.SpawnFunction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/entities/cityrp_rockfall/shared.lua#L156">Source ☍</a></dt>
+<dd>
+<p>Spawns a rockfall from the entity menu at the aimed-at surface.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The spawning player.</li>
+<li><span class="parameter">tr</span> <span class="types">table</span> Eye trace of the spawn attempt.</li>
+<li><span class="parameter">className</span> <span class="types">string</span> Class being spawned.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">string|unknown|nil</span> </li>
+<li><span class="types">Entity?</span> </li>
 </ol>
-</dd>
-<dt><a name="cityrp.pcasino.IsBoundMeta"></a><strong><span class="state state-client state-server">cityrp.pcasino.IsBoundMeta</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sh_init.lua#L28">Source ☍</a></dt>
-<dd>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">item</span> <span class="types">string|table</span></li>
-<li><span class="parameter">meta</span> <span class="types">(string|table)?</span></li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
-</ol>
-</dd>
-<dt><a name="cityrp.pcasino.OpenOddsMenu"></a><strong><span class="state state-client">cityrp.pcasino.OpenOddsMenu</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/cl_odds.lua#L89">Source ☍</a></dt>
-<dd>
-<p>Build the odds browser.</p>
-
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">focusId</span> <span class="types">any</span></li>
-</ul>
-
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.pcasino.AutoExcludeTiers"></a><strong><span class="state state-server">cityrp.pcasino.AutoExcludeTiers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L76">Source ☍</a></dt>
-<dd>
-<p>Ascending tiers that trigger automatic, escalating self-exclusion.
-A tier is reached when <em>either</em> tally passes its own threshold. <code>duration</code> is
-played-time seconds the exclusion lasts. Neither tally is reset when a tier
-fires, so a player who keeps playing once an exclusion lifts escalates straight
-to the next tier rather than restarting.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.pcasino.BoundPrizeItems"></a><strong><span class="state state-client state-server">cityrp.pcasino.BoundPrizeItems</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sh_init.lua#L18">Source ☍</a></dt>
-<dd>
-<p>Item uniqueIDs that receive hidden tradable=false meta when granted by the casino.
-Already definition-locked prizes (M3, Ninja, Dragon's Breath, Golden Vape) are omitted.
-Trabbi is intentionally left tradable as the joke prize.</p>
-
-
-
-</dd>
-<dt><a name="cityrp.pcasino.WarningTiers"></a><strong><span class="state state-server">cityrp.pcasino.WarningTiers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L66">Source ☍</a></dt>
-<dd>
-<p>Ascending tiers that trigger an in-game reminder only, once per tier per session.
-A tier is reached when <em>either</em> tally passes its own threshold. The loss side is
-floored well above a single top-tier spin (advanced_high stakes $25,000) so one
-unlucky bet never reads as a loss pattern: tier 1 needs 4 full losses back to back.
-The wagered side is set at 20x the matching loss tier: roughly where an
-average-luck player at the published 95% RTP would be down the loss figure.</p>
-
-
-
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.pcasino"></a><strong><span class="state state-client">cityrp.pcasino</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/cl_init.lua#L7">Source ☍</a></dt>
+<dt><a name="ENT._riseDuration"></a><strong><span class="state state-client state-server">ENT._riseDuration</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/entities/cityrp_rockfall/shared.lua#L63">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.pcasino.SessionExcludedTier"></a><strong><span class="state state-server">cityrp.pcasino.SessionExcludedTier</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L89">Source ☍</a></dt>
+<dt><a name="ENT._riseStart"></a><strong><span class="state state-client state-server">ENT._riseStart</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/entities/cityrp_rockfall/shared.lua#L62">Source ☍</a></dt>
 <dd>
-<p>[SteamID64] = index into AutoExcludeTiers already applied.</p>
 
 
 
 </dd>
-<dt><a name="cityrp.pcasino.SessionNet"></a><strong><span class="state state-server">cityrp.pcasino.SessionNet</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L83">Source ☍</a></dt>
+<dt><a name="ENT._riseStartPos"></a><strong><span class="state state-client state-server">ENT._riseStartPos</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/entities/cityrp_rockfall/shared.lua#L64">Source ☍</a></dt>
 <dd>
-<p>[SteamID64] = net cash position at the casino this sitting (negative while down).</p>
 
 
 
 </dd>
-<dt><a name="cityrp.pcasino.SessionWagered"></a><strong><span class="state state-server">cityrp.pcasino.SessionWagered</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L85">Source ☍</a></dt>
+<dt><a name="ENT._riseTargetPos"></a><strong><span class="state state-client state-server">ENT._riseTargetPos</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/entities/cityrp_rockfall/shared.lua#L65">Source ☍</a></dt>
 <dd>
-<p>[SteamID64] = total cash staked at the casino this sitting.</p>
 
 
 
 </dd>
-<dt><a name="cityrp.pcasino.SessionWarnedTier"></a><strong><span class="state state-server">cityrp.pcasino.SessionWarnedTier</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/pcasino/sv_init.lua#L87">Source ☍</a></dt>
+<dt><a name="ENT._rising"></a><strong><span class="state state-client state-server">ENT._rising</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/maintenance/entities/cityrp_rockfall/shared.lua#L61">Source ☍</a></dt>
 <dd>
-<p>[SteamID64] = index into WarningTiers already notified for.</p>
 
 
 

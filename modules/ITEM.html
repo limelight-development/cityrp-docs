@@ -257,6 +257,8 @@
 <li><a href="../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
 <li><a href="../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
 <li><a href="../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../modules/core.plugins.maintenance.entities.cityrp_rockfall.shared.html">core.plugins.maintenance.entities.cityrp_rockfall.shared</a></li>
+<li><a href="../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
 <li><a href="../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
 <li><a href="../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
 <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
@@ -319,8 +321,10 @@
 		</div>
 		<div id="content">
 <div class="ll-module-header"><h1>ITEM</h1></div>
-<div class="ll-module-body"><p>Accessory Base Item</p>
-<p>The accessory base contains a bunch of special functions for use with accessories.</p></div>
+<div class="ll-module-body"><p>Item metatable.
+The ITEM metatable is a bit weird, having some quirks.
+Typically, functions which relate to generating the items / setting data (New, SetDescription) are in UpperCamelCase.
+However, functions which relate to the operation of the item (canUse, onDrop), are in lowerCamelCase.</p></div>
 
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-24T22:05:32Z",
+  "generated": "2026-08-25T11:28:48Z",
   "modules": [
     {
       "name": "Array",
@@ -120647,6 +120647,372 @@
           "file": "core/plugins/login_rewards/cl_init.lua",
           "states": [
             "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
+      "name": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+      "description": "Name: \"Rockfall Entity\".\nProduct: \"CityRP 2 (Roleplay)\".\nDescription: A rockfall that needs to be cleaned up by a maintenance worker with a shovel.",
+      "symbols": [
+        {
+          "name": "ENT._riseDuration",
+          "kind": "Fields",
+          "module": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_rockfall/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT._riseStart",
+          "kind": "Fields",
+          "module": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_rockfall/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT._riseStartPos",
+          "kind": "Fields",
+          "module": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_rockfall/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT._riseTargetPos",
+          "kind": "Fields",
+          "module": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_rockfall/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT._rising",
+          "kind": "Fields",
+          "module": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_rockfall/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.BeginRise",
+          "kind": "Functions",
+          "module": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_rockfall/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Begin rising from underground to its final resting position.",
+          "params": [
+            {
+              "name": "finalPos",
+              "type": "Vector",
+              "desc": "The resting position the rockfall should end up at."
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.CleanUp",
+          "kind": "Functions",
+          "module": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_rockfall/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Clean up this rockfall and reward the player.",
+          "params": [
+            {
+              "name": "ply",
+              "type": "Player",
+              "desc": "The player cleaning up the rockfall"
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.GetRiseDepth",
+          "kind": "Functions",
+          "module": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_rockfall/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Returns how far underground the rockfall should start, based on the model's height.",
+          "params": [],
+          "returns": [
+            {
+              "type": "number",
+              "desc": ""
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.IsRising",
+          "kind": "Functions",
+          "module": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_rockfall/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "@*return* `rising` — Whether the rockfall is still emerging and not yet fixable.",
+          "params": [],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "Whether the rockfall is still emerging and not yet fixable."
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.MoveTo",
+          "kind": "Functions",
+          "module": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_rockfall/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Moves the physics object directly, since Entity:SetPos() alone won't drag it along.",
+          "params": [
+            {
+              "name": "pos",
+              "type": "Vector",
+              "desc": ""
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.SpawnFunction",
+          "kind": "Functions",
+          "module": "core.plugins.maintenance.entities.cityrp_rockfall.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_rockfall/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Spawns a rockfall from the entity menu at the aimed-at surface.",
+          "params": [
+            {
+              "name": "ply",
+              "type": "Player",
+              "desc": "The spawning player."
+            },
+            {
+              "name": "tr",
+              "type": "table",
+              "desc": "Eye trace of the spawn attempt."
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "desc": "Class being spawned."
+            }
+          ],
+          "returns": [
+            {
+              "type": "Entity?",
+              "desc": ""
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
+      "name": "core.plugins.maintenance.entities.cityrp_trashbag.shared",
+      "description": "Name: \"Maintenance Trash Bag\".\nProduct: \"CityRP 2 (Roleplay)\".\nDescription: Bag of expired products from destocking a vending machine.\n  Carry it (with your hands) to a CityRP rubbish bin for the maintenance payout.",
+      "symbols": [
+        {
+          "name": "ENT._deposited",
+          "kind": "Fields",
+          "module": "core.plugins.maintenance.entities.cityrp_trashbag.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_trashbag/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.Deposit",
+          "kind": "Functions",
+          "module": "core.plugins.maintenance.entities.cityrp_trashbag.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_trashbag/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Deposit this bag into a rubbish bin and pay the claiming player.",
+          "params": [
+            {
+              "name": "ply",
+              "type": "Player",
+              "desc": "The player claiming the reward"
+            }
+          ],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "the deposit succeeded"
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.Model",
+          "kind": "Fields",
+          "module": "core.plugins.maintenance.entities.cityrp_trashbag.shared",
+          "file": "core/plugins/maintenance/entities/cityrp_trashbag/shared.lua",
+          "states": [
+            "client",
+            "server"
           ],
           "desc": "",
           "params": [],
