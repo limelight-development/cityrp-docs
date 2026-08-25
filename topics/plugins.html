@@ -261,6 +261,7 @@
 <li><a href="../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
 <li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
 <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
 <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
@@ -274,10 +275,14 @@
 <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
 <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
 <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
 <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
 <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
 <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
 <li><a href="../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
@@ -452,8 +457,8 @@ PLUGIN:Register()
 <li><code>local PLUGIN = {}</code> … <code>cityrp.plugin.register(PLUGIN)</code> — the legacy form, used by most plugins.</li>
 <li><code>local PLUGIN = PLUGIN:New(name, author)</code> … <code>PLUGIN:Register()</code> — the class form (<code>sh_plugincore.lua</code>), which adds <code>PLUGIN:AddHook</code>, enable/disable, and per-plugin data/map file helpers.</li>
 </ul>
-<p><strong><code>cityrp.plugin.stored</code> is keyed by <code>PLUGIN.name</code>, the display name — not by the plugin key.</strong> The <code>area</code> folder registers as <code>&quot;Area Manager&quot;</code>, <code>networking</code> as <code>&quot;Networking&quot;</code>, <code>carboosting</code> as <code>&quot;Car Boosting&quot;</code>. So a lookup is <code>cityrp.plugin.get(&quot;Area Manager&quot;)</code>, not <code>cityrp.plugin.get(&quot;area&quot;)</code>. Casing is inconsistent across the codebase; check the plugin's own <code>PLUGIN.name</code> before writing a lookup.</p>
-<p>Registration also creates a per-plugin logger at <code>plugin.&lt;PLUGIN.name&gt;</code> and exposes it as <code>PLUGIN.logger</code>.</p>
+<p><strong><code>cityrp.plugin.stored</code> is keyed by the plugin key</strong>, the same identity <code>.meta.lua</code> and load order use — so a lookup is <code>cityrp.plugin.get(&quot;area&quot;)</code>. <code>cityrp.plugin.get</code> still accepts the display name (<code>cityrp.plugin.get(&quot;Area Manager&quot;)</code>) and resolves it through <code>cityrp.plugin.names</code>, but warns once per name: the two identities are not derivable from one another, so nothing can bridge them automatically. Hundreds of call sites still pass display names; they work, and converting one is worth doing when you are already editing that code. Both forms cost the same — the key is simply the identity everything else already uses.</p>
+<p>Registration also stamps the resolved key onto the plugin as <code>PLUGIN.key</code>, creates a per-plugin logger at <code>plugin.&lt;key&gt;</code>, and exposes it as <code>PLUGIN.logger</code>. Use <code>PLUGIN.key</code> rather than repeating the key as a literal when a plugin needs to look itself up.</p>
 <h2>Keys</h2>
 <p>A plugin's <strong>key</strong> is its identity for everything the loader does. It is the folder name, or a file plugin's name with the scope prefix and <code>.lua</code> stripped:</p>
 <table>
@@ -634,12 +639,22 @@ sent; any dependent sees it as <code>disabled</code>, not <code>not installed</c
 <h3>Reading another plugin</h3>
 <p>Declaring a dependency fixes the load order; it does not make a file-scope lookup good practice. <code>core/plugins/hud/cl_init.lua</code> calls <code>cityrp.plugin.get(&quot;Excuse NLR&quot;)</code> at file scope and works only because <code>excusenlr</code> sorts before <code>hud</code>. Do the lookup inside a hook or at run time instead, and guard it:</p>
 <pre><code class="language-lua">hook.Add(&quot;InitPostEntity&quot;, &quot;MyPluginSetup&quot;, function()
-	local other = cityrp.plugin.get(&quot;Excuse NLR&quot;)
+	local other = cityrp.plugin.get(&quot;excusenlr&quot;)
 	if not other then return end
 end)
 </code></pre>
-<p>Remember <code>cityrp.plugin.get</code> is keyed by <code>PLUGIN.name</code>, not by the plugin key the metadata uses.</p>
-<p>Items load after every plugin, so item files may gate on a plugin at file scope — <code>core/items/ammunition/sh_ammo_pistol.lua</code> opens with <code>if not cityrp.plugin.get(&quot;Generic&quot;) then return end</code>.</p>
+<p>Pass the plugin key, the same value the metadata uses. A display name still resolves, but warns.</p>
+<p>Items load after every plugin, so item files may gate on a plugin at file scope — <code>core/items/ammunition/sh_ammo_pistol.lua</code> opens with <code>if not cityrp.plugin.get(&quot;generic&quot;) then return end</code>.</p>
+<h3>Guarding a cross-plugin call</h3>
+<p>When you only need to know <em>whether</em> a plugin is there, not to call into its table, use <code>cityrp.plugin.IsAvailable(key)</code>:</p>
+<pre><code class="language-lua">if cityrp.plugin.IsAvailable(&quot;banking&quot;) then
+	-- safe to call into the banking plugin here
+end
+</code></pre>
+<p>Any plugin can be removed from the repo at any time, and nothing stops another plugin's code from assuming it still exists — so an unguarded cross-plugin reference is a live bug, not a hypothetical one. There is deliberately no structural safety net: nothing proxies cross-plugin calls into silent no-ops, because that would turn &quot;plugin removed&quot; into a quietly degraded feature instead of a loud, findable one. Call sites guard themselves.</p>
+<p><code>IsAvailable</code> is not the same as <code>cityrp.plugin.get(key) ~= nil</code>, and the difference bites. It reads the loader's own bookkeeping rather than <code>cityrp.plugin.stored</code>, so it is true for the ~27 plugins that load without ever calling <code>register</code>, and for <code>xp-bar</code>, which returns early without registering when MESKA is absent. <code>get</code> would call all of those missing.</p>
+<p>It is also realm-accurate in both directions. A server-only plugin is never discovered clientside, so <code>IsAvailable</code> is correctly <code>false</code> there — the query-side counterpart of <a href="#the-realm-trap">the realm trap</a> above. A plugin with no realm files of its own but with <a href="#sub-resources-entities-weapons-items-derma">sub-resources</a> does materialise clientside and reads <code>true</code>.</p>
+<p>Every reason a plugin might be absent — never installed, removed, <code>disabled = true</code>, excluded by <code>servers</code>/<code>maps</code>, a missing required dependency, a required dependency cycle — returns the same <code>false</code>, because from a caller's side they are the same thing. When the difference matters, <code>cityrp.plugin.GetDependencyStatus(key)</code> returns the outcome (<code>status</code>, <code>reason</code>, <code>missing</code>, <code>missingOptional</code>, <code>cycle</code>, <code>order</code>) or nil if nothing by that key was discovered here. That one is for diagnostics and error messages — do not guard with it; its shape is an implementation detail and may gain fields.</p>
 <h2>Availability conditions</h2>
 <p>A plugin can declare in its <code>.meta.lua</code> which servers and maps it is allowed to exist on. Four optional keys, all lists of lowercase strings, matched exactly against <code>LLServer</code> and <code>string.lower(game.GetMap())</code>:</p>
 <pre><code class="language-lua">return {
@@ -669,7 +684,7 @@ end)
 </code></pre>
 <p>Levels persist server-side and are re-read at gamemode init, and plugins load at map load — so set the level, then restart or change level, then read the output.</p>
 <p>The same command on a client does not persist, so client-side load-time <code>DEBUG</code> output is effectively unobservable. Verify the client by effect instead:</p>
-<pre><code>lua_run_cl print(cityrp.plugin.get(&quot;Automatic Restarts&quot;) ~= nil)
+<pre><code>lua_run_cl print(cityrp.plugin.get(&quot;auto_restart&quot;) ~= nil)
 lua_run_cl PrintTable(select(1, file.Find(GMFOLDER .. &quot;/gamemode/core/plugins/*&quot;, &quot;LUA&quot;)))
 </code></pre>
 <p>The second line lists the file plugins the client actually received, which is the quickest way to confirm an <code>AddCSLuaFile</code> did or did not happen.</p>

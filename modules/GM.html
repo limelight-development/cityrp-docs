@@ -268,6 +268,7 @@
 <li><a href="../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
 <li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
 <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
 <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
@@ -281,10 +282,14 @@
 <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
 <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
 <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
 <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
 <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
 <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
 <li><a href="../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
@@ -325,7 +330,7 @@
 <div class="ll-module-body"><p>Primary Gamemode Bootstrap</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="CalcRagdollEyes"></a><strong><span class="state state-client">CalcRagdollEyes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1333">Source ☍</a></dt>
+<dt><a name="CalcRagdollEyes"></a><strong><span class="state state-client">CalcRagdollEyes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1327">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -340,26 +345,26 @@
 <li><span class="types">table|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="cityrp.formattime"></a><strong><span class="state state-client">cityrp.formattime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1368">Source ☍</a></dt>
+<dt><a name="cityrp.formattime"></a><strong><span class="state state-client">cityrp.formattime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1362">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">time</span> <span class="types">any</span></li>
-<li><span class="parameter">showmins</span> <span class="types">any</span></li>
+<li><span class="parameter">time</span> <span class="types">number?</span></li>
+<li><span class="parameter">showmins</span> <span class="types">boolean</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">string</span> </li>
 </ol>
 </dd>
-<dt><a name="DrawDeathMessage"></a><strong><span class="state state-client">DrawDeathMessage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1254">Source ☍</a></dt>
+<dt><a name="DrawDeathMessage"></a><strong><span class="state state-client">DrawDeathMessage</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1248">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="fireEmitters"></a><strong><span class="state state-client">fireEmitters</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1351">Source ☍</a></dt>
+<dt><a name="fireEmitters"></a><strong><span class="state state-client">fireEmitters</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1345">Source ☍</a></dt>
 <dd>
 
 
@@ -382,7 +387,7 @@
 <li><span class="types">number|unknown</span> </li>
 </ol>
 </dd>
-<dt><a name="GM.CalculateTime"></a><strong><span class="state state-client">GM.CalculateTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L933">Source ☍</a></dt>
+<dt><a name="GM.CalculateTime"></a><strong><span class="state state-client">GM.CalculateTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L927">Source ☍</a></dt>
 <dd>
 <p>Convert seconds to a hours, minutes format.</p>
 
@@ -438,7 +443,7 @@
 <li><span class="types">boolean</span> If the toolgun was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.ChatText"></a><strong><span class="state state-client">GM.ChatText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1245">Source ☍</a></dt>
+<dt><a name="GM.ChatText"></a><strong><span class="state state-client">GM.ChatText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1239">Source ☍</a></dt>
 <dd>
 <p>Called when a player says something or a message is received from the server.</p>
 
@@ -504,7 +509,7 @@
 </ul>
 
 </dd>
-<dt><a name="GM.DrawInformation"></a><strong><span class="state state-client">GM.DrawInformation</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L727">Source ☍</a></dt>
+<dt><a name="GM.DrawInformation"></a><strong><span class="state state-client">GM.DrawInformation</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L721">Source ☍</a></dt>
 <dd>
 <p>Draw Information.</p>
 
@@ -599,7 +604,7 @@
 
 
 </dd>
-<dt><a name="GM.HUDDrawScoreBoard"></a><strong><span class="state state-client">GM.HUDDrawScoreBoard</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L684">Source ☍</a></dt>
+<dt><a name="GM.HUDDrawScoreBoard"></a><strong><span class="state state-client">GM.HUDDrawScoreBoard</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L678">Source ☍</a></dt>
 <dd>
 <p>Called when the scoreboard should be drawn.</p>
 
@@ -622,7 +627,7 @@
 
 
 </dd>
-<dt><a name="GM.HUDPaint"></a><strong><span class="state state-client">GM.HUDPaint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1100">Source ☍</a></dt>
+<dt><a name="GM.HUDPaint"></a><strong><span class="state state-client">GM.HUDPaint</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1094">Source ☍</a></dt>
 <dd>
 <p>Called every time the HUD should be painted.</p>
 
@@ -1149,7 +1154,7 @@ Typically on a 60s timer.</p>
 <li><span class="types">boolean|nil</span> If the viewing is allowed, nil for default (allowed).</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerCanVoice"></a><strong><span class="state state-client">GM.PlayerCanVoice</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1233">Source ☍</a></dt>
+<dt><a name="GM.PlayerCanVoice"></a><strong><span class="state state-client">GM.PlayerCanVoice</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1227">Source ☍</a></dt>
 <dd>
 <p>Called to check if a player can use voice.</p>
 
@@ -1295,7 +1300,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerEndVoice"></a><strong><span class="state state-client">GM.PlayerEndVoice</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L995">Source ☍</a></dt>
+<dt><a name="GM.PlayerEndVoice"></a><strong><span class="state state-client">GM.PlayerEndVoice</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L989">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -1304,7 +1309,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerFootstep"></a><strong><span class="state state-client state-server">GM.PlayerFootstep</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/sh_init.lua#L274">Source ☍</a></dt>
+<dt><a name="GM.PlayerFootstep"></a><strong><span class="state state-client state-server">GM.PlayerFootstep</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/sh_init.lua#L284">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -1394,13 +1399,13 @@ created (false, via pMeta:LoadDataNew).</p>
 </ul>
 
 </dd>
-<dt><a name="GM.PlayerNoClip"></a><strong><span class="state state-client">GM.PlayerNoClip</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1598">Source ☍</a></dt>
+<dt><a name="GM.PlayerNoClip"></a><strong><span class="state state-client">GM.PlayerNoClip</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1592">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">state</span> <span class="types">any</span></li>
+<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+<li><span class="parameter">state</span> <span class="types">boolean</span></li>
 </ul>
 <h3>Returns:</h3>
 <ol>
@@ -1755,7 +1760,7 @@ Coded by Voluptious.</p>
 <li><span class="types">boolean</span> If the spray is allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PlayerStartVoice"></a><strong><span class="state state-client">GM.PlayerStartVoice</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L950">Source ☍</a></dt>
+<dt><a name="GM.PlayerStartVoice"></a><strong><span class="state state-client">GM.PlayerStartVoice</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L944">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -1900,13 +1905,13 @@ class:
 <li><span class="types">boolean|nil</span> If the pickup was allowed.</li>
 </ol>
 </dd>
-<dt><a name="GM.PreDrawHalos"></a><strong><span class="state state-client">GM.PreDrawHalos</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1611">Source ☍</a></dt>
+<dt><a name="GM.PreDrawHalos"></a><strong><span class="state state-client">GM.PreDrawHalos</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1605">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="GM.RenderScreenspaceEffects"></a><strong><span class="state state-client">GM.RenderScreenspaceEffects</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L631">Source ☍</a></dt>
+<dt><a name="GM.RenderScreenspaceEffects"></a><strong><span class="state state-client">GM.RenderScreenspaceEffects</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L625">Source ☍</a></dt>
 <dd>
 <p>Called when screen space effects should be rendered.</p>
 
@@ -1993,7 +1998,7 @@ class:
 
 
 </dd>
-<dt><a name="GM.StartChat"></a><strong><span class="state state-client">GM.StartChat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1242">Source ☍</a></dt>
+<dt><a name="GM.StartChat"></a><strong><span class="state state-client">GM.StartChat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1236">Source ☍</a></dt>
 <dd>
 <p>Called when a player begins typing.</p>
 
@@ -2040,7 +2045,7 @@ class:
 </ul>
 
 </dd>
-<dt><a name="HUD_removeVoicePanel"></a><strong><span class="state state-client">HUD_removeVoicePanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L942">Source ☍</a></dt>
+<dt><a name="HUD_removeVoicePanel"></a><strong><span class="state state-client">HUD_removeVoicePanel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L936">Source ☍</a></dt>
 <dd>
 
 <h3>Parameters:</h3>
@@ -2140,13 +2145,13 @@ These are documented in init.lua</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="billboard"></a><strong><span class="state state-client">billboard</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1475">Source ☍</a></dt>
+<dt><a name="billboard"></a><strong><span class="state state-client">billboard</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1469">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.barheight"></a><strong><span class="state state-client">cityrp.barheight</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1192">Source ☍</a></dt>
+<dt><a name="cityrp.barheight"></a><strong><span class="state state-client">cityrp.barheight</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1186">Source ☍</a></dt>
 <dd>
 
 
@@ -2164,7 +2169,7 @@ These are documented in init.lua</p>
 
 
 </dd>
-<dt><a name="cityrp_rules"></a><strong><span class="state state-client">cityrp_rules</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1595">Source ☍</a></dt>
+<dt><a name="cityrp_rules"></a><strong><span class="state state-client">cityrp_rules</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1589">Source ☍</a></dt>
 <dd>
 
 
@@ -2182,25 +2187,25 @@ These are documented in init.lua</p>
 
 
 </dd>
-<dt><a name="FireEmitter"></a><strong><span class="state state-client">FireEmitter</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1352">Source ☍</a></dt>
+<dt><a name="FireEmitter"></a><strong><span class="state state-client">FireEmitter</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1346">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="g_VoicePanelList"></a><strong><span class="state state-client">g_VoicePanelList</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1010">Source ☍</a></dt>
+<dt><a name="g_VoicePanelList"></a><strong><span class="state state-client">g_VoicePanelList</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1004">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="GAMEMODE.playerInitFailed"></a><strong><span class="state state-client">GAMEMODE.playerInitFailed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1447">Source ☍</a></dt>
+<dt><a name="GAMEMODE.playerInitFailed"></a><strong><span class="state state-client">GAMEMODE.playerInitFailed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1441">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="GAMEMODE.playerInitialized"></a><strong><span class="state state-client">GAMEMODE.playerInitialized</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1457">Source ☍</a></dt>
+<dt><a name="GAMEMODE.playerInitialized"></a><strong><span class="state state-client">GAMEMODE.playerInitialized</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1451">Source ☍</a></dt>
 <dd>
 
 
@@ -2244,13 +2249,13 @@ Product: &quot;CityRP 2 (Roleplay)&quot;.</h2>
 
 
 </dd>
-<dt><a name="lplyv"></a><strong><span class="state state-client">lplyv</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1103">Source ☍</a></dt>
+<dt><a name="lplyv"></a><strong><span class="state state-client">lplyv</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1097">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="SmokeEmitter"></a><strong><span class="state state-client">SmokeEmitter</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1353">Source ☍</a></dt>
+<dt><a name="SmokeEmitter"></a><strong><span class="state state-client">SmokeEmitter</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua#L1347">Source ☍</a></dt>
 <dd>
 
 

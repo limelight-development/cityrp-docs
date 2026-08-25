@@ -268,6 +268,7 @@
 <li><a href="../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
 <li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
 <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
 <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
@@ -281,10 +282,14 @@
 <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
 <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
 <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
 <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
 <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
 <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
 <li><a href="../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
@@ -498,7 +503,7 @@ TODO: Function name has typo - &quot;Recieve&quot; should be &quot;Receive&quot;
 <li><span class="types">boolean</span> </li>
 </ol>
 </dd>
-<dt><a name="Player.ChatPrintF"></a><strong><span class="state state-server">Player.ChatPrintF</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2046">Source ☍</a></dt>
+<dt><a name="Player.ChatPrintF"></a><strong><span class="state state-server">Player.ChatPrintF</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2047">Source ☍</a></dt>
 <dd>
 <p>Add a chat print message which has been passed through string.format.
 See: <a>string.format</a></p>
@@ -581,7 +586,7 @@ officer who marked it (not necessarily whoever performs the arrest).</p>
 <li><span class="types">string|nil</span> </li>
 </ol>
 </dd>
-<dt><a name="Player.DisableEventMgr"></a><strong><span class="state state-server">Player.DisableEventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2103">Source ☍</a></dt>
+<dt><a name="Player.DisableEventMgr"></a><strong><span class="state state-server">Player.DisableEventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2104">Source ☍</a></dt>
 <dd>
 <p>Disables Event Manager permissions for player.</p>
 
@@ -625,7 +630,7 @@ officer who marked it (not necessarily whoever performs the arrest).</p>
 </ul>
 
 </dd>
-<dt><a name="Player.EnableEventMgr"></a><strong><span class="state state-server">Player.EnableEventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2096">Source ☍</a></dt>
+<dt><a name="Player.EnableEventMgr"></a><strong><span class="state state-server">Player.EnableEventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2097">Source ☍</a></dt>
 <dd>
 <p>Enables Event Manager permissions for player.</p>
 
@@ -704,7 +709,7 @@ Only returns a value for leader positions (e.g., President, SWAT Leader, Police 
 <li><span class="types">boolean|string</span> agenda group the player leads, or false if none.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetDefaultModel"></a><strong><span class="state state-server">Player.GetDefaultModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2013">Source ☍</a></dt>
+<dt><a name="Player.GetDefaultModel"></a><strong><span class="state state-server">Player.GetDefaultModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2014">Source ☍</a></dt>
 <dd>
 <p>Get a player's default (team) model.</p>
 
@@ -815,7 +820,7 @@ Returns &quot;*** Unknown ***&quot; if the player is blindfolded or in certain v
 <li><span class="types">string</span> player's location name.</li>
 </ol>
 </dd>
-<dt><a name="Player.GetMember"></a><strong><span class="state state-server">Player.GetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2059">Source ☍</a></dt>
+<dt><a name="Player.GetMember"></a><strong><span class="state state-server">Player.GetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2060">Source ☍</a></dt>
 <dd>
 <p>Check if a player has been granted Member entitlement (independent of whether they're wearing the tag).</p>
 
@@ -2019,7 +2024,7 @@ For example, keys, remote keys, toolgun and physgun.</p>
 </ul>
 
 </dd>
-<dt><a name="Player.RestoreDefaultModel"></a><strong><span class="state state-server">Player.RestoreDefaultModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2029">Source ☍</a></dt>
+<dt><a name="Player.RestoreDefaultModel"></a><strong><span class="state state-server">Player.RestoreDefaultModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2030">Source ☍</a></dt>
 <dd>
 <p>Restore a player's default model.
 Also unsets their custom model field.</p>
@@ -2027,7 +2032,7 @@ Also unsets their custom model field.</p>
 
 
 </dd>
-<dt><a name="Player.RestoreDefaultModelTimed"></a><strong><span class="state state-server">Player.RestoreDefaultModelTimed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2037">Source ☍</a></dt>
+<dt><a name="Player.RestoreDefaultModelTimed"></a><strong><span class="state state-server">Player.RestoreDefaultModelTimed</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2038">Source ☍</a></dt>
 <dd>
 <p>Reset a player's default model, using the regular 10 second timer.</p>
 
@@ -2111,7 +2116,7 @@ Prefer this over <code>cityrp.player.setLocalPlayerVariable</code> in new code.<
 </ul>
 
 </dd>
-<dt><a name="Player.SetMember"></a><strong><span class="state state-server">Player.SetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2067">Source ☍</a></dt>
+<dt><a name="Player.SetMember"></a><strong><span class="state state-server">Player.SetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2068">Source ☍</a></dt>
 <dd>
 <p>Grant or revoke a player's Member entitlement.
 Persisted in _Flags, the same field Premium's &quot;d&quot; flag lives in, but read/written directly
@@ -2123,7 +2128,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 </ul>
 
 </dd>
-<dt><a name="Player.SetMembershipExpires"></a><strong><span class="state state-server">Player.SetMembershipExpires</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2052">Source ☍</a></dt>
+<dt><a name="Player.SetMembershipExpires"></a><strong><span class="state state-server">Player.SetMembershipExpires</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2053">Source ☍</a></dt>
 <dd>
 <p>Set when a player's membership expires.</p>
 
@@ -2133,7 +2138,7 @@ rather than through the cityrp.access system, since Member isn't a permission.</
 </ul>
 
 </dd>
-<dt><a name="Player.SetNetMember"></a><strong><span class="state state-server">Player.SetNetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2083">Source ☍</a></dt>
+<dt><a name="Player.SetNetMember"></a><strong><span class="state state-server">Player.SetNetMember</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2084">Source ☍</a></dt>
 <dd>
 <p>Set the networked Member state (the sync of GetMember()). Does not itself check tags or Premium.</p>
 
@@ -2487,13 +2492,13 @@ The:
 
 
 </dd>
-<dt><a name="Player._EventMgr"></a><strong><span class="state state-server">Player._EventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2097">Source ☍</a></dt>
+<dt><a name="Player._EventMgr"></a><strong><span class="state state-server">Player._EventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2098">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player._EventMgr"></a><strong><span class="state state-server">Player._EventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2104">Source ☍</a></dt>
+<dt><a name="Player._EventMgr"></a><strong><span class="state state-server">Player._EventMgr</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2105">Source ☍</a></dt>
 <dd>
 
 
@@ -2834,13 +2839,13 @@ The:
 
 
 </dd>
-<dt><a name="Player.CustomModel"></a><strong><span class="state state-server">Player.CustomModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2030">Source ☍</a></dt>
+<dt><a name="Player.CustomModel"></a><strong><span class="state state-server">Player.CustomModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2031">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="Player.CustomModel"></a><strong><span class="state state-server">Player.CustomModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2038">Source ☍</a></dt>
+<dt><a name="Player.CustomModel"></a><strong><span class="state state-server">Player.CustomModel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2039">Source ☍</a></dt>
 <dd>
 
 
@@ -2908,7 +2913,7 @@ Alias for IsRank() for compatibility with Garry's Mod standard API.</p>
 
 
 </dd>
-<dt><a name="Player.peq"></a><strong><span class="state state-server">Player.peq</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2007">Source ☍</a></dt>
+<dt><a name="Player.peq"></a><strong><span class="state state-server">Player.peq</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2008">Source ☍</a></dt>
 <dd>
 
 

@@ -261,6 +261,7 @@
 <li><a href="../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
 <li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
 <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
 <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
@@ -274,10 +275,14 @@
 <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
 <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
 <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
 <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
 <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
 <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
 <li><a href="../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
@@ -362,6 +367,18 @@
 <td align="left"><code>ply:ConCommand(&quot;cityrp &lt;cmd&gt; &lt;args&gt;&quot;)</code> (clientside UI)&lt;br&gt;<code>cityrp.command.consoleCommand(ply, cmd, argsTable)</code> (serverside)</td>
 <td align="left"><code>ply:ConCommand(&quot;say /&lt;cmd&gt; &lt;args&gt;&quot;)</code></td>
 <td align="left">Both end up in <code>cityrp.command.consoleCommand</code>; <code>say /</code> only adds the chat pipeline in front of it, where a <code>PlayerSay</code> hook can swallow the message, <code>cityrp.replacecodes</code> rewrites <code>%</code>/<code>$q</code> codes inside the arguments, &gt;452 characters are dropped silently, and the arguments are re-quoted by a naive scanner. See <a href="../AGENTS.md">AGENTS.md</a> footgun #13.</td>
+</tr>
+<tr>
+<td align="left"><strong>&quot;Is this plugin here?&quot;</strong> (guarding a cross-plugin call)</td>
+<td align="left"><code>cityrp.plugin.IsAvailable(&quot;&lt;key&gt;&quot;)</code></td>
+<td align="left"><code>cityrp.plugin.get(&quot;&lt;key&gt;&quot;) ~= nil</code>; unguarded cross-plugin calls</td>
+<td align="left"><code>get</code> only sees plugins that called <code>register</code>, and ~27 loaded plugins never do — so it reports them missing. <code>IsAvailable</code> reads the loader's bookkeeping, is realm-accurate, and answers <code>false</code> for every reason a plugin can be absent. Use <code>cityrp.plugin.GetDependencyStatus(key)</code> when you need to know <em>which</em> reason; it is for diagnostics, not for guards. See <a href="plugins.md#guarding-a-cross-plugin-call">plugins.md</a>.</td>
+</tr>
+<tr>
+<td align="left"><strong>Plugin lookup</strong> (you need the plugin's table)</td>
+<td align="left"><code>cityrp.plugin.get(&quot;&lt;key&gt;&quot;)</code> — the folder key, as used by <code>.meta.lua</code> and load order. Inside a plugin, <code>cityrp.plugin.get(PLUGIN.key)</code></td>
+<td align="left"><code>cityrp.plugin.get(&quot;Display Name&quot;)</code>; indexing <code>cityrp.plugin.stored</code> directly</td>
+<td align="left"><code>cityrp.plugin.stored</code> is keyed by the plugin key. A display name still resolves through <code>cityrp.plugin.names</code> and costs the same, but warns once per name — the two identities are not derivable from each other (<code>area</code> registers as <code>&quot;Area Manager&quot;</code>). Existing display-name call sites work; convert one when you are already editing that code. See <a href="plugins.md">plugins.md</a> and <a href="../AGENTS.md">AGENTS.md</a> footgun #22.</td>
 </tr>
 <tr>
 <td align="left"><strong>Console Entity</strong></td>

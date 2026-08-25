@@ -261,6 +261,7 @@
 <li><a href="../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
 <li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
 <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
 <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
@@ -274,10 +275,14 @@
 <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
 <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
 <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
 <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
 <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
 <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
 <li><a href="../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
@@ -328,8 +333,10 @@ achievements use MESKA. Lifetime and seasonal tablet leaderboards are persisted 
 <li>Start the disabled engine. An unauthorized driver must complete the normal vehicle hotwire task.</li>
 <li>B-, A- and S-class targets require a Fake License Plate.</li>
 <li>B-, A- and S-class targets require one or two GPS tracker challenges.</li>
-<li>Deliver the vehicle to the Chop Shop within the action-tiered contract time.</li>
+<li>Every grade (D through S) must visit a fence contact NPC to file the vehicle's numbers before delivery; the vehicle must be within <code>NumberFilingDistance</code> (5,000 units) of the NPC while the timed interaction completes.</li>
+<li>Deliver the vehicle to the Chop Shop and hold position for <code>DeliveryHoldTime</code> (20 seconds) within the action-tiered contract time.</li>
 </ol>
+<p>Fence contact NPCs (<code>cityrp_boosting_fence</code>) are admin-placed per map with <code>!boosting filing add|remove|list|reload</code>, the same pattern used for chop-shop and fallback spawn points.</p>
 <p>Accepted targets are explicitly switched off after vehicle initialization and again when reserved for a contract. This prevents a generated or previously running target from bypassing the standard hotwire flow.</p>
 <h2>Contract classes and timing</h2>
 <p>Vehicle class is derived from the current vehicle market. MESKA Boosting levels unlock classes in order:</p>
@@ -396,8 +403,9 @@ achievements use MESKA. Lifetime and seasonal tablet leaderboards are persisted 
 <p>Only <code>experience</code> grants Boosting XP. The remaining metrics exist for persistent achievement requirements and do not independently increase the skill level.</p>
 <p>Contract completion awards XP through <code>meska.metrics.track</code>. The tablet, offer gating, server acceptance checks and generated-target class limits all read the MESKA Boosting level.</p>
 <p>Heat is deliberately excluded from MESKA. It is stored on the player row, decays only while
-the player is online (fractional hours accumulate until a whole Heat point is due), and
-affects payout through the Car Boosting profile.</p>
+the player is online (fractional hours accumulate until a whole Heat point is due, forced by
+a recurring <code>CityRP.CarBoosting.HeatDecayTick</code> timer so decay accrues continuously rather than
+only when the tablet is opened), and affects payout through the Car Boosting profile.</p>
 <h2>Leaderboards</h2>
 <p>The tablet Leaderboard tab shows lifetime and current-month seasonal rankings (top 30).
 Both are stored in <code>boosting_leaderboard</code>, keyed by <code>steamid64</code> + <code>season</code>:</p>
@@ -439,10 +447,11 @@ Session history on the History tab remains in-memory only.</p>
 <p>Successful boosts and failures add Heat. Heat:</p>
 <ul>
 <li>remains outside MESKA and is persisted on <code>players._BoostingHeat</code>;</li>
-<li>decays by a configurable amount per real hour while the player is online;</li>
+<li>decays by a configurable amount per real hour while the player is online (<code>HeatDecayPerHour</code>, currently 8);</li>
 <li>reduces the advertised payout; and</li>
 <li>increases active GPS reporting frequency.</li>
 </ul>
+<p>Generated (&quot;fallback&quot;) targets require at least <code>MinimumLawEnforcement</code> (2) law enforcement online. Dropping below that threshold only stops <em>new</em> generated offers from being added — existing generated offers are left alone and still ride out their normal expiry, and generation resumes automatically once coverage returns. The Parts Store &quot;Contract Board Reroll&quot; purchase additionally requires police coverage before it can be used.</p>
 <p>Vehicle damage is checked at delivery, allowing crews to repair a vehicle before handover. The minimum payout multiplier is controlled by <code>MinimumConditionMultiplier</code>.</p>
 <h2>Waypoints and F1 map</h2>
 <p>When Waypoints is loaded, delivery replaces an unrelated active destination with a silent <code>Chop Shop</code> waypoint. It clears when delivery completes, fails or the player reaches the destination radius.</p>

@@ -19,6 +19,7 @@
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
@@ -266,6 +267,7 @@
 <li><a href="../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
 <li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
 <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
 <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
@@ -279,10 +281,14 @@
 <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
 <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
 <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
 <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
 <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
 <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
 <li><a href="../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
@@ -323,7 +329,24 @@
 <div class="ll-module-body"><p>Clientside Vehicles Plugin.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="DoVehicleVeiw"></a><strong><span class="state state-client">DoVehicleVeiw</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/cl_init.lua#L76">Source ☍</a></dt>
+<dt><a name="cityrp.vehicles.GetDisplayName"></a><strong><span class="state state-client">cityrp.vehicles.GetDisplayName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/cl_init.lua#L50">Source ☍</a></dt>
+<dd>
+<p>Returns a vehicle's display name scoped to what the local player is allowed to know: the
+bare car name with no access, &quot;Your &lt;car&gt;&quot; for the owner, or &quot;&lt;owner&gt;'s &lt;car&gt;&quot; for anyone
+else VehicleAccess grants (family/team/clan/etc). Access is private server-only state, so
+this is asked for per vehicle (cached and throttled) rather than trusted from a broadcast
+NWVar, which could only ever show the same string to every viewer at once.</p>
+
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">vehicle</span> <span class="types">Entity</span> Target vehicle.</li>
+</ul>
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">string</span> Access-scoped display name.</li>
+</ol>
+</dd>
+<dt><a name="DoVehicleVeiw"></a><strong><span class="state state-client">DoVehicleVeiw</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/cl_init.lua#L127">Source ☍</a></dt>
 <dd>
 <p>Build the vehicle CalcView camera for ModView cars.
 Zoom is clamped clientside so scrolling past the server max does not rubber-band.</p>
@@ -340,7 +363,7 @@ Zoom is clamped clientside so scrolling past the server max does not rubber-band
 <li><span class="types">table|nil</span> CamData override, or nil to leave the view alone.</li>
 </ol>
 </dd>
-<dt><a name="GetPetrolIcon"></a><strong><span class="state state-client">GetPetrolIcon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/cl_init.lua#L195">Source ☍</a></dt>
+<dt><a name="GetPetrolIcon"></a><strong><span class="state state-client">GetPetrolIcon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/cl_init.lua#L246">Source ☍</a></dt>
 <dd>
 
 
@@ -349,7 +372,7 @@ Zoom is clamped clientside so scrolling past the server max does not rubber-band
 <li><span class="types">string</span> </li>
 </ol>
 </dd>
-<dt><a name="GetVoltIcon"></a><strong><span class="state state-client">GetVoltIcon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/cl_init.lua#L182">Source ☍</a></dt>
+<dt><a name="GetVoltIcon"></a><strong><span class="state state-client">GetVoltIcon</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/cl_init.lua#L233">Source ☍</a></dt>
 <dd>
 
 
@@ -357,6 +380,15 @@ Zoom is clamped clientside so scrolling past the server max does not rubber-band
 <ol>
 <li><span class="types">string</span> </li>
 </ol>
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.vehicles"></a><strong><span class="state state-client">cityrp.vehicles</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/vehicles/cl_init.lua#L17">Source ☍</a></dt>
+<dd>
+
+
+
 </dd>
 </dl></div>
 		</div>

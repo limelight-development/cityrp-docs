@@ -268,6 +268,7 @@
 <li><a href="../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
 <li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
 <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
 <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
@@ -281,10 +282,14 @@
 <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
 <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
 <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
 <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
 <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
 <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
 <li><a href="../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
@@ -325,7 +330,7 @@
 <div class="ll-module-body"><p>Plugin registration and utilities library.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.plugin.call"></a><strong><span class="state state-client state-server">cityrp.plugin.call</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L50">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.call"></a><strong><span class="state state-client state-server">cityrp.plugin.call</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L132">Source ☍</a></dt>
 <dd>
 <p>Calls a function for all plugins.</p>
 
@@ -336,22 +341,27 @@
 </ul>
 
 </dd>
-<dt><a name="cityrp.plugin.get"></a><strong><span class="state state-client state-server">cityrp.plugin.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L70">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.get"></a><strong><span class="state state-client state-server">cityrp.plugin.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L155">Source ☍</a></dt>
 <dd>
-<p>Gets a plugin by its name.</p>
+<p>Gets a plugin by its key, or by the display name it registered under.
+A display name still resolves, but warns once per name: the key is the identity everything else
+in the loader uses, and the two are not derivable from one another (<code>area</code> registers as
+&quot;Area Manager&quot;, <code>licenseplates</code> as &quot;Licence Plates&quot;).</p>
 
 <h3>Parameters:</h3>
 <ul>
-<li><span class="parameter">name</span> <span class="types">string</span> The name of the plugin to find.</li>
+<li><span class="parameter">id</span> <span class="types">string</span> The plugin's key, or the display name it registered under.</li>
 </ul>
 <h3>Returns:</h3>
 <ol>
 <li><span class="types">table?</span> The plugin table, or nil if not found.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.plugin.register"></a><strong><span class="state state-client state-server">cityrp.plugin.register</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L13">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.register"></a><strong><span class="state state-client state-server">cityrp.plugin.register</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L67">Source ☍</a></dt>
 <dd>
-<p>Registers a new plugin.</p>
+<p>Registers a new plugin.
+The plugin is stored under its key, taken from the loader; its display name is recorded as an
+alias so existing <code>cityrp.plugin.get(&quot;Display Name&quot;)</code> call sites keep resolving.</p>
 
 <h3>Parameters:</h3>
 <ul>
@@ -359,41 +369,39 @@
 </ul>
 
 </dd>
-<h3 class="section-header">Discovery</h3>
-<dt><a name="cityrp.plugin.Discover"></a><strong><span class="state state-client state-server">cityrp.plugin.Discover</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L143">Source ☍</a></dt>
+<h3 class="section-header">Availability</h3>
+<dt><a name="cityrp.plugin.GetDependencyStatus"></a><strong><span class="state state-client state-server">cityrp.plugin.GetDependencyStatus</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1011">Source ☍</a></dt>
 <dd>
-<p>Discovers every plugin under <code>core/plugins</code>, resolving folder and file plugins into one key space.
-A folder plugin is a folder of <code>sv_init.lua</code>/<code>cl_init.lua</code>/<code>sh_init.lua</code>; a file plugin is a single
-<code>sv_&lt;key&gt;.lua</code>, <code>cl_&lt;key&gt;.lua</code> or <code>sh_&lt;key&gt;.lua</code> sitting directly in <code>core/plugins</code>. Folders outrank
-files, and among files <code>sh_</code> outranks <code>sv_</code>, which outranks <code>cl_</code>. Conflicts and unrecognised Lua
-files are logged on the server and are never fatal. Every candidate is returned regardless of its
-own metadata - <code>cityrp.plugin.Resolve</code> reads <code>.meta.lua</code> and decides afterwards.</p>
+<p>Why a plugin is or is not available, for diagnostics.
+Not a guard - use <code>cityrp.plugin.IsAvailable</code> for that. Returns copies, and may gain fields.</p>
 
-
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">key</span> <span class="types">string</span> The plugin's key.</li>
+</ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">PluginCandidate[]</span> The resolved plugins, ordered by key.</li>
+<li><span class="types">PluginDependencyStatus?</span> Nil when no plugin with that key was discovered here.</li>
 </ol>
 </dd>
-<h3 class="section-header">Resolution</h3>
-<dt><a name="cityrp.plugin.Resolve"></a><strong><span class="state state-client state-server">cityrp.plugin.Resolve</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L785">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.IsAvailable"></a><strong><span class="state state-client state-server">cityrp.plugin.IsAvailable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L984">Source ☍</a></dt>
 <dd>
-<p>Discovers every plugin, reads its metadata and resolves a deterministic load order.
-Plugins declare dependencies in an optional <code>.meta.lua</code> beside them; a missing required
-dependency or a required cycle stops the plugins involved from loading, and is logged rather
-than raised. A plugin whose metadata declares <code>disabled = true</code>, or whose <code>servers</code>/<code>maps</code>
-conditions exclude it here, is never added to the discovered set at all - it is absent from the
-returned order, contributes no sub-resources, and is reported to any dependent as disabled
-rather than not installed. Everything else discovered is returned even on failure, so a caller
-can still send a failed plugin's files to the client - only inclusion is gated, on <code>status</code>.</p>
+<p>Whether a plugin is loaded and running on this realm.
+The guard to put around a call into another plugin. Every reason one might be absent reads the
+same <code>false</code>; <code>cityrp.plugin.GetDependencyStatus</code> tells them apart. Not the same test as
+<code>cityrp.plugin.get(key) ~= nil</code>, which misses the ~27 plugins that never call <code>register</code>.
+scope prefix. Not <code>PLUGIN.name</code>.</p>
 
-
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">key</span> <span class="types">string</span> The plugin's key - the folder name, or a file plugin's name without its</li>
+</ul>
 <h3>Returns:</h3>
 <ol>
-<li><span class="types">PluginEntry[]</span> Every discovered, available plugin, in load order.</li>
+<li><span class="types">boolean</span> Whether the plugin is loaded on this realm.</li>
 </ol>
 </dd>
-<dt><a name="cityrp.plugin.SendsSubResourcesToClient"></a><strong><span class="state state-client state-server">cityrp.plugin.SendsSubResourcesToClient</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L952">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.SendsSubResourcesToClient"></a><strong><span class="state state-client state-server">cityrp.plugin.SendsSubResourcesToClient</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1157">Source ☍</a></dt>
 <dd>
 <p>Whether any of one plugin's sub-resources will be sent to the client.</p>
 <p>The loader <code>AddCSLuaFile</code>s sub-resources <em>after</em> the plugin loop in <code>sh_init.lua</code> has already
@@ -415,8 +423,43 @@ opposite failure and the reason the <code>sendsToClient</code> gate exists in th
 <li><span class="types">boolean</span> Whether the client will receive any file from this plugin's sub-resources.</li>
 </ol>
 </dd>
+<h3 class="section-header">Discovery</h3>
+<dt><a name="cityrp.plugin.Discover"></a><strong><span class="state state-client state-server">cityrp.plugin.Discover</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L254">Source ☍</a></dt>
+<dd>
+<p>Discovers every plugin under <code>core/plugins</code>, resolving folder and file plugins into one key space.
+A folder plugin is a folder of <code>sv_init.lua</code>/<code>cl_init.lua</code>/<code>sh_init.lua</code>; a file plugin is a single
+<code>sv_&lt;key&gt;.lua</code>, <code>cl_&lt;key&gt;.lua</code> or <code>sh_&lt;key&gt;.lua</code> sitting directly in <code>core/plugins</code>. Folders outrank
+files, and among files <code>sh_</code> outranks <code>sv_</code>, which outranks <code>cl_</code>. Conflicts and unrecognised Lua
+files are logged on the server and are never fatal. Every candidate is returned regardless of its
+own metadata - <code>cityrp.plugin.Resolve</code> reads <code>.meta.lua</code> and decides afterwards.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">PluginCandidate[]</span> The resolved plugins, ordered by key.</li>
+</ol>
+</dd>
+<h3 class="section-header">Resolution</h3>
+<dt><a name="cityrp.plugin.Resolve"></a><strong><span class="state state-client state-server">cityrp.plugin.Resolve</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L905">Source ☍</a></dt>
+<dd>
+<p>Discovers every plugin, reads its metadata and resolves a deterministic load order.
+Plugins declare dependencies in an optional <code>.meta.lua</code> beside them; a missing required
+dependency or a required cycle stops the plugins involved from loading, and is logged rather
+than raised. A plugin whose metadata declares <code>disabled = true</code>, or whose <code>servers</code>/<code>maps</code>
+conditions exclude it here, takes no part in resolution - it is absent from the returned order,
+contributes no sub-resources, and is reported to any dependent as disabled rather than not
+installed; it reaches <code>cityrp.plugin.registry</code> with status <code>&quot;excluded&quot;</code> only for diagnostics.
+Everything else discovered is returned even on failure, so a caller can still send a failed
+plugin's files to the client - only inclusion is gated, on <code>status</code>.</p>
+
+
+<h3>Returns:</h3>
+<ol>
+<li><span class="types">PluginEntry[]</span> Every discovered, available plugin, in load order.</li>
+</ol>
+</dd>
 <h3 class="section-header">Subresources</h3>
-<dt><a name="cityrp.plugin.LoadSubResourceDerma"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceDerma</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1111">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.LoadSubResourceDerma"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceDerma</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1316">Source ☍</a></dt>
 <dd>
 <p>Includes every <code>derma/*.lua</code> file under one loaded folder plugin, same prefix rules as
 <code>core/derma</code>: the server sends every file but only includes <code>sh_</code>-prefixed ones, the client
@@ -428,7 +471,7 @@ includes everything it received.</p>
 </ul>
 
 </dd>
-<dt><a name="cityrp.plugin.LoadSubResourceEntities"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceEntities</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1060">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.LoadSubResourceEntities"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceEntities</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1265">Source ☍</a></dt>
 <dd>
 <p>Loads the <code>entities/</code> and <code>weapons/</code> sub-resources of every loaded folder plugin, in load order.
 File-based plugins (#2507) never have sub-resources. A plugin that failed to resolve, or a
@@ -440,7 +483,7 @@ missing <code>entities</code>/<code>weapons</code> folder, is skipped silently.<
 </ul>
 
 </dd>
-<dt><a name="cityrp.plugin.LoadSubResourceItems"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceItems</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1086">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.LoadSubResourceItems"></a><strong><span class="state state-client state-server">cityrp.plugin.LoadSubResourceItems</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1291">Source ☍</a></dt>
 <dd>
 <p>Includes every <code>items/*.lua</code> file under one loaded folder plugin, same convention as <code>core/items</code>:
 included and <code>AddCSLuaFile</code>'d unconditionally, so item files decide their own realm behaviour.
@@ -462,8 +505,19 @@ Runs after <code>core/items</code> so plugin items can inherit from bases regist
 
 
 </dd>
-<dt><a name="cityrp.plugin.stored"></a><strong><span class="state state-client state-server">cityrp.plugin.stored</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L9">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.names"></a><strong><span class="state state-client state-server">cityrp.plugin.names</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L19">Source ☍</a></dt>
 <dd>
+<p>Plugin keys, keyed by the display name each plugin registered under. Looking a plugin up by
+display name is legacy - <code>cityrp.plugin.get</code> resolves through here and warns.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.plugin.stored"></a><strong><span class="state state-client state-server">cityrp.plugin.stored</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L14">Source ☍</a></dt>
+<dd>
+<p>Registered plugins, keyed by the loader's plugin key - the folder name, or a file plugin's name
+without its scope prefix. This is the same identity <code>.meta.lua</code> dependencies, availability
+conditions and load order use; it is not <code>PLUGIN.name</code>, which is a free-text display name.</p>
 
 
 
@@ -471,229 +525,308 @@ Runs after <code>core/items</code> so plugin items can inherit from bases regist
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.plugin.discovered"></a><strong><span class="state state-client state-server">cityrp.plugin.discovered</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L175">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.discovered"></a><strong><span class="state state-client state-server">cityrp.plugin.discovered</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L286">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.plugin.registry"></a><strong><span class="state state-client state-server">cityrp.plugin.registry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L821">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.loading"></a><strong><span class="state state-client state-server">cityrp.plugin.loading</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L25">Source ☍</a></dt>
+<dd>
+<p>Key of the plugin the loader is currently including, or nil outside a plugin include.
+<code>cityrp.plugin.register</code> has no other way to learn which folder it is being called from - see
+the loader loop in <code>gamemode/sh_init.lua</code>.</p>
+
+
+
+</dd>
+<dt><a name="cityrp.plugin.registry"></a><strong><span class="state state-client state-server">cityrp.plugin.registry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L970">Source ☍</a></dt>
 <dd>
 
 
 
 </dd>
-<dt><a name="cityrp.plugin.status"></a><strong><span class="state state-client state-server">cityrp.plugin.status</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L772">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.status"></a><strong><span class="state state-client state-server">cityrp.plugin.status</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L886">Source ☍</a></dt>
 <dd>
 <p>Resolution outcomes, for callers comparing against a <code>PluginEntry</code>'s <code>status</code>.</p>
 
 
 
 </dd>
-<dt><a name="PluginCandidate"></a><strong><span class="state state-client state-server">PluginCandidate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L80">Source ☍</a></dt>
+<dt><a name="PluginCandidate"></a><strong><span class="state state-client state-server">PluginCandidate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L191">Source ☍</a></dt>
 <dd>
 <p>A plugin found by <code>cityrp.plugin.Discover</code>, before any of its code has run.</p>
 
 
 
 </dd>
-<dt><a name="PluginCandidate.key"></a><strong><span class="state state-client state-server">PluginCandidate.key</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L81">Source ☍</a></dt>
+<dt><a name="PluginCandidate.key"></a><strong><span class="state state-client state-server">PluginCandidate.key</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L192">Source ☍</a></dt>
 <dd>
 <p>Identity key, shared with folder plugin names.</p>
 
 
 
 </dd>
-<dt><a name="PluginCandidate.path"></a><strong><span class="state state-client state-server">PluginCandidate.path</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L83">Source ☍</a></dt>
+<dt><a name="PluginCandidate.path"></a><strong><span class="state state-client state-server">PluginCandidate.path</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L194">Source ☍</a></dt>
 <dd>
 <p>Path to the folder or file, relative to the gamemode folder.</p>
 
 
 
 </dd>
-<dt><a name="PluginCandidate.scope"></a><strong><span class="state state-client state-server">PluginCandidate.scope</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L82">Source ☍</a></dt>
+<dt><a name="PluginCandidate.scope"></a><strong><span class="state state-client state-server">PluginCandidate.scope</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L193">Source ☍</a></dt>
 <dd>
 <p>One of <code>&quot;folder&quot;</code>, <code>&quot;sh&quot;</code>, <code>&quot;sv&quot;</code> or <code>&quot;cl&quot;</code>.</p>
 
 
 
 </dd>
-<dt><a name="PluginEntry"></a><strong><span class="state state-client state-server">PluginEntry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L211">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus"></a><strong><span class="state state-client state-server">PluginDependencyStatus</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L996">Source ☍</a></dt>
 <dd>
-<p>A discovered plugin once its metadata has been read and its load order resolved.</p>
+<p>A snapshot of one plugin's resolution outcome, as <code>cityrp.plugin.GetDependencyStatus</code> returns it.</p>
 
 
 
 </dd>
-<dt><a name="PluginEntry.cycle"></a><strong><span class="state state-client state-server">PluginEntry.cycle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L217">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.cycle"></a><strong><span class="state state-client state-server">PluginDependencyStatus.cycle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1003">Source ☍</a></dt>
 <dd>
-<p>Keys forming the cycle, when <code>status</code> is <code>&quot;cycle&quot;</code>.</p>
+<p>Keys forming the required-edge cycle, when <code>status</code> is <code>&quot;cycle&quot;</code>.</p>
 
 
 
 </dd>
-<dt><a name="PluginEntry.key"></a><strong><span class="state state-client state-server">PluginEntry.key</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L81">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.key"></a><strong><span class="state state-client state-server">PluginDependencyStatus.key</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L997">Source ☍</a></dt>
 <dd>
-<p>Identity key, shared with folder plugin names.</p>
+<p>The plugin's key.</p>
 
 
 
 </dd>
-<dt><a name="PluginEntry.meta"></a><strong><span class="state state-client state-server">PluginEntry.meta</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L212">Source ☍</a></dt>
-<dd>
-<p>Declared metadata, empty when the plugin has no <code>.meta.lua</code>.</p>
-
-
-
-</dd>
-<dt><a name="PluginEntry.metaPath"></a><strong><span class="state state-client state-server">PluginEntry.metaPath</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L213">Source ☍</a></dt>
-<dd>
-<p>Path to the metadata file, relative to the gamemode folder.</p>
-
-
-
-</dd>
-<dt><a name="PluginEntry.missing"></a><strong><span class="state state-client state-server">PluginEntry.missing</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L215">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.missing"></a><strong><span class="state state-client state-server">PluginDependencyStatus.missing</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1001">Source ☍</a></dt>
 <dd>
 <p>Required dependency keys that were absent or disabled.</p>
 
 
 
 </dd>
-<dt><a name="PluginEntry.missingOptional"></a><strong><span class="state state-client state-server">PluginEntry.missingOptional</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L216">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.missingOptional"></a><strong><span class="state state-client state-server">PluginDependencyStatus.missingOptional</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1002">Source ☍</a></dt>
 <dd>
 <p>Optional dependency keys that were absent.</p>
 
 
 
 </dd>
-<dt><a name="PluginEntry.order"></a><strong><span class="state state-client state-server">PluginEntry.order</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L218">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.order"></a><strong><span class="state state-client state-server">PluginDependencyStatus.order</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1004">Source ☍</a></dt>
 <dd>
-<p>Position in the computed load order, from 1.</p>
+<p>Position in the load order, absent for an excluded plugin.</p>
 
 
 
 </dd>
-<dt><a name="PluginEntry.path"></a><strong><span class="state state-client state-server">PluginEntry.path</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L83">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.reason"></a><strong><span class="state state-client state-server">PluginDependencyStatus.reason</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1000">Source ☍</a></dt>
 <dd>
-<p>Path to the folder or file, relative to the gamemode folder.</p>
+<p>Why it was excluded, when <code>status</code> is <code>&quot;excluded&quot;</code>.</p>
 
 
 
 </dd>
-<dt><a name="PluginEntry.scope"></a><strong><span class="state state-client state-server">PluginEntry.scope</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L82">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.scope"></a><strong><span class="state state-client state-server">PluginDependencyStatus.scope</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L999">Source ☍</a></dt>
 <dd>
 <p>One of <code>&quot;folder&quot;</code>, <code>&quot;sh&quot;</code>, <code>&quot;sv&quot;</code> or <code>&quot;cl&quot;</code>.</p>
 
 
 
 </dd>
-<dt><a name="PluginEntry.status"></a><strong><span class="state state-client state-server">PluginEntry.status</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L214">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.status"></a><strong><span class="state state-client state-server">PluginDependencyStatus.status</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L998">Source ☍</a></dt>
+<dd>
+<p>Why it did or did not resolve.</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry"></a><strong><span class="state state-client state-server">PluginEntry</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L323">Source ☍</a></dt>
+<dd>
+<p>A discovered plugin once its metadata has been read and its load order resolved.</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry.cycle"></a><strong><span class="state state-client state-server">PluginEntry.cycle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L330">Source ☍</a></dt>
+<dd>
+<p>Keys forming the cycle, when <code>status</code> is <code>&quot;cycle&quot;</code>.</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry.key"></a><strong><span class="state state-client state-server">PluginEntry.key</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L192">Source ☍</a></dt>
+<dd>
+<p>Identity key, shared with folder plugin names.</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry.meta"></a><strong><span class="state state-client state-server">PluginEntry.meta</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L324">Source ☍</a></dt>
+<dd>
+<p>Declared metadata, empty when the plugin has no <code>.meta.lua</code>.</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry.metaPath"></a><strong><span class="state state-client state-server">PluginEntry.metaPath</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L325">Source ☍</a></dt>
+<dd>
+<p>Path to the metadata file, relative to the gamemode folder.</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry.missing"></a><strong><span class="state state-client state-server">PluginEntry.missing</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L328">Source ☍</a></dt>
+<dd>
+<p>Required dependency keys that were absent or disabled.</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry.missingOptional"></a><strong><span class="state state-client state-server">PluginEntry.missingOptional</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L329">Source ☍</a></dt>
+<dd>
+<p>Optional dependency keys that were absent.</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry.order"></a><strong><span class="state state-client state-server">PluginEntry.order</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L331">Source ☍</a></dt>
+<dd>
+<p>Position in the computed load order, from 1. Absent when <code>status</code> is</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry.path"></a><strong><span class="state state-client state-server">PluginEntry.path</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L194">Source ☍</a></dt>
+<dd>
+<p>Path to the folder or file, relative to the gamemode folder.</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry.reason"></a><strong><span class="state state-client state-server">PluginEntry.reason</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L327">Source ☍</a></dt>
+<dd>
+<p>Why it was excluded, when <code>status</code> is <code>&quot;excluded&quot;</code>.</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry.scope"></a><strong><span class="state state-client state-server">PluginEntry.scope</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L193">Source ☍</a></dt>
+<dd>
+<p>One of <code>&quot;folder&quot;</code>, <code>&quot;sh&quot;</code>, <code>&quot;sv&quot;</code> or <code>&quot;cl&quot;</code>.</p>
+
+
+
+</dd>
+<dt><a name="PluginEntry.status"></a><strong><span class="state state-client state-server">PluginEntry.status</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L326">Source ☍</a></dt>
 <dd>
 <p>Whether this plugin is cleared to load, and if not, why.</p>
 
 
 
 </dd>
-<dt><a name="PluginMeta"></a><strong><span class="state state-client state-server">PluginMeta</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L199">Source ☍</a></dt>
+<dt><a name="PluginMeta"></a><strong><span class="state state-client state-server">PluginMeta</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L311">Source ☍</a></dt>
 <dd>
 <p>Declared metadata for one plugin, normalised and validated.</p>
 
 
 
 </dd>
-<dt><a name="PluginMeta.after"></a><strong><span class="state state-client state-server">PluginMeta.after</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L202">Source ☍</a></dt>
+<dt><a name="PluginMeta.after"></a><strong><span class="state state-client state-server">PluginMeta.after</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L314">Source ☍</a></dt>
 <dd>
 <p>Keys to load after; <code>&quot;*&quot;</code> means every other plugin.</p>
 
 
 
 </dd>
-<dt><a name="PluginMeta.before"></a><strong><span class="state state-client state-server">PluginMeta.before</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L203">Source ☍</a></dt>
+<dt><a name="PluginMeta.before"></a><strong><span class="state state-client state-server">PluginMeta.before</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L315">Source ☍</a></dt>
 <dd>
 <p>Keys to load before; <code>&quot;*&quot;</code> means every other plugin.</p>
 
 
 
 </dd>
-<dt><a name="PluginMeta.dependencies"></a><strong><span class="state state-client state-server">PluginMeta.dependencies</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L200">Source ☍</a></dt>
+<dt><a name="PluginMeta.dependencies"></a><strong><span class="state state-client state-server">PluginMeta.dependencies</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L312">Source ☍</a></dt>
 <dd>
 <p>Keys this plugin cannot load without.</p>
 
 
 
 </dd>
-<dt><a name="PluginMeta.disabled"></a><strong><span class="state state-client state-server">PluginMeta.disabled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L204">Source ☍</a></dt>
+<dt><a name="PluginMeta.disabled"></a><strong><span class="state state-client state-server">PluginMeta.disabled</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L316">Source ☍</a></dt>
 <dd>
 <p>Unconditionally excluded from both realms, regardless of servers/maps.</p>
 
 
 
 </dd>
-<dt><a name="PluginMeta.maps"></a><strong><span class="state state-client state-server">PluginMeta.maps</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L207">Source ☍</a></dt>
+<dt><a name="PluginMeta.maps"></a><strong><span class="state state-client state-server">PluginMeta.maps</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L319">Source ☍</a></dt>
 <dd>
 <p>Map names this plugin is allowed on; empty means every map.</p>
 
 
 
 </dd>
-<dt><a name="PluginMeta.notMaps"></a><strong><span class="state state-client state-server">PluginMeta.notMaps</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L208">Source ☍</a></dt>
+<dt><a name="PluginMeta.notMaps"></a><strong><span class="state state-client state-server">PluginMeta.notMaps</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L320">Source ☍</a></dt>
 <dd>
 <p>Map names this plugin is excluded from; wins over <code>maps</code>.</p>
 
 
 
 </dd>
-<dt><a name="PluginMeta.notServers"></a><strong><span class="state state-client state-server">PluginMeta.notServers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L206">Source ☍</a></dt>
+<dt><a name="PluginMeta.notServers"></a><strong><span class="state state-client state-server">PluginMeta.notServers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L318">Source ☍</a></dt>
 <dd>
 <p>Server codes this plugin is excluded from; wins over <code>servers</code>.</p>
 
 
 
 </dd>
-<dt><a name="PluginMeta.optionalDependencies"></a><strong><span class="state state-client state-server">PluginMeta.optionalDependencies</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L201">Source ☍</a></dt>
+<dt><a name="PluginMeta.optionalDependencies"></a><strong><span class="state state-client state-server">PluginMeta.optionalDependencies</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L313">Source ☍</a></dt>
 <dd>
 <p>Keys this plugin uses when they are present.</p>
 
 
 
 </dd>
-<dt><a name="PluginMeta.servers"></a><strong><span class="state state-client state-server">PluginMeta.servers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L205">Source ☍</a></dt>
+<dt><a name="PluginMeta.servers"></a><strong><span class="state state-client state-server">PluginMeta.servers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L317">Source ☍</a></dt>
 <dd>
 <p>Server codes this plugin is allowed on; empty means every server.</p>
 
 
 
 </dd>
-<dt><a name="PluginStatus"></a><strong><span class="state state-client state-server">PluginStatus</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L190">Source ☍</a></dt>
+<dt><a name="PluginStatus"></a><strong><span class="state state-client state-server">PluginStatus</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L301">Source ☍</a></dt>
 <dd>
 <p>Resolution outcome recorded on a plugin entry. Only <code>ok</code> is executed by the loader.</p>
 
 
 
 </dd>
-<dt><a name="SubResourceClass"></a><strong><span class="state state-client state-server">SubResourceClass</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L827">Source ☍</a></dt>
+<dt><a name="SubResourceClass"></a><strong><span class="state state-client state-server">SubResourceClass</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1032">Source ☍</a></dt>
 <dd>
 <p>One class found under a plugin's <code>entities/</code> or <code>weapons/</code> folder.</p>
 
 
 
 </dd>
-<dt><a name="SubResourceClass.folder"></a><strong><span class="state state-client state-server">SubResourceClass.folder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L830">Source ☍</a></dt>
+<dt><a name="SubResourceClass.folder"></a><strong><span class="state state-client state-server">SubResourceClass.folder</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1035">Source ☍</a></dt>
 <dd>
 <p>Whether the class is an engine-style folder (<code>init.lua</code>/<code>cl_init.lua</code>/<code>shared.lua</code>)</p>
 
 
 
 </dd>
-<dt><a name="SubResourceClass.fsName"></a><strong><span class="state state-client state-server">SubResourceClass.fsName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L829">Source ☍</a></dt>
+<dt><a name="SubResourceClass.fsName"></a><strong><span class="state state-client state-server">SubResourceClass.fsName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1034">Source ☍</a></dt>
 <dd>
 <p>The folder or file name as <code>file.Find</code> returned it, used to build paths.</p>
 
 
 
 </dd>
-<dt><a name="SubResourceClass.name"></a><strong><span class="state state-client state-server">SubResourceClass.name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L828">Source ☍</a></dt>
+<dt><a name="SubResourceClass.name"></a><strong><span class="state state-client state-server">SubResourceClass.name</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1033">Source ☍</a></dt>
 <dd>
 <p>Class name, e.g. <code>&quot;cityrp_breathalyser&quot;</code>. Always lowercase.</p>
 
