@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>LuaCATS Annotations</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,29 +14,37 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#the-rules-that-decide-whether-an-annotation-counts">The rules that decide whether an annotation counts</a></li>
+<li><a href="#documenting-functions">Documenting functions</a></li>
+<li><a href="#describing-shapes-classes-fields-and-types">Describing shapes: classes, fields, and types</a></li>
+<li><a href="#visibility-lifecycle-and-cross-references">Visibility, lifecycle, and cross-references</a></li>
+<li><a href="#narrowing-and-escape-hatches">Narrowing and escape hatches</a></li>
+<li><a href="#type-syntax">Type syntax</a></li>
+<li><a href="#garrys-mod-and-cityrp-specifics">Garry&#x27;s Mod and CityRP specifics</a></li>
+<li><a href="#tags-that-are-not-luacats-but-live-in-the-same-comment">Tags that are not LuaCATS but live in the same comment</a></li>
+<li><a href="#annotations-that-look-right-and-are-not">Annotations that look right and are not</a></li>
+<li><a href="#worked-example">Worked example</a></li>
+<li><a href="#checklist">Checklist</a></li>
+</ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
-<li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><strong>LuaCATS Annotations</strong></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -44,6 +52,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -56,6 +68,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -65,6 +78,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -77,7 +116,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -87,7 +125,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -125,22 +162,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -153,9 +174,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -319,8 +337,7 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>LuaCATS Annotations</h1></div><div class="ll-module-body"><h1>LuaCATS Annotations</h1>
-<p>The complete annotation reference for this codebase — what every tag means, what its fields are, and
+<div class="ll-module-header"><h1>LuaCATS Annotations</h1></div><div class="ll-module-body"><p>The complete annotation reference for this codebase — what every tag means, what its fields are, and
 which ones look correct but are silently ignored here.</p>
 <p><a href="https://luals.github.io/wiki/annotations/">LuaCATS</a> (&quot;Lua Comment And Type System&quot;) is the
 annotation dialect understood by <a href="https://github.com/LuaLS/lua-language-server">lua-language-server</a>
@@ -331,14 +348,14 @@ one. Annotations do three jobs at once:</p>
 wrong-argument warnings, in any editor with the LuaLS extension installed.</li>
 <li><strong>The public docs site</strong> — CI runs LuaLS <code>--doc</code> over the gamemode and feeds the resulting JSON to
 <code>tools/docs/generate.py</code>. If LuaLS doesn't understand your comment, the docs site never sees it.
-See <a href="doc-comments.md">Writing Doc Comments</a> for the pipeline itself.</li>
+See <a href="doc-comments.html">Writing Doc Comments</a> for the pipeline itself.</li>
 <li><strong>Machine-readable intent</strong> — the annotations are frequently the only statement of what a
 function is <em>supposed</em> to accept and return, in a codebase with no runtime type system.</li>
 </ol>
-<p>Related reading: <a href="doc-comments.md">Writing Doc Comments</a> (how the docs pipeline consumes these),
-<a href="modern-apis.md">Modern APIs</a> (which APIs to annotate against),
-<a href="coding-standards.md">Coding Standards</a> (checklist + CI reject criteria).</p>
-<h2>The rules that decide whether an annotation counts</h2>
+<p>Related reading: <a href="doc-comments.html">Writing Doc Comments</a> (how the docs pipeline consumes these),
+<a href="modern-apis.html">Modern APIs</a> (which APIs to annotate against),
+<a href="coding-standards.html">Coding Standards</a> (checklist + CI reject criteria).</p>
+<h2 id="the-rules-that-decide-whether-an-annotation-counts">The rules that decide whether an annotation counts</h2>
 <p>Everything below is conditional on these four. Break any one of them and the annotation still
 &quot;looks&quot; fine in the diff, still passes lint, and is silently dropped:</p>
 <ol>
@@ -379,8 +396,8 @@ function cityrp.warrants.issue(ply, reason)
 	...
 end
 </code></pre>
-<h2>Documenting functions</h2>
-<h3><code>@param</code></h3>
+<h2 id="documenting-functions">Documenting functions</h2>
+<h3 id="param"><code>@param</code></h3>
 <pre><code>--- @param &lt;name&gt; &lt;type&gt;[?][|&lt;type&gt;...] [description]
 </code></pre>
 <p>One per parameter, in declaration order. The <strong>name comes first</strong>, then the type — the reverse of
@@ -405,7 +422,7 @@ function PrintNames(...)
 	...
 end
 </code></pre>
-<h3><code>@return</code></h3>
+<h3 id="return"><code>@return</code></h3>
 <pre><code>--- @return &lt;type&gt; [&lt;name&gt;] [description]
 </code></pre>
 <p><strong>One <code>@return</code> line per returned value, in order.</strong> LuaLS does accept
@@ -420,7 +437,7 @@ end
 </code></pre>
 <p>Naming the return value is optional but strongly preferred: <code>@return boolean success</code> reads far
 better in hover text and on the docs site than a bare <code>@return boolean</code>.</p>
-<h3><code>@overload</code></h3>
+<h3 id="overload"><code>@overload</code></h3>
 <pre><code>--- @overload fun([&lt;name&gt;: &lt;type&gt;, ...]): [&lt;return type&gt;[, ...]]
 </code></pre>
 <p>Declares an <em>additional</em> call signature beyond the one described by <code>@param</code>/<code>@return</code>. Use it for
@@ -434,7 +451,7 @@ function cityrp.util.findPlayer(identifier)
 	...
 end
 </code></pre>
-<h3><code>@generic</code></h3>
+<h3 id="generic"><code>@generic</code></h3>
 <pre><code>--- @generic &lt;name&gt;[: &lt;parent type&gt;][, &lt;name2&gt;[: &lt;parent type&gt;]]
 </code></pre>
 <p>Introduces a type variable so the return type can be tied to an argument type, instead of collapsing
@@ -449,7 +466,7 @@ end
 </code></pre>
 <p>Genuinely useful for table/collection helpers (<code>table.Copy</code>-alikes, <code>pick</code>, <code>filter</code>) where <code>any</code>
 would throw away every downstream type.</p>
-<h3><code>@nodiscard</code></h3>
+<h3 id="nodiscard"><code>@nodiscard</code></h3>
 <p>Warns at the call site if the return value is thrown away. Correct for pure getters and predicates
 (<code>IsAdmin</code>, <code>CanAfford</code>, <code>GetInventoryItems</code>), wrong for anything whose side effect is the point.</p>
 <pre><code class="language-lua">--- @return boolean isAdmin Whether the player is an admin.
@@ -458,7 +475,7 @@ function pMeta:IsAdmin()
 	...
 end
 </code></pre>
-<h3><code>@async</code></h3>
+<h3 id="async"><code>@async</code></h3>
 <p>Marks a function that does not complete before it returns. In this codebase that means anything
 built on <code>DB_MAIN:Run</code>, <code>HTTP</code>, <code>timer.Simple</code>, or a <code>net</code> round trip. It is a documentation signal
 to the caller, not a language feature — and it pairs with the async footgun in
@@ -472,8 +489,8 @@ function cityrp.banking.loadBalance(ply, callback)
 	...
 end
 </code></pre>
-<h2>Describing shapes: classes, fields, and types</h2>
-<h3><code>@class</code></h3>
+<h2 id="describing-shapes-classes-fields-and-types">Describing shapes: classes, fields, and types</h2>
+<h3 id="class"><code>@class</code></h3>
 <pre><code>--- @class [(exact)] &lt;name&gt;[: &lt;parent&gt;[, &lt;parent2&gt;...]]
 </code></pre>
 <p>Defines a named type. Attach it to the table it describes (the declaration on the line below), or use
@@ -491,7 +508,7 @@ config tables where a typo'd key should be an error rather than silently ignored
 --- @field _Owner Player The owning player.
 --- @field _Petrol number Fuel level, 0-100.
 </code></pre>
-<h3><code>@field</code></h3>
+<h3 id="field"><code>@field</code></h3>
 <pre><code>--- @field [&lt;scope&gt;] &lt;name&gt; &lt;type&gt;[?] [description]
 --- @field [&lt;key type&gt;] &lt;value type&gt; [description]
 </code></pre>
@@ -531,7 +548,7 @@ function cityrp.warrants.issue(ply, opts)
 	...
 end
 </code></pre>
-<h3><code>@type</code></h3>
+<h3 id="type"><code>@type</code></h3>
 <pre><code>--- @type &lt;type&gt;
 </code></pre>
 <p>Declares the type of a variable or table where LuaLS can't infer it — most often an empty table that
@@ -543,7 +560,7 @@ local playersBySteamID = {}
 local passes = {}
 </code></pre>
 <p><code>@type</code> on a <em>function</em> is wrong — use <code>@param</code>/<code>@return</code>.</p>
-<h3><code>@alias</code></h3>
+<h3 id="alias"><code>@alias</code></h3>
 <pre><code>--- @alias &lt;name&gt; &lt;type&gt;
 --- @alias &lt;name&gt;
 --- | &lt;literal&gt; [# description]
@@ -557,7 +574,7 @@ enumerates the permitted values, which is what gives autocomplete a fixed list t
 --- | &quot;error&quot; # Something went wrong.
 --- | &quot;hint&quot; # Contextual tip.
 </code></pre>
-<h3><code>@enum</code></h3>
+<h3 id="enum"><code>@enum</code></h3>
 <pre><code>--- @enum [(key)] &lt;name&gt;
 </code></pre>
 <p>Attaches directly to a <strong>real, runtime table</strong> of constants, and makes the type usable as a
@@ -575,7 +592,7 @@ local NOTIFY = {
 <p>The difference from <code>@alias</code>: <code>@alias</code> is a type that exists only in annotations, <code>@enum</code> describes a
 table that exists at runtime. Use <code>@enum</code> for the <code>CAPITALIZED_WITH_UNDERSCORES</code> constant tables this
 codebase already has; use <code>@alias</code> when there is no backing table.</p>
-<h3><code>@operator</code></h3>
+<h3 id="operator"><code>@operator</code></h3>
 <pre><code>--- @operator &lt;operator&gt;[(&lt;param type&gt;)]: &lt;return type&gt;
 </code></pre>
 <p>Documents a metamethod so LuaLS knows <code>a + b</code> is legal on your class:</p>
@@ -583,7 +600,7 @@ codebase already has; use <code>@alias</code> when there is no backing table.</p
 --- @operator add(Money): Money
 --- @operator unm: Money
 </code></pre>
-<h2>Visibility, lifecycle, and cross-references</h2>
+<h2 id="visibility-lifecycle-and-cross-references">Visibility, lifecycle, and cross-references</h2>
 <table>
 <thead>
 <tr>
@@ -640,8 +657,8 @@ end
 </code></pre>
 <p>Note that <code>@deprecated</code> does double duty: it is both the LuaCATS tag (editor strikethrough) and one
 of <code>generate.py</code>'s own callout tags (docs-site banner). The one line drives both.</p>
-<h2>Narrowing and escape hatches</h2>
-<h3><code>@cast</code></h3>
+<h2 id="narrowing-and-escape-hatches">Narrowing and escape hatches</h2>
+<h3 id="cast"><code>@cast</code></h3>
 <pre><code>--- @cast &lt;variable&gt; [+|-]&lt;type&gt;[, ...]
 </code></pre>
 <p>Re-types an existing variable <strong>from that line onward</strong>. <code>+</code> adds a type to the union, <code>-</code> removes
@@ -650,13 +667,13 @@ one. The most common legitimate use here is stripping <code>nil</code> after a g
 if not IsValid(ent) then return end
 --- @cast ent Entity
 </code></pre>
-<h3><code>@as</code></h3>
+<h3 id="as"><code>@as</code></h3>
 <pre><code class="language-lua">local ent = ents.FindByClass(&quot;prop_vehicle_jeep&quot;)[1] --[[@as Vehicle]]
 </code></pre>
 <p>An inline, expression-level cast. Note the syntax carefully: it is a <strong>block comment containing only
 <code>@as &lt;type&gt;</code></strong> — <code>--[[@as Vehicle]]</code>. It is <em>not</em> written with the <code>---</code> prefix that every other
 annotation uses, and <code>--[[--- @as Vehicle]]</code> does not work.</p>
-<h3><code>@diagnostic</code></h3>
+<h3 id="diagnostic"><code>@diagnostic</code></h3>
 <pre><code>--- @diagnostic &lt;state&gt;:&lt;diagnostic name&gt;
 </code></pre>
 <p><code>&lt;state&gt;</code> is <code>disable</code>, <code>enable</code>, <code>disable-line</code>, or <code>disable-next-line</code>. Suppress the narrowest
@@ -665,12 +682,12 @@ scope that solves the problem, and only when the diagnostic is genuinely wrong �
 <pre><code class="language-lua">--- @diagnostic disable-next-line: undefined-global
 local plugin = PLUGIN
 </code></pre>
-<h3><code>@meta</code></h3>
+<h3 id="meta"><code>@meta</code></h3>
 <pre><code>--- @meta [name]
 </code></pre>
 <p>Marks an entire file as <strong>definition-only</strong> — types and signatures with no executable body. Correct
 for a hand-written stub file describing an external API; wrong for any file that actually runs.</p>
-<h2>Type syntax</h2>
+<h2 id="type-syntax">Type syntax</h2>
 <p>Types are written the same way everywhere — in <code>@param</code>, <code>@return</code>, <code>@field</code>, <code>@type</code>, and <code>@alias</code>.</p>
 <table>
 <thead>
@@ -746,7 +763,7 @@ for a hand-written stub file describing an external API; wrong for any file that
 <p>Prefer the most specific type that is actually true. <code>table</code> and <code>any</code> are legal and sometimes
 unavoidable, but each one is a place where the annotation stopped being useful — if the table has a
 known shape, give it a <code>@class</code> and reference that instead.</p>
-<h2>Garry's Mod and CityRP specifics</h2>
+<h2 id="garrys-mod-and-cityrp-specifics">Garry's Mod and CityRP specifics</h2>
 <ul>
 <li>
 <p><strong>Use the engine class names, not <code>table</code>.</strong> <code>Player</code>, <code>Entity</code>, <code>Weapon</code>, <code>Vehicle</code>, <code>NPC</code>,
@@ -787,9 +804,9 @@ method they delegate to, since that is the thing with a real signature.</p>
 is for — see below.</p>
 </li>
 </ul>
-<h2>Tags that are not LuaCATS but live in the same comment</h2>
+<h2 id="tags-that-are-not-luacats-but-live-in-the-same-comment">Tags that are not LuaCATS but live in the same comment</h2>
 <p>These are <code>generate.py</code>'s, not LuaLS's. They are written in the same <code>---</code> block, and LuaLS ignores
-them harmlessly. Full detail in <a href="doc-comments.md">Writing Doc Comments</a>:</p>
+them harmlessly. Full detail in <a href="doc-comments.html">Writing Doc Comments</a>:</p>
 <table>
 <thead>
 <tr>
@@ -802,7 +819,7 @@ them harmlessly. Full detail in <a href="doc-comments.md">Writing Doc Comments</
 <tr>
 <td align="left"><code>@namespace &lt;name&gt;</code></td>
 <td align="left">File header</td>
-<td align="left">Groups the file's items onto one docs page. <strong>Use this instead of <code>@module</code>.</strong> Naming it after a <code>@class</code> also makes that the <a href="doc-comments.md#class-pages-namespace-classname-gathers-a-classs-members">class's page</a>, gathering members declared in other files.</td>
+<td align="left">Groups the file's items onto one docs page. <strong>Use this instead of <code>@module</code>.</strong> Naming it after a <code>@class</code> also makes that the <a href="doc-comments.html#class-pages-namespace-classname-gathers-a-classs-members">class's page</a>, gathering members declared in other files.</td>
 </tr>
 <tr>
 <td align="left"><code>@state &lt;realm&gt;</code></td>
@@ -812,7 +829,7 @@ them harmlessly. Full detail in <a href="doc-comments.md">Writing Doc Comments</
 <tr>
 <td align="left"><code>@section &lt;title&gt;</code></td>
 <td align="left">Item</td>
-<td align="left">Starts a named subsection on the module page; the tag's value is the heading. On an <code>@alias</code> over a run of constants, it names the <a href="doc-comments.md#constant-families-alias-gathers-the-constants-it-names">constant family</a> those constants are gathered under.</td>
+<td align="left">Starts a named subsection on the module page; the tag's value is the heading. On an <code>@alias</code> over a run of constants, it names the <a href="doc-comments.html#constant-families-alias-gathers-the-constants-it-names">constant family</a> those constants are gathered under.</td>
 </tr>
 <tr>
 <td align="left"><code>@uniqueid &lt;id&gt;</code></td>
@@ -841,7 +858,7 @@ them harmlessly. Full detail in <a href="doc-comments.md">Writing Doc Comments</
 </tr>
 </tbody>
 </table>
-<h3>Registration IDs</h3>
+<h3 id="registration-ids">Registration IDs</h3>
 <p>A class whose name does not contain the string it is registered under needs <code>@uniqueid</code>, or nobody
 can find it. <code>ITEM.ModelBodygroup</code> is registered as <code>base_modelbg</code>; without the tag, searching the
 docs or the <code>cityrp-docs</code> MCP for <code>base_modelbg</code> returns nothing at all.</p>
@@ -863,7 +880,7 @@ fourteen files' tags are silently discarded. Give the thing its own <code>@class
 <li><strong>Keep it adjacent.</strong> A blank line between the description and <code>@class</code> drops the description —
 and the tag with it — from the docs export, with no warning anywhere.</li>
 </ul>
-<h2>Annotations that look right and are not</h2>
+<h2 id="annotations-that-look-right-and-are-not">Annotations that look right and are not</h2>
 <table>
 <thead>
 <tr>
@@ -941,7 +958,7 @@ and the tag with it — from the docs export, with no warning anywhere.</li>
 <tr>
 <td align="left"><code>--[[-- Description. @namespace x --]]--</code> as a file header</td>
 <td align="left">Legacy pre-LuaCATS syntax, not real LuaCATS — LuaLS gives it no hover/autocomplete/type-checking. Only <code>generate.py</code>'s raw-source scan tolerates it, and only to keep old files rendering on the docs site.</td>
-<td align="left">A run of <code>---</code> lines (see <a href="doc-comments.md">Writing Doc Comments</a>).</td>
+<td align="left">A run of <code>---</code> lines (see <a href="doc-comments.html">Writing Doc Comments</a>).</td>
 </tr>
 <tr>
 <td align="left"><code>--- @class Player</code> as the last line of a <strong>file header</strong></td>
@@ -962,7 +979,7 @@ and the tag with it — from the docs export, with no warning anywhere.</li>
 </table>
 <p>LDoc was this project's previous documentation format and its tags are still scattered through older
 files. They are not a style to match — when you touch a function carrying LDoc tags, convert them.</p>
-<h2>Worked example</h2>
+<h2 id="worked-example">Worked example</h2>
 <pre><code class="language-lua">--- Player-facing warrant helpers.
 --- @copyright 2015-2026 Limelight Gaming
 --- @release CityRP 2
@@ -1022,7 +1039,7 @@ function cityrp.warrants.legacyLookup(ply)
 	...
 end
 </code></pre>
-<h2>Checklist</h2>
+<h2 id="checklist">Checklist</h2>
 <p>Before considering an annotated change done:</p>
 <ul>
 <li><input disabled="" type="checkbox"> Every function you added or touched has a description ending in a full stop, plus a <code>@param</code>
@@ -1052,5 +1069,72 @@ locally and not in CI.</p></div>
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

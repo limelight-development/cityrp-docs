@@ -1,0 +1,859 @@
+/* The site's base #navigation/#content layout; the theme files in this
+   directory only override it, they don't stand alone. Originally captured
+   from LDoc's own generated stylesheet (docs.limelightgaming.info/ldoc.css)
+   back when the site was LDoc-built - kept as static/vendored CSS since it's
+   deterministic layout, not something worth regenerating on every build. */
+
+/* BEGIN RESET
+
+Copyright (c) 2010, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 2.8.2r1
+*/
+html {
+    color: #000;
+    background: #FFF;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset,img {
+    border: 0;
+}
+address,caption,cite,code,dfn,em,strong,th,var,optgroup {
+    font-style: inherit;
+    font-weight: inherit;
+}
+del,ins {
+    text-decoration: none;
+}
+li {
+    margin-left: 20px;
+}
+caption,th {
+    text-align: left;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size: 100%;
+    font-weight: bold;
+}
+q:before,q:after {
+    content: '';
+}
+abbr,acronym {
+    border: 0;
+    font-variant: normal;
+}
+sup {
+    vertical-align: baseline;
+}
+sub {
+    vertical-align: baseline;
+}
+legend {
+    color: #000;
+}
+input,button,textarea,select,optgroup,option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+input,button,textarea,select {*font-size:100%;
+}
+/* END RESET */
+
+body {
+    margin-left: 1em;
+    margin-right: 1em;
+    font-family: arial, helvetica, geneva, sans-serif;
+    background-color: #ffffff; margin: 0px;
+}
+
+code, tt { font-family: monospace; font-size: 1.1em; }
+span.parameter { font-family:monospace; }
+span.parameter:after { content:":"; }
+span.types:before { content:"("; }
+span.types:after { content:")"; }
+
+body, p, td, th { font-size: .95em; line-height: 1.2em;}
+
+p, ul { margin: 10px 0 0 0px;}
+
+strong { font-weight: bold;}
+
+em { font-style: italic;}
+
+h1 {
+    font-size: 1.5em;
+    margin: 20px 0 20px 0;
+}
+h2, h3, h4 { margin: 15px 0 10px 0; }
+h2 { font-size: 1.25em; }
+h3 { font-size: 1.15em; }
+h4 { font-size: 1.06em; }
+
+a:link { font-weight: bold; color: #004080; text-decoration: none; }
+a:visited { font-weight: bold; color: #006699; text-decoration: none; }
+a:link:hover { text-decoration: underline; }
+
+hr {
+    color:#cccccc;
+    background: #00007f;
+    height: 1px;
+}
+
+blockquote { margin-left: 3em; }
+
+ul { list-style-type: disc; }
+
+pre {
+    background-color: rgb(245, 245, 245);
+    border: 1px solid #C0C0C0; /* silver */
+    padding: 10px;
+    margin: 10px 0 10px 0;
+    overflow: auto;
+    font-family: "Andale Mono", monospace;
+}
+
+#container {
+    margin-left: 1em;
+    margin-right: 1em;
+    background-color: #f0f0f0;
+}
+
+#product {
+    text-align: center;
+    border-bottom: 1px solid #cccccc;
+    background-color: #ffffff;
+}
+
+#product big {
+    font-size: 2em;
+}
+
+#main {
+    background-color: #f0f0f0;
+    border-left: 2px solid #cccccc;
+}
+
+#navigation {
+    float: left;
+    width: 14em;
+    vertical-align: top;
+    background-color: #f0f0f0;
+    overflow: visible;
+}
+
+#navigation h2 {
+    background-color:#e7e7e7;
+    font-size:1.1em;
+    color:#000000;
+    text-align: left;
+    padding:0.2em;
+    border-top:1px solid #dddddd;
+    border-bottom:1px solid #dddddd;
+}
+
+#navigation ul
+{
+    font-size:1em;
+    list-style-type: none;
+    margin: 1px 1px 10px 1px;
+}
+
+#navigation li {
+    text-indent: -1em;
+    display: block;
+    margin: 3px 0px 0px 22px;
+}
+
+#navigation li li a {
+    margin: 0px 3px 0px -1em;
+}
+
+#content {
+    margin-left: 14em;
+    padding: 1em;
+    width: 700px;
+    border-left: 2px solid #cccccc;
+    border-right: 2px solid #cccccc;
+    background-color: #ffffff;
+}
+
+#about {
+    clear: both;
+    padding: 5px;
+    border-top: 2px solid #cccccc;
+    background-color: #ffffff;
+}
+
+@media print {
+    body {
+        font: 12pt "Times New Roman", "TimeNR", Times, serif;
+    }
+    a { font-weight: bold; color: #004080; text-decoration: underline; }
+
+    #main {
+        background-color: #ffffff;
+        border-left: 0px;
+    }
+
+    #container {
+        margin-left: 2%;
+        margin-right: 2%;
+        background-color: #ffffff;
+    }
+
+    #content {
+        padding: 1em;
+        background-color: #ffffff;
+    }
+
+    #navigation {
+        display: none;
+    }
+}
+
+
+
+
+ul.nowrap {
+    overflow:auto;
+    white-space:nowrap;
+}
+
+dl.function dt {border-top: 1px solid #ccc; padding-top: 1em;}
+dl.function dd {padding-bottom: 1em; margin: 10px 0 0 20px;}
+dl.function h3 {font-size: .95em;}
+
+/* stop sublists from having initial vertical space */
+ul ul { margin-top: 0px; }
+ol ul { margin-top: 0px; }
+ol ol { margin-top: 0px; }
+ul ol { margin-top: 0px; }
+
+/* make the target distinct; helps when we're navigating to a function */
+a:target + * {
+  background-color: #FF9;
+}
+
+
+/* styles for prettification of source */
+pre .comment { color: #558817; }
+pre .constant { color: #a8660d; }
+pre .escape { color: #844631; }
+pre .keyword { color: #aa5050; font-weight: bold; }
+pre .library { color: #0e7c6b; }
+pre .marker { color: #512b1e; background: #fedc56; font-weight: bold; }
+pre .string { color: #8080ff; }
+pre .number { color: #f8660d; }
+pre .operator { color: #2239a8; font-weight: bold; }
+pre .preprocessor, pre .prepro { color: #a33243; }
+pre .global { color: #800080; }
+pre .user-keyword { color: #800080; }
+pre .prompt { color: #558817; }
+pre .url { color: #272fc2; text-decoration: underline; }
+
+
+#navigation {
+    width: 28em;
+}
+
+#content {
+    margin-left: 28em;
+}
+
+.ll-item-meta {
+	margin: 0 0 1em 0;
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	gap: 0.35em 1em;
+}
+
+.ll-item-meta dt {
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+.ll-item-meta dd {
+	margin: 0;
+}
+
+.tag-uniqueid {
+	font-family: Monaco, Andale Mono, monospace;
+	font-size: 0.95em;
+	padding: 1px 5px;
+	border: 1px solid #d3d3d3;
+	border-radius: 3px;
+	background: #f7f7f7;
+}
+
+.tag-warning {
+	font-weight: bold;
+	color: red;
+}
+
+.tag-deprecated {
+	color: red;
+}
+
+body {
+  background-color: #23282B;
+}
+
+html {
+  background-color: #23282B;
+}
+
+#navigation {
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+#navigation .ll-kind-header {
+  background-color: #393f45;
+  height: 63px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+#navigation .ll-kind-header h2 {
+  background-color: unset;
+  border: unset;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  /* Reset, not just indent: base.css gives h2 an asymmetric 15px/10px
+     vertical margin, which the centred bar honours - so section bars sat
+     their text lower than the h1 bars did. */
+  margin: 0 0 0 14px;
+  padding: 0;
+}
+#navigation .ll-kind-header h1 {
+  background-color: unset;
+  border: unset;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 0 14px;
+  padding: 0;
+}
+/* The title links home. It sits on the dark bar, so it cannot take the page's
+   navy link colour. */
+#navigation .ll-kind-header h1 a:link,
+#navigation .ll-kind-header h1 a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+#navigation .ll-kind-header h1 a:hover {
+  text-decoration: underline;
+}
+.ll-search {
+  margin-bottom: 20px;
+}
+.ll-search input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 11px 14px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: #f4f5f6;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+.ll-search input:focus {
+  outline: 2px solid #004080;
+  outline-offset: -2px;
+}
+#navigation .ll-search .ll-kind-body {
+  margin: 0;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+#navigation .ll-search .ll-kind-body li > a {
+  justify-content: space-between;
+  padding: 9px 14px;
+  gap: 10px;
+}
+.ll-search-kind {
+  flex: none;
+  font-size: 0.8em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6e7781;
+}
+#navigation .ll-kind-body li {
+  background: #eceeef;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: block;
+  margin: unset;
+  padding-left: 8px;
+}
+#navigation .ll-kind-body li > a, #navigation .ll-kind-body li > strong, #navigation .ll-kind-body li > p {
+  background: unset;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 12px 20px;
+  margin: 0;
+}
+#navigation .ll-kind-body li > a *, #navigation .ll-kind-body li > strong *, #navigation .ll-kind-body li > p * {
+  text-indent: 0em;
+}
+#navigation .ll-kind-body li > a > *, #navigation .ll-kind-body li > strong > *, #navigation .ll-kind-body li > p > * {
+  text-indent: 0.2em;
+}
+/* A topic subfolder is a sub-header inside Topics rather than a section of its
+   own. Its pages are only listed while you're on one of them (`is-open`), so
+   the Topics list is the same length from everywhere else. */
+#navigation .ll-kind-body li.ll-topic-folder {
+  background: #dce0e3;
+  padding-left: 8px;
+}
+#navigation .ll-kind-body li.ll-topic-folder > a,
+#navigation .ll-kind-body li.ll-topic-folder > strong {
+  font-weight: 700;
+  font-size: 0.9em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+#navigation .ll-kind-body li.ll-topic-folder > a::after,
+#navigation .ll-kind-body li.ll-topic-folder > strong::after {
+  content: "\25B8";
+  margin-left: auto;
+  opacity: 0.55;
+}
+#navigation .ll-kind-body li.ll-topic-folder.is-open > a::after,
+#navigation .ll-kind-body li.ll-topic-folder.is-open > strong::after {
+  content: "\25BE";
+}
+#navigation .ll-kind-body .ll-topic-children {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#navigation .ll-kind-body .ll-topic-children li {
+  background: #f4f5f6;
+  padding-left: 24px;
+}
+/* A folder nested in another one keeps the sub-header treatment, and each
+   level steps its contents in again. */
+#navigation .ll-kind-body .ll-topic-children li.ll-topic-folder {
+  background: #e4e8eb;
+  padding-left: 24px;
+}
+#navigation .ll-kind-body .ll-topic-children .ll-topic-children li {
+  padding-left: 40px;
+}
+/* `pinned: true` in a topic's front matter, tinted to whatever the row it's in
+   is already using. */
+.ll-pin {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 8px;
+  flex: none;
+  fill: currentColor;
+  opacity: 0.6;
+  vertical-align: -0.15em;
+}
+/* In the sidebar it goes to the row's right edge, where the folder chevron
+   already sits — in front of the title it would collide with `#navigation
+   li`'s -1em hanging indent, which pulls the title back over it. */
+#navigation .ll-pin {
+  margin-left: auto;
+  margin-right: 0;
+}
+#navigation .ll-kind-header + .ll-kind-header {
+  margin-top: 20px;
+}
+#navigation .ll-kind-body:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+#content {
+  float: right;
+  width: calc(100% - 31em);
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: unset;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+#content .ll-module-header {
+  background-color: #393f45;
+  height: 63px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+#content .ll-module-header h2 {
+  background-color: unset;
+  border: unset;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  /* Reset, not just indent: base.css gives h2 an asymmetric 15px/10px
+     vertical margin, which the centred bar honours - so section bars sat
+     their text lower than the h1 bars did. */
+  margin: 0 0 0 14px;
+  padding: 0;
+}
+#content .ll-module-header h1 {
+  background-color: unset;
+  border: unset;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 0 14px;
+  padding: 0;
+}
+/* The right-hand chip on a constant family's header (prefix, member count,
+   source link). Sits on the dark header bar, so it cannot use the page's own
+   navy link colour. */
+#content .ll-module-header .ll-family-meta {
+  margin-right: 14px;
+  color: #cacaca;
+  font-size: 13px;
+  white-space: nowrap;
+}
+#content .ll-module-header .ll-family-meta a:link,
+#content .ll-module-header .ll-family-meta a:visited {
+  color: #a8cdec;
+}
+#content .ll-module-body {
+  padding: 12px 20px;
+  background: #eceeef;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: block;
+  margin: unset;
+  padding-left: 8px;
+  /* A table too wide to compress any further scrolls inside the body instead
+     of spilling out past the panel edge. */
+  overflow-x: auto;
+}
+#content .ll-module-body h3:first-of-type {
+  margin-top: 0;
+}
+/* Markdown tables from the topic files — the only tables the generator emits. */
+#content .ll-module-body table {
+  border: 1px solid #b8bec3;
+  margin: 15px 0;
+  max-width: 100%;
+}
+#content .ll-module-body th,
+#content .ll-module-body td {
+  border: 1px solid #b8bec3;
+  padding: 6px 10px;
+  line-height: 1.45em;
+  vertical-align: top;
+}
+#content .ll-module-body thead th {
+  background: #dce0e3;
+  font-weight: 700;
+}
+#content .ll-module-body tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.035);
+}
+/* GitHub-style `> [!WARNING]` callouts, rebuilt by alert_blockquotes() in
+   generate.py because the markdown renderer doesn't know the syntax. */
+#content .ll-module-body blockquote.ll-alert {
+  margin: 15px 0;
+  padding: 10px 14px;
+  border-left: 4px solid #6e7781;
+  background: rgba(255, 255, 255, 0.55);
+}
+#content .ll-module-body blockquote.ll-alert p {
+  margin: 6px 0 0 0;
+}
+#content .ll-module-body blockquote.ll-alert .ll-alert-title {
+  margin: 0;
+  font-weight: 700;
+  color: #6e7781;
+}
+/* Informational. */
+#content .ll-module-body blockquote.ll-alert-note {
+  border-left-color: #0969da;
+}
+#content .ll-module-body blockquote.ll-alert-note .ll-alert-title {
+  color: #0969da;
+}
+#content .ll-module-body blockquote.ll-alert-tip {
+  border-left-color: #1a7f37;
+}
+#content .ll-module-body blockquote.ll-alert-tip .ll-alert-title {
+  color: #1a7f37;
+}
+#content .ll-module-body blockquote.ll-alert-important {
+  border-left-color: #8250df;
+}
+#content .ll-module-body blockquote.ll-alert-important .ll-alert-title {
+  color: #8250df;
+}
+/* Something to get wrong. */
+#content .ll-module-body blockquote.ll-alert-warning {
+  border-left-color: #9a6700;
+}
+#content .ll-module-body blockquote.ll-alert-warning .ll-alert-title {
+  color: #9a6700;
+}
+#content .ll-module-body blockquote.ll-alert-caution {
+  border-left-color: #cf222e;
+}
+#content .ll-module-body blockquote.ll-alert-caution .ll-alert-title {
+  color: #cf222e;
+}
+#content .ll-module-body blockquote.ll-alert-bug {
+  border-left-color: #a40e26;
+}
+#content .ll-module-body blockquote.ll-alert-bug .ll-alert-title {
+  color: #a40e26;
+}
+/* Status of the entry itself. */
+#content .ll-module-body blockquote.ll-alert-deprecated {
+  border-left-color: #953800;
+}
+#content .ll-module-body blockquote.ll-alert-deprecated .ll-alert-title {
+  color: #953800;
+}
+#content .ll-module-body blockquote.ll-alert-internal {
+  border-left-color: #57606a;
+}
+#content .ll-module-body blockquote.ll-alert-internal .ll-alert-title {
+  color: #57606a;
+}
+#content .ll-module-body blockquote.ll-alert-validate {
+  border-left-color: #0f6e84;
+}
+#content .ll-module-body blockquote.ll-alert-validate .ll-alert-title {
+  color: #0f6e84;
+}
+#content .ll-module-body blockquote.ll-alert-ambiguous {
+  border-left-color: #7d4e00;
+}
+#content .ll-module-body blockquote.ll-alert-ambiguous .ll-alert-title {
+  color: #7d4e00;
+}
+#content .ll-module-header + .ll-module-header {
+  margin-top: 20px;
+}
+#content .ll-module-body:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+#container, #main, #navigation, #product {
+  border: unset !important;
+  background-color: unset !important;
+}
+
+#container {
+  padding-top: 1em;
+}
+
+dl dt:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+#about {
+  border: none;
+  background-color: #23282B;
+  margin-top: 8px;
+}
+#about .ll-about-body {
+  padding: 4px;
+  background: #eceeef;
+  display: inline;
+  margin: unset;
+  padding-left: 8px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.header-module {
+  font-size: 9px;
+  padding: 5px 10px;
+  color: #cacaca;
+  border-left: 1px solid rgba(0, 0, 0, 0.16);
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.header-module li {
+  margin: 0px !important;
+  margin-left: 10px;
+  text-indent: 0em !important;
+}
+
+dl.function dd:last-of-type {
+  padding-bottom: none;
+}
+
+/* --- Function entries ----------------------------------------------------
+   The densest thing on the site: the Player page alone repeats this block 274
+   times, so the signature has to carry the call shape and everything around it
+   has to stay quiet. */
+#content .ll-module-body dl.function dt {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding-top: 1.1em;
+}
+/* The section header above already provides the gap; without this the first
+   entry sits twice as far from it as the others do from each other. Restates
+   the plain `dl dt:first-of-type` rule, which the one above outranks. */
+#content .ll-module-body dl.function dt:first-of-type {
+  padding-top: 0;
+}
+#content .ll-module-body .ll-symbol {
+  font-family: "Andale Mono", Consolas, monospace;
+  font-size: 1.02em;
+  /* Takes the slack and wraps; without min-width it refuses to shrink and
+     squeezes the Source link off the end of the row instead. `anywhere` is
+     the last resort for a name long enough to have no break opportunity
+     before its first comma — it only applies once normal wrapping fails. */
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#content .ll-module-body .ll-symbol .ll-sep {
+  color: #9a6700;
+}
+#content .ll-module-body .ll-symbol .ll-args {
+  font-weight: 400;
+  color: #57606a;
+}
+#content .ll-module-body .ll-symbol .ll-returns {
+  font-weight: 400;
+  color: #1a7f37;
+}
+/* A linked type keeps the colour of the type it sits in — there are over a
+   thousand of them, and bold navy on every one shouts louder than the names
+   they describe. The dotted underline is what marks them as followable. */
+#content .ll-module-body .types a,
+#content .ll-module-body .ll-returns a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: underline dotted rgba(0, 0, 0, 0.4);
+  text-underline-offset: 2px;
+}
+#content .ll-module-body .types a:hover,
+#content .ll-module-body .ll-returns a:hover {
+  text-decoration: underline solid currentColor;
+}
+#content .ll-module-body dl.function dt > a[href] {
+  margin-left: auto;
+  float: none !important;
+  flex: none;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 0.85em;
+}
+#content .ll-module-body dl.function dd {
+  line-height: 1.5em;
+}
+/* Realm chip. Replaces a bare coloured square that nothing on the site
+   explained; the colours are kept so the old scheme still reads. */
+.ll-realm {
+  flex: none;
+  align-self: center;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #6e7781;
+}
+.ll-realm.state-server {
+  background: #2c7fb8;
+}
+.ll-realm.state-client {
+  background: #b8500a;
+}
+.ll-realm.state-menu {
+  background: #1f8a4c;
+}
+/* Same diagonal split the old square used, so a reader who learned the colour
+   scheme still recognises it. */
+.ll-realm.state-client.state-server {
+  background: #2c7fb8;
+  background-image: linear-gradient(to bottom left, #2c7fb8 0%, #2c7fb8 50%, #b8500a 50%);
+}
+.ll-realm.state-client.state-server.state-menu {
+  background-image: linear-gradient(to bottom left, #2c7fb8 0%, #2c7fb8 33%, #b8500a 33%, #b8500a 66%, #1f8a4c 66%);
+}
+.ll-realm.state-client.state-menu {
+  background-image: linear-gradient(to bottom left, #1f8a4c 0%, #1f8a4c 50%, #b8500a 50%);
+}
+.ll-arg-label {
+  margin: 0.9em 0 0.2em 0;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6e7781;
+}
+/* Name, type and description as aligned columns rather than three things run
+   together in a sentence. The grid lives on the list so columns line up across
+   rows; `display: contents` hands each row's three cells to it. Column widths
+   size to the widest entry in this list only, so one long union type can't
+   push every other function's description across the page. */
+#content .ll-module-body .ll-args-list {
+  display: grid;
+  /* The description keeps a floor so that when space runs short it is the type
+     column that gives way and wraps, not the prose. Nothing changes at a normal
+     content width, where the description already has far more than 12em. */
+  grid-template-columns: max-content minmax(0, max-content) minmax(12em, 1fr);
+  gap: 4px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#content .ll-module-body .ll-args-list > li {
+  display: contents;
+}
+#content .ll-module-body .ll-args-list .parameter {
+  font-weight: 700;
+}
+/* The separators these carried — `name:` and `(type)` — were doing the job the
+   columns now do. */
+#content .ll-module-body .ll-args-list .parameter::after,
+#content .ll-module-body .ll-args-list .types::before,
+#content .ll-module-body .ll-args-list .types::after {
+  content: none;
+}
+#content .ll-module-body .ll-args-list .types {
+  font-family: "Andale Mono", Consolas, monospace;
+  font-size: 0.92em;
+  color: #57606a;
+  overflow-wrap: anywhere;
+}
+#content .ll-module-body .ll-args-list .ll-ordinal {
+  color: #8c959f;
+}
+#content .ll-module-body .ll-args-list .ll-arg-desc {
+  min-width: 0;
+}
+#content .ll-module-body pre.ll-example {
+  margin: 2px 0 0 0;
+  padding: 8px 10px;
+  background: #fbfbfc;
+  border: 1px solid #d8dce0;
+  font-size: 0.9em;
+  line-height: 1.45em;
+}

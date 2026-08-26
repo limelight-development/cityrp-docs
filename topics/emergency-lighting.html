@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Vehicle Emergency Lighting (ELS)</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,29 +14,29 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#groups">Groups</a></li>
+<li><a href="#carlighting--model-to-photon-preset">carLighting — model to Photon preset</a></li>
+<li><a href="#self-registering-from-a-photon-file">Self-registering from a Photon file</a></li>
+</ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
-<li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
+<li><strong>Vehicle Emergency Lighting (ELS)</strong></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -44,6 +44,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -56,6 +60,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -65,6 +70,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -77,7 +108,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -87,7 +117,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -125,22 +154,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -153,9 +166,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -319,16 +329,16 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>Vehicle Emergency Lighting (ELS)</h1></div><div class="ll-module-body"><h1>Vehicle Emergency Lighting (ELS)</h1>
-<p>Civilian-installable emergency lighting is handled by the <code>Vehicles</code> plugin
+<div class="ll-module-header"><h1>Vehicle Emergency Lighting (ELS)</h1></div><div class="ll-module-body"><p>Civilian-installable emergency lighting is handled by the <code>Vehicles</code> plugin
 (<code>core/plugins/vehicles/sh_init.lua</code> / <code>sv_init.lua</code>). A player uses one of four items on a
 vehicle they own, and the plugin swaps in a Photon lighting preset for that model.</p>
-<h2>Groups</h2>
+<h2 id="groups">Groups</h2>
 <table>
 <thead>
 <tr>
 <th align="left">Constant</th>
 <th align="left">Item (<code>uniqueID</code>)</th>
+<th align="left">Photon flag</th>
 <th align="left">Gate</th>
 </tr>
 </thead>
@@ -336,28 +346,33 @@ vehicle they own, and the plugin swaps in a Photon lighting preset for that mode
 <tr>
 <td align="left"><code>POLICE</code></td>
 <td align="left"><code>veh_pwl</code></td>
+<td align="left"><code>CityRP_IsPoliceELS</code></td>
 <td align="left">LEO pass/<code>orange</code>, Presidential pass/<code>red</code>, <code>IsLawenforcement()</code>, <code>IsPresident()</code>, or <code>IsRescue()</code> (ERT)</td>
 </tr>
 <tr>
 <td align="left"><code>WARNING</code></td>
 <td align="left"><code>veh_awl</code></td>
+<td align="left"><code>CityRP_IsAmbers</code></td>
 <td align="left">None (amber warning lights)</td>
 </tr>
 <tr>
 <td align="left"><code>ARROWS</code></td>
 <td align="left"><code>veh_arrows</code></td>
+<td align="left"><code>CityRP_IsArrowboard</code></td>
 <td align="left">None (amber + directional arrowboard)</td>
 </tr>
 <tr>
 <td align="left"><code>MEDICAL</code></td>
 <td align="left"><code>veh_mwl</code></td>
+<td align="left"><code>CityRP_IsMedicalELS</code></td>
 <td align="left"><code>IsDoctor()</code> or <code>IsRescue()</code> (ERT; covers Paramedic and Fire Chief)</td>
 </tr>
 </tbody>
 </table>
 <p>Gates live in <code>onVehicleLightsUsed</code> in <code>sv_init.lua</code>. Each item's <code>onUse</code> just calls
-<code>onVehicleLightsUsed(ply, &lt;GROUP&gt;)</code>.</p>
-<h2><code>carLighting</code> — model to Photon preset</h2>
+<code>onVehicleLightsUsed(ply, &lt;GROUP&gt;)</code>. The Photon flag column is the field a preset sets to claim the
+group for itself — see <a href="#self-registering-from-a-photon-file">Self-registering from a Photon file</a>.</p>
+<h2 id="carlighting--model-to-photon-preset"><code>carLighting</code> — model to Photon preset</h2>
 <p><code>carLighting[string.lower(model)][GROUP]</code> maps a vehicle model to the <em>name</em> a Photon preset was
 registered under (<code>list.Set(&quot;Vehicles&quot;, name, V)</code> — the key, which is conventionally also
 <code>V.Name</code>). <code>onVehicleLightsUsed</code> looks the preset up with <code>list.Get(&quot;Vehicles&quot;)[loadout]</code> and
@@ -368,10 +383,10 @@ merges it onto the vehicle's <code>VehicleTable</code>.</p>
 carLighting[&quot;models/tdmcars/trucks/gmc_c5500.mdl&quot;] = {[WARNING] = &quot;GMCC5500_AW&quot;}
 -- or explicit group keys when a model only supports some groups
 </code></pre>
-<h2>Self-registering from a Photon file</h2>
+<h2 id="self-registering-from-a-photon-file">Self-registering from a Photon file</h2>
 <p>A Photon vehicle registration (an <code>addons/vehicles_emvu/lua/autorun/*.lua</code> file, or any other
-<code>list.Set(&quot;Vehicles&quot;, name, V)</code> call) can flag itself as the preset for a group instead of
-requiring a hand-written <code>carLighting</code> entry:</p>
+<code>list.Set(&quot;Vehicles&quot;, name, V)</code> call) can set its group's flag from the <a href="#groups">Groups</a> table to
+claim itself as that group's preset, instead of requiring a hand-written <code>carLighting</code> entry:</p>
 <pre><code class="language-lua">local V = {
 	Name = name,
 	Model = &quot;models/metrohd/audi_a6.mdl&quot;,
@@ -380,39 +395,13 @@ requiring a hand-written <code>carLighting</code> entry:</p>
 }
 list.Set(&quot;Vehicles&quot;, V.Name, V)
 </code></pre>
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="left">Group</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>CityRP_IsPoliceELS</code></td>
-<td align="left"><code>POLICE</code></td>
-</tr>
-<tr>
-<td align="left"><code>CityRP_IsAmbers</code></td>
-<td align="left"><code>WARNING</code></td>
-</tr>
-<tr>
-<td align="left"><code>CityRP_IsArrowboard</code></td>
-<td align="left"><code>ARROWS</code></td>
-</tr>
-<tr>
-<td align="left"><code>CityRP_IsMedicalELS</code></td>
-<td align="left"><code>MEDICAL</code></td>
-</tr>
-</tbody>
-</table>
 <p><code>mergeSelfRegisteredLighting()</code> (in <code>sh_init.lua</code>, runs once from the <code>CityRP.Core.PostItemLoad</code>
 hook) scans every registered Photon vehicle and fills in any <code>carLighting[model][group]</code> slot that
 isn't already set. <strong>A hand-written entry always wins</strong> — self-registration only fills gaps, it
 never overwrites a hand-authored mapping.</p>
 <p>Either kind of clash is dropped instead of silently picking one, and logged via
 <code>PLUGIN.logger:Warning(...)</code> (<code>cityrp.logging</code>, namespace <code>plugin.Vehicles</code>; see
-<a href="logging.md">logging.md</a>) so it shows up in console/DB without being confused for an audit event:</p>
+<a href="logging.html">logging.md</a>) so it shows up in console/DB without being confused for an audit event:</p>
 <ul>
 <li>A self-registered preset tries to claim a group another self-registered preset already claimed
 for that model.</li>
@@ -428,5 +417,72 @@ self-registration.</p></div>
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

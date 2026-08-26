@@ -2,8 +2,8 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Types of Items</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<title>Entity</title>
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,29 +14,28 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -44,6 +43,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -56,6 +59,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -65,6 +69,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><strong>Entity</strong></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -77,7 +107,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -87,7 +116,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -125,22 +153,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -153,9 +165,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -319,91 +328,192 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>Types of Items</h1></div><div class="ll-module-body"><p>Items are one of the most simple parts to CityRP 2, yet one of the widest ranging, due to their use within every sector of the gamemode, and constant development.</p>
-<h2>Types of Items</h2>
-<p>Items currently fall into 3 distinct categories.</p>
-<table>
-<thead>
-<tr>
-<th>Item Type</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Table</td>
-<td>Deprecated, Majority of Items</td>
-</tr>
-<tr>
-<td>Parented Table</td>
-<td>Deprecated, Mostly Vehicles</td>
-</tr>
-<tr>
-<td>Item Class</td>
-<td>Active, Development</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>[!WARNING]
-<code>cityrp.item.register({})</code> (Table Items and Table Items with Inherence, below) is deprecated. <strong>New items must use the Class-Based Items pattern</strong> (<code>ITEM:New(...)</code>) described at the end of this page. The two table-based patterns are documented here only because they still make up most existing items.</p>
-</blockquote>
-<h3>Table Items</h3>
-<p>Table items are the simplest, being mearly a table and a call to item.register.</p>
-<pre><code class="language-lua">local ITEM = {}
-ITEM.name = &quot;My Special Item&quot;
-ITEM.cost = 999
-ITEM.description = [[Stuff and things are done by my super cool item.]]
-ITEM.uniqueID = &quot;specialitem&quot;
+<div class="ll-module-header"><h1>Entity</h1></div>
+<div class="ll-module-body"><p>Shared Entity Metafunctions.</p></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="Entity.Distance"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Entity<span class="ll-sep">:</span>Distance<span class="ll-args">(ent)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_entity.lua#L14">Source ☍</a></dt>
+<dd>
+<p>Check scalar distance to another entity.</p>
 
-cityrp.item.register(ITEM)
-</code></pre>
-<p>Whilst the simplest, these are also often the largest, if code is repeated, due to the fact that elements must be duplicated in their entirety. For example, for the suit items, even though there may be 10 or more suits with the same price, they must be repeated each time.</p>
-<h3>Table Items with Inherence</h3>
-<p>Similar to the table items, these items simple pass a table to cityrp.item.register. However, passing a second argument to register will cause it to take that already-registered item, and use it as a parent.</p>
-<pre><code class="language-lua">if not cityrp.plugin.get(&quot;vehicles&quot;) then return end
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ent</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc">The entity to check distance for.</span></li>
+</ul>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number</span><span class="ll-arg-desc">distance from the other entity.</span></li>
+</ol>
 
-local ITEM = {}
-ITEM.name = &quot;1981 Ford F150&quot;
-ITEM.cost = 160000
-ITEM.model = &quot;models/talonvehicles/tal_f150_1981.mdl&quot;
-ITEM.uniqueID = &quot;81fordf150&quot;
+</dd>
+<dt><a name="Entity.DistToSqr"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Entity<span class="ll-sep">:</span>DistToSqr<span class="ll-args">(ent)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_entity.lua#L19">Source ☍</a></dt>
+<dd>
+<p>Check squared scalar distance to another entity.</p>
 
-cityrp.item.register(ITEM, &quot;base_vehicle&quot;)
-</code></pre>
-<p>This means that utility functions and shared information can stay on the base, reducing the duplication between files.</p>
-<p>However, this has the downside of requiring that each base item is registered, and thus may accidentally become available to end users.</p>
-<h3>Class-Based Items.</h3>
-<p>To combat this, the alternative is class-based items. These use a completely different style to tabular items, can contain multiple items in the same file with ease, and can base themselves without registration.</p>
-<pre><code class="language-lua">local BASE = ITEM:New(&quot;base_accessory&quot;)
-	:SetCost(10000)
-	:SetModel(&quot;models/modified/backpack_2.mdl&quot;, 1, true)
-	:SetCategory(&quot;Accessories&quot;)
-	:SetDescription([[A modern camping backpack to carry all your gear.]])
-	:SetOffEmote(&quot;takes off their backpack.&quot;)
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ent</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc">The entity to check distance for.</span></li>
+</ul>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number</span><span class="ll-arg-desc">squared distance from the other entity.</span></li>
+</ol>
 
-BASE:Clone()
-	:SetName(&quot;Navy and Tangerine Camping Backpack&quot;)
-	:SetOnEmote(&quot;puts on their navy and tangerine camping backpack.&quot;)
-	:Register(&quot;backpacknavy_2&quot;)
+</dd>
+<dt><a name="Entity.GetNetVar"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Entity<span class="ll-sep">:</span>GetNetVar<span class="ll-args">(name, default)</span><span class="ll-returns"> → any</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L123">Source ☍</a></dt>
+<dd>
+<p>Reads a networked value from this entity.
+Unregistered names and Global-scoped vars both return <code>default</code> with a logged error -- use
+<code><a href="cityrp.network.html#cityrp.network.GetGlobal">cityrp.network.GetGlobal</a></code> for Global-scoped vars.</p>
 
-BASE:Clone()
-	:SetName(&quot;Olive and Blue Camping Backpack&quot;)
-	:SetSkin(2, true)
-	:SetOnEmote(&quot;puts on their olive and blue camping backpack.&quot;)
-	:Register(&quot;backpackolive_2&quot;)
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">name</span><span class="types">string</span><span class="ll-arg-desc">The registered var name.</span></li>
+<li><span class="parameter">default</span><span class="types">any</span><span class="ll-arg-desc">Returned if the value has never been set, or on any of the error paths above.</span></li>
+</ul>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">any</span><span class="ll-arg-desc"></span></li>
+</ol>
 
-BASE:Clone()
-	:SetName(&quot;Red, White and Green Camping Backpack&quot;)
-	:SetSkin(3, true)
-	:SetOnEmote(&quot;puts on their red, white and green camping backpack.&quot;)
-	:Register(&quot;backpackred_2&quot;)
-</code></pre>
-<p>In the above example, the base item is the accessory base, but the camping backpacks have data which is shared between each element, which is also put into the base. The base is then cloned, data updated, and then only then is it registered.</p>
-<p>For the rationale behind this route — why inheritance is a lazy metatable chain, how load order protects bases, and the known sharp edges — see <a href="design/items-registration.md">design/items-registration.md</a>.</p></div>
+</dd>
+<dt><a name="Entity.LLSpeed"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Entity<span class="ll-sep">:</span>LLSpeed<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_entity.lua#L34">Source ☍</a></dt>
+<dd>
+<p>Gets the Photon Speed if photon is installed, otherwise uses the same formulae that photon uses.</p>
+
+
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number</span><span class="ll-arg-desc">in &quot;MPH&quot;.</span></li>
+</ol>
+
+</dd>
+<dt><a name="Entity.LLSpeedKMH"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Entity<span class="ll-sep">:</span>LLSpeedKMH<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_entity.lua#L44">Source ☍</a></dt>
+<dd>
+<p>kmh readout of LLSpeed.</p>
+
+
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number</span><span class="ll-arg-desc">in &quot;KMH&quot;.</span></li>
+</ol>
+
+</dd>
+<dt><a name="Entity.SetColor"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Entity<span class="ll-sep">:</span>SetColor<span class="ll-args">(ctab)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_entity.lua#L24">Source ☍</a></dt>
+<dd>
+<p>Overwritten SetColor function to prevent d3d signs from being made invisible.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ctab</span><span class="types"><a href="https://wiki.facepunch.com/gmod/Color">Color</a></span><span class="ll-arg-desc">The colour table to be set.</span></li>
+</ul>
+
+
+</dd>
+<dt><a name="Entity.SetNetVar"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Entity<span class="ll-sep">:</span>SetNetVar<span class="ll-args">(name, value)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L326">Source ☍</a></dt>
+<dd>
+<p>Sets a networked value on this entity and, if it changed, sends the update.
+Errors (logged, not thrown) for an unregistered name, a Global-scoped var (use
+<code><a href="cityrp.network.html#cityrp.network.SetGlobal">cityrp.network.SetGlobal</a></code>), or a LocalPlayer-scoped var set on a non-player.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">name</span><span class="types">string</span><span class="ll-arg-desc">The registered var name.</span></li>
+<li><span class="parameter">value</span><span class="types">any</span><span class="ll-arg-desc">The new value. <code>nil</code> clears it.</span></li>
+</ul>
+
+
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="Entity"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Entity</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L99">Source ☍</a></dt>
+<dd>
+<p>The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</p>
+
+
+
+
+</dd>
+<dt><a name="Entity.__netvars"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Entity.__netvars</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_store.lua#L100">Source ☍</a></dt>
+<dd>
+<p>Networked values set locally or received over the network, by var name. <code>nil</code> until the first value is stored.</p>
+
+
+
+
+</dd>
+</dl></div>
 		</div>
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

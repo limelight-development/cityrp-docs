@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>cityrp.command</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,8 +14,8 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
@@ -23,26 +23,19 @@
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -50,6 +43,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -62,6 +59,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -71,6 +69,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -83,7 +107,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -93,7 +116,6 @@
 <li><strong>cityrp.command</strong></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -131,22 +153,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -159,9 +165,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -329,140 +332,152 @@
 <div class="ll-module-body"><p>CityRP Commands Library.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.command.add"></a><strong><span class="state state-server">cityrp.command.add</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L44">Source ☍</a></dt>
+<dt><a name="cityrp.command.add"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command.add<span class="ll-args">(command, access, arguments, callback, category, help, tip, emgr)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L44">Source ☍</a></dt>
 <dd>
 <p>Add a new player command (<code>/</code> prefix).</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">command</span> <span class="types">string</span> Command string to add.</li>
-<li><span class="parameter">access</span> <span class="types">string</span> Access flag.</li>
-<li><span class="parameter">arguments</span> <span class="types">number</span> Number of arguments to require.</li>
-<li><span class="parameter">callback</span> <span class="types">fun(ply: Player, arguments: string[])</span> Command callback.</li>
-<li><span class="parameter">category</span> <span class="types">string?</span> Category to add the command help under.</li>
-<li><span class="parameter">help</span> <span class="types">string?</span> Syntax string (e.g. <code>&quot;&lt;player&gt; &lt;amount&gt;&quot;</code>).</li>
-<li><span class="parameter">tip</span> <span class="types">string?</span> Command description shown in the F1 menu.</li>
-<li><span class="parameter">emgr</span> <span class="types">boolean?</span> Event Manager bypass.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">command</span><span class="types">string</span><span class="ll-arg-desc">Command string to add.</span></li>
+<li><span class="parameter">access</span><span class="types">string</span><span class="ll-arg-desc">Access flag.</span></li>
+<li><span class="parameter">arguments</span><span class="types">number</span><span class="ll-arg-desc">Number of arguments to require.</span></li>
+<li><span class="parameter">callback</span><span class="types">fun(ply: <a href="Player.html">Player</a>, arguments: string[])</span><span class="ll-arg-desc">Command callback.</span></li>
+<li><span class="parameter">category</span><span class="types">string?</span><span class="ll-arg-desc">Category to add the command help under.</span></li>
+<li><span class="parameter">help</span><span class="types">string?</span><span class="ll-arg-desc">Syntax string (e.g. <code>&quot;&lt;player&gt; &lt;amount&gt;&quot;</code>).</span></li>
+<li><span class="parameter">tip</span><span class="types">string?</span><span class="ll-arg-desc">Command description shown in the F1 menu.</span></li>
+<li><span class="parameter">emgr</span><span class="types">boolean?</span><span class="ll-arg-desc">Event Manager bypass.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.command.consoleCommand"></a><strong><span class="state state-server">cityrp.command.consoleCommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L170">Source ☍</a></dt>
+<dt><a name="cityrp.command.consoleCommand"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command.consoleCommand<span class="ll-args">(player, command, arguments)</span><span class="ll-returns"> → nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L170">Source ☍</a></dt>
 <dd>
 <p>Handle a <code>/</code>-prefixed player command.
 This is the actual command dispatcher: it is bound to the <code>cityrp</code> console command, and is
 reached both by <code>ConCommand(&quot;cityrp &lt;cmd&gt; &lt;args&gt;&quot;)</code> calls and (per footgun #13 in AGENTS.md) by
-<code>GM:PlayerSay</code> re-quoting a <code>say /x</code> chat message and forwarding it here. Resolves aliases,
+<code><a href="GM.html#GM.PlayerSay">GM:PlayerSay</a></code> re-quoting a <code>say /x</code> chat message and forwarding it here. Resolves aliases,
 checks access, runs <code>PlayerCanUseCommand</code>, validates argument count, warns on deprecated
 commands, then invokes the command's callback and logs the usage.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> Player running the command.</li>
-<li><span class="parameter">command</span> <span class="types">string</span> The command name being run (without the <code>/</code> prefix).</li>
-<li><span class="parameter">arguments</span> <span class="types">string[]</span> Command arguments.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">player</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Player running the command.</span></li>
+<li><span class="parameter">command</span><span class="types">string</span><span class="ll-arg-desc">The command name being run (without the <code>/</code> prefix).</span></li>
+<li><span class="parameter">arguments</span><span class="types">string[]</span><span class="ll-arg-desc">Command arguments.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">nil</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">nil</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.command.deprecate"></a><strong><span class="state state-server">cityrp.command.deprecate</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L148">Source ☍</a></dt>
+<dt><a name="cityrp.command.deprecate"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command.deprecate<span class="ll-args">(cmd, msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L148">Source ☍</a></dt>
 <dd>
 <p>Deprecate a command.
 Shows a warning to the player when the command is used. If <code>msg</code> is a single word
 (optionally prefixed with <code>/</code> or <code>!</code>), it is treated as a replacement command name.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">cmd</span> <span class="types">string</span> Command to deprecate.</li>
-<li><span class="parameter">msg</span> <span class="types">string?</span> Additional message to show, or a replacement command name.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">cmd</span><span class="types">string</span><span class="ll-arg-desc">Command to deprecate.</span></li>
+<li><span class="parameter">msg</span><span class="types">string?</span><span class="ll-arg-desc">Additional message to show, or a replacement command name.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.command.notifyAcommandRedirect"></a><strong><span class="state state-server">cityrp.command.notifyAcommandRedirect</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L95">Source ☍</a></dt>
+<dt><a name="cityrp.command.notifyAcommandRedirect"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command.notifyAcommandRedirect<span class="ll-args">(ply, oldCmd, acommandName)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L95">Source ☍</a></dt>
 <dd>
 <p>Shared notification for staff commands that moved from <code>/</code> to <code>!</code>.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player who typed the old command.</li>
-<li><span class="parameter">oldCmd</span> <span class="types">string</span> The old <code>/</code> command name.</li>
-<li><span class="parameter">acommandName</span> <span class="types">string</span> The <code>!</code> command to use instead.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player who typed the old command.</span></li>
+<li><span class="parameter">oldCmd</span><span class="types">string</span><span class="ll-arg-desc">The old <code>/</code> command name.</span></li>
+<li><span class="parameter">acommandName</span><span class="types">string</span><span class="ll-arg-desc">The <code>!</code> command to use instead.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.command.parseBoolean"></a><strong><span class="state state-server">cityrp.command.parseBoolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L134">Source ☍</a></dt>
+<dt><a name="cityrp.command.parseBoolean"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command.parseBoolean<span class="ll-args">(ply, arg, message)</span><span class="ll-returns"> → boolean?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L134">Source ☍</a></dt>
 <dd>
 <p>Parse a boolean command argument and notify on failure.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to notify.</li>
-<li><span class="parameter">arg</span> <span class="types">string</span> Raw argument string.</li>
-<li><span class="parameter">message</span> <span class="types">string?</span> Custom error message.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to notify.</span></li>
+<li><span class="parameter">arg</span><span class="types">string</span><span class="ll-arg-desc">Raw argument string.</span></li>
+<li><span class="parameter">message</span><span class="types">string?</span><span class="ll-arg-desc">Custom error message.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean?</span> boolean, or nil on failure.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean?</span><span class="ll-arg-desc">boolean, or nil on failure.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.command.parseMoney"></a><strong><span class="state state-server">cityrp.command.parseMoney</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L108">Source ☍</a></dt>
+<dt><a name="cityrp.command.parseMoney"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command.parseMoney<span class="ll-args">(ply, arg, opts)</span><span class="ll-returns"> → number?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L108">Source ☍</a></dt>
 <dd>
 <p>Parse a money amount argument and notify on failure.
 Money amounts are always integers; fractional values are rejected.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to notify.</li>
-<li><span class="parameter">arg</span> <span class="types">string</span> Raw argument string.</li>
-<li><span class="parameter">opts</span> <span class="types">{ allowZero: boolean?, allowNegative: boolean? }?</span> Options: <code>allowZero</code>, <code>allowNegative</code>.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to notify.</span></li>
+<li><span class="parameter">arg</span><span class="types">string</span><span class="ll-arg-desc">Raw argument string.</span></li>
+<li><span class="parameter">opts</span><span class="types">{ allowZero: boolean?, allowNegative: boolean? }?</span><span class="ll-arg-desc">Options: <code>allowZero</code>, <code>allowNegative</code>.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number?</span> amount, or nil on failure.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number?</span><span class="ll-arg-desc">amount, or nil on failure.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.command.redirectToAcommand"></a><strong><span class="state state-server">cityrp.command.redirectToAcommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L77">Source ☍</a></dt>
+<dt><a name="cityrp.command.redirectToAcommand"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command.redirectToAcommand<span class="ll-args">(oldCmd, acommandName)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L77">Source ☍</a></dt>
 <dd>
 <p>Register a non-executing <code>/</code> stub that tells the player to use an acommand instead.
 Used for hard cutover when a staff tool moves from <code>/</code> to <code>!</code>. Redirects are excluded from F1.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">oldCmd</span> <span class="types">string</span> The old <code>/</code> command name (without prefix).</li>
-<li><span class="parameter">acommandName</span> <span class="types">string?</span> The <code>!</code> command to suggest (defaults to oldCmd).</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">oldCmd</span><span class="types">string</span><span class="ll-arg-desc">The old <code>/</code> command name (without prefix).</span></li>
+<li><span class="parameter">acommandName</span><span class="types">string?</span><span class="ll-arg-desc">The <code>!</code> command to suggest (defaults to oldCmd).</span></li>
 </ul>
+
 
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.command"></a><strong><span class="state state-server">cityrp.command</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L8">Source ☍</a></dt>
+<dt><a name="cityrp.command"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L8">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="cityrp.command.aliases"></a><strong><span class="state state-server">cityrp.command.aliases</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L10">Source ☍</a></dt>
+<dt><a name="cityrp.command.aliases"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command.aliases</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L10">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="cityrp.command.categoryAliases"></a><strong><span class="state state-server">cityrp.command.categoryAliases</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L13">Source ☍</a></dt>
+<dt><a name="cityrp.command.categoryAliases"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command.categoryAliases</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L13">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="cityrp.command.deprecated"></a><strong><span class="state state-server">cityrp.command.deprecated</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L11">Source ☍</a></dt>
+<dt><a name="cityrp.command.deprecated"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command.deprecated</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L11">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="cityrp.command.stored"></a><strong><span class="state state-server">cityrp.command.stored</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L9">Source ☍</a></dt>
+<dt><a name="cityrp.command.stored"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.command.stored</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_commands.lua#L9">Source ☍</a></dt>
 <dd>
+
 
 
 
@@ -472,5 +487,72 @@ Used for hard cutover when a staff tool moves from <code>/</code> to <code>!</co
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

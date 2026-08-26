@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Networking Library</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,36 +14,44 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#why-a-new-library">Why a new library</a></li>
+<li><a href="#core-concepts">Core concepts</a></li>
+<li><a href="#wire-protocol">Wire protocol</a></li>
+<li><a href="#storage-and-the-recycled-index-bug">Storage and the recycled-index bug</a></li>
+<li><a href="#resync">Resync</a></li>
+<li><a href="#diagnostics">Diagnostics</a></li>
+<li><a href="#what-this-scope-does-not-do">What this scope does not do</a></li>
+</ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
-<li><a href="../topics/networking.html">Networking Library</a></li>
+<li><strong>Networking Library</strong></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
 <li><a href="../topics/ui-scaling.html">UI Scaling</a></li>
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -56,6 +64,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -65,6 +74,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -77,7 +112,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -87,7 +121,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -125,22 +158,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -153,9 +170,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -319,8 +333,7 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>Networking Library</h1></div><div class="ll-module-body"><h1>Networking Library</h1>
-<p><code>cityrp.network</code> (<code>gamemode/core/libraries/sh_network.lua</code> and <code>core/libraries/network/</code>) is the
+<div class="ll-module-header"><h1>Networking Library</h1></div><div class="ll-module-body"><p><code>cityrp.network</code> (<code>gamemode/core/libraries/sh_network.lua</code> and <code>core/libraries/network/</code>) is the
 unified replacement for three overlapping systems: engine <code>SetNW*</code>/<code>GetNW*</code>, NSVars, and
 LocalPlayerVars (<code>core/plugins/networking</code>). See <a href="https://github.com/limelight-development/cityrp2/issues/3207">issue #3207</a>
 for the full rationale.</p>
@@ -328,10 +341,10 @@ for the full rationale.</p>
 gamemode has been migrated yet — <code>core/plugins/networking</code> is still fully live, and <code>SetNSVar</code> /
 <code>GetNSVar</code> / <code>SetLPlyVar</code> / <code>SetNW*</code> remain the correct APIs to use until that migration (a later,
 separate scope) lands. Do not start migrating call sites off this topic alone.</p>
-<h2>Why a new library</h2>
+<h2 id="why-a-new-library">Why a new library</h2>
 <ul>
 <li><strong>NSVars are player-only.</strong> Non-player entities (doors, vehicles, signs) still have no option but
-the deprecated <code>SetNW*</code>/<code>GetNW*</code> tier — see <a href="../problems/03-deprecated-network-vars.md">problems/03</a>.</li>
+the deprecated <code>SetNW*</code>/<code>GetNW*</code> tier — see <a href="https://github.com/limelight-development/cityrp2/blob/master/problems/03-deprecated-network-vars.md">problems/03</a>.</li>
 <li><strong>No recipient filtering.</strong> NSVars are <code>net.Broadcast()</code> or nothing; LocalPlayerVars are
 owner-only or nothing. Nothing in between — no faction-private, gang-private, or police-private
 state without hand-rolling a new <code>net.*</code> message.</li>
@@ -344,7 +357,7 @@ recycled index inherits whatever the previous occupant left behind.</li>
 <li><strong>Broadcast while out of PVS is lost.</strong> There is no pull-on-visible path — a value set while a
 client is out of range never reaches it unless something else happens to resend it later.</li>
 </ul>
-<h2>Core concepts</h2>
+<h2 id="core-concepts">Core concepts</h2>
 <p>A <strong>network var</strong> is registered once, in shared code, with a builder chain:</p>
 <pre><code class="language-lua">cityrp.network.Register(&quot;cityrp_VehicleLocked&quot;)
 	:SetEntity()
@@ -356,7 +369,7 @@ client is out of range never reaches it unless something else happens to resend 
 <p>Registration must happen before the registry <strong>seals</strong>, which occurs automatically on the
 <code>Initialize</code> hook (both realms). Registering afterward is a logged error and the var is never
 networked — register vars at file scope or from an early hook, not lazily on first use.</p>
-<h3>Scope</h3>
+<h3 id="scope">Scope</h3>
 <p>Exactly one scope per var, set with one of these (default: <code>:SetEntity()</code>):</p>
 <table>
 <thead>
@@ -403,7 +416,7 @@ networked — register vars at file scope or from an early hook, not lazily on f
 framing — <code>cityrp.network.IsEntityScope(scope)</code> is <code>true</code> for all four. The only thing that differs
 between them is which metatable <code>:Accessor()</code> attaches its generated methods to. <code>:SetLocalPlayer()</code>
 also routes to <code>FindMetaTable(&quot;Player&quot;)</code>, despite differing in storage/recipients from the other four.</p>
-<h3>Codecs</h3>
+<h3 id="codecs">Codecs</h3>
 <p>Call one codec method per var (default is <code>:Auto()</code> if none is called):</p>
 <table>
 <thead>
@@ -503,21 +516,21 @@ also routes to <code>FindMetaTable(&quot;Player&quot;)</code>, despite differing
 </tr>
 </tbody>
 </table>
-<h4>Integer widths</h4>
+<h4 id="integer-widths">Integer widths</h4>
 <p><code>net.WriteInt</code>/<code>net.WriteUInt</code> only accept 1-32 bits. NSVars' <code>NETTYPE_LONG</code> (64) and
 <code>NETTYPE_XLONG</code> (128) passed 64/128 to those functions and could never actually work. Separately,
 GLua numbers are IEEE doubles, so no integer above 2^53 can round-trip through Lua regardless of how
 it's framed on the wire. <code>:Long()</code> is therefore an alias of <code>:Double()</code> — the widest integer GLua can
 actually represent exactly — not a wider integer codec. There is no <code>:XLong()</code>; nothing in Lua can
 hold the value, so the name would only reproduce the old illusion.</p>
-<h4>Custom codecs</h4>
+<h4 id="custom-codecs">Custom codecs</h4>
 <p><code>:Write(fn, opt)</code> / <code>:Read(fn, opt)</code> bypass the built-in codec table entirely. Because the manifest
 (below) can't describe an arbitrary function, a custom-codec var is always sent <strong>alone in its own
 message</strong>, never batched alongside other vars — an undecodable custom value can then only ever
 corrupt its own message, not a whole batch riding with it. Both realms must register the same var
 with matching <code>:Write</code>/<code>:Read</code> calls; a client that never called <code>:Read()</code> for a name the manifest
 describes as Custom-coded logs an error and drops that message when one arrives.</p>
-<h4>Enums</h4>
+<h4 id="enums">Enums</h4>
 <p><code>:Enum(list)</code> declares a var's legal values as <code>list</code>, a sequential (<code>ipairs</code>-ordered) array, and
 picks between two wire strategies by comparing their actual bit cost:</p>
 <ul>
@@ -545,7 +558,7 @@ cityrp.network.Register(&quot;cityrp_Rank&quot;):SetPlayer():Enum({1, 2, 3, 4}):
 -- Mapped index: small set, but string-valued (no direct encoding available) — 3 bits, not batchable.
 cityrp.network.Register(&quot;pass&quot;):Enum({&quot;grey&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;orange&quot;, &quot;red&quot;}):Accessor(&quot;Pass&quot;)
 </code></pre>
-<h3>Recipients</h3>
+<h3 id="recipients">Recipients</h3>
 <p>Only meaningful for Entity/Player/Vehicle/Weapon/Global scope — LocalPlayer scope is always
 owner-only regardless.</p>
 <table>
@@ -587,7 +600,7 @@ that authorization check: the same function that decides who gets a <em>live</em
 allowed to pull it via resync, so there's exactly one predicate to keep correct, not two that can
 drift apart. Keep <code>:Filter()</code> callbacks cheap and free of side effects — they can run once per set
 and again per resync candidate.</p>
-<h3>Behaviour</h3>
+<h3 id="behaviour">Behaviour</h3>
 <table>
 <thead>
 <tr>
@@ -622,7 +635,7 @@ and again per resync candidate.</p>
 </tr>
 </tbody>
 </table>
-<h4>Client-side prediction</h4>
+<h4 id="client-side-prediction">Client-side prediction</h4>
 <p><code>:Set&lt;Name&gt;()</code> is normally server-only — setting is server-authoritative, and the underlying
 <code>SetNetVar</code>/<code>SetGlobal</code> don't exist on the client realm at all (<code>sv_send.lua</code> is a server-only file).
 <code>:Predictable()</code> opts a <code>:SetLocalPlayer()</code> var out of that: the client gets its own <code>Set&lt;Name&gt;()</code>
@@ -648,7 +661,7 @@ if SERVER or IsFirstTimePredicted() then
 	ply:SetStamina(newValue) -- works on both realms now
 end
 </code></pre>
-<h4>Accessor targets</h4>
+<h4 id="accessor-targets">Accessor targets</h4>
 <p><code>:Accessor(name)</code> attaches to <code>FindMetaTable(&quot;Entity&quot;)</code> for Entity/Global scope, <code>FindMetaTable(&quot;Player&quot;)</code>
 for Player/LocalPlayer scope, and <code>FindMetaTable(&quot;Vehicle&quot;)</code>/<code>FindMetaTable(&quot;Weapon&quot;)</code> for those.
 Calling <code>Entity:GetNetVar</code>/<code>SetNetVar</code> itself would already work identically regardless — GMod
@@ -658,11 +671,11 @@ defines natively: it would shadow an Entity-attached <code>Get&lt;Name&gt;</code
 type, silently calling the native method instead of yours. Attaching directly to the matching
 metatable instead puts your accessor closer than Entity's in the lookup chain, so it wins.</p>
 <p>This is a real, present-day risk, not a hypothetical one: <code>sv_vehicle.lua</code>'s <code>locked</code>, <code>engine_on</code>,
-and <code>HP</code> state — the values <a href="modern-apis.md">modern-apis.md</a> names as the reason vehicles still use
+and <code>HP</code> state — the values <a href="modern-apis.html">modern-apis.md</a> names as the reason vehicles still use
 the otherwise-avoided <code>SetNW*</code> tier — are exactly the kind of vehicle-specific accessor a scope 2
 migration would want to name <code>Locked</code>/<code>EngineOn</code>/<code>HP</code>, and <code>FindMetaTable(&quot;Vehicle&quot;)</code> is already
 extended in this codebase (<code>core/metatables/sh_vehicle.lua</code>).</p>
-<h3>Reading and writing</h3>
+<h3 id="reading-and-writing">Reading and writing</h3>
 <pre><code class="language-lua">-- Server only
 ent:SetNetVar(&quot;cityrp_VehicleLocked&quot;, true)
 cityrp.network.SetGlobal(&quot;WeatherState&quot;, 2)
@@ -679,7 +692,7 @@ end)
 <p><code>Entity:SetNetVar</code>/<code>SetGlobal</code> on an unregistered name, the wrong scope's accessor (e.g.
 <code>Entity:SetNetVar</code> for a Global-scoped var), or <code>:SetNetVar</code> for a LocalPlayer-scoped var on a
 non-player entity are all logged errors, not silent no-ops or thrown exceptions.</p>
-<h2>Wire protocol</h2>
+<h2 id="wire-protocol">Wire protocol</h2>
 <p>Three net strings, two used in both directions:</p>
 <table>
 <thead>
@@ -717,12 +730,12 @@ manifest, logged once, and keeps working via <code>GetNetVar</code>/<code>SetNet
 arrives. The server does not send <code>Update</code>/<code>Resync</code> traffic to a player until their handshake
 completes — an update sent before the manifest would be undecodable, and because sets are
 delta-guarded, that value would then be lost for good.</p>
-<h2>Storage and the recycled-index bug</h2>
+<h2 id="storage-and-the-recycled-index-bug">Storage and the recycled-index bug</h2>
 <p>Entity/Player-scoped values live directly on the entity's own Lua table (<code>ent.__netvars</code>), the same
 way Photon SimpleNet stores state, on both realms. This is what retires NSVars' recycled-index bug:
 GMod hands a freshly-created entity a new Lua table regardless of which index it reuses, so there is
 nothing left over to clean up and nothing that can leak between occupants of the same index.</p>
-<h2>Resync</h2>
+<h2 id="resync">Resync</h2>
 <p>Modeled on Photon SimpleNet's pull-on-visible design:</p>
 <ol>
 <li>
@@ -775,13 +788,13 @@ entity's visibility — are sent once, directly, alongside the manifest.</p>
 <p><code>cityrp_network_sync_bytes</code> (default 8192) is the flush threshold, in bytes, for a batched <code>Resync</code>
 message — checked between entity groups, so a message can exceed it by up to one group's worth of
 vars. That default leaves roughly 57 KB of headroom under the 65536-byte <code>net</code> message cap.</p>
-<h2>Diagnostics</h2>
+<h2 id="diagnostics">Diagnostics</h2>
 <p><code>cityrp_network_dump</code> — server console/RCON only (same guard as <code>cityrp_log_set</code>). Prints the sealed
 registry (id, name, scope, codec) and, per connected player, handshake status and resync queue depth.
 Verbose per-message logging goes through the existing logging library, not a dedicated ConVar:</p>
 <pre><code>cityrp_log_set network DEBUG
 </code></pre>
-<h2>What this scope does not do</h2>
+<h2 id="what-this-scope-does-not-do">What this scope does not do</h2>
 <ul>
 <li>No gamemode call site has been migrated. <code>SetNSVar</code>/<code>GetNSVar</code>/<code>SetLPlyVar</code>/<code>SetNW*</code> remain correct
 until a follow-up scope migrates them — see <a href="https://github.com/limelight-development/cityrp2/issues/3207">issue #3207</a>
@@ -793,5 +806,72 @@ and the Discord relay's fake <code>MT:GetNSVar</code> stub, then deletion of <co
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

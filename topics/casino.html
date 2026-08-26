@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>LimeCasino deployment math</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,29 +14,37 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#targets">Targets</a></li>
+<li><a href="#how-pcasino-rng-actually-works">How pCasino RNG actually works</a></li>
+<li><a href="#mystery-wheel-layout-20--5">Mystery Wheel layout (20 × 5%)</a></li>
+<li><a href="#mini-wheel-design">Mini-wheel design</a></li>
+<li><a href="#jackpot-startvalue-footgun">Jackpot startValue footgun</a></li>
+<li><a href="#placing-machines-staff">Placing machines (staff)</a></li>
+<li><a href="#player-transparency">Player transparency</a></li>
+<li><a href="#proving-the-math">Proving the math</a></li>
+<li><a href="#hunt-equalization-advanced-machines">Hunt equalization (advanced machines)</a></li>
+<li><a href="#economy-notes">Economy notes</a></li>
+<li><a href="#session-gambling-monitoring">Session gambling monitoring</a></li>
+</ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
-<li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><strong>LimeCasino deployment math</strong></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -44,6 +52,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -56,6 +68,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -65,6 +78,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -77,7 +116,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -87,7 +125,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -125,22 +162,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -153,9 +174,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -319,10 +337,9 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>LimeCasino deployment math</h1></div><div class="ll-module-body"><h1>LimeCasino deployment math</h1>
-<p>How CityRP’s pCasino machines are tuned, how to place them, and how players read the odds.</p>
-<p>Canonical machine configs live in <a href="../addons/pcasino/presets/"><code>addons/pcasino/presets/*.json</code></a>. Runtime copies are generated into <a href="../addons/pcasino/lua/perfectcasino/config/sh_presets.lua"><code>addons/pcasino/lua/perfectcasino/config/sh_presets.lua</code></a> by the math toolkit. <strong>Do not hand-edit the Lua file.</strong></p>
-<h2>Targets</h2>
+<div class="ll-module-header"><h1>LimeCasino deployment math</h1></div><div class="ll-module-body"><p>How CityRP’s pCasino machines are tuned, how to place them, and how players read the odds.</p>
+<p>Canonical machine configs live in <a href="https://github.com/limelight-development/cityrp2/blob/master/addons/pcasino/presets"><code>addons/pcasino/presets/*.json</code></a>. Runtime copies are generated into <a href="https://github.com/limelight-development/cityrp2/blob/master/addons/pcasino/lua/perfectcasino/config/sh_presets.lua"><code>addons/pcasino/lua/perfectcasino/config/sh_presets.lua</code></a> by the math toolkit. <strong>Do not hand-edit the Lua file.</strong></p>
+<h2 id="targets">Targets</h2>
 <table>
 <thead>
 <tr>
@@ -386,7 +403,7 @@
 </ul>
 <p>Non-tradable item prizes (cars, Dragon’s Breath, etc.) are <strong>$0 toward cash RTP</strong>. They are prestige odds, tracked separately.</p>
 <p>House edge on cash is therefore ~5%. Items do not inflate the money supply when won.</p>
-<h2>How pCasino RNG actually works</h2>
+<h2 id="how-pcasino-rng-actually-works">How pCasino RNG actually works</h2>
 <p>There are no reel strips and no built-in RTP field.</p>
 <ol>
 <li><strong>Slots</strong> build a weighted bag from <code>chance</code> weights and pick three symbols independently (<code>table.Random</code>).</li>
@@ -395,7 +412,7 @@
 <li><strong>Mini-wheel</strong> (advanced) and <strong>Mystery Wheel</strong> are uniform: <code>math.random(12)</code> / <code>math.random(20)</code>. Rarity = fewer segments of that prize, not weighted slices.</li>
 </ol>
 <p>So “higher bet → better chance at a Big Wheel spin” is done by putting <strong>more <code>prize_wheel</code> segments</strong> on that machine’s mini-wheel (1 / 2 / 3 of 12), with chest rates climbing modestly as well.</p>
-<h2>Mystery Wheel layout (20 × 5%)</h2>
+<h2 id="mystery-wheel-layout-20--5">Mystery Wheel layout (20 × 5%)</h2>
 <p>Free spins only (<code>buySpin.buy = false</code>).</p>
 <table>
 <thead>
@@ -440,7 +457,7 @@
 </table>
 <p>Expected <strong>cash</strong> from one spin is about <strong>$10,211</strong> (items excluded). That figure is folded into advanced-slot RTP when a mini-wheel awards <code>prize_wheel</code>.</p>
 <p>Grand prize odds on the wheel itself: <strong>5% per named segment</strong> (1 in 20). Getting onto the wheel is the scarce part — see each advanced machine’s “Big Wheel chance / spin” in <code>/odds</code>.</p>
-<h2>Mini-wheel design</h2>
+<h2 id="mini-wheel-design">Mini-wheel design</h2>
 <table>
 <thead>
 <tr>
@@ -472,10 +489,10 @@
 </tbody>
 </table>
 <p>Mini-wheel cash amounts are multiples of that machine’s bet. Items stay on the <strong>big</strong> wheel so the prize hierarchy stays clear.</p>
-<h2>Jackpot <code>startValue</code> footgun</h2>
+<h2 id="jackpot-startvalue-footgun">Jackpot <code>startValue</code> footgun</h2>
 <p>After a jackpot pays, pCasino resets the pot to <code>startValue</code>. That seed is <strong>new money</strong> created each cycle, not player contributions. Exact RTP <strong>must</strong> include <code>P(jackpot award) × startValue / bet</code> on top of the <code>betAdd</code> contribution rate. Ignoring it makes advanced machines look “95%” on paper while simulating well over 100% cash return.</p>
 <p>Presets keep <code>startValue</code> modest (about 5× bet on classic, 1× bet on wheel slots) so the seed does not dominate.</p>
-<h2>Placing machines (staff)</h2>
+<h2 id="placing-machines-staff">Placing machines (staff)</h2>
 <ol>
 <li>Equip the pCasino toolgun → right-click to open the config menu.</li>
 <li>Pick the entity type (Slot Machine / Wheel Slot Machine / Mystery Wheel).</li>
@@ -483,11 +500,11 @@
 <li>Left-click to place. Settings are saved into <code>pcasino_ents</code> as usual.</li>
 </ol>
 <p>JSON under <code>addons/pcasino/presets/</code> is the hand-config recipe if you ever need to type values manually.</p>
-<h2>Player transparency</h2>
+<h2 id="player-transparency">Player transparency</h2>
 <p><code>/odds</code> opens a browser of the <strong>published</strong> presets: bet, volatility, cash RTP, paylines with probabilities, mini-wheel segments, and Mystery Wheel segments. It reads the same data the toolgun loads — not live entity drift — so what players see matches what we intended to deploy.</p>
-<h2>Proving the math</h2>
+<h2 id="proving-the-math">Proving the math</h2>
 <p>Player-facing guide (Lua ↔ Python mapping, item hunts, FAQ):</p>
-<p><a href="../addons/pcasino/tools/README.md"><code>addons/pcasino/tools/README.md</code></a></p>
+<p><a href="https://github.com/limelight-development/cityrp2/blob/master/addons/pcasino/tools/README.md"><code>addons/pcasino/tools/README.md</code></a></p>
 <p>From that folder:</p>
 <pre><code class="language-bash">python3 casino_math.py --spins 500000
 python3 casino_math.py --hunt bmwm3gtr46 --skip-rtp
@@ -504,17 +521,17 @@ python3 casino_math.py --list-items
 <p>Regenerate <code>sh_presets.lua</code> whenever you edit a JSON preset:</p>
 <pre><code class="language-bash">python3 casino_math.py --emit-lua ../lua/perfectcasino/config/sh_presets.lua --skip-rtp
 </code></pre>
-<h2>Hunt equalization (advanced machines)</h2>
+<h2 id="hunt-equalization-advanced-machines">Hunt equalization (advanced machines)</h2>
 <p>Single-segment Mystery items (M3 GTR, Ninja, Dragon’s Breath, Rolex, Police Uniform, i8, …) are tuned so **expected cash cost is <del>the same** on Adv Low / Mid / High (</del>$7.5M wagered, ~$375k expected net loss at 95% RTP). Magical Cake has <strong>two</strong> wheel segments, so it is roughly twice as likely. Per-spin odds still rise with bet (1 → 2 → 3 Big Wheel mini-segments, plus chest rate).</p>
 <p>Casino-granted i8 / Rolex / Police Uniform / Magical Cake stacks carry hidden <code>tradable=false</code> metadata and cannot be given, dropped, or inventory-sold. Trabbi stays tradable.</p>
-<h2>Economy notes</h2>
+<h2 id="economy-notes">Economy notes</h2>
 <ul>
 <li>Cars / Dragon’s Breath are bound / non-tradable — flashy without a cash secondary market.</li>
 <li>Mystery Wheel cash is real money; it is budgeted inside the 95% advanced RTP, not stacked on top.</li>
 <li>Expect session variance: published RTP is long-run. Short samples on high-volatility wheel slots will swing around 95%.</li>
 <li>Access tag <code>P</code> and <code>/selfexclude</code> still gate play — but only new bets. An advanced machine's pending Big Wheel spin (won on a bet placed before an exclusion landed) can still be claimed; <code>pcasino_wheel_slot_machine:Use()</code> lets that claim through before the bet-gate check runs.</li>
 </ul>
-<h2>Session gambling monitoring</h2>
+<h2 id="session-gambling-monitoring">Session gambling monitoring</h2>
 <p><code>gamemode/core/plugins/pcasino/sv_init.lua</code> keeps two per-sitting tallies for every player, fed by <code>pCasinoMoneyChanged</code> (all machine types, since every cash movement routes through <code>PerfectCasino.Config.AddMoney</code>):</p>
 <ul>
 <li><strong>Net loss</strong> (<code>cityrp.pcasino.SessionNet</code>) — stakes minus payouts, floored at zero. What the player is actually down.</li>
@@ -532,5 +549,72 @@ python3 casino_math.py --list-items
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

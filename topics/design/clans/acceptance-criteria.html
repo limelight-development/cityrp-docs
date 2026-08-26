@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Clans — Acceptance Criteria</title>
+	<link rel="stylesheet" href="../../../style.6b230c7a19.css" type="text/css">
+</head>
+<body>
+<div id="container">
+	<div id="product">
+		<div id="product_logo"></div>
+		<div id="product_name"><big><b></b></big></div>
+		<div id="product_description"></div>
+	</div>
+	<div id="main">
+		<div id="navigation">
+<div class="ll-kind-header"><h1><a href="../../../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#evidence-types">Evidence types</a></li>
+<li><a href="#1-permission-model">1. Permission model</a></li>
+<li><a href="#2-invariants">2. Invariants</a></li>
+<li><a href="#3-membership-lifecycle">3. Membership lifecycle</a></li>
+<li><a href="#4-identity-validation">4. Identity validation</a></li>
+<li><a href="#5-bank">5. Bank</a></li>
+<li><a href="#6-regression--the-twelve-defects">6. Regression — the twelve defects</a></li>
+<li><a href="#7-concurrency--how-to-actually-test-it">7. Concurrency — how to actually test it</a></li>
+<li><a href="#open-items">Open items</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Topics</h2></div>
+<ul class="ll-kind-body">
+<li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../../../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
+<li><a href="../../../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
+<li><a href="../../../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../../../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
+<li><a href="../../../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../../../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../../../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../../../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><a href="../../../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../../../topics/meska.html">MESKA</a></li>
+<li><a href="../../../topics/networking.html">Networking Library</a></li>
+<li><a href="../../../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../../../topics/plugins.html">Plugins</a></li>
+<li><a href="../../../topics/ui-scaling.html">UI Scaling</a></li>
+<li><a href="../../../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../../../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
+<li><a href="../../../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/index.html">Design Docs</a>
+<ul class="ll-topic-children">
+<li><a href="../../../topics/design/docs-layout-migration.html">Docs layout migration</a></li>
+<li><a href="../../../topics/design/items-registration.html">Class-Based Item Registration</a></li>
+<li class="ll-topic-folder"><a href="../../../topics/design/car-boosting/car-boosting.html">Car Boosting</a>
+</li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/clans/design.html">Clans</a>
+<ul class="ll-topic-children">
+<li><strong>Clans — Acceptance Criteria</strong></li>
+<li><a href="../../../topics/design/clans/bank.html">Clans — Bank Module</a></li>
+<li><a href="../../../topics/design/clans/core.html">Clans — Core Module</a></li>
+<li><a href="../../../topics/design/clans/plan.html">Clans Overhaul — Plan</a></li>
+<li><a href="../../../topics/design/clans/ui.html">Clans — In-Game Menu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
+</li>
+</ul>
+<div class="ll-kind-header"><h2>Items</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/ITEM.html">ITEM</a></li>
+<li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
+<li><a href="../../../modules/ITEM.Ammo.html">ITEM.Ammo</a></li>
+<li><a href="../../../modules/ITEM.Card.html">ITEM.Card</a></li>
+<li><a href="../../../modules/ITEM.Clothing.html">ITEM.Clothing</a></li>
+<li><a href="../../../modules/ITEM.Collectable.html">ITEM.Collectable</a></li>
+<li><a href="../../../modules/ITEM.Food.html">ITEM.Food</a></li>
+<li><a href="../../../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
+<li><a href="../../../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../../../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
+<li><a href="../../../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
+<li><a href="../../../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
+<li><a href="../../../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
+<li><a href="../../../modules/ITEM.Sticker.html">ITEM.Sticker</a></li>
+<li><a href="../../../modules/ITEM.Suit.html">ITEM.Suit</a></li>
+<li><a href="../../../modules/ITEM.Uniform.html">ITEM.Uniform</a></li>
+<li><a href="../../../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
+<li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
+<li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Entity.html">Entity</a></li>
+<li><a href="../../../modules/Player.html">Player</a></li>
+<li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../../../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../../../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../../../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../../../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../../../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../../../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../../../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../../../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../../../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../../../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../../../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../../../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../../../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Modules</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Array.html">Array</a></li>
+<li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
+<li><a href="../../../modules/CPPI.html">CPPI</a></li>
+<li><a href="../../../modules/DB.html">DB</a></li>
+<li><a href="../../../modules/Enumerations.html">Enumerations</a></li>
+<li><a href="../../../modules/GM.html">GM</a></li>
+<li><a href="../../../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
+<li><a href="../../../modules/Migrations.html">Migrations</a></li>
+<li><a href="../../../modules/PLUGIN.html">PLUGIN</a></li>
+<li><a href="../../../modules/SPropProtection.html">SPropProtection</a></li>
+<li><a href="../../../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../../../modules/bwep.html">bwep</a></li>
+<li><a href="../../../modules/cityrp.access.html">cityrp.access</a></li>
+<li><a href="../../../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+<li><a href="../../../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+<li><a href="../../../modules/cityrp.command.html">cityrp.command</a></li>
+<li><a href="../../../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../../../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../../../modules/cityrp.entity.html">cityrp.entity</a></li>
+<li><a href="../../../modules/cityrp.favorites.html">cityrp.favorites</a></li>
+<li><a href="../../../modules/cityrp.help.html">cityrp.help</a></li>
+<li><a href="../../../modules/cityrp.hints.html">cityrp.hints</a></li>
+<li><a href="../../../modules/cityrp.imageHosts.html">cityrp.imageHosts</a></li>
+<li><a href="../../../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+<li><a href="../../../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../../../modules/cityrp.itemmeta.html">cityrp.itemmeta</a></li>
+<li><a href="../../../modules/cityrp.layers.html">cityrp.layers</a></li>
+<li><a href="../../../modules/cityrp.legacy.functions.html">cityrp.legacy.functions</a></li>
+<li><a href="../../../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
+<li><a href="../../../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
+<li><a href="../../../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../../../modules/cityrp.logging.html">cityrp.logging</a></li>
+<li><a href="../../../modules/cityrp.logs.html">cityrp.logs</a></li>
+<li><a href="../../../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
+<li><a href="../../../modules/cityrp.membership.html">cityrp.membership</a></li>
+<li><a href="../../../modules/cityrp.model.html">cityrp.model</a></li>
+<li><a href="../../../modules/cityrp.network.html">cityrp.network</a></li>
+<li><a href="../../../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
+<li><a href="../../../modules/cityrp.player.html">cityrp.player</a></li>
+<li><a href="../../../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../../../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+<li><a href="../../../modules/cityrp.remote.html">cityrp.remote</a></li>
+<li><a href="../../../modules/cityrp.settings.html">cityrp.settings</a></li>
+<li><a href="../../../modules/cityrp.table.html">cityrp.table</a></li>
+<li><a href="../../../modules/cityrp.team.html">cityrp.team</a></li>
+<li><a href="../../../modules/cityrp.teslaCharger.html">cityrp.teslaCharger</a></li>
+<li><a href="../../../modules/cityrp.teslaChargerPrice.html">cityrp.teslaChargerPrice</a></li>
+<li><a href="../../../modules/cityrp.topHints.html">cityrp.topHints</a></li>
+<li><a href="../../../modules/cityrp.ui.html">cityrp.ui</a></li>
+<li><a href="../../../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../../../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
+<li><a href="../../../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../../../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
+<li><a href="../../../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../../../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../../../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../../../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../../../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../../../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../../../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../../../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_boneanimlib.html">core.plugins.animations.animationsapi.cl_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../../../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
+<li><a href="../../../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
+<li><a href="../../../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../../../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../../../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.cl_init.html">core.plugins.bodybags.entities.cityrp_bodybag.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.shared.html">core.plugins.bodybags.entities.cityrp_bodybag.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.cl_init.html">core.plugins.bodybags.entities.cityrp_evidence.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.init.html">core.plugins.bodybags.entities.cityrp_evidence.init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.shared.html">core.plugins.bodybags.entities.cityrp_evidence.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../../../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
+<li><a href="../../../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.giveprops.sv_init.html">core.plugins.giveprops.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_camera.html">core.plugins.holdem.cl.cl_camera</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_cards.html">core.plugins.holdem.cl.cl_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_chips.html">core.plugins.holdem.cl.cl_chips</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_hud.html">core.plugins.holdem.cl.cl_hud</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_render.html">core.plugins.holdem.cl.cl_render</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_ui.html">core.plugins.holdem.cl.cl_ui</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_vec2.html">core.plugins.holdem.cl.cl_vec2</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl_init.html">core.plugins.holdem.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_cards.html">core.plugins.holdem.sh_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_config.html">core.plugins.holdem.sh_config</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_init.html">core.plugins.holdem.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_commands.html">core.plugins.holdem.sv.sv_commands</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_game.html">core.plugins.holdem.sv.sv_game</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_net.html">core.plugins.holdem.sv.sv_net</a></li>
+<li><a href="../../../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_editor.html">core.plugins.lite_character.cl_editor</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_init.html">core.plugins.lite_character.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_notches.html">core.plugins.lite_character.cl_notches</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_debug.html">core.plugins.lite_character.sh_debug</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_rockfall.shared.html">core.plugins.maintenance.entities.cityrp_rockfall.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../../../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../../../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../../../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../../../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../../../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../../../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../../../modules/dumper.html">dumper</a></li>
+<li><a href="../../../modules/entities.cityrp_peephole.html">entities.cityrp_peephole</a></li>
+<li><a href="../../../modules/env.html">env</a></li>
+<li><a href="../../../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
+<li><a href="../../../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
+<li><a href="../../../modules/plugins.worldprops.html">plugins.worldprops</a></li>
+<li><a href="../../../modules/sh_init.html">sh_init</a></li>
+<li><a href="../../../modules/temar.html">temar</a></li>
+<li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Credits</h2></div>
+<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Clans — Acceptance Criteria</h1></div><div class="ll-module-body"><p>Testable conditions for the rebuilt Clans system. Each is verifiable without
+reading the design docs.</p>
+<blockquote>
+<p><strong>Status</strong>: Draft, reconciled against all decisions to date. Companion to
+<a href="design.html">design.md</a>, <a href="core.html">core.md</a>, <a href="bank.html">bank.md</a>, <a href="ui.html">ui.md</a>.</p>
+</blockquote>
+<h2 id="evidence-types">Evidence types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Gate</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pure-fn</strong></td>
+<td>BLOCKING</td>
+<td>Formula or validator in isolation. No engine, no database</td>
+</tr>
+<tr>
+<td><strong>db-script</strong></td>
+<td>BLOCKING</td>
+<td>Real MySQL, real generated SQL. Required wherever the <em>generated statement</em> is the thing under test</td>
+</tr>
+<tr>
+<td><strong>integration</strong></td>
+<td>BLOCKING</td>
+<td>Needs a running server or real multi-table state</td>
+</tr>
+<tr>
+<td><strong>manual</strong></td>
+<td>ADVISORY</td>
+<td>UI walkthrough</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Check <code>lua/tests/</code> for existing infrastructure before assuming a framework.</strong>
+<code>lua/tests/cityrp2/libraries/sv_achievements.lua</code> has a callback-queuing mock
+pattern worth reusing for ordering tests.</p>
+<hr />
+<h2 id="1-permission-model">1. Permission model</h2>
+<h3 id="threshold-formula">Threshold formula</h3>
+<p><code>allowed = defined ∧ (ord_target ≥ ord_thresh) ∧ (ord_target &gt; ord_actor)</code></p>
+<p>Ladder for all cases: Leader(1) / Officer(2) / Lieutenant(3) / Private(4) / Recruit(5).</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>When</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PERM-T1</td>
+<td>Officer's <code>core.kick</code> = Lieutenant(3)</td>
+<td>Kicks Private(4)</td>
+<td>Allowed — <code>4≥3</code>, <code>4&gt;2</code></td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>PERM-T2</td>
+<td>Same</td>
+<td>Kicks Lieutenant(3)</td>
+<td>Allowed — boundary case, <code>3≥3</code></td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>PERM-T3</td>
+<td>Same</td>
+<td>Kicks another Officer(2)</td>
+<td>Denied — <code>2≥3</code> false</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>PERM-T4</td>
+<td>Same</td>
+<td>Kicks Leader(1)</td>
+<td>Denied — rank 1 unreachable with no special case</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>PERM-T5</td>
+<td>Leader's <code>core.kick</code> = Officer(2), the loosest invariant 4 permits</td>
+<td>Kicks <strong>themselves</strong></td>
+<td>Denied — <code>1&gt;1</code> false. Proves clause 3 protects the actor's own rank independently</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>PERM-T6</td>
+<td>A hand-injected state where <code>ord_thresh</code> equals the actor's own ordinal, bypassing storage (invariant 4 normally forbids it)</td>
+<td>Actor targets own rank</td>
+<td>Denied by clause 3 alone. <strong>This is the only case isolating clause 3 from clause 2</strong></td>
+<td>pure-fn, called directly with hand-set ordinals</td>
+</tr>
+<tr>
+<td>PERM-T7</td>
+<td><code>defined</code> is false (NULL)</td>
+<td>Any target</td>
+<td>Denied without resolving <code>ord_thresh</code> — no dereference of a NULL rankid</td>
+<td>pure-fn</td>
+</tr>
+</tbody>
+</table>
+<h3 id="numeric-limit">Numeric limit</h3>
+<p><code>effective_cap = (L == -1) ? ∞ : L</code>; <code>allowed = (L ≠ NULL) ∧ (A ≤ effective_cap)</code></p>
+<p>Tests the <strong>kind</strong>, which currently has no consumer — <code>bank.withdraw</code> is boolean.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>When</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PERM-N1</td>
+<td><code>L = NULL</code></td>
+<td>Requests any amount, including 0</td>
+<td>Denied — the action is unauthorised, not the amount</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>PERM-N2</td>
+<td><code>L = -1</code></td>
+<td>Requests 10,000,000</td>
+<td>Allowed — isolate from any balance check</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>PERM-N3</td>
+<td><code>L = 25000</code></td>
+<td>Requests exactly 25000</td>
+<td>Allowed — boundary, <code>≤</code></td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>PERM-N4</td>
+<td>Same</td>
+<td>Requests 25001</td>
+<td>Denied <strong>in full</strong> — never silently clamped to 25000</td>
+<td>pure-fn</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resolution-order">Resolution order</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PERM-R1</td>
+<td>Module default exists; rank has an explicit stored value</td>
+<td>The stored value wins</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>PERM-R2</td>
+<td>A module registers a new permission; a pre-existing clan has no stored row on any rank</td>
+<td>The module default applies with <strong>no migration</strong></td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>PERM-R3</td>
+<td>A stored row exists for an id no loaded module registers</td>
+<td>Denied (NULL) <strong>and</strong> a warning logged via <code>cityrp.logging</code>. Never a silent grant</td>
+<td>pure-fn + integration</td>
+</tr>
+<tr>
+<td>PERM-R4</td>
+<td>A stored value's shape does not match its declared <code>kind</code></td>
+<td>Fail closed — treat as NULL</td>
+<td>pure-fn</td>
+</tr>
+</tbody>
+</table>
+<h3 id="numeric-comparison-safety">Numeric comparison safety</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>When</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PERM-SQL1</td>
+<td>A clan with 11 ranks; the rank at ord 2 has a threshold referencing ord 10</td>
+<td>Targets ord 9, then ord 10</td>
+<td>ord 9 <strong>denied</strong> (<code>9≥10</code> false), ord 10 <strong>allowed</strong>. A lexicographic comparison inverts both</td>
+<td><strong>db-script — must run the real generated SQL.</strong> A pure-fn test cannot catch this; the bug is in how ordinals reach the comparison, not the formula</td>
+</tr>
+</tbody>
+</table>
+<p><code>DB:QueryParams</code> binds every parameter as a quoted string literal, so this only
+holds if <code>clan_rank_permissions.value</code> is <code>INT</code>. Live clans have 28 ranks, so
+double-digit ordinals are real.</p>
+<hr />
+<h2 id="2-invariants">2. Invariants</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INV-1a</td>
+<td>A newly created clan</td>
+<td>Exactly one member holds <code>rank_order = 1</code></td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-1b</td>
+<td>A clan with zero or two rank-1 holders (injected)</td>
+<td>Flagged for manual review, <strong>not</strong> silently auto-resolved</td>
+<td>db-script</td>
+</tr>
+<tr>
+<td>INV-2a</td>
+<td>A new clan</td>
+<td><code>COUNT(*) = MAX(rank_order)</code> and <code>MAX ≥ 2</code></td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-2b</td>
+<td>Ranks with <code>rank_order</code> [1,2,4] (gap)</td>
+<td>Renumber yields [1,2,3], relative order preserved</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-2c</td>
+<td>A clan with exactly 2 ranks</td>
+<td>Deleting either is rejected — cannot drop below 2</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-2d</td>
+<td>A new clan</td>
+<td><code>clans.join_rankid</code> resolves to a real rank of that clan</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-2e</td>
+<td>Deleting the current join rank without nominating a replacement</td>
+<td>Rejected. With <code>migrate_to</code>, <code>join_rankid</code> updates atomically</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-3a</td>
+<td>A player with no clan</td>
+<td>Invite and accept succeed</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-3b</td>
+<td>A player already in Clan A</td>
+<td>Invited to Clan B → rejected <strong>at send time</strong>, no invite row created</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>INV-3c</td>
+<td>Invited to B, then joins C before accepting</td>
+<td>Accepting the B invite is re-validated and rejected</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>INV-4a</td>
+<td>Threshold references a rank strictly junior</td>
+<td>Accepted</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-4b</td>
+<td>Threshold references own or a senior rank</td>
+<td>Rejected at write time</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-4c</td>
+<td>A reorder would invalidate an existing threshold</td>
+<td>Blocked synchronously at reorder time</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-4d</td>
+<td><strong>Any attempt to unset <code>core.manage_ranks</code> on rank 1</strong></td>
+<td>Rejected regardless of actor. A clan can never be locked out of its own configuration</td>
+<td>pure-fn + db-script</td>
+</tr>
+<tr>
+<td>INV-5</td>
+<td>A stored permission id no module registers</td>
+<td>Excluded from checks (fail closed), reported, <strong>not deleted</strong></td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-6</td>
+<td>Ranks 1,2,3 created; 2 deleted; a new rank created</td>
+<td>New rank gets rankid 4 — freed ids are never reused</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-7</td>
+<td>A clan's sole member (its leader) leaves</td>
+<td>Membership removal and clan deactivation are atomic — no observable zero-member active clan</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>INV-8a</td>
+<td>A clan at 50 ranks / 100 members</td>
+<td>A 51st rank / 101st member is rejected, at <strong>both</strong> invite-send and invite-accept</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-8b</td>
+<td>A clan already over cap</td>
+<td>Never truncated — only further growth blocked</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>INV-9</td>
+<td>Two clans created from the same seed template; one's ranks mutated</td>
+<td>The other is unaffected, and the tables are not the same reference</td>
+<td>pure-fn</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-membership-lifecycle">3. Membership lifecycle</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Transition</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LIFE-1</td>
+<td>None → Invited</td>
+<td>Requires <code>core.invite</code>; target must be unaffiliated</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>LIFE-2</td>
+<td>Invited → None</td>
+<td>Cancel requires <code>core.manage_invites</code>; TTL expiry also clears</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>LIFE-3</td>
+<td>Invited → None (cascade)</td>
+<td>Clan deletion removes outstanding invites</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>LIFE-4</td>
+<td>Invited → Member</td>
+<td>Re-validated at accept: clan active <strong>and</strong> invitee unaffiliated. Joins at <code>join_rankid</code></td>
+<td>integration</td>
+</tr>
+<tr>
+<td>LIFE-5</td>
+<td>Rank change</td>
+<td>Both current and new rank must satisfy the actor's threshold</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>LIFE-6</td>
+<td>Member → None (kick)</td>
+<td>Target rank must satisfy the threshold</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>LIFE-7</td>
+<td>Member leaves</td>
+<td>Self-service, no permission gate</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>LIFE-8</td>
+<td>Leader leaves with members remaining</td>
+<td><strong>Rejected</strong> — must transfer leadership first. No auto-succession</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>LIFE-9</td>
+<td>Leadership transfer</td>
+<td>Single atomic statement, not demote-then-promote. <strong>Must pass with an offline target</strong> (defect 8)</td>
+<td>db-script</td>
+</tr>
+<tr>
+<td>LIFE-10</td>
+<td>Sole leader leaves</td>
+<td>Membership removal and clan deletion are atomic</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>LIFE-11</td>
+<td>Clan deleted</td>
+<td>Members and invites cascade to None</td>
+<td>integration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="edge-cases">Edge cases</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Case</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EDGE-1</td>
+<td>Two officers promote each other simultaneously</td>
+<td>Both rejected independently. <strong>No concurrency harness needed</strong> — an Officer's threshold requires the <em>new</em> rank to satisfy it too, so Officer can never assign Officer. A property of fixed inputs, not of ordering</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>EDGE-2</td>
+<td>Member kicked while a withdrawal from them is in flight</td>
+<td>Withdrawal re-checks membership at commit time; if the kick landed first it aborts and no funds move</td>
+<td>db-script</td>
+</tr>
+<tr>
+<td>EDGE-3</td>
+<td>Rank deleted while members hold it</td>
+<td>Rejected by default with holder count; <code>migrate_to</code> reassigns atomically and may not target rank 1</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>EDGE-4</td>
+<td>A threshold references a rank that is deleted</td>
+<td>Reset to NULL — never auto-widened to a neighbour</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>EDGE-5</td>
+<td>Rank ids 8 and 170 present (live data)</td>
+<td>All seniority comparisons correct — proves no path compares raw <code>rankid</code></td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>EDGE-6</td>
+<td>Stale invite to a deleted clan is accepted</td>
+<td>Rejected; stale row deleted as a defensive fallback</td>
+<td>integration</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-identity-validation">4. Identity validation</h2>
+<h3 id="length-boundaries">Length boundaries</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Counted in</th>
+<th>Reject</th>
+<th>Accept min</th>
+<th>Accept max</th>
+<th>Reject</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>characters</td>
+<td>2</td>
+<td>3</td>
+<td>32</td>
+<td>33</td>
+</tr>
+<tr>
+<td>Abbreviation</td>
+<td>characters</td>
+<td>1</td>
+<td>2</td>
+<td>7</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Motto</td>
+<td>characters</td>
+<td>—</td>
+<td>0</td>
+<td>80</td>
+<td>81</td>
+</tr>
+<tr>
+<td>Description</td>
+<td><strong>bytes</strong></td>
+<td>—</td>
+<td>0</td>
+<td>500</td>
+<td>501</td>
+</tr>
+<tr>
+<td>MOTD</td>
+<td><strong>bytes</strong></td>
+<td>—</td>
+<td>0</td>
+<td>2000</td>
+<td>2001</td>
+</tr>
+</tbody>
+</table>
+<p>All pure-fn, BLOCKING. There are <strong>no</strong> line-count or per-line caps.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID-1</td>
+<td>Name <code>&quot;O'Brien's Crew&quot;</code></td>
+<td>Rejected — no quotes or apostrophes</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>ID-2</td>
+<td>Name <code>&quot;---&quot;</code></td>
+<td>Rejected — no alphanumeric remains</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>ID-3</td>
+<td><code>&quot;THE REAPERS&quot;</code> when <code>&quot;The Reapers&quot;</code> exists</td>
+<td>Rejected — case-insensitive collision</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>ID-4</td>
+<td>Name <code>&quot;  The   Reapers  &quot;</code></td>
+<td>Stored as <code>&quot;The Reapers&quot;</code> — trimmed and collapsed, not rejected</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>ID-5</td>
+<td>Abbreviation <code>&quot;A-B&quot;</code></td>
+<td>Rejected — <code>[%a%d]</code> only, stricter than Name</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>ID-6</td>
+<td>Abbreviation <code>&quot;abc&quot;</code></td>
+<td>Stored as <code>&quot;ABC&quot;</code></td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>ID-7</td>
+<td>Motto with an embedded newline and a chat colour code</td>
+<td>Stored single-line, both stripped</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>ID-8</td>
+<td>Description of 500 four-byte emoji (2000 bytes)</td>
+<td><strong>Rejected</strong> — Description is byte-counted; 2000 &gt; 500</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>ID-9</td>
+<td>Name of 32 four-byte emoji (128 bytes)</td>
+<td>Accepted — Name is character-counted, and 128 is exactly the ceiling</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>ID-10</td>
+<td>A Name rejected at creation is submitted via the <strong>edit</strong> path</td>
+<td>Rejected identically. &quot;A rule applied at intake and skipped at update is not a rule&quot;</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>ID-11</td>
+<td>A Description containing an apostrophe is saved and reloaded</td>
+<td>Round-trips intact, no SQL error — behavioural proxy for <code>QueryParams</code> use</td>
+<td>integration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="word-filter-matrix">Word filter matrix</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Field</th>
+<th>reserved</th>
+<th>slur</th>
+<th>profanity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WF-1..3</td>
+<td>Name</td>
+<td>reject</td>
+<td>reject</td>
+<td>reject</td>
+</tr>
+<tr>
+<td>WF-4..6</td>
+<td>Abbreviation</td>
+<td>reject</td>
+<td>reject</td>
+<td>reject</td>
+</tr>
+<tr>
+<td>WF-7..9</td>
+<td>Motto</td>
+<td><strong>allow</strong></td>
+<td>reject</td>
+<td>reject</td>
+</tr>
+<tr>
+<td>WF-10..12</td>
+<td>Description</td>
+<td><strong>allow</strong></td>
+<td>reject</td>
+<td><strong>allow</strong></td>
+</tr>
+<tr>
+<td>WF-13..15</td>
+<td>MOTD</td>
+<td><strong>allow</strong></td>
+<td>reject</td>
+<td><strong>allow</strong></td>
+</tr>
+</tbody>
+</table>
+<p>WF-12 is the highest-value row — the one most likely to be over-blocked by an
+implementation that does not vary the category set per field.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>Then</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WF-N1</td>
+<td>Abbreviation <code>&quot;4DM1N&quot;</code></td>
+<td>Normalises to ADMIN, rejected</td>
+</tr>
+<tr>
+<td>WF-N2</td>
+<td>Abbreviation <code>&quot;A-D-M-I-N&quot;</code></td>
+<td>Separators stripped, rejected</td>
+</tr>
+<tr>
+<td>WF-N3</td>
+<td>Homoglyph substitution (Cyrillic а for Latin a)</td>
+<td>Belongs to <code>cityrp.wordfilter</code>'s own test suite. Clans criteria confirm the library is <strong>invoked correctly per field</strong>, not that its internals work</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-bank">5. Bank</h2>
+<h3 id="amount-validation">Amount validation</h3>
+<p>One <code>validateBankAmount</code>, called by deposit <strong>and</strong> withdrawal. All pure-fn, BLOCKING.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Amount</th>
+<th>Then</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BV-1</td>
+<td><code>nil</code> / non-numeric</td>
+<td>Reject</td>
+</tr>
+<tr>
+<td>BV-2</td>
+<td>NaN</td>
+<td>Reject</td>
+</tr>
+<tr>
+<td>BV-3</td>
+<td><code>math.huge</code> (<code>tonumber(&quot;1e400&quot;)</code>)</td>
+<td>Reject</td>
+</tr>
+<tr>
+<td>BV-4</td>
+<td><code>100.50</code></td>
+<td>Reject — non-integer</td>
+</tr>
+<tr>
+<td>BV-5</td>
+<td><code>0</code></td>
+<td>Reject</td>
+</tr>
+<tr>
+<td>BV-6</td>
+<td><code>-100</code></td>
+<td>Reject</td>
+</tr>
+<tr>
+<td>BV-7</td>
+<td><code>&gt; MAX_TRANSACTION</code> ($100,000,000)</td>
+<td>Reject</td>
+</tr>
+<tr>
+<td>BV-8</td>
+<td><code>100</code></td>
+<td>Accept — proves no over-rejection</td>
+</tr>
+<tr>
+<td>BV-9</td>
+<td><code>-500</code> on the <strong>deposit</strong> path</td>
+<td>Rejected identically. A negative deposit is an unauthenticated withdrawal; deposit must not be exempt</td>
+</tr>
+<tr>
+<td>BV-10</td>
+<td><code>&gt; per_withdrawal_cap</code> on withdrawal</td>
+<td>Rejected in Lua — the cap is global config, not in SQL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="atomic-ledger-append">Atomic ledger append</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BA-1</td>
+<td>Balance 100</td>
+<td>Withdrawing 101 inserts 0 rows</td>
+<td>db-script</td>
+</tr>
+<tr>
+<td>BA-2</td>
+<td>Actor demoted between request and execution</td>
+<td>0 rows — permission is a predicate inside the statement, not an earlier check</td>
+<td>db-script</td>
+</tr>
+<tr>
+<td>BA-3</td>
+<td>A rank with <strong>no stored row</strong>, relying on the module default</td>
+<td>Still permitted — <code>LEFT JOIN</code> + <code>COALESCE(p.value, ?)</code>. An inner <code>JOIN</code> would wrongly deny</td>
+<td>db-script</td>
+</tr>
+<tr>
+<td>BA-4</td>
+<td>Two writers race, computing the same <code>seq</code></td>
+<td>Exactly one inserts; the other gets a duplicate-key error on <code>(clan, seq)</code> and <strong>retries</strong>. Never a user-facing failure</td>
+<td>db-script, two connections</td>
+</tr>
+<tr>
+<td>BA-5</td>
+<td>Clan with no ledger rows</td>
+<td>First deposit yields <code>seq = 1</code>, <code>balance_after</code> = amount. Withdrawal against empty fails <code>HAVING</code></td>
+<td>db-script</td>
+</tr>
+<tr>
+<td>BA-6</td>
+<td>A successful append</td>
+<td>The fire-and-forget cache update follows; <strong>if it fails, the operation still succeeded</strong></td>
+<td>integration</td>
+</tr>
+<tr>
+<td>BA-7</td>
+<td>Cache and <code>SUM(delta)</code> disagree</td>
+<td>Ledger wins; cache rebuilt; logged at Error</td>
+<td>integration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="caps-gate-and-latch">Caps, gate and latch</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BC-1</td>
+<td>Clan rolling 24h withdrawals at 70,000 of 75,000</td>
+<td>A further 10,000 is rejected in full</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BC-2</td>
+<td>Clan has withdrawn 75,000 today via other officers; a freshly promoted officer has withdrawn 0</td>
+<td>Rejected — the cap tracks the <strong>clan</strong>, closing promote→withdraw→demote cycling</td>
+<td>db-script</td>
+</tr>
+<tr>
+<td>BC-3</td>
+<td>Clan 2 days old, 5 members</td>
+<td>Bank locked — age not met</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BC-4</td>
+<td>Clan 10 days old, 2 members</td>
+<td>Bank locked — member count not met</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BC-5</td>
+<td>Clan 3+ days, 3+ members</td>
+<td>Unlocked</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BC-6</td>
+<td><strong>An unlocked clan drops to 2 members</strong></td>
+<td><strong>Stays unlocked.</strong> The latch is stored, never recomputed. Funds are never trapped and kicking cannot freeze the bank</td>
+<td>pure-fn + integration</td>
+</tr>
+<tr>
+<td>BC-7</td>
+<td>Player performs any bank action</td>
+<td>A second action within 10s is rejected; the cooldown is shared across deposit, withdraw and reclaim</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>BC-8</td>
+<td>A sequence-collision retry occurs</td>
+<td><strong>Not</strong> subject to the cooldown — it is not an entry-route invocation</td>
+<td>integration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="self-reclaim">Self-reclaim</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BR-1</td>
+<td>1000 deposited 100s ago (window 600s)</td>
+<td>Reclaim allowed</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BR-2</td>
+<td>Same, 601s ago</td>
+<td>Rejected regardless of balance</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BR-3</td>
+<td>1000 deposited; balance now 700</td>
+<td>Receives 700 — lesser of unreclaimed remainder and current balance</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BR-4</td>
+<td>Recruit with no <code>bank.withdraw</code></td>
+<td>Reclaim allowed — not gated by withdraw permission</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>BR-5</td>
+<td>Clan rolling cap exhausted</td>
+<td>Reclaim still allowed — exempt, closing reclaim-starvation</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>BR-6</td>
+<td>1000 deposited; 400 reclaimed; 700 more attempted in window</td>
+<td>Capped to the 600 remainder, not rejected outright</td>
+<td>pure-fn</td>
+</tr>
+</tbody>
+</table>
+<h3 id="consent">Consent</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BCO-1</td>
+<td>Never deposited to this clan</td>
+<td>Prompt shown before the deposit completes</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BCO-2</td>
+<td>Last deposit or withdrawal 31 days ago (limit 30)</td>
+<td>Prompt shown again</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BCO-3</td>
+<td>Last deposit 10 days ago</td>
+<td>No prompt</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BCO-4</td>
+<td>Only viewed the balance/ledger for 40 days</td>
+<td><strong>Prompt shown</strong> — passive activity is not a bank interaction</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BCO-5</td>
+<td>Consented in Clan A</td>
+<td>First deposit to Clan B prompts independently — consent is per <code>(steamid, clan)</code></td>
+<td>integration</td>
+</tr>
+<tr>
+<td>BCO-6</td>
+<td>Prompt displayed</td>
+<td>States all four facts, including whether <strong>this player</strong> holds withdraw permission</td>
+<td>manual</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dissolution">Dissolution</h3>
+<p>Fixture — balance 900. A (member): +1000/−200 → net 800. B (member): +500/−700 → net −200. C (kicked): +300 → net 300. Claims = 1100.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BD-1</td>
+<td>A receives <code>floor(900×800/1100)</code> = <strong>654</strong>; B receives <strong>0</strong>; C, an ex-member, receives <code>floor(900×300/1100)</code> = <strong>245</strong>; the 1 remainder is discarded</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BD-2</td>
+<td>Negative net clamps to zero — B never owes anything</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BD-3</td>
+<td>Total claims zero → equal split among zero-net depositors, else all to the leader, <strong>and an Error is logged</strong> — the branch should be unreachable under event sourcing</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BD-4</td>
+<td>A deposit of 500 with a 200 reclaim yields net 300 — reclaims count as withdrawals for net purposes while remaining tagged <code>reclaim</code></td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>BD-5</td>
+<td>After deletion, ledger rows still exist — the audit record outlives the clan</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>BD-6</td>
+<td>Deletion is <strong>immediate</strong>: no hold, no countdown, no cancellation window</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>BD-7</td>
+<td>Confirmation states the balance and the distribution, and requires the clan name typed</td>
+<td>manual</td>
+</tr>
+<tr>
+<td>BD-8</td>
+<td>Online recipients get <code>GiveMoney</code> then <code>SaveData</code></td>
+<td>integration</td>
+</tr>
+<tr>
+<td>BD-9</td>
+<td>Offline recipients get a <code>remote</code> row that returns <strong>without</strong> <code>done()</code> until they connect</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>BD-10</td>
+<td>On a <code>noSave</code> server (build/beta/beta2/event) the row returns without <code>done()</code>, deferring to a real server</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>BD-11</td>
+<td>Two servers poll the same payout row</td>
+<td>Exactly one claims it via <code>UPDATE ... SET done=1 WHERE id=? AND done=0</code>; the other affects 0 rows and does not grant</td>
+</tr>
+</tbody>
+</table>
+<h3 id="undo">Undo</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Given</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BU-1</td>
+<td>Undo within 300s of creation</td>
+<td>Full 50,000 refunded; no distribution logic invoked</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>BU-2</td>
+<td>Balance is nonzero, however that arose</td>
+<td><code>/clan undo</code> rejected, directing to <code>/clan delete</code>. A defensive guard that must hold independently of the unlock gate</td>
+<td>pure-fn</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-regression--the-twelve-defects">6. Regression — the twelve defects</h2>
+<p>Each must <strong>fail</strong> against the current implementation.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Defect</th>
+<th>Then</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REG-1</td>
+<td>1 — unchecked accept</td>
+<td>A player already in Clan A accepting a Clan B invite is rejected outright; success is never reported unless the write affected a row</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>REG-2</td>
+<td>2 — return from inside async callback</td>
+<td>A kicked or promoted online member's live state updates in the same session, no relog</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>REG-3</td>
+<td>3 — <code>results</code>/<code>result</code> typo</td>
+<td>State recovery repopulates clans; never net-clears</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>REG-4</td>
+<td>4 — string/number mismatch, missing <code>done()</code></td>
+<td><code>deleteclan</code> reaches a terminal state; never retries forever</td>
+<td>db-script</td>
+</tr>
+<tr>
+<td>REG-5</td>
+<td>5 — hardcoded server list</td>
+<td>One row per server from <strong>configuration</strong>; <code>v4b1_fl2</code> receives its row. Not <code>server='all'</code>, which only the first poller consumes</td>
+<td>db-script</td>
+</tr>
+<tr>
+<td>REG-6</td>
+<td>6 — ranks by reference</td>
+<td>Same test as INV-9 — write once</td>
+<td>pure-fn</td>
+</tr>
+<tr>
+<td>REG-7</td>
+<td>7 — permissions that gate nothing</td>
+<td>Every permission with a config surface actually gates its claimed action</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>REG-8</td>
+<td>8 — <code>clan_member</code> typo</td>
+<td>Leadership transfer to an <strong>offline</strong> target succeeds. Note the underlying charset mismatch must also be fixed</td>
+<td>db-script</td>
+</tr>
+<tr>
+<td>REG-9</td>
+<td>9 — shared timer name</td>
+<td><code>/clan model</code> is not a registered command; no <code>cityrp.model.register</code> call for clan models; models unreachable via the normal flow (fail-closed)</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>REG-10</td>
+<td>10 — unguarded nil index</td>
+<td>A player with no clan invoking clan-info gets a clean message, no server error</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>REG-11</td>
+<td>11 — missing <code>return</code> after <code>done()</code></td>
+<td><code>reloadclan</code>/<code>deleteclan</code> with <code>cityrp.clans</code> absent return cleanly, no nil index</td>
+<td>integration</td>
+</tr>
+<tr>
+<td>REG-12</td>
+<td>12 — <code>model.remove</code> no-op</td>
+<td><code>cityrp.model.remove</code> actually deregisters; <code>conds</code> does not grow across reloads</td>
+<td>pure-fn</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-concurrency--how-to-actually-test-it">7. Concurrency — how to actually test it</h2>
+<p>GMod Lua is single-threaded and cooperative, so two Lua calls in one process
+cannot race. <strong>The real contention is between database writers</strong> — this server,
+another server, a future admin tool — and what protects against it is the
+<code>UNIQUE (clan, seq)</code> constraint, not anything in Lua.</p>
+<p><strong>Two simultaneous withdrawals.</strong> Seed a balance of 30,000. Open two MySQL
+connections. Fire the real generated <code>INSERT</code> for 25,000 from each with minimal
+delay, or widen the window with held-open transactions. Assert exactly one
+succeeds, the other hits the duplicate key and retries, and the final balance is
+exactly 5,000 — never negative, never double-deducted.</p>
+<p><em>Cheaper secondary check</em>: count database round-trips per attempt using the
+callback-queuing mock in <code>lua/tests/cityrp2/libraries/sv_achievements.lua</code>. A
+read-then-write implementation issues two queries where the correct one issues
+one — detectable without any real race.</p>
+<p><strong>Kick during withdrawal.</strong> Do not chase true simultaneity. Test both orderings
+deterministically, since correctness under either <em>is</em> the property: kick commits
+first → withdrawal inserts 0 rows, balance unchanged; withdrawal commits first →
+it succeeds and the kick still succeeds after. Assert the outcome is always one
+of those two, never a third.</p>
+<p><strong>Simultaneous promotion</strong> needs no harness at all — see EDGE-1.</p>
+<hr />
+<h2 id="open-items">Open items</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Item</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Confirm <code>lua/tests/</code> infrastructure and CI wiring before assuming any framework is available</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Whether a <code>core.invite</code>-only holder sees the pending invite list (<a href="ui.html">ui.md</a>)</td>
+</tr>
+</tbody>
+</table></div>
+		</div>
+	</div>
+	<br class="clearfix">
+</div>
+<script>
+var ROOT = "../../../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
+</body>
+</html>

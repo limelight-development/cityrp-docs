@@ -10,6 +10,7 @@ Machine-readable index: https://docs.limelightgaming.info/api.json
 - [CONSOLE](https://docs.limelightgaming.info/modules/CONSOLE.html)
 - [CPPI](https://docs.limelightgaming.info/modules/CPPI.html)
 - [DB](https://docs.limelightgaming.info/modules/DB.html)
+- [Entity](https://docs.limelightgaming.info/modules/Entity.html)
 - [Enumerations](https://docs.limelightgaming.info/modules/Enumerations.html)
 - [GM](https://docs.limelightgaming.info/modules/GM.html)
 - [ITEM](https://docs.limelightgaming.info/modules/ITEM.html)
@@ -21,6 +22,7 @@ Machine-readable index: https://docs.limelightgaming.info/api.json
 - [ITEM.Food](https://docs.limelightgaming.info/modules/ITEM.Food.html)
 - [ITEM.Ingredient](https://docs.limelightgaming.info/modules/ITEM.Ingredient.html)
 - [ITEM.ModelBodygroup](https://docs.limelightgaming.info/modules/ITEM.ModelBodygroup.html)
+- [ITEM.Nametag](https://docs.limelightgaming.info/modules/ITEM.Nametag.html)
 - [ITEM.Outfit](https://docs.limelightgaming.info/modules/ITEM.Outfit.html)
 - [ITEM.Schematic](https://docs.limelightgaming.info/modules/ITEM.Schematic.html)
 - [ITEM.Spawnable](https://docs.limelightgaming.info/modules/ITEM.Spawnable.html)
@@ -35,6 +37,7 @@ Machine-readable index: https://docs.limelightgaming.info/api.json
 - [PLUGIN](https://docs.limelightgaming.info/modules/PLUGIN.html)
 - [Player](https://docs.limelightgaming.info/modules/Player.html)
 - [SPropProtection](https://docs.limelightgaming.info/modules/SPropProtection.html)
+- [Vehicle](https://docs.limelightgaming.info/modules/Vehicle.html)
 - [WEIGHTED_RANDOM](https://docs.limelightgaming.info/modules/WEIGHTED_RANDOM.html)
 - [bwep](https://docs.limelightgaming.info/modules/bwep.html)
 - [cityrp.access](https://docs.limelightgaming.info/modules/cityrp.access.html)
@@ -109,9 +112,6 @@ Machine-readable index: https://docs.limelightgaming.info/api.json
 - [core.libraries.meska.providers.database.mysql](https://docs.limelightgaming.info/modules/core.libraries.meska.providers.database.mysql.html)
 - [core.libraries.meska.skills.server.init](https://docs.limelightgaming.info/modules/core.libraries.meska.skills.server.init.html)
 - [core.libraries.meska.timers](https://docs.limelightgaming.info/modules/core.libraries.meska.timers.html)
-- [core.libraries.network.sh_store](https://docs.limelightgaming.info/modules/core.libraries.network.sh_store.html)
-- [core.metatables.sh_vehicle](https://docs.limelightgaming.info/modules/core.metatables.sh_vehicle.html)
-- [core.metatables.sv_vehicle](https://docs.limelightgaming.info/modules/core.metatables.sv_vehicle.html)
 - [core.plugins.accessories.cl_init](https://docs.limelightgaming.info/modules/core.plugins.accessories.cl_init.html)
 - [core.plugins.accessories.sv_init](https://docs.limelightgaming.info/modules/core.plugins.accessories.sv_init.html)
 - [core.plugins.acpig.cl_html](https://docs.limelightgaming.info/modules/core.plugins.acpig.cl_html.html)
@@ -273,26 +273,19 @@ Machine-readable index: https://docs.limelightgaming.info/api.json
 
 ## Topics
 
-- [Car Boosting and Navigation Pre-Live Test Plan](https://docs.limelightgaming.info/topics/car-boosting-live-test-plan.html)
-- [Car Boosting and Ringing](https://docs.limelightgaming.info/topics/car-boosting.html)
-- [LimeCasino deployment math](https://docs.limelightgaming.info/topics/casino.html)
 - [Coding Standards (CityRP)](https://docs.limelightgaming.info/topics/coding-standards.html)
+- [Modern APIs](https://docs.limelightgaming.info/topics/modern-apis.html)
+- [LimeCasino deployment math](https://docs.limelightgaming.info/topics/casino.html)
 - [Chat Commands (`/` vs `!`)](https://docs.limelightgaming.info/topics/commands.html)
 - [Commit Message Conventions](https://docs.limelightgaming.info/topics/commit-message-conventions.html)
 - [Writing Doc Comments](https://docs.limelightgaming.info/topics/doc-comments.html)
 - [Vehicle Emergency Lighting (ELS)](https://docs.limelightgaming.info/topics/emergency-lighting.html)
 - [Environment (Env-vars)](https://docs.limelightgaming.info/topics/environment.html)
-- [Vehicle hotwiring](https://docs.limelightgaming.info/topics/hotwiring.html)
 - [Image Hosts](https://docs.limelightgaming.info/topics/image-hosts.html)
-- [Item Actions](https://docs.limelightgaming.info/topics/item-actions.html)
-- [Item Metadata Schema](https://docs.limelightgaming.info/topics/item-metadata-schema.html)
-- [Types of Items](https://docs.limelightgaming.info/topics/items.html)
-- [Mechanical lockpicking](https://docs.limelightgaming.info/topics/lockpicking.html)
 - [Console Logging Library](https://docs.limelightgaming.info/topics/logging.html)
 - [LuaCATS Annotations](https://docs.limelightgaming.info/topics/luacats.html)
 - [Maintenance Work System](https://docs.limelightgaming.info/topics/maintenance.html)
 - [MESKA](https://docs.limelightgaming.info/topics/meska.html)
-- [Modern APIs](https://docs.limelightgaming.info/topics/modern-apis.html)
 - [Networking Library](https://docs.limelightgaming.info/topics/networking.html)
 - [New Map Checklist](https://docs.limelightgaming.info/topics/new-map-checklist.html)
 - [Plugins](https://docs.limelightgaming.info/topics/plugins.html)
@@ -300,3 +293,31 @@ Machine-readable index: https://docs.limelightgaming.info/api.json
 - [Update Checklist](https://docs.limelightgaming.info/topics/update-checklist.html)
 - [Vehicle Params & Script Editor](https://docs.limelightgaming.info/topics/vehicle-params.html)
 - [Waypoints](https://docs.limelightgaming.info/topics/waypoints.html)
+
+## Design Docs
+
+- [Design Docs](https://docs.limelightgaming.info/topics/design/index.html)
+- [Docs layout migration](https://docs.limelightgaming.info/topics/design/docs-layout-migration.html)
+- [Class-Based Item Registration](https://docs.limelightgaming.info/topics/design/items-registration.html)
+
+## Design Docs / Car Boosting
+
+- [Car Boosting](https://docs.limelightgaming.info/topics/design/car-boosting/car-boosting.html)
+- [Car Boosting and Navigation Pre-Live Test Plan](https://docs.limelightgaming.info/topics/design/car-boosting/car-boosting-live-test-plan.html)
+- [Vehicle hotwiring](https://docs.limelightgaming.info/topics/design/car-boosting/hotwiring.html)
+- [Mechanical lockpicking](https://docs.limelightgaming.info/topics/design/car-boosting/lockpicking.html)
+
+## Design Docs / Clans
+
+- [Clans](https://docs.limelightgaming.info/topics/design/clans/design.html)
+- [Clans — Acceptance Criteria](https://docs.limelightgaming.info/topics/design/clans/acceptance-criteria.html)
+- [Clans — Bank Module](https://docs.limelightgaming.info/topics/design/clans/bank.html)
+- [Clans — Core Module](https://docs.limelightgaming.info/topics/design/clans/core.html)
+- [Clans Overhaul — Plan](https://docs.limelightgaming.info/topics/design/clans/plan.html)
+- [Clans — In-Game Menu](https://docs.limelightgaming.info/topics/design/clans/ui.html)
+
+## Items
+
+- [Items](https://docs.limelightgaming.info/topics/items/items.html)
+- [Item Actions](https://docs.limelightgaming.info/topics/items/item-actions.html)
+- [Item Metadata Schema](https://docs.limelightgaming.info/topics/items/item-metadata-schema.html)

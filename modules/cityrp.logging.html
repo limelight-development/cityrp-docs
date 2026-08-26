@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>cityrp.logging</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,8 +14,8 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
@@ -24,26 +24,19 @@
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -51,6 +44,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -63,6 +60,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -72,6 +70,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -84,7 +108,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -94,7 +117,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -132,22 +154,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -160,9 +166,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -330,476 +333,516 @@
 <div class="ll-module-body"><p>Console logging library for CityRP, providing a namespaced, level-filterable logging facility for developer diagnostics and runtime troubleshooting.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.logging.GetDefaultLevel"></a><strong><span class="state state-client state-server">cityrp.logging.GetDefaultLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L58">Source ☍</a></dt>
+<dt><a name="cityrp.logging.GetDefaultLevel"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.GetDefaultLevel<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L58">Source ☍</a></dt>
 <dd>
 <p>Gets the global default level.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number</span> The global default level.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number</span><span class="ll-arg-desc">The global default level.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.logging.RegisterSink"></a><strong><span class="state state-client state-server">cityrp.logging.RegisterSink</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L92">Source ☍</a></dt>
+<dt><a name="cityrp.logging.RegisterSink"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.RegisterSink<span class="ll-args">(name, sink)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L92">Source ☍</a></dt>
 <dd>
 <p>Registers a sink that will receive every dispatched log entry.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">string</span> The sink's registry name.</li>
-<li><span class="parameter">sink</span> <span class="types">Sink</span> The sink table with a Write function.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">name</span><span class="types">string</span><span class="ll-arg-desc">The sink's registry name.</span></li>
+<li><span class="parameter">sink</span><span class="types"><a href="cityrp.logging.html#Sink">Sink</a></span><span class="ll-arg-desc">The sink table with a Write function.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.logging.SetDefaultLevel"></a><strong><span class="state state-client state-server">cityrp.logging.SetDefaultLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L48">Source ☍</a></dt>
+<dt><a name="cityrp.logging.SetDefaultLevel"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.SetDefaultLevel<span class="ll-args">(level)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L48">Source ☍</a></dt>
 <dd>
 <p>Sets the global default level, used by the root logger and any logger without an explicit level in its ancestry.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">level</span> <span class="types">string|number</span> Numeric level or string level name.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">level</span><span class="types">string|number</span><span class="ll-arg-desc">Numeric level or string level name.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.logging.UnregisterSink"></a><strong><span class="state state-client state-server">cityrp.logging.UnregisterSink</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L101">Source ☍</a></dt>
+<dt><a name="cityrp.logging.UnregisterSink"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.UnregisterSink<span class="ll-args">(name)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L101">Source ☍</a></dt>
 <dd>
 <p>Unregisters a sink by name.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">string</span> The sink's registry name.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">name</span><span class="types">string</span><span class="ll-arg-desc">The sink's registry name.</span></li>
 </ul>
+
 
 </dd>
 <h3 class="section-header">Context</h3>
-<dt><a name="BoundLogger._MergeMeta"></a><strong><span class="state state-client state-server">BoundLogger._MergeMeta</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L564">Source ☍</a></dt>
+<dt><a name="BoundLogger._MergeMeta"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>_MergeMeta<span class="ll-args">(meta)</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L564">Source ☍</a></dt>
 <dd>
 <p>Merges this wrapper's bound fields with a per-call metadata table, with per-call values taking precedence.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">meta</span> <span class="types">table?</span> Per-call metadata table, or nil.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">meta</span><span class="types">table?</span><span class="ll-arg-desc">Per-call metadata table, or nil.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> Merged metadata.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table</span><span class="ll-arg-desc">Merged metadata.</span></li>
 </ol>
+
 </dd>
-<dt><a name="BoundLogger._ProcessArgs"></a><strong><span class="state state-client state-server">BoundLogger._ProcessArgs</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L581">Source ☍</a></dt>
+<dt><a name="BoundLogger._ProcessArgs"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>_ProcessArgs<span class="ll-args">(args)</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L581">Source ☍</a></dt>
 <dd>
 <p>Processes an array of varargs, appending this wrapper's merged metadata table as the final argument.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">args</span> <span class="types">table</span> Array of the original varargs.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">args</span><span class="types">table</span><span class="ll-arg-desc">Array of the original varargs.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> New args array with merged metadata appended.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table</span><span class="ll-arg-desc">New args array with merged metadata appended.</span></li>
 </ol>
+
 </dd>
-<dt><a name="BoundLogger.Critical"></a><strong><span class="state state-client state-server">BoundLogger.Critical</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L635">Source ☍</a></dt>
+<dt><a name="BoundLogger.Critical"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Critical<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L635">Source ☍</a></dt>
 <dd>
 <p>Logs a message at CRITICAL level with this wrapper's bound fields merged into the metadata.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">BoundLogger</span> This wrapper, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span><span class="ll-arg-desc">This wrapper, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="BoundLogger.Debug"></a><strong><span class="state state-client state-server">BoundLogger.Debug</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L603">Source ☍</a></dt>
+<dt><a name="BoundLogger.Debug"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Debug<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L603">Source ☍</a></dt>
 <dd>
 <p>Logs a message at DEBUG level with this wrapper's bound fields merged into the metadata.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">BoundLogger</span> This wrapper, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span><span class="ll-arg-desc">This wrapper, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="BoundLogger.Error"></a><strong><span class="state state-client state-server">BoundLogger.Error</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L627">Source ☍</a></dt>
+<dt><a name="BoundLogger.Error"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Error<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L627">Source ☍</a></dt>
 <dd>
 <p>Logs a message at ERROR level with this wrapper's bound fields merged into the metadata.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">BoundLogger</span> This wrapper, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span><span class="ll-arg-desc">This wrapper, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="BoundLogger.Fatal"></a><strong><span class="state state-client state-server">BoundLogger.Fatal</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L643">Source ☍</a></dt>
+<dt><a name="BoundLogger.Fatal"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Fatal<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L643">Source ☍</a></dt>
 <dd>
 <p>Logs a message at FATAL level with this wrapper's bound fields merged into the metadata.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">BoundLogger</span> This wrapper, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span><span class="ll-arg-desc">This wrapper, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="BoundLogger.Info"></a><strong><span class="state state-client state-server">BoundLogger.Info</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L611">Source ☍</a></dt>
+<dt><a name="BoundLogger.Info"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Info<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L611">Source ☍</a></dt>
 <dd>
 <p>Logs a message at INFO level with this wrapper's bound fields merged into the metadata.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">BoundLogger</span> This wrapper, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span><span class="ll-arg-desc">This wrapper, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="BoundLogger.Raw"></a><strong><span class="state state-client state-server">BoundLogger.Raw</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L652">Source ☍</a></dt>
+<dt><a name="BoundLogger.Raw"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Raw<span class="ll-args">(level, _)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L652">Source ☍</a></dt>
 <dd>
 <p>Logs a message at an arbitrary level, bypassing level filtering, with this wrapper's bound fields merged into the metadata.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">level</span> <span class="types">number</span> Numeric log level.</li>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">level</span><span class="types">number</span><span class="ll-arg-desc">Numeric log level.</span></li>
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">BoundLogger</span> This wrapper, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span><span class="ll-arg-desc">This wrapper, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="BoundLogger.Warning"></a><strong><span class="state state-client state-server">BoundLogger.Warning</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L619">Source ☍</a></dt>
+<dt><a name="BoundLogger.Warning"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Warning<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L619">Source ☍</a></dt>
 <dd>
 <p>Logs a message at WARNING level with this wrapper's bound fields merged into the metadata.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">BoundLogger</span> This wrapper, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span><span class="ll-arg-desc">This wrapper, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="BoundLogger.WithFields"></a><strong><span class="state state-client state-server">BoundLogger.WithFields</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L660">Source ☍</a></dt>
+<dt><a name="BoundLogger.WithFields"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>WithFields<span class="ll-args">(fields)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L660">Source ☍</a></dt>
 <dd>
 <p>Creates a new bound logger with additional fields merged on top of this wrapper's existing bound fields.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">fields</span> <span class="types">table</span> Fields table to merge into metadata.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">fields</span><span class="types">table</span><span class="ll-arg-desc">Fields table to merge into metadata.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">BoundLogger</span> New bound logger with merged fields.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span><span class="ll-arg-desc">New bound logger with merged fields.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.WithFields"></a><strong><span class="state state-client state-server">Logger.WithFields</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L553">Source ☍</a></dt>
+<dt><a name="Logger.WithFields"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>WithFields<span class="ll-args">(fields)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L553">Source ☍</a></dt>
 <dd>
 <p>Creates a logger wrapper that merges the given fields into the metadata of every message logged through it.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">fields</span> <span class="types">table</span> Fields table to merge into metadata.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">fields</span><span class="types">table</span><span class="ll-arg-desc">Fields table to merge into metadata.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">BoundLogger</span> Bound logger wrapper.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span><span class="ll-arg-desc">Bound logger wrapper.</span></li>
 </ol>
+
 </dd>
 <h3 class="section-header">Dispatch</h3>
-<dt><a name="Logger._Dispatch"></a><strong><span class="state state-client state-server">Logger._Dispatch</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L388">Source ☍</a></dt>
+<dt><a name="Logger._Dispatch"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>_Dispatch<span class="ll-args">(level, messageParts, meta)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L388">Source ☍</a></dt>
 <dd>
 <p>Dispatches a log entry to every registered sink. Sink errors are swallowed; logging must never throw.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">level</span> <span class="types">number</span> Numeric log level.</li>
-<li><span class="parameter">messageParts</span> <span class="types">table</span> Array of message parts.</li>
-<li><span class="parameter">meta</span> <span class="types">table?</span> Metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">level</span><span class="types">number</span><span class="ll-arg-desc">Numeric log level.</span></li>
+<li><span class="parameter">messageParts</span><span class="types">table</span><span class="ll-arg-desc">Array of message parts.</span></li>
+<li><span class="parameter">meta</span><span class="types">table?</span><span class="ll-arg-desc">Metadata table.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="Logger._Log"></a><strong><span class="state state-client state-server">Logger._Log</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L465">Source ☍</a></dt>
+<dt><a name="Logger._Log"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>_Log<span class="ll-args">(level, _)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L465">Source ☍</a></dt>
 <dd>
 <p>Logs a message at a specific level, applying level filtering before dispatch.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">level</span> <span class="types">number</span> Numeric log level.</li>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">level</span><span class="types">number</span><span class="ll-arg-desc">Numeric log level.</span></li>
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
+
 
 </dd>
 <h3 class="section-header">Factory</h3>
-<dt><a name="cityrp.logging.GetLogger"></a><strong><span class="state state-client state-server">cityrp.logging.GetLogger</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L681">Source ☍</a></dt>
+<dt><a name="cityrp.logging.GetLogger"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.GetLogger<span class="ll-args">(namespace)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L681">Source ☍</a></dt>
 <dd>
 <p>Gets or creates a logger for the given namespace, registering it against its parent if newly created.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">namespace</span> <span class="types">string?</span> Logger namespace (dot-notated string), defaults to the root namespace.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">namespace</span><span class="types">string?</span><span class="ll-arg-desc">Logger namespace (dot-notated string), defaults to the root namespace.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger</span> The logger instance.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">The logger instance.</span></li>
 </ol>
+
 </dd>
 <h3 class="section-header">Methods</h3>
-<dt><a name="Logger.Critical"></a><strong><span class="state state-client state-server">Logger.Critical</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L519">Source ☍</a></dt>
+<dt><a name="Logger.Critical"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>Critical<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L519">Source ☍</a></dt>
 <dd>
 <p>Logs a message at CRITICAL level.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger</span> This logger, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">This logger, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.Debug"></a><strong><span class="state state-client state-server">Logger.Debug</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L487">Source ☍</a></dt>
+<dt><a name="Logger.Debug"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>Debug<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L487">Source ☍</a></dt>
 <dd>
 <p>Logs a message at DEBUG level.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger</span> This logger, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">This logger, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.Error"></a><strong><span class="state state-client state-server">Logger.Error</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L511">Source ☍</a></dt>
+<dt><a name="Logger.Error"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>Error<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L511">Source ☍</a></dt>
 <dd>
 <p>Logs a message at ERROR level.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger</span> This logger, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">This logger, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.Fatal"></a><strong><span class="state state-client state-server">Logger.Fatal</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L527">Source ☍</a></dt>
+<dt><a name="Logger.Fatal"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>Fatal<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L527">Source ☍</a></dt>
 <dd>
 <p>Logs a message at FATAL level.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger</span> This logger, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">This logger, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.Info"></a><strong><span class="state state-client state-server">Logger.Info</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L495">Source ☍</a></dt>
+<dt><a name="Logger.Info"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>Info<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L495">Source ☍</a></dt>
 <dd>
 <p>Logs a message at INFO level.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger</span> This logger, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">This logger, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.Raw"></a><strong><span class="state state-client state-server">Logger.Raw</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L536">Source ☍</a></dt>
+<dt><a name="Logger.Raw"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>Raw<span class="ll-args">(level, _)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L536">Source ☍</a></dt>
 <dd>
 <p>Logs a message at an arbitrary level, bypassing this logger's level filtering entirely.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">level</span> <span class="types">number</span> Numeric log level.</li>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">level</span><span class="types">number</span><span class="ll-arg-desc">Numeric log level.</span></li>
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger</span> This logger, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">This logger, for chaining.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.Warning"></a><strong><span class="state state-client state-server">Logger.Warning</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L503">Source ☍</a></dt>
+<dt><a name="Logger.Warning"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>Warning<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L503">Source ☍</a></dt>
 <dd>
 <p>Logs a message at WARNING level.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter"></span> <span class="types">string|function|table|Color|Entity...(+1)</span> Message parts and optional metadata table.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger</span> This logger, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">This logger, for chaining.</span></li>
 </ol>
+
 </dd>
 <h3 class="section-header">Sanitization</h3>
-<dt><a name="cityrp.logging.sanitizeEntity"></a><strong><span class="state state-client state-server">cityrp.logging.sanitizeEntity</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L134">Source ☍</a></dt>
+<dt><a name="cityrp.logging.sanitizeEntity"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.sanitizeEntity<span class="ll-args">(ent)</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L134">Source ☍</a></dt>
 <dd>
 <p>Sanitizes an entity for logging, returning an array of message parts with colour and text.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity to sanitize.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ent</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc">The entity to sanitize.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> Array of message parts: {Color, string, Color}.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table</span><span class="ll-arg-desc">Array of message parts: {Color, string, Color}.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.logging.sanitizePlayer"></a><strong><span class="state state-client state-server">cityrp.logging.sanitizePlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L109">Source ☍</a></dt>
+<dt><a name="cityrp.logging.sanitizePlayer"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.sanitizePlayer<span class="ll-args">(ply)</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L109">Source ☍</a></dt>
 <dd>
 <p>Sanitizes a player for logging, returning an array of message parts with colour and text.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to sanitize.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to sanitize.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> Array of message parts: {Color, string, Color}.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table</span><span class="ll-arg-desc">Array of message parts: {Color, string, Color}.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger._InvalidateChildCaches"></a><strong><span class="state state-client state-server">Logger._InvalidateChildCaches</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L362">Source ☍</a></dt>
+<dt><a name="Logger._InvalidateChildCaches"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>_InvalidateChildCaches<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L362">Source ☍</a></dt>
 <dd>
 <p>Invalidates the effective level cache for this logger and recursively notifies its children.</p>
 
 
 
+
 </dd>
-<dt><a name="Logger._OnAncestorLevelChange"></a><strong><span class="state state-client state-server">Logger._OnAncestorLevelChange</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L371">Source ☍</a></dt>
+<dt><a name="Logger._OnAncestorLevelChange"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>_OnAncestorLevelChange<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L371">Source ☍</a></dt>
 <dd>
 <p>Handles a notification that an ancestor's level changed, by invalidating this logger's own cache.</p>
 
 
 
+
 </dd>
-<dt><a name="Logger._RegisterChild"></a><strong><span class="state state-client state-server">Logger._RegisterChild</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L378">Source ☍</a></dt>
+<dt><a name="Logger._RegisterChild"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>_RegisterChild<span class="ll-args">(child)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L378">Source ☍</a></dt>
 <dd>
 <p>Registers a child logger against this logger.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">child</span> <span class="types">Logger</span> The child logger instance.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">child</span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">The child logger instance.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="Logger.GetChild"></a><strong><span class="state state-client state-server">Logger.GetChild</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L284">Source ☍</a></dt>
+<dt><a name="Logger.GetChild"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>GetChild<span class="ll-args">(segment)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L284">Source ☍</a></dt>
 <dd>
 <p>Gets a child logger by segment name, appending it to this logger's namespace. Warns (once) if the segment itself contains a dot, since GetLogger should be used directly for multi-segment paths.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">segment</span> <span class="types">string</span> Child segment name.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">segment</span><span class="types">string</span><span class="ll-arg-desc">Child segment name.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger</span> The child logger.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">The child logger.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.GetChildren"></a><strong><span class="state state-client state-server">Logger.GetChildren</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L309">Source ☍</a></dt>
+<dt><a name="Logger.GetChildren"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>GetChildren<span class="ll-args">()</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a>[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L309">Source ☍</a></dt>
 <dd>
 <p>Gets all direct children of this logger.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger[]</span> Array of child logger instances.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a>[]</span><span class="ll-arg-desc">Array of child logger instances.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.GetDisplayName"></a><strong><span class="state state-client state-server">Logger.GetDisplayName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L242">Source ☍</a></dt>
+<dt><a name="Logger.GetDisplayName"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>GetDisplayName<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L242">Source ☍</a></dt>
 <dd>
 <p>Gets the display name of this logger, showing &quot;root&quot; for the root logger.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> The display name.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc">The display name.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.GetEffectiveLevel"></a><strong><span class="state state-client state-server">Logger.GetEffectiveLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L340">Source ☍</a></dt>
+<dt><a name="Logger.GetEffectiveLevel"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>GetEffectiveLevel<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L340">Source ☍</a></dt>
 <dd>
 <p>Gets the effective level after inheritance, walking up to the parent (and caching the result) if this logger has no explicit level.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number</span> The effective level.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number</span><span class="ll-arg-desc">The effective level.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.GetLevel"></a><strong><span class="state state-client state-server">Logger.GetLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L333">Source ☍</a></dt>
+<dt><a name="Logger.GetLevel"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>GetLevel<span class="ll-args">()</span><span class="ll-returns"> → number?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L333">Source ☍</a></dt>
 <dd>
 <p>Gets the explicit level set on this logger.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number?</span> Explicit level, or nil if inheriting.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number?</span><span class="ll-arg-desc">Explicit level, or nil if inheriting.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.GetName"></a><strong><span class="state state-client state-server">Logger.GetName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L235">Source ☍</a></dt>
+<dt><a name="Logger.GetName"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>GetName<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L235">Source ☍</a></dt>
 <dd>
 <p>Gets the namespace of this logger.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> The logger's namespace.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc">The logger's namespace.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.GetParent"></a><strong><span class="state state-client state-server">Logger.GetParent</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L259">Source ☍</a></dt>
+<dt><a name="Logger.GetParent"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>GetParent<span class="ll-args">()</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L259">Source ☍</a></dt>
 <dd>
 <p>Gets the parent logger, creating it if it doesn't yet exist. Returns itself if this is the root logger.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger</span> The parent logger.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">The parent logger.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.IsRoot"></a><strong><span class="state state-client state-server">Logger.IsRoot</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L252">Source ☍</a></dt>
+<dt><a name="Logger.IsRoot"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>IsRoot<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L252">Source ☍</a></dt>
 <dd>
 <p>Checks whether this is the root logger.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether this is the root logger.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether this is the root logger.</span></li>
 </ol>
+
 </dd>
-<dt><a name="Logger.SetLevel"></a><strong><span class="state state-client state-server">Logger.SetLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L320">Source ☍</a></dt>
+<dt><a name="Logger.SetLevel"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>SetLevel<span class="ll-args">(level)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L320">Source ☍</a></dt>
 <dd>
 <p>Sets the log level for this logger, and invalidates the cached effective level of this logger and its descendants.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">level</span> <span class="types">string|number</span> Numeric level or string level name.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">level</span><span class="types">string|number</span><span class="ll-arg-desc">Numeric level or string level name.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Logger</span> This logger, for chaining.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">This logger, for chaining.</span></li>
 </ol>
+
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
 <h3 class="section-header">Levels</h3>
-<dt><a name="cityrp.logging.levels"></a><strong><span class="state state-client state-server">cityrp.logging.levels</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L12">Source ☍</a></dt>
+<dt><a name="cityrp.logging.levels"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.levels</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L12">Source ☍</a></dt>
 <dd>
+
 
 
 
@@ -807,134 +850,153 @@
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.logging"></a><strong><span class="state state-client state-server">cityrp.logging</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L7">Source ☍</a></dt>
+<dt><a name="cityrp.logging"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L7">Source ☍</a></dt>
 <dd>
 
 
 
+
 </dd>
-<dt><a name="cityrp.logging.levels.DEFAULT"></a><strong><span class="state state-client state-server">cityrp.logging.levels.DEFAULT</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L51">Source ☍</a></dt>
+<dt><a name="cityrp.logging.levels.DEFAULT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.levels.DEFAULT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L51">Source ☍</a></dt>
 <dd>
 
 
 
+
 </dd>
-<dt><a name="LogLevel"></a><strong><span class="state state-client state-server">LogLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L10">Source ☍</a></dt>
+<dt><a name="LogLevel"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">LogLevel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L10">Source ☍</a></dt>
 <dd>
 <p>Numeric log level constants, from lowest severity to highest. <code>INHERIT</code> defers to the parent logger's effective level, <code>ALWAYS</code> bypasses level filtering entirely, and <code>NEVER</code> suppresses all output.</p>
 
 
 
+
 </dd>
 <h3 class="section-header">Registry</h3>
-<dt><a name="BoundLogger"></a><strong><span class="state state-client state-server">BoundLogger</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L543">Source ☍</a></dt>
+<dt><a name="BoundLogger"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L543">Source ☍</a></dt>
 <dd>
-<p>A logger wrapper that merges a fixed set of metadata fields into every logged message. Created via Logger:WithFields.</p>
+<p>A logger wrapper that merges a fixed set of metadata fields into every logged message. Created via <a href="cityrp.logging.html#Logger.WithFields">Logger:WithFields</a>.</p>
+
 
 
 
 </dd>
-<dt><a name="BoundLogger.__index"></a><strong><span class="state state-client state-server">BoundLogger.__index</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L547">Source ☍</a></dt>
+<dt><a name="BoundLogger.__index"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger.__index</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L547">Source ☍</a></dt>
 <dd>
-<p>A logger wrapper that merges a fixed set of metadata fields into every logged message. Created via Logger:WithFields.</p>
+<p>A logger wrapper that merges a fixed set of metadata fields into every logged message. Created via <a href="cityrp.logging.html#Logger.WithFields">Logger:WithFields</a>.</p>
+
 
 
 
 </dd>
-<dt><a name="BoundLogger._fields"></a><strong><span class="state state-client state-server">BoundLogger._fields</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L545">Source ☍</a></dt>
+<dt><a name="BoundLogger._fields"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger._fields</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L545">Source ☍</a></dt>
 <dd>
 <p>Metadata fields merged into every logged message.</p>
 
 
 
+
 </dd>
-<dt><a name="BoundLogger._logger"></a><strong><span class="state state-client state-server">BoundLogger._logger</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L544">Source ☍</a></dt>
+<dt><a name="BoundLogger._logger"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger._logger</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L544">Source ☍</a></dt>
 <dd>
 <p>The underlying logger this wrapper delegates to.</p>
 
 
 
+
 </dd>
-<dt><a name="cityrp.logging.loggers"></a><strong><span class="state state-client state-server">cityrp.logging.loggers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L69">Source ☍</a></dt>
+<dt><a name="cityrp.logging.loggers"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.loggers</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L69">Source ☍</a></dt>
 <dd>
 <p>Logger instances by namespace.</p>
 
 
 
+
 </dd>
-<dt><a name="cityrp.logging.sinks"></a><strong><span class="state state-client state-server">cityrp.logging.sinks</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L86">Source ☍</a></dt>
+<dt><a name="cityrp.logging.sinks"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.sinks</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L86">Source ☍</a></dt>
 <dd>
 <p>Registered sinks, by name.</p>
 
 
 
+
 </dd>
-<dt><a name="Logger"></a><strong><span class="state state-client state-server">Logger</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L208">Source ☍</a></dt>
+<dt><a name="Logger"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L208">Source ☍</a></dt>
 <dd>
-<p>A namespaced, level-filterable logger. Obtain instances via cityrp.logging.GetLogger rather than constructing directly.</p>
+<p>A namespaced, level-filterable logger. Obtain instances via <a href="cityrp.logging.html#cityrp.logging.GetLogger">cityrp.logging.GetLogger</a> rather than constructing directly.</p>
+
 
 
 
 </dd>
-<dt><a name="Logger.__index"></a><strong><span class="state state-client state-server">Logger.__index</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L216">Source ☍</a></dt>
+<dt><a name="Logger.__index"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger.__index</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L216">Source ☍</a></dt>
 <dd>
-<p>A namespaced, level-filterable logger. Obtain instances via cityrp.logging.GetLogger rather than constructing directly.</p>
+<p>A namespaced, level-filterable logger. Obtain instances via <a href="cityrp.logging.html#cityrp.logging.GetLogger">cityrp.logging.GetLogger</a> rather than constructing directly.</p>
+
 
 
 
 </dd>
-<dt><a name="Logger._children"></a><strong><span class="state state-client state-server">Logger._children</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L213">Source ☍</a></dt>
+<dt><a name="Logger._children"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger._children</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L213">Source ☍</a></dt>
 <dd>
 <p>Child loggers, by namespace.</p>
 
 
 
+
 </dd>
-<dt><a name="Logger._effectiveLevel"></a><strong><span class="state state-client state-server">Logger._effectiveLevel</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L211">Source ☍</a></dt>
+<dt><a name="Logger._effectiveLevel"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger._effectiveLevel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L211">Source ☍</a></dt>
 <dd>
 <p>Cached effective log level.</p>
 
 
 
+
 </dd>
-<dt><a name="Logger._level"></a><strong><span class="state state-client state-server">Logger._level</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L210">Source ☍</a></dt>
+<dt><a name="Logger._level"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger._level</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L210">Source ☍</a></dt>
 <dd>
 <p>Explicit log level, or nil to inherit from the parent.</p>
 
 
 
+
 </dd>
-<dt><a name="Logger._namespace"></a><strong><span class="state state-client state-server">Logger._namespace</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L209">Source ☍</a></dt>
+<dt><a name="Logger._namespace"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger._namespace</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L209">Source ☍</a></dt>
 <dd>
 <p>Logger namespace.</p>
 
 
 
+
 </dd>
-<dt><a name="Logger._parent"></a><strong><span class="state state-client state-server">Logger._parent</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L212">Source ☍</a></dt>
+<dt><a name="Logger._parent"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger._parent</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L212">Source ☍</a></dt>
 <dd>
 <p>Cached parent logger.</p>
 
 
 
+
 </dd>
-<dt><a name="Logger._warnedMultiSegment"></a><strong><span class="state state-client state-server">Logger._warnedMultiSegment</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L214">Source ☍</a></dt>
+<dt><a name="Logger._warnedMultiSegment"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger._warnedMultiSegment</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L214">Source ☍</a></dt>
 <dd>
 <p>Whether the multi-segment GetChild warning has already been issued.</p>
 
 
 
+
 </dd>
-<dt><a name="Sink"></a><strong><span class="state state-client state-server">Sink</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L81">Source ☍</a></dt>
+<dt><a name="Sink"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Sink</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L81">Source ☍</a></dt>
 <dd>
 <p>A logging destination that receives dispatched log entries.</p>
 
 
 
+
 </dd>
-<dt><a name="Sink.Write"></a><strong><span class="state state-client state-server">Sink.Write</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L82">Source ☍</a></dt>
+<dt><a name="Sink.Write"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Sink.Write</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L82">Source ☍</a></dt>
 <dd>
 <p>Called with the log entry table for every dispatched message.</p>
+
 
 
 
@@ -944,5 +1006,72 @@
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

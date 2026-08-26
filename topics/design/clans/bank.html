@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Clans — Bank Module</title>
+	<link rel="stylesheet" href="../../../style.6b230c7a19.css" type="text/css">
+</head>
+<body>
+<div id="container">
+	<div id="product">
+		<div id="product_logo"></div>
+		<div id="product_name"><big><b></b></big></div>
+		<div id="product_description"></div>
+	</div>
+	<div id="main">
+		<div id="navigation">
+<div class="ll-kind-header"><h1><a href="../../../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#source">Source</a></li>
+<li><a href="#economic-stance">Economic stance</a></li>
+<li><a href="#tuning-knobs">Tuning knobs</a></li>
+<li><a href="#rank-gating">Rank gating</a></li>
+<li><a href="#informed-deposit">Informed deposit</a></li>
+<li><a href="#self-reclaim">Self-reclaim</a></li>
+<li><a href="#correctness-and-security-requirements">Correctness and security requirements</a></li>
+<li><a href="#degenerate-strategies">Degenerate strategies</a></li>
+<li><a href="#undo-and-delete">Undo and delete</a></li>
+<li><a href="#open-questions">Open questions</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Topics</h2></div>
+<ul class="ll-kind-body">
+<li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../../../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
+<li><a href="../../../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
+<li><a href="../../../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../../../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
+<li><a href="../../../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../../../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../../../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../../../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><a href="../../../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../../../topics/meska.html">MESKA</a></li>
+<li><a href="../../../topics/networking.html">Networking Library</a></li>
+<li><a href="../../../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../../../topics/plugins.html">Plugins</a></li>
+<li><a href="../../../topics/ui-scaling.html">UI Scaling</a></li>
+<li><a href="../../../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../../../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
+<li><a href="../../../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/index.html">Design Docs</a>
+<ul class="ll-topic-children">
+<li><a href="../../../topics/design/docs-layout-migration.html">Docs layout migration</a></li>
+<li><a href="../../../topics/design/items-registration.html">Class-Based Item Registration</a></li>
+<li class="ll-topic-folder"><a href="../../../topics/design/car-boosting/car-boosting.html">Car Boosting</a>
+</li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/clans/design.html">Clans</a>
+<ul class="ll-topic-children">
+<li><a href="../../../topics/design/clans/acceptance-criteria.html">Clans — Acceptance Criteria</a></li>
+<li><strong>Clans — Bank Module</strong></li>
+<li><a href="../../../topics/design/clans/core.html">Clans — Core Module</a></li>
+<li><a href="../../../topics/design/clans/plan.html">Clans Overhaul — Plan</a></li>
+<li><a href="../../../topics/design/clans/ui.html">Clans — In-Game Menu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
+</li>
+</ul>
+<div class="ll-kind-header"><h2>Items</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/ITEM.html">ITEM</a></li>
+<li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
+<li><a href="../../../modules/ITEM.Ammo.html">ITEM.Ammo</a></li>
+<li><a href="../../../modules/ITEM.Card.html">ITEM.Card</a></li>
+<li><a href="../../../modules/ITEM.Clothing.html">ITEM.Clothing</a></li>
+<li><a href="../../../modules/ITEM.Collectable.html">ITEM.Collectable</a></li>
+<li><a href="../../../modules/ITEM.Food.html">ITEM.Food</a></li>
+<li><a href="../../../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
+<li><a href="../../../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../../../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
+<li><a href="../../../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
+<li><a href="../../../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
+<li><a href="../../../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
+<li><a href="../../../modules/ITEM.Sticker.html">ITEM.Sticker</a></li>
+<li><a href="../../../modules/ITEM.Suit.html">ITEM.Suit</a></li>
+<li><a href="../../../modules/ITEM.Uniform.html">ITEM.Uniform</a></li>
+<li><a href="../../../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
+<li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
+<li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Entity.html">Entity</a></li>
+<li><a href="../../../modules/Player.html">Player</a></li>
+<li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../../../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../../../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../../../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../../../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../../../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../../../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../../../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../../../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../../../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../../../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../../../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../../../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../../../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Modules</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Array.html">Array</a></li>
+<li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
+<li><a href="../../../modules/CPPI.html">CPPI</a></li>
+<li><a href="../../../modules/DB.html">DB</a></li>
+<li><a href="../../../modules/Enumerations.html">Enumerations</a></li>
+<li><a href="../../../modules/GM.html">GM</a></li>
+<li><a href="../../../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
+<li><a href="../../../modules/Migrations.html">Migrations</a></li>
+<li><a href="../../../modules/PLUGIN.html">PLUGIN</a></li>
+<li><a href="../../../modules/SPropProtection.html">SPropProtection</a></li>
+<li><a href="../../../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../../../modules/bwep.html">bwep</a></li>
+<li><a href="../../../modules/cityrp.access.html">cityrp.access</a></li>
+<li><a href="../../../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+<li><a href="../../../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+<li><a href="../../../modules/cityrp.command.html">cityrp.command</a></li>
+<li><a href="../../../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../../../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../../../modules/cityrp.entity.html">cityrp.entity</a></li>
+<li><a href="../../../modules/cityrp.favorites.html">cityrp.favorites</a></li>
+<li><a href="../../../modules/cityrp.help.html">cityrp.help</a></li>
+<li><a href="../../../modules/cityrp.hints.html">cityrp.hints</a></li>
+<li><a href="../../../modules/cityrp.imageHosts.html">cityrp.imageHosts</a></li>
+<li><a href="../../../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+<li><a href="../../../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../../../modules/cityrp.itemmeta.html">cityrp.itemmeta</a></li>
+<li><a href="../../../modules/cityrp.layers.html">cityrp.layers</a></li>
+<li><a href="../../../modules/cityrp.legacy.functions.html">cityrp.legacy.functions</a></li>
+<li><a href="../../../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
+<li><a href="../../../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
+<li><a href="../../../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../../../modules/cityrp.logging.html">cityrp.logging</a></li>
+<li><a href="../../../modules/cityrp.logs.html">cityrp.logs</a></li>
+<li><a href="../../../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
+<li><a href="../../../modules/cityrp.membership.html">cityrp.membership</a></li>
+<li><a href="../../../modules/cityrp.model.html">cityrp.model</a></li>
+<li><a href="../../../modules/cityrp.network.html">cityrp.network</a></li>
+<li><a href="../../../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
+<li><a href="../../../modules/cityrp.player.html">cityrp.player</a></li>
+<li><a href="../../../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../../../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+<li><a href="../../../modules/cityrp.remote.html">cityrp.remote</a></li>
+<li><a href="../../../modules/cityrp.settings.html">cityrp.settings</a></li>
+<li><a href="../../../modules/cityrp.table.html">cityrp.table</a></li>
+<li><a href="../../../modules/cityrp.team.html">cityrp.team</a></li>
+<li><a href="../../../modules/cityrp.teslaCharger.html">cityrp.teslaCharger</a></li>
+<li><a href="../../../modules/cityrp.teslaChargerPrice.html">cityrp.teslaChargerPrice</a></li>
+<li><a href="../../../modules/cityrp.topHints.html">cityrp.topHints</a></li>
+<li><a href="../../../modules/cityrp.ui.html">cityrp.ui</a></li>
+<li><a href="../../../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../../../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
+<li><a href="../../../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../../../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
+<li><a href="../../../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../../../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../../../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../../../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../../../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../../../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../../../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../../../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_boneanimlib.html">core.plugins.animations.animationsapi.cl_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../../../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
+<li><a href="../../../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
+<li><a href="../../../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../../../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../../../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.cl_init.html">core.plugins.bodybags.entities.cityrp_bodybag.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.shared.html">core.plugins.bodybags.entities.cityrp_bodybag.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.cl_init.html">core.plugins.bodybags.entities.cityrp_evidence.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.init.html">core.plugins.bodybags.entities.cityrp_evidence.init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.shared.html">core.plugins.bodybags.entities.cityrp_evidence.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../../../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
+<li><a href="../../../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.giveprops.sv_init.html">core.plugins.giveprops.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_camera.html">core.plugins.holdem.cl.cl_camera</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_cards.html">core.plugins.holdem.cl.cl_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_chips.html">core.plugins.holdem.cl.cl_chips</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_hud.html">core.plugins.holdem.cl.cl_hud</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_render.html">core.plugins.holdem.cl.cl_render</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_ui.html">core.plugins.holdem.cl.cl_ui</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_vec2.html">core.plugins.holdem.cl.cl_vec2</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl_init.html">core.plugins.holdem.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_cards.html">core.plugins.holdem.sh_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_config.html">core.plugins.holdem.sh_config</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_init.html">core.plugins.holdem.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_commands.html">core.plugins.holdem.sv.sv_commands</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_game.html">core.plugins.holdem.sv.sv_game</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_net.html">core.plugins.holdem.sv.sv_net</a></li>
+<li><a href="../../../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_editor.html">core.plugins.lite_character.cl_editor</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_init.html">core.plugins.lite_character.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_notches.html">core.plugins.lite_character.cl_notches</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_debug.html">core.plugins.lite_character.sh_debug</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_rockfall.shared.html">core.plugins.maintenance.entities.cityrp_rockfall.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../../../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../../../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../../../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../../../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../../../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../../../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../../../modules/dumper.html">dumper</a></li>
+<li><a href="../../../modules/entities.cityrp_peephole.html">entities.cityrp_peephole</a></li>
+<li><a href="../../../modules/env.html">env</a></li>
+<li><a href="../../../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
+<li><a href="../../../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
+<li><a href="../../../modules/plugins.worldprops.html">plugins.worldprops</a></li>
+<li><a href="../../../modules/sh_init.html">sh_init</a></li>
+<li><a href="../../../modules/temar.html">temar</a></li>
+<li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Credits</h2></div>
+<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Clans — Bank Module</h1></div><div class="ll-module-body"><p>Module 2. Shared clan funds: deposits, rank-gated withdrawals, and an audit
+ledger.</p>
+<blockquote>
+<p><strong>Status</strong>: In Design. Depends on <a href="core.html">core.md</a> for ranks and permissions.
+See <a href="design.html">design.md</a> for the module framework.</p>
+</blockquote>
+<h2 id="source">Source</h2>
+<p>Issue #1418 (<em>Clan/Business Account</em>) asks for a clan wallet the owner and
+officers can deposit to and withdraw from, motivated by <em>&quot;business-oriented
+clans that wish to have a clan account to place funds into for business
+expenses, which may include real estate, equipment, salaries.&quot;</em></p>
+<p>Issue #1600 separately proposes clan group accounts with leader-configured
+access, and <strong>interest</strong> on stored balances as a deposit incentive.</p>
+<h2 id="economic-stance">Economic stance</h2>
+<p><strong>Deposit and withdrawal are neutral transfers.</strong> Wallet to bank, 1:1. They
+become a sink or a faucet only if a fee or interest is attached — and that is the
+actual decision, not something inherent to having a bank.</p>
+<h3 id="no-interest">No interest</h3>
+<p>Interest is money created from nothing, uncapped, on every balance, forever.
+The game already runs a 10% income tax (<code>cityrp.configuration[&quot;Default Tax&quot;]</code>)
+specifically to manage money supply on <em>earned</em> income; adding an ungated faucet
+that rewards parking cash more reliably than working is inconsistent with that
+stance.</p>
+<p>If #1600's underlying goal — give players a reason to bank rather than hoard —
+still matters, the sink-safe forms are a fee-funded redistribution pool, or a
+non-monetary prestige incentive. Both are larger scope and neither is proposed
+for v1.</p>
+<h3 id="no-deposit-or-withdrawal-fee">No deposit or withdrawal fee</h3>
+<p><strong>Decided: no fee mechanism is built.</strong> This is not a configurable rate defaulted
+to zero — there is no fee code path, and none needs testing.</p>
+<p>A percentage haircut punishes the legitimate case #1418 describes (a business
+clan saving for real estate) and is a rounding error to anyone moving duped or
+stolen money — they do not care about efficiency loss on money they did not
+earn. Taxing the transaction type does not distinguish good actors from bad; it
+just taxes the honest ones harder, because they are the ones who notice and
+change behaviour.</p>
+<p>If a fee is ever proposed, it needs fresh justification rather than a config
+change: the analysis above concluded fees are the wrong lever for the problem
+they are usually reached for, so re-adding one means the reasoning changed.</p>
+<h3 id="the-laundering-question-honestly-framed">The laundering question, honestly framed</h3>
+<p>Deposit-by-A / withdraw-by-B is an untaxed player-to-player transfer. But this
+is <strong>not a new capability</strong> — <code>/salary add</code> already does a raw
+<code>GiveMoney(-x)</code> / <code>GiveMoney(x)</code> with no fee and no persistent audit trail
+(<a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/employee_salary/sv_init.lua">employee_salary/sv_init.lua:131</a>).</p>
+<p>The bank changes the <em>shape</em> of an existing route in three ways that matter:</p>
+<ol>
+<li><strong>Pooling breaks attribution</strong> — a withdrawal does not reveal whose deposit it was.</li>
+<li><strong>Lump sum, not metered</strong> — salary drips per payday; a withdrawal is instant.</li>
+<li><strong>Cheap containers</strong> — $50,000 is trivial against amounts worth laundering.</li>
+</ol>
+<p>What closes it is <strong>throttling and attribution, not taxation</strong>: per-transaction
+and rolling caps limit blast radius and force multiple logged steps; a small,
+named withdrawer set shrinks the suspect pool; and a queryable ledger makes it
+investigable. On a human-moderated server, staff investigation is the real
+enforcement layer — the ledger is the control, and it is <strong>not optional scope</strong>.</p>
+<blockquote>
+<p>Worth checking separately: if <code>/salary</code> remains unlogged, the bank must not
+become the <em>softer</em> target purely by having better logging than the
+alternative. Flagged in <a href="plan.html">plan.md</a> as an adjacent gap.</p>
+</blockquote>
+<h2 id="tuning-knobs">Tuning knobs</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Default</th>
+<th>Safe range</th>
+<th>Breaks if too low</th>
+<th>Breaks if too high</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><del><code>deposit_fee_pct</code></del></td>
+<td>—</td>
+<td><strong>not implemented</strong></td>
+<td>—</td>
+<td>—</td>
+<td>No fee. Not a knob defaulted to zero — the mechanism is not built</td>
+</tr>
+<tr>
+<td><del><code>withdrawal_fee_pct</code></del></td>
+<td>—</td>
+<td><strong>not implemented</strong></td>
+<td>—</td>
+<td>—</td>
+<td>As above</td>
+</tr>
+<tr>
+<td><del><code>interest_rate</code></del></td>
+<td>—</td>
+<td><strong>not implemented</strong></td>
+<td>—</td>
+<td>—</td>
+<td>Any nonzero value is an uncapped faucet with no offsetting sink</td>
+</tr>
+<tr>
+<td><code>per_withdrawal_cap</code></td>
+<td>currency</td>
+<td><strong>$25,000</strong></td>
+<td>$10k–$100k</td>
+<td>Legitimate large purchases need many repeated withdrawals; players route around the bank via <code>/salary</code></td>
+<td>Stops constraining anything at the $50k creation-cost scale; one action empties a treasury</td>
+</tr>
+<tr>
+<td><code>rolling_withdrawal_cap</code></td>
+<td>currency / 24h, <strong>clan-scoped</strong></td>
+<td><strong>$75,000</strong></td>
+<td>3–6× per-transaction cap</td>
+<td>Blocks legitimate high-tempo operations</td>
+<td>Above ~10× it stops throttling at all</td>
+</tr>
+<tr>
+<td><code>bank_capacity_ceiling</code></td>
+<td>currency</td>
+<td><strong><code>BIGINT</code> column ceiling</strong></td>
+<td>—</td>
+<td>—</td>
+<td>Not unbounded. <code>clans.bank</code> is currently <code>int DEFAULT 0 NULL</code> — a signed 32-bit ceiling of 2,147,483,647, and NULL-able, so <code>SET bank = bank + ?</code> against a NULL row yields NULL and the deposit vanishes. Migrate to <code>BIGINT NOT NULL DEFAULT 0</code> before the Bank module ships</td>
+</tr>
+<tr>
+<td><code>creation_cost_seeds_bank</code></td>
+<td>bool</td>
+<td><strong>false</strong></td>
+<td>—</td>
+<td>—</td>
+<td>Seeding creates arbitrage between creation cost, deposits and the refund paths</td>
+</tr>
+<tr>
+<td><code>balance_on_delete</code></td>
+<td>enum</td>
+<td><strong>pro-rata by net contribution</strong></td>
+<td>—</td>
+<td>—</td>
+<td><code>forfeit</code> destroys money members contributed in good faith; <code>refund-leader</code> is a direct exit-scam vector</td>
+</tr>
+<tr>
+<td><code>self_reclaim_window</code></td>
+<td>seconds</td>
+<td><strong>600</strong></td>
+<td>120–1800</td>
+<td>Too short to catch a mistake or a pressured deposit</td>
+<td>Long enough to use the bank as a personal stash, and widens the window where a legitimate clan spend is undone underneath it</td>
+</tr>
+<tr>
+<td><code>consent_reprompt_days</code></td>
+<td>days</td>
+<td><strong>30</strong></td>
+<td>7–90</td>
+<td>Prompt fatigue; players click through without reading</td>
+<td>The warning goes stale — leadership may have changed entirely since they last agreed</td>
+</tr>
+<tr>
+<td><code>unlock_min_age</code></td>
+<td>days</td>
+<td><strong>3</strong></td>
+<td>1–7</td>
+<td>Negligible friction against a same-day mule clan</td>
+<td>Locks out the small business clan #1418 describes for over a week</td>
+</tr>
+<tr>
+<td><code>unlock_min_members</code></td>
+<td>count</td>
+<td><strong>3</strong></td>
+<td>2–5</td>
+<td>At 2, the cheapest collusion pair clears it trivially</td>
+<td>At 5 it excludes #1418's stated use case</td>
+</tr>
+</tbody>
+</table>
+<p>Two of these are load-bearing rather than ordinary knobs:</p>
+<ul>
+<li><strong>The rolling cap must be clan-scoped, not per-person.</strong> If each promoted
+withdrawer got a fresh allowance, the promote → withdraw → demote cycle
+bypasses it by rotating accounts. One clock, shared.</li>
+<li><strong><code>unlock_min_age</code> = 3 days is what actually closes the deposit-then-undo
+scam</strong>, not a special case in the undo path. Three days ≫ the 300-second undo
+window, so a bank cannot hold deposits while undo is available. Treat that as
+a primary reason for the gate, not a coincidence.</li>
+</ul>
+<h3 id="the-unlock-is-a-one-way-latch">The unlock is a one-way latch</h3>
+<p>Once a clan meets the gate, <strong>it never relocks</strong>, even if membership later falls
+below <code>unlock_min_members</code>.</p>
+<p>This must be implemented as a <strong>stored flag</strong> — <code>clans.bank_unlocked_at</code>, set
+once when the conditions are first met. Do <strong>not</strong> evaluate
+<code>age &gt;= N AND members &gt;= M</code> on each action: that is the obvious implementation
+and it relocks automatically as a side effect.</p>
+<p>Relocking would be actively harmful:</p>
+<ul>
+<li><strong>It traps funds.</strong> Members would be unable to withdraw money they are entitled
+to, for a reason unrelated to their own conduct.</li>
+<li><strong>It is a griefing vector.</strong> A leader could kick members specifically to freeze
+the bank.</li>
+<li><strong>It does not serve the gate's purpose.</strong> The gate exists to stop disposable
+mule clans, which is a creation-time concern. A clan that has demonstrably
+existed for three days with three members has satisfied it permanently;
+shrinking later does not make it retroactively disposable.</li>
+</ul>
+<p>The latch also simplifies dissolution: a clan that never unlocked has a zero
+balance by construction, so there is nothing to distribute.</p>
+<p><code>unlock_min_members</code> = 3 is deliberately lighter than the 5-member gate proposed
+for clan inventory in #1624 — money access has lower per-unit abuse potential
+than concrete item storage. That differential is a judgement call worth
+confirming.</p>
+<h2 id="rank-gating">Rank gating</h2>
+<p>Withdrawal is not &quot;acting on another rank&quot;, it is &quot;acting on the treasury&quot;, so it
+does not use the threshold shape.</p>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Kind</th>
+<th>Leader</th>
+<th>Officer</th>
+<th>Lieutenant</th>
+<th>Private</th>
+<th>Recruit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bank.deposit</code></td>
+<td>boolean</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><code>bank.withdraw</code></td>
+<td>boolean</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Deposit open to all.</strong> Depositing cannot hurt the depositor beyond what they
+willingly hand over; gating it only frustrates &quot;I want to chip in&quot;.</li>
+<li><strong>Withdraw = Leader and Officer</strong>, matching #1418's explicit &quot;owner/officers&quot;.</li>
+</ul>
+<blockquote>
+<p>No <code>bank.configure_limits</code> permission. The tuning knobs (<code>per_withdrawal_cap</code>,
+<code>rolling_withdrawal_cap</code>, <code>unlock_min_age</code>, <code>unlock_min_members</code>,
+<code>self_reclaim_window</code>, <code>consent_reprompt_days</code>) are server operator config,
+not per-clan settings — no in-game surface edits them, so there is nothing
+for a permission to gate. A permission with no connected feature was a
+specification gap, not a real capability; removed rather than defined after
+the fact.</p>
+</blockquote>
+<p><strong>There is no per-rank withdrawal cap.</strong> <code>per_withdrawal_cap</code> is a single global
+value applying to every withdraw-capable rank, so <code>bank.withdraw</code> is a plain
+boolean rather than a <code>NUMERIC_LIMIT</code>.</p>
+<p>This simplifies the atomic statement materially. A <em>per-rank</em> cap is racy — the
+rank can change between check and write, which is why it had to live inside the
+statement. A <em>global</em> cap is a configuration constant that cannot change
+underneath a request, so it is validated in Lua alongside <code>MAX_TRANSACTION</code> and
+never appears in SQL at all.</p>
+<blockquote>
+<p>Note: <code>NUMERIC_LIMIT</code> now has no consumer. It is retained in
+<a href="core.html#permission-model">core.md</a> as a general-purpose kind, but nothing
+currently uses it — worth revisiting if no module claims it by the time Core
+ships.</p>
+</blockquote>
+<p>The clan-scoped rolling cap and the unlock gate are <strong>not</strong> rank permissions
+either. They are aggregate constraints evaluated after the permission check
+passes, and live in this module's own logic.</p>
+<h2 id="informed-deposit">Informed deposit</h2>
+<p>Deposits are open to every rank, but withdrawal is not — so a member without
+withdraw permission is handing over money they cannot themselves retrieve. That
+must be a choice, not a surprise.</p>
+<p><strong>A consent prompt is shown before the deposit completes when either:</strong></p>
+<ul>
+<li>this is the player's first deposit to this clan, or</li>
+<li>more than <code>consent_reprompt_days</code> have passed since their last bank
+interaction with this clan.</li>
+</ul>
+<p><strong>A bank interaction is an explicit deposit or withdrawal</strong> — a reclaim counts,
+since the ledger already treats it as a withdrawal. Passive activity does not:
+opening the bank tab, viewing the balance or reading the ledger leave the clock
+running. The prompt exists because the player has not <em>moved money</em> recently
+enough to be confident the arrangement still holds.</p>
+<p>Otherwise no prompt appears. Consent is stored per <code>(steamid, clan)</code>, not
+globally — agreeing in one clan says nothing about trusting another, and clan
+leadership changes over time, which is what the staleness re-prompt exists for.</p>
+<p>The prompt must state plainly:</p>
+<ol>
+<li>Deposited funds become clan property.</li>
+<li>Only ranks holding <code>bank.withdraw</code> can take money out — and it names whether
+the player currently holds it.</li>
+<li>Deposits can be reclaimed by the depositor for <code>self_reclaim_window</code> after
+the deposit, and not after.</li>
+<li>If the clan is dissolved, remaining funds are distributed by net contribution.</li>
+</ol>
+<h2 id="self-reclaim">Self-reclaim</h2>
+<p>A depositor may reclaim <strong>their own</strong> recent deposit without holding
+<code>bank.withdraw</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eligibility</td>
+<td>Per deposit, within <code>self_reclaim_window</code> of that deposit</td>
+</tr>
+<tr>
+<td>Amount</td>
+<td>The lesser of the unreclaimed remainder of that deposit and the current balance</td>
+</tr>
+<tr>
+<td>Permission</td>
+<td>None required — this is not a withdrawal</td>
+</tr>
+<tr>
+<td>Rolling cap</td>
+<td><strong>Does not count</strong> against <code>rolling_withdrawal_cap</code></td>
+</tr>
+<tr>
+<td>Ledger</td>
+<td>Recorded as a distinct <code>reclaim</code> action, but counts as a withdrawal for net-contribution purposes</td>
+</tr>
+<tr>
+<td>Atomicity</td>
+<td>Same conditional <code>UPDATE</code> pattern as withdrawal</td>
+</tr>
+</tbody>
+</table>
+<p>Exempting reclaims from the rolling cap is deliberate. If they counted, a
+malicious leader could deliberately exhaust the clan's daily cap to block a
+member from recovering their own money.</p>
+<p>Reclaim is not a general withdrawal route: it is capped at what you put in, it
+expires, and it cannot touch anyone else's contribution.</p>
+<h2 id="correctness-and-security-requirements">Correctness and security requirements</h2>
+<h3 id="the-ledger-is-authoritative--event-sourcing">The ledger is authoritative — event sourcing</h3>
+<p><code>clan_bank_transactions</code> is an <strong>append-only event stream</strong> and the sole source
+of truth. Balance is not stored data; it is a <strong>projection</strong> — a fold over the
+stream. <code>clans.bank</code> is a materialised view of that projection and is
+authoritative for nothing.</p>
+<p>Consequences that follow from the model rather than from policy:</p>
+<ul>
+<li><strong>Every balance change is an event.</strong> Deposits, withdrawals, reclaims and
+dissolution payouts are all entries, distinguished by action type.</li>
+<li><strong>State is always reconstructable</strong> by replaying the stream. The cache can be
+discarded and rebuilt at any time.</li>
+<li><strong>Nothing is ever edited or deleted.</strong> A correction is a compensating entry
+with its own reason, so the history of the correction is itself auditable.</li>
+<li><strong>The ledger outlives the clan.</strong> It is not deleted on dissolution; it is both
+the audit record and the input to the distribution calculation.</li>
+<li>Any invariant expressible over the stream — such as &quot;balance equals the sum of
+deltas&quot; — is checkable rather than assumed.</li>
+</ul>
+<p><code>clans.bank</code> is <strong>display only</strong>. It is read for UI and for cheap
+non-authoritative eligibility hints, and nothing else depends on it.</p>
+<p><strong>Rules that follow:</strong></p>
+<ul>
+<li>The <strong>ledger insert is the authoritative write</strong>. It happens first, and it is
+what authorises and records the mutation.</li>
+<li>The cache update is a <strong>fire-and-forget mutation issued after the ledger
+callback returns</strong>. If it fails, nothing is lost — the value is derived, and
+reconciliation or the next write corrects it. Do not retry it, do not block on
+it, and do not fail the transaction because of it.</li>
+<li><strong>On any disagreement, the ledger wins.</strong> Rebuild the cache from the stream.</li>
+<li><strong>Dissolution distribution reads the ledger, never the cache.</strong></li>
+<li>Reconciliation on clan load and periodically: assert <code>clans.bank == SUM(delta)</code>.
+Log a mismatch at Error, rebuild, and surface it to staff — but treat it as an
+observability signal, not a fault.</li>
+</ul>
+<p>This removes the <code>db.lua</code> transaction gap entirely. With the ledger written first
+and the cache derived, there is no window in which money moves without an audit
+record — the failure mode inverts from &quot;unrecoverable&quot; to &quot;cosmetic&quot;.</p>
+<h3 id="consequence-the-cache-was-also-the-lock">Consequence: the cache was also the lock</h3>
+<p>The cache <code>UPDATE</code> was doing a second job — a conditional update against a single
+<code>clans</code> row takes a row lock, and that is what serialised concurrent withdrawals
+across server processes. Taking it off the critical path removes that, and
+summing the ledger in a subquery serialises nothing: two withdrawals can both
+read the same total and both pass.</p>
+<p><strong>Replace it with a per-clan sequence number</strong>, which is the standard optimistic
+concurrency control for an event stream:</p>
+<ul>
+<li>The ledger carries <code>seq</code>, with <strong><code>UNIQUE (clan, seq)</code></strong>.</li>
+<li>Each write computes <code>seq = COALESCE(MAX(seq), 0) + 1</code> for that clan inside the
+same <code>INSERT ... SELECT</code>.</li>
+<li>Concurrent writers compute the same <code>seq</code>; the unique constraint rejects the
+loser with a duplicate-key error.</li>
+<li>The loser <strong>retries</strong> — recomputing balance and sequence against the now-current
+stream. Bank operations are low-frequency, so contention is rare and a small
+retry budget is sufficient.</li>
+</ul>
+<p>Also store <code>balance_after</code> on each row, computed in the same statement. It makes
+the current balance a single-row read rather than a full fold, and makes cache
+rebuilds and audits cheap.</p>
+<p><strong>A duplicate-key rejection is not a user-facing error.</strong> It means &quot;someone else
+wrote first&quot; — retry, and only surface a failure if the retry budget is
+exhausted.</p>
+<h3 id="withdrawals-must-be-a-single-atomic-statement">Withdrawals must be a single atomic statement</h3>
+<p>The balance check, the permission check and the ledger append are one statement.
+Never read the balance in Lua, decide, then write.</p>
+<pre><code class="language-sql">INSERT INTO clan_bank_ledger
+    (clan, seq, steamid, action, delta, balance_after, created_at)
+SELECT ?,                                    -- clan
+       COALESCE(MAX(l.seq), 0) + 1,          -- next sequence
+       ?,                                    -- actor
+       'withdraw',
+       -?,                                   -- amount
+       COALESCE(SUM(l.delta), 0) - ?,        -- amount
+       UNIX_TIMESTAMP()
+FROM clan_bank_ledger l
+WHERE l.clan = ?
+  AND EXISTS (
+      SELECT 1
+      FROM clan_members m
+      LEFT JOIN clan_rank_permissions p
+             ON p.clan = m.clan AND p.rankid = m.rank
+            AND p.permission_id = 'bank.withdraw'
+      WHERE m.clan = ? AND m.steamid = ?
+        AND COALESCE(p.value, ?) = 1         -- ? = registered default
+  )
+HAVING COALESCE(SUM(l.delta), 0) &gt;= ?        -- amount
+</code></pre>
+<p><code>COALESCE(p.value, ?)</code> is still required even for a boolean: Core resolves module
+defaults at read time and never materialises them, so an inner <code>JOIN</code> would find
+no row for a rank relying on the default and wrongly <strong>deny</strong> it. The <code>LEFT JOIN</code>
+plus the default bound as a parameter applies the same resolution order as
+<code>hasPermission</code>.</p>
+<p>The per-transaction cap does <strong>not</strong> appear here — it is global configuration,
+checked in <code>validateBankAmount</code>.</p>
+<p>Then branch on the outcome:</p>
+<table>
+<thead>
+<tr>
+<th>Result</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 row inserted</td>
+<td>Accepted. Issue the fire-and-forget cache update.</td>
+</tr>
+<tr>
+<td>0 rows</td>
+<td>Rejected — insufficient balance, or permission absent or too low.</td>
+</tr>
+<tr>
+<td>Duplicate-key error on <code>(clan, seq)</code></td>
+<td>Lost a race. <strong>Retry</strong>, do not report failure.</td>
+</tr>
+</tbody>
+</table>
+<p>A clan with no ledger rows still returns one aggregate row of <code>NULL</code>s, so the
+<code>COALESCE</code> calls yield <code>seq = 1</code> and <code>balance = 0</code> — a first deposit works
+(subject to the unlock gate below), and a withdrawal against an empty bank
+correctly fails the <code>HAVING</code>.</p>
+<p><strong>The <code>LEFT JOIN</code> and <code>COALESCE</code> are both load-bearing</strong> — an earlier draft of
+this statement checked only a boolean permission flag, which was wrong twice
+over:</p>
+<ol>
+<li>It never compared the requested amount against the rank's <code>NUMERIC_LIMIT</code>
+cap, so the cap would have to be checked in Lua <em>before</em> the statement —
+reopening precisely the rank-change-then-withdraw ordering race this pattern
+exists to close.</li>
+<li>An inner <code>JOIN</code> against <code>clan_rank_permissions</code> only matches <strong>materialised</strong>
+rows. Core resolves module defaults at read time and never materialises them,
+so a rank relying on the declared default would have no row and be wrongly
+<strong>denied</strong>.</li>
+</ol>
+<h3 id="deposits-are-gated-by-the-unlock-latch-too">Deposits are gated by the unlock latch too</h3>
+<p><strong>Decided:</strong> deposits are blocked until the clan's bank has unlocked, not only
+withdrawals. An earlier pass left this implicit — &quot;the deposit-then-undo scam
+cannot arise because the bank does not exist yet&quot; — without ever writing the
+statement that makes it true. That is a real gap: nothing upstream of the
+ledger actually stops a deposit into a locked bank on its own. Fixed here by
+giving deposits the same rigor as withdrawal's statement, not by relying on it
+following from prose elsewhere in this document.</p>
+<pre><code class="language-sql">INSERT INTO clan_bank_ledger
+    (clan, seq, steamid, action, delta, balance_after, created_at)
+SELECT ?,                                    -- clan
+       COALESCE(MAX(l.seq), 0) + 1,          -- next sequence
+       ?,                                    -- actor
+       'deposit',
+       ?,                                    -- amount
+       COALESCE(SUM(l.delta), 0) + ?,        -- amount
+       UNIX_TIMESTAMP()
+FROM clan_bank_ledger l
+WHERE l.clan = ?
+  AND EXISTS (
+      SELECT 1 FROM clans c
+      WHERE c.id = ? AND c.bank_unlocked_at IS NOT NULL
+  )
+</code></pre>
+<p>No permission predicate — <code>bank.deposit</code> is universal — so the <code>EXISTS</code> clause
+carries only the unlock check, which is why this statement is otherwise
+simpler than withdrawal's. Same result branching: 1 row inserted is accepted,
+0 rows means the bank has not unlocked yet (there is no other rejection reason
+for a deposit once <code>validateBankAmount</code> has already passed in Lua).</p>
+<p>This closes the deposit-then-undo scam by construction rather than by
+implication: a bank that has not unlocked cannot accept a deposit, full stop,
+independent of the <code>unlock_min_age</code> vs. <code>self_reclaim_window</code>/undo-window
+arithmetic argued above. The arithmetic argument still holds and is worth
+keeping as the <em>reason</em> <code>unlock_min_age</code> is sized the way it is, but the
+deposit statement — not the arithmetic — is what actually enforces it.</p>
+<p><code>COALESCE(p.value, ?)</code> resolves this: Lua reads the registered default from the
+permission registry and binds it as a parameter, so the SQL applies the same
+resolution order as <code>hasPermission</code> without the defaults ever being written to
+the table. A <code>NULL</code> default coalesces to <code>NULL</code>, and <code>NULL &gt;= x</code> is not true, so
+&quot;no permission&quot; still fails closed.</p>
+<p>The same shape applies to any module permission gating a racing mutation.</p>
+<p>This single pattern closes three separate attacks at once:</p>
+<ul>
+<li><strong>Lost update / double spend</strong> — two withdrawals racing cannot both read the
+same starting balance, because there is no separate read.</li>
+<li><strong>Rank-change-then-withdraw ordering</strong> — a demotion cannot land in a gap
+between the permission check and the money movement, because there is no gap.</li>
+<li><strong>Replay</strong> — combined with a request row keyed on <code>status = 'pending'</code>,
+resubmitting a processed request finds no matching row and is a guaranteed
+no-op.</li>
+</ul>
+<blockquote>
+<p><strong>Prerequisite.</strong> <code>DB:RunChecked</code> and <code>DB:QueryParamsChecked</code>
+(<a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/db.lua">db.lua:164, 257</a>)
+currently discard the affected-row count for non-<code>INSERT</code> queries. This pattern
+needs it — a small addition to both functions, to be agreed with the lead
+programmer before implementation.</p>
+</blockquote>
+<p><strong>Cross-process note.</strong> Multiple game servers and the web app share one MySQL
+database. An in-process Lua lock protects nothing against a second server
+process. The atomic conditional <code>UPDATE</code> is the only real serialisation point,
+because the database is the only thing all writers share.</p>
+<h3 id="amount-validation">Amount validation</h3>
+<p>One <code>validateBankAmount(amount)</code> function, called by <strong>both</strong> deposit and
+withdrawal. Do not write two.</p>
+<pre><code class="language-lua">if amount == nil then                     -- non-numeric
+elseif amount ~= amount then              -- NaN
+elseif amount == math.huge then           -- non-finite (&quot;1e400&quot; parses to inf)
+elseif amount ~= math.floor(amount) then  -- non-integer; money is whole units
+elseif amount &lt;= 0 then                   -- zero and negative both rejected
+elseif amount &gt; MAX_TRANSACTION then      -- also guards precision loss above 2^53
+</code></pre>
+<p><strong><code>MAX_TRANSACTION</code> is not the withdrawal cap.</strong> The two are unrelated and were
+previously easy to confuse:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>MAX_TRANSACTION</code></th>
+<th><code>per_withdrawal_cap</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Job</td>
+<td>Safety rail against absurd input, precision loss above 2^53, and the column ceiling</td>
+<td>Policy: how much a rank may take at once</td>
+</tr>
+<tr>
+<td>Applies to</td>
+<td>Deposits <strong>and</strong> withdrawals</td>
+<td>Withdrawals only</td>
+</tr>
+<tr>
+<td>Enforced in</td>
+<td><code>validateBankAmount</code>, before any other check</td>
+<td>The <code>bank.withdraw</code> permission value</td>
+</tr>
+<tr>
+<td>Varies by rank</td>
+<td>No — it is a global constant</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Proposed value: $100,000,000.</strong> Two thousand times the clan creation cost, far
+above any plausible legitimate single transfer, and small enough that even
+repeated maximum deposits stay many orders of magnitude below the <code>BIGINT</code>
+ceiling. Lua numbers are doubles, so this also sits comfortably under the 2^53
+integer-precision limit.</p>
+<p>A negative &quot;deposit&quot; that escapes this is functionally an unauthenticated
+withdrawal — asymmetric validation between the two paths is itself the
+vulnerability. This check is UX only; the atomic <code>UPDATE</code> is the enforcement.</p>
+<h3 id="audit-ledger">Audit ledger</h3>
+<p>Two logs, two purposes — do not conflate them.</p>
+<ul>
+<li><code>cityrp.logs.add()</code> for the admin-visible trail. Note it buffers in memory and
+flushes every 20 seconds, so a crash inside that window loses the entry.
+Acceptable for chat logs; <strong>not acceptable as the sole record of money</strong>.</li>
+<li>A dedicated <code>clan_bank_transactions</code> row, written in the same callback as the
+atomic <code>UPDATE</code>, before notifying the player. This is the audit of record.
+Minimum fields: clan, request ID, actor SteamID and name, action, amount,
+resulting balance, timestamp, originating surface.</li>
+</ul>
+<h3 id="rate-limiting">Rate limiting</h3>
+<p><strong>A 10-second cooldown per player, shared across all bank entry routes</strong> —
+deposit, withdraw and reclaim draw on one clock, so alternating between them
+cannot bypass it. That is six actions per minute, comfortably above any real
+usage pattern and well below anything worth automating.</p>
+<p>Enforced <strong>server-side at the entry route</strong>. A client-side cooldown is a
+usability affordance, never the control.</p>
+<p><strong>The internal sequence-collision retry is exempt.</strong> It is not an entry-route
+invocation — it is machinery responding to contention that the player did not
+cause and cannot see. Subjecting it to the cooldown would convert a routine race
+into a ten-second stall or a spurious failure. Retries are bounded by the retry
+budget, not by the rate limit.</p>
+<h2 id="degenerate-strategies">Degenerate strategies</h2>
+<table>
+<thead>
+<tr>
+<th>Exploit</th>
+<th>Mechanism</th>
+<th>Closing rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throwaway mule clan</td>
+<td>Create, invite, deposit, withdraw, abandon</td>
+<td>Age and member gates delay it; caps force multiple logged actions; ledger makes it traceable</td>
+</tr>
+<tr>
+<td>Promote → withdraw → demote cycling</td>
+<td>Rotate allies through Officer to reset a per-person cap</td>
+<td>Clan-scoped rolling cap — everyone draws against one clock</td>
+</tr>
+<tr>
+<td>Bank-drain-before-leaving</td>
+<td>An Officer withdraws heavily then leaves</td>
+<td><strong>Not mechanically preventable</strong> while withdrawal is instant. The control is attribution: a small, named, logged withdrawer set makes it attributable and bannable. State this plainly — it is a trust control, not a hard block</td>
+</tr>
+<tr>
+<td><strong>Deposit-to-join scam</strong></td>
+<td>A leader tells a recruit to deposit to &quot;prove commitment&quot;, withdraws it, then kicks them. Requires no exploit — it is the permission model working as specified</td>
+<td>Consent prompt makes the risk explicit before the first deposit; self-reclaim gives a <code>self_reclaim_window</code> escape; pro-rata dissolution returns a share even to kicked members; the ledger makes the rest investigable</td>
+</tr>
+<tr>
+<td>Reclaim-cap starvation</td>
+<td>A leader exhausts the clan rolling cap specifically to block a member reclaiming their own deposit</td>
+<td>Reclaims are exempt from the rolling cap</td>
+</tr>
+<tr>
+<td>Kick-before-dissolve</td>
+<td>A leader kicks members before deleting, to keep their contributions</td>
+<td>Distribution includes everyone in the ledger, not only current members</td>
+</tr>
+<tr>
+<td>Deposit-then-undo arbitrage</td>
+<td>Mark deposits during the 300s undo window; creator undoes</td>
+<td>Closed by construction via the 3-day unlock gate. <strong>Defensive guard regardless</strong>: if <code>bank != 0</code>, block <code>/clan undo</code> and require <code>/clan delete</code></td>
+</tr>
+<tr>
+<td>Self-serving drain-then-delete</td>
+<td>A withdraw-capable member withdraws, then immediately deletes the clan, profiting from pro-rata dilution — see <a href="#why-there-is-no-deletion-hold">Why there is no deletion hold</a></td>
+<td><strong>Not mechanically preventable</strong> — same class as bank-drain-before-leaving. Attribution via the ledger; ongoing pattern monitoring is a community-management call, not an engineering one</td>
+</tr>
+</tbody>
+</table>
+<h2 id="undo-and-delete">Undo and delete</h2>
+<p><strong><code>/clan undo</code></strong> (300s grace, full $50,000 refund): with the 3-day unlock gate,
+and deposits themselves blocked until the gate is met (see
+<a href="#deposits-are-gated-by-the-unlock-latch-too">Deposits are gated by the unlock latch too</a>),
+the scenario cannot arise — a clan within its 300s undo window is nowhere near
+<code>unlock_min_age</code>, so its bank cannot hold a deposit yet. Add the guard anyway
+so this stays true if the gate is ever loosened. No new bank logic is needed in
+the common case.</p>
+<p><em>If the age gate is rejected</em>, the fallback is: refund the creator's $50,000 as
+today, and separately refund each depositor their own logged deposits to their
+own wallet — never crediting bank contents to the creator. If per-depositor
+refund is not buildable for v1, the safe minimum is to disallow undo outright
+whenever the balance is nonzero.</p>
+<p><strong><code>/clan delete</code></strong> (leader only, confirmation code, $25,000 refund) with a
+nonzero balance:</p>
+<ul>
+<li>The $25,000 refund to the leader is unchanged — it compensates the creation
+cost and is independent of the bank.</li>
+<li>The balance is <strong>distributed pro-rata by net contribution</strong>, computed from the
+ledger. It is neither forfeited nor paid to the leader.</li>
+<li>The confirmation prompt must state the current balance and that it will be
+distributed this way, so the leader is not destroying or redirecting other
+members' money unknowingly.</li>
+<li><strong>Deletion is immediate.</strong> There is no hold or countdown; distribution runs as
+part of the deletion, and members learn of it from their payout.</li>
+</ul>
+<h3 id="why-there-is-no-deletion-hold">Why there is no deletion hold</h3>
+<p>An earlier draft had a 300-second broadcast-and-hold. It existed because the
+balance was originally <strong>forfeited</strong> — a last chance for withdraw-capable members
+to rescue funds before they were destroyed. Pro-rata distribution removed that
+justification entirely: contributors receive their share automatically.</p>
+<p>Left in place, it would have actively <strong>created an arbitrage</strong>. Because negative
+nets are clamped to zero, total claims are always at least the balance, so a
+pro-rata share is <em>diluted</em> relative to net contribution — while a withdrawal
+converts at 1:1:</p>
+<blockquote>
+<p>Balance 900. A net +800, B net −200, C net +300; total claims 1100.
+A's share is <code>900 × 800/1100</code> = <strong>654</strong>.
+If A first withdraws 200: balance 700, A net +600, claims 900.
+A's share is <code>700 × 600/900</code> = 466, plus the 200 already taken = <strong>666</strong>.</p>
+</blockquote>
+<p>A profits by draining first, and only members already holding <code>bank.withdraw</code>
+can do it.</p>
+<p><strong>Removing the hold narrows this risk to its irreducible case; it does not
+close it.</strong> What a hold specifically enables is a <strong>third party</strong> reacting to
+an <em>announced, pending</em> distribution — that is the window a broadcast-and-hold
+opens, and that is what dropping the hold removes. It does not touch the actor
+who unilaterally controls the timing of deletion itself: a Leader (or an
+Officer, who can also withdraw) can always withdraw first and delete
+immediately after, with no broadcast, no hold, and no window for anyone to
+react to. Nothing in this module — with or without a hold — stops that,
+because the actor's own decision to delete <em>is</em> the trigger; there is nothing
+to race.</p>
+<p>This is the same class of risk as <strong>bank-drain-before-leaving</strong>, above: not
+mechanically preventable while withdrawal is instant and the withdrawer
+controls their own timing. The control is the same, too — attribution.
+A small, named, logged withdrawer set (the ledger) makes the drain-then-delete
+sequence investigable and bannable after the fact, even though nothing stops
+it beforehand. <strong>This residual risk is a moderation/community-management
+concern, not an engineering one</strong> — ongoing monitoring for the pattern (a
+withdrawal immediately followed by deletion) is a call for whoever owns
+community management, not something this module's design can close by adding
+more mechanism.</p>
+<p><strong>Do not reintroduce a hold to try to close it.</strong> A hold does not touch the
+self-serving case above — the actor doesn't need the broadcast window, since
+they already know deletion is coming — and it reopens the third-party-reacts
+arbitrage this section exists to avoid. Any window between confirmation and
+distribution reopens that arbitrage unless the bank is frozen for its
+duration, which is the trade the earlier draft made and this design rejects.</p>
+<p>The remaining safeguard against the third-party case is the type-the-clan-name
+confirmation, which is the standard pattern for irreversible destructive
+actions and does not have this problem.</p>
+<h3 id="distribution-formula">Distribution formula</h3>
+<p>For every SteamID appearing in this clan's ledger:</p>
+<pre><code>net_i        = Σ(deposits_i) − Σ(withdrawals_i + reclaims_i)
+claim_i      = max(net_i, 0)
+total_claims = Σ(claim_i)
+share_i      = floor(balance × claim_i / total_claims)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Type</th>
+<th>Range</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>net_i</code></td>
+<td>int</td>
+<td>unbounded</td>
+<td>Net contribution; may be negative for a net withdrawer</td>
+</tr>
+<tr>
+<td><code>claim_i</code></td>
+<td>int</td>
+<td>≥ 0</td>
+<td>Net contribution clamped at zero</td>
+</tr>
+<tr>
+<td><code>total_claims</code></td>
+<td>int</td>
+<td>≥ 0</td>
+<td>Sum of all positive claims</td>
+</tr>
+<tr>
+<td><code>balance</code></td>
+<td>int</td>
+<td>≥ 0</td>
+<td>Funds remaining at dissolution</td>
+</tr>
+<tr>
+<td><code>share_i</code></td>
+<td>int</td>
+<td>≥ 0</td>
+<td>Amount paid to this SteamID</td>
+</tr>
+</tbody>
+</table>
+<p>Rules that must be explicit or two implementations will differ:</p>
+<ul>
+<li>
+<p><strong>Negative net is clamped to zero.</strong> A member who withdrew more than they
+deposited receives nothing, and never owes anything.</p>
+</li>
+<li>
+<p><strong>If <code>total_claims</code> is zero</strong>, fall back to equal distribution among everyone
+with at least one deposit entry and a net of zero. If no such participant
+exists, the entire balance goes to the leader.</p>
+<p><strong>This branch should be unreachable.</strong> Under event sourcing the balance <em>is</em>
+the sum of all deltas, so if every net is at most zero the balance is also at
+most zero and there is nothing to distribute. Reaching it means the ledger and
+the cached balance have diverged, or funds entered outside the ledger.
+Therefore: <strong>log at Error and alarm before applying the fallback</strong>, and
+reconcile from the ledger first in case the balance itself is wrong. Treat the
+rule as damage limitation, not routine behaviour. It also avoids a division by
+zero.</p>
+</li>
+<li>
+<p><strong>Shares are floored; the remainder is discarded.</strong> It is at most one unit per
+claimant and not worth the complexity of a distribution rule.</p>
+</li>
+<li>
+<p><strong>Everyone in the ledger is included, not only current members.</strong> Someone who
+deposited and later left or was kicked still contributed the money. This also
+removes the incentive to kick members before dissolving. Worth confirming — see
+open question 6.</p>
+</li>
+<li>
+<p><strong>The ledger is not deleted with the clan.</strong> It is the audit record and the
+input to this calculation; deleting it would make the distribution
+unverifiable.</p>
+</li>
+</ul>
+<h3 id="payout-delivery">Payout delivery</h3>
+<table>
+<thead>
+<tr>
+<th>Recipient</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Online</td>
+<td><code>GiveMoney</code> directly, followed by <code>SaveData</code></td>
+</tr>
+<tr>
+<td>Offline</td>
+<td>Insert a <code>remote</code> row of a <strong>new</strong> type — see below</td>
+</tr>
+</tbody>
+</table>
+<p><strong>A new remote type is required.</strong> The existing <code>pmoney</code> type is
+moneypack-specific: it grants <code>50000 × qty</code> plus trading cards and stickers and
+announces publicly. It cannot be reused.</p>
+<p>The new handler should follow <code>pmoney</code>'s structure, which already implements the
+behaviour needed:</p>
+<ul>
+<li>Return <strong>without</strong> calling <code>done()</code> when the player is offline, so the row
+stays <code>done = 0</code> and is retried until they connect. This is the offline
+delivery mechanism.</li>
+<li>Return without <code>done()</code> on <code>cityrp.remote.noSave</code> servers (<code>build</code>, <code>beta</code>,
+<code>beta2</code>, <code>event</code>) so a real server picks the row up instead.</li>
+<li>Require <code>IsValid(ply)</code> <strong>and</strong> <code>ply._Initialized</code> before granting.</li>
+<li>Call <code>SaveData()</code> after <code>GiveMoney</code> so the payout persists.</li>
+<li>Target <code>server = 'all'</code>. Do not hardcode server IDs — that is defect 5.</li>
+</ul>
+<p><strong>Claim the row before granting</strong>, not after: <code>UPDATE remote SET done = 1 WHERE id = ? AND done = 0</code> and proceed only if one row was affected. The existing
+grant-then-mark ordering leaves a window in which two pollers could both pay out.</p>
+<h2 id="open-questions">Open questions</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><del>1</del></td>
+<td><del>Does economy telemetry justify any fee?</del></td>
+<td><strong>Resolved — no fee.</strong> Not a zero default awaiting evidence; the fee mechanism is not built. See <a href="#no-deposit-or-withdrawal-fee">No deposit or withdrawal fee</a></td>
+</tr>
+<tr>
+<td><del>2</del></td>
+<td><del>Are 3 days / 3 members the right unlock gate?</del></td>
+<td><strong>Confirmed.</strong> The unlock is a one-way latch and never relocks — see <a href="#the-unlock-is-a-one-way-latch">The unlock is a one-way latch</a></td>
+</tr>
+<tr>
+<td><del>3</del></td>
+<td><del>No return path for a non-privileged depositor</del></td>
+<td><strong>Resolved</strong> — three layers: a consent prompt on first deposit and after <code>consent_reprompt_days</code> of inactivity; a <code>self_reclaim_window</code> on your own deposits; and pro-rata distribution at dissolution</td>
+</tr>
+<tr>
+<td><del>4</del></td>
+<td><del>Should per-rank withdrawal caps differ?</del></td>
+<td><strong>Resolved — no per-rank cap.</strong> <code>per_withdrawal_cap</code> is global and <code>bank.withdraw</code> is a boolean, which takes the cap check out of SQL entirely</td>
+</tr>
+<tr>
+<td><del>5</del></td>
+<td><del>Does <code>/salary</code>'s lack of an audit log need fixing alongside?</del></td>
+<td><strong>Tracked separately</strong> as <a href="https://github.com/limelight-development/cityrp2/issues/3004">#3004</a>. Not blocking this module</td>
+</tr>
+<tr>
+<td><del>6</del></td>
+<td><del>Pay out to former members at dissolution?</del></td>
+<td><strong>Resolved — everyone in the ledger.</strong> Fairer, and it removes the incentive to kick members before dissolving</td>
+</tr>
+</tbody>
+</table></div>
+		</div>
+	</div>
+	<br class="clearfix">
+</div>
+<script>
+var ROOT = "../../../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
+</body>
+</html>

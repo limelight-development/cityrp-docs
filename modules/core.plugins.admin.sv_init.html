@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>core.plugins.admin.sv_init</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,8 +14,8 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
@@ -24,26 +24,19 @@
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -51,6 +44,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -63,6 +60,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -72,6 +70,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -84,7 +108,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -94,7 +117,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -132,22 +154,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -160,9 +166,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -330,388 +333,422 @@
 <div class="ll-module-body"><p>Serverside Administration Module</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.acommands.adminChat"></a><strong><span class="state state-server">cityrp.acommands.adminChat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L155">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.adminChat"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.adminChat<span class="ll-args">(ply, text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L155">Source ☍</a></dt>
 <dd>
 <p>Send a message to admin chat.
 Also adds the message to cross-server chat.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player / Pseudoplayer sending the message.</li>
-<li><span class="parameter">text</span> <span class="types">any</span> The message to be sent.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">Player / Pseudoplayer sending the message.</span></li>
+<li><span class="parameter">text</span><span class="types">any</span><span class="ll-arg-desc">The message to be sent.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.adminDo"></a><strong><span class="state state-server">cityrp.acommands.adminDo</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L301">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.adminDo"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.adminDo<span class="ll-args">(admin, text, icon, cmdType)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L301">Source ☍</a></dt>
 <dd>
 <p>Send an admin echo.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">admin</span> <span class="types">any</span> The running the echo.</li>
-<li><span class="parameter">text</span> <span class="types">any</span> The text of the echo.</li>
-<li><span class="parameter">icon</span> <span class="types">any</span> The icon for the echo.</li>
-<li><span class="parameter">cmdType</span> <span class="types">any</span> The ADMINCMD_ enumeration for the type of the command.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">admin</span><span class="types">any</span><span class="ll-arg-desc">The running the echo.</span></li>
+<li><span class="parameter">text</span><span class="types">any</span><span class="ll-arg-desc">The text of the echo.</span></li>
+<li><span class="parameter">icon</span><span class="types">any</span><span class="ll-arg-desc">The icon for the echo.</span></li>
+<li><span class="parameter">cmdType</span><span class="types">any</span><span class="ll-arg-desc">The ADMINCMD_ enumeration for the type of the command.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.adminHelp"></a><strong><span class="state state-server">cityrp.acommands.adminHelp</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L129">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.adminHelp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.adminHelp<span class="ll-args">(ply, text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L129">Source ☍</a></dt>
 <dd>
 <p>Send a message to moderator chat.
 Also adds the message to cross-server chat.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player / Pseudoplayer sending the message.</li>
-<li><span class="parameter">text</span> <span class="types">any</span> The message to be sent.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">Player / Pseudoplayer sending the message.</span></li>
+<li><span class="parameter">text</span><span class="types">any</span><span class="ll-arg-desc">The message to be sent.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.adminOOCChat"></a><strong><span class="state state-server">cityrp.acommands.adminOOCChat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L174">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.adminOOCChat"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.adminOOCChat<span class="ll-args">(ply, text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L174">Source ☍</a></dt>
 <dd>
 <p>Sends a message to OOC, using the player's registered name if undercover.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player / Pseudoplayer sending the message.</li>
-<li><span class="parameter">text</span> <span class="types">any</span> The message to be sent.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">Player / Pseudoplayer sending the message.</span></li>
+<li><span class="parameter">text</span><span class="types">any</span><span class="ll-arg-desc">The message to be sent.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.chatcheck"></a><strong><span class="state state-server">cityrp.acommands.chatcheck</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L221">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.chatcheck"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.chatcheck<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L221">Source ☍</a></dt>
 <dd>
 <p>Recall latest cross-server messages.
 Automatically called.</p>
 
 
 
+
 </dd>
-<dt><a name="cityrp.acommands.FindPosition"></a><strong><span class="state state-server">cityrp.acommands.FindPosition</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L354">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.FindPosition"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.FindPosition<span class="ll-args">(ply)</span><span class="ll-returns"> → boolean|unknown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L354">Source ☍</a></dt>
 <dd>
 <p>Find a position around an entity to be teleported to.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The entity to be teleported to.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">The entity to be teleported to.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|unknown</span> || False] The position to be placed at, or false if not found.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean|unknown</span><span class="ll-arg-desc">|| False] The position to be placed at, or false if not found.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.getAdmins"></a><strong><span class="state state-server">cityrp.acommands.getAdmins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L201">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.getAdmins"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.getAdmins<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L201">Source ☍</a></dt>
 <dd>
 <p>Get a table of administrators.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> List of player entities.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table</span><span class="ll-arg-desc">List of player entities.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.getModerators"></a><strong><span class="state state-server">cityrp.acommands.getModerators</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L188">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.getModerators"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.getModerators<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L188">Source ☍</a></dt>
 <dd>
 <p>Get a table of moderators.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> List of player entities.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table</span><span class="ll-arg-desc">List of player entities.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.GetPlayerByName"></a><strong><span class="state state-server">cityrp.acommands.GetPlayerByName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L93">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.GetPlayerByName"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.GetPlayerByName<span class="ll-args">(name)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a>|table&lt;number, <a href="Player.html">Player</a>&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L93">Source ☍</a></dt>
 <dd>
 <p>Get a player by their Steam Name or UserID.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">any</span> Name/UserID.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">name</span><span class="types">any</span><span class="ll-arg-desc">Name/UserID.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|Player|table&lt;number, Player&gt;</span> || entity || nil] Table of entities if multiple found, entity object if single found, nil if none found.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean|<a href="Player.html">Player</a>|table&lt;number, <a href="Player.html">Player</a>&gt;</span><span class="ll-arg-desc">|| entity || nil] Table of entities if multiple found, entity object if single found, nil if none found.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.GetPlayerBySteamID"></a><strong><span class="state state-server">cityrp.acommands.GetPlayerBySteamID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L105">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.GetPlayerBySteamID"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.GetPlayerBySteamID<span class="ll-args">(steamid)</span><span class="ll-returns"> → table|unknown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L105">Source ☍</a></dt>
 <dd>
 <p>Get a player by their SteamID</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">steamid</span> <span class="types">any</span> (Partial) SteamID.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">steamid</span><span class="types">any</span><span class="ll-arg-desc">(Partial) SteamID.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table|unknown</span> || entity] Table of entities if multiple found, entity object if single found, empty table.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table|unknown</span><span class="ll-arg-desc">|| entity] Table of entities if multiple found, entity object if single found, empty table.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.GetPlayerObject"></a><strong><span class="state state-server">cityrp.acommands.GetPlayerObject</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L381">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.GetPlayerObject"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.GetPlayerObject<span class="ll-args">(ply, searchTerm)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a>|table&lt;number, <a href="Player.html">Player</a>&gt;|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L381">Source ☍</a></dt>
 <dd>
 <p>Get a player by the given search-term.
 Automatically notifies the calling player on failure.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">searchTerm</span> <span class="types">any</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">searchTerm</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|Player|table&lt;number, Player&gt;|nil</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean|<a href="Player.html">Player</a>|table&lt;number, <a href="Player.html">Player</a>&gt;|nil</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.GetPlayerObjectSilent"></a><strong><span class="state state-server">cityrp.acommands.GetPlayerObjectSilent</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L411">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.GetPlayerObjectSilent"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.GetPlayerObjectSilent<span class="ll-args">(ply, searchTerm)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a>|table&lt;number, <a href="Player.html">Player</a>&gt;, boolean|<a href="Player.html">Player</a>|table&lt;number, <a href="Player.html">Player</a>&gt;|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L411">Source ☍</a></dt>
 <dd>
 <p>Get a player by the given search-term.
 Doesn't notify the player on failure.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> Player requesting the player.</li>
-<li><span class="parameter">searchTerm</span> <span class="types">any</span> UserID, Name or SteamID to search for.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">Player requesting the player.</span></li>
+<li><span class="parameter">searchTerm</span><span class="types">any</span><span class="ll-arg-desc">UserID, Name or SteamID to search for.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|Player|table&lt;number, Player&gt;</span> || entity] nil on failure, entity on succcess.</li>
-<li><span class="types">boolean|Player|table&lt;number, Player&gt;|nil</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span class="ll-ordinal">1</span><span class="types">boolean|<a href="Player.html">Player</a>|table&lt;number, <a href="Player.html">Player</a>&gt;</span><span class="ll-arg-desc">|| entity] nil on failure, entity on succcess.</span></li>
+<li><span class="ll-ordinal">2</span><span class="types">boolean|<a href="Player.html">Player</a>|table&lt;number, <a href="Player.html">Player</a>&gt;|nil</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.getRankSteamID"></a><strong><span class="state state-server">cityrp.acommands.getRankSteamID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L40">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.getRankSteamID"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.getRankSteamID<span class="ll-args">(steamid)</span><span class="ll-returns"> → unknown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L40">Source ☍</a></dt>
 <dd>
 <p>Non-functional.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">steamid</span> <span class="types">any</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">steamid</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">unknown</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">unknown</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.GetTPPos"></a><strong><span class="state state-server">cityrp.acommands.GetTPPos</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L435">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.GetTPPos"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.GetTPPos<span class="ll-args">(ply, from, to)</span><span class="ll-returns"> → unknown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L435">Source ☍</a></dt>
 <dd>
 <p>Function to get the &quot;landing&quot; position when TPing from point to point.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player attempting the TP (who gets error messages).</li>
-<li><span class="parameter">from</span> <span class="types">any</span> The entity that is being moved.</li>
-<li><span class="parameter">to</span> <span class="types">any</span> The entity being moved to.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">The player attempting the TP (who gets error messages).</span></li>
+<li><span class="parameter">from</span><span class="types">any</span><span class="ll-arg-desc">The entity that is being moved.</span></li>
+<li><span class="parameter">to</span><span class="types">any</span><span class="ll-arg-desc">The entity being moved to.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">unknown</span> || nil] Vector when a position is found, nil on failure.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">unknown</span><span class="ll-arg-desc">|| nil] Vector when a position is found, nil on failure.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.helpreply"></a><strong><span class="state state-server">cityrp.acommands.helpreply</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1858">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.helpreply"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.helpreply<span class="ll-args">(ply, targ, msg, _)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1858">Source ☍</a></dt>
 <dd>
 <p>Send a help response to a player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player sending the message.</li>
-<li><span class="parameter">targ</span> <span class="types">any</span> The search param for the player to send a message to.</li>
-<li><span class="parameter">msg</span> <span class="types">any</span> The first part of the message to send.</li>
-<li><span class="parameter"></span> <span class="types">unknown</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">The player sending the message.</span></li>
+<li><span class="parameter">targ</span><span class="types">any</span><span class="ll-arg-desc">The search param for the player to send a message to.</span></li>
+<li><span class="parameter">msg</span><span class="types">any</span><span class="ll-arg-desc">The first part of the message to send.</span></li>
+<li><span class="parameter"></span><span class="types">unknown</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.icIssue"></a><strong><span class="state state-server">cityrp.acommands.icIssue</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1814">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.icIssue"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.icIssue<span class="ll-args">(ply, targ, msg, _)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1814">Source ☍</a></dt>
 <dd>
 <p>Send an &quot;IC Issue&quot; response to a player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player sending the message.</li>
-<li><span class="parameter">targ</span> <span class="types">any</span> The search param for the player to send a message to.</li>
-<li><span class="parameter">msg</span> <span class="types">any</span> The first part of the message to send.</li>
-<li><span class="parameter"></span> <span class="types">unknown</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">The player sending the message.</span></li>
+<li><span class="parameter">targ</span><span class="types">any</span><span class="ll-arg-desc">The search param for the player to send a message to.</span></li>
+<li><span class="parameter">msg</span><span class="types">any</span><span class="ll-arg-desc">The first part of the message to send.</span></li>
+<li><span class="parameter"></span><span class="types">unknown</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.isadmin"></a><strong><span class="state state-server">cityrp.acommands.isadmin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L75">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.isadmin"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.isadmin<span class="ll-args">(sid)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L75">Source ☍</a></dt>
 <dd>
 <p>Get an administrator's registered name from their Steam ID.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">sid</span> <span class="types">any</span> SteamID to check.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">sid</span><span class="types">any</span><span class="ll-arg-desc">SteamID to check.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> || nil] Registered name, or nil if not registered.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc">|| nil] Registered name, or nil if not registered.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.ismoderator"></a><strong><span class="state state-server">cityrp.acommands.ismoderator</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L84">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.ismoderator"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.ismoderator<span class="ll-args">(sid)</span><span class="ll-returns"> → unknown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L84">Source ☍</a></dt>
 <dd>
 <p>Get a moderator's registered name from their Steam ID.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">sid</span> <span class="types">any</span> SteamID to check.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">sid</span><span class="types">any</span><span class="ll-arg-desc">SteamID to check.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">unknown</span> || nil] Registered name, or nil if not registered.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">unknown</span><span class="ll-arg-desc">|| nil] Registered name, or nil if not registered.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.phase"></a><strong><span class="state state-server">cityrp.acommands.phase</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L762">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.phase"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.phase<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L762">Source ☍</a></dt>
 <dd>
 <p>Phase a player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player to phase.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">The player to phase.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.popup"></a><strong><span class="state state-server">cityrp.acommands.popup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L267">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.popup"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.popup<span class="ll-args">(ply, text, tArg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L267">Source ☍</a></dt>
 <dd>
 <p>Popup a message on a player's screen.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span></li>
-<li><span class="parameter">text</span> <span class="types">any</span></li>
-<li><span class="parameter">tArg</span> <span class="types">any</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">text</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">tArg</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.precacheadmins"></a><strong><span class="state state-server">cityrp.acommands.precacheadmins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L53">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.precacheadmins"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.precacheadmins<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L53">Source ☍</a></dt>
 <dd>
 <p>Prefill the admin / moderator cache, for fakename / hidden operations.
 Automatically called during bootstrap, no need to call again.</p>
 
 
 
+
 </dd>
-<dt><a name="cityrp.acommands.ProcessTPRestrictions"></a><strong><span class="state state-server">cityrp.acommands.ProcessTPRestrictions</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L456">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.ProcessTPRestrictions"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.ProcessTPRestrictions<span class="ll-args">(ply, ent)</span><span class="ll-returns"> → boolean|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L456">Source ☍</a></dt>
 <dd>
 <p>Function to process teleport restrictions.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player attempting to teleport.</li>
-<li><span class="parameter">ent</span> <span class="types">any</span> The entity being teleported to.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">The player attempting to teleport.</span></li>
+<li><span class="parameter">ent</span><span class="types">any</span><span class="ll-arg-desc">The entity being teleported to.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|nil</span> Truthy or Falsy value, depending if the TP is allowed or barred.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean|nil</span><span class="ll-arg-desc">Truthy or Falsy value, depending if the TP is allowed or barred.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.acommands.queueRemotePM"></a><strong><span class="state state-server">cityrp.acommands.queueRemotePM</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1742">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.queueRemotePM"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.queueRemotePM<span class="ll-args">(ply, destServer, targ, msg, cb)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1742">Source ☍</a></dt>
 <dd>
 <p>Queue a remote PM (or a reply to one) into the shared cross-server chat table.
 Shared by the !pm command and by /r (and !r, an alias of /r) when replying
 to a received remote PM.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player sending the message.</li>
-<li><span class="parameter">destServer</span> <span class="types">any</span> The destination server ID to route the message to (the <code>goto</code> column).</li>
-<li><span class="parameter">targ</span> <span class="types">any</span> The destination player search string (or SteamID, when replying).</li>
-<li><span class="parameter">msg</span> <span class="types">any</span> The message text.</li>
-<li><span class="parameter">cb</span> <span class="types">any</span> function? Optional callback, called once the row has been written.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">The player sending the message.</span></li>
+<li><span class="parameter">destServer</span><span class="types">any</span><span class="ll-arg-desc">The destination server ID to route the message to (the <code>goto</code> column).</span></li>
+<li><span class="parameter">targ</span><span class="types">any</span><span class="ll-arg-desc">The destination player search string (or SteamID, when replying).</span></li>
+<li><span class="parameter">msg</span><span class="types">any</span><span class="ll-arg-desc">The message text.</span></li>
+<li><span class="parameter">cb</span><span class="types">any</span><span class="ll-arg-desc">function? Optional callback, called once the row has been written.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.remotepm"></a><strong><span class="state state-server">cityrp.acommands.remotepm</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1709">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.remotepm"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.remotepm<span class="ll-args">(name, steamid, targ, msg, source)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1709">Source ☍</a></dt>
 <dd>
 <p>Deliver a queued remote (cross-server) private message to a local player.
-Called automatically by cityrp.acommands.chatcheck() when it finds a queued
+Called automatically by <a href="core.plugins.admin.sv_init.html#cityrp.acommands.chatcheck">cityrp.acommands.chatcheck()</a> when it finds a queued
 'rpm' row in the shared chat table addressed to this server.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">any</span> The display name of the sender.</li>
-<li><span class="parameter">steamid</span> <span class="types">any</span> The SteamID of the sender.</li>
-<li><span class="parameter">targ</span> <span class="types">any</span> The search string for the local target player.</li>
-<li><span class="parameter">msg</span> <span class="types">any</span> The message body.</li>
-<li><span class="parameter">source</span> <span class="types">any</span> The origin server ID, so a reply can be routed back.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">name</span><span class="types">any</span><span class="ll-arg-desc">The display name of the sender.</span></li>
+<li><span class="parameter">steamid</span><span class="types">any</span><span class="ll-arg-desc">The SteamID of the sender.</span></li>
+<li><span class="parameter">targ</span><span class="types">any</span><span class="ll-arg-desc">The search string for the local target player.</span></li>
+<li><span class="parameter">msg</span><span class="types">any</span><span class="ll-arg-desc">The message body.</span></li>
+<li><span class="parameter">source</span><span class="types">any</span><span class="ll-arg-desc">The origin server ID, so a reply can be routed back.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.respond"></a><strong><span class="state state-server">cityrp.acommands.respond</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1780">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.respond"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.respond<span class="ll-args">(ply, targ, msg, _)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1780">Source ☍</a></dt>
 <dd>
 <p>Send an administrative response to a player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player sending the message.</li>
-<li><span class="parameter">targ</span> <span class="types">any</span> The search param for the player to send a message to.</li>
-<li><span class="parameter">msg</span> <span class="types">any</span> The first part of the message to send.</li>
-<li><span class="parameter"></span> <span class="types">unknown</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">The player sending the message.</span></li>
+<li><span class="parameter">targ</span><span class="types">any</span><span class="ll-arg-desc">The search param for the player to send a message to.</span></li>
+<li><span class="parameter">msg</span><span class="types">any</span><span class="ll-arg-desc">The first part of the message to send.</span></li>
+<li><span class="parameter"></span><span class="types">unknown</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.SetRank"></a><strong><span class="state state-server">cityrp.acommands.SetRank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1223">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.SetRank"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.SetRank<span class="ll-args">(ply, rank)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1223">Source ☍</a></dt>
 <dd>
 <p>Set a player's rank, checking if the rank is a real rank.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player to set a rank for.</li>
-<li><span class="parameter">rank</span> <span class="types">any</span> The rank to set.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">The player to set a rank for.</span></li>
+<li><span class="parameter">rank</span><span class="types">any</span><span class="ll-arg-desc">The rank to set.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.TPUser"></a><strong><span class="state state-server">cityrp.acommands.TPUser</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L467">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.TPUser"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.TPUser<span class="ll-args">(ply, pos)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L467">Source ☍</a></dt>
 <dd>
 <p>Teleport a user</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player to be teleported.</li>
-<li><span class="parameter">pos</span> <span class="types">any</span> The position to teleport them to.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">The player to be teleported.</span></li>
+<li><span class="parameter">pos</span><span class="types">any</span><span class="ll-arg-desc">The position to teleport them to.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.acommands.unphase"></a><strong><span class="state state-server">cityrp.acommands.unphase</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L816">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.unphase"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.unphase<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L816">Source ☍</a></dt>
 <dd>
 <p>Unphase a player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">any</span> The player to unphase.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc">The player to unphase.</span></li>
 </ul>
+
 
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="access_setrank_assistant"></a><strong><span class="state state-server">access_setrank_assistant</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1298">Source ☍</a></dt>
+<dt><a name="access_setrank_assistant"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">access_setrank_assistant</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1298">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="access_setrank_full"></a><strong><span class="state state-server">access_setrank_full</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1233">Source ☍</a></dt>
+<dt><a name="access_setrank_full"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">access_setrank_full</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1233">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="access_setrank_sa"></a><strong><span class="state state-server">access_setrank_sa</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1267">Source ☍</a></dt>
+<dt><a name="access_setrank_sa"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">access_setrank_sa</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1267">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="cityrp.acommands.admins"></a><strong><span class="state state-server">cityrp.acommands.admins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L54">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.admins"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.admins</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L54">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="cityrp.acommands.mods"></a><strong><span class="state state-server">cityrp.acommands.mods</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L68">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.mods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.mods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L68">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="cityrp.acommands.Positions"></a><strong><span class="state state-server">cityrp.acommands.Positions</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L347">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.Positions"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.Positions</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L347">Source ☍</a></dt>
 <dd>
+
 
 
 
@@ -719,65 +756,71 @@ Called automatically by cityrp.acommands.chatcheck() when it finds a queued
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="ADMINCMD_ALWAYSHIDE"></a><strong><span class="state state-server">ADMINCMD_ALWAYSHIDE</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L293">Source ☍</a></dt>
+<dt><a name="ADMINCMD_ALWAYSHIDE"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">ADMINCMD_ALWAYSHIDE</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L293">Source ☍</a></dt>
 <dd>
 <p>Always Hide</p>
 
 
 
+
 </dd>
-<dt><a name="ADMINCMD_ALWAYSSHOW"></a><strong><span class="state state-server">ADMINCMD_ALWAYSSHOW</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L292">Source ☍</a></dt>
+<dt><a name="ADMINCMD_ALWAYSSHOW"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">ADMINCMD_ALWAYSSHOW</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L292">Source ☍</a></dt>
 <dd>
 <p>Always Show</p>
 
 
 
+
 </dd>
-<dt><a name="ADMINCMD_FOLLOWHC"></a><strong><span class="state state-server">ADMINCMD_FOLLOWHC</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L294">Source ☍</a></dt>
+<dt><a name="ADMINCMD_FOLLOWHC"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">ADMINCMD_FOLLOWHC</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L294">Source ☍</a></dt>
 <dd>
 <p>Follow /hc and !stealth setting.</p>
 
 
 
+
 </dd>
-<dt><a name="ADMINCMD_FOLLOWPLY"></a><strong><span class="state state-server">ADMINCMD_FOLLOWPLY</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L295">Source ☍</a></dt>
+<dt><a name="ADMINCMD_FOLLOWPLY"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">ADMINCMD_FOLLOWPLY</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L295">Source ☍</a></dt>
 <dd>
 <p>Folllow /hc, !stealth and !phase</p>
 
 
 
+
 </dd>
-<dt><a name="cityrp.acommands.chatlastid"></a><strong><span class="state state-server">cityrp.acommands.chatlastid</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L225">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.chatlastid"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.chatlastid</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L225">Source ☍</a></dt>
 <dd>
 
 
 
+
 </dd>
-<dt><a name="cityrp.acommands.onRemotePMCooldown"></a><strong><span class="state state-server">cityrp.acommands.onRemotePMCooldown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1699">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.onRemotePMCooldown"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.onRemotePMCooldown</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1699">Source ☍</a></dt>
 <dd>
 
 
 
+
 </dd>
-<dt><a name="cityrp.chatBox.oocdisable"></a><strong><span class="state state-server">cityrp.chatBox.oocdisable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1553">Source ☍</a></dt>
+<dt><a name="cityrp.chatBox.oocdisable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.chatBox.oocdisable</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1553">Source ☍</a></dt>
 <dd>
 
 
 
+
 </dd>
-<dt><a name="console"></a><strong><span class="state state-server">console</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L23">Source ☍</a></dt>
+<dt><a name="console"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">console</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L23">Source ☍</a></dt>
 <dd>
 <p>Legacy console variable for backwards compatibility.</p>
-<h3>Deprecated:</h3>
-<ul>
-<li><span class='tag-deprecated'>This function is deprecated and may be removed in a future version.<br>Use CONSOLE instead. This is maintained for backwards compatibility with any external plugins.</span></li>
-</ul>
+<blockquote class="ll-alert ll-alert-deprecated"><p class="ll-alert-title">Deprecated</p><p>This function is deprecated and may be removed in a future version.</p><p>Use CONSOLE instead. This is maintained for backwards compatibility with any external plugins.</p></blockquote>
+
 
 
 </dd>
-<dt><a name="Rank"></a><strong><span class="state state-server">Rank</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1232">Source ☍</a></dt>
+<dt><a name="Rank"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Rank</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/admin/sv_init.lua#L1232">Source ☍</a></dt>
 <dd>
 <p>List of ranks.</p>
+
 
 
 
@@ -787,5 +830,72 @@ Called automatically by cityrp.acommands.chatcheck() when it finds a queued
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

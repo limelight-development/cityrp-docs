@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Waypoints</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,36 +14,51 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#player-commands">Player commands</a></li>
+<li><a href="#vmf-map-projection">VMF map projection</a></li>
+<li><a href="#map-material-cache">Map material cache</a></li>
+<li><a href="#hud-minimap">HUD minimap</a></li>
+<li><a href="#hosted-f1-city-map">Hosted F1 city map</a></li>
+<li><a href="#nearest-map-category">Nearest map category</a></li>
+<li><a href="#persistent-map-locations">Persistent map locations</a></li>
+<li><a href="#hidden-locations">Hidden locations</a></li>
+<li><a href="#categories">Categories</a></li>
+<li><a href="#buildings-and-road-routing">Buildings and road routing</a></li>
+<li><a href="#staff-directions">Staff directions</a></li>
+<li><a href="#server-api">Server API</a></li>
+<li><a href="#car-boosting">Car Boosting</a></li>
+<li><a href="#runtime-checks">Runtime checks</a></li>
+</ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
 <li><a href="../topics/ui-scaling.html">UI Scaling</a></li>
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
-<li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li><strong>Waypoints</strong></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -56,6 +71,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -65,6 +81,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -77,7 +119,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -87,7 +128,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -125,22 +165,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -153,9 +177,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -319,9 +340,8 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>Waypoints</h1></div><div class="ll-module-body"><h1>Waypoints</h1>
-<p>The Waypoints plugin provides server-authoritative world navigation with a VMF-scaled minimap, hosted F1 map, compact compass and a through-wall marker. Saved locations, dynamic nearest-entity destinations and system destinations all use the same selection path.</p>
-<h2>Player commands</h2>
+<div class="ll-module-header"><h1>Waypoints</h1></div><div class="ll-module-body"><p>The Waypoints plugin provides server-authoritative world navigation with a VMF-scaled minimap, hosted F1 map, compact compass and a through-wall marker. Saved locations, dynamic nearest-entity destinations and system destinations all use the same selection path.</p>
+<h2 id="player-commands">Player commands</h2>
 <pre><code class="language-text">/waypoint &lt;location&gt;
 /waypoint goto &lt;location&gt;
 /waypoint clear
@@ -333,7 +353,7 @@
 category and the matching <code>/waypoint</code> command to the player's console. The
 former <code>/waypoints</code> Derma menu remains removed.</p>
 <p>The F1 <strong>Map</strong> interface is searchable and grouped by category. It includes saved map locations, dynamic <strong>Nearest</strong> destinations and locations registered by another system. It deliberately excludes the legacy <code>/place</code> coordinate table from ordinary player navigation.</p>
-<h2>VMF map projection</h2>
+<h2 id="vmf-map-projection">VMF map projection</h2>
 <p>The HUD minimap and F1 Map use the same exported map artwork and reversible Source-world transform. The <code>rp_evocity_v4b1_fl2</code> definition currently uses:</p>
 <pre><code class="language-text">HUD image: rp_evocity_v4b1_fl2_gmod.png
 Image size: 3896 x 4096
@@ -346,7 +366,7 @@ Y axis: image top is maximum world Y
 v = (maxY - worldY) / (maxY - minY)
 </code></pre>
 <p><code>WorldToMapUV</code> and <code>MapUVToWorld</code> expose both directions of the transform. The HUD minimap, F1 player marker, active waypoint marker and positioned map pins therefore share one coordinate system rather than separate manually tuned percentages.</p>
-<h2>Map material cache</h2>
+<h2 id="map-material-cache">Map material cache</h2>
 <p>The client downloads the 3896×4096 in-game derivative from the configured beta
 map path, validates its PNG signature and stores it under:</p>
 <pre><code class="language-text">data/cityrp/waypoints/maps/&lt;map&gt;_&lt;version&gt;.png
@@ -358,7 +378,7 @@ letterbox drift between pins and artwork, and cuts the map download from
 roughly 1.5 MB to 125 KB. A version change in the shared map definition
 produces a new HUD cache filename. The F1 page uses a versioned service-worker
 cache for its map, scripts, styles and pin images.</p>
-<h2>HUD minimap</h2>
+<h2 id="hud-minimap">HUD minimap</h2>
 <p>The GTA-inspired minimap uses the same background and outline colours as the
 TEAM/ALL radio panel. Its default width matches the 294-pixel Limelight citizen
 HUD panel.</p>
@@ -386,7 +406,7 @@ the exported road surfaces. The <code>#0D47A1</code> road stroke uses rounded co
 caps. Its <code>#546E7A</code> off-road sections identify the connection from an off-road
 player or destination back to the nearest recognized road. The destination
 remains edge-clamped when it is outside the visible crop.</p>
-<h2>Hosted F1 city map</h2>
+<h2 id="hosted-f1-city-map">Hosted F1 city map</h2>
 <p>Pressing <code>M</code> opens the F1 menu directly on the Map tab. The console command <code>cityrp_open_map</code> exposes the same behaviour for custom binds.</p>
 <p>The F1 panel hosts the beta service-map interface so its category controls,
 location cards and full pin artwork remain identical to the browser map. It
@@ -416,7 +436,7 @@ pin before selecting the destination.</p>
 <p>This is preferable for the in-game F1 map because live and nearest resolvers can
 change. <code>!waypointexport</code> remains the controlled workflow for updating the
 standalone public map.</p>
-<h2>Nearest map category</h2>
+<h2 id="nearest-map-category">Nearest map category</h2>
 <p>The hosted F1 map includes a <strong>Nearest</strong> category. Its entries are list-only:</p>
 <ul>
 <li>they are visible in the category and location list;</li>
@@ -495,7 +515,7 @@ standalone public map.</p>
 </tr>
 </tbody>
 </table>
-<h2>Persistent map locations</h2>
+<h2 id="persistent-map-locations">Persistent map locations</h2>
 <p>Roleplay Assistants and higher staff can save locations to the current map while looking at the required position:</p>
 <pre><code class="language-text">!waypointset &lt;name&gt; [hidden|visible]
 !waypointsetcategory &lt;location&gt; &lt;category&gt;
@@ -565,7 +585,7 @@ authorized staff.</p>
 server-to-website upload would require an authenticated write endpoint, replay
 protection, map/version validation and deployment rollback. Runtime DHTML
 injection avoids that operational and security surface for the in-game map.</p>
-<h2>Hidden locations</h2>
+<h2 id="hidden-locations">Hidden locations</h2>
 <p>A saved location can remain addressable without appearing in the F1 location list:</p>
 <pre><code class="language-text">!waypointhide &lt;name&gt;
 !waypointshow &lt;name&gt;
@@ -573,7 +593,7 @@ injection avoids that operational and security surface for the in-game map.</p>
 </code></pre>
 <p>Hidden locations remain usable through direct selection, staff assignment and system integrations.</p>
 <p>Nearest entries are different from hidden saved points: they remain visible in the F1 list but are marked as list-only so the map does not draw a pin.</p>
-<h2>Categories</h2>
+<h2 id="categories">Categories</h2>
 <pre><code class="language-text">!waypointcategory add &lt;name&gt; [colour] [shape]
 !waypointcategory set &lt;name&gt; [colour] [shape]
 !waypointcategory remove &lt;name&gt;
@@ -582,7 +602,7 @@ injection avoids that operational and security surface for the in-game map.</p>
 <p><code>create</code> aliases <code>add</code>, <code>edit</code> aliases <code>set</code>, and <code>delete</code> aliases <code>remove</code>. Removing a category moves its saved locations to <strong>General</strong>.</p>
 <p>Supported colours are <code>blue</code>, <code>green</code>, <code>orange</code>, <code>red</code>, <code>yellow</code>, <code>purple</code> and <code>white</code>. Supported shapes are <code>diamond</code>, <code>circle</code>, <code>square</code> and <code>triangle</code>.</p>
 <p>Multi-word category names use an underscore identifier, such as <code>City Services</code> becoming <code>city_services</code>.</p>
-<h2>Buildings and road routing</h2>
+<h2 id="buildings-and-road-routing">Buildings and road routing</h2>
 <p>The map PNG is visual artwork only. Buildings, water and terrain may change
 without changing navigation. Road routing uses the packaged
 <code>rp_evocity_v4b1_fl2_roads.json</code>, which contains world-coordinate road polygons
@@ -611,7 +631,7 @@ The minimap also displays the road-node and route-point counts. <code>route</cod
 <code>status</code> print the graph load state, source path and active route coordinates to
 the console. This distinguishes a missing graph from a route-calculation or
 HUD-rendering problem.</p>
-<h2>Staff directions</h2>
+<h2 id="staff-directions">Staff directions</h2>
 <pre><code class="language-text">!waypointplayer &lt;player&gt; &lt;location&gt;
 !waypointplayer &lt;player&gt; clear
 !waypointplayer &lt;player&gt; end
@@ -619,7 +639,7 @@ HUD-rendering problem.</p>
 </code></pre>
 <p>The player argument accepts a partial or full name, server UserID or legacy SteamID through CityRP's normal lookup. Without a destination, the waypoint uses the staff member's aimed position.</p>
 <p>Staff assignment may resolve the existing <code>/place</code> and <code>/warp</code> tables for compatibility. Those legacy coordinates are not exposed in the ordinary player menu.</p>
-<h2>Server API</h2>
+<h2 id="server-api">Server API</h2>
 <pre><code class="language-lua">local waypoints = cityrp.plugin.get(&quot;waypoints&quot;)
 
 waypoints:SetWaypoint(
@@ -647,10 +667,10 @@ waypoints:RegisterDestination(
 )
 </code></pre>
 <p>Source identifiers allow systems to clear only their own navigation without removing a staff or unrelated system waypoint.</p>
-<h2>Car Boosting</h2>
+<h2 id="car-boosting">Car Boosting</h2>
 <p>When Waypoints is loaded, Car Boosting replaces another active destination with a silent <code>Chop Shop</code> waypoint when delivery begins. It clears when delivery completes, fails or the player enters the destination radius.</p>
 <p>Without Waypoints, the Boosting objective HUD retains its own delivery bearing and distance.</p>
-<h2>Runtime checks</h2>
+<h2 id="runtime-checks">Runtime checks</h2>
 <ol>
 <li>Clear the map material cache and confirm the PNG downloads and renders in both HUD and F1.</li>
 <li>Verify both minimap sizes, visibility and compass toggles from the <code>C</code> menu.</li>
@@ -668,5 +688,72 @@ waypoints:RegisterDestination(
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

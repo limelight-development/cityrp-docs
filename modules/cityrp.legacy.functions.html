@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>cityrp.legacy.functions</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,34 +14,27 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -49,6 +42,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -61,6 +58,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -70,6 +68,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -82,7 +106,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -92,7 +115,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -130,22 +152,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -158,9 +164,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -328,233 +331,317 @@
 <div class="ll-module-body"><p>Generic shared legacy functions.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.GetByID"></a><strong><span class="state state-server">cityrp.GetByID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L216">Source ☍</a></dt>
+<dt><a name="cityrp.GetByID"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.GetByID<span class="ll-args">(id)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L216">Source ☍</a></dt>
 <dd>
 <p>Get a user by their user ID.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span> The UserID to search for.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc">The UserID to search for.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|Player</span> The found player, or false if none was found.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean|<a href="Player.html">Player</a></span><span class="ll-arg-desc">The found player, or false if none was found.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.replacecodes"></a><strong><span class="state state-server">cityrp.replacecodes</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L361">Source ☍</a></dt>
+<dt><a name="cityrp.replacecodes"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.replacecodes<span class="ll-args">(ply, str)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L361">Source ☍</a></dt>
 <dd>
 <p>Replace player substitution codes in a string.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player?</span> The player to get data from.</li>
-<li><span class="parameter">str</span> <span class="types">string</span> The string to replace codes in.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a>?</span><span class="ll-arg-desc">The player to get data from.</span></li>
+<li><span class="parameter">str</span><span class="types">string</span><span class="ll-arg-desc">The string to replace codes in.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> The string with codes replaced.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc">The string with codes replaced.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.toBoolean"></a><strong><span class="state state-server">cityrp.toBoolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L96">Source ☍</a></dt>
+<dt><a name="cityrp.toBoolean"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.toBoolean<span class="ll-args">(value)</span><span class="ll-returns"> → boolean?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L96">Source ☍</a></dt>
 <dd>
 <p>Parse a value into a boolean.
 Unlike GMod's tobool, unrecognized strings return nil instead of true.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">value</span> <span class="types">any</span> Value to parse.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">value</span><span class="types">any</span><span class="ll-arg-desc">Value to parse.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean?</span> Parsed boolean, or nil if unrecognized.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean?</span><span class="ll-arg-desc">Parsed boolean, or nil if unrecognized.</span></li>
 </ol>
+
 </dd>
-<dt><a name="comma_value"></a><strong><span class="state state-server">comma_value</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L278">Source ☍</a></dt>
+<dt><a name="comma_value"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">comma_value<span class="ll-args">(amount)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L278">Source ☍</a></dt>
 <dd>
 <p>Create a comma'd value from a number.
 Identical to string.Comma.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">amount</span> <span class="types">number</span> The input number.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">amount</span><span class="types">number</span><span class="ll-arg-desc">The input number.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> The comma'd value.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc">The comma'd value.</span></li>
 </ol>
+
 </dd>
-<dt><a name="empty"></a><strong><span class="state state-server">empty</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L294">Source ☍</a></dt>
+<dt><a name="empty"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">empty<span class="ll-args">(t)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L294">Source ☍</a></dt>
 <dd>
 <p>Check if a table is empty.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">t</span> <span class="types">table</span> The table to check.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">t</span><span class="types">table</span><span class="ll-arg-desc">The table to check.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the table is empty.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the table is empty.</span></li>
 </ol>
+
 </dd>
-<dt><a name="FixVehicleCollision"></a><strong><span class="state state-server">FixVehicleCollision</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L63">Source ☍</a></dt>
+<dt><a name="FixVehicleCollision"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">FixVehicleCollision<span class="ll-args">(vehicle)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L63">Source ☍</a></dt>
 <dd>
 <p>Fix the collisions of a vehicle.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">vehicle</span> <span class="types">Entity</span> The vehicle to fix collisions for.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">vehicle</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc">The vehicle to fix collisions for.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="FormatList"></a><strong><span class="state state-server">FormatList</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L444">Source ☍</a></dt>
+<dt><a name="FormatList"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">FormatList<span class="ll-args">(tList, sConjunction, sEmpty)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L444">Source ☍</a></dt>
 <dd>
 <p>Format a list as a string.
 Seperates the last item with &quot;and&quot; (or &quot;or&quot;), using commas otherwise.
 If there is only one item, it returns just that item.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">tList</span> <span class="types">table</span> Input list to format.</li>
-<li><span class="parameter">sConjunction</span> <span class="types">string?</span> Word to separate the last item with, defaults to &quot;and&quot;.</li>
-<li><span class="parameter">sEmpty</span> <span class="types">string?</span> Value to return if the list is empty, defaults to &quot;&quot;.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">tList</span><span class="types">table</span><span class="ll-arg-desc">Input list to format.</span></li>
+<li><span class="parameter">sConjunction</span><span class="types">string?</span><span class="ll-arg-desc">Word to separate the last item with, defaults to &quot;and&quot;.</span></li>
+<li><span class="parameter">sEmpty</span><span class="types">string?</span><span class="ll-arg-desc">Value to return if the list is empty, defaults to &quot;&quot;.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> Formatted string.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc">Formatted string.</span></li>
 </ol>
+
 </dd>
-<dt><a name="IsInsideBox"></a><strong><span class="state state-server">IsInsideBox</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L346">Source ☍</a></dt>
+<dt><a name="IsInsideBox"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">IsInsideBox<span class="ll-args">(pos, point1, point2)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L346">Source ☍</a></dt>
 <dd>
 <p>Check if a point is inside a box defined by two corners.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">pos</span> <span class="types">Vector</span> The position to check.</li>
-<li><span class="parameter">point1</span> <span class="types">Vector</span> First corner of the box.</li>
-<li><span class="parameter">point2</span> <span class="types">Vector</span> The opposite corner of the box.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">pos</span><span class="types"><a href="https://wiki.facepunch.com/gmod/Vector">Vector</a></span><span class="ll-arg-desc">The position to check.</span></li>
+<li><span class="parameter">point1</span><span class="types"><a href="https://wiki.facepunch.com/gmod/Vector">Vector</a></span><span class="ll-arg-desc">First corner of the box.</span></li>
+<li><span class="parameter">point2</span><span class="types"><a href="https://wiki.facepunch.com/gmod/Vector">Vector</a></span><span class="ll-arg-desc">The opposite corner of the box.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the pos is inside the box.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the pos is inside the box.</span></li>
 </ol>
+
 </dd>
-<dt><a name="LookupEnum"></a><strong><span class="state state-server">LookupEnum</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L427">Source ☍</a></dt>
+<dt><a name="LookupEnum"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">LookupEnum<span class="ll-args">(value, prefix)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L427">Source ☍</a></dt>
 <dd>
 <p>Lookup an enumeration, given its prefix and value.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">value</span> <span class="types">any</span> The value of the enumeration.</li>
-<li><span class="parameter">prefix</span> <span class="types">string</span> The prefix of the global to look up.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">value</span><span class="types">any</span><span class="ll-arg-desc">The value of the enumeration.</span></li>
+<li><span class="parameter">prefix</span><span class="types">string</span><span class="ll-arg-desc">The prefix of the global to look up.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> The key of the found enum, or an empty string if not found.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc">The key of the found enum, or an empty string if not found.</span></li>
 </ol>
+
 </dd>
-<dt><a name="msg_admins"></a><strong><span class="state state-server">msg_admins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L30">Source ☍</a></dt>
+<dt><a name="msg_admins"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">msg_admins<span class="ll-args">(msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L30">Source ☍</a></dt>
 <dd>
 <p>Send a message to all connected admins.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">msg</span> <span class="types">string</span> The message to send.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">msg</span><span class="types">string</span><span class="ll-arg-desc">The message to send.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="msg_devs"></a><strong><span class="state state-server">msg_devs</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L52">Source ☍</a></dt>
+<dt><a name="msg_devs"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">msg_devs<span class="ll-args">(msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L52">Source ☍</a></dt>
 <dd>
 <p>Send a message to all connected developers.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">msg</span> <span class="types">string</span> The message to send.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">msg</span><span class="types">string</span><span class="ll-arg-desc">The message to send.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="msg_mods"></a><strong><span class="state state-server">msg_mods</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L41">Source ☍</a></dt>
+<dt><a name="msg_mods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">msg_mods<span class="ll-args">(msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L41">Source ☍</a></dt>
 <dd>
 <p>Send a message to all connected moderators / admins.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">msg</span> <span class="types">string</span> The message to send.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">msg</span><span class="types">string</span><span class="ll-arg-desc">The message to send.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="mysql_escape"></a><strong><span class="state state-server">mysql_escape</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L13">Source ☍</a></dt>
+<dt><a name="mysql_escape"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">mysql_escape<span class="ll-args">(str)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L13">Source ☍</a></dt>
 <dd>
 <p>Escape a string, for use in mysql statements.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">str</span> <span class="types">string</span> Input string.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">str</span><span class="types">string</span><span class="ll-arg-desc">Input string.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> Escaped string.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc">Escaped string.</span></li>
 </ol>
+
 </dd>
-<dt><a name="SetClipboardText"></a><strong><span class="state state-server">SetClipboardText</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L412">Source ☍</a></dt>
+<dt><a name="SetClipboardText"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">SetClipboardText<span class="ll-args">(ply, text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L412">Source ☍</a></dt>
 <dd>
 <p>Set a player's clipboard text.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player whose clipboard text is to be set.</li>
-<li><span class="parameter">text</span> <span class="types">string</span> The text to set.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player whose clipboard text is to be set.</span></li>
+<li><span class="parameter">text</span><span class="types">string</span><span class="ll-arg-desc">The text to set.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="stringTimeToMins"></a><strong><span class="state state-server">stringTimeToMins</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L175">Source ☍</a></dt>
+<dt><a name="stringTimeToMins"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">stringTimeToMins<span class="ll-args">(str)</span><span class="ll-returns"> → number?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L175">Source ☍</a></dt>
 <dd>
 <p>Turn a time string into a number of minutes.
 Strings with only a number are counted as minutes.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">str</span> <span class="types">string</span> The input time string.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">str</span><span class="types">string</span><span class="ll-arg-desc">The input time string.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number?</span> Number of minutes, or nil if the string could not be parsed.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number?</span><span class="ll-arg-desc">Number of minutes, or nil if the string could not be parsed.</span></li>
 </ol>
+
 </dd>
-<dt><a name="table.copy"></a><strong><span class="state state-server">table.copy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L230">Source ☍</a></dt>
+<dt><a name="table.copy"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">table.copy<span class="ll-args">(orig)</span><span class="ll-returns"> → &lt;T&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L230">Source ☍</a></dt>
 <dd>
 <p>Create a deep copy of a value, including metatables for tables.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">orig</span> <span class="types">&lt;T&gt;</span> The value to copy.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">orig</span><span class="types">&lt;T&gt;</span><span class="ll-arg-desc">The value to copy.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">&lt;T&gt;</span> A deep copy of orig.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">&lt;T&gt;</span><span class="ll-arg-desc">A deep copy of orig.</span></li>
 </ol>
+
 </dd>
-<dt><a name="table.FullCopy"></a><strong><span class="state state-server">table.FullCopy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L254">Source ☍</a></dt>
+<dt><a name="table.FullCopy"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">table.FullCopy<span class="ll-args">(tab)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_functions.lua#L254">Source ☍</a></dt>
 <dd>
 <p>Create a deep copy of a table, copying vectors and angles by value.
-table.Copy and table.copy both leave userdata as references, so a copy made with either
+table.Copy and <a href="cityrp.legacy.functions.html#table.copy">table.copy</a> both leave userdata as references, so a copy made with either
 still shares its vectors and angles with the original. That matters for anything that
 mutates them in place, which is why the SWEP Construction Kit weapons each used to carry
 their own version of this. Entities are still copied by reference.
 Do not use on a table that contains itself, it will recurse forever.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">tab</span> <span class="types">table?</span> The table to copy.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">tab</span><span class="types">table?</span><span class="ll-arg-desc">The table to copy.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table?</span> The copied table, or nil if no table was given.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table?</span><span class="ll-arg-desc">The copied table, or nil if no table was given.</span></li>
 </ol>
+
 </dd>
 </dl></div>
 		</div>
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

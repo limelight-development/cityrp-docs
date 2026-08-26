@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Car Boosting and Navigation Pre-Live Test Plan</title>
+	<link rel="stylesheet" href="../../../style.6b230c7a19.css" type="text/css">
+</head>
+<body>
+<div id="container">
+	<div id="product">
+		<div id="product_logo"></div>
+		<div id="product_name"><big><b></b></big></div>
+		<div id="product_description"></div>
+	</div>
+	<div id="main">
+		<div id="navigation">
+<div class="ll-kind-header"><h1><a href="../../../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#exit-criteria">Exit criteria</a></li>
+<li><a href="#candidate-record">Candidate record</a></li>
+<li><a href="#required-test-coverage">Required test coverage</a></li>
+<li><a href="#1-deployment-and-startup">1. Deployment and startup</a></li>
+<li><a href="#2-f1-map">2. F1 map</a></li>
+<li><a href="#3-minimap-and-compass">3. Minimap and compass</a></li>
+<li><a href="#4-road-navigation">4. Road navigation</a></li>
+<li><a href="#5-waypoint-commands-and-access">5. Waypoint commands and access</a></li>
+<li><a href="#6-lockpick-hotwire-and-engine-hint">6. Lockpick, hotwire and engine hint</a></li>
+<li><a href="#7-car-boosting-contracts">7. Car Boosting contracts</a></li>
+<li><a href="#8-meska">8. MESKA</a></li>
+<li><a href="#9-performance-networking-and-security">9. Performance, networking and security</a></li>
+<li><a href="#10-regression-suite">10. Regression suite</a></li>
+<li><a href="#11-rollout-and-rollback">11. Rollout and rollback</a></li>
+<li><a href="#sign-off">Sign-off</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Topics</h2></div>
+<ul class="ll-kind-body">
+<li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../../../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
+<li><a href="../../../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
+<li><a href="../../../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../../../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
+<li><a href="../../../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../../../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../../../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../../../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><a href="../../../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../../../topics/meska.html">MESKA</a></li>
+<li><a href="../../../topics/networking.html">Networking Library</a></li>
+<li><a href="../../../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../../../topics/plugins.html">Plugins</a></li>
+<li><a href="../../../topics/ui-scaling.html">UI Scaling</a></li>
+<li><a href="../../../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../../../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
+<li><a href="../../../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/index.html">Design Docs</a>
+<ul class="ll-topic-children">
+<li><a href="../../../topics/design/docs-layout-migration.html">Docs layout migration</a></li>
+<li><a href="../../../topics/design/items-registration.html">Class-Based Item Registration</a></li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/car-boosting/car-boosting.html">Car Boosting</a>
+<ul class="ll-topic-children">
+<li><strong>Car Boosting and Navigation Pre-Live Test Plan</strong></li>
+<li><a href="../../../topics/design/car-boosting/hotwiring.html">Vehicle hotwiring</a></li>
+<li><a href="../../../topics/design/car-boosting/lockpicking.html">Mechanical lockpicking</a></li>
+</ul>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/design/clans/design.html">Clans</a>
+</li>
+</ul>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
+</li>
+</ul>
+<div class="ll-kind-header"><h2>Items</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/ITEM.html">ITEM</a></li>
+<li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
+<li><a href="../../../modules/ITEM.Ammo.html">ITEM.Ammo</a></li>
+<li><a href="../../../modules/ITEM.Card.html">ITEM.Card</a></li>
+<li><a href="../../../modules/ITEM.Clothing.html">ITEM.Clothing</a></li>
+<li><a href="../../../modules/ITEM.Collectable.html">ITEM.Collectable</a></li>
+<li><a href="../../../modules/ITEM.Food.html">ITEM.Food</a></li>
+<li><a href="../../../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
+<li><a href="../../../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../../../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
+<li><a href="../../../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
+<li><a href="../../../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
+<li><a href="../../../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
+<li><a href="../../../modules/ITEM.Sticker.html">ITEM.Sticker</a></li>
+<li><a href="../../../modules/ITEM.Suit.html">ITEM.Suit</a></li>
+<li><a href="../../../modules/ITEM.Uniform.html">ITEM.Uniform</a></li>
+<li><a href="../../../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
+<li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
+<li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Entity.html">Entity</a></li>
+<li><a href="../../../modules/Player.html">Player</a></li>
+<li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../../../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../../../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../../../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../../../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../../../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../../../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../../../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../../../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../../../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../../../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../../../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../../../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../../../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Modules</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Array.html">Array</a></li>
+<li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
+<li><a href="../../../modules/CPPI.html">CPPI</a></li>
+<li><a href="../../../modules/DB.html">DB</a></li>
+<li><a href="../../../modules/Enumerations.html">Enumerations</a></li>
+<li><a href="../../../modules/GM.html">GM</a></li>
+<li><a href="../../../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
+<li><a href="../../../modules/Migrations.html">Migrations</a></li>
+<li><a href="../../../modules/PLUGIN.html">PLUGIN</a></li>
+<li><a href="../../../modules/SPropProtection.html">SPropProtection</a></li>
+<li><a href="../../../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../../../modules/bwep.html">bwep</a></li>
+<li><a href="../../../modules/cityrp.access.html">cityrp.access</a></li>
+<li><a href="../../../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+<li><a href="../../../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+<li><a href="../../../modules/cityrp.command.html">cityrp.command</a></li>
+<li><a href="../../../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../../../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../../../modules/cityrp.entity.html">cityrp.entity</a></li>
+<li><a href="../../../modules/cityrp.favorites.html">cityrp.favorites</a></li>
+<li><a href="../../../modules/cityrp.help.html">cityrp.help</a></li>
+<li><a href="../../../modules/cityrp.hints.html">cityrp.hints</a></li>
+<li><a href="../../../modules/cityrp.imageHosts.html">cityrp.imageHosts</a></li>
+<li><a href="../../../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+<li><a href="../../../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../../../modules/cityrp.itemmeta.html">cityrp.itemmeta</a></li>
+<li><a href="../../../modules/cityrp.layers.html">cityrp.layers</a></li>
+<li><a href="../../../modules/cityrp.legacy.functions.html">cityrp.legacy.functions</a></li>
+<li><a href="../../../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
+<li><a href="../../../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
+<li><a href="../../../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../../../modules/cityrp.logging.html">cityrp.logging</a></li>
+<li><a href="../../../modules/cityrp.logs.html">cityrp.logs</a></li>
+<li><a href="../../../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
+<li><a href="../../../modules/cityrp.membership.html">cityrp.membership</a></li>
+<li><a href="../../../modules/cityrp.model.html">cityrp.model</a></li>
+<li><a href="../../../modules/cityrp.network.html">cityrp.network</a></li>
+<li><a href="../../../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
+<li><a href="../../../modules/cityrp.player.html">cityrp.player</a></li>
+<li><a href="../../../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../../../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+<li><a href="../../../modules/cityrp.remote.html">cityrp.remote</a></li>
+<li><a href="../../../modules/cityrp.settings.html">cityrp.settings</a></li>
+<li><a href="../../../modules/cityrp.table.html">cityrp.table</a></li>
+<li><a href="../../../modules/cityrp.team.html">cityrp.team</a></li>
+<li><a href="../../../modules/cityrp.teslaCharger.html">cityrp.teslaCharger</a></li>
+<li><a href="../../../modules/cityrp.teslaChargerPrice.html">cityrp.teslaChargerPrice</a></li>
+<li><a href="../../../modules/cityrp.topHints.html">cityrp.topHints</a></li>
+<li><a href="../../../modules/cityrp.ui.html">cityrp.ui</a></li>
+<li><a href="../../../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../../../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
+<li><a href="../../../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../../../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
+<li><a href="../../../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../../../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../../../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../../../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../../../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../../../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../../../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../../../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_boneanimlib.html">core.plugins.animations.animationsapi.cl_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../../../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
+<li><a href="../../../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
+<li><a href="../../../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../../../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../../../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.cl_init.html">core.plugins.bodybags.entities.cityrp_bodybag.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.shared.html">core.plugins.bodybags.entities.cityrp_bodybag.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.cl_init.html">core.plugins.bodybags.entities.cityrp_evidence.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.init.html">core.plugins.bodybags.entities.cityrp_evidence.init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.shared.html">core.plugins.bodybags.entities.cityrp_evidence.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../../../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
+<li><a href="../../../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.giveprops.sv_init.html">core.plugins.giveprops.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_camera.html">core.plugins.holdem.cl.cl_camera</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_cards.html">core.plugins.holdem.cl.cl_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_chips.html">core.plugins.holdem.cl.cl_chips</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_hud.html">core.plugins.holdem.cl.cl_hud</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_render.html">core.plugins.holdem.cl.cl_render</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_ui.html">core.plugins.holdem.cl.cl_ui</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_vec2.html">core.plugins.holdem.cl.cl_vec2</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl_init.html">core.plugins.holdem.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_cards.html">core.plugins.holdem.sh_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_config.html">core.plugins.holdem.sh_config</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_init.html">core.plugins.holdem.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_commands.html">core.plugins.holdem.sv.sv_commands</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_game.html">core.plugins.holdem.sv.sv_game</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_net.html">core.plugins.holdem.sv.sv_net</a></li>
+<li><a href="../../../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_editor.html">core.plugins.lite_character.cl_editor</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_init.html">core.plugins.lite_character.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_notches.html">core.plugins.lite_character.cl_notches</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_debug.html">core.plugins.lite_character.sh_debug</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_rockfall.shared.html">core.plugins.maintenance.entities.cityrp_rockfall.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../../../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../../../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../../../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../../../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../../../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../../../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../../../modules/dumper.html">dumper</a></li>
+<li><a href="../../../modules/entities.cityrp_peephole.html">entities.cityrp_peephole</a></li>
+<li><a href="../../../modules/env.html">env</a></li>
+<li><a href="../../../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
+<li><a href="../../../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
+<li><a href="../../../modules/plugins.worldprops.html">plugins.worldprops</a></li>
+<li><a href="../../../modules/sh_init.html">sh_init</a></li>
+<li><a href="../../../modules/temar.html">temar</a></li>
+<li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Credits</h2></div>
+<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Car Boosting and Navigation Pre-Live Test Plan</h1></div><div class="ll-module-body"><p>This plan is the release gate for the Car Boosting, MESKA, lockpick, hotwire,
+engine hint, F1 map, minimap, compass and road-routing work on
+<code>release/20260730</code>.</p>
+<p>Do not run destructive database checks or promote these changes from a live
+branch. Use a development server, a beta database copy and the <code>beta</code> directory
+of <code>service-map</code>.</p>
+<h2 id="exit-criteria">Exit criteria</h2>
+<p>A release candidate may move to live only when:</p>
+<ul>
+<li>every Critical and High case passes;</li>
+<li>no new client or server Lua errors appear during a two-hour soak;</li>
+<li>no MESKA foreign-key, nil-index or duplicate-registration errors appear;</li>
+<li>non-staff cannot execute any waypoint administration command;</li>
+<li>cold and warm F1 loads succeed in the in-game DHTML panel;</li>
+<li>the minimap route stays aligned during the full driving route;</li>
+<li>Boosting completes once in every contract class;</li>
+<li>reconnect and server-restart persistence checks pass;</li>
+<li>the database backup and rollback owner are recorded; and</li>
+<li>QA, development and server operations sign off the same candidate commits.</li>
+</ul>
+<p>Any Critical or High failure blocks release. A Medium failure requires a
+written acceptance decision and owner. Cosmetic Low failures may be scheduled
+after release only when they do not obscure instructions, navigation or timers.</p>
+<h2 id="candidate-record">Candidate record</h2>
+<p>Record this before testing:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CityRP branch</td>
+<td><code>release/20260730</code></td>
+</tr>
+<tr>
+<td>CityRP commit</td>
+<td></td>
+</tr>
+<tr>
+<td><code>service-map</code> branch</td>
+<td><code>master</code></td>
+</tr>
+<tr>
+<td><code>service-map</code> commit</td>
+<td></td>
+</tr>
+<tr>
+<td>Web scope</td>
+<td><code>beta</code> only</td>
+</tr>
+<tr>
+<td>Map</td>
+<td><code>rp_evocity_v4b1_fl2</code></td>
+</tr>
+<tr>
+<td>Road JSON checksum</td>
+<td></td>
+</tr>
+<tr>
+<td>Game server</td>
+<td></td>
+</tr>
+<tr>
+<td>Beta database</td>
+<td></td>
+</tr>
+<tr>
+<td>Tester</td>
+<td></td>
+</tr>
+<tr>
+<td>Start and finish</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="required-test-coverage">Required test coverage</h2>
+<p>Use:</p>
+<ul>
+<li>a clean player with no Boosting MESKA paths;</li>
+<li>an existing player with Boosting XP and achievements;</li>
+<li>an RP Assistant;</li>
+<li>a higher staff rank;</li>
+<li>a normal player with no staff access;</li>
+<li>two crew members;</li>
+<li>a player connected before a scripted hot reload;</li>
+<li>default, small and disabled minimap states;</li>
+<li>compass enabled and disabled;</li>
+<li>1920×1080, 2560×1440 and an ultrawide resolution;</li>
+<li>the minimum and maximum supported HUD scale;</li>
+<li>cold DHTML and map-material caches;</li>
+<li>warm DHTML and map-material caches;</li>
+<li>driver, passenger and on-foot states; and</li>
+<li>player-owned and system-generated Boosting targets.</li>
+</ul>
+<p>Capture the client console, server console, relevant database rows, screenshots
+and profiler samples. Label evidence with the case identifier below.</p>
+<h2 id="1-deployment-and-startup">1. Deployment and startup</h2>
+<h3 id="dep-01--branch-and-scope-guard">DEP-01 — Branch and scope guard</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Confirm the game checkout is <code>release/20260730</code>.</li>
+<li>Confirm no live or production branch is checked out.</li>
+<li>Confirm every <code>service-map</code> change is below <code>beta/</code>.</li>
+<li>Confirm no production URL or database credential was added.</li>
+</ol>
+<p>Expected: only the intended development branch and beta web content are
+modified.</p>
+<h3 id="dep-02--clean-server-startup">DEP-02 — Clean server startup</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Start a development server with the beta database.</li>
+<li>Capture the full startup log.</li>
+<li>Join once with a normal player and once with staff.</li>
+</ol>
+<p>Expected:</p>
+<ul>
+<li>no Lua errors;</li>
+<li>no failed SQL queries;</li>
+<li>MESKA completes setup;</li>
+<li>Waypoints reports a loaded graph with 1,323 nodes;</li>
+<li>Car Boosting loads once;</li>
+<li>no duplicate network-string, hook or timer warnings; and</li>
+<li><code>meska_metrics_meska_skills_name_fk</code> does not fail.</li>
+</ul>
+<h3 id="dep-03--hot-reload-safety">DEP-03 — Hot reload safety</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Keep one existing player connected.</li>
+<li>Hot reload the Car Boosting and Waypoints code through the normal
+development workflow.</li>
+<li>Open Skills, F1 Map and the minimap.</li>
+<li>Start and finish one D-class contract.</li>
+</ol>
+<p>Expected: the connected player receives missing Boosting paths without
+reconnecting; no MESKA nil-index occurs; UI hooks and timers are not duplicated.</p>
+<h2 id="2-f1-map">2. F1 map</h2>
+<h3 id="map-01--cold-load-and-layout">MAP-01 — Cold load and layout</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Clear the DHTML cache using the approved development procedure.</li>
+<li>Press <code>M</code>.</li>
+<li>Open the Map tab at every required resolution.</li>
+</ol>
+<p>Expected:</p>
+<ul>
+<li>the beta map image loads;</li>
+<li>Categories remain above the location list;</li>
+<li>location rows do not overlap the footer;</li>
+<li>the map surface outside the artwork is <code>#1a1a1a</code>;</li>
+<li>controls remain visible;</li>
+<li>the full artwork fits after reset; and</li>
+<li>the console contains no HTML, JavaScript or material errors.</li>
+</ul>
+<h3 id="map-02--exact-projection-alignment">MAP-02 — Exact projection alignment</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Stand at five widely separated surveyed locations, including both extreme
+sides of the map.</li>
+<li>Compare the F1 player arrow, minimap centre and corresponding F1 pin.</li>
+<li>Repeat in a vehicle.</li>
+</ol>
+<p>Expected: all three use <code>WorldToMapUV</code> against the same 3896×4096 artwork.
+No location has progressive X or Y drift toward the image edges.</p>
+<h3 id="map-03--pin-selection-and-centring">MAP-03 — Pin selection and centring</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Click a visible map pin.</li>
+<li>Click the matching location row.</li>
+<li>Click its <strong>Set waypoint</strong> button.</li>
+<li>Repeat after panning and at minimum and maximum zoom.</li>
+</ol>
+<p>Expected: each action selects the same item and moves the pin anchor to the
+viewport centre. The selected row is scrolled into view. No browser focus or
+white outline is drawn around the pin.</p>
+<h3 id="map-04--pin-clarity">MAP-04 — Pin clarity</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Inspect several pin colours at reset, medium and maximum zoom.</li>
+<li>Pan while zoomed.</li>
+<li>Compare stationary and moving frames.</li>
+</ol>
+<p>Expected: pin artwork remains sharp and constant in screen size, does not
+flicker, and stays anchored to its world position.</p>
+<h3 id="map-05--pan-zoom-and-reset">MAP-05 — Pan, zoom and reset</h3>
+<p>Priority: Medium.</p>
+<ol>
+<li>Drag the map in every direction.</li>
+<li>Use mouse-wheel zoom and all three control buttons.</li>
+<li>Reset after selecting a pin.</li>
+</ol>
+<p>Expected: input remains smooth, zoom is centred correctly, reset fits the full
+map and no pin moves relative to the artwork.</p>
+<h3 id="map-06--warm-cache">MAP-06 — Warm cache</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Complete MAP-01.</li>
+<li>Close and reopen F1 ten times.</li>
+<li>Reconnect and reopen it.</li>
+<li>Inspect requests and load timing.</li>
+</ol>
+<p>Expected: the versioned service worker serves the optimized map, scripts,
+styles and pin images from <code>cityrp-f1-map-20260730-7</code>. The page shell may
+revalidate. No stale earlier-version asset is used.</p>
+<h3 id="map-07--cache-update">MAP-07 — Cache update</h3>
+<p>Priority: High.</p>
+<ol>
+<li>With the previous beta cache present, deploy the candidate asset version.</li>
+<li>Reopen F1.</li>
+<li>Confirm the new cache activates and the earlier version is deleted.</li>
+</ol>
+<p>Expected: the candidate map and JavaScript load without requiring players to
+clear browser data manually.</p>
+<h3 id="map-08--runtime-locations-and-nearest">MAP-08 — Runtime locations and Nearest</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Confirm saved and registered locations appear.</li>
+<li>Move or recreate a dynamic Nearest entity.</li>
+<li>Wait for the next map refresh.</li>
+<li>Select the Nearest row and its action button.</li>
+</ol>
+<p>Expected: Nearest entries remain list-only, resolve the current closest entity
+and never draw a map pin. Ordinary locations refresh without duplicating rows.</p>
+<h3 id="map-09--player-direction">MAP-09 — Player direction</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Rotate the camera and model together on foot.</li>
+<li>Drive straight while free-looking left, right and backwards.</li>
+<li>Repeat as a passenger.</li>
+</ol>
+<p>Expected: on foot the arrow follows camera/model facing. While seated it follows
+the rendered player/vehicle direction and is unaffected by free-look. The
+32-pixel base player arrow remains clearly visible without obscuring nearby
+pins.</p>
+<h3 id="map-10--m-key-toggle">MAP-10 — M key toggle</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Press <code>M</code> with F1 closed.</li>
+<li>Press <code>M</code> again after the Map tab is active.</li>
+<li>Hold <code>M</code> down for at least two seconds after opening and after closing.</li>
+<li>Open another F1 tab and press <code>M</code>.</li>
+<li>Focus the hosted map before repeating the close action.</li>
+</ol>
+<p>Expected: the first press opens Map, the second closes F1 even after DHTML
+focus, and pressing <code>M</code> from a different F1 tab switches to Map. Holding the key
+causes exactly one state change, and the M close releases mouse focus, dropdowns
+and panels identically to the X button.</p>
+<h2 id="3-minimap-and-compass">3. Minimap and compass</h2>
+<h3 id="hud-01--context-menu-settings">HUD-01 — Context-menu settings</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Hold <code>C</code> and open <strong>HUD Options → Toggle Minimap</strong>.</li>
+<li>Select <strong>Default Size</strong>, <strong>Small Size</strong> and <strong>Toggle Compass</strong>.</li>
+<li>Close and reopen the menu after each choice.</li>
+<li>Reconnect.</li>
+</ol>
+<p>Expected: child options draw and remain clickable; checkmarks reflect current
+archived values; settings persist; no old position choices or minimap chat
+commands exist.</p>
+<h3 id="hud-02--minimap-controls">HUD-02 — Minimap controls</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Test <code>−</code>, reset and <code>+</code> while <code>C</code> is held.</li>
+<li>Repeat in both minimap sizes and at every HUD scale.</li>
+<li>Release <code>C</code> and click the same screen positions.</li>
+</ol>
+<p>Expected: the compact 22-pixel-scaled controls do not obscure the player arrow;
+only <code>C</code> mode accepts clicks; zoom remains within configured limits; reset
+returns to 1.0.</p>
+<h3 id="hud-03--minimap-presentation">HUD-03 — Minimap presentation</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Walk and drive across map and artwork boundaries.</li>
+<li>Inspect the frame, corners and area beyond the PNG.</li>
+</ol>
+<p>Expected: the border matches other HUD elements, the outer map colour is
+<code>#1a1a1a</code>, no north pointer is present, and no redundant destination name or
+distance is drawn below the minimap.</p>
+<h3 id="hud-04--heading-rules">HUD-04 — Heading rules</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>On foot, rotate the view through 360 degrees.</li>
+<li>Enter a driver seat and drive in all cardinal directions.</li>
+<li>Free-look through 360 degrees while the vehicle keeps its heading.</li>
+<li>Repeat as a passenger.</li>
+</ol>
+<p>Expected: on-foot minimap and compass follow camera yaw; seated navigation
+follows model/vehicle-aligned render yaw; no 90-degree offset or skew occurs.</p>
+<h3 id="hud-05--compact-compass">HUD-05 — Compact compass</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Enable small minimap mode.</li>
+<li>Rotate slowly through 360 degrees.</li>
+<li>Set and clear a waypoint.</li>
+</ol>
+<p>Expected: primary cardinals and numeric subheadings form an even 30-degree
+sequence; labels do not collide; no waypoint icon appears on the compass.</p>
+<h3 id="hud-06--through-wall-marker">HUD-06 — Through-wall marker</h3>
+<p>Priority: Medium.</p>
+<ol>
+<li>Set a waypoint behind a building and outside the minimap crop.</li>
+<li>Approach and pass it.</li>
+</ol>
+<p>Expected: the separate world marker and edge-clamped minimap destination remain
+usable; removing the compass icon does not remove destination guidance.</p>
+<h2 id="4-road-navigation">4. Road navigation</h2>
+<h3 id="nav-01--graph-diagnostics">NAV-01 — Graph diagnostics</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Run <code>!waypointdebug status</code>.</li>
+<li>Run <code>!waypointdebug roads</code>.</li>
+<li>Run <code>!waypointdebug off</code>.</li>
+</ol>
+<p>Expected: status prints the packaged JSON path, graph state and active route;
+roads mode overlays recognized nodes; off removes all debug drawing.</p>
+<h3 id="nav-02--on-road-route">NAV-02 — On-road route</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Set routes between at least six distant location pairs.</li>
+<li>Include inner city, outer city, industrial, docks and mountain approaches.</li>
+<li>Drive each route.</li>
+</ol>
+<p>Expected: <code>#0D47A1</code> follows recognized roads, corners and caps are rounded, the
+stroke is clearly visible at the approved thickness, and the route advances
+without reversing to completed points.</p>
+<h3 id="nav-03--off-road-connection">NAV-03 — Off-road connection</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Start off-road and set an on-road destination.</li>
+<li>Start on-road and set an off-road destination.</li>
+<li>Test both endpoints off-road.</li>
+</ol>
+<p>Expected: only the connection between the endpoint and nearest recognized road
+uses <code>#546E7A</code>; the road section stays <code>#0D47A1</code>.</p>
+<h3 id="nav-04--reroute-and-arrival">NAV-04 — Reroute and arrival</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Leave the shown route by more than three 256-unit cells.</li>
+<li>Rejoin at a later road.</li>
+<li>Enter the destination radius.</li>
+</ol>
+<p>Expected: the server recalculates without rapid oscillation, sends the updated
+route once, and clears navigation on arrival.</p>
+<h3 id="nav-05--missing-or-invalid-road-data">NAV-05 — Missing or invalid road data</h3>
+<p>Priority: High.</p>
+<ol>
+<li>On a development copy, start with missing and malformed road JSON.</li>
+<li>Set a waypoint.</li>
+</ol>
+<p>Expected: startup reports the graph failure without crashing; navigation falls
+back to a direct off-road segment; F1 and minimap remain functional.</p>
+<h2 id="5-waypoint-commands-and-access">5. Waypoint commands and access</h2>
+<h3 id="cmd-01--public-commands">CMD-01 — Public commands</h3>
+<p>Priority: High.</p>
+<p>Test:</p>
+<pre><code class="language-text">/waypoint &lt;location&gt;
+/waypoint goto &lt;location&gt;
+/waypoint clear
+/waypoint end
+/waypoint stop
+/waypoints list
+</code></pre>
+<p>Expected: named navigation and clearing work for a normal player. Staff action
+words are not interpreted by <code>/waypoint</code>. <code>/waypoints list</code> prints the
+server-authoritative public destination names, categories and matching commands
+to the client console without opening Derma.</p>
+<h3 id="cmd-02--guide-bridge">CMD-02 — Guide bridge</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Open the New Player Guide.</li>
+<li>Use its map/waypoint action.</li>
+</ol>
+<p>Expected: it opens the F1 Map tab through <code>cityrp_open_map</code>; it does not send
+<code>/waypoints</code> to chat.</p>
+<h3 id="cmd-03--command-discovery">CMD-03 — Command discovery</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Open F1 Commands as an RP Assistant.</li>
+<li>Locate all waypoint administration commands.</li>
+<li>Repeat as a normal player.</li>
+</ol>
+<p>Expected: assistants see each complete example and description below;
+non-staff do not see the Assistant category.</p>
+<table>
+<thead>
+<tr>
+<th>Command example</th>
+<th>Expected purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>!waypointset &quot;Industrial Road&quot; visible</code></td>
+<td>Save the aimed position</td>
+</tr>
+<tr>
+<td><code>!waypointcategory add &quot;Fuel Stations&quot; red diamond</code></td>
+<td>Add or edit a category</td>
+</tr>
+<tr>
+<td><code>!waypointsetcategory &quot;Inner City BP&quot; &quot;Fuel Stations&quot;</code></td>
+<td>Move a location</td>
+</tr>
+<tr>
+<td><code>!waypointhide &quot;Staff Garage&quot;</code></td>
+<td>Hide a pin</td>
+</tr>
+<tr>
+<td><code>!waypointshow &quot;Staff Garage&quot;</code></td>
+<td>Restore a pin</td>
+</tr>
+<tr>
+<td><code>!waypointdelete &quot;Old Location&quot;</code></td>
+<td>Delete a saved location</td>
+</tr>
+<tr>
+<td><code>!waypointplayer Vadar &quot;Inner City BP&quot;</code></td>
+<td>Assign another player</td>
+</tr>
+<tr>
+<td><code>!waypointexport</code></td>
+<td>Print saved JSON</td>
+</tr>
+<tr>
+<td><code>!waypointdebug roads</code></td>
+<td>Show routing diagnostics</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cmd-04--access-enforcement">CMD-04 — Access enforcement</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Attempt every <code>!waypoint...</code> administration command as a normal player.</li>
+<li>Repeat as RP Assistant and higher staff.</li>
+<li>Check command logs.</li>
+</ol>
+<p>Expected: normal players are rejected before callbacks run; assistants and
+higher staff succeed; every attempt is logged by the normal acommands path.</p>
+<h3 id="cmd-05--mutation-and-persistence">CMD-05 — Mutation and persistence</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Create a category.</li>
+<li>Save a visible and hidden point.</li>
+<li>Move, hide, show and delete points.</li>
+<li>Export the JSON.</li>
+<li>Restart the server.</li>
+</ol>
+<p>Expected: validation messages use the new command syntax; changes persist;
+hidden points remain directly addressable; the F1 list reflects each mutation
+after refresh.</p>
+<h3 id="cmd-06--staff-assignment">CMD-06 — Staff assignment</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Assign a named location to another player.</li>
+<li>Assign the aimed position.</li>
+<li>Clear it.</li>
+<li>Test invalid and ambiguous player names.</li>
+</ol>
+<p>Expected: the intended player alone receives the waypoint; errors are clear;
+legacy place coordinates are available only through staff assignment.</p>
+<h3 id="cmd-07--boosting-administration">CMD-07 — Boosting administration</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Confirm <code>/boosting</code> is no longer registered.</li>
+<li>Locate <code>!boosting admin status</code> with its example and description in F1
+Commands.</li>
+<li>Exercise point, spawn, admin and debug actions as an administrator.</li>
+<li>Repeat as a normal player and test debug as a non-superadmin.</li>
+<li>Add delivery and spawn points, restart, then run both reload actions.</li>
+</ol>
+<p>Expected: the acommand access path enforces administrator and debug permissions;
+usage messages use <code>!boosting</code>; delivery points persist in
+<code>cityrp/plugins/carboosting/&lt;map&gt;.txt</code>; spawn anchors persist in
+<code>cityrp/plugins/carboosting/spawns_&lt;map&gt;.txt</code>.</p>
+<h2 id="6-lockpick-hotwire-and-engine-hint">6. Lockpick, hotwire and engine hint</h2>
+<h3 id="veh-01--lockpick-hud-clearance">VEH-01 — Lockpick HUD clearance</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Lockpick at all required resolutions and HUD scales.</li>
+<li>Trigger low durability and bending warnings.</li>
+<li>Move the pick without pressure, then apply and release tension at incorrect
+and correct angles.</li>
+</ol>
+<p>Expected: condition, warning and instructions stay below the barrel and do not
+overlap the minimap or integrated compass. Guidance arrows are hidden without
+pressure, appear only while tension is applied and disappear when released.</p>
+<h3 id="veh-02--hotwire-presentation">VEH-02 — Hotwire presentation</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Start the hotwire task.</li>
+<li>Drag correct and incorrect wires.</li>
+<li>Cancel, retry and complete it.</li>
+</ol>
+<p>Expected: the panel matches Car Boosting styling; <strong>NO TIME LIMIT</strong> is absent;
+buttons show correct enabled, hover and disabled states; cancelling sends once.</p>
+<h3 id="veh-03--hotwire-authority">VEH-03 — Hotwire authority</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Submit incomplete, incorrect, malformed and replayed answers.</li>
+<li>Move away, leave the vehicle and disconnect mid-task.</li>
+</ol>
+<p>Expected: the server rejects invalid answers, interrupted sessions close, and
+the client cannot start an engine by forging only the completion message.</p>
+<h3 id="veh-04--engine-guidance">VEH-04 — Engine guidance</h3>
+<p>Priority: Medium.</p>
+<ol>
+<li>Look at an engine-off vehicle with hints enabled.</li>
+<li>Enter its driver seat while the engine remains off.</li>
+<li>Start the engine and re-enter it.</li>
+<li>Enter as a passenger.</li>
+<li>Disable hints.</li>
+</ol>
+<p>Expected: the hold-to-start instruction appears only while the engine is off and
+hints are enabled; entering the driver seat with an engine-off vehicle shows the
+HUD hint instead of a chat reminder; running vehicles and passengers receive no reminder.</p>
+<h2 id="7-car-boosting-contracts">7. Car Boosting contracts</h2>
+<h3 id="bst-01--offer-and-class-gating">BST-01 — Offer and class gating</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Test MESKA levels 1 through 5.</li>
+<li>Refresh offers and attempt forged acceptance above the player's level.</li>
+</ol>
+<p>Expected: D, C, B, A and S unlock at levels 1, 2, 3, 4 and 5; the server rejects
+unauthorized class acceptance regardless of tablet UI.</p>
+<h3 id="bst-02--target-lifecycle">BST-02 — Target lifecycle</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Accept one player-owned and one generated target.</li>
+<li>Inspect engine, lock, ownership and reservation state.</li>
+<li>Fail and complete each type.</li>
+</ol>
+<p>Expected: targets start with engines off; persistent garage ownership is not
+transferred or deleted; cleanup releases reservations and generated entities.</p>
+<h3 id="bst-03--required-actions-and-timing">BST-03 — Required actions and timing</h3>
+<p>Priority: Critical.</p>
+<p>Test every class and contract archetype.</p>
+<p>Expected:</p>
+<ul>
+<li>the initial search window is ten minutes;</li>
+<li>D/C use the baseline window;</li>
+<li>B adds Fake Plate and one tracker allowance;</li>
+<li>A/S add Fake Plate and two tracker allowances;</li>
+<li>the archetype multiplier applies after allowances; and</li>
+<li>timers transition once and cannot be bypassed by re-entry or reconnect.</li>
+</ul>
+<h3 id="bst-04--limetrack-and-police-reports">BST-04 — LimeTrack and police reports</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Drive with an active tracker at low and high Heat.</li>
+<li>Complete the final challenge with and without a valid driver.</li>
+</ol>
+<p>Expected: standard 911 formatting uses <code>LimeTrack™:</code>; reporting frequency follows
+Heat; the final location is sent through the correct fallback actor.</p>
+<h3 id="bst-05--crew-contribution-and-payout">BST-05 — Crew contribution and payout</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Invite three tablet carriers.</li>
+<li>Test distant, nearby, accepted and declined members.</li>
+<li>Complete A/S with too few and sufficient members.</li>
+<li>Exercise every contribution source.</li>
+</ol>
+<p>Expected: only eligible nearby accepted members join; contribution is recorded;
+cash, parts and XP split correctly; <code>crew_boosts</code> increments only for qualifying
+successful crews.</p>
+<h3 id="bst-05a--crew-controls-and-realtime-roster">BST-05A — Crew controls and realtime roster</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Open the Crew page as an owner with an ungrouped tablet user online.</li>
+<li>Confirm the full <strong>Invite</strong> button is visible and invite that user.</li>
+<li>Accept the invitation while both Crew pages remain open.</li>
+<li>Leave from the member account without reopening either tablet.</li>
+<li>Rejoin, then use the owner's <strong>Kick</strong> button and confirmation.</li>
+<li>Disconnect a member while the owner's Crew page remains open.</li>
+<li>Repeat at every required resolution and HUD scale.</li>
+</ol>
+<p>Expected: invite and owner controls retain their full width and height; accepted,
+left, kicked and disconnected members update on every open Crew page without
+reopening or stealing focus; kicked members receive a notification; only the
+owner sees Kick and Make Owner; membership changes remain locked during an
+active contract.</p>
+<h3 id="bst-06--failure-and-cleanup">BST-06 — Failure and cleanup</h3>
+<p>Priority: Critical.</p>
+<p>Trigger acquisition timeout, delivery timeout, destruction, abandonment,
+disconnect and staff termination.</p>
+<p>Expected: Heat, metrics, reservations, waypoint, tracker, plate and target state
+settle exactly once with no orphan hooks or timers.</p>
+<h3 id="bst-07--target-signal">BST-07 — Target signal</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Stand at the target, then at 256, 5,000, 9,999 and more than 10,000 units.</li>
+<li>Enter the target vehicle and compare the server state with the HUD.</li>
+<li>Repeat with live-target client adjustment active.</li>
+<li>Repeat the full signal-strength approach in first and third person.</li>
+</ol>
+<p>Expected: the target and any position within the full-strength radius show
+exactly 100%; signal falls smoothly to zero across the doubled 10,000-unit
+range; server and client calculations agree. Every signal beep remains audible
+in both camera modes and its interval accelerates as strength increases.</p>
+<h2 id="8-meska">8. MESKA</h2>
+<h3 id="msk-01--parent-registry-ordering">MSK-01 — Parent registry ordering</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Remove Boosting rows only from a disposable beta test identity/schema.</li>
+<li>Start the server.</li>
+<li>Inspect <code>meska_skills</code>, then <code>meska_metrics</code>.</li>
+</ol>
+<p>Expected: <code>meska_skills.name = boosting</code> exists before the metrics upsert; no
+foreign-key failure occurs.</p>
+<h3 id="msk-02--skills-page">MSK-02 — Skills page</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Open Skills on new and existing players.</li>
+<li>Inspect category, level, XP and achievements.</li>
+</ol>
+<p>Expected: <strong>Boosting Skill</strong> is visible as its own category, all configured
+Boosting achievements are present, and no Boosting guides are shown. Guidance
+remains available only through the Boosting tablet.</p>
+<h3 id="msk-03--d-achievement-gate">MSK-03 — D achievement gate</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Use a new player at Boosting level 1 with 0 XP.</li>
+<li>Run an achievement scan.</li>
+<li>Complete one successful job and earn XP.</li>
+<li>Run or wait for the next scan.</li>
+</ol>
+<p>Expected: <strong>D Is for Driveaway</strong> is not awarded at 0 XP and is awarded once
+<code>boosting_exp &gt;= 1</code>.</p>
+<h3 id="msk-04--metric-requirements">MSK-04 — Metric requirements</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Test a player whose MESKA cache lacks <code>skills.boosting</code>.</li>
+<li>Test each Boosting metric achievement threshold.</li>
+</ol>
+<p>Expected: a missing skill is treated as unmet without indexing nil; each
+achievement awards once at its exact threshold.</p>
+<h3 id="msk-05--persistence">MSK-05 — Persistence</h3>
+<p>Priority: Critical.</p>
+<ol>
+<li>Record Boosting metrics, XP, level and achievements.</li>
+<li>Reconnect.</li>
+<li>Restart the server and reconnect again.</li>
+</ol>
+<p>Expected: database and in-memory values agree; no duplicate achievements or XP
+are granted.</p>
+<h3 id="msk-06--reset-procedure-control">MSK-06 — Reset procedure control</h3>
+<p>Priority: High.</p>
+<p>Confirm no unrestricted MESKA reset command exists. If QA needs a reset, use a
+reviewed, SteamID-scoped beta database procedure with a backup and reconnect.
+Never test it against live data.</p>
+<h2 id="9-performance-networking-and-security">9. Performance, networking and security</h2>
+<h3 id="perf-01--client-frame-cost">PERF-01 — Client frame cost</h3>
+<p>Priority: High.</p>
+<p>Profile:</p>
+<ul>
+<li>minimap alone;</li>
+<li>minimap with a long route;</li>
+<li>compact compass;</li>
+<li>F1 open with all pins; and</li>
+<li>staff road overlay.</li>
+</ul>
+<p>Expected: no sustained frame-time spike or allocation growth; closing F1
+releases its hook and panel; disabling the minimap removes its draw work. Record
+the same stationary, walking, driving and routed samples with the minimap
+disabled and enabled. The enabled result must not cause a material sustained FPS
+collapse, and the optimized scissor/route path must not introduce flicker,
+clipping leaks or broken route joins.</p>
+<h3 id="perf-02--server-route-cost">PERF-02 — Server route cost</h3>
+<p>Priority: High.</p>
+<ol>
+<li>Profile simultaneous routes for the expected peak player count.</li>
+<li>Force off-route recalculation.</li>
+<li>Soak for two hours.</li>
+</ol>
+<p>Expected: A-star work remains bounded, recalculation occurs at most on its
+two-second check and only when route state requires it, and server tick remains
+within the existing budget.</p>
+<h3 id="perf-03--network-cadence">PERF-03 — Network cadence</h3>
+<p>Priority: High.</p>
+<p>Expected:</p>
+<ul>
+<li>F1 player location sync is no faster than every 0.15 seconds;</li>
+<li>navigation state is sent to DHTML only after a state change;</li>
+<li>map data refresh is no faster than every 30 seconds per open panel;</li>
+<li>server map requests remain rate-limited;</li>
+<li>route points never exceed the 255-point network limit; and</li>
+<li>debug nodes never exceed 4,095.</li>
+</ul>
+<h3 id="sec-01--dhtml-boundary">SEC-01 — DHTML boundary</h3>
+<p>Priority: Critical.</p>
+<p>Confirm the F1 DHTML has general Lua disabled and exposes only the explicit
+<code>setWaypoint</code> and <code>endNavigation</code> bridge functions. Runtime coordinates remain
+in-memory and are not uploaded to the web service.</p>
+<h3 id="sec-02--net-message-validation">SEC-02 — Net-message validation</h3>
+<p>Priority: Critical.</p>
+<p>Send oversized, unknown and repeated destination identifiers, rapid map
+requests, repeated end requests and invalid hotwire payloads from a development
+client.</p>
+<p>Expected: the server bounds, sanitizes, throttles or safely rejects each input;
+no arbitrary coordinate or staff mutation path is exposed.</p>
+<h2 id="10-regression-suite">10. Regression suite</h2>
+<p>Priority: Critical unless stated otherwise.</p>
+<p>Confirm:</p>
+<ul>
+<li>normal F1 tabs still open and lay out correctly;</li>
+<li>F1 Commands filters commands by rank and shows player commands;</li>
+<li>the New Player Guide loads with and without Waypoints;</li>
+<li>vehicle ownership, keys, locks, <code>/engine</code> and ordinary hotwiring still work;</li>
+<li>non-Boosting lockpicks retain durability and cancellation behavior;</li>
+<li>HUD, stats, daily bonus and custom bonus context-menu controls still work;</li>
+<li>map material retry and cache validation handle a failed download;</li>
+<li>death and disconnect clear active waypoint state;</li>
+<li>other MESKA skills, metrics and achievements still award normally;</li>
+<li>normal 911 messages remain unchanged;</li>
+<li>non-Boosting vehicle spawn and cleanup behavior is unchanged; and</li>
+<li>Car Boosting disabled state prevents new contracts without corrupting active
+or saved data.</li>
+</ul>
+<h2 id="11-rollout-and-rollback">11. Rollout and rollback</h2>
+<h3 id="rollout-order">Rollout order</h3>
+<ol>
+<li>Freeze and record both candidate commits.</li>
+<li>Back up affected MESKA tables and Car Boosting/Waypoint data files.</li>
+<li>Publish only the <code>service-map/beta</code> candidate.</li>
+<li>Verify the public beta F1 URL and cache update.</li>
+<li>Deploy the CityRP development candidate to one test server.</li>
+<li>Run DEP, MAP, HUD, NAV, CMD, VEH and MSK smoke cases.</li>
+<li>Run the complete Boosting class matrix.</li>
+<li>Complete the two-hour soak and compare logs/performance.</li>
+<li>Obtain QA, development and operations sign-off.</li>
+<li>Schedule live promotion as a separate reviewed change.</li>
+</ol>
+<h3 id="rollback-triggers">Rollback triggers</h3>
+<p>Rollback immediately for:</p>
+<ul>
+<li>MESKA foreign-key or player-load errors;</li>
+<li>persistent Lua errors;</li>
+<li>route calculation causing server hitching;</li>
+<li>F1 blank map or unusable categories;</li>
+<li>unauthorized waypoint mutations;</li>
+<li>Boosting target ownership loss;</li>
+<li>duplicated payout, XP or achievements; or</li>
+<li>contract cleanup leaving reserved vehicles.</li>
+</ul>
+<h3 id="rollback-procedure">Rollback procedure</h3>
+<ol>
+<li>Stop new Boosting contracts.</li>
+<li>Preserve logs and affected player identifiers.</li>
+<li>Revert the game candidate to the recorded previous commit.</li>
+<li>Revert the beta web assets/cache version if the fault is web-only.</li>
+<li>Restore database rows only when the defect changed persistent data and the
+operations owner approves the scoped restore.</li>
+<li>Restart, run startup smoke checks and confirm active sessions are clean.</li>
+<li>Document cause, impact and retest requirements before another candidate.</li>
+</ol>
+<h2 id="sign-off">Sign-off</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Name</th>
+<th>Result</th>
+<th>Date</th>
+<th>Evidence link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QA</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Development</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Server operations</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Product owner</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+		</div>
+	</div>
+	<br class="clearfix">
+</div>
+<script>
+var ROOT = "../../../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Writing Doc Comments</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,29 +14,34 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#pipeline">Pipeline</a></li>
+<li><a href="#topic-files-and-folders">Topic files and folders</a></li>
+<li><a href="#functionvariable-level-use-real-luacats-annotations">Function/variable-level: use real LuaCATS annotations</a></li>
+<li><a href="#functiontable-level-this-codebases-own-tags">Function/table-level: this codebase&#x27;s own tags</a></li>
+<li><a href="#constant-families-alias-gathers-the-constants-it-names">Constant families: @alias gathers the constants it names</a></li>
+<li><a href="#class-pages-namespace-classname-gathers-a-classs-members">Class pages: @namespace &lt;ClassName&gt; gathers a class&#x27;s members</a></li>
+<li><a href="#file-header-tags-this-codebases-own-set">File-header tags: this codebase&#x27;s own set</a></li>
+<li><a href="#putting-it-together">Putting it together</a></li>
+</ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
-<li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><strong>Writing Doc Comments</strong></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -44,6 +49,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -56,6 +65,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -65,6 +75,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -77,7 +113,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -87,7 +122,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -125,22 +159,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -153,9 +171,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -319,28 +334,120 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>Writing Doc Comments</h1></div><div class="ll-module-body"><h1>Writing Doc Comments</h1>
-<p>This site is built by <a href="https://github.com/limelight-development/cityrp2/blob/master/tools/docs/generate.py"><code>generate.py</code></a> from two independent sources, so a doc comment lives or dies depending on which one actually reads it:</p>
+<div class="ll-module-header"><h1>Writing Doc Comments</h1></div><div class="ll-module-body"><p>This site is built by <a href="https://github.com/limelight-development/cityrp2/blob/master/tools/docs/generate.py"><code>generate.py</code></a> from two independent sources, so a doc comment lives or dies depending on which one actually reads it:</p>
 <ol>
 <li><strong><code>lua-language-server</code>'s <code>--doc</code> JSON export.</strong> LuaLS parses the codebase and exports every doc comment it understands — that means real <a href="https://luals.github.io/wiki/annotations/">LuaCATS</a> annotations (<code>--- @param</code>, <code>--- @return</code>, <code>--- @class</code>, ...) attached <strong>immediately above</strong> a declaration, with no blank line in between. A blank line between the comment and the code it describes means LuaLS never associates the two, and the comment is silently dropped from the JSON entirely.</li>
 <li><strong><code>generate.py</code>'s own raw-source scan</strong>, used only for each file's <em>leading header comment</em> (description, <code>@namespace</code>, etc). This one tolerates a blank line before the code that follows. Write headers as <code>---</code> lines.</li>
 </ol>
 <p>Everything else in this page is about what each of those two paths actually understands. For the
 annotations themselves — every tag, its fields, the full type syntax, and the Garry's Mod-specific
-conventions — see <a href="luacats.md">LuaCATS Annotations</a>.</p>
-<h2>Pipeline</h2>
+conventions — see <a href="luacats.html">LuaCATS Annotations</a>.</p>
+<h2 id="pipeline">Pipeline</h2>
 <pre><code class="language-bash"># 1. LuaLS walks the gamemode and exports its own understanding of every doc comment.
 lua-language-server --doc=gamemodes/cityrp_2_by_limelightgaming/gamemode \
                      --doc_out_path=tools/docs/out
 
-# 2. generate.py turns that JSON (plus docs/*.md) into this site.
+# 2. generate.py turns that JSON (plus docs/**/*.md) into this site.
 python3 tools/docs/generate.py --json tools/docs/out/doc.json \
                                 --output tools/docs/build \
                                 --style-dir tools/docs/style \
                                 --topics docs
 </code></pre>
 <p>Files under <code>core/server</code>, <code>core/autogen</code>, <code>core/plugins/antihack</code>, <code>core/plugins/screengrab</code>, and every <code>core/items/&lt;category&gt;</code> subfolder are excluded from the export entirely — no doc comment in those paths will ever appear on the site.</p>
-<h2>Function/variable-level: use real LuaCATS annotations</h2>
+<h3 id="seeing-every-feature-at-once">Seeing every feature at once</h3>
+<p><a href="https://github.com/limelight-development/cityrp2/blob/master/tools/docs/fixtures/stubs.lua"><code>tools/docs/fixtures/stubs.lua</code></a> is a stub file using every tag, realm, callout, type and section the site renders. It is never loaded, and it sits outside the gamemode so its fake symbols can never reach the published site. Build just that file when changing <code>generate.py</code> or the stylesheet — it is far quicker than hunting for a real function that happens to use the feature you touched:</p>
+<pre><code class="language-bash">lua-language-server --doc=tools/docs/fixtures --doc_out_path=tools/docs/stub-out \
+                    --configpath=tools/docs/luarc-docs.json
+python3 tools/docs/generate.py --json tools/docs/stub-out/doc.json \
+                              --output tools/docs/stub-build \
+                              --style-dir tools/docs/style --topics docs \
+                              --source tools/docs/fixtures
+</code></pre>
+<p>That produces two pages: <code>stubs</code> for the library-style symbols and <code>StubEntity</code> for the metatable ones. <code>test_generate.py</code> fails if the stub stops covering a callout kind, a realm, or the example/section/alias tags, so it cannot quietly fall behind the generator.</p>
+<h2 id="topic-files-and-folders">Topic files and folders</h2>
+<p>Every markdown file under <code>docs/</code> is published, and the folder it sits in decides where. Top-level files are listed directly under the sidebar's <strong>Topics</strong> heading. A subfolder becomes a single collapsed entry at the bottom of that same list, linking to the folder's index page — <code>docs/design/x.md</code> publishes to <code>topics/design/x.html</code>, reachable from the <strong>Design Docs</strong> entry. The folder's pages only unfold in the sidebar while you're on one of them, so the Topics list is the same length from everywhere else and a body of design docs doesn't crowd out the technical topics.</p>
+<p>Folders nest to any depth. <code>docs/design/car-boosting/hotwiring.md</code> sits under <strong>Car Boosting</strong> inside <strong>Design Docs</strong>, and opening it unfolds both — every ancestor of the page you're on, and nothing else. A folder is labelled by its own leaf name; the parent it sits under supplies the rest of the context. Each level of the tree also gets its own index page, and a parent's index links down into its children under a <strong>Sections</strong> heading, so nothing is reachable only from an already-expanded sidebar.</p>
+<p>There is no per-folder config; creating the folder is the whole step. Add an <code>index.md</code> to give the folder a name and an intro — its <code>title</code> becomes the sidebar label. The list of what's in the folder is always generated, never hand-maintained.</p>
+<p><code>topics/</code> mirrors <code>docs/</code>, so a relative link between two topic files stays correct on the site as well as on GitHub — <code>generate.py</code> only swaps the <code>.md</code> for <code>.html</code>, and leaves any link that doesn't resolve to a topic (<code>../AGENTS.md</code>, absolute URLs) alone. That mirroring cuts both ways: <strong>moving a doc into a folder changes its depth, so its own <code>../</code> links and everyone else's links to it need updating in the same change.</strong> Headings get GitHub's own anchor slugs, so <code>plugins.md#keys</code> works in both places too.</p>
+<p>A relative link that points <em>above</em> <code>docs/</code> — <code>../AGENTS.md</code>, <code>../../gamemodes/…/db.lua</code> — has no
+page to land on, because only <code>docs/</code> is published. Those are rewritten to the repo browser rather
+than left to 404. <code>test_generate.py</code> runs the whole <code>docs/</code> tree through the generator and fails on a
+link or heading anchor that doesn't resolve, which is the only thing that reliably catches a doc
+being moved between folders.</p>
+<p>Topic pages with more than two <code>##</code> headings get a <strong>Contents</strong> block in the sidebar, and the sidebar
+search box covers every topic, module and symbol — it reads <code>search.json</code>, fetched on first use.</p>
+<p>A page's opening <code>&lt;h1&gt;</code> is dropped from the rendered HTML — the title already sits in the header bar above it, so keeping both would print it twice. Keep writing the heading; it's what makes the file readable on GitHub, and it's the fallback when there's no front-matter <code>title</code>. Only the first one goes, and only if the page opens with it.</p>
+<h3 id="front-matter">Front matter</h3>
+<p>Any topic may open with a <code>---</code> block. It's flat <code>key: value</code> lines, not real YAML — the docs build has no YAML dependency, and a block that isn't in that shape is left in the page as ordinary markdown rather than silently swallowed.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>title</code></td>
+<td align="left">Sidebar label, page header, and index row. Overrides the first heading, which is otherwise what the title comes from.</td>
+</tr>
+<tr>
+<td align="left"><code>status</code></td>
+<td align="left">Index column. Free text — <code>Proposed</code>, <code>Landed</code>, <code>Implemented</code>, whatever the folder uses.</td>
+</tr>
+<tr>
+<td align="left"><code>date</code></td>
+<td align="left">Index column.</td>
+</tr>
+<tr>
+<td align="left"><code>description</code></td>
+<td align="left">Index column. One line on what the doc covers.</td>
+</tr>
+<tr>
+<td align="left"><code>pinned</code></td>
+<td align="left"><code>true</code>/<code>yes</code>/<code>1</code> lifts the doc to the top of its list, marked with a pin. Anything else, including omitting it, leaves the doc in filename order.</td>
+</tr>
+<tr>
+<td align="left"><code>index</code></td>
+<td align="left"><code>true</code> promotes the doc to be its folder's landing page. See below.</td>
+</tr>
+</tbody>
+</table>
+<p>A folder index tabulates only the columns some page in that folder actually sets, so a folder using none of them stays a plain list of links. Every field, including ones not listed above, is carried into <code>api.json</code> under the topic's <code>meta</code> for the <code>cityrp-docs</code> MCP server.</p>
+<h3 id="promoting-a-page-to-be-the-folder-index">Promoting a page to be the folder index</h3>
+<p>A folder whose landing page should be one of its own docs — rather than a summary written for the purpose — marks that doc <code>index: true</code>. <code>docs/design/clans/design.md</code> does this: it already explains what clans are, so the <strong>Clans</strong> sidebar entry points straight at it.</p>
+<p>A doc <strong>named after the folder it sits in</strong> is promoted the same way without needing the flag, since that naming almost always means &quot;this is the overview&quot;. <code>docs/design/car-boosting/car-boosting.md</code> is the <strong>Car Boosting and Ringing</strong> entry for its folder on that basis alone. The name has to match in full: <code>car-boosting-live-test-plan.md</code> is not a match.</p>
+<p>Precedence, most deliberate first — <code>index: true</code>, then an <code>index.md</code>, then a folder-name match:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Folder contains</th>
+<th align="left">Landing page</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">a doc with <code>index: true</code></td>
+<td align="left">that doc, whatever it's called</td>
+</tr>
+<tr>
+<td align="left"><code>index.md</code></td>
+<td align="left"><code>index.md</code>, with the generated listing below its prose</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;folder-name&gt;.md</code></td>
+<td align="left">that doc</td>
+</tr>
+<tr>
+<td align="left">none of the above</td>
+<td align="left">a generated page listing the folder</td>
+</tr>
+</tbody>
+</table>
+<p>A promoted page keeps its own URL (<code>topics/design/clans/design.html</code>, not <code>index.html</code>), so links written to it still resolve, and it's written once rather than existing at two addresses. It drops out of the folder's own list, since the folder entry above is now the way to reach it, and its content stands in for the generated listing rather than being prefixed to it. Links down into any <em>subfolders</em> are still appended, so promoting a page can't orphan a folder nested below it.</p>
+<p>The folder's other pages are then reachable from the sidebar, which is unfolded whenever you're on any page in that folder — including the promoted one. If you want a listing as well as prose, use an <code>index.md</code> instead: that keeps the generated table and puts your text above it. Where two of the three mechanisms are present in one folder the table above decides, and the loser becomes an ordinary page in the list; that isn't an error, but it's worth not doing on purpose.</p>
+<p>Pinning is scoped to the list the doc is already in — a pinned top-level doc rises within <strong>Topics</strong>, a pinned doc inside a folder rises within that folder's sidebar list and its index table. It doesn't lift a doc out of its folder, and folders themselves can't be pinned; they always sit below the loose files. Pinning several docs keeps them in filename order relative to each other.</p>
+<h2 id="functionvariable-level-use-real-luacats-annotations">Function/variable-level: use real LuaCATS annotations</h2>
 <p>Write these as <code>--- @tag ...</code> directly above the <code>function</code>/assignment they describe, no blank line. <code>generate.py</code> reads the native <code>args</code>/<code>returns</code> LuaLS already resolved from the function signature itself (so types are accurate even if you never repeat them) and only borrows the tag's text for the human-readable description.</p>
 <table>
 <thead>
@@ -467,8 +574,13 @@ function ENV:Get(name)
 	...
 end
 </code></pre>
-<h2>Function/table-level: this codebase's own tags</h2>
-<p>These are custom to <code>generate.py</code>, not LuaCATS — but like <code>@param</code>/<code>@return</code>, they're written <strong>directly above the function or table they describe</strong>, with no blank line, since <code>generate.py</code> only reads the tags attached to that specific declaration's own doc comment:</p>
+<h2 id="functiontable-level-this-codebases-own-tags">Function/table-level: this codebase's own tags</h2>
+<p>These are custom to <code>generate.py</code>, not LuaCATS — but like <code>@param</code>/<code>@return</code>, they're written <strong>directly above the function or table they describe</strong>, with no blank line, since <code>generate.py</code> only reads the tags attached to that specific declaration's own doc comment.</p>
+<blockquote class="ll-alert ll-alert-important"><p class="ll-alert-title">Important</p>
+<p>Write these with a space after the dashes — <code>--- @state server</code>, not <code>---@state server</code>.</p>
+<p>LuaLS parses <code>---@tag</code> as an annotation and drops any tag it doesn't recognise, so the tag never reaches <code>generate.py</code> and the whole line vanishes with no error. <code>--- @tag</code> is description text as far as LuaLS is concerned, which is exactly how these survive into the export for <code>generate.py</code> to re-parse. The one <code>@usage</code> in the tree was written <code>---@usage</code> and had therefore never rendered anything.</p>
+</blockquote>
+<p>The tags:</p>
 <table>
 <thead>
 <tr>
@@ -486,32 +598,73 @@ end
 <td align="left">One of <code>client</code>, <code>server</code>, <code>menu</code>, <code>shared</code>, <code>global</code>, <code>clmenu</code> — drives the realm badge shown next to the item. If a function omits it, it falls back to whatever <code>@state</code> the file's header comment declared.</td>
 </tr>
 <tr>
-<td align="left"><code>@warns &lt;text&gt;</code></td>
-<td align="left">Renders a &quot;Warnings&quot; callout on that item.</td>
-</tr>
-<tr>
-<td align="left"><code>@bugs &lt;text&gt;</code></td>
-<td align="left">Renders a &quot;Known Issues&quot; callout on that item.</td>
-</tr>
-<tr>
-<td align="left"><code>@deprecated [text]</code></td>
-<td align="left">Renders a &quot;Deprecated&quot; callout on that item (falls back to a stock message if no text given).</td>
-</tr>
-<tr>
-<td align="left"><code>@internal [text]</code></td>
-<td align="left">Renders an &quot;Internal&quot; callout on that item (falls back to a stock message if no text given).</td>
+<td align="left"><code>@example &lt;code&gt;</code></td>
+<td align="left">Renders an &quot;Example&quot; code block after the parameters and returns. Continuation lines are kept as lines, so a multi-line example stays multi-line. Not <code>@usage</code> — see below.</td>
 </tr>
 </tbody>
 </table>
+<h3 id="callout-tags">Callout tags</h3>
+<p>Seven tags render as callout boxes, in the manner of the <a href="https://wiki.facepunch.com/gmod/Structures">GMod wiki's note boxes</a>. They come out as the same boxes a topic gets from <code>&gt; [!WARNING]</code>, so the site has one visual language for &quot;read this before you use it&quot; rather than two, and each has its own colour.</p>
+<p>They always appear in this order on an entry — whether you should be using this at all, then what is wrong with it, then advisories — regardless of the order they were written in:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Tag</th>
+<th align="left">Box</th>
+<th align="left">Stock text when no text is given</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>@deprecated [text]</code></td>
+<td align="left">Deprecated</td>
+<td align="left">&quot;This function is deprecated and may be removed in a future version.&quot;</td>
+</tr>
+<tr>
+<td align="left"><code>@internal [text]</code></td>
+<td align="left">Internal</td>
+<td align="left">&quot;This function is internal. Whilst you can call it, you probably shouldn't.&quot;</td>
+</tr>
+<tr>
+<td align="left"><code>@bug &lt;text&gt;</code></td>
+<td align="left">Bug</td>
+<td align="left">—</td>
+</tr>
+<tr>
+<td align="left"><code>@warning &lt;text&gt;</code></td>
+<td align="left">Warning</td>
+<td align="left">—</td>
+</tr>
+<tr>
+<td align="left"><code>@ambig [text]</code></td>
+<td align="left">Ambiguous</td>
+<td align="left">&quot;This entry is unclear or incomplete.&quot;</td>
+</tr>
+<tr>
+<td align="left"><code>@validate [text]</code></td>
+<td align="left">Validate</td>
+<td align="left">&quot;This entry has not been checked against the code recently.&quot;</td>
+</tr>
+<tr>
+<td align="left"><code>@note &lt;text&gt;</code></td>
+<td align="left">Note</td>
+<td align="left">—</td>
+</tr>
+</tbody>
+</table>
+<p><code>@bugs</code>, <code>@warns</code>, <code>@notes</code> and <code>@ambiguous</code> are accepted as alternative spellings. Several spellings of the same tag on one function collapse into a single box rather than producing two. The text is rendered as markdown, so links and <code>code</code> work inside a callout.</p>
+<p>Topics can use any of these as GFM alerts too — <code>&gt; [!BUG]</code>, <code>&gt; [!DEPRECATED]</code> — alongside the standard <code>[!NOTE]</code>, <code>[!TIP]</code>, <code>[!IMPORTANT]</code>, <code>[!WARNING]</code> and <code>[!CAUTION]</code>.</p>
 <pre><code class="language-lua">--- Old warrant lookup, kept for legacy callers.
 --- @deprecated Use cityrp.warrants.issue instead.
---- @bugs Does not account for expired warrants.
+--- @bug Does not account for expired warrants.
 --- @state server
+--- @example cityrp.warrants.legacyLookup(ply)
 function cityrp.warrants.legacyLookup(ply)
 	...
 end
 </code></pre>
-<h2>Constant families: <code>@alias</code> gathers the constants it names</h2>
+<p>Not <code>@usage</code>: it is an LDoc tag, and <code>standards-diff.py</code> rejects it in CI. Supporting it here would mean the docs rendering something nobody is allowed to write.</p>
+<h2 id="constant-families-alias-gathers-the-constants-it-names">Constant families: <code>@alias</code> gathers the constants it names</h2>
 <p>A page that declares a long run of prefixed constants — the 87 <code>COL_*</code> colours, the 26 <code>TEAM_*</code>
 jobs — would otherwise list every one of them as a top-level entry, interleaved alphabetically with
 everything else the page declares. An <code>@alias</code> over those constants turns them into a section of
@@ -544,7 +697,7 @@ values</strong> list rather than the raw code block LuaLS hands over.</li>
 </ul>
 <p>Deep links are unaffected: <code>#COL_WHITE</code> still lands on the constant, and <code>#COL</code> now lands on the
 family heading it used to be an entry in.</p>
-<h2>Class pages: <code>@namespace &lt;ClassName&gt;</code> gathers a class's members</h2>
+<h2 id="class-pages-namespace-classname-gathers-a-classs-members">Class pages: <code>@namespace &lt;ClassName&gt;</code> gathers a class's members</h2>
 <p>A metatable class is re-opened all over the tree — <code>Player</code> in nine files, so that a library can hang
 one helper on it without owning the whole metatable. Each member would otherwise land on the page of
 whichever file happens to declare it, or, if that file claims no <code>@namespace</code> of its own, on a page
@@ -572,7 +725,22 @@ Both are declared in the second file.</p>
 next to the thing they describe, which is where they belong.</p>
 <p>The page's own intro comes from a file that <em>claims</em> the namespace, not from whichever contributor
 file sorts first, so the Player page does not introduce itself as &quot;Access and flags - server.&quot;.</p>
-<h2>File-header tags: this codebase's own set</h2>
+<h3 id="metatables-and-panels-get-their-own-sidebar-sections">Metatables and panels get their own sidebar sections</h3>
+<p>Two groups are split out of the flat <strong>Modules</strong> list, both classified by where the code lives rather
+than by a tag every file has to remember:</p>
+<ul>
+<li><strong>Metatables</strong> — a <code>@class</code> declared in <code>gamemode/core/metatables/</code>. <code>Player</code>, <code>Entity</code> and
+<code>Vehicle</code>. These claim a page the same way a <code>@namespace</code> class does <em>without</em> needing to declare
+one: <code>Player</code> already did, but <code>Entity</code> and <code>Vehicle</code> declare only <code>@class</code>, so their members were
+scattering onto whichever library page LuaLS listed first — exactly the problem the <code>@namespace</code>
+opt-in exists to solve, never applied to them.</li>
+<li><strong>Panels</strong> — a module whose members all come from a <code>derma/</code> folder. &quot;All&quot;, not &quot;some&quot;, so a
+library that happens to define one panel helper stays under Modules.</li>
+</ul>
+<p>Neither needs anything added to a Lua file. A section with nothing in it is omitted, so the Panels
+heading only appears once derma files are documented — today almost none are, since a panel's methods
+hang off a file-local <code>PANEL</code> table that LuaLS can't attribute to anything.</p>
+<h2 id="file-header-tags-this-codebases-own-set">File-header tags: this codebase's own set</h2>
 <p>The very first comment in a file (<code>---</code> line comments, blank line before the code is fine) is scanned separately for these tags — they are <strong>not</strong> LuaCATS and LuaLS doesn't know about them:</p>
 <table>
 <thead>
@@ -602,7 +770,7 @@ file sorts first, so the Player page does not introduce itself as &quot;Access a
 --- @author Someone
 --- @namespace some.namespace
 </code></pre>
-<h2>Putting it together</h2>
+<h2 id="putting-it-together">Putting it together</h2>
 <pre><code class="language-lua">--- Player-facing warrant helpers.
 --- @namespace cityrp.warrants
 
@@ -619,5 +787,72 @@ end
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Clans Overhaul — Plan</title>
+	<link rel="stylesheet" href="../../../style.6b230c7a19.css" type="text/css">
+</head>
+<body>
+<div id="container">
+	<div id="product">
+		<div id="product_logo"></div>
+		<div id="product_name"><big><b></b></big></div>
+		<div id="product_description"></div>
+	</div>
+	<div id="main">
+		<div id="navigation">
+<div class="ll-kind-header"><h1><a href="../../../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#scope-boundary">Scope boundary</a></li>
+<li><a href="#phase-0--hotfixes-do-not-wait-on-this-design">Phase 0 — Hotfixes (do not wait on this design)</a></li>
+<li><a href="#phase-1a--word-filter-and-staff-force-rename-tool">Phase 1a — Word filter and staff force-rename tool</a></li>
+<li><a href="#phase-1--core-module-1">Phase 1 — Core (Module 1)</a></li>
+<li><a href="#phase-2--bank-module-2">Phase 2 — Bank (Module 2)</a></li>
+<li><a href="#data-migration">Data migration</a></li>
+<li><a href="#deferred">Deferred</a></li>
+<li><a href="#open-risks">Open risks</a></li>
+<li><a href="#open-questions-flagged-during-planning">Open questions flagged during planning</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Topics</h2></div>
+<ul class="ll-kind-body">
+<li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../../../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
+<li><a href="../../../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
+<li><a href="../../../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../../../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
+<li><a href="../../../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../../../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../../../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../../../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><a href="../../../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../../../topics/meska.html">MESKA</a></li>
+<li><a href="../../../topics/networking.html">Networking Library</a></li>
+<li><a href="../../../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../../../topics/plugins.html">Plugins</a></li>
+<li><a href="../../../topics/ui-scaling.html">UI Scaling</a></li>
+<li><a href="../../../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../../../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
+<li><a href="../../../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/index.html">Design Docs</a>
+<ul class="ll-topic-children">
+<li><a href="../../../topics/design/docs-layout-migration.html">Docs layout migration</a></li>
+<li><a href="../../../topics/design/items-registration.html">Class-Based Item Registration</a></li>
+<li class="ll-topic-folder"><a href="../../../topics/design/car-boosting/car-boosting.html">Car Boosting</a>
+</li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/clans/design.html">Clans</a>
+<ul class="ll-topic-children">
+<li><a href="../../../topics/design/clans/acceptance-criteria.html">Clans — Acceptance Criteria</a></li>
+<li><a href="../../../topics/design/clans/bank.html">Clans — Bank Module</a></li>
+<li><a href="../../../topics/design/clans/core.html">Clans — Core Module</a></li>
+<li><strong>Clans Overhaul — Plan</strong></li>
+<li><a href="../../../topics/design/clans/ui.html">Clans — In-Game Menu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
+</li>
+</ul>
+<div class="ll-kind-header"><h2>Items</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/ITEM.html">ITEM</a></li>
+<li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
+<li><a href="../../../modules/ITEM.Ammo.html">ITEM.Ammo</a></li>
+<li><a href="../../../modules/ITEM.Card.html">ITEM.Card</a></li>
+<li><a href="../../../modules/ITEM.Clothing.html">ITEM.Clothing</a></li>
+<li><a href="../../../modules/ITEM.Collectable.html">ITEM.Collectable</a></li>
+<li><a href="../../../modules/ITEM.Food.html">ITEM.Food</a></li>
+<li><a href="../../../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
+<li><a href="../../../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../../../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
+<li><a href="../../../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
+<li><a href="../../../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
+<li><a href="../../../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
+<li><a href="../../../modules/ITEM.Sticker.html">ITEM.Sticker</a></li>
+<li><a href="../../../modules/ITEM.Suit.html">ITEM.Suit</a></li>
+<li><a href="../../../modules/ITEM.Uniform.html">ITEM.Uniform</a></li>
+<li><a href="../../../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
+<li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
+<li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Entity.html">Entity</a></li>
+<li><a href="../../../modules/Player.html">Player</a></li>
+<li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../../../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../../../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../../../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../../../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../../../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../../../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../../../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../../../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../../../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../../../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../../../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../../../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../../../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Modules</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Array.html">Array</a></li>
+<li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
+<li><a href="../../../modules/CPPI.html">CPPI</a></li>
+<li><a href="../../../modules/DB.html">DB</a></li>
+<li><a href="../../../modules/Enumerations.html">Enumerations</a></li>
+<li><a href="../../../modules/GM.html">GM</a></li>
+<li><a href="../../../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
+<li><a href="../../../modules/Migrations.html">Migrations</a></li>
+<li><a href="../../../modules/PLUGIN.html">PLUGIN</a></li>
+<li><a href="../../../modules/SPropProtection.html">SPropProtection</a></li>
+<li><a href="../../../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../../../modules/bwep.html">bwep</a></li>
+<li><a href="../../../modules/cityrp.access.html">cityrp.access</a></li>
+<li><a href="../../../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+<li><a href="../../../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+<li><a href="../../../modules/cityrp.command.html">cityrp.command</a></li>
+<li><a href="../../../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../../../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../../../modules/cityrp.entity.html">cityrp.entity</a></li>
+<li><a href="../../../modules/cityrp.favorites.html">cityrp.favorites</a></li>
+<li><a href="../../../modules/cityrp.help.html">cityrp.help</a></li>
+<li><a href="../../../modules/cityrp.hints.html">cityrp.hints</a></li>
+<li><a href="../../../modules/cityrp.imageHosts.html">cityrp.imageHosts</a></li>
+<li><a href="../../../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+<li><a href="../../../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../../../modules/cityrp.itemmeta.html">cityrp.itemmeta</a></li>
+<li><a href="../../../modules/cityrp.layers.html">cityrp.layers</a></li>
+<li><a href="../../../modules/cityrp.legacy.functions.html">cityrp.legacy.functions</a></li>
+<li><a href="../../../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
+<li><a href="../../../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
+<li><a href="../../../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../../../modules/cityrp.logging.html">cityrp.logging</a></li>
+<li><a href="../../../modules/cityrp.logs.html">cityrp.logs</a></li>
+<li><a href="../../../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
+<li><a href="../../../modules/cityrp.membership.html">cityrp.membership</a></li>
+<li><a href="../../../modules/cityrp.model.html">cityrp.model</a></li>
+<li><a href="../../../modules/cityrp.network.html">cityrp.network</a></li>
+<li><a href="../../../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
+<li><a href="../../../modules/cityrp.player.html">cityrp.player</a></li>
+<li><a href="../../../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../../../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+<li><a href="../../../modules/cityrp.remote.html">cityrp.remote</a></li>
+<li><a href="../../../modules/cityrp.settings.html">cityrp.settings</a></li>
+<li><a href="../../../modules/cityrp.table.html">cityrp.table</a></li>
+<li><a href="../../../modules/cityrp.team.html">cityrp.team</a></li>
+<li><a href="../../../modules/cityrp.teslaCharger.html">cityrp.teslaCharger</a></li>
+<li><a href="../../../modules/cityrp.teslaChargerPrice.html">cityrp.teslaChargerPrice</a></li>
+<li><a href="../../../modules/cityrp.topHints.html">cityrp.topHints</a></li>
+<li><a href="../../../modules/cityrp.ui.html">cityrp.ui</a></li>
+<li><a href="../../../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../../../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
+<li><a href="../../../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../../../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
+<li><a href="../../../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../../../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../../../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../../../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../../../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../../../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../../../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../../../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_boneanimlib.html">core.plugins.animations.animationsapi.cl_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../../../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
+<li><a href="../../../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
+<li><a href="../../../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../../../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../../../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.cl_init.html">core.plugins.bodybags.entities.cityrp_bodybag.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.shared.html">core.plugins.bodybags.entities.cityrp_bodybag.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.cl_init.html">core.plugins.bodybags.entities.cityrp_evidence.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.init.html">core.plugins.bodybags.entities.cityrp_evidence.init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.shared.html">core.plugins.bodybags.entities.cityrp_evidence.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../../../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
+<li><a href="../../../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.giveprops.sv_init.html">core.plugins.giveprops.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_camera.html">core.plugins.holdem.cl.cl_camera</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_cards.html">core.plugins.holdem.cl.cl_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_chips.html">core.plugins.holdem.cl.cl_chips</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_hud.html">core.plugins.holdem.cl.cl_hud</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_render.html">core.plugins.holdem.cl.cl_render</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_ui.html">core.plugins.holdem.cl.cl_ui</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_vec2.html">core.plugins.holdem.cl.cl_vec2</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl_init.html">core.plugins.holdem.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_cards.html">core.plugins.holdem.sh_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_config.html">core.plugins.holdem.sh_config</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_init.html">core.plugins.holdem.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_commands.html">core.plugins.holdem.sv.sv_commands</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_game.html">core.plugins.holdem.sv.sv_game</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_net.html">core.plugins.holdem.sv.sv_net</a></li>
+<li><a href="../../../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_editor.html">core.plugins.lite_character.cl_editor</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_init.html">core.plugins.lite_character.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_notches.html">core.plugins.lite_character.cl_notches</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_debug.html">core.plugins.lite_character.sh_debug</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_rockfall.shared.html">core.plugins.maintenance.entities.cityrp_rockfall.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../../../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../../../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../../../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../../../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../../../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../../../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../../../modules/dumper.html">dumper</a></li>
+<li><a href="../../../modules/entities.cityrp_peephole.html">entities.cityrp_peephole</a></li>
+<li><a href="../../../modules/env.html">env</a></li>
+<li><a href="../../../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
+<li><a href="../../../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
+<li><a href="../../../modules/plugins.worldprops.html">plugins.worldprops</a></li>
+<li><a href="../../../modules/sh_init.html">sh_init</a></li>
+<li><a href="../../../modules/temar.html">temar</a></li>
+<li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Credits</h2></div>
+<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Clans Overhaul — Plan</h1></div><div class="ll-module-body"><p>Delivery plan for the modular clans rebuild specified in <a href="design.html">design.md</a>.</p>
+<p>Phase numbers match module numbers: Phase 1 delivers Module 1 (Core), Phase 2
+delivers Module 2 (Bank).</p>
+<blockquote>
+<p><strong>Status</strong>: Draft. Phase 0 is independent of the rebuild and should not wait on it.</p>
+</blockquote>
+<h2 id="scope-boundary">Scope boundary</h2>
+<p>The companion web app is <strong>out of scope</strong> — its repository is disabled. Nothing
+in this plan depends on it, and no phase includes work on it. See
+<a href="#deferred">Deferred</a> for what that leaves unresolved.</p>
+<h2 id="phase-0--hotfixes-do-not-wait-on-this-design">Phase 0 — Hotfixes (do not wait on this design)</h2>
+<p>Live defects, all game-side. Listed here for traceability but they should ship as
+ordinary fixes as soon as they are reviewed.</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Fix</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>High</strong></td>
+<td><code>/clan accept</code> does not reject players already in a clan, and does not check the <code>INSERT</code> result before declaring success. The insert fails on the <code>clan_members</code> primary key, but in-memory state is set and success is announced anyway — so the player reverts to their old clan on reconnect</td>
+<td><code>clans/sv_init.lua</code></td>
+</tr>
+<tr>
+<td><strong>High</strong></td>
+<td><code>!updateclans</code> reads <code>result</code> from a callback parameter named <code>results</code>, wiping clan state and reloading nothing — the documented recovery path is broken</td>
+<td><code>clans/sv_init.lua</code></td>
+</tr>
+<tr>
+<td><strong>High</strong></td>
+<td><code>cityrp.clans.kick</code> and <code>.setrank</code> return from inside the async DB callback, so they always return <code>nil</code>; the permission-dependent follow-up never runs and live state is not updated</td>
+<td><code>clans/sv_init.lua</code></td>
+</tr>
+<tr>
+<td>Medium</td>
+<td><code>deleteclan</code> rows are hardcoded to <code>v2d</code>/<code>v33x</code>/<code>v4b1</code>. Live is <code>v4b1_fl2</code>, matched by exact string equality, so live never receives them</td>
+<td><code>clans/sv_init.lua</code></td>
+</tr>
+<tr>
+<td>Medium</td>
+<td><code>deleteclan</code> handler compares <code>row.value1</code> (string) to <code>_Clan</code> (number) and can return without calling <code>done()</code>, causing infinite 60s retries</td>
+<td><code>libraries/sv_remote.lua</code></td>
+</tr>
+<tr>
+<td>Medium</td>
+<td><code>reloadclan</code> and <code>deleteclan</code> both open <code>if not cityrp.clans then done() end</code> with <strong>no <code>return</code></strong> — the guard marks the row done, then errors on the next line</td>
+<td><code>libraries/sv_remote.lua</code></td>
+</tr>
+<tr>
+<td>Low</td>
+<td><code>cityrp.model.remove</code> calls <code>table.RemoveByValue</code> on a key-indexed table and silently does nothing; affects every model consumer, not just clans</td>
+<td><code>libraries/sv_model.lua</code></td>
+</tr>
+</tbody>
+</table>
+<p>The two <code>sv_remote.lua</code> fixes and the <code>sv_model.lua</code> fix are <strong>not throwaway</strong> —
+those files survive the rebuild. The <code>clans/sv_init.lua</code> fixes are throwaway,
+since that file is being replaced.
+| Medium | <code>setleader</code> offline path joins <code>clan_member</code> instead of <code>clan_members</code> | <code>clans/sv_init.lua</code> |
+| Low | <code>/clan info</code> indexes <code>cityrp.clans.clans[player._Clan]</code> with no nil guard | <code>clans/sv_init.lua</code> |</p>
+<p>The <code>clanskinchanger</code> shared-timer collision and the <code>/clan model</code> nil index are
+deliberately <strong>not</strong> listed — that command is being retired in Phase 1, so fixing
+it first would be wasted work.</p>
+<p>Phase 0 does not attempt to fix the architecture. It stops the bleeding.</p>
+<h2 id="phase-1a--word-filter-and-staff-force-rename-tool">Phase 1a — Word filter and staff force-rename tool</h2>
+<p>Pulled out of Phase 1 and run first (or in parallel with Phase 1 Steps 1–3,
+below). Two architecture decisions shape this plan and are not re-litigated
+here: <strong>Step 2 of Phase 1 builds <code>core.kick</code> as a vertical slice before the
+rest of Core</strong>, and <strong>this word-filter/force-rename work is split into its own
+Phase 1a</strong> because it sits on the moderation-policy dependency that blocks
+other people's work — pulling it forward unblocks their critical path, and
+because it does not depend on any clans-specific schema or framework code,
+there is no reason to make it wait on Phase 1's sequencing.</p>
+<ol>
+<li><strong><code>cityrp.wordfilter</code> gamemode library</strong> (<code>gamemode/core/libraries/</code>, not
+under <code>clans/</code>). Multiple named categories (<code>reserved</code>, <code>slur</code>,
+<code>profanity</code>), each independently curated and independently
+enabled/disabled per call site. Normalisation pipeline: casefold, strip
+separators/punctuation, fold leetspeak digits (<code>4→a</code>, <code>3→e</code>, <code>0→o</code>,
+<code>1→i</code>/<code>l</code>), fold common homoglyphs. Two match modes: whole-field (for short
+fields like the abbreviation) and substring (for longer free-text). This is
+the first consumer-agnostic profanity/slur filter in the gamemode — no
+equivalent exists today anywhere, which is exactly why it is being built as
+a shared library instead of inline in <code>clans/</code>, matching the existing
+allowlist-drift lesson from <a href="../../image-hosts.html">image hosts</a> (AGENTS.md
+footgun #9 — this is the same failure shape: one allowlist copied into
+several call sites and drifting apart).
+List <em>contents</em> are owned by moderation; the category-to-field policy
+matrix is a product decision made per-consumer (clans' matrix is in
+<a href="core.html#prohibited-content">core.md</a>) — the library itself ships with
+empty or seed lists and does not hardcode either.</li>
+<li><strong>Staff force-rename / force-retag tool.</strong> Registered via
+<code>cityrp.acommands.AddCommand</code> — this is a staff tool and belongs on <code>!</code>,
+never on <code>/</code> with a restricted access flag (AGENTS.md footgun #14). Needs a
+category, a syntax string, and a tip per the acommands contract. Scope:
+rename and re-tag (abbreviation) a clan without deleting or refunding it,
+bypassing the normal <code>core.edit_identity</code> gate and the collision/word-filter
+screens that would otherwise apply to the <em>offending</em> value (the new value
+staff choose still goes through validation and the word filter — only the
+requirement that the <em>acting player</em> hold <code>core.edit_identity</code> is bypassed).
+Logged via <code>cityrp.logs.add()</code> as an admin action, independent of the audit
+trail conventions Bank uses for money (footgun #8 — don't conflate the two
+logging APIs).</li>
+<li><strong>No clan-specific work lands here.</strong> This phase produces a library and a
+staff tool usable by any future feature, not clan schema or clan commands —
+Phase 1 Step 4 (below) is Core's <em>consumer</em> of this library, wired in once
+both are ready.</li>
+</ol>
+<p>Dependency: Phase 1 Step 4 (identity field validation) cannot ship until this
+phase's library exists — that is the one point where Phase 1 waits on Phase
+1a. Everything else in Phase 1 is independent of it.</p>
+<h2 id="phase-1--core-module-1">Phase 1 — Core (Module 1)</h2>
+<p>Core <strong>is</strong> the framework. The module registration API and the base clan
+feature set ship together — building the framework as a separate deliverable
+with no modules attached would validate nothing. Per the architecture review,
+the framework is proven against the smallest real permission check
+(<code>core.kick</code>) before the rest of Core is built against imagination.</p>
+<h3 id="step-1--minimal-framework-skeleton">Step 1 — Minimal framework skeleton</h3>
+<p>Just enough to register a module and declare a permission — not the full
+membership/rank feature set.</p>
+<ul>
+<li>Module registration API: <code>id</code>, <code>pcall</code>-wrapped <code>init</code>, collision checks on
+both the module id prefix (<code>bank.withdraw</code>, never a bare <code>can_kick</code>) and any
+declared table prefix (<code>clan_bank_*</code>). Second registration of the same
+module id is rejected or no-ops — hot-reload duplicate registration is a
+recurring bug class here (AGENTS.md footgun #7), and the framework doc is
+explicit that &quot;declarations replace, side effects guard&quot; are <em>opposite</em>
+behaviours, not one rule.</li>
+<li>Permission registry: declaration format (<code>id</code>, <code>module</code>, <code>label</code>, <code>kind</code>,
+<code>default</code>, <code>unit</code>), the three <code>kind</code>s (<code>BOOLEAN</code>, <code>THRESHOLD</code>,
+<code>NUMERIC_LIMIT</code>), and the resolution order (stored value → declared default
+→ fail-closed <code>NULL</code> with a <code>cityrp.logging</code> warning if nothing registers
+the id).</li>
+<li>Schema for this step only: <code>clan_ranks.rank_order</code> (<code>UNIQUE (clan, rank_order)</code>) alongside the existing <code>rankid</code>, and
+<code>clan_rank_permissions(clan, rankid, permission_id, value)</code> with <strong><code>value INT NULL</code></strong> — not <code>VARCHAR</code>. This is the direct fix for the <code>QueryParams</code>
+landmine: <code>DB:QueryParams</code> binds every parameter as a quoted string
+(<code>db.lua:239</code>), so a <code>VARCHAR</code> value column would compare lexicographically
+and invert threshold checks above rank 9 — live clans already have up to 28
+ranks, so this is reachable today, not a hypothetical.</li>
+<li>Core accessors (read-only copies/views, never live table references) for
+rank ordinals — the only thing <code>core.kick</code> needs to read.</li>
+<li>Nothing consumes any of this yet.</li>
+</ul>
+<h3 id="step-2--vertical-slice-corekick">Step 2 — Vertical slice: <code>core.kick</code></h3>
+<p>Build one permission end to end before building the rest of Core. <code>core.kick</code>
+is chosen because it is the smallest complete exercise of the full stack: a
+<code>THRESHOLD</code> permission registry read, ordinal resolution
+(<code>ord_target</code>/<code>ord_thresh</code>/<code>ord_actor</code>), one atomic SQL statement, and the
+Core accessor layer — with no dependency on identity fields, radio, MOTD, or
+the UI.</p>
+<ul>
+<li>Register <code>core.kick</code> (<code>THRESHOLD</code>) against the Step-1 registry.</li>
+<li>Implement the threshold formula server-side as a pure function: <code>allowed = defined ∧ (ord_target ≥ ord_thresh) ∧ (ord_target &gt; ord_actor)</code>. The
+formula's boundary cases are enumerated in
+<a href="acceptance-criteria.html#threshold-formula">acceptance-criteria.md</a> as a
+manual reference for reviewing the implementation — automated coverage is
+out of scope for this plan (GLuaTest is unconfigured in this repo; fixing
+that is tracked separately and not scheduled here).</li>
+<li>Implement the kick action as a single parameterised statement carrying the
+permission check in its <code>WHERE</code>/<code>EXISTS</code> clause (per
+<a href="design.html#the-authorisation-boundary-is-the-sql-statement">design.md</a>) —
+not a Lua read-then-decide-then-write. Affected-row count is the only
+success signal; 0 rows means denied for any reason.</li>
+<li>On a 0-row result, run the separate <strong>non-authoritative diagnostic <code>SELECT</code></strong>
+to produce a specific rejection message. The <code>UPDATE</code>/<code>DELETE</code> remains the
+only thing that grants.</li>
+<li>Re-validate <code>IsValid(ply)</code> <strong>and</strong> <code>ply._Initialized</code> <em>inside</em> the async DB
+callback, not before it (AGENTS.md footgun #2) — this is also the direct
+regression fix for defect 2, which returned from inside the callback and
+silently dropped the live-state update.</li>
+<li>The membership row deletion happens regardless of whether the kicked
+player's notification can be delivered; only the notification is
+conditional on <code>IsValid</code>.</li>
+<li>Landmine check specific to this slice: <code>clan_rank_permissions.value</code> must
+already be <code>INT</code> (from Step 1) before this statement is written, or the
+ordinal comparison silently inverts per the <code>QueryParams</code> landmine above —
+this is the concrete case that motivated the schema decision. Verify by hand
+against a clan with 10+ ranks before sign-off (mirrors acceptance criterion
+PERM-SQL1) — the bug is in how the ordinal reaches MySQL, not in the formula
+itself, so eyeballing the formula alone will not catch it.</li>
+<li>No UI in this step. Exercised via a direct call/console command for
+validation; the in-game menu's Roster <code>[Kick]</code> button wires into the same
+function in Step 5.</li>
+</ul>
+<p>This step is the framework validation gate: if <code>core.kick</code> requires
+reshaping the registration API, the accessor contract, or the statement
+pattern, that reshaping happens here, once, before Step 3 builds nine more
+actions against the same shape.</p>
+<h3 id="step-3--rest-of-membership-lifecycle-and-rank-management">Step 3 — Rest of membership lifecycle and rank management</h3>
+<p>Built against the now-validated Step 2 shape. Covers: invite, cancel invite,
+accept (re-validated at accept time), leave (including the sole-leader
+rejection), leadership transfer, <code>setrank</code>, rank CRUD (create, rename,
+reorder, delete with optional <code>migrate_to</code>), and clan deletion (<code>core.delete_clan</code>,
+cascading members and invites — Bank's distribution step is Phase 2, but the
+cascade and the $25,000 refund path belong here).</p>
+<ul>
+<li><strong>Leadership transfer must be a single atomic statement</strong>, not demote-then-
+promote — <code>db.lua</code> has no transaction API, so the only way to avoid a
+zero-or-two-leader race window is one statement that swaps both rows'
+<code>rank_order</code> (or reassigns membership to <code>rank_order = 1</code>) in one query. Two
+separate statements reopen exactly the window this rule exists to close.</li>
+<li>Rank deletion with <code>migrate_to</code>: reassign holders and remove the rank in one
+statement for the same reason — no transaction API to fall back on if a
+partial failure needs rolling back.</li>
+<li><code>INV-4a</code>/rank-1-inalienable-permission enforcement: the write path for
+<code>clan_rank_permissions</code> rejects any attempt to set <code>core.manage_ranks</code> false
+on rank 1, checked in the same statement or as a hard precondition before
+it — never a check-then-write gap.</li>
+<li>Rank-order renumbering on delete/reorder, and the &quot;no threshold may resolve
+to a rank at or above its owner&quot; sweep (invariant 4) run inline on every
+structural rank change, not only in a periodic job.</li>
+<li>Seed data for a new clan's ranks is a <strong>deep copy</strong> of the template
+(invariant 9) — this is the direct fix for defect 6 (ranks assigned by
+reference). Verify by creating two clans and confirming a mutation to one's
+ranks does not appear on the other before sign-off.</li>
+<li><code>clan_members</code> re-key to <code>(clan, steamid)</code> (see Migration hazards below)
+must be live before this step's invite/accept pre-check ships, since the
+pre-check and the constraint are meant to work together as primary and
+defence-in-depth.</li>
+</ul>
+<h3 id="step-4--identity-radio-motd-administration">Step 4 — Identity, radio, MOTD, administration</h3>
+<p>Name, abbreviation, motto, description, MOTD — full validation per
+<a href="core.html#identity-field-validation">core.md</a> (character vs. byte counting,
+charset, trim/collapse, reserved-word and prohibited-content screening),
+clan radio, MOTD administration.</p>
+<ul>
+<li><strong>Depends on Phase 1a.</strong> The reserved-word and prohibited-content screens
+call <code>cityrp.wordfilter</code> with the field-specific category matrix from
+<a href="core.html#prohibited-content">core.md</a> — this step cannot start until Phase
+1a's library exists.</li>
+<li>Validation must be identical at creation and at every edit path (ID-10) —
+implement as one shared validator function called from both, not two
+hand-copied checks.</li>
+<li><code>abbreviation varchar(7)</code> is a new column, not a repurposing of <code>short</code>
+(<code>varchar(2000)</code>) — check what live data in <code>clans.short</code> holds before
+deciding whether to preserve or drop it (this is a data-preservation check
+at migration time, not a design constraint — see core.md).</li>
+<li>Charset: join-key columns (<code>clan_members.steamid</code>, <code>clan_invites.steamid</code>)
+migrate to <code>latin1</code> to match <code>players._SteamID</code>; text columns (name, motto,
+description, MOTD) are <code>utf8mb4</code>. This is also where defect 8's underlying
+cross-charset join gets fixed properly, not just the <code>clan_member</code> →
+<code>clan_members</code> typo — fixing only the typo leaves a <code>latin1</code>/<code>utf8</code> join
+behind it.</li>
+<li><code>self._Clan</code> vs <code>self.cityrp._Clan</code>: Core's public API/accessors must not
+expose either raw field. Anything touching the old <code>_Clan</code> reads during this
+port needs to be read in context and routed through a named accessor.</li>
+</ul>
+<h3 id="step-5--in-game-menu">Step 5 — In-game menu</h3>
+<p>Replaces the <code>&quot;Coming soon...&quot;</code> stub (<code>cityrp_Clan</code>), per <a href="ui.html">ui.md</a>.
+Sections: Roster / Ranks / Invites / Identity, landing on Roster. <strong>A Bank
+section placeholder ships in this step's tab bar but stays hidden or disabled
+until Phase 2</strong> — see <a href="#open-questions-flagged-during-planning">open question</a>
+below on menu sequencing. Everything scales through <code>cityrp.ui</code>
+(<code>Scale</code>, <code>CreateScaledFont</code>, <code>OnScaleChanged</code>) — do not follow
+<code>player_settings/cl_panel.lua</code>'s opt-out (AGENTS.md footgun #15).</p>
+<ul>
+<li>Roster wires directly into Step 2's <code>core.kick</code> and Step 3's <code>setrank</code>/
+transfer-leadership functions. <code>[Kick]</code>/<code>[Rank ▾]</code> render only on rows the
+viewer's threshold reaches (never shown disabled).</li>
+<li>Ranks tab: master–detail ladder, permission editor built by iterating the
+permission registry and dispatching on <code>kind</code> — no hardcoded form, so a
+module registering a new permission (Bank, in Phase 2) needs no UI change.
+This is the concrete reason Step 1's registry-driven declaration format
+matters beyond Core itself.</li>
+<li>No-clan landing state, invites list, deposit-adjacent copy is <strong>not</strong> built
+here (Bank UI is Phase 2) but the Identity tab and creation flow ($50,000
+cost, confirmation) are.</li>
+<li>Progressive disclosure per <a href="ui.html#progressive-disclosure">ui.md</a> table.</li>
+</ul>
+<h3 id="step-6--retire-clan-model">Step 6 — Retire <code>/clan model</code></h3>
+<p>Remove the command and the <code>cityrp.model.register</code> call in <code>loadclan</code>.
+Fail-closed by construction: <code>cityrp.model</code>'s <code>access()</code> defaults to <code>false</code>
+and the consumer at <code>metatables/sv_player.lua:1292</code> rejects any unregistered
+model, so removing the registration makes clan models unavailable, not
+unrestricted. Also apply the <code>sv_model.lua</code> <code>table.RemoveByValue</code>-on-a-
+key-indexed-table fix from Phase 0 here if it has not already landed, since
+this is the step that would otherwise next touch that code path. Announce to
+players before it lands (open risk, tracked below).</p>
+<h3 id="schema-work-landing-in-phase-1">Schema work landing in Phase 1</h3>
+<p><code>clans.abbreviation</code>, <code>clans.join_rankid</code>, <code>clans.next_rankid</code>,
+<code>clan_ranks.rank_order</code> (<code>UNIQUE (clan, rank_order)</code>), <code>clan_rank_permissions</code>
+(value column <strong><code>INT NULL</code></strong>), and charset normalisation of the clan tables to
+match <code>players</code>. <strong><code>clans.bank</code>'s widening to <code>BIGINT NOT NULL DEFAULT 0</code>
+moves to Phase 2</strong> — it is Bank's landmine to fix immediately before Bank
+ships writing to it, not a Core concern, and there is no reason to widen a
+column a full phase before anything writes meaningful amounts through it.</p>
+<p><strong>Migration hazards specific to this fleet:</strong></p>
+<ul>
+<li><code>GM:ConnectToDatabase</code> runs pending migrations on <strong>every</strong> server against
+one shared database, with nothing serialising them. Two servers restarting
+together both see a migration pending and both execute it. Make every clan
+migration idempotent and guarded (<code>WHERE rank_order IS NULL</code>, <code>ON DUPLICATE KEY UPDATE</code> on the tracking row), or take the fleet down for this migration.
+Applies to every schema change in this phase, not only the <code>clan_members</code>
+re-key below.</li>
+<li><code>clan_members.clan</code> is currently <code>int NULL</code>, and <strong>a <code>NULL</code> cannot
+participate in a primary key</strong> — the re-key to <code>(clan, steamid)</code> fails
+outright on any such row, mid-migration, halting boot fleet-wide. <strong>Delete
+any row with a <code>NULL</code> clan</strong>: a membership record that names no clan is
+meaningless, not recoverable data. Then set the column <code>NOT NULL</code>, then
+re-key. Log the deleted rows.</li>
+<li>Split the <code>clan_members</code> audit and the re-key into <strong>two migrations</strong>, and
+sequence the re-key <strong>last</strong> in the phase, after Step 3's invite/accept
+pre-check is live and proven — the application pre-check is what actually
+rejects duplicate membership; the constraint is defence in depth and should
+land second.</li>
+<li><strong>Forward-only after first write.</strong> <code>down()</code> exists per migration, but once
+leaders have configured <code>clan_rank_permissions</code>, dropping that table
+destroys their configuration. Take a verified backup immediately before,
+and document the restore procedure rather than implying <code>down()</code> is a
+safety net.</li>
+</ul>
+<h2 id="phase-2--bank-module-2">Phase 2 — Bank (Module 2)</h2>
+<p>Per <a href="bank.html">bank.md</a>. Depends on Phase 1's permission registry and Core
+accessors (Step 1), and specifically on Phase 1 Step 3's membership/rank
+tables being fully migrated (the withdrawal statement joins <code>clan_members</code>
+and <code>clan_rank_permissions</code> directly). Also depends on the <code>DB:RunChecked</code> /
+<code>DB:QueryParamsChecked</code> affected-row change — see Step 0 below, which is
+called out as its own step rather than folded into Step 3 because bank.md
+flags it as needing explicit lead-programmer sign-off before implementation,
+not just before this module ships.</p>
+<h3 id="step-0--dbrunchecked--dbqueryparamschecked-affected-row-count">Step 0 — <code>DB:RunChecked</code> / <code>DB:QueryParamsChecked</code> affected-row count</h3>
+<p>Both currently discard the affected-row count for non-<code>INSERT</code> queries
+(<code>db.lua:164</code>, <code>db.lua:257</code>). The atomic ledger-append pattern in Step 3 is
+built entirely around branching on that count (1 row = accepted, 0 rows =
+rejected, duplicate-key = retry), so this is a hard prerequisite, not
+parallel work. <strong>Flagged, not resolved, here</strong> — see Open questions below;
+this needs explicit lead-programmer agreement on the exact signature change
+before Step 3 starts, per bank.md's own note.</p>
+<h3 id="step-1--schema">Step 1 — Schema</h3>
+<ul>
+<li><code>clans.bank</code> widened to <strong><code>BIGINT NOT NULL DEFAULT 0</code></strong>. This is the direct
+fix for the landmine: the column is currently <code>int NULL</code>, a 32-bit ceiling,
+and <code>SET bank = bank + ?</code> against a <code>NULL</code> row silently yields <code>NULL</code> —
+voiding the deposit with no error. Backfill any existing <code>NULL</code> to <code>0</code> as
+part of the same migration, before the <code>NOT NULL</code> constraint is applied, or
+the migration fails on those rows.</li>
+<li>New table <code>clan_bank_ledger</code> (event stream): <code>clan</code>, <code>seq</code>, <code>steamid</code>,
+<code>action</code> (<code>deposit</code>/<code>withdraw</code>/<code>reclaim</code>/<code>dissolution_payout</code>/correction),
+<code>delta</code>, <code>balance_after</code>, <code>created_at</code>, plus audit fields (actor name,
+request id, originating surface) per <a href="bank.html#audit-ledger">bank.md</a>.
+<strong><code>UNIQUE (clan, seq)</code></strong> is the concurrency control for this entire module —
+see Step 3.</li>
+<li><code>clans.bank_unlocked_at</code> — nullable timestamp, the one-way latch. Written
+once when <code>unlock_min_age</code>/<code>unlock_min_members</code> are first satisfied, never
+re-evaluated to <code>NULL</code> or recomputed on every action.</li>
+<li>Per-<code>(steamid, clan)</code> consent-tracking columns/table for the deposit consent
+prompt (last-interaction timestamp).</li>
+<li>Idempotency and one-row-per-server rules from Phase 1's migration hazards
+apply identically here — this table is new, so there is no backfill
+complexity, but the shared-DB/no-serialisation hazard still applies to the
+tracking row for this migration itself.</li>
+</ul>
+<h3 id="step-2--permission-registration-and-pure-functions">Step 2 — Permission registration and pure functions</h3>
+<ul>
+<li>Register <code>bank.deposit</code>, <code>bank.withdraw</code> (both <code>BOOLEAN</code>, not
+<code>NUMERIC_LIMIT</code> — there is no per-rank withdrawal cap, only a global
+<code>per_withdrawal_cap</code>, so keeping the SQL predicate a boolean is what keeps
+the per-transaction cap out of SQL entirely) against Phase 1's registry.
+No <code>bank.configure_limits</code> permission — the tuning knobs are server
+operator config with no in-game editing surface, so there is nothing for a
+permission to gate (see <a href="bank.html#rank-gating">bank.md</a>).</li>
+<li><code>validateBankAmount(amount)</code> — one pure function, called by deposit,
+withdrawal and reclaim. Rejects non-numeric, NaN, non-finite, non-integer,
+<code>≤ 0</code>, and <code>&gt; MAX_TRANSACTION</code> ($100,000,000). Write and review this before
+Step 3, since both statements depend on it — the boundary cases are listed
+in <a href="acceptance-criteria.html#amount-validation">acceptance-criteria.md</a> as a
+manual reference; automated coverage is out of scope for this plan (see
+Phase 1 Step 2 note on GLuaTest).</li>
+<li>Rolling-cap and reclaim-window arithmetic (the pure calculation only, not
+its atomic enforcement, which is Step 3/4).</li>
+</ul>
+<h3 id="step-3--atomic-ledger-append-deposit-and-withdrawal">Step 3 — Atomic ledger append: deposit and withdrawal</h3>
+<p>The core of the module. One statement per action type; balance check,
+permission check and ledger append happen in the same <code>INSERT ... SELECT</code>,
+never a Lua read-then-decide-then-write — see the worked withdrawal statement
+in <a href="bank.html#withdrawals-must-be-a-single-atomic-statement">bank.md</a>.</p>
+<ul>
+<li><strong>No transaction is used, and none is needed</strong> — this is the direct answer
+to the <code>db.lua</code>-has-no-transaction-API landmine for this operation. The
+ledger insert <em>is</em> the sole authoritative write (event sourcing per
+<a href="bank.html#the-ledger-is-authoritative--event-sourcing">bank.md</a>); the
+<code>clans.bank</code> cache update that follows is fire-and-forget and explicitly
+allowed to fail without rolling anything back. Consistency comes from doing
+the whole balance-check-permission-check-append as one MySQL statement
+(single-statement atomicity), not from a multi-statement transaction the
+codebase has no primitive for.</li>
+<li><code>seq = COALESCE(MAX(seq), 0) + 1</code> computed inside the same <code>INSERT ... SELECT</code>, rejected by <code>UNIQUE (clan, seq)</code> on collision. On a duplicate-key
+error, <strong>retry</strong> — recompute against the now-current stream. This is what
+replaces the old cache-row lock as the serialisation point across
+processes; an in-process Lua lock protects nothing since multiple game
+servers and the (now-disabled) web app share one MySQL instance.</li>
+<li>Withdrawal's <code>EXISTS</code> clause uses <code>LEFT JOIN clan_rank_permissions</code> plus
+<code>COALESCE(p.value, ?)</code> bound to the registered default — an inner <code>JOIN</code>
+would wrongly deny a rank relying on the unmaterialised default (BA-3).
+Deposit's statement has no permission predicate (<code>bank.deposit</code> is
+universal) but does carry an <code>EXISTS</code> check against
+<code>clans.bank_unlocked_at IS NOT NULL</code> — deposits are blocked until the bank
+unlocks, same as withdrawals (see
+<a href="bank.html#deposits-are-gated-by-the-unlock-latch-too">bank.md</a>). Still the
+simpler of the two statements — build it first as a warm-up before the
+withdrawal statement.</li>
+<li><code>balance_after</code> computed and stored in the same statement — makes the
+current balance a single-row read and cache rebuilds cheap.</li>
+<li>Rate limiting: 10s cooldown per player, shared across deposit/withdraw/
+reclaim entry routes, enforced server-side at the entry point — not inside
+the retry path (BC-7/BC-8).</li>
+<li>Requires Step 0's affected-row fix to branch on 1-row/0-row/duplicate-key.</li>
+</ul>
+<h3 id="step-4--self-reclaim">Step 4 — Self-reclaim</h3>
+<p>Same atomic-<code>UPDATE</code> shape as withdrawal, distinct <code>action = 'reclaim'</code>, no
+<code>bank.withdraw</code> predicate — eligibility is &quot;this is your own deposit, within
+<code>self_reclaim_window</code>,&quot; not a rank permission. Explicitly <strong>not</strong> counted
+against <code>rolling_withdrawal_cap</code> (BR-5) — this needs its own predicate path
+rather than reusing withdrawal's cap-check clause, since exempting it is
+deliberate (closing the reclaim-starvation griefing vector), not an oversight
+to fix later.</p>
+<h3 id="step-5--cache-reconciliation-and-dissolution-distribution">Step 5 — Cache, reconciliation and dissolution distribution</h3>
+<ul>
+<li>Fire-and-forget <code>clans.bank</code> cache update issued after the Step 3/4 ledger
+callback returns — never retried, never blocking, never a transaction
+failure. On any disagreement between cache and <code>SUM(delta)</code>, the ledger
+wins; rebuild the cache and log the mismatch at Error (observability
+signal, not a fault) on clan load and periodically.</li>
+<li>Dissolution distribution formula
+(<a href="bank.html#distribution-formula">bank.md</a>) reads the ledger only, never the
+cache, and includes every SteamID that ever appears in the ledger — not
+only current members. Runs synchronously as part of <code>/clan delete</code>, no
+hold or countdown (see bank.md's arbitrage analysis for why a hold was
+rejected, not merely omitted — do not reintroduce one without re-solving
+that).</li>
+<li>Payout delivery: online recipients get <code>GiveMoney</code> then <code>SaveData</code>. Offline
+recipients get a <strong>new</strong> <code>remote</code> row type (not <code>pmoney</code>, which is
+moneypack-specific) — <strong>claim the row before granting</strong> (<code>UPDATE remote SET done = 1 WHERE id = ? AND done = 0</code>, proceed only if one row affected),
+never grant-then-mark. Require <code>IsValid(ply)</code> and <code>ply._Initialized</code> inside
+the handler. Target <code>server = 'all'</code> and rely on the claim-before-grant
+<code>UPDATE</code> for exactly-once delivery — this is deliberately the opposite
+shape from the <code>reloadclan</code>/cache-invalidation use of <code>remote</code> (Phase 1's
+landmine, &quot;one row per server, never <code>server = 'all'</code>&quot;): that case is
+fan-out (every server must see it), this case is single delivery (exactly
+one server must pay out), so the fix for one is not the fix for the other.
+Worth an explicit code comment at both call sites given how easy the two
+shapes are to conflate.</li>
+<li>On <code>cityrp.remote.noSave</code> servers (<code>build</code>, <code>beta</code>, <code>beta2</code>, <code>event</code>),
+return without <code>done()</code> so a real server picks up the payout instead.</li>
+</ul>
+<h3 id="step-6--rolling-cap-unlock-gate-consent-prompt">Step 6 — Rolling cap, unlock gate, consent prompt</h3>
+<ul>
+<li>Clan-scoped rolling 24h withdrawal cap ($75,000 default), evaluated against
+the ledger (sum of withdrawals in the trailing 24h for the clan, not the
+actor) — closes promote→withdraw→demote cycling by construction, since the
+clock is per-clan, not per-person.</li>
+<li>Unlock latch: evaluate <code>age &gt;= unlock_min_age AND members &gt;= unlock_min_members</code> <strong>only</strong> to decide whether to write
+<code>clans.bank_unlocked_at</code> for the first time. Every subsequent gate check
+reads the stored flag, never re-evaluates the condition — this is the
+direct fix for the &quot;obvious implementation relocks it&quot; trap called out in
+bank.md.</li>
+<li>Deposit consent prompt: shown before deposit completes on first-ever
+deposit to this clan, or after <code>consent_reprompt_days</code> (30) since the
+player's last <em>deposit or withdrawal or reclaim</em> with this clan — passive
+viewing does not reset the clock. Stored per <code>(steamid, clan)</code>.</li>
+<li><code>/clan undo</code> guard: reject with a balance-nonzero check regardless of
+whether the 3-day unlock gate structurally prevents the scenario today —
+defensive guard in case the gate is ever loosened (BU-2).</li>
+</ul>
+<h3 id="step-7--bank-ui-tab">Step 7 — Bank UI tab</h3>
+<p>Lights up the Step 5 placeholder from Phase 1. Balance, deposit (with consent
+prompt), own reclaimable deposits — visible to everyone (<code>bank.deposit</code> is
+universal). Full ledger — visible only to <code>bank.withdraw</code> holders. Deletion
+confirmation gains the balance/distribution copy from
+<a href="ui.html#clan-deletion">ui.md</a>. All amounts/labels through <code>cityrp.ui</code> per
+Phase 1's scaling requirement, same as every other tab.</p>
+<h2 id="data-migration">Data migration</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Orphaned <code>clan_members</code> rows</td>
+<td>Players may be silently in clans they believe they left, from failed joins. Audit and clean</td>
+</tr>
+<tr>
+<td>Non-contiguous rank IDs (live data has <code>8</code>, <code>170</code>)</td>
+<td>Backfill <code>rank_order</code> per clan by sorting on legacy <code>rankid</code>, preserving ties. Leave <code>rankid</code> untouched to preserve foreign keys</td>
+</tr>
+<tr>
+<td><code>clans.next_rankid</code></td>
+<td>Seed to <code>MAX(rankid) + 1</code> per clan</td>
+</tr>
+<tr>
+<td><code>clans.join_rankid</code></td>
+<td>Backfill to any rank at <code>MAX(rank_order)</code>; log the choice</td>
+</tr>
+<tr>
+<td><code>clans.short</code> (<code>varchar(2000)</code>)</td>
+<td>Establish what it holds before the abbreviation migration — it may be worth keeping or safe to drop</td>
+</tr>
+<tr>
+<td>Clans with zero members or no leader</td>
+<td>Flag for manual review; do not auto-resolve silently</td>
+</tr>
+<tr>
+<td>Dead tables (<code>clan</code>, <code>clan_has_players</code>, <code>clan_has_invite</code>)</td>
+<td>Confirm unused, then drop</td>
+</tr>
+<tr>
+<td><code>clan_models</code>, <code>clans.model</code></td>
+<td>Dead once <code>/clan model</code> retires. Keep the rows until the model files themselves are decommissioned — they record which model belonged to which clan, which is the only remaining reference if a clan later asks</td>
+</tr>
+<tr>
+<td>Rank/member caps (50 / 100)</td>
+<td>Live maxima are 28 and 18, so nothing is currently over cap. Grandfather any that appear</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deferred">Deferred</h2>
+<p>Not in this plan. Recorded so the framework can be sanity-checked against them.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Web app</strong></td>
+<td>Repository disabled. If it returns, it must share the authorisation boundary rather than reimplementing it — see <a href="design.html#surfaces">design.md</a></td>
+</tr>
+<tr>
+<td><code>/clan shift</code> (#1327)</td>
+<td>A later Core rework. Essentially an additional gate on command execution, so it retrofits cleanly; no seam needs reserving now</td>
+</tr>
+<tr>
+<td>Clan inventory (#1624)</td>
+<td>Future module</td>
+</tr>
+<tr>
+<td>Clan vehicles</td>
+<td>Future module; <code>clan_vehicles</code> table already exists</td>
+</tr>
+</tbody>
+</table>
+<p>Clan models are <strong>retired</strong>, not deferred — see <a href="design.html#retiring-clan-models">design.md</a>.</p>
+<h2 id="open-risks">Open risks</h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In-game becomes the only management surface</td>
+<td>With the web app gone, anything the menu cannot do, nobody can do</td>
+<td>Audit the web app's feature set against the planned menu before Phase 1 closes — rank creation and permission editing especially</td>
+</tr>
+<tr>
+<td><code>/clan model</code> retirement is player-facing</td>
+<td>Any clan still using it loses the feature</td>
+<td>Low impact — clan activity is minimal — but announce before it lands rather than after</td>
+</tr>
+<tr>
+<td>Rank IDs are non-contiguous in live data</td>
+<td>Rebuilt logic may assume contiguity</td>
+<td><code>rank_order</code> is the only column compared; verify the backfill on a copy first</td>
+</tr>
+<tr>
+<td>Orphaned membership rows</td>
+<td>Players silently in old clans</td>
+<td>Audit during migration</td>
+</tr>
+<tr>
+<td>Word list curation is a content decision</td>
+<td>Engineering cannot pick the list</td>
+<td>Needs whoever owns moderation policy, before Phase 1 ships</td>
+</tr>
+</tbody>
+</table>
+<h2 id="open-questions-flagged-during-planning">Open questions flagged during planning</h2>
+<p>Raised while adding step-level detail to Phases 1–2. Deliberately not resolved
+here — each needs a decision from whoever owns that call before the relevant
+step starts, not a default baked silently into the plan.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Where it bites</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Does the in-game menu ship in Phase 1 Step 5 with a hidden/disabled Bank tab placeholder, or does the whole menu wait for Phase 2 so Bank lands complete?</td>
+<td>Phase 1 Step 5, Phase 2 Step 7</td>
+<td>This plan assumes the former (ship Roster/Ranks/Invites/Identity in Phase 1, light up Bank in Phase 2) because the menu is the only clan management surface and #1541 has been open since ~2017 — holding it hostage to Bank's separate scope seemed like the wrong trade-off to make silently. Flagging in case the product/design side disagrees.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Is <code>core.kick</code> in Phase 1 Step 2 backend-only (console command / direct call for validation), with the Roster <code>[Kick]</code> button wired up later in Step 5?</td>
+<td>Phase 1 Step 2 vs Step 5</td>
+<td>Assumed yes, to keep the vertical slice minimal and UI-independent per the architecture review's stated purpose (&quot;de-risk the framework shape&quot;). If the intent was to validate the UI wiring too as part of the slice, Step 2's scope needs to grow.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Exact signature for the <code>DB:RunChecked</code> / <code>DB:QueryParamsChecked</code> affected-row-count change</td>
+<td>Phase 2 Step 0</td>
+<td>bank.md explicitly calls this out as needing lead-programmer agreement before implementation, not just before Bank ships. This plan places it as a blocking Step 0, but the actual sign-off conversation still needs to happen — it is not resolved by being scheduled.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Whether Phase 2's schema/data work can start on a server before every server in the fleet has completed Phase 1's <code>clan_members</code> re-key migration</td>
+<td>Phase 1 → Phase 2 boundary</td>
+<td>The Bank withdrawal statement joins <code>clan_members</code> directly; if any server is mid-fleet-rollout on Phase 1's re-key, Phase 2's migrations landing on that same shared database could interact with rows in an inconsistent shape. This plan assumes Phase 1 is fully rolled out fleet-wide before Phase 2's Step 1 migration runs, but that is an assumption about rollout sequencing, not something derivable from the design docs alone.</td>
+</tr>
+</tbody>
+</table></div>
+		</div>
+	</div>
+	<br class="clearfix">
+</div>
+<script>
+var ROOT = "../../../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
+</body>
+</html>

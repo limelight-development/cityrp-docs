@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Plugins</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,36 +14,49 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#choosing-a-format">Choosing a format</a></li>
+<li><a href="#file-plugins">File plugins</a></li>
+<li><a href="#folder-plugins">Folder plugins</a></li>
+<li><a href="#sub-resources-entities-weapons-items-derma">Sub-resources: entities, weapons, items, derma</a></li>
+<li><a href="#registration">Registration</a></li>
+<li><a href="#keys">Keys</a></li>
+<li><a href="#disabling-a-plugin">Disabling a plugin</a></li>
+<li><a href="#key-conflicts">Key conflicts</a></li>
+<li><a href="#dependencies-and-load-order">Dependencies and load order</a></li>
+<li><a href="#availability-conditions">Availability conditions</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#related-topics">Related topics</a></li>
+</ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
-<li><a href="../topics/plugins.html">Plugins</a></li>
+<li><strong>Plugins</strong></li>
 <li><a href="../topics/ui-scaling.html">UI Scaling</a></li>
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -56,6 +69,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -65,6 +79,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -77,7 +117,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -87,7 +126,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -125,22 +163,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -153,9 +175,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -319,9 +338,8 @@
 <ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>Plugins</h1></div><div class="ll-module-body"><h1>Plugins</h1>
-<p>Plugins live in <code>gamemode/core/plugins/</code> and are the unit CityRP features are built in — &quot;new features should be plugins when possible&quot; (<a href="https://github.com/limelight-development/cityrp2/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>). There are two formats. Both are discovered and ordered by <code>cityrp.plugin.Resolve</code> (<code>gamemode/core/libraries/sh_plugin.lua</code>) and executed by the loop in <code>gamemode/sh_init.lua</code>.</p>
-<h2>Choosing a format</h2>
+<div class="ll-module-header"><h1>Plugins</h1></div><div class="ll-module-body"><p>Plugins live in <code>gamemode/core/plugins/</code> and are the unit CityRP features are built in — &quot;new features should be plugins when possible&quot; (<a href="https://github.com/limelight-development/cityrp2/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>). There are two formats. Both are discovered and ordered by <code>cityrp.plugin.Resolve</code> (<code>gamemode/core/libraries/sh_plugin.lua</code>) and executed by the loop in <code>gamemode/sh_init.lua</code>.</p>
+<h2 id="choosing-a-format">Choosing a format</h2>
 <table>
 <thead>
 <tr>
@@ -355,7 +373,7 @@
 </table>
 <p>Use a <strong>file plugin</strong> when the whole feature is one file. Use a <strong>folder plugin</strong> when it needs more than one file, genuinely different code per realm, or <a href="#sub-resources-entities-weapons-items-derma">sub-resources</a> such as entities, weapons, items, or derma panels.</p>
 <p>Do not convert existing folder plugins wholesale. Convert one opportunistically when you are already editing it and it qualifies.</p>
-<h2>File plugins</h2>
+<h2 id="file-plugins">File plugins</h2>
 <p>A file plugin is a single <code>.lua</code> file sitting directly in <code>core/plugins/</code>, named <code>&lt;scope&gt;_&lt;key&gt;.lua</code>:</p>
 <table>
 <thead>
@@ -399,11 +417,11 @@ hook.Add(&quot;Think&quot;, &quot;AutoKickThink&quot;, function() end)
 cityrp.plugin.register(PLUGIN)
 </code></pre>
 <p><code>core/plugins/sv_auto_restart.lua</code> is a real example.</p>
-<h3><code>sh_</code> is not the folder format's <code>sh_init.lua</code></h3>
+<h3 id="sh_-is-not-the-folder-formats-sh_initlua"><code>sh_</code> is not the folder format's <code>sh_init.lua</code></h3>
 <p>This is the one place the two formats genuinely differ, and getting it wrong is easy.</p>
 <p>The loader <strong>never includes</strong> a folder plugin's <code>sh_init.lua</code>. It only <code>AddCSLuaFile</code>s it; each folder plugin includes its own shared file and hands its table across through the <code>PLUGIN_SHARED</code> global.</p>
 <p>A file plugin has no second file to hand a table to, so <code>sh_&lt;key&gt;.lua</code> simply means &quot;included on both realms&quot;. <strong>Never read or write <code>PLUGIN_SHARED</code> from a file plugin.</strong> Folder plugins assign it as a global and never clear it, so a file plugin that reads it picks up whichever folder plugin happened to run last. Use <code>SERVER</code>/<code>CLIENT</code> guards inside the file instead — or, if the realms need to diverge more than that reads cleanly, use a folder plugin.</p>
-<h2>Folder plugins</h2>
+<h2 id="folder-plugins">Folder plugins</h2>
 <pre><code>core/plugins/&lt;key&gt;/
     sv_init.lua    included on the server
     cl_init.lua    sent to the client, included there
@@ -429,7 +447,7 @@ local PLUGIN = include(&quot;sh_init.lua&quot;)
 PLUGIN:Register()
 </code></pre>
 <p>Any file beyond those three is the plugin's own responsibility to <code>include</code>/<code>AddCSLuaFile</code>.</p>
-<h2>Sub-resources: entities, weapons, items, derma</h2>
+<h2 id="sub-resources-entities-weapons-items-derma">Sub-resources: entities, weapons, items, derma</h2>
 <p>A <strong>folder</strong> plugin can own entities, weapons, items, and derma panels directly, so &quot;plugin disabled/absent ⇒ its content doesn't load&quot; is automatic instead of per-file gating. File plugins never get sub-resources.</p>
 <pre><code>core/plugins/&lt;key&gt;/
     entities/&lt;class&gt;/ or entities/&lt;class&gt;.lua   (ENT, engine-style layout)
@@ -447,11 +465,11 @@ PLUGIN:Register()
 <li><strong>Derma phase</strong> — after <code>core/derma</code>, same prefix rules (server sends every file, includes only <code>sh_</code>; client includes everything).</li>
 </ol>
 <p>Only a <strong>loaded</strong> plugin's sub-resources are loaded — a plugin that failed to resolve (<a href="#dependencies-and-load-order">dependencies and load order</a>) or is disabled contributes nothing here, silently.</p>
-<h3>Class name collisions</h3>
+<h3 id="class-name-collisions">Class name collisions</h3>
 <p>Two plugins declaring the same class is logged as an <code>ERROR</code> on the server at load, naming both claimants. The gamemode's own <code>entities/</code>/<code>weapons/</code> tree is a separate case: the engine scans it <em>after</em> gamemode Lua finishes, so a same-named class there silently overwrites the plugin's registration — the loader catches that with an <code>InitPostEntity</code> sweep that verifies every plugin-registered class survived, and logs an <code>ERROR</code> naming the overwritten class. Neither is ever fatal: GMod's registries have last-registration-wins semantics regardless of what the loader does, so treat the logs as the guard rail, not a safety net.</p>
-<h3>Migration status</h3>
+<h3 id="migration-status">Migration status</h3>
 <p>Only <code>weapons/cityrp_breathalyser/</code> has been migrated, from the gamemode-level <code>entities/weapons/</code> tree into <code>core/plugins/breathalyser/weapons/</code>, as the pilot for this system. Migrating other plugin-dependent entities/items is follow-up work, done opportunistically per plugin — do not bulk-migrate.</p>
-<h2>Registration</h2>
+<h2 id="registration">Registration</h2>
 <p>Either form works in either format:</p>
 <ul>
 <li><code>local PLUGIN = {}</code> … <code>cityrp.plugin.register(PLUGIN)</code> — the legacy form, used by most plugins.</li>
@@ -459,7 +477,7 @@ PLUGIN:Register()
 </ul>
 <p><strong><code>cityrp.plugin.stored</code> is keyed by the plugin key</strong>, the same identity <code>.meta.lua</code> and load order use — so a lookup is <code>cityrp.plugin.get(&quot;area&quot;)</code>. <code>cityrp.plugin.get</code> still accepts the display name (<code>cityrp.plugin.get(&quot;Area Manager&quot;)</code>) and resolves it through <code>cityrp.plugin.names</code>, but warns once per name: the two identities are not derivable from one another, so nothing can bridge them automatically. Hundreds of call sites still pass display names; they work, and converting one is worth doing when you are already editing that code. Both forms cost the same — the key is simply the identity everything else already uses.</p>
 <p>Registration also stamps the resolved key onto the plugin as <code>PLUGIN.key</code>, creates a per-plugin logger at <code>plugin.&lt;key&gt;</code>, and exposes it as <code>PLUGIN.logger</code>. Use <code>PLUGIN.key</code> rather than repeating the key as a literal when a plugin needs to look itself up.</p>
-<h2>Keys</h2>
+<h2 id="keys">Keys</h2>
 <p>A plugin's <strong>key</strong> is its identity for everything the loader does. It is the folder name, or a file plugin's name with the scope prefix and <code>.lua</code> stripped:</p>
 <table>
 <thead>
@@ -485,7 +503,7 @@ PLUGIN:Register()
 </table>
 <p>Keys are lowercased, so file names should be all lowercase. Folders and files share one key space — a folder and a file cannot both claim the same key.</p>
 <p><code>*.meta.lua</code> holds a plugin's <a href="#dependencies-and-load-order">dependency metadata</a> and is never loaded as a plugin.</p>
-<h2>Disabling a plugin</h2>
+<h2 id="disabling-a-plugin">Disabling a plugin</h2>
 <p>A plugin declares itself off in its own <code>.meta.lua</code>:</p>
 <pre><code class="language-lua">return {
 	-- Superseded by the admin plugin; kept for reference.
@@ -502,7 +520,7 @@ sent; any dependent sees it as <code>disabled</code>, not <code>not installed</c
 <p>There is no loader-side override list. For &quot;off on some servers or maps,&quot; use
 <a href="#availability-conditions">availability conditions</a> instead — a file-scope
 <code>if LLServer == &quot;build&quot; then return end</code> is no longer a supported way to not-exist.</p>
-<h2>Key conflicts</h2>
+<h2 id="key-conflicts">Key conflicts</h2>
 <p>Two things claiming one key is a conflict. It is logged as an <code>ERROR</code> on the server and is <strong>never fatal</strong> — the highest-precedence candidate loads and the rest are ignored:</p>
 <table>
 <thead>
@@ -533,7 +551,7 @@ sent; any dependent sees it as <code>disabled</code>, not <code>not installed</c
 <p>The trap worth naming: <strong><code>sv_foo.lua</code> + <code>cl_foo.lua</code> is a conflict, not a two-realm plugin.</strong> It is the shape of the folder format, so it is the natural mistake, and its consequence is that the client half silently never loads. Use a folder plugin for a server/client pair.</p>
 <p>The losing candidate is never <code>AddCSLuaFile</code>d, so the client only ever receives the winner.</p>
 <p>A <code>.lua</code> file in <code>core/plugins/</code> with no recognised scope prefix logs a <code>WARNING</code> and is skipped. Non-Lua files are ignored silently.</p>
-<h2>Dependencies and load order</h2>
+<h2 id="dependencies-and-load-order">Dependencies and load order</h2>
 <p>Plugins load in alphabetical order by key, folders and files interleaved, unless something says otherwise. A plugin says otherwise in an optional <code>.meta.lua</code> beside it:</p>
 <table>
 <thead>
@@ -565,7 +583,7 @@ sent; any dependent sees it as <code>disabled</code>, not <code>not installed</c
 </code></pre>
 <p>Every dependency/ordering value is a <strong>plugin key</strong> — the folder name, or a file plugin's name without its scope prefix. Not <code>PLUGIN.name</code>. Matching is exact and keys are lowercase, so write them lowercase.</p>
 <p>A plugin with no <code>.meta.lua</code> declares nothing and keeps its alphabetical slot. That is the normal case and is silent.</p>
-<h3>Depending versus ordering</h3>
+<h3 id="depending-versus-ordering">Depending versus ordering</h3>
 <p>These answer two different questions, and picking the wrong one is the easy mistake:</p>
 <table>
 <thead>
@@ -600,7 +618,7 @@ sent; any dependent sees it as <code>disabled</code>, not <code>not installed</c
 </table>
 <p><code>after</code> and <code>before</code> are ordering only. They never fail a plugin and never claim it needs anything, so use them when you only care about sequence. <code>core/plugins/networking/.meta.lua</code> is <code>after = {&quot;*&quot;}</code> — the plugin used to be named <code>zz_networking</code> purely to sort last; the wildcard is what that name was really trying to say, and the folder no longer needs the trick.</p>
 <p><code>&quot;*&quot;</code> means every other plugin: <code>after = {&quot;*&quot;}</code> is &quot;load last&quot;, <code>before = {&quot;*&quot;}</code> is &quot;load first&quot;. It is only meaningful in those two fields; a <code>&quot;*&quot;</code> in either dependency list is rejected with a <code>WARNING</code>, since requiring every plugin would make any single absence fatal.</p>
-<h3>What the loader does with it</h3>
+<h3 id="what-the-loader-does-with-it">What the loader does with it</h3>
 <p>Order is a topological sort, tie-broken alphabetically: of the plugins whose dependencies are already satisfied, the alphabetically first goes next. A plugin therefore keeps its usual slot unless something genuinely has to come before it.</p>
 <table>
 <thead>
@@ -633,10 +651,10 @@ sent; any dependent sees it as <code>disabled</code>, not <code>not installed</c
 </tbody>
 </table>
 <p>Nothing here is fatal to the server or to any other plugin. A failed plugin's client files are still sent, because the client resolves the same graph independently and may reach a different answer.</p>
-<h3>The realm trap</h3>
+<h3 id="the-realm-trap">The realm trap</h3>
 <p><strong>A dependency must exist on every realm its dependent loads on.</strong> There is no realm tagging: a plugin that is not on this realm is simply missing here.</p>
 <p>32 of the 116 plugins are server-only — a folder with neither a <code>cl_init.lua</code> nor an <code>sh_init.lua</code>, or an <code>sv_</code> file plugin — so they do not exist clientside at all. A plugin that loads on both realms declaring <code>dependencies = {&quot;clans&quot;}</code> loads perfectly on the server and then fails on every client, because <code>clans</code> is server-only. Depend on a server-only plugin only from another server-only plugin; otherwise use <code>optional_dependencies</code>, or guard the call site instead.</p>
-<h3>Reading another plugin</h3>
+<h3 id="reading-another-plugin">Reading another plugin</h3>
 <p>Declaring a dependency fixes the load order; it does not make a file-scope lookup good practice. <code>core/plugins/hud/cl_init.lua</code> calls <code>cityrp.plugin.get(&quot;Excuse NLR&quot;)</code> at file scope and works only because <code>excusenlr</code> sorts before <code>hud</code>. Do the lookup inside a hook or at run time instead, and guard it:</p>
 <pre><code class="language-lua">hook.Add(&quot;InitPostEntity&quot;, &quot;MyPluginSetup&quot;, function()
 	local other = cityrp.plugin.get(&quot;excusenlr&quot;)
@@ -645,7 +663,7 @@ end)
 </code></pre>
 <p>Pass the plugin key, the same value the metadata uses. A display name still resolves, but warns.</p>
 <p>Items load after every plugin, so item files may gate on a plugin at file scope — <code>core/items/ammunition/sh_ammo_pistol.lua</code> opens with <code>if not cityrp.plugin.get(&quot;generic&quot;) then return end</code>.</p>
-<h3>Guarding a cross-plugin call</h3>
+<h3 id="guarding-a-cross-plugin-call">Guarding a cross-plugin call</h3>
 <p>When you only need to know <em>whether</em> a plugin is there, not to call into its table, use <code>cityrp.plugin.IsAvailable(key)</code>:</p>
 <pre><code class="language-lua">if cityrp.plugin.IsAvailable(&quot;banking&quot;) then
 	-- safe to call into the banking plugin here
@@ -655,7 +673,7 @@ end
 <p><code>IsAvailable</code> is not the same as <code>cityrp.plugin.get(key) ~= nil</code>, and the difference bites. It reads the loader's own bookkeeping rather than <code>cityrp.plugin.stored</code>, so it is true for the ~27 plugins that load without ever calling <code>register</code>, and for <code>xp-bar</code>, which returns early without registering when MESKA is absent. <code>get</code> would call all of those missing.</p>
 <p>It is also realm-accurate in both directions. A server-only plugin is never discovered clientside, so <code>IsAvailable</code> is correctly <code>false</code> there — the query-side counterpart of <a href="#the-realm-trap">the realm trap</a> above. A plugin with no realm files of its own but with <a href="#sub-resources-entities-weapons-items-derma">sub-resources</a> does materialise clientside and reads <code>true</code>.</p>
 <p>Every reason a plugin might be absent — never installed, removed, <code>disabled = true</code>, excluded by <code>servers</code>/<code>maps</code>, a missing required dependency, a required dependency cycle — returns the same <code>false</code>, because from a caller's side they are the same thing. When the difference matters, <code>cityrp.plugin.GetDependencyStatus(key)</code> returns the outcome (<code>status</code>, <code>reason</code>, <code>missing</code>, <code>missingOptional</code>, <code>cycle</code>, <code>order</code>) or nil if nothing by that key was discovered here. That one is for diagnostics and error messages — do not guard with it; its shape is an implementation detail and may gain fields.</p>
-<h2>Availability conditions</h2>
+<h2 id="availability-conditions">Availability conditions</h2>
 <p>A plugin can declare in its <code>.meta.lua</code> which servers and maps it is allowed to exist on. Four optional keys, all lists of lowercase strings, matched exactly against <code>LLServer</code> and <code>string.lower(game.GetMap())</code>:</p>
 <pre><code class="language-lua">return {
 	servers = {&quot;v2d&quot;, &quot;usv2d&quot;},   -- allowlist of server codes; absent = every server
@@ -672,13 +690,13 @@ end
 <li>All four absent is today's behaviour: available everywhere. Every plugin without a <code>.meta.lua</code>, and every <code>.meta.lua</code> that only declares dependencies, is unaffected.</li>
 </ul>
 <p>A plugin excluded this way is treated <strong>exactly like a plugin declaring <code>disabled = true</code></strong>: it never enters the discovered set, so it contributes no sub-resources and is never <code>AddCSLuaFile</code>'d, and any dependent sees it as <code>disabled</code> — not <code>not installed</code> — with the usual cascading <code>ERROR</code>. A <code>DEBUG</code> log line names the reason, e.g. <code>Skipping 'flashlight': excluded on server 'build'.</code>, so a gated plugin does not read as hand-disabled when you go looking for it.</p>
-<h3>Server codes, not server names</h3>
+<h3 id="server-codes-not-server-names">Server codes, not server names</h3>
 <p>Match against <code>LLServer</code> (<code>v2d</code>, <code>usv2d</code>, <code>v4b1_fl2</code>, <code>southside</code>, <code>build</code>, <code>event</code>, <code>beta</code>, <code>staging</code>, …) — the same value the <a href="#the-realm-trap">realm trap</a> uses — not what the team calls a server out loud. <code>build</code> and <code>event</code> are Live, not Development; Live versus Development is not the axis this gates on.</p>
 <p>The trap: <strong><code>&quot;beta2&quot;</code> is a server name, not a server code.</strong> Both beta servers report <code>LLServer == &quot;beta&quot;</code>; only <code>LLServerChatID</code> tells them apart. <code>servers = {&quot;beta2&quot;}</code> silently never matches anything. The server logs a <code>WARNING</code> for a <code>servers</code>/<code>not_servers</code> entry that names no file under <code>core/server/</code> — server only, since the client is only ever sent the one file matching its own <code>LLServer</code> and has no way to see the rest of the list.</p>
 <p>Map names are not validated against a known list — there isn't one to check against.</p>
-<h3>Migration</h3>
+<h3 id="migration">Migration</h3>
 <p>An in-file early return is no longer a supported way to not-exist. <code>if LLServer == &quot;build&quot; then return end</code> at the top of a plugin's <code>sv_init.lua</code>/<code>sh_init.lua</code>/<code>cl_init.lua</code> compiles and works for the code in that one file, but it does nothing about the plugin's sub-resources or its <code>AddCSLuaFile</code>s — replace it with <code>not_servers = {&quot;build&quot;}</code> in a sibling <code>.meta.lua</code> instead.</p>
-<h2>Troubleshooting</h2>
+<h2 id="troubleshooting">Troubleshooting</h2>
 <p>The loader logs to the <code>plugins</code> namespace at <code>DEBUG</code>, which is below the default level. On the <strong>server</strong>:</p>
 <pre><code>cityrp_log_set plugins DEBUG
 </code></pre>
@@ -690,16 +708,83 @@ lua_run_cl PrintTable(select(1, file.Find(GMFOLDER .. &quot;/gamemode/core/plugi
 <p>The second line lists the file plugins the client actually received, which is the quickest way to confirm an <code>AddCSLuaFile</code> did or did not happen.</p>
 <p>Conflict <code>ERROR</code>s and unrecognised-file <code>WARNING</code>s are logged on the server only — the client cannot see a losing candidate, and both levels would otherwise print into every player's console.</p>
 <p>Dependency <em>failures</em> are the exception: they are logged on <strong>whichever realm they happen on</strong>, because the two realms resolve independently and the server cannot tell that a client failed. A dependency <code>ERROR</code> appearing only in player consoles is the <a href="#the-realm-trap">realm trap</a>, and the message says so. A missing <em>optional</em> dependency is not a failure and is reported on the server only — the server sees the whole disk, so clientside that message would mostly mean &quot;this one is server-only&quot;, which is the case optional dependencies exist for.</p>
-<h2>Related topics</h2>
+<h2 id="related-topics">Related topics</h2>
 <ul>
-<li><a href="coding-standards.md">Coding Standards</a></li>
-<li><a href="modern-apis.md">Modern APIs</a></li>
-<li><a href="logging.md">Console Logging Library</a></li>
-<li><a href="luacats.md">LuaCATS Annotations</a></li>
+<li><a href="coding-standards.html">Coding Standards</a></li>
+<li><a href="modern-apis.html">Modern APIs</a></li>
+<li><a href="logging.html">Console Logging Library</a></li>
+<li><a href="luacats.html">LuaCATS Annotations</a></li>
 </ul></div>
 		</div>
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

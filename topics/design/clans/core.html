@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Clans — Core Module</title>
+	<link rel="stylesheet" href="../../../style.6b230c7a19.css" type="text/css">
+</head>
+<body>
+<div id="container">
+	<div id="product">
+		<div id="product_logo"></div>
+		<div id="product_name"><big><b></b></big></div>
+		<div id="product_description"></div>
+	</div>
+	<div id="main">
+		<div id="navigation">
+<div class="ll-kind-header"><h1><a href="../../../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-kind-header"><h2>Contents</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="#scope">Scope</a></li>
+<li><a href="#permission-model">Permission model</a></li>
+<li><a href="#in-game-menu">In-game menu</a></li>
+<li><a href="#membership-lifecycle">Membership lifecycle</a></li>
+<li><a href="#edge-cases">Edge cases</a></li>
+<li><a href="#invariants">Invariants</a></li>
+<li><a href="#identity-field-validation">Identity field validation</a></li>
+<li><a href="#open-decisions">Open decisions</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Topics</h2></div>
+<ul class="ll-kind-body">
+<li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../../../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
+<li><a href="../../../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
+<li><a href="../../../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../../../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
+<li><a href="../../../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../../../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../../../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../../../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><a href="../../../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../../../topics/meska.html">MESKA</a></li>
+<li><a href="../../../topics/networking.html">Networking Library</a></li>
+<li><a href="../../../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../../../topics/plugins.html">Plugins</a></li>
+<li><a href="../../../topics/ui-scaling.html">UI Scaling</a></li>
+<li><a href="../../../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../../../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
+<li><a href="../../../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/index.html">Design Docs</a>
+<ul class="ll-topic-children">
+<li><a href="../../../topics/design/docs-layout-migration.html">Docs layout migration</a></li>
+<li><a href="../../../topics/design/items-registration.html">Class-Based Item Registration</a></li>
+<li class="ll-topic-folder"><a href="../../../topics/design/car-boosting/car-boosting.html">Car Boosting</a>
+</li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/clans/design.html">Clans</a>
+<ul class="ll-topic-children">
+<li><a href="../../../topics/design/clans/acceptance-criteria.html">Clans — Acceptance Criteria</a></li>
+<li><a href="../../../topics/design/clans/bank.html">Clans — Bank Module</a></li>
+<li><strong>Clans — Core Module</strong></li>
+<li><a href="../../../topics/design/clans/plan.html">Clans Overhaul — Plan</a></li>
+<li><a href="../../../topics/design/clans/ui.html">Clans — In-Game Menu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
+</li>
+</ul>
+<div class="ll-kind-header"><h2>Items</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/ITEM.html">ITEM</a></li>
+<li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
+<li><a href="../../../modules/ITEM.Ammo.html">ITEM.Ammo</a></li>
+<li><a href="../../../modules/ITEM.Card.html">ITEM.Card</a></li>
+<li><a href="../../../modules/ITEM.Clothing.html">ITEM.Clothing</a></li>
+<li><a href="../../../modules/ITEM.Collectable.html">ITEM.Collectable</a></li>
+<li><a href="../../../modules/ITEM.Food.html">ITEM.Food</a></li>
+<li><a href="../../../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
+<li><a href="../../../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../../../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
+<li><a href="../../../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
+<li><a href="../../../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
+<li><a href="../../../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
+<li><a href="../../../modules/ITEM.Sticker.html">ITEM.Sticker</a></li>
+<li><a href="../../../modules/ITEM.Suit.html">ITEM.Suit</a></li>
+<li><a href="../../../modules/ITEM.Uniform.html">ITEM.Uniform</a></li>
+<li><a href="../../../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
+<li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
+<li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Entity.html">Entity</a></li>
+<li><a href="../../../modules/Player.html">Player</a></li>
+<li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../../../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../../../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../../../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../../../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../../../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../../../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../../../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../../../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../../../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../../../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../../../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../../../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../../../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Modules</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Array.html">Array</a></li>
+<li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
+<li><a href="../../../modules/CPPI.html">CPPI</a></li>
+<li><a href="../../../modules/DB.html">DB</a></li>
+<li><a href="../../../modules/Enumerations.html">Enumerations</a></li>
+<li><a href="../../../modules/GM.html">GM</a></li>
+<li><a href="../../../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
+<li><a href="../../../modules/Migrations.html">Migrations</a></li>
+<li><a href="../../../modules/PLUGIN.html">PLUGIN</a></li>
+<li><a href="../../../modules/SPropProtection.html">SPropProtection</a></li>
+<li><a href="../../../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../../../modules/bwep.html">bwep</a></li>
+<li><a href="../../../modules/cityrp.access.html">cityrp.access</a></li>
+<li><a href="../../../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+<li><a href="../../../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+<li><a href="../../../modules/cityrp.command.html">cityrp.command</a></li>
+<li><a href="../../../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../../../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../../../modules/cityrp.entity.html">cityrp.entity</a></li>
+<li><a href="../../../modules/cityrp.favorites.html">cityrp.favorites</a></li>
+<li><a href="../../../modules/cityrp.help.html">cityrp.help</a></li>
+<li><a href="../../../modules/cityrp.hints.html">cityrp.hints</a></li>
+<li><a href="../../../modules/cityrp.imageHosts.html">cityrp.imageHosts</a></li>
+<li><a href="../../../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+<li><a href="../../../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../../../modules/cityrp.itemmeta.html">cityrp.itemmeta</a></li>
+<li><a href="../../../modules/cityrp.layers.html">cityrp.layers</a></li>
+<li><a href="../../../modules/cityrp.legacy.functions.html">cityrp.legacy.functions</a></li>
+<li><a href="../../../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
+<li><a href="../../../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
+<li><a href="../../../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../../../modules/cityrp.logging.html">cityrp.logging</a></li>
+<li><a href="../../../modules/cityrp.logs.html">cityrp.logs</a></li>
+<li><a href="../../../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
+<li><a href="../../../modules/cityrp.membership.html">cityrp.membership</a></li>
+<li><a href="../../../modules/cityrp.model.html">cityrp.model</a></li>
+<li><a href="../../../modules/cityrp.network.html">cityrp.network</a></li>
+<li><a href="../../../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
+<li><a href="../../../modules/cityrp.player.html">cityrp.player</a></li>
+<li><a href="../../../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../../../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+<li><a href="../../../modules/cityrp.remote.html">cityrp.remote</a></li>
+<li><a href="../../../modules/cityrp.settings.html">cityrp.settings</a></li>
+<li><a href="../../../modules/cityrp.table.html">cityrp.table</a></li>
+<li><a href="../../../modules/cityrp.team.html">cityrp.team</a></li>
+<li><a href="../../../modules/cityrp.teslaCharger.html">cityrp.teslaCharger</a></li>
+<li><a href="../../../modules/cityrp.teslaChargerPrice.html">cityrp.teslaChargerPrice</a></li>
+<li><a href="../../../modules/cityrp.topHints.html">cityrp.topHints</a></li>
+<li><a href="../../../modules/cityrp.ui.html">cityrp.ui</a></li>
+<li><a href="../../../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../../../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
+<li><a href="../../../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../../../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
+<li><a href="../../../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../../../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../../../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../../../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../../../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../../../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../../../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../../../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_boneanimlib.html">core.plugins.animations.animationsapi.cl_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../../../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
+<li><a href="../../../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
+<li><a href="../../../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../../../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../../../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.cl_init.html">core.plugins.bodybags.entities.cityrp_bodybag.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.shared.html">core.plugins.bodybags.entities.cityrp_bodybag.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.cl_init.html">core.plugins.bodybags.entities.cityrp_evidence.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.init.html">core.plugins.bodybags.entities.cityrp_evidence.init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.shared.html">core.plugins.bodybags.entities.cityrp_evidence.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../../../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
+<li><a href="../../../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.giveprops.sv_init.html">core.plugins.giveprops.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_camera.html">core.plugins.holdem.cl.cl_camera</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_cards.html">core.plugins.holdem.cl.cl_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_chips.html">core.plugins.holdem.cl.cl_chips</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_hud.html">core.plugins.holdem.cl.cl_hud</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_render.html">core.plugins.holdem.cl.cl_render</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_ui.html">core.plugins.holdem.cl.cl_ui</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_vec2.html">core.plugins.holdem.cl.cl_vec2</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl_init.html">core.plugins.holdem.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_cards.html">core.plugins.holdem.sh_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_config.html">core.plugins.holdem.sh_config</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_init.html">core.plugins.holdem.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_commands.html">core.plugins.holdem.sv.sv_commands</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_game.html">core.plugins.holdem.sv.sv_game</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_net.html">core.plugins.holdem.sv.sv_net</a></li>
+<li><a href="../../../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_editor.html">core.plugins.lite_character.cl_editor</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_init.html">core.plugins.lite_character.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_notches.html">core.plugins.lite_character.cl_notches</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_debug.html">core.plugins.lite_character.sh_debug</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_rockfall.shared.html">core.plugins.maintenance.entities.cityrp_rockfall.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../../../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../../../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../../../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../../../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../../../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../../../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../../../modules/dumper.html">dumper</a></li>
+<li><a href="../../../modules/entities.cityrp_peephole.html">entities.cityrp_peephole</a></li>
+<li><a href="../../../modules/env.html">env</a></li>
+<li><a href="../../../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
+<li><a href="../../../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
+<li><a href="../../../modules/plugins.worldprops.html">plugins.worldprops</a></li>
+<li><a href="../../../modules/sh_init.html">sh_init</a></li>
+<li><a href="../../../modules/temar.html">temar</a></li>
+<li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Credits</h2></div>
+<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Clans — Core Module</h1></div><div class="ll-module-body"><p>Module 1. Owns clan identity, membership, the rank ladder, permissions, radio
+and MOTD, and exposes the registration API every other module builds on.</p>
+<blockquote>
+<p><strong>Status</strong>: In Design. See <a href="design.html">design.md</a> for the module framework and
+<a href="plan.html">plan.md</a> for rollout.</p>
+</blockquote>
+<h2 id="scope">Scope</h2>
+<p>Core is deliberately close to the existing feature set. It is <em>&quot;your clan radio,
+your rank system, general membership administration&quot;</em> — the value of this module
+is the framework and the correctness, not new mechanics.</p>
+<p>In scope: identity (name, abbreviation, motto, description), MOTD, membership
+lifecycle, ranks and permissions, clan radio, administration.
+Out of scope: bank (Module 2), inventory, vehicles.
+Retired: clan models — see <a href="design.html#retiring-clan-models">design.md</a>.</p>
+<h2 id="permission-model">Permission model</h2>
+<h3 id="decision-hybrid-capability-registry">Decision: hybrid capability registry</h3>
+<p>Permissions are declared by modules and stored per rank in a single generic
+table. Each permission has a <strong>kind</strong> that determines how its value is
+interpreted.</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Value domain</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BOOLEAN</code></td>
+<td><code>true</code> / <code>false</code></td>
+<td>Flat capability, not targeted at another member</td>
+</tr>
+<tr>
+<td><code>THRESHOLD</code></td>
+<td><code>NULL</code> or a <code>rankid</code></td>
+<td>May act on any member at or below the referenced rank; <code>NULL</code> = no permission</td>
+</tr>
+<tr>
+<td><code>NUMERIC_LIMIT</code></td>
+<td><code>NULL</code>, <code>-1</code>, or a non-negative number</td>
+<td>Amount-gated capability; <code>-1</code> = unlimited, <code>NULL</code> = no permission</td>
+</tr>
+</tbody>
+</table>
+<p><code>NUMERIC_LIMIT</code> is retained as a general-purpose utility kind, not to avoid a
+migration — migrations are cheap here, so that would not be a reason. It earns
+its place because &quot;you may do this, up to N&quot; is a recurring shape a future
+inventory or vehicle module wanting per-rank quotas could use, rather than
+reinventing it. Its <code>-1</code> sentinel is an in-band magic value in the same column
+as real amounts; that is a known wart, tolerated because <code>NULL</code> already carries
+the &quot;no permission&quot; case cleanly.</p>
+<blockquote>
+<p><code>bank.withdraw</code> does <strong>not</strong> use this kind — see
+<a href="bank.html#rank-gating">bank.md</a>: the per-transaction cap is a single global
+config value, not a per-rank quota, so <code>bank.withdraw</code> is <code>BOOLEAN</code>.
+<code>NUMERIC_LIMIT</code> currently has no consumer; revisit if nothing claims it by
+the time Core ships.</p>
+</blockquote>
+<p>This keeps the genuinely good idea in the legacy model — seniority-scoped
+authority, &quot;you may only act on people below you&quot; — while generalising it so any
+module can use it for any targeted action, rather than it existing only for the
+two actions someone hardcoded columns for.</p>
+<p><code>NULL</code> is the single &quot;no permission&quot; sentinel across all three kinds. This
+resolves the legacy defect where <code>0</code> meant both &quot;no permission&quot; and, numerically,
+&quot;the most senior possible rank&quot; — forcing an inconsistent special case at every
+call site.</p>
+<blockquote>
+<p><strong>Decided.</strong> The alternative considered was plain boolean capabilities plus a
+separate seniority ordinal and an explicit <code>is_leader</code> flag — simpler to reason
+about, but a boolean cannot express &quot;kick, but only people junior to me&quot;
+without a second mechanism bolted alongside it, and it cannot satisfy the hard
+requirement that a module declare its own permissions without a schema
+migration. Module extensibility is the point of the rebuild, so the hybrid
+wins. The rejected model's other recommendations — atomic leadership transfer,
+re-checking permission at commit time — are adopted and were compatible with
+either choice.</p>
+</blockquote>
+<h3 id="schema-rankid-vs-rank_order">Schema: <code>rankid</code> vs <code>rank_order</code></h3>
+<p>The legacy <code>rankid</code> column conflates stable identity with seniority position.
+Split it:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Stability</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rankid</code></td>
+<td>Immutable, never reused</td>
+<td>Foreign-key identity. Allocated from a per-clan monotonic counter (<code>clans.next_rankid</code>), never from array position</td>
+</tr>
+<tr>
+<td><code>rank_order</code></td>
+<td>Mutable, renumbered on structural change</td>
+<td>Contiguous <code>1..N</code>, <code>1</code> = most senior. <strong>The only column ever used for seniority comparison</strong></td>
+</tr>
+</tbody>
+</table>
+<p><code>clan_ranks(clan, rankid, rank_order, rankname, ...)</code>,
+PRIMARY KEY <code>(clan, rankid)</code>, <strong>UNIQUE <code>(clan, rank_order)</code></strong>.</p>
+<p>This makes the non-contiguous rank IDs already present in live data (<code>8</code>, <code>170</code>)
+harmless: they are opaque identity and are never compared.</p>
+<p><code>THRESHOLD</code> stores a <strong>rankid</strong>, not a raw ordinal — so &quot;may kick Lieutenant and
+below&quot; keeps meaning what the leader configured even if a new rank is later
+inserted above Lieutenant.</p>
+<p>Ranks are a <strong>strict ladder</strong> — one rank per position, no ties. Co-equal ranks
+were considered and rejected: no clan has ever had them, the migration cannot
+produce them (rankids are already distinct per clan, so backfilling <code>rank_order</code>
+yields no ties), and they would have shipped with no users, an awkward two-part
+invariant, and a documented expressiveness hole in threshold configuration.</p>
+<p>Relaxing this later is one migration in the easy direction — dropping a unique
+constraint — so nothing is foreclosed.</p>
+<h3 id="permission-value-column">Permission value column</h3>
+<p><code>clan_rank_permissions.value</code> is <strong><code>INT NULL</code></strong>. This is not incidental.</p>
+<p><code>DB:QueryParams</code> binds every parameter as a <strong>quoted string literal</strong>
+(<code>db.lua:239</code>) — there is no numeric binding path. Against an <code>INT</code> column MySQL
+coerces the literal and comparisons stay numeric. Against a <code>VARCHAR</code> column
+they become <strong>lexicographic</strong>, and <code>'9' &gt; '10'</code> is true. Live clans already have
+28 ranks, so ordinals above 9 are reachable today — a <code>VARCHAR</code> value column
+would silently invert the threshold check for exactly the clans with the most
+complex ladders.</p>
+<p>All three kinds fit an integer: <code>BOOLEAN</code> as 0/1, <code>THRESHOLD</code> as a rankid,
+<code>NUMERIC_LIMIT</code> as the amount. Do not use <code>VARCHAR</code> or JSON.</p>
+<h3 id="join-rank">Join rank</h3>
+<p>Each clan stores an explicit <code>clans.join_rankid</code> rather than deriving the join
+rank from the ladder.</p>
+<p>This removes the legacy defect where the join rank was whichever rank row
+happened to be loaded last — a value derived from iteration order rather than
+intent, which is how live data ended up with join ranks of <code>8</code> and <code>170</code>.
+Deleting the designated join rank requires nominating a replacement, in the same
+operation.</p>
+<h3 id="declaration-format">Declaration format</h3>
+<p>A module registers each permission once at load time. Example shown with
+<code>NUMERIC_LIMIT</code> since that kind's shape is the least obvious of the three —
+<code>inventory.take_items</code> is hypothetical (inventory is a deferred future module,
+not part of this rebuild), used here only to illustrate the kind, not because
+it is being built:</p>
+<pre><code class="language-lua">{
+    id      = &quot;inventory.take_items&quot;, -- unique, &quot;&lt;module&gt;.&lt;name&gt;&quot;
+    module  = &quot;inventory&quot;,            -- must match the registering module
+    label   = &quot;Take items from clan inventory&quot;,
+    kind    = NUMERIC_LIMIT,
+    default = nil,                    -- fallback when no stored value exists
+    unit    = &quot;items_per_transaction&quot;,
+}
+</code></pre>
+<p><code>default</code> is resolved at read time, never materialised — this is what lets a
+module installed after a clan already exists apply to every existing rank with
+no migration.</p>
+<p><strong>Resolution order</strong> for any permission check:</p>
+<ol>
+<li>Look up <code>(clan, rankid, permission_id)</code> in <code>clan_rank_permissions</code>.</li>
+<li>If present, use it (type-checked against the declared <code>kind</code>).</li>
+<li>Otherwise use the module's declared <code>default</code>.</li>
+<li>If the permission is not registered by any loaded module, treat as <code>NULL</code> and
+log a warning via <code>cityrp.logging</code>. <strong>Fail closed</strong> — a disabled or renamed
+module must never result in a silent grant.</li>
+</ol>
+<h3 id="core-permission-set">Core permission set</h3>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Kind</th>
+<th>Gates</th>
+<th>Leader</th>
+<th>Officer</th>
+<th>Lieutenant</th>
+<th>Private</th>
+<th>Recruit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>core.invite</code></td>
+<td>boolean</td>
+<td>Invite a non-member</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td><code>core.manage_invites</code></td>
+<td>boolean</td>
+<td>Cancel pending invites</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td><code>core.kick</code></td>
+<td>threshold</td>
+<td>Remove a member</td>
+<td>Officer</td>
+<td>Lieutenant</td>
+<td>Private</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>core.setrank</code></td>
+<td>threshold</td>
+<td>Change a member's rank</td>
+<td>Officer</td>
+<td>Lieutenant</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>core.motd_edit</code></td>
+<td>boolean</td>
+<td>Edit clan MOTD</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td><code>core.edit_identity</code></td>
+<td>boolean</td>
+<td>Edit name / abbreviation / motto / description</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td><code>core.manage_ranks</code></td>
+<td>boolean</td>
+<td>Create, rename, reorder, delete ranks; edit stored permission values</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td><code>core.delete_clan</code></td>
+<td>boolean</td>
+<td>Permanently delete the clan</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+</tbody>
+</table>
+<p><code>core.kick</code> and <code>core.setrank</code> are independent axes, not bundled — a Lieutenant
+may remove a Private without being able to re-rank one.</p>
+<p><strong>Intrinsic actions</strong>, not stored permissions: <em>leadership transfer</em> is always
+and only &quot;whoever currently holds <code>rank_order = 1</code>&quot;. Storing it as configurable
+data would allow a misconfiguration to hand leadership transfer to a non-leader.</p>
+<h3 id="inalienable-permission">Inalienable permission</h3>
+<p><strong>Rank 1 permanently holds <code>core.manage_ranks</code>.</strong> It cannot be revoked, and the
+write path rejects any attempt to set it false on rank 1 regardless of who is
+asking.</p>
+<p>Without this, a leader can remove <code>core.manage_ranks</code> from their own rank and
+lock the clan out of its own configuration permanently — recoverable only by
+staff intervention.</p>
+<p><code>core.manage_ranks</code> is the <strong>only</strong> permission that needs this treatment. A
+weaker rule such as &quot;at least one rank must hold it&quot; is insufficient, because
+that rank may have no members — the invariant would hold while nobody could
+actually use it, and guarding every membership change instead gets expensive.
+Pinning it to rank 1 piggybacks on invariant 1, which already guarantees exactly
+one member holds that rank.</p>
+<p>Nothing else needs protecting, because <code>core.manage_ranks</code> is sufficient to
+restore anything: a leader who removes <code>core.delete_clan</code> or
+<code>core.edit_identity</code> from their own rank can grant it back. Those stay freely
+editable.</p>
+<p>Modules must not assume more than this. Core guarantees only that rank 1 can
+always reach the permission editor; a module that can lock itself out through
+its own permissions is a bug in that module.</p>
+<blockquote>
+<p>⚠️ <code>core.manage_ranks</code> also gates editing a rank's <em>own</em> permission values,
+including <code>core.delete_clan</code>. Granting it to a non-Leader rank is effectively
+granting clan co-ownership. This is intentional, but the UI must warn the
+leader when enabling it for anyone else.</p>
+</blockquote>
+<h3 id="permission-check-formulas">Permission check formulas</h3>
+<p><strong>Threshold</strong></p>
+<pre><code>allowed = defined ∧ (ord_target ≥ ord_thresh) ∧ (ord_target &gt; ord_actor)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Type</th>
+<th>Range</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>defined</code></td>
+<td>bool</td>
+<td>—</td>
+<td>Acting rank has a non-<code>NULL</code> value for this permission</td>
+</tr>
+<tr>
+<td><code>ord_actor</code></td>
+<td>int</td>
+<td>1..N</td>
+<td><code>rank_order</code> of the acting member's rank</td>
+</tr>
+<tr>
+<td><code>ord_target</code></td>
+<td>int</td>
+<td>1..N</td>
+<td><code>rank_order</code> of the target member's rank</td>
+</tr>
+<tr>
+<td><code>ord_thresh</code></td>
+<td>int</td>
+<td>1..N</td>
+<td><code>rank_order</code> of the rank referenced by the stored threshold</td>
+</tr>
+</tbody>
+</table>
+<p>Worked example — ladder Leader(1)/Officer(2)/Lieutenant(3)/Private(4)/Recruit(5),
+Officer's <code>core.kick</code> = Lieutenant (ord 3):</p>
+<ul>
+<li>Officer kicks Private (4): <code>4≥3</code> ✓, <code>4&gt;2</code> ✓ → <strong>allowed</strong></li>
+<li>Officer kicks Lieutenant (3): <code>3≥3</code> ✓, <code>3&gt;2</code> ✓ → <strong>allowed</strong> (boundary)</li>
+<li>Officer kicks another Officer (2): <code>2≥3</code> ✗ → <strong>denied</strong></li>
+<li>Officer kicks Leader (1): <code>1≥3</code> ✗ → <strong>denied</strong></li>
+</ul>
+<p>Rank 1 needs no special case — its protection falls out of the ordering. Clause
+three (<code>ord_target &gt; ord_actor</code>) is what forbids acting on your own rank, and it
+holds independently of how the threshold is configured.</p>
+<p><strong>Numeric limit</strong></p>
+<pre><code>effective_cap = (L == -1) ? ∞ : L
+allowed       = (L ≠ NULL) ∧ (A ≤ effective_cap)
+</code></pre>
+<p>Where <code>L</code> is the stored limit for the actor's rank and <code>A</code> is the requested
+amount. The request is accepted or rejected whole — never silently clamped down
+to the cap.</p>
+<h2 id="in-game-menu">In-game menu</h2>
+<p>The menu is the only clan management surface. See <a href="ui.html">ui.md</a>.</p>
+<p>Accepting an invite from the no-clan screen re-validates at accept time: the clan
+must still exist and the player must still be unaffiliated.</p>
+<h2 id="membership-lifecycle">Membership lifecycle</h2>
+<table>
+<thead>
+<tr>
+<th>Current state</th>
+<th>Action</th>
+<th>Actor requirement</th>
+<th>Resulting state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>Invite sent</td>
+<td><code>core.invite</code>; target holds no other membership</td>
+<td>Invited</td>
+</tr>
+<tr>
+<td>Invited</td>
+<td>Cancelled or TTL expired</td>
+<td><code>core.manage_invites</code>, or system</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Invited</td>
+<td>Clan deleted</td>
+<td>System (cascade)</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Invited</td>
+<td>Accepted</td>
+<td>Self; re-validated: clan active <strong>and</strong> target still unaffiliated</td>
+<td>Member (join rank)</td>
+</tr>
+<tr>
+<td>Member</td>
+<td>Promoted / demoted</td>
+<td><code>core.setrank</code>; both current and new rank must satisfy the threshold</td>
+<td>Member (new rank)</td>
+</tr>
+<tr>
+<td>Member</td>
+<td>Kicked</td>
+<td><code>core.kick</code>; target rank must satisfy the threshold</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Member (not sole leader)</td>
+<td>Leaves</td>
+<td>Self — no permission gate</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Leader, others remain</td>
+<td>Attempts to leave</td>
+<td>Self</td>
+<td><strong>Rejected</strong> — must transfer leadership first</td>
+</tr>
+<tr>
+<td>Leader + target member</td>
+<td>Leadership transferred</td>
+<td>Self, must hold <code>rank_order = 1</code></td>
+<td>Atomic swap of the two ranks</td>
+</tr>
+<tr>
+<td>Leader, sole member</td>
+<td>Leaves</td>
+<td>Self</td>
+<td>None, <strong>and</strong> clan deleted</td>
+</tr>
+<tr>
+<td>Clan active</td>
+<td>Deleted</td>
+<td><code>core.delete_clan</code></td>
+<td>Clan deleted; all members and invites cascade to None</td>
+</tr>
+</tbody>
+</table>
+<p>Leadership transfer must be a <strong>single atomic statement</strong>, not a demote followed
+by a promote — two statements reopen a race window where a clan has zero or two
+leaders.</p>
+<h2 id="edge-cases">Edge cases</h2>
+<ul>
+<li><strong>If the sole leader attempts to leave while members remain</strong>: reject with
+&quot;Transfer leadership before leaving&quot;. No auto-succession — it introduces a tie
+problem between same-rank members for no real benefit.</li>
+<li><strong>If someone attempts to demote the leader</strong>: structurally unreachable. Rank 1
+has the minimum ordinal, and every threshold must reference a rank strictly
+junior to its owner, so no actor can satisfy <code>ord_target &gt; ord_actor</code> against
+it. The only path to a new leader is leadership transfer.</li>
+<li><strong>If two officers simultaneously promote each other</strong>: both rejected
+independently. An Officer's <code>setrank</code> threshold requires the <em>new</em> rank to also
+satisfy the threshold, and Officer is senior to that threshold — so no Officer
+can ever assign Officer or above. Structurally impossible, not a race to be
+locked against.</li>
+<li><strong>If a member is kicked while a bank withdrawal from them is in flight</strong>: the
+withdrawal handler re-checks membership and permission <strong>at commit time</strong>,
+inside the same critical section as the ledger write. If the kick landed
+first, the withdrawal aborts and no funds move.</li>
+<li><strong>If a rank is deleted while members hold it</strong>: rejected by default, reporting
+the holder count. Optionally accepts a <code>migrate_to</code> rankid, reassigning holders
+atomically before removal. <code>migrate_to</code> may not be rank 1.</li>
+<li><strong>If a permission references a deleted rank as its threshold target</strong>: reset to
+<code>NULL</code>. Fail closed — never auto-widen to a neighbouring rank.</li>
+<li><strong>If rank IDs are non-contiguous</strong>: harmless. <code>rankid</code> is opaque; only
+<code>rank_order</code> is compared, and it is contiguous by invariant.</li>
+<li><strong>If a player is invited while already in a clan</strong>: rejected at send time, before
+any invite row is created. Re-checked again at accept time to close the race.</li>
+<li><strong>If a player accepts a stale invite to a deleted clan</strong>: accept re-validates
+the clan is active, rejects, and deletes the stale row. Deletion should already
+cascade invites proactively; this is the defensive fallback.</li>
+</ul>
+<h2 id="invariants">Invariants</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Invariant</th>
+<th>Checkable condition</th>
+<th>On violation in live data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Exactly one leader per active clan</td>
+<td>Exactly one member holds <code>rank_order = 1</code>, where <code>member_count &gt; 0</code></td>
+<td>Flag for manual review. Do not auto-resolve silently; if unattended, keep oldest join timestamp and log every change</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>rank_order</code> contiguous, unique, ≥2 ranks</td>
+<td><code>COUNT(*) = MAX(rank_order)</code> and <code>MAX ≥ 2</code></td>
+<td>Renumber by sorting on legacy <code>rankid</code>; synthesise a second rank if fewer than 2 survive</td>
+</tr>
+<tr>
+<td>2a</td>
+<td>The join rank exists and is a real rank of this clan</td>
+<td><code>clans.join_rankid</code> resolves to a row in <code>clan_ranks</code> for the same clan</td>
+<td>Backfill to the rank at <code>MAX(rank_order)</code>; log the choice</td>
+</tr>
+<tr>
+<td>2b</td>
+<td>Permission values are integers and compared numerically</td>
+<td><code>clan_rank_permissions.value</code> is <code>INT NULL</code>; no comparison is ever performed on a string column</td>
+<td>Fail the migration rather than proceeding — see <a href="#permission-value-column">Permission value column</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>One active membership per player</td>
+<td>DB uniqueness on <code>clan_members.steamid</code> <strong>plus</strong> an application pre-check</td>
+<td>Constraint already exists; only the pre-check is new</td>
+</tr>
+<tr>
+<td>4</td>
+<td>No threshold resolves to a rank at or above its owner</td>
+<td>Resolve target <code>rank_order</code> &gt; owner <code>rank_order</code> on every write and in a periodic sweep</td>
+<td>Clamp to <code>owner_order + 1</code> and log</td>
+</tr>
+<tr>
+<td>4a</td>
+<td>Rank 1 always holds <code>core.manage_ranks</code></td>
+<td>The stored value for <code>(clan, rank 1, 'core.manage_ranks')</code> is never false</td>
+<td>Restore it and log — a clan in this state is locked out of its own configuration</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Every stored permission key is registered and type-matched</td>
+<td>Boot-time sweep after all modules register</td>
+<td>Exclude orphans from checks (fail closed) and report — do not delete; the module may return</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>rankid</code> unique and never reused per clan</td>
+<td>Allocation from <code>clans.next_rankid</code></td>
+<td>Seed <code>next_rankid = MAX(rankid) + 1</code> per clan</td>
+</tr>
+<tr>
+<td>7</td>
+<td>No active clan has zero members</td>
+<td><code>COUNT(members) ≥ 1 OR state ≠ active</code></td>
+<td>Soft-delete zombie clans</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Rank and member counts bounded</td>
+<td><code>2 ≤ rank_count ≤ 50</code>, <code>member_count ≤ 100</code></td>
+<td>Live maxima are 28 ranks and 18 members, so no clan is currently over cap. Grandfather any that appear; never truncate live rosters</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Rank seed data never shared by reference</td>
+<td>Code property — deep copy the seed template at clan creation</td>
+<td>Covered by a unit test creating two clans and mutating one</td>
+</tr>
+</tbody>
+</table>
+<p>Invariant 9 is the fix for the legacy defect where all clans created in one
+server session shared a single mutable ranks table.</p>
+<h2 id="identity-field-validation">Identity field validation</h2>
+<p>Enforced identically at <strong>every</strong> entry point — creation, edit, game and web.
+A rule applied at intake and skipped at update is not a rule.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Limit</th>
+<th>Counted in</th>
+<th>Charset</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>3–32</td>
+<td><strong>characters</strong> (128-byte ceiling)</td>
+<td>Letters, digits, space, hyphen. No quotes or apostrophes</td>
+<td>Trim and collapse whitespace; reject if no alphanumeric remains; reject case-insensitive collision with an existing clan</td>
+</tr>
+<tr>
+<td>Abbreviation</td>
+<td>2–7</td>
+<td><strong>characters</strong> (28-byte ceiling)</td>
+<td><code>[%a%d]</code> only</td>
+<td>Renders inline on every member's name. Uppercase-normalise. Requires <strong>both</strong> reserved-word and prohibited-content screening — see below. <strong>No column exists yet</strong></td>
+</tr>
+<tr>
+<td>Motto</td>
+<td>0–80</td>
+<td><strong>characters</strong> (320-byte ceiling)</td>
+<td>Name charset plus <code>. , ! ? -</code></td>
+<td>Single line; strip newlines and chat colour codes</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>0–500</td>
+<td><strong>bytes</strong></td>
+<td>Broad printable, multi-line</td>
+<td>Total length only — no line-count or per-line cap</td>
+</tr>
+<tr>
+<td>MOTD</td>
+<td>0–2000</td>
+<td><strong>bytes</strong></td>
+<td>As Description</td>
+<td>Total length only. If images are ever permitted, URLs <strong>must</strong> go through <code>cityrp.imageHosts</code> — there is exactly one allowlist</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Short identity fields are character-counted; long-form fields are
+byte-counted.</strong> This split is deliberate, not an inconsistency:</p>
+<ul>
+<li>Name, abbreviation and motto are rendered inline in chat, on the scoreboard and
+above players' heads, so their <em>visible</em> length must be predictable. Counted
+via <code>utf8.len</code>, backed by a byte ceiling of 4× the character limit — the
+<code>utf8mb4</code> worst case — as defence in depth.</li>
+<li>Description and MOTD are long-form panel text where exact character counts
+matter far less than bounding storage and network payload predictably.</li>
+</ul>
+<p><strong>Known consequence:</strong> a byte-counted field gives less content in non-Latin
+scripts — 500 bytes is roughly 250 Cyrillic or 166 CJK characters, and about 125
+emoji. Acceptable for a predominantly English-speaking server, but it is a real
+asymmetry and should be a deliberate choice rather than a discovered one.</p>
+<p>Truncation must never split a codepoint. Validate and reject rather than
+silently trimming.</p>
+<p><strong>Because Description and MOTD have no line-structure limits, the renderer must
+hard-wrap.</strong> A single unbroken 2000-byte token with no whitespace is valid input,
+so wrapping cannot rely on word boundaries — it must break on character
+boundaries when no break opportunity exists, and the panel must clip or scroll
+rather than expand. Responsibility for layout safety moves from validation to
+rendering; it does not disappear.</p>
+<p>Storage uses <code>DB_MAIN:QueryParams</code> exclusively — never concatenated <code>Run</code>.
+Web rendering HTML-escapes at output time regardless of write-time validation,
+because output encoding is what protects against data that entered by another
+path.</p>
+<h3 id="schema-is-not-a-constraint">Schema is not a constraint</h3>
+<p>Gamemode migrations are cheap and routine here, so <strong>design the schema the system
+needs and migrate to it</strong>. Do not contort the design to fit the existing tables,
+and do not preserve a legacy column merely because it exists.</p>
+<p>Concretely, this means: add <code>abbreviation varchar(7)</code> rather than repurposing
+<code>short</code> (<code>varchar(2000)</code>, selected by <code>loadclan</code> but never used); drop
+<code>clan_ranks.invite</code> / <code>kick</code> / <code>setrank</code> / <code>motd</code> / <code>forum</code> once
+<code>clan_rank_permissions</code> replaces them; drop the dead <code>clan</code>, <code>clan_has_players</code>
+and <code>clan_has_invite</code> tables; and size <code>name</code>, <code>motto</code> and <code>description</code> to the
+limits below rather than inheriting <code>varchar(40)</code> / <code>varchar(70)</code>.</p>
+<p>The one thing worth checking before dropping anything is whether it holds live
+data worth keeping — <code>clans.short</code> in particular. That is a data-preservation
+question at migration time, not a design constraint.</p>
+<p>Similarly, <code>clan_members</code> should be keyed <code>(clan, steamid)</code> with a separate
+unique constraint on <code>steamid</code> if one-clan-per-player is retained. The current
+<code>PRIMARY KEY (steamid)</code> expresses the rule as a side effect of the key rather
+than as an explicit constraint, which is why violations surface as duplicate-key
+errors instead of clean rejections.</p>
+<h3 id="charset">Charset</h3>
+<p>Join keys and text fields need different charsets, and the split must be
+deliberate.</p>
+<table>
+<thead>
+<tr>
+<th>Column class</th>
+<th>Charset</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Join keys — <code>clan_members.steamid</code>, <code>clan_invites.steamid</code>, ledger SteamIDs</td>
+<td><strong><code>latin1</code>, matching <code>players._SteamID</code></strong></td>
+<td>SteamIDs are ASCII. These columns are joined against <code>players</code> constantly, and a cross-charset comparison forces an implicit conversion that prevents index use and can raise <code>Illegal mix of collations</code></td>
+</tr>
+<tr>
+<td>Player-authored text — clan name, motto, description, MOTD</td>
+<td><strong><code>utf8mb4</code></strong></td>
+<td>Must accept non-ASCII names, and the character-count limits assume it</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The clan tables migrate to match <code>players</code>, not the reverse.</strong> <code>players</code> is
+central and widely joined; migrating it is the larger, riskier change, and the
+clan tables are small.</p>
+<p>Note this makes fixing defect 8 insufficient on its own: <code>setleader</code>'s offline
+path joins <code>players._SteamID</code> (<code>latin1</code>) to <code>clan_members.steamid</code> (<code>utf8</code>).
+Correcting the <code>clan_member</code> → <code>clan_members</code> typo leaves a cross-charset join
+behind it.</p>
+<h3 id="two-different-things-called-_clan">Two different things called <code>_Clan</code></h3>
+<p><code>self._Clan</code> is the <strong>numeric clan ID</strong> set by the clans plugin
+(<code>sv_player.lua:583</code> compares <code>self._Clan &gt; 0</code>). <code>self.cityrp._Clan</code> is an
+unrelated <strong>free-text <code>latin1</code> string</strong> defaulted from
+<code>cityrp.configuration[&quot;Default Clan&quot;]</code> and compared against <code>&quot;none&quot;</code>
+(<code>sv_player.lua:1480</code>, <code>:1536</code>).</p>
+<p>Two concepts, one name, distinguished only by whether the access goes through
+<code>.cityrp</code>. Core's public API must not expose the raw <code>_Clan</code> field at all — use
+named accessors, and treat any bare <code>_Clan</code> in existing code as ambiguous until
+read in context.</p>
+<h3 id="prohibited-content">Prohibited content</h3>
+<p>Screening is provided by a shared library, <code>cityrp.wordfilter</code>, with <strong>multiple
+named categories</strong> rather than one flat list. Categories differ in what they
+protect against, who curates them, and which fields they apply to — merging them
+makes all three worse.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Protects against</th>
+<th>Example entries</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reserved</code></td>
+<td>Impersonating staff or the server</td>
+<td><code>admin</code>, <code>mod</code>, <code>staff</code>, <code>owner</code>, <code>limelight</code></td>
+</tr>
+<tr>
+<td><code>slur</code></td>
+<td>Hate speech and targeted abuse</td>
+<td>— curated by moderation</td>
+</tr>
+<tr>
+<td><code>profanity</code></td>
+<td>General swearing</td>
+<td>— curated by moderation</td>
+</tr>
+</tbody>
+</table>
+<p>The set is extensible; other features will want categories clans does not.</p>
+<p><strong>Category-to-field policy.</strong> Each field declares which categories it rejects.
+The distinction that matters is <strong>consent</strong>: a clan name and abbreviation are
+broadcast to every player constantly and non-consensually, whereas a description
+or MOTD is only seen by someone who opens it.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th><code>reserved</code></th>
+<th><code>slur</code></th>
+<th><code>profanity</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clan name</td>
+<td>reject</td>
+<td>reject</td>
+<td>reject</td>
+</tr>
+<tr>
+<td>Abbreviation</td>
+<td>reject</td>
+<td>reject</td>
+<td>reject</td>
+</tr>
+<tr>
+<td>Motto</td>
+<td>—</td>
+<td>reject</td>
+<td>reject</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>—</td>
+<td>reject</td>
+<td>allow</td>
+</tr>
+<tr>
+<td>MOTD</td>
+<td>—</td>
+<td>reject</td>
+<td>allow</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ownership is split.</strong> Product owns this matrix — which categories gate which
+fields is a policy call. Moderation owns the contents of each list. Neither
+should be hardcoded by engineering.</p>
+<p>The <code>reserved</code> category is load-bearing precisely because the abbreviation limit
+moved to 7 characters: at 4 only <code>MOD</code> fitted, whereas <code>ADMIN</code>, <code>STAFF</code> and
+<code>OWNER</code> all fit in 7.</p>
+<p>Screening is necessary rather than sufficient, and should be specified honestly:</p>
+<ul>
+<li><strong>Normalise before matching</strong>, or it is bypassed in seconds: casefold, strip
+separators and punctuation, fold leetspeak digits (<code>4</code>→<code>a</code>, <code>3</code>→<code>e</code>, <code>0</code>→<code>o</code>,
+<code>1</code>→<code>i</code>/<code>l</code>) and common homoglyphs. An unnormalised list stops nobody.</li>
+<li><strong>Match whole-field for the abbreviation</strong>, substring for the longer free-text
+fields. Substring matching on short fields produces false positives — the
+classic case being innocuous words that contain a blocked substring — and a
+2–7 character field has too little context to disambiguate.</li>
+<li><strong>No list is complete.</strong> The real backstop is player reporting plus staff
+action, which requires a <strong>staff force-rename / force-retag tool</strong>. A clan that
+slips through must be fixable without deleting it and refunding it. This tool
+is a hard requirement of shipping the feature, not a nice-to-have.</li>
+</ul>
+<p><strong><code>cityrp.wordfilter</code> is a gamemode library, not part of the clans module.</strong> No
+profanity or slur filter currently exists anywhere in the gamemode, so this is
+the first — which makes it the moment to centralise. Clan names, abbreviations,
+mottos, descriptions and MOTDs all need it, and so will the next feature that
+accepts player-authored text. This codebase already has a documented incident
+where the same allowlist was independently copied into four places and drifted
+apart; one library consumed by clans avoids repeating it.</p>
+<p>Clans is its first consumer, so the library ships in Phase 1 — but it should be
+designed for the gamemode, not for clans.</p>
+<h2 id="open-decisions">Open decisions</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Decision</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><del>1</del></td>
+<td><del>Hybrid capability registry vs. plain booleans</del></td>
+<td><strong>Resolved — hybrid.</strong> See <a href="#permission-model">Permission model</a></td>
+</tr>
+<tr>
+<td><del>2</del></td>
+<td><del><code>MAX_RANKS</code> and <code>MAX_MEMBERS</code> values</del></td>
+<td><strong>Resolved — 50 ranks, 100 members.</strong> Live maxima are 28 and 18; these are abuse backstops with headroom, not design targets</td>
+</tr>
+<tr>
+<td><del>3</del></td>
+<td><del>Whether <code>core.manage_ranks</code> should be delegable</del></td>
+<td><strong>Resolved — keep delegable</strong>, with a UI warning when a leader grants it to another rank</td>
+</tr>
+<tr>
+<td><del>4</del></td>
+<td><del>Reserved abbreviation list</del></td>
+<td><strong>Resolved — two separate screens</strong>: reserved words for staff impersonation, prohibited terms for slurs, both via a shared library. See <a href="#prohibited-content">Prohibited content</a></td>
+</tr>
+<tr>
+<td><del>5</del></td>
+<td><del>How the UI presents tiers containing several ranks</del></td>
+<td><strong>Moot</strong> — co-equal ranks were scrapped, so a plain ordered list is correct. The menu route is in <a href="ui.html">ui.md</a></td>
+</tr>
+<tr>
+<td><del>6</del></td>
+<td><del>What <code>clans.short</code> actually holds</del></td>
+<td><strong>Resolved as a design question — migrations are cheap, so design the schema needed.</strong> Remains a data-preservation check at migration time only</td>
+</tr>
+<tr>
+<td><del>7</del></td>
+<td><del>Curation of the word lists</del></td>
+<td><strong>Resolved — split ownership.</strong> Product owns the category-to-field matrix; moderation owns list contents. See <a href="#prohibited-content">Prohibited content</a></td>
+</tr>
+</tbody>
+</table></div>
+		</div>
+	</div>
+	<br class="clearfix">
+</div>
+<script>
+var ROOT = "../../../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
+</body>
+</html>

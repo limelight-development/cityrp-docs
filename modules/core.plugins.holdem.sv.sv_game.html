@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>core.plugins.holdem.sv.sv_game</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,8 +14,8 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
@@ -23,26 +23,19 @@
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -50,6 +43,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -62,6 +59,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -71,6 +69,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -83,7 +107,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -93,7 +116,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -131,22 +153,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -159,9 +165,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -329,287 +332,311 @@
 <div class="ll-module-body"><p>Texas Hold'em server game engine: seats, betting, pots, showdown.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="holdem.addPlayer"></a><strong><span class="state state-server">holdem.addPlayer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L310">Source ☍</a></dt>
+<dt><a name="holdem.addPlayer"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.addPlayer<span class="ll-args">(id, ply, pos)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L310">Source ☍</a></dt>
 <dd>
 <p>Seat a player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
-<li><span class="parameter">pos</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
+<li><span class="parameter">pos</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="holdem.advanceStreet"></a><strong><span class="state state-server">holdem.advanceStreet</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L770">Source ☍</a></dt>
+<dt><a name="holdem.advanceStreet"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.advanceStreet<span class="ll-args">(id)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L770">Source ☍</a></dt>
 <dd>
 <p>Move to next street or showdown.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.assignButtonAndBlinds"></a><strong><span class="state state-server">holdem.assignButtonAndBlinds</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L480">Source ☍</a></dt>
+<dt><a name="holdem.assignButtonAndBlinds"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.assignButtonAndBlinds<span class="ll-args">(id)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L480">Source ☍</a></dt>
 <dd>
 <p>Rotate dealer button and assign blinds.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.awardFoldWin"></a><strong><span class="state state-server">holdem.awardFoldWin</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L830">Source ☍</a></dt>
+<dt><a name="holdem.awardFoldWin"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.awardFoldWin<span class="ll-args">(id, winner)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L830">Source ☍</a></dt>
 <dd>
 <p>Everyone else folded — award pots to the remaining player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
-<li><span class="parameter">winner</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">winner</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.beginBettingRound"></a><strong><span class="state state-server">holdem.beginBettingRound</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L269">Source ☍</a></dt>
+<dt><a name="holdem.beginBettingRound"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.beginBettingRound<span class="ll-args">(id)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L269">Source ☍</a></dt>
 <dd>
 <p>Reset street bets and mark who still needs to act.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.checkReady"></a><strong><span class="state state-server">holdem.checkReady</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L443">Source ☍</a></dt>
+<dt><a name="holdem.checkReady"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.checkReady<span class="ll-args">(id)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L443">Source ☍</a></dt>
 <dd>
 <p>Mark ready / check if the hand can start.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.commitChips"></a><strong><span class="state state-server">holdem.commitChips</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L207">Source ☍</a></dt>
+<dt><a name="holdem.commitChips"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.commitChips<span class="ll-args">(id, seat, amount)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L207">Source ☍</a></dt>
 <dd>
 <p>Commit chips from a seat into the pot contribution for this hand.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
-<li><span class="parameter">seat</span> <span class="types">table</span></li>
-<li><span class="parameter">amount</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">seat</span><span class="types">table</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">amount</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number</span> committed</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number</span><span class="ll-arg-desc">committed</span></li>
 </ol>
+
 </dd>
-<dt><a name="holdem.finishHand"></a><strong><span class="state state-server">holdem.finishHand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L920">Source ☍</a></dt>
+<dt><a name="holdem.finishHand"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.finishHand<span class="ll-args">(id)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L920">Source ☍</a></dt>
 <dd>
 <p>Schedule board clear / next lobby.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.forceRefundTable"></a><strong><span class="state state-server">holdem.forceRefundTable</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L949">Source ☍</a></dt>
+<dt><a name="holdem.forceRefundTable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.forceRefundTable<span class="ll-args">(id)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L949">Source ☍</a></dt>
 <dd>
 <p>Cash-out refund when the table owner disconnects mid-hand.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.getInHand"></a><strong><span class="state state-server">holdem.getInHand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L161">Source ☍</a></dt>
+<dt><a name="holdem.getInHand"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.getInHand<span class="ll-args">(id)</span><span class="ll-returns"> → <a href="Player.html">Player</a>[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L161">Source ☍</a></dt>
 <dd>
 <p>Players still in the current hand (not folded).</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">Player[]</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="Player.html">Player</a>[]</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="holdem.getPotTotal"></a><strong><span class="state state-server">holdem.getPotTotal</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L147">Source ☍</a></dt>
+<dt><a name="holdem.getPotTotal"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.getPotTotal<span class="ll-args">(id)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L147">Source ☍</a></dt>
 <dd>
 <p>Total chips in all pots.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="holdem.getSeat"></a><strong><span class="state state-server">holdem.getSeat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L119">Source ☍</a></dt>
+<dt><a name="holdem.getSeat"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.getSeat<span class="ll-args">(id, ply)</span><span class="ll-returns"> → table|nil, number|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L119">Source ☍</a></dt>
 <dd>
 <p>Find a player's seat at a table.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table|nil</span> </li>
-<li><span class="types">number|nil</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span class="ll-ordinal">1</span><span class="types">table|nil</span><span class="ll-arg-desc"></span></li>
+<li><span class="ll-ordinal">2</span><span class="types">number|nil</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="holdem.isRoundComplete"></a><strong><span class="state state-server">holdem.isRoundComplete</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L287">Source ☍</a></dt>
+<dt><a name="holdem.isRoundComplete"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.isRoundComplete<span class="ll-args">(id)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L287">Source ☍</a></dt>
 <dd>
 <p>True when everyone has matched the current bet or is all-in/folded.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="holdem.isSeatTaken"></a><strong><span class="state state-server">holdem.isSeatTaken</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L134">Source ☍</a></dt>
+<dt><a name="holdem.isSeatTaken"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.isSeatTaken<span class="ll-args">(id, pos)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L134">Source ☍</a></dt>
 <dd>
 <p>Seat currently occupied?</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
-<li><span class="parameter">pos</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">pos</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="holdem.leave"></a><strong><span class="state state-server">holdem.leave</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L372">Source ☍</a></dt>
+<dt><a name="holdem.leave"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.leave<span class="ll-args">(id, ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L372">Source ☍</a></dt>
 <dd>
 <p>Cash a player out (cash games only) and remove them from the table.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.newGame"></a><strong><span class="state state-server">holdem.newGame</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L21">Source ☍</a></dt>
+<dt><a name="holdem.newGame"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.newGame<span class="ll-args">(id, owner, ent)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L21">Source ☍</a></dt>
 <dd>
 <p>Create a new table game state (or reset an existing one between hands).</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number|nil</span></li>
-<li><span class="parameter">owner</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
-<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number|nil</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">owner</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
+<li><span class="parameter">ent</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc">The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="holdem.nextSeat"></a><strong><span class="state state-server">holdem.nextSeat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L179">Source ☍</a></dt>
+<dt><a name="holdem.nextSeat"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.nextSeat<span class="ll-args">(id, fromPos, predicate)</span><span class="ll-returns"> → table|nil, number|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L179">Source ☍</a></dt>
 <dd>
 <p>Ordered seat positions around the table starting after <code>fromPos</code>.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
-<li><span class="parameter">fromPos</span> <span class="types">number</span></li>
-<li><span class="parameter">predicate</span> <span class="types">fun(seat: any):boolean|nil</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">fromPos</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">predicate</span><span class="types">fun(seat: any):boolean|nil</span><span class="ll-arg-desc"></span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table|nil</span> </li>
-<li><span class="types">number|nil</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span class="ll-ordinal">1</span><span class="types">table|nil</span><span class="ll-arg-desc"></span></li>
+<li><span class="ll-ordinal">2</span><span class="types">number|nil</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="holdem.placeBet"></a><strong><span class="state state-server">holdem.placeBet</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L651">Source ☍</a></dt>
+<dt><a name="holdem.placeBet"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.placeBet<span class="ll-args">(id, ply, betKind, raiseTo)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L651">Source ☍</a></dt>
 <dd>
 <p>Process fold / call-check / raise.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
-<li><span class="parameter">betKind</span> <span class="types">number</span></li>
-<li><span class="parameter">raiseTo</span> <span class="types">number|nil</span> absolute bet-to amount for raises</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
+<li><span class="parameter">betKind</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">raiseTo</span><span class="types">number|nil</span><span class="ll-arg-desc">absolute bet-to amount for raises</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.rebuildPots"></a><strong><span class="state state-server">holdem.rebuildPots</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L226">Source ☍</a></dt>
+<dt><a name="holdem.rebuildPots"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.rebuildPots<span class="ll-args">(id)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L226">Source ☍</a></dt>
 <dd>
 <p>Rebuild pots from per-seat contributions (correct side-pot construction).</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.requestAction"></a><strong><span class="state state-server">holdem.requestAction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L615">Source ☍</a></dt>
+<dt><a name="holdem.requestAction"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.requestAction<span class="ll-args">(id, ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L615">Source ☍</a></dt>
 <dd>
 <p>Ask a player to act; auto-fold/check on timeout.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.reset"></a><strong><span class="state state-server">holdem.reset</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L96">Source ☍</a></dt>
+<dt><a name="holdem.reset"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.reset<span class="ll-args">(id, restart)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L96">Source ☍</a></dt>
 <dd>
 <p>Tear down / reset a game. If restart is true, open the next hand lobby.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
-<li><span class="parameter">restart</span> <span class="types">boolean|nil</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">restart</span><span class="types">boolean|nil</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.showdown"></a><strong><span class="state state-server">holdem.showdown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L852">Source ☍</a></dt>
+<dt><a name="holdem.showdown"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.showdown<span class="ll-args">(id)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L852">Source ☍</a></dt>
 <dd>
 <p>Evaluate hands and pay pots.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="holdem.startHand"></a><strong><span class="state state-server">holdem.startHand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L533">Source ☍</a></dt>
+<dt><a name="holdem.startHand"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.startHand<span class="ll-args">(id)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L533">Source ☍</a></dt>
 <dd>
 <p>Start a new hand.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">id</span> <span class="types">number</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
+
 
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="holdem.nextGameId"></a><strong><span class="state state-server">holdem.nextGameId</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L6">Source ☍</a></dt>
+<dt><a name="holdem.nextGameId"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">holdem.nextGameId</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/holdem/sv/sv_game.lua#L6">Source ☍</a></dt>
 <dd>
+
 
 
 
@@ -619,5 +646,72 @@
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

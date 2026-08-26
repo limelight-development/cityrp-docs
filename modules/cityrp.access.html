@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>cityrp.access</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,8 +14,8 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
@@ -24,26 +24,19 @@
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -51,6 +44,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -63,6 +60,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -72,6 +70,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -84,7 +108,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -94,7 +117,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -132,22 +154,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -160,9 +166,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -330,180 +333,191 @@
 <div class="ll-module-body"><p>Access and Flags - Shared.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.access.accessdb"></a><strong><span class="state state-server">cityrp.access.accessdb</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L544">Source ☍</a></dt>
+<dt><a name="cityrp.access.accessdb"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.accessdb<span class="ll-args">(aname, asteamid, tname, tsteamid, access, action, timeuntil, reason, areason)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L544">Source ☍</a></dt>
 <dd>
 <p>Add an access modification to the database.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">aname</span> <span class="types">string</span> The administrator's name.</li>
-<li><span class="parameter">asteamid</span> <span class="types">string</span> The administrator's SteamID.</li>
-<li><span class="parameter">tname</span> <span class="types">string</span> Target name.</li>
-<li><span class="parameter">tsteamid</span> <span class="types">string</span> Target SteamID.</li>
-<li><span class="parameter">access</span> <span class="types">string</span> Access to modify.</li>
-<li><span class="parameter">action</span> <span class="types">string</span> Take/give.</li>
-<li><span class="parameter">timeuntil</span> <span class="types">number</span> Required playtime for the access to be restored, 0 for permanent.</li>
-<li><span class="parameter">reason</span> <span class="types">string</span> Modification reason.</li>
-<li><span class="parameter">areason</span> <span class="types">string</span> Admin-only info, announced to admins if non-empty.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">aname</span><span class="types">string</span><span class="ll-arg-desc">The administrator's name.</span></li>
+<li><span class="parameter">asteamid</span><span class="types">string</span><span class="ll-arg-desc">The administrator's SteamID.</span></li>
+<li><span class="parameter">tname</span><span class="types">string</span><span class="ll-arg-desc">Target name.</span></li>
+<li><span class="parameter">tsteamid</span><span class="types">string</span><span class="ll-arg-desc">Target SteamID.</span></li>
+<li><span class="parameter">access</span><span class="types">string</span><span class="ll-arg-desc">Access to modify.</span></li>
+<li><span class="parameter">action</span><span class="types">string</span><span class="ll-arg-desc">Take/give.</span></li>
+<li><span class="parameter">timeuntil</span><span class="types">number</span><span class="ll-arg-desc">Required playtime for the access to be restored, 0 for permanent.</span></li>
+<li><span class="parameter">reason</span><span class="types">string</span><span class="ll-arg-desc">Modification reason.</span></li>
+<li><span class="parameter">areason</span><span class="types">string</span><span class="ll-arg-desc">Admin-only info, announced to admins if non-empty.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.access.addcommands"></a><strong><span class="state state-server">cityrp.access.addcommands</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L491">Source ☍</a></dt>
+<dt><a name="cityrp.access.addcommands"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.addcommands<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L491">Source ☍</a></dt>
 <dd>
 <p>Register and add access commands.</p>
 
 
 
+
 </dd>
-<dt><a name="cityrp.access.BanTime"></a><strong><span class="state state-server">cityrp.access.BanTime</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L109">Source ☍</a></dt>
+<dt><a name="cityrp.access.BanTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.BanTime<span class="ll-args">(player, access)</span><span class="ll-returns"> → string|integer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L109">Source ☍</a></dt>
 <dd>
 <p>Check how long a player is blacklisted for.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> The player to check.</li>
-<li><span class="parameter">access</span> <span class="types">string</span> Access tag string to check.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">player</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to check.</span></li>
+<li><span class="parameter">access</span><span class="types">string</span><span class="ll-arg-desc">Access tag string to check.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string|integer</span> 0 if the player is not blacklisted, or a formatted time-remaining string.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string|integer</span><span class="ll-arg-desc">0 if the player is not blacklisted, or a formatted time-remaining string.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.access.blacklistcommand"></a><strong><span class="state state-server">cityrp.access.blacklistcommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L457">Source ☍</a></dt>
+<dt><a name="cityrp.access.blacklistcommand"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.blacklistcommand<span class="ll-args">(player, arguments)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L457">Source ☍</a></dt>
 <dd>
 <p>Command callback to issue a team blacklist.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> Calling player.</li>
-<li><span class="parameter">arguments</span> <span class="types">string[]</span> Arguments table: <code>{target, team_or_access_name, playtime, ...reason}</code>.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">player</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Calling player.</span></li>
+<li><span class="parameter">arguments</span><span class="types">string[]</span><span class="ll-arg-desc">Arguments table: <code>{target, team_or_access_name, playtime, ...reason}</code>.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.access.checkexpired"></a><strong><span class="state state-server">cityrp.access.checkexpired</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L24">Source ☍</a></dt>
+<dt><a name="cityrp.access.checkexpired"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.checkexpired<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L24">Source ☍</a></dt>
 <dd>
 <p>Check if a player's blacklists have expired, restoring access and marking them done in the DB where they have.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to check for.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to check for.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.access.decompose"></a><strong><span class="state state-client state-server">cityrp.access.decompose</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L56">Source ☍</a></dt>
+<dt><a name="cityrp.access.decompose"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.access.decompose<span class="ll-args">(accessString)</span><span class="ll-returns"> → table&lt;string, boolean&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L56">Source ☍</a></dt>
 <dd>
 <p>Decompose an access string into a character lookup table.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">accessString</span> <span class="types">string</span> The access string to decompose.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">accessString</span><span class="types">string</span><span class="ll-arg-desc">The access string to decompose.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table&lt;string, boolean&gt;</span> Table keyed by character, true for each character present in the string.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table&lt;string, boolean&gt;</span><span class="ll-arg-desc">Table keyed by character, true for each character present in the string.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.access.getAccess"></a><strong><span class="state state-client state-server">cityrp.access.getAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L104">Source ☍</a></dt>
+<dt><a name="cityrp.access.getAccess"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.access.getAccess<span class="ll-args">(ply)</span><span class="ll-returns"> → table&lt;string, boolean&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L104">Source ☍</a></dt>
 <dd>
 <p>Get a player's access table (character -&gt; true lookup), building it from the access string if it's missing.</p>
-<h3>Internal:</h3>
-<ul>
-<li><span class='tag-internal'>This function is internal. Whilst you can call it, you probably shouldn't.<br>Does not guard against non-local-player misuse; use hasAccess() instead.</span></li>
+<blockquote class="ll-alert ll-alert-internal"><p class="ll-alert-title">Internal</p><p>This function is internal. Whilst you can call it, you probably shouldn't.</p><p>Does not guard against non-local-player misuse; use hasAccess() instead.</p></blockquote>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Player to check.</span></li>
 </ul>
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> Player to check.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table&lt;string, boolean&gt;</span> The player's access table.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table&lt;string, boolean&gt;</span><span class="ll-arg-desc">The player's access table.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.access.getAccessString"></a><strong><span class="state state-client state-server">cityrp.access.getAccessString</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L69">Source ☍</a></dt>
+<dt><a name="cityrp.access.getAccessString"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.access.getAccessString<span class="ll-args">(ply)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L69">Source ☍</a></dt>
 <dd>
 <p>Get a player's access string.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> Player to check.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Player to check.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> The player's access string.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc">The player's access string.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.access.giveAccess"></a><strong><span class="state state-server">cityrp.access.giveAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L43">Source ☍</a></dt>
+<dt><a name="cityrp.access.giveAccess"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.giveAccess<span class="ll-args">(player, access)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L43">Source ☍</a></dt>
 <dd>
 <p>Give player a set of access tags.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> The player to add to.</li>
-<li><span class="parameter">access</span> <span class="types">string</span> Access tag string to add.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">player</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to add to.</span></li>
+<li><span class="parameter">access</span><span class="types">string</span><span class="ll-arg-desc">Access tag string to add.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.access.giveaccesscommand"></a><strong><span class="state state-server">cityrp.access.giveaccesscommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L158">Source ☍</a></dt>
+<dt><a name="cityrp.access.giveaccesscommand"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.giveaccesscommand<span class="ll-args">(player, arguments)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L158">Source ☍</a></dt>
 <dd>
 <p>Command callback to give access.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> Calling player.</li>
-<li><span class="parameter">arguments</span> <span class="types">string[]</span> Arguments table: <code>{target, access, ...reason}</code>.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">player</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Calling player.</span></li>
+<li><span class="parameter">arguments</span><span class="types">string[]</span><span class="ll-arg-desc">Arguments table: <code>{target, access, ...reason}</code>.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.access.hasAccess"></a><strong><span class="state state-client state-server">cityrp.access.hasAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L116">Source ☍</a></dt>
+<dt><a name="cityrp.access.hasAccess"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.access.hasAccess<span class="ll-args">(ply, access)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L116">Source ☍</a></dt>
 <dd>
 <p>Check if a player has the required access.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> Player to check.</li>
-<li><span class="parameter">access</span> <span class="types">string</span> Access tag string to check.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Player to check.</span></li>
+<li><span class="parameter">access</span><span class="types">string</span><span class="ll-arg-desc">Access tag string to check.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> If the player has all the flags.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">If the player has all the flags.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.access.list"></a><strong><span class="state state-server">cityrp.access.list</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L648">Source ☍</a></dt>
+<dt><a name="cityrp.access.list"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.list<span class="ll-args">(player)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L648">Source ☍</a></dt>
 <dd>
 <p>List access tags to a player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> The player being listed to.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">player</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player being listed to.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.access.Load"></a><strong><span class="state state-server">cityrp.access.Load</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L135">Source ☍</a></dt>
+<dt><a name="cityrp.access.Load"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.Load<span class="ll-args">(player)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L135">Source ☍</a></dt>
 <dd>
 <p>Load a player's access from the DB, replaying any unexpired blacklists and syncing the result to their client.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> The player to load.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">player</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to load.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.access.modcangive"></a><strong><span class="state state-server">cityrp.access.modcangive</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L265">Source ☍</a></dt>
+<dt><a name="cityrp.access.modcangive"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.modcangive<span class="ll-args">(admin, target, access)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L265">Source ☍</a></dt>
 <dd>
 <p>Check if a moderator can give back a specific access, i.e. they are the one who took it away.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">admin</span> <span class="types">Player</span> Moderator checking.</li>
-<li><span class="parameter">target</span> <span class="types">Player</span> Target player.</li>
-<li><span class="parameter">access</span> <span class="types">string</span> Access string to give.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">admin</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Moderator checking.</span></li>
+<li><span class="parameter">target</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Target player.</span></li>
+<li><span class="parameter">access</span><span class="types">string</span><span class="ll-arg-desc">Access string to give.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the moderator is allowed to give the access.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the moderator is allowed to give the access.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.access.playeraction"></a><strong><span class="state state-server">cityrp.access.playeraction</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L568">Source ☍</a></dt>
+<dt><a name="cityrp.access.playeraction"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.playeraction<span class="ll-args">(target, access, action)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L568">Source ☍</a></dt>
 <dd>
 <p>Perform an action on a player in response to an access change, e.g. stripping the physgun on 'p' being taken.</p>
 <pre><code class="language-lua">action:
@@ -511,75 +525,82 @@
     | &quot;give&quot;
 </code></pre>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">target</span> <span class="types">Player</span> Target player.</li>
-<li><span class="parameter">access</span> <span class="types">string</span> Access modified.</li>
-<li><span class="parameter">action</span> <span class="types">&quot;give&quot;|&quot;take&quot;</span> The action performed.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">target</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Target player.</span></li>
+<li><span class="parameter">access</span><span class="types">string</span><span class="ll-arg-desc">Access modified.</span></li>
+<li><span class="parameter">action</span><span class="types">&quot;give&quot;|&quot;take&quot;</span><span class="ll-arg-desc">The action performed.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.access.selfTakeAccess"></a><strong><span class="state state-server">cityrp.access.selfTakeAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L92">Source ☍</a></dt>
+<dt><a name="cityrp.access.selfTakeAccess"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.selfTakeAccess<span class="ll-args">(player, access, expire, reason)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L92">Source ☍</a></dt>
 <dd>
 <p>Take access from a player as a self-service or automated action (not staff-issued),
 logging it as the player acting on themselves and blacklisting re-grant until it expires.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> The player losing access.</li>
-<li><span class="parameter">access</span> <span class="types">any</span></li>
-<li><span class="parameter">expire</span> <span class="types">any</span></li>
-<li><span class="parameter">reason</span> <span class="types">any</span></li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">player</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player losing access.</span></li>
+<li><span class="parameter">access</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">expire</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">reason</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.access.takeAccess"></a><strong><span class="state state-server">cityrp.access.takeAccess</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L66">Source ☍</a></dt>
+<dt><a name="cityrp.access.takeAccess"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.takeAccess<span class="ll-args">(player, access)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L66">Source ☍</a></dt>
 <dd>
 <p>Remove a set of access tags from a player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> The player to remove from.</li>
-<li><span class="parameter">access</span> <span class="types">string</span> Access tag string to remove.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">player</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to remove from.</span></li>
+<li><span class="parameter">access</span><span class="types">string</span><span class="ll-arg-desc">Access tag string to remove.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.access.takeaccesscommand"></a><strong><span class="state state-server">cityrp.access.takeaccesscommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L280">Source ☍</a></dt>
+<dt><a name="cityrp.access.takeaccesscommand"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.takeaccesscommand<span class="ll-args">(player, arguments)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L280">Source ☍</a></dt>
 <dd>
 <p>Command callback to take access.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> Calling player.</li>
-<li><span class="parameter">arguments</span> <span class="types">string[]</span> Arguments table: <code>{target, access, playtime, ...reason}</code>.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">player</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Calling player.</span></li>
+<li><span class="parameter">arguments</span><span class="types">string[]</span><span class="ll-arg-desc">Arguments table: <code>{target, access, playtime, ...reason}</code>.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.access.unblacklistcommand"></a><strong><span class="state state-server">cityrp.access.unblacklistcommand</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L422">Source ☍</a></dt>
+<dt><a name="cityrp.access.unblacklistcommand"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.unblacklistcommand<span class="ll-args">(player, arguments)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L422">Source ☍</a></dt>
 <dd>
 <p>Command callback to unblacklist a player from a team or access by name.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">player</span> <span class="types">Player</span> Calling player.</li>
-<li><span class="parameter">arguments</span> <span class="types">string[]</span> Arguments table: <code>{target, team_or_access_name, ...reason}</code>.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">player</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Calling player.</span></li>
+<li><span class="parameter">arguments</span><span class="types">string[]</span><span class="ll-arg-desc">Arguments table: <code>{target, team_or_access_name, ...reason}</code>.</span></li>
 </ul>
+
 
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.access.flags"></a><strong><span class="state state-client state-server">cityrp.access.flags</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L14">Source ☍</a></dt>
+<dt><a name="cityrp.access.flags"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.access.flags</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L14">Source ☍</a></dt>
 <dd>
 <p>Flag definitions.
 These represent roles/permissions resolved via metatable methods, rather than characters stored in an access string.</p>
 
 
 
+
 </dd>
-<dt><a name="cityrp.access.nlrtimers"></a><strong><span class="state state-server">cityrp.access.nlrtimers</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L14">Source ☍</a></dt>
+<dt><a name="cityrp.access.nlrtimers"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.access.nlrtimers</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L14">Source ☍</a></dt>
 <dd>
 <p>List of NLR spawning timers, keyed by SteamID, valued by the unix timestamp the ban lifts at.</p>
+
 
 
 
@@ -587,21 +608,24 @@ These represent roles/permissions resolved via metatable methods, rather than ch
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.access"></a><strong><span class="state state-client state-server">cityrp.access</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L8">Source ☍</a></dt>
+<dt><a name="cityrp.access"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.access</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L8">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="cityrp.access.logger"></a><strong><span class="state state-client state-server">cityrp.access.logger</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L9">Source ☍</a></dt>
+<dt><a name="cityrp.access.logger"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.access.logger</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_access.lua#L9">Source ☍</a></dt>
 <dd>
-<p>A namespaced, level-filterable logger. Obtain instances via cityrp.logging.GetLogger rather than constructing directly.</p>
+<p>A namespaced, level-filterable logger. Obtain instances via <a href="cityrp.logging.html#cityrp.logging.GetLogger">cityrp.logging.GetLogger</a> rather than constructing directly.</p>
+
 
 
 
 </dd>
-<dt><a name="timeleft"></a><strong><span class="state state-server">timeleft</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L126">Source ☍</a></dt>
+<dt><a name="timeleft"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">timeleft</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_access.lua#L126">Source ☍</a></dt>
 <dd>
+
 
 
 
@@ -611,5 +635,72 @@ These represent roles/permissions resolved via metatable methods, rather than ch
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

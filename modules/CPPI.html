@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>CPPI</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,8 +14,8 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
@@ -24,26 +24,19 @@
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -51,6 +44,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -63,6 +60,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -72,6 +70,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -84,7 +108,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -94,7 +117,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -132,22 +154,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -160,9 +166,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -329,7 +332,7 @@
 <div class="ll-module-header"><h1>CPPI</h1></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="CPPI.GetInterfaceVersion"></a><strong><span class="state state-client state-server">CPPI.GetInterfaceVersion</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L34">Source ☍</a></dt>
+<dt><a name="CPPI.GetInterfaceVersion"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">CPPI<span class="ll-sep">:</span>GetInterfaceVersion<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L34">Source ☍</a></dt>
 <dd>
 <p>CPPI: version of the CPPI standard this interface implements. Required.
 2.0 is a CityRP-local extension of the standard - there's no published 2.0 spec,
@@ -337,22 +340,24 @@ this just means &quot;CPPI 1.3 plus our own additions&quot; (see OwnerSID on Ent
 other CityRP-specific behaviour documented alongside it).</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="CPPI.GetName"></a><strong><span class="state state-client state-server">CPPI.GetName</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L17">Source ☍</a></dt>
+<dt><a name="CPPI.GetName"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">CPPI<span class="ll-sep">:</span>GetName<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L17">Source ☍</a></dt>
 <dd>
 <p>CPPI: name of the active prop protection. Required.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="CPPI.GetNameFromSID"></a><strong><span class="state state-client state-server">CPPI.GetNameFromSID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L47">Source ☍</a></dt>
+<dt><a name="CPPI.GetNameFromSID"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">CPPI<span class="ll-sep">:</span>GetNameFromSID<span class="ll-args">(sid)</span><span class="ll-returns"> → string|number|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L47">Source ☍</a></dt>
 <dd>
 <p>CPPI: resolves a player's name from their SteamID64/CommunityID, checking online
 players first, then (server-only) an in-memory cache warmed by online players, then
@@ -360,89 +365,94 @@ players first, then (server-only) an in-memory cache warmed by online players, t
 UniqueID() is deprecated by GMod and not guaranteed unique, so this codebase keys
 everything by SteamID64/CommunityID instead. Not part of the CPPI 1.3 standard
 (which specifies a UID-based GetNameFromUID); a CPPI 2.0 (CityRP-local) addition.</p>
-<h3>Warnings:</h3>
-<ul>
-<li><span class='tag-warning'>On the client, this only works for online players.</span></li>
+<blockquote class="ll-alert ll-alert-warning"><p class="ll-alert-title">Warning</p><p>On the client, this only works for online players.</p></blockquote>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">sid</span><span class="types">string</span><span class="ll-arg-desc">A SteamID64/CommunityID - NOT a classic SteamID32 (STEAM_0:...).</span></li>
 </ul>
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">sid</span> <span class="types">string</span> A SteamID64/CommunityID - NOT a classic SteamID32 (STEAM_0:...).</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string|number|nil</span> nil if no match, CPPI_DEFER if a lookup is pending/unsupported.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string|number|nil</span><span class="ll-arg-desc">nil if no match, CPPI_DEFER if a lookup is pending/unsupported.</span></li>
 </ol>
+
 </dd>
-<dt><a name="CPPI.GetVersion"></a><strong><span class="state state-client state-server">CPPI.GetVersion</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L24">Source ☍</a></dt>
+<dt><a name="CPPI.GetVersion"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">CPPI<span class="ll-sep">:</span>GetVersion<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L24">Source ☍</a></dt>
 <dd>
 <p>CPPI: version of the active prop protection. Required.</p>
 
 
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> </li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc"></span></li>
 </ol>
+
 </dd>
-<dt><a name="CPPI.LookupNameFromSID"></a><strong><span class="state state-server">CPPI.LookupNameFromSID</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L296">Source ☍</a></dt>
+<dt><a name="CPPI.LookupNameFromSID"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">CPPI.LookupNameFromSID<span class="ll-args">(sid)</span><span class="ll-returns"> → string|number|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L296">Source ☍</a></dt>
 <dd>
-<p>Resolves an offline player's name from CPPI.NameCache, or (rate-limited) issues a
+<p>Resolves an offline player's name from <a href="CPPI.html#CPPI.NameCache">CPPI.NameCache</a>, or (rate-limited) issues a
 DB lookup and returns CPPI_DEFER while it's pending.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">sid</span> <span class="types">string</span> SteamID64/CommunityID.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">sid</span><span class="types">string</span><span class="ll-arg-desc">SteamID64/CommunityID.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string|number|nil</span> nil if sid isn't well-formed, CPPI_DEFER if pending.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string|number|nil</span><span class="ll-arg-desc">nil if sid isn't well-formed, CPPI_DEFER if pending.</span></li>
 </ol>
+
 </dd>
-<dt><a name="GAMEMODE.CPPIAssignOwnership"></a><strong><span class="state state-client state-server">GAMEMODE.CPPIAssignOwnership</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L349">Source ☍</a></dt>
+<dt><a name="GAMEMODE.CPPIAssignOwnership"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">GAMEMODE<span class="ll-sep">:</span>CPPIAssignOwnership<span class="ll-args">(ply, ent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L349">Source ☍</a></dt>
 <dd>
 <p>CPPI: called when ply assumes ownership of ent. Recommended, not required.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
-<li><span class="parameter">ent</span> <span class="types">Entity</span> The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
+<li><span class="parameter">ent</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc">The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="GAMEMODE.CPPIFriendsChanged"></a><strong><span class="state state-client state-server">GAMEMODE.CPPIFriendsChanged</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L354">Source ☍</a></dt>
+<dt><a name="GAMEMODE.CPPIFriendsChanged"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">GAMEMODE<span class="ll-sep">:</span>CPPIFriendsChanged<span class="ll-args">(ply, friends)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L354">Source ☍</a></dt>
 <dd>
 <p>CPPI: called when ply's friends list changes. Recommended, not required.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</li>
-<li><span class="parameter">friends</span> <span class="types">table</span> The player's new friends list.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
+<li><span class="parameter">friends</span><span class="types">table</span><span class="ll-arg-desc">The player's new friends list.</span></li>
 </ul>
+
 
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="CPPI"></a><strong><span class="state state-client state-server">CPPI</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L8">Source ☍</a></dt>
+<dt><a name="CPPI"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">CPPI</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L8">Source ☍</a></dt>
 <dd>
 <p>CPPI (Common Prop Protection Interface), implemented by Simple Prop Protection.
 See: <del>https</del> ://ulyssesmod.net/archive/CPPI_v1-3.pdf</p>
 
 
 
+
 </dd>
-<dt><a name="CPPI.NameCache"></a><strong><span class="state state-client state-server">CPPI.NameCache</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L254">Source ☍</a></dt>
+<dt><a name="CPPI.NameCache"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">CPPI.NameCache</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L254">Source ☍</a></dt>
 <dd>
-<p>In-memory cache backing CPPI.LookupNameFromSID, keyed by SteamID64/CommunityID.
+<p>In-memory cache backing <a href="CPPI.html#CPPI.LookupNameFromSID">CPPI.LookupNameFromSID</a>, keyed by SteamID64/CommunityID.
 Each entry is {name = string|nil, lastHit = number, lastQuery = number|nil}, where
 name is nil until a DB lookup resolves it, and lastQuery rate-limits re-querying
 the same SID.</p>
 
 
 
+
 </dd>
-<dt><a name="CPPI.NameCacheSettings"></a><strong><span class="state state-client state-server">CPPI.NameCacheSettings</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L257">Source ☍</a></dt>
+<dt><a name="CPPI.NameCacheSettings"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">CPPI.NameCacheSettings</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L257">Source ☍</a></dt>
 <dd>
-<p>Tuning for CPPI.NameCache's query rate-limit and cleanup timer.</p>
+<p>Tuning for <a href="CPPI.html#CPPI.NameCache">CPPI.NameCache</a>'s query rate-limit and cleanup timer.</p>
+
 
 
 
@@ -450,21 +460,24 @@ the same SID.</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="CPPI.Logger"></a><strong><span class="state state-client state-server">CPPI.Logger</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L9">Source ☍</a></dt>
+<dt><a name="CPPI.Logger"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">CPPI.Logger</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L9">Source ☍</a></dt>
 <dd>
-<p>A namespaced, level-filterable logger. Obtain instances via cityrp.logging.GetLogger rather than constructing directly.</p>
+<p>A namespaced, level-filterable logger. Obtain instances via <a href="cityrp.logging.html#cityrp.logging.GetLogger">cityrp.logging.GetLogger</a> rather than constructing directly.</p>
+
 
 
 
 </dd>
-<dt><a name="CPPI_DEFER"></a><strong><span class="state state-client state-server">CPPI_DEFER</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L12">Source ☍</a></dt>
+<dt><a name="CPPI_DEFER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">CPPI_DEFER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L12">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="CPPI_NOTIMPLEMENTED"></a><strong><span class="state state-client state-server">CPPI_NOTIMPLEMENTED</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L11">Source ☍</a></dt>
+<dt><a name="CPPI_NOTIMPLEMENTED"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">CPPI_NOTIMPLEMENTED</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_cppi.lua#L11">Source ☍</a></dt>
 <dd>
+
 
 
 
@@ -474,5 +487,72 @@ the same SID.</p>
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>

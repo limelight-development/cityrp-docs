@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>cityrp.item</title>
-	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
 </head>
 <body>
 <div id="container">
@@ -14,8 +14,8 @@
 	</div>
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1>CityRP Documentation</h1></div>
-<div class="ll-kind-body"><ul><li><a href="../index.html">Index</a></li></ul></div>
+<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
 <div class="ll-kind-header"><h2>Contents</h2></div>
 <ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
@@ -24,26 +24,19 @@
 </ul>
 <div class="ll-kind-header"><h2>Topics</h2></div>
 <ul class="ll-kind-body">
-<li><a href="../topics/car-boosting-live-test-plan.html">Car Boosting and Navigation Pre-Live Test Plan</a></li>
-<li><a href="../topics/car-boosting.html">Car Boosting and Ringing</a></li>
+<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/casino.html">LimeCasino deployment math</a></li>
-<li><a href="../topics/coding-standards.html">Coding Standards (CityRP)</a></li>
 <li><a href="../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
 <li><a href="../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/hotwiring.html">Vehicle hotwiring</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
-<li><a href="../topics/item-actions.html">Item Actions</a></li>
-<li><a href="../topics/item-metadata-schema.html">Item Metadata Schema</a></li>
-<li><a href="../topics/items.html">Types of Items</a></li>
-<li><a href="../topics/lockpicking.html">Mechanical lockpicking</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
 <li><a href="../topics/meska.html">MESKA</a></li>
-<li><a href="../topics/modern-apis.html">Modern APIs</a></li>
 <li><a href="../topics/networking.html">Networking Library</a></li>
 <li><a href="../topics/new-map-checklist.html">New Map Checklist</a></li>
 <li><a href="../topics/plugins.html">Plugins</a></li>
@@ -51,6 +44,10 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
 </ul>
 <div class="ll-kind-header"><h2>Items</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -63,6 +60,7 @@
 <li><a href="../modules/ITEM.Food.html">ITEM.Food</a></li>
 <li><a href="../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
 <li><a href="../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
 <li><a href="../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
 <li><a href="../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
 <li><a href="../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
@@ -72,6 +70,32 @@
 <li><a href="../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Metatables</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/Entity.html">Entity</a></li>
+<li><a href="../modules/Player.html">Player</a></li>
+<li><a href="../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+<div class="ll-kind-header"><h2>Panels</h2></div>
+<ul class="ll-kind-body nowrap">
+<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 <div class="ll-kind-header"><h2>Modules</h2></div>
 <ul class="ll-kind-body nowrap">
@@ -84,7 +108,6 @@
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
 <li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
-<li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -94,7 +117,6 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
-<li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -132,22 +154,6 @@
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
-<li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
-<li><a href="../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
-<li><a href="../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
-<li><a href="../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
-<li><a href="../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
-<li><a href="../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
-<li><a href="../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
-<li><a href="../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
-<li><a href="../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
-<li><a href="../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
-<li><a href="../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
-<li><a href="../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
-<li><a href="../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
-<li><a href="../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
-<li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
-<li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
 <li><a href="../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
@@ -160,9 +166,6 @@
 <li><a href="../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
 <li><a href="../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
-<li><a href="../modules/core.libraries.network.sh_store.html">core.libraries.network.sh_store</a></li>
-<li><a href="../modules/core.metatables.sh_vehicle.html">core.metatables.sh_vehicle</a></li>
-<li><a href="../modules/core.metatables.sv_vehicle.html">core.metatables.sv_vehicle</a></li>
 <li><a href="../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
 <li><a href="../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
 <li><a href="../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
@@ -330,62 +333,65 @@
 <div class="ll-module-body"><p>Shared item and item category library.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.item.addCat"></a><strong><span class="state state-client state-server">cityrp.item.addCat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L237">Source ☍</a></dt>
+<dt><a name="cityrp.item.addCat"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.addCat<span class="ll-args">(name, description, access)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L237">Source ☍</a></dt>
 <dd>
 <p>Add a new category.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">string</span> The name of the category to add.</li>
-<li><span class="parameter">description</span> <span class="types">string?</span> The description of the category. Defaults to empty string.</li>
-<li><span class="parameter">access</span> <span class="types">string?</span> The access for the category, defaults to 'b'.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">name</span><span class="types">string</span><span class="ll-arg-desc">The name of the category to add.</span></li>
+<li><span class="parameter">description</span><span class="types">string?</span><span class="ll-arg-desc">The description of the category. Defaults to empty string.</span></li>
+<li><span class="parameter">access</span><span class="types">string?</span><span class="ll-arg-desc">The access for the category, defaults to 'b'.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">number</span> The category index.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">number</span><span class="ll-arg-desc">The category index.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.applyAppearance"></a><strong><span class="state state-client state-server">cityrp.item.applyAppearance</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L51">Source ☍</a></dt>
+<dt><a name="cityrp.item.applyAppearance"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.applyAppearance<span class="ll-args">(panel, item)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L51">Source ☍</a></dt>
 <dd>
 <p>Applies an item's colour and material override to the model panel drawing
 it, so an icon or preview shows what the item will actually look like on
 the ground.</p>
 <p>The colour goes on the panel rather than the entity: DModelPanel's paint
 pass calls render.SetColorModulation with its own colour every frame,
-which overrides anything Entity:SetColor put there. The material has no
+which overrides anything <a href="Entity.html#Entity.SetColor">Entity:SetColor</a> put there. The material has no
 such equivalent and stays on the entity.</p>
 <p>Both are set unconditionally rather than only when the item declares them:
 these panels are reused across the items they show, so an item that
 declares neither has to clear what the last one left behind.</p>
-<p>A plain function rather than an ITEM method on purpose. cityrp.item.new
+<p>A plain function rather than an ITEM method on purpose. <a href="cityrp.item.html#cityrp.item.new">cityrp.item.new</a>
 points a new item's __index at its <em>base item</em>, not at ITEM, so a stored
 item is only as good as whatever its base chain happens to expose - the
 weed pot, for one, reaches none of ITEM's methods.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">panel</span> <span class="types">Panel</span> The DModelPanel drawing the item's model.</li>
-<li><span class="parameter">item</span> <span class="types">table</span> The item being drawn.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">panel</span><span class="types"><a href="https://wiki.facepunch.com/gmod/Panel">Panel</a></span><span class="ll-arg-desc">The DModelPanel drawing the item's model.</span></li>
+<li><span class="parameter">item</span><span class="types">table</span><span class="ll-arg-desc">The item being drawn.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.item.canAccessCategory"></a><strong><span class="state state-client state-server">cityrp.item.canAccessCategory</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L290">Source ☍</a></dt>
+<dt><a name="cityrp.item.canAccessCategory"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.canAccessCategory<span class="ll-args">(list, cat)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L290">Source ☍</a></dt>
 <dd>
 <p>True if <code>cat</code> is covered by any entry in <code>list</code> (e.g. a team's canmake list).
 A parent entry (e.g. &quot;Clothing&quot;) grants every sub-category under it; a sub-category
 entry (e.g. &quot;Clothing - Government Clothing&quot;) grants only that exact category.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">list</span> <span class="types">string[]</span> Array of allowed category strings.</li>
-<li><span class="parameter">cat</span> <span class="types">string</span> The category to check.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">list</span><span class="types">string[]</span><span class="ll-arg-desc">Array of allowed category strings.</span></li>
+<li><span class="parameter">cat</span><span class="types">string</span><span class="ll-arg-desc">The category to check.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> True if the category is allowed.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">True if the category is allowed.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.categoryMatches"></a><strong><span class="state state-client state-server">cityrp.item.categoryMatches</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L272">Source ☍</a></dt>
+<dt><a name="cityrp.item.categoryMatches"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.categoryMatches<span class="ll-args">(itemCat, selected)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L272">Source ☍</a></dt>
 <dd>
 <p>True if itemCat is exactly <code>selected</code>, or itemCat's parent category is <code>selected</code>.
 Also true if itemCat has no sub-category of its own (e.g. &quot;Mixtures&quot;) and <code>selected</code>
@@ -394,345 +400,366 @@ fall back into their parent's Other bucket once the parent has real sub-categori
 Used both for shop/tab filtering and for team category-permission checks, so the
 matching rule can't drift between the two.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">itemCat</span> <span class="types">string</span> An item's raw category string.</li>
-<li><span class="parameter">selected</span> <span class="types">string</span> The category being filtered/checked against.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">itemCat</span><span class="types">string</span><span class="ll-arg-desc">An item's raw category string.</span></li>
+<li><span class="parameter">selected</span><span class="types">string</span><span class="ll-arg-desc">The category being filtered/checked against.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> True if the category matches.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">True if the category matches.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.categorySplit"></a><strong><span class="state state-client state-server">cityrp.item.categorySplit</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L256">Source ☍</a></dt>
+<dt><a name="cityrp.item.categorySplit"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.categorySplit<span class="ll-args">(cat)</span><span class="ll-returns"> → string, string?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L256">Source ☍</a></dt>
 <dd>
 <p>Splits a &quot;Parent - Sub&quot; category string into parent and sub parts.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">cat</span> <span class="types">string</span> The raw item category string.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">cat</span><span class="types">string</span><span class="ll-arg-desc">The raw item category string.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">string</span> The parent category.</li>
-<li><span class="types">string?</span> The sub-category, or nil if none.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span class="ll-ordinal">1</span><span class="types">string</span><span class="ll-arg-desc">The parent category.</span></li>
+<li><span class="ll-ordinal">2</span><span class="types">string?</span><span class="ll-arg-desc">The sub-category, or nil if none.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.destroy"></a><strong><span class="state state-server">cityrp.item.destroy</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L293">Source ☍</a></dt>
+<dt><a name="cityrp.item.destroy"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.destroy<span class="ll-args">(ply, item, amt, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L293">Source ☍</a></dt>
 <dd>
 <p>Destroys a player's item.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to remove the item from.</li>
-<li><span class="parameter">item</span> <span class="types">string</span> The item ID to remove.</li>
-<li><span class="parameter">amt</span> <span class="types">number</span> The number of the item to destroy.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to remove the item from.</span></li>
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The item ID to remove.</span></li>
+<li><span class="parameter">amt</span><span class="types">number</span><span class="ll-arg-desc">The number of the item to destroy.</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the item was successfully destroyed.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the item was successfully destroyed.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.drop"></a><strong><span class="state state-server">cityrp.item.drop</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L193">Source ☍</a></dt>
+<dt><a name="cityrp.item.drop"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.drop<span class="ll-args">(ply, item, amt, pos, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L193">Source ☍</a></dt>
 <dd>
 <p>Drops an item from a player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to remove the item from.</li>
-<li><span class="parameter">item</span> <span class="types">string</span> The item index.</li>
-<li><span class="parameter">amt</span> <span class="types">number</span> The number of items to drop.</li>
-<li><span class="parameter">pos</span> <span class="types">Vector?</span> The position to make the items. Defaults to ply's eye trace hit position.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to remove the item from.</span></li>
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The item index.</span></li>
+<li><span class="parameter">amt</span><span class="types">number</span><span class="ll-arg-desc">The number of items to drop.</span></li>
+<li><span class="parameter">pos</span><span class="types"><a href="https://wiki.facepunch.com/gmod/Vector">Vector</a>?</span><span class="ll-arg-desc">The position to make the items. Defaults to ply's eye trace hit position.</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the item was successfully dropped.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the item was successfully dropped.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.findCat"></a><strong><span class="state state-client state-server">cityrp.item.findCat</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L318">Source ☍</a></dt>
+<dt><a name="cityrp.item.findCat"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.findCat<span class="ll-args">(name)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L318">Source ☍</a></dt>
 <dd>
 <p>Retrieve a category.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">string</span> Name of the category to find.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">name</span><span class="types">string</span><span class="ll-arg-desc">Name of the category to find.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table?</span> Category data, or nil if not found.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table?</span><span class="ll-arg-desc">Category data, or nil if not found.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.get"></a><strong><span class="state state-client state-server">cityrp.item.get</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L210">Source ☍</a></dt>
+<dt><a name="cityrp.item.get"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.get<span class="ll-args">(name)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L210">Source ☍</a></dt>
 <dd>
 <p>Get an item by its name (with fuzzy matching).</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">name</span> <span class="types">string</span> The name or unique ID of the item to get.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">name</span><span class="types">string</span><span class="ll-arg-desc">The name or unique ID of the item to get.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table?</span> The item table, or nil if not found.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table?</span><span class="ll-arg-desc">The item table, or nil if not found.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.give"></a><strong><span class="state state-server">cityrp.item.give</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L697">Source ☍</a></dt>
+<dt><a name="cityrp.item.give"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.give<span class="ll-args">(ply, item, amt, tObj, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L697">Source ☍</a></dt>
 <dd>
 <p>Give an item to a player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player giving the item.</li>
-<li><span class="parameter">item</span> <span class="types">string</span> The itemID.</li>
-<li><span class="parameter">amt</span> <span class="types">number</span> The number of items to give.</li>
-<li><span class="parameter">tObj</span> <span class="types">Player</span> The player being given to.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player giving the item.</span></li>
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The itemID.</span></li>
+<li><span class="parameter">amt</span><span class="types">number</span><span class="ll-arg-desc">The number of items to give.</span></li>
+<li><span class="parameter">tObj</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player being given to.</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the item was successfully given.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the item was successfully given.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.isGovernmentVehicle"></a><strong><span class="state state-client state-server">cityrp.item.isGovernmentVehicle</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L309">Source ☍</a></dt>
+<dt><a name="cityrp.item.isGovernmentVehicle"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.isGovernmentVehicle<span class="ll-args">(cat)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L309">Source ☍</a></dt>
 <dd>
 <p>True if a vehicle item's category is one of the government vehicle sub-categories.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">cat</span> <span class="types">string</span> The raw item category string.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">cat</span><span class="types">string</span><span class="ll-arg-desc">The raw item category string.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> True if it's a government vehicle sub-category.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">True if it's a government vehicle sub-category.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.make"></a><strong><span class="state state-server">cityrp.item.make</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L471">Source ☍</a></dt>
+<dt><a name="cityrp.item.make"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.make<span class="ll-args">(item, pos, ply, meta, amt)</span><span class="ll-returns"> → boolean|<a href="Entity.html">Entity</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L471">Source ☍</a></dt>
 <dd>
 <p>Makes an item at the specified position.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">item</span> <span class="types">string</span> The item ID to create.</li>
-<li><span class="parameter">pos</span> <span class="types">Vector</span> The position to make the item at.</li>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player who owns the item.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
-<li><span class="parameter">amt</span> <span class="types">number?</span> The quantity the item entity represents (defaults to 1).</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The item ID to create.</span></li>
+<li><span class="parameter">pos</span><span class="types"><a href="https://wiki.facepunch.com/gmod/Vector">Vector</a></span><span class="ll-arg-desc">The position to make the item at.</span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player who owns the item.</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value.</span></li>
+<li><span class="parameter">amt</span><span class="types">number?</span><span class="ll-arg-desc">The quantity the item entity represents (defaults to 1).</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|Entity</span> The created entity, or false on failure.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean|<a href="Entity.html">Entity</a></span><span class="ll-arg-desc">The created entity, or false on failure.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.new"></a><strong><span class="state state-client state-server">cityrp.item.new</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L88">Source ☍</a></dt>
+<dt><a name="cityrp.item.new"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.new<span class="ll-args">(base)</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L88">Source ☍</a></dt>
 <dd>
 <p>Create a new item table inheriting from a base.
 A named base that is not registered yet still returns a usable item, but one that inherits
 nothing from it, so the miss is logged as an ERROR rather than left silent.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">base</span> <span class="types">string?</span> The uniqueID of the base item to inherit from.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">base</span><span class="types">string?</span><span class="ll-arg-desc">The uniqueID of the base item to inherit from.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table</span> The new item table with metatable set up.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table</span><span class="ll-arg-desc">The new item table with metatable set up.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.pickup"></a><strong><span class="state state-server">cityrp.item.pickup</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L342">Source ☍</a></dt>
+<dt><a name="cityrp.item.pickup"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.pickup<span class="ll-args">(ply, item, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L342">Source ☍</a></dt>
 <dd>
 <p>Pick up a player's vehicle.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to pickup.</li>
-<li><span class="parameter">item</span> <span class="types">string</span> The item ID to pickup.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to pickup.</span></li>
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The item ID to pickup.</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the vehicle was successfully picked up.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the vehicle was successfully picked up.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.place"></a><strong><span class="state state-server">cityrp.item.place</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L593">Source ☍</a></dt>
+<dt><a name="cityrp.item.place"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.place<span class="ll-args">(ply, item, amt, pos, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L593">Source ☍</a></dt>
 <dd>
 <p>Places an item (i.e. food).</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to place the item from.</li>
-<li><span class="parameter">item</span> <span class="types">string</span> The item ID to place.</li>
-<li><span class="parameter">amt</span> <span class="types">number</span> The number of items to place.</li>
-<li><span class="parameter">pos</span> <span class="types">Vector?</span> The position to place the items. Defaults to ply's eye trace hit position.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to place the item from.</span></li>
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The item ID to place.</span></li>
+<li><span class="parameter">amt</span><span class="types">number</span><span class="ll-arg-desc">The number of items to place.</span></li>
+<li><span class="parameter">pos</span><span class="types"><a href="https://wiki.facepunch.com/gmod/Vector">Vector</a>?</span><span class="ll-arg-desc">The position to place the items. Defaults to ply's eye trace hit position.</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the item was successfully placed.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the item was successfully placed.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.placefood"></a><strong><span class="state state-server">cityrp.item.placefood</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L584">Source ☍</a></dt>
+<dt><a name="cityrp.item.placefood"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.placefood<span class="ll-args">(item, pos, ply, meta)</span><span class="ll-returns"> → boolean|<a href="Entity.html">Entity</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L584">Source ☍</a></dt>
 <dd>
 <p>Makes a food entity at the specified position.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">item</span> <span class="types">string</span> The item ID to create.</li>
-<li><span class="parameter">pos</span> <span class="types">Vector</span> The position to make the item at.</li>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player who owns the item.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The item ID to create.</span></li>
+<li><span class="parameter">pos</span><span class="types"><a href="https://wiki.facepunch.com/gmod/Vector">Vector</a></span><span class="ll-arg-desc">The position to make the item at.</span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player who owns the item.</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|Entity</span> The created entity, or false on failure.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean|<a href="Entity.html">Entity</a></span><span class="ll-arg-desc">The created entity, or false on failure.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.register"></a><strong><span class="state state-client state-server">cityrp.item.register</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L119">Source ☍</a></dt>
+<dt><a name="cityrp.item.register"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.register<span class="ll-args">(item, base)</span><span class="ll-returns"> → boolean?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L119">Source ☍</a></dt>
 <dd>
-<p>Register a new item (LEGACY - use ITEM:New():Register() instead).</p>
-<h3>Deprecated:</h3>
-<ul>
-<li><span class='tag-deprecated'>This function is deprecated and may be removed in a future version.</span></li>
+<p>Register a new item (LEGACY - use <a href="ITEM.html#ITEM.New">ITEM:New()</a>:Register() instead).</p>
+<blockquote class="ll-alert ll-alert-deprecated"><p class="ll-alert-title">Deprecated</p><p>This function is deprecated and may be removed in a future version.</p><p>Use <a href="ITEM.html#ITEM.New">ITEM:New</a>(...) with fluent setters and :Register() instead.</p></blockquote>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">item</span><span class="types">table</span><span class="ll-arg-desc">The item table to register.</span></li>
+<li><span class="parameter">base</span><span class="types">string?</span><span class="ll-arg-desc">The uniqueID of the base item to take properties from.</span></li>
 </ul>
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">item</span> <span class="types">table</span> The item table to register.</li>
-<li><span class="parameter">base</span> <span class="types">string?</span> The uniqueID of the base item to take properties from.</li>
-</ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean?</span> <code>false</code> if the named base was not registered, otherwise nil.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean?</span><span class="ll-arg-desc"><code>false</code> if the named base was not registered, otherwise nil.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.remove"></a><strong><span class="state state-server">cityrp.item.remove</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L146">Source ☍</a></dt>
+<dt><a name="cityrp.item.remove"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.remove<span class="ll-args">(ply, item, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L146">Source ☍</a></dt>
 <dd>
 <p>Remove an item from a player (like a hat).</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to remove the item from.</li>
-<li><span class="parameter">item</span> <span class="types">string</span> The item index.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to remove the item from.</span></li>
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The item index.</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the item was successfully removed.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the item was successfully removed.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.removemod"></a><strong><span class="state state-server">cityrp.item.removemod</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L277">Source ☍</a></dt>
+<dt><a name="cityrp.item.removemod"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.removemod<span class="ll-args">(ply, item)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L277">Source ☍</a></dt>
 <dd>
 <p>Special function for removing a player's weapon mods on death. Added this because the other functions had bugs.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to remove the item from.</li>
-<li><span class="parameter">item</span> <span class="types">string</span> The item ID to remove.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to remove the item from.</span></li>
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The item ID to remove.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the item was successfully removed.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the item was successfully removed.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.resolve"></a><strong><span class="state state-client state-server">cityrp.item.resolve</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L196">Source ☍</a></dt>
+<dt><a name="cityrp.item.resolve"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.resolve<span class="ll-args">(itemOrID)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L196">Source ☍</a></dt>
 <dd>
 <p>Resolve an item table from an item table or unique ID.
-Unlike cityrp.item.get, this does not perform fuzzy name matching.</p>
+Unlike <a href="cityrp.item.html#cityrp.item.get">cityrp.item.get</a>, this does not perform fuzzy name matching.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">itemOrID</span> <span class="types">(string|table)?</span> Item table or unique ID.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">itemOrID</span><span class="types">(string|table)?</span><span class="ll-arg-desc">Item table or unique ID.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">table?</span> The item table, or nil if not found.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table?</span><span class="ll-arg-desc">The item table, or nil if not found.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.sell"></a><strong><span class="state state-server">cityrp.item.sell</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L391">Source ☍</a></dt>
+<dt><a name="cityrp.item.sell"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.sell<span class="ll-args">(ply, item, amt, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L391">Source ☍</a></dt>
 <dd>
 <p>Sell a players item.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player to sell the item from.</li>
-<li><span class="parameter">item</span> <span class="types">string</span> The item ID to sell.</li>
-<li><span class="parameter">amt</span> <span class="types">number</span> The number of items to sell.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to sell the item from.</span></li>
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The item ID to sell.</span></li>
+<li><span class="parameter">amt</span><span class="types">number</span><span class="ll-arg-desc">The number of items to sell.</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the item was successfully sold.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the item was successfully sold.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.spawn"></a><strong><span class="state state-server">cityrp.item.spawn</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L450">Source ☍</a></dt>
+<dt><a name="cityrp.item.spawn"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.spawn<span class="ll-args">(class, item, pos, ply, meta)</span><span class="ll-returns"> → boolean|<a href="Entity.html">Entity</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L450">Source ☍</a></dt>
 <dd>
 <p>Create an item entity and set the player.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">class</span> <span class="types">string</span> The entity class to spawn.</li>
-<li><span class="parameter">item</span> <span class="types">string</span> The item ID to create.</li>
-<li><span class="parameter">pos</span> <span class="types">Vector</span> The position to make the item at.</li>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player who owns the item.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">class</span><span class="types">string</span><span class="ll-arg-desc">The entity class to spawn.</span></li>
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The item ID to create.</span></li>
+<li><span class="parameter">pos</span><span class="types"><a href="https://wiki.facepunch.com/gmod/Vector">Vector</a></span><span class="ll-arg-desc">The position to make the item at.</span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player who owns the item.</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean|Entity</span> The created entity, or false on failure.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean|<a href="Entity.html">Entity</a></span><span class="ll-arg-desc">The created entity, or false on failure.</span></li>
 </ol>
+
 </dd>
-<dt><a name="cityrp.item.takeStack"></a><strong><span class="state state-server">cityrp.item.takeStack</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L515">Source ☍</a></dt>
+<dt><a name="cityrp.item.takeStack"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.takeStack<span class="ll-args">(activator, ent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L515">Source ☍</a></dt>
 <dd>
 <p>Gives a player as much of a dropped item stack as fits in their inventory,
 leaving any remainder in the world entity.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">activator</span> <span class="types">Player</span> The player picking up the stack.</li>
-<li><span class="parameter">ent</span> <span class="types">Entity</span> The cityrp_item stack entity.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">activator</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player picking up the stack.</span></li>
+<li><span class="parameter">ent</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc">The cityrp_item stack entity.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.item.tryMergeStack"></a><strong><span class="state state-server">cityrp.item.tryMergeStack</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L484">Source ☍</a></dt>
+<dt><a name="cityrp.item.tryMergeStack"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.tryMergeStack<span class="ll-args">(a, b)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L484">Source ☍</a></dt>
 <dd>
 <p>Attempts to combine two touching dropped item entities into one stack.
 Only merges entities that are the same item, same meta, and dropped by
 the same player, so unrelated items lying near each other never combine.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">a</span> <span class="types">Entity</span> A cityrp_item entity.</li>
-<li><span class="parameter">b</span> <span class="types">Entity</span> Another cityrp_item entity.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">a</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc">A cityrp_item entity.</span></li>
+<li><span class="parameter">b</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc">Another cityrp_item entity.</span></li>
 </ul>
 
+
 </dd>
-<dt><a name="cityrp.item.use"></a><strong><span class="state state-server">cityrp.item.use</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L53">Source ☍</a></dt>
+<dt><a name="cityrp.item.use"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.use<span class="ll-args">(ply, item, meta, force)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L53">Source ☍</a></dt>
 <dd>
 <p>Have a player use an item.</p>
 
-<h3>Parameters:</h3>
-<ul>
-<li><span class="parameter">ply</span> <span class="types">Player</span> The player using an item.</li>
-<li><span class="parameter">item</span> <span class="types">string</span> The item index.</li>
-<li><span class="parameter">meta</span> <span class="types">string?</span> The item meta value.</li>
-<li><span class="parameter">force</span> <span class="types">boolean?</span> Ignore the item-use cooldown.</li>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player using an item.</span></li>
+<li><span class="parameter">item</span><span class="types">string</span><span class="ll-arg-desc">The item index.</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value.</span></li>
+<li><span class="parameter">force</span><span class="types">boolean?</span><span class="ll-arg-desc">Ignore the item-use cooldown.</span></li>
 </ul>
-<h3>Returns:</h3>
-<ol>
-<li><span class="types">boolean</span> Whether the item was successfully used.</li>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the item was successfully used.</span></li>
 </ol>
+
 </dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.item"></a><strong><span class="state state-client state-server">cityrp.item</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L28">Source ☍</a></dt>
+<dt><a name="cityrp.item"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L28">Source ☍</a></dt>
 <dd>
+
 
 
 
 </dd>
-<dt><a name="cityrp.item.governmentVehicleSubs"></a><strong><span class="state state-client state-server">cityrp.item.governmentVehicleSubs</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L299">Source ☍</a></dt>
+<dt><a name="cityrp.item.governmentVehicleSubs"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.governmentVehicleSubs</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L299">Source ☍</a></dt>
 <dd>
 <p>Vehicles - Sub values that count as government-owned (exempt plates, manufacture REP gate).</p>
+
 
 
 
@@ -740,8 +767,9 @@ the same player, so unrelated items lying near each other never combine.</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.item.catIndex"></a><strong><span class="state state-client state-server">cityrp.item.catIndex</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L246">Source ☍</a></dt>
+<dt><a name="cityrp.item.catIndex"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.catIndex</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L246">Source ☍</a></dt>
 <dd>
+
 
 
 
@@ -751,5 +779,72 @@ the same player, so unrelated items lying near each other never combine.</p>
 	</div>
 	<br class="clearfix">
 </div>
+<script>
+var ROOT = "../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+})();
+</script>
 </body>
 </html>
