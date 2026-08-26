@@ -1,0 +1,1326 @@
+/* The site's base #navigation/#content layout; the theme files in this
+   directory only override it, they don't stand alone. Originally captured
+   from LDoc's own generated stylesheet (docs.limelightgaming.info/ldoc.css)
+   back when the site was LDoc-built - kept as static/vendored CSS since it's
+   deterministic layout, not something worth regenerating on every build. */
+
+/* BEGIN RESET
+
+Copyright (c) 2010, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 2.8.2r1
+*/
+html {
+    color: #000;
+    background: #FFF;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset,img {
+    border: 0;
+}
+address,caption,cite,code,dfn,em,strong,th,var,optgroup {
+    font-style: inherit;
+    font-weight: inherit;
+}
+del,ins {
+    text-decoration: none;
+}
+li {
+    margin-left: 20px;
+}
+caption,th {
+    text-align: left;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size: 100%;
+    font-weight: bold;
+}
+q:before,q:after {
+    content: '';
+}
+abbr,acronym {
+    border: 0;
+    font-variant: normal;
+}
+sup {
+    vertical-align: baseline;
+}
+sub {
+    vertical-align: baseline;
+}
+legend {
+    color: #000;
+}
+input,button,textarea,select,optgroup,option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+input,button,textarea,select {*font-size:100%;
+}
+/* END RESET */
+
+body {
+    margin-left: 1em;
+    margin-right: 1em;
+    font-family: arial, helvetica, geneva, sans-serif;
+    background-color: #ffffff; margin: 0px;
+}
+
+code, tt { font-family: monospace; font-size: 1.1em; }
+span.parameter { font-family:monospace; }
+span.parameter:after { content:":"; }
+span.types:before { content:"("; }
+span.types:after { content:")"; }
+
+body, p, td, th { font-size: .95em; line-height: 1.2em;}
+
+p, ul { margin: 10px 0 0 0px;}
+
+strong { font-weight: bold;}
+
+em { font-style: italic;}
+
+h1 {
+    font-size: 1.5em;
+    margin: 20px 0 20px 0;
+}
+h2, h3, h4 { margin: 15px 0 10px 0; }
+h2 { font-size: 1.25em; }
+h3 { font-size: 1.15em; }
+h4 { font-size: 1.06em; }
+
+a:link { font-weight: bold; color: #004080; text-decoration: none; }
+a:visited { font-weight: bold; color: #006699; text-decoration: none; }
+a:link:hover { text-decoration: underline; }
+
+hr {
+    color:#cccccc;
+    background: #00007f;
+    height: 1px;
+}
+
+blockquote { margin-left: 3em; }
+
+ul { list-style-type: disc; }
+
+pre {
+    background-color: rgb(245, 245, 245);
+    border: 1px solid #C0C0C0; /* silver */
+    padding: 10px;
+    margin: 10px 0 10px 0;
+    overflow: auto;
+    font-family: "Andale Mono", monospace;
+}
+
+#container {
+    margin-left: 1em;
+    margin-right: 1em;
+    background-color: #f0f0f0;
+}
+
+#product {
+    text-align: center;
+    border-bottom: 1px solid #cccccc;
+    background-color: #ffffff;
+}
+
+#product big {
+    font-size: 2em;
+}
+
+#main {
+    background-color: #f0f0f0;
+    border-left: 2px solid #cccccc;
+}
+
+#navigation {
+    float: left;
+    width: 14em;
+    vertical-align: top;
+    background-color: #f0f0f0;
+    overflow: visible;
+}
+
+#navigation h2 {
+    background-color:#e7e7e7;
+    font-size:1.1em;
+    color:#000000;
+    text-align: left;
+    padding:0.2em;
+    border-top:1px solid #dddddd;
+    border-bottom:1px solid #dddddd;
+}
+
+#navigation ul
+{
+    font-size:1em;
+    list-style-type: none;
+    margin: 1px 1px 10px 1px;
+}
+
+#navigation li {
+    text-indent: -1em;
+    display: block;
+    margin: 3px 0px 0px 22px;
+}
+
+#navigation li li a {
+    margin: 0px 3px 0px -1em;
+}
+
+#content {
+    margin-left: 14em;
+    padding: 1em;
+    width: 700px;
+    border-left: 2px solid #cccccc;
+    border-right: 2px solid #cccccc;
+    background-color: #ffffff;
+}
+
+#about {
+    clear: both;
+    padding: 5px;
+    border-top: 2px solid #cccccc;
+    background-color: #ffffff;
+}
+
+@media print {
+    body {
+        font: 12pt "Times New Roman", "TimeNR", Times, serif;
+    }
+    a { font-weight: bold; color: #004080; text-decoration: underline; }
+
+    #main {
+        background-color: #ffffff;
+        border-left: 0px;
+    }
+
+    #container {
+        margin-left: 2%;
+        margin-right: 2%;
+        background-color: #ffffff;
+    }
+
+    #content {
+        padding: 1em;
+        background-color: #ffffff;
+    }
+
+    #navigation {
+        display: none;
+    }
+}
+
+
+
+
+ul.nowrap {
+    overflow:auto;
+    white-space:nowrap;
+}
+
+dl.function dt {border-top: 1px solid #ccc; padding-top: 1em;}
+dl.function dd {padding-bottom: 1em; margin: 10px 0 0 20px;}
+dl.function h3 {font-size: .95em;}
+
+/* stop sublists from having initial vertical space */
+ul ul { margin-top: 0px; }
+ol ul { margin-top: 0px; }
+ol ol { margin-top: 0px; }
+ul ol { margin-top: 0px; }
+
+/* make the target distinct; helps when we're navigating to a function */
+a:target + * {
+  background-color: #FF9;
+}
+
+
+/* styles for prettification of source */
+pre .comment { color: #558817; }
+pre .constant { color: #a8660d; }
+pre .escape { color: #844631; }
+pre .keyword { color: #aa5050; font-weight: bold; }
+pre .library { color: #0e7c6b; }
+pre .marker { color: #512b1e; background: #fedc56; font-weight: bold; }
+pre .string { color: #8080ff; }
+pre .number { color: #f8660d; }
+pre .operator { color: #2239a8; font-weight: bold; }
+pre .preprocessor, pre .prepro { color: #a33243; }
+pre .global { color: #800080; }
+pre .user-keyword { color: #800080; }
+pre .prompt { color: #558817; }
+pre .url { color: #272fc2; text-decoration: underline; }
+
+
+#navigation {
+    width: 28em;
+}
+
+#content {
+    margin-left: 28em;
+}
+
+.ll-item-meta {
+	margin: 0 0 1em 0;
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	gap: 0.35em 1em;
+}
+
+.ll-item-meta dt {
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+.ll-item-meta dd {
+	margin: 0;
+}
+
+.tag-uniqueid {
+	font-family: Monaco, Andale Mono, monospace;
+	font-size: 0.95em;
+	padding: 1px 5px;
+	border: 1px solid #d3d3d3;
+	border-radius: 3px;
+	background: #f7f7f7;
+}
+
+.tag-warning {
+	font-weight: bold;
+	color: red;
+}
+
+.tag-deprecated {
+	color: red;
+}
+
+/* CityRP docs theme — dark, card-based layout matching the Limelight design
+   system. Sits on top of base.css's reset; every #id it touches here is
+   base.css's own float layout, deliberately overridden rather than fought. */
+
+:root {
+  --dark-900: #0f131a;
+  --dark-800: #181d29;
+  --dark-750: #1f2431;
+  --dark-700: #242a38;
+  --dark-600: #323646;
+  --dark-500: #595f77;
+  --dark-400: #adb3cb;
+  --white: #ffffff;
+  --navy: #1e2c41;
+  --limelight: #42a5f5;
+  --limelight-alt: #0c80de;
+
+  --border-subtle: var(--dark-700);
+  --border-default: var(--dark-600);
+  --border-accent: rgba(66, 165, 245, 0.5);
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+
+  --font-heading: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Andale Mono", Consolas, monospace;
+
+  --tracking-eyebrow: 0.2em;
+  --tracking-kicker: 0.18em;
+}
+
+/* base.css's reset never sets this, so anything here that mixes an explicit
+   height/width with padding (`#navigation` in particular: `height: calc(100vh
+   - 65px)` plus vertical padding) would otherwise render taller/wider than
+   the box it was sized for -- padding added on top of the height instead of
+   eaten out of it. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--dark-900);
+}
+body {
+  font-family: var(--font-sans);
+  color: var(--dark-400);
+  -webkit-font-smoothing: antialiased;
+}
+a:link, a:visited {
+  color: var(--limelight);
+  font-weight: 400;
+}
+a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--dark-600); border-radius: var(--radius-pill); border: 3px solid var(--dark-900); }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* Faint repeating grain over the whole page — decorative, never intercepts
+   clicks. Purely a texture layer, so it sits fixed and ignores scroll. */
+.ll-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.3;
+  background-image: url("assets/img/grain-overlay.png");
+  background-repeat: repeat;
+}
+
+/* --- Header --------------------------------------------------------------- */
+
+.ll-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid rgba(36, 42, 56, 0.8);
+  background: rgba(15, 19, 26, 0.9);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.ll-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 14px 24px;
+}
+.ll-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--white) !important;
+  text-decoration: none !important;
+}
+.ll-brand img {
+  display: block;
+  height: 26px;
+  width: auto;
+}
+.ll-repo-link {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  color: var(--dark-400) !important;
+  text-decoration: none !important;
+  flex-shrink: 0;
+}
+.ll-repo-link:hover {
+  border-color: var(--border-accent);
+  color: var(--limelight) !important;
+}
+
+/* --- Layout ----------------------------------------------------------------
+   #container/#main/#navigation/#content are base.css's ids; this is a full
+   override to a sticky-sidebar grid rather than the float layout it shipped
+   with. */
+
+#container, #main, #navigation, #content, #product {
+  border: unset !important;
+  background-color: unset !important;
+}
+#container {
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+#main {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+#navigation {
+  position: sticky;
+  top: 65px;
+  height: calc(100vh - 65px);
+  overflow-y: auto;
+  float: none;
+  width: auto;
+  padding: 28px 4px 64px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+/* A flex item that's ALSO a scroll container (base.css's `.nowrap` puts
+   `overflow: auto` on the Contents/Items/Modules lists) gets an automatic
+   minimum size of 0 instead of its content size. #navigation's height is
+   constrained, so once total content exceeds it, flex-shrink preferentially
+   crushes those scroll-container children toward 0 while every plain
+   (non-scrolling) sibling list keeps its full content-based minimum and
+   refuses to shrink -- the Contents box in particular could get shrunk to
+   nothing while Topics/Items/etc. stayed full height. #navigation's own
+   overflow-y:auto is what should handle any overall overflow (via the page
+   scrollbar), so none of its direct children should ever shrink at all. */
+#navigation > * {
+  flex-shrink: 0;
+}
+#content {
+  float: none;
+  width: auto;
+  margin: 0;
+  padding: 48px 0 120px;
+  max-width: 840px;
+  min-width: 0;
+}
+
+@media (max-width: 960px) {
+  #main {
+    grid-template-columns: 1fr;
+  }
+  #navigation {
+    position: static;
+    height: auto;
+  }
+}
+
+/* --- Sidebar search --------------------------------------------------------- */
+
+.ll-search input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 9px 14px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--dark-800);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 13.5px;
+}
+.ll-search input::placeholder {
+  color: var(--dark-500);
+}
+.ll-search input:focus {
+  outline: none;
+  border-color: var(--border-accent);
+}
+#navigation .ll-search .ll-kind-body {
+  margin-top: 6px;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: var(--dark-800);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+}
+.ll-search-kind {
+  flex: none;
+  margin-left: auto;
+  font-family: var(--font-heading);
+  font-size: 9.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dark-500);
+}
+
+/* --- Nav groups (Topics / Items / Metatables / Panels / Modules) ---------- */
+/* Native <details>/<summary> gives the collapse behaviour for free — no JS,
+   no state to keep in sync with the currently-open page. */
+
+.ll-nav-group {
+  display: flex;
+  flex-direction: column;
+}
+.ll-nav-group summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  cursor: pointer;
+  padding: 0 8px 6px;
+}
+.ll-nav-group summary::-webkit-details-marker { display: none; }
+.ll-nav-group summary::marker { content: ""; }
+.ll-nav-group summary::before {
+  content: "\25BE";
+  flex: none;
+  font-size: 10px;
+  opacity: 0.6;
+  color: var(--dark-500);
+}
+.ll-nav-group:not([open]) summary::before {
+  content: "\25B8";
+}
+#navigation .ll-kind-header {
+  background: unset;
+  border: unset;
+  padding: 0;
+}
+#navigation .ll-kind-header h1,
+#navigation .ll-kind-header h2 {
+  background: unset;
+  border: unset;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-kicker);
+  color: var(--dark-500);
+}
+#navigation .ll-nav-group summary:hover .ll-kind-header h2 {
+  color: var(--dark-400);
+}
+
+/* Contents isn't collapsible (it's not a <details>/<summary>, just a plain
+   header + list), so it needs its own tight gap and its own left-alignment:
+   list rows start at 10px (`li > a { padding: 6px 10px }`), and without this
+   the header text sat flush at 0. */
+.ll-contents-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ll-contents-block .ll-kind-header h2 {
+  padding-left: 10px;
+}
+
+.ll-count {
+  margin-left: auto;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--dark-600);
+}
+
+/* --- Sidebar rows ----------------------------------------------------------- */
+
+#navigation .ll-kind-body {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+#navigation .ll-kind-body li {
+  background: unset;
+  border: unset;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+}
+/* base.css's `.nowrap` (kept on Contents/Items/Modules lists from the old
+   layout) sets `white-space: nowrap` on the <ul> and, by inheritance, every
+   row — harmless for short module names but it forces long topic headings
+   ("Message Parts (varargs API)") past the 300px column instead of
+   wrapping. This selector outranks it (an ID beats a lone class), so
+   `normal` here is the actual behaviour despite `.nowrap` still being
+   present in the markup. */
+#navigation .ll-kind-body li > a,
+#navigation .ll-kind-body li > strong,
+#navigation .ll-kind-body li > p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  margin: 0;
+  border-radius: var(--radius-md);
+  font-size: 13.5px;
+  line-height: 1.35;
+  white-space: normal;
+  word-break: break-word;
+  color: var(--dark-400);
+}
+#navigation .ll-kind-body li > a {
+  text-decoration: none;
+  font-weight: 400;
+}
+#navigation .ll-kind-body li > a:hover {
+  background: rgba(36, 42, 56, 0.6);
+  color: var(--white);
+  text-decoration: none;
+}
+#navigation .ll-kind-body li > strong {
+  background: rgba(66, 165, 245, 0.1);
+  color: var(--limelight);
+  font-weight: 500;
+}
+#navigation .ll-kind-body p {
+  color: var(--dark-500);
+  padding: 4px 10px;
+}
+
+/* Topic folders keep the older li-based toggle (they auto-expand to whatever
+   the current page is inside — not something a manual disclosure widget
+   models well), just retextured to match. */
+#navigation .ll-kind-body li.ll-topic-folder {
+  background: unset;
+}
+#navigation .ll-kind-body li.ll-topic-folder > a,
+#navigation .ll-kind-body li.ll-topic-folder > strong {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+#navigation .ll-kind-body li.ll-topic-folder > a::after,
+#navigation .ll-kind-body li.ll-topic-folder > strong::after {
+  content: "\25B8";
+  margin-left: auto;
+  font-size: 9px;
+  color: var(--dark-500);
+}
+#navigation .ll-kind-body li.ll-topic-folder.is-open > a::after,
+#navigation .ll-kind-body li.ll-topic-folder.is-open > strong::after {
+  content: "\25BE";
+}
+#navigation .ll-kind-body .ll-topic-children {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+#navigation .ll-kind-body .ll-topic-children li > a,
+#navigation .ll-kind-body .ll-topic-children li > strong {
+  padding-left: 20px;
+}
+#navigation .ll-kind-body .ll-topic-children .ll-topic-children li > a,
+#navigation .ll-kind-body .ll-topic-children .ll-topic-children li > strong {
+  padding-left: 32px;
+}
+
+.ll-pin {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: auto;
+  flex: none;
+  fill: currentColor;
+  opacity: 0.55;
+}
+
+.ll-sidebar-footer {
+  margin-top: auto;
+  padding: 16px 8px 0;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--dark-500);
+}
+.ll-sidebar-footer p {
+  margin: 0;
+}
+
+/* --- Index page ------------------------------------------------------------- */
+
+.ll-hero .ll-eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--limelight);
+}
+.ll-hero h1 {
+  margin: 0 0 20px;
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+.ll-hero-sub {
+  margin: 0 0 40px;
+  font-size: 18px;
+  line-height: 1.625;
+  color: var(--dark-400);
+  max-width: 60ch;
+}
+.ll-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 24px;
+  padding: 28px 24px;
+  background: rgba(30, 44, 65, 0.4);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin: 0 0 56px;
+}
+.ll-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+.ll-stat-value {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--white);
+  font-variant-numeric: tabular-nums;
+}
+.ll-stat-label {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-kicker);
+  color: var(--dark-500);
+}
+.ll-index-section h2 {
+  margin: 0 0 20px;
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--white);
+}
+.ll-start-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.ll-start-card {
+  display: block;
+  padding: 20px;
+  background: var(--dark-800);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  text-decoration: none !important;
+}
+.ll-start-card:hover {
+  border-color: var(--border-accent);
+}
+.ll-start-card-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.ll-start-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--dark-400);
+}
+
+.ll-important-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 24px;
+}
+.ll-important-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: var(--dark-800);
+  border: 1px solid var(--border-subtle);
+  text-decoration: none !important;
+}
+.ll-important-row:hover {
+  background: rgba(36, 42, 56, 0.6);
+}
+.ll-important-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  color: var(--white);
+}
+.ll-important-kind {
+  font-size: 13px;
+  color: var(--dark-500);
+}
+.ll-row-arrow {
+  margin-left: auto;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  fill: var(--limelight);
+}
+
+/* --- Page headers (module / topic) ------------------------------------------ */
+
+#content .ll-module-header {
+  background: unset;
+  height: auto;
+  display: block;
+  padding: 0 0 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+#content .ll-module-header h1 {
+  background: unset;
+  border: unset;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+  padding: 0;
+  word-break: break-word;
+}
+#content .ll-module-header h2 {
+  background: unset;
+  border: unset;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+#content .ll-module-header .ll-family-meta {
+  margin-right: 0;
+  margin-top: 4px;
+  display: block;
+  color: var(--dark-500);
+  font-size: 13px;
+}
+#content .ll-module-header .ll-family-meta a:link,
+#content .ll-module-header .ll-family-meta a:visited {
+  color: var(--limelight);
+}
+#content .ll-module-header + .ll-module-header {
+  margin-top: 40px;
+}
+
+#content .ll-module-body {
+  padding: 0 0 24px;
+  background: unset;
+  border: unset;
+  margin: 0;
+  color: var(--dark-400);
+  font-size: 16px;
+  line-height: 1.625;
+}
+#content .ll-module-body h3:first-of-type {
+  margin-top: 0;
+}
+#content .ll-module-body p {
+  margin: 0 0 16px;
+}
+
+#content .ll-module-body table {
+  width: 100%;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 0 24px;
+  background: var(--dark-800);
+  font-size: 14px;
+  overflow: hidden;
+}
+#content .ll-module-body th,
+#content .ll-module-body td {
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 16px;
+  line-height: 1.5;
+  vertical-align: top;
+  text-align: left;
+}
+#content .ll-module-body thead th {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-kicker);
+  color: var(--dark-500);
+}
+#content .ll-module-body tbody tr:last-child td {
+  border-bottom: none;
+}
+#content .ll-module-body tbody tr:nth-child(even) {
+  background: unset;
+}
+#content .ll-module-body td:first-child,
+#content .ll-module-body th:first-child {
+  color: var(--white);
+}
+
+/* GitHub-style `> [!WARNING]` callouts / `@warning` etc. tags. */
+#content .ll-module-body blockquote.ll-alert {
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  border-left: 3px solid var(--dark-500);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--dark-800);
+}
+#content .ll-module-body blockquote.ll-alert p {
+  margin: 6px 0 0 0;
+}
+#content .ll-module-body blockquote.ll-alert .ll-alert-title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--dark-500);
+}
+#content .ll-module-body blockquote.ll-alert-note { border-left-color: #58a6ff; }
+#content .ll-module-body blockquote.ll-alert-note .ll-alert-title { color: #58a6ff; }
+#content .ll-module-body blockquote.ll-alert-tip { border-left-color: #3fb950; }
+#content .ll-module-body blockquote.ll-alert-tip .ll-alert-title { color: #3fb950; }
+#content .ll-module-body blockquote.ll-alert-important { border-left-color: #a371f7; }
+#content .ll-module-body blockquote.ll-alert-important .ll-alert-title { color: #a371f7; }
+#content .ll-module-body blockquote.ll-alert-warning { border-left-color: #d29922; }
+#content .ll-module-body blockquote.ll-alert-warning .ll-alert-title { color: #d29922; }
+#content .ll-module-body blockquote.ll-alert-caution { border-left-color: #f85149; }
+#content .ll-module-body blockquote.ll-alert-caution .ll-alert-title { color: #f85149; }
+#content .ll-module-body blockquote.ll-alert-bug { border-left-color: #f3444b; }
+#content .ll-module-body blockquote.ll-alert-bug .ll-alert-title { color: #f3444b; }
+#content .ll-module-body blockquote.ll-alert-deprecated { border-left-color: #db6d28; }
+#content .ll-module-body blockquote.ll-alert-deprecated .ll-alert-title { color: #db6d28; }
+#content .ll-module-body blockquote.ll-alert-internal { border-left-color: var(--dark-500); }
+#content .ll-module-body blockquote.ll-alert-internal .ll-alert-title { color: var(--dark-400); }
+#content .ll-module-body blockquote.ll-alert-validate { border-left-color: #39c5cf; }
+#content .ll-module-body blockquote.ll-alert-validate .ll-alert-title { color: #39c5cf; }
+#content .ll-module-body blockquote.ll-alert-ambiguous { border-left-color: #e3b341; }
+#content .ll-module-body blockquote.ll-alert-ambiguous .ll-alert-title { color: #e3b341; }
+
+#content .ll-module-body:not(:last-child) {
+  margin-bottom: 0;
+}
+
+dl dt:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/* --- Function / table entries ----------------------------------------------- */
+
+#content .ll-module-body dl.function dt {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+#content .ll-module-body dl.function dt:first-of-type {
+  padding-top: 0;
+  border-top: none;
+}
+#content .ll-module-body .ll-symbol {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--white);
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#content .ll-module-body .ll-symbol .ll-sep {
+  color: var(--dark-500);
+}
+#content .ll-module-body .ll-symbol .ll-args {
+  font-weight: 400;
+  color: var(--dark-400);
+}
+#content .ll-module-body .ll-symbol .ll-returns {
+  font-weight: 400;
+  color: var(--limelight);
+}
+#content .ll-module-body .types a,
+#content .ll-module-body .ll-returns a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: underline dotted rgba(66, 165, 245, 0.5);
+  text-underline-offset: 2px;
+}
+#content .ll-module-body .types a:hover,
+#content .ll-module-body .ll-returns a:hover {
+  text-decoration: underline solid currentColor;
+}
+#content .ll-module-body dl.function dt > a[href] {
+  margin-left: auto;
+  float: none !important;
+  flex: none;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--dark-500) !important;
+}
+#content .ll-module-body dl.function dt > a[href]:hover {
+  color: var(--limelight) !important;
+}
+/* Bottom padding on every dd, not just the list's last one: the divider is
+   the *next* dt's border-top, so without this the last thing in a function's
+   body (often the Returns list) sits flush against it with no breathing
+   room. `:last-of-type` only ever matched the very last dd in the whole
+   `dl`, so every function except the final one was missing this. */
+#content .ll-module-body dl.function dd {
+  padding: 10px 0 20px;
+  line-height: 1.6;
+}
+
+/* Realm chip. */
+.ll-realm {
+  flex: none;
+  align-self: center;
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--dark-600);
+}
+.ll-realm.state-server {
+  background: rgba(66, 165, 245, 0.15);
+  color: #7cc2ff;
+}
+.ll-realm.state-client {
+  background: rgba(219, 109, 40, 0.18);
+  color: #f0a860;
+}
+.ll-realm.state-menu {
+  background: rgba(63, 185, 80, 0.15);
+  color: #6bd987;
+}
+.ll-realm.state-client.state-server {
+  background: linear-gradient(to bottom left, rgba(66, 165, 245, 0.18) 0%, rgba(66, 165, 245, 0.18) 50%, rgba(219, 109, 40, 0.18) 50%);
+  color: var(--white);
+}
+.ll-realm.state-client.state-server.state-menu {
+  background: linear-gradient(to bottom left, rgba(66, 165, 245, 0.18) 0%, rgba(66, 165, 245, 0.18) 33%, rgba(219, 109, 40, 0.18) 33%, rgba(219, 109, 40, 0.18) 66%, rgba(63, 185, 80, 0.18) 66%);
+  color: var(--white);
+}
+.ll-realm.state-client.state-menu {
+  background: linear-gradient(to bottom left, rgba(63, 185, 80, 0.18) 0%, rgba(63, 185, 80, 0.18) 50%, rgba(219, 109, 40, 0.18) 50%);
+  color: var(--white);
+}
+
+/* `#content .ll-module-body p { margin: 0 0 16px }` outranks a bare
+   `.ll-arg-label` (id+class+tag beats id+class), which was zeroing this out
+   -- Parameters/Returns/Example ended up glued to whatever came before them.
+   Qualified the same way here so it actually wins. */
+#content .ll-module-body .ll-arg-label {
+  margin: 16px 0 10px;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  color: var(--dark-500);
+}
+#content .ll-module-body .ll-args-list {
+  display: grid;
+  grid-template-columns: max-content minmax(0, max-content) minmax(12em, 1fr);
+  gap: 6px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: baseline;
+}
+#content .ll-module-body .ll-args-list > li {
+  display: contents;
+}
+#content .ll-module-body .ll-args-list .parameter {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--white);
+}
+#content .ll-module-body .ll-args-list .parameter::after,
+#content .ll-module-body .ll-args-list .types::before,
+#content .ll-module-body .ll-args-list .types::after {
+  content: none;
+}
+#content .ll-module-body .ll-args-list .types {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--limelight);
+  overflow-wrap: anywhere;
+}
+#content .ll-module-body .ll-args-list .ll-ordinal {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--dark-500);
+}
+#content .ll-module-body .ll-args-list .ll-arg-desc {
+  min-width: 0;
+  font-size: 14px;
+  color: var(--dark-400);
+}
+#content .ll-module-body pre.ll-example {
+  margin: 2px 0 0 0;
+  padding: 16px 20px;
+  background: var(--dark-900);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #dfe6f5;
+  overflow-x: auto;
+}
+#content .ll-module-body pre.ll-example code {
+  font-family: inherit;
+}
+
+/* Inline code and fenced blocks from the topic markdown. */
+#content .ll-module-body code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--dark-700);
+  color: #cfe8ff;
+}
+/* wenmode's footnotes section carries its own "Footnotes" label meant only
+   for assistive tech (the visible one is the `.ll-module-header` this site
+   adds around the whole section) — without this class actually doing
+   something, it renders as a second, visible, duplicate heading. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ll-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 4px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  vertical-align: middle;
+}
+#content .ll-module-body del,
+#content .ll-module-body s {
+  color: var(--dark-500);
+  text-decoration: line-through;
+}
+#content .ll-module-body hr {
+  height: 0;
+  margin: 32px 0;
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  background: unset;
+  color: unset;
+}
+#content .ll-module-body pre {
+  background: var(--dark-900);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #dfe6f5;
+  overflow-x: auto;
+}
+#content .ll-module-body pre code {
+  padding: 0;
+  background: unset;
+  color: inherit;
+}
+/* GFM task list checkboxes -- plain <input>s with no distinguishing class,
+   so a li:has() targets exactly the ones that need the bullet dropped. The
+   native default was small, low-contrast against the dark background, and
+   dimmed further for being disabled (task-list checkboxes are always
+   disabled; GFM only lets an author set the initial state, not click it) --
+   this makes them a deliberate, visible checkbox rather than a checkbox-shaped
+   afterthought. */
+#content .ll-module-body li:has(> input[type="checkbox"]) {
+  list-style: none;
+}
+/* `accent-color` alone left unchecked boxes as a near-invisible native
+   outline against the dark background, so checked vs unchecked was hard to
+   tell apart at a glance -- drawn from scratch instead: a visible bordered
+   box unchecked, solid fill plus a checkmark when checked. */
+#content .ll-module-body input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 0 8px 0 -22px;
+  vertical-align: middle;
+  background: var(--dark-800);
+  border: 1.5px solid var(--dark-500);
+  border-radius: 4px;
+  cursor: default;
+  position: relative;
+  flex: none;
+}
+#content .ll-module-body input[type="checkbox"]:checked {
+  background: var(--limelight);
+  border-color: var(--limelight);
+}
+#content .ll-module-body input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--dark-900);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+#content .ll-module-body ul,
+#content .ll-module-body ol {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#content .ll-module-body strong {
+  color: var(--white);
+  font-weight: 500;
+}
+#content .ll-module-body dl.ll-item-meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 16px;
+  font-size: 14px;
+}
+#content .ll-module-body dl.ll-item-meta dt {
+  color: var(--dark-500);
+  border: none;
+  padding: 0;
+}
+#content .ll-module-body dl.ll-item-meta dd {
+  margin: 0;
+  color: var(--dark-400);
+}

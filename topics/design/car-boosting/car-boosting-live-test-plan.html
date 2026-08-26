@@ -2,22 +2,29 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Car Boosting and Navigation Pre-Live Test Plan</title>
-	<link rel="stylesheet" href="../../../style.6b230c7a19.css" type="text/css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../../style.cd9354d8c3.css" type="text/css">
 </head>
 <body>
-<div id="container">
-	<div id="product">
-		<div id="product_logo"></div>
-		<div id="product_name"><big><b></b></big></div>
-		<div id="product_description"></div>
+<div class="ll-grain"></div>
+<header class="ll-header">
+	<div class="ll-header-inner">
+		<a class="ll-brand" href="../../../index.html">
+			<img src="../../../assets/logos/L2_blue.svg" alt="" width="26" height="26">
+			<span>CityRP Documentation</span>
+		</a>
+		<a class="ll-repo-link" href="https://github.com/limelight-development/cityrp2" target="_blank" rel="noreferrer">Repository</a>
 	</div>
+</header>
+<div id="container">
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1><a href="../../../index.html">CityRP Documentation</a></h1></div>
 <div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
+<div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
 <li><a href="#exit-criteria">Exit criteria</a></li>
 <li><a href="#candidate-record">Candidate record</a></li>
 <li><a href="#required-test-coverage">Required test coverage</a></li>
@@ -33,8 +40,8 @@
 <li><a href="#10-regression-suite">10. Regression suite</a></li>
 <li><a href="#11-rollout-and-rollback">11. Rollout and rollback</a></li>
 <li><a href="#sign-off">Sign-off</a></li>
-</ul>
-<div class="ll-kind-header"><h2>Topics</h2></div>
+</ul></div>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">36</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -73,8 +80,8 @@
 </li>
 <li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
 </li>
-</ul>
-<div class="ll-kind-header"><h2>Items</h2></div>
+</ul></details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Items</h2></div><span class="ll-count">19</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/ITEM.html">ITEM</a></li>
 <li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
@@ -96,13 +103,15 @@
 <li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Metatables</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Metatables</h2></div><span class="ll-count">3</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/Entity.html">Entity</a></li>
 <li><a href="../../../modules/Player.html">Player</a></li>
 <li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Panels</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Panels</h2></div><span class="ll-count">17</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
@@ -122,7 +131,8 @@
 <li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
 <li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Modules</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/Array.html">Array</a></li>
 <li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
@@ -333,6 +343,8 @@
 <li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
 <li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.cl_init.html">core.plugins.website_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.sh_init.html">core.plugins.website_rewards.sh_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
@@ -350,8 +362,8 @@
 <li><a href="../../../modules/temar.html">temar</a></li>
 <li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Credits</h2></div>
-<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+</details>
+<div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
 		</div>
 		<div id="content">
 <div class="ll-module-header"><h1>Car Boosting and Navigation Pre-Live Test Plan</h1></div><div class="ll-module-body"><p>This plan is the release gate for the Car Boosting, MESKA, lockpick, hotwire,
@@ -506,7 +518,7 @@ reconnecting; no MESKA nil-index occurs; UI hooks and timers are not duplicated.
 <li>the beta map image loads;</li>
 <li>Categories remain above the location list;</li>
 <li>location rows do not overlap the footer;</li>
-<li>the map surface outside the artwork is <code>#1a1a1a</code>;</li>
+<li>the map surface outside the artwork is <code>#1a1a1a</code><span class="ll-swatch" style="background:#1a1a1a"></span>;</li>
 <li>controls remain visible;</li>
 <li>the full artwork fits after reset; and</li>
 <li>the console contains no HTML, JavaScript or material errors.</li>
@@ -633,7 +645,7 @@ returns to 1.0.</p>
 <li>Inspect the frame, corners and area beyond the PNG.</li>
 </ol>
 <p>Expected: the border matches other HUD elements, the outer map colour is
-<code>#1a1a1a</code>, no north pointer is present, and no redundant destination name or
+<code>#1a1a1a</code><span class="ll-swatch" style="background:#1a1a1a"></span>, no north pointer is present, and no redundant destination name or
 distance is drawn below the minimap.</p>
 <h3 id="hud-04--heading-rules">HUD-04 — Heading rules</h3>
 <p>Priority: Critical.</p>
@@ -679,7 +691,7 @@ roads mode overlays recognized nodes; off removes all debug drawing.</p>
 <li>Include inner city, outer city, industrial, docks and mountain approaches.</li>
 <li>Drive each route.</li>
 </ol>
-<p>Expected: <code>#0D47A1</code> follows recognized roads, corners and caps are rounded, the
+<p>Expected: <code>#0D47A1</code><span class="ll-swatch" style="background:#0D47A1"></span> follows recognized roads, corners and caps are rounded, the
 stroke is clearly visible at the approved thickness, and the route advances
 without reversing to completed points.</p>
 <h3 id="nav-03--off-road-connection">NAV-03 — Off-road connection</h3>
@@ -690,7 +702,7 @@ without reversing to completed points.</p>
 <li>Test both endpoints off-road.</li>
 </ol>
 <p>Expected: only the connection between the endpoint and nearest recognized road
-uses <code>#546E7A</code>; the road section stays <code>#0D47A1</code>.</p>
+uses <code>#546E7A</code><span class="ll-swatch" style="background:#546E7A"></span>; the road section stays <code>#0D47A1</code><span class="ll-swatch" style="background:#0D47A1"></span>.</p>
 <h3 id="nav-04--reroute-and-arrival">NAV-04 — Reroute and arrival</h3>
 <p>Priority: Critical.</p>
 <ol>
@@ -1155,7 +1167,6 @@ operations owner approves the scoped restore.</li>
 </table></div>
 		</div>
 	</div>
-	<br class="clearfix">
 </div>
 <script>
 var ROOT = "../../../";

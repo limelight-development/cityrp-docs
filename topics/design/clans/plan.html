@@ -2,22 +2,29 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Clans Overhaul — Plan</title>
-	<link rel="stylesheet" href="../../../style.6b230c7a19.css" type="text/css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../../style.cd9354d8c3.css" type="text/css">
 </head>
 <body>
-<div id="container">
-	<div id="product">
-		<div id="product_logo"></div>
-		<div id="product_name"><big><b></b></big></div>
-		<div id="product_description"></div>
+<div class="ll-grain"></div>
+<header class="ll-header">
+	<div class="ll-header-inner">
+		<a class="ll-brand" href="../../../index.html">
+			<img src="../../../assets/logos/L2_blue.svg" alt="" width="26" height="26">
+			<span>CityRP Documentation</span>
+		</a>
+		<a class="ll-repo-link" href="https://github.com/limelight-development/cityrp2" target="_blank" rel="noreferrer">Repository</a>
 	</div>
+</header>
+<div id="container">
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1><a href="../../../index.html">CityRP Documentation</a></h1></div>
 <div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
+<div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
 <li><a href="#scope-boundary">Scope boundary</a></li>
 <li><a href="#phase-0--hotfixes-do-not-wait-on-this-design">Phase 0 — Hotfixes (do not wait on this design)</a></li>
 <li><a href="#phase-1a--word-filter-and-staff-force-rename-tool">Phase 1a — Word filter and staff force-rename tool</a></li>
@@ -27,8 +34,8 @@
 <li><a href="#deferred">Deferred</a></li>
 <li><a href="#open-risks">Open risks</a></li>
 <li><a href="#open-questions-flagged-during-planning">Open questions flagged during planning</a></li>
-</ul>
-<div class="ll-kind-header"><h2>Topics</h2></div>
+</ul></div>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">36</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -69,8 +76,8 @@
 </li>
 <li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
 </li>
-</ul>
-<div class="ll-kind-header"><h2>Items</h2></div>
+</ul></details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Items</h2></div><span class="ll-count">19</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/ITEM.html">ITEM</a></li>
 <li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
@@ -92,13 +99,15 @@
 <li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Metatables</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Metatables</h2></div><span class="ll-count">3</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/Entity.html">Entity</a></li>
 <li><a href="../../../modules/Player.html">Player</a></li>
 <li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Panels</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Panels</h2></div><span class="ll-count">17</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
@@ -118,7 +127,8 @@
 <li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
 <li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Modules</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/Array.html">Array</a></li>
 <li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
@@ -329,6 +339,8 @@
 <li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
 <li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.cl_init.html">core.plugins.website_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.sh_init.html">core.plugins.website_rewards.sh_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
@@ -346,8 +358,8 @@
 <li><a href="../../../modules/temar.html">temar</a></li>
 <li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Credits</h2></div>
-<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+</details>
+<div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
 		</div>
 		<div id="content">
 <div class="ll-module-header"><h1>Clans Overhaul — Plan</h1></div><div class="ll-module-body"><p>Delivery plan for the modular clans rebuild specified in <a href="design.html">design.md</a>.</p>
@@ -439,7 +451,7 @@ the first consumer-agnostic profanity/slur filter in the gamemode — no
 equivalent exists today anywhere, which is exactly why it is being built as
 a shared library instead of inline in <code>clans/</code>, matching the existing
 allowlist-drift lesson from <a href="../../image-hosts.html">image hosts</a> (AGENTS.md
-footgun #9 — this is the same failure shape: one allowlist copied into
+footgun <a href="https://github.com/limelight-development/cityrp2/issues/9">#9</a> — this is the same failure shape: one allowlist copied into
 several call sites and drifting apart).
 List <em>contents</em> are owned by moderation; the category-to-field policy
 matrix is a product decision made per-consumer (clans' matrix is in
@@ -447,7 +459,7 @@ matrix is a product decision made per-consumer (clans' matrix is in
 empty or seed lists and does not hardcode either.</li>
 <li><strong>Staff force-rename / force-retag tool.</strong> Registered via
 <code>cityrp.acommands.AddCommand</code> — this is a staff tool and belongs on <code>!</code>,
-never on <code>/</code> with a restricted access flag (AGENTS.md footgun #14). Needs a
+never on <code>/</code> with a restricted access flag (AGENTS.md footgun <a href="https://github.com/limelight-development/cityrp2/issues/14">#14</a>). Needs a
 category, a syntax string, and a tip per the acommands contract. Scope:
 rename and re-tag (abbreviation) a clan without deleting or refunding it,
 bypassing the normal <code>core.edit_identity</code> gate and the collision/word-filter
@@ -455,7 +467,7 @@ screens that would otherwise apply to the <em>offending</em> value (the new valu
 staff choose still goes through validation and the word filter — only the
 requirement that the <em>acting player</em> hold <code>core.edit_identity</code> is bypassed).
 Logged via <code>cityrp.logs.add()</code> as an admin action, independent of the audit
-trail conventions Bank uses for money (footgun #8 — don't conflate the two
+trail conventions Bank uses for money (footgun <a href="https://github.com/limelight-development/cityrp2/issues/8">#8</a> — don't conflate the two
 logging APIs).</li>
 <li><strong>No clan-specific work lands here.</strong> This phase produces a library and a
 staff tool usable by any future feature, not clan schema or clan commands —
@@ -479,7 +491,7 @@ membership/rank feature set.</p>
 both the module id prefix (<code>bank.withdraw</code>, never a bare <code>can_kick</code>) and any
 declared table prefix (<code>clan_bank_*</code>). Second registration of the same
 module id is rejected or no-ops — hot-reload duplicate registration is a
-recurring bug class here (AGENTS.md footgun #7), and the framework doc is
+recurring bug class here (AGENTS.md footgun <a href="https://github.com/limelight-development/cityrp2/issues/7">#7</a>), and the framework doc is
 explicit that &quot;declarations replace, side effects guard&quot; are <em>opposite</em>
 behaviours, not one rule.</li>
 <li>Permission registry: declaration format (<code>id</code>, <code>module</code>, <code>label</code>, <code>kind</code>,
@@ -521,7 +533,7 @@ success signal; 0 rows means denied for any reason.</li>
 to produce a specific rejection message. The <code>UPDATE</code>/<code>DELETE</code> remains the
 only thing that grants.</li>
 <li>Re-validate <code>IsValid(ply)</code> <strong>and</strong> <code>ply._Initialized</code> <em>inside</em> the async DB
-callback, not before it (AGENTS.md footgun #2) — this is also the direct
+callback, not before it (AGENTS.md footgun <a href="https://github.com/limelight-development/cityrp2/issues/2">#2</a>) — this is also the direct
 regression fix for defect 2, which returned from inside the callback and
 silently dropped the live-state update.</li>
 <li>The membership row deletion happens regardless of whether the kicked
@@ -608,7 +620,7 @@ section placeholder ships in this step's tab bar but stays hidden or disabled
 until Phase 2</strong> — see <a href="#open-questions-flagged-during-planning">open question</a>
 below on menu sequencing. Everything scales through <code>cityrp.ui</code>
 (<code>Scale</code>, <code>CreateScaledFont</code>, <code>OnScaleChanged</code>) — do not follow
-<code>player_settings/cl_panel.lua</code>'s opt-out (AGENTS.md footgun #15).</p>
+<code>player_settings/cl_panel.lua</code>'s opt-out (AGENTS.md footgun <a href="https://github.com/limelight-development/cityrp2/issues/15">#15</a>).</p>
 <ul>
 <li>Roster wires directly into Step 2's <code>core.kick</code> and Step 3's <code>setrank</code>/
 transfer-leadership functions. <code>[Kick]</code>/<code>[Rank ▾]</code> render only on rows the
@@ -887,11 +899,11 @@ Phase 1's scaling requirement, same as every other tab.</p>
 <td>Repository disabled. If it returns, it must share the authorisation boundary rather than reimplementing it — see <a href="design.html#surfaces">design.md</a></td>
 </tr>
 <tr>
-<td><code>/clan shift</code> (#1327)</td>
+<td><code>/clan shift</code> (<a href="https://github.com/limelight-development/cityrp2/issues/1327">#1327</a>)</td>
 <td>A later Core rework. Essentially an additional gate on command execution, so it retrofits cleanly; no seam needs reserving now</td>
 </tr>
 <tr>
-<td>Clan inventory (#1624)</td>
+<td>Clan inventory (<a href="https://github.com/limelight-development/cityrp2/issues/1624">#1624</a>)</td>
 <td>Future module</td>
 </tr>
 <tr>
@@ -956,7 +968,7 @@ step starts, not a default baked silently into the plan.</p>
 <td>1</td>
 <td>Does the in-game menu ship in Phase 1 Step 5 with a hidden/disabled Bank tab placeholder, or does the whole menu wait for Phase 2 so Bank lands complete?</td>
 <td>Phase 1 Step 5, Phase 2 Step 7</td>
-<td>This plan assumes the former (ship Roster/Ranks/Invites/Identity in Phase 1, light up Bank in Phase 2) because the menu is the only clan management surface and #1541 has been open since ~2017 — holding it hostage to Bank's separate scope seemed like the wrong trade-off to make silently. Flagging in case the product/design side disagrees.</td>
+<td>This plan assumes the former (ship Roster/Ranks/Invites/Identity in Phase 1, light up Bank in Phase 2) because the menu is the only clan management surface and <a href="https://github.com/limelight-development/cityrp2/issues/1541">#1541</a> has been open since ~2017 — holding it hostage to Bank's separate scope seemed like the wrong trade-off to make silently. Flagging in case the product/design side disagrees.</td>
 </tr>
 <tr>
 <td>2</td>
@@ -980,7 +992,6 @@ step starts, not a default baked silently into the plan.</p>
 </table></div>
 		</div>
 	</div>
-	<br class="clearfix">
 </div>
 <script>
 var ROOT = "../../../";

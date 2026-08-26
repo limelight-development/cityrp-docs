@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-26T00:44:33Z",
+  "generated": "2026-08-26T22:12:00Z",
   "modules": [
     {
       "name": "Array",
@@ -8,7 +8,7 @@
       "symbols": [
         {
           "name": "ARRAY",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "Array",
           "file": "core/libraries/sh_array.lua",
           "states": [
@@ -374,7 +374,7 @@
       "symbols": [
         {
           "name": "CONSOLE",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "CONSOLE",
           "file": "core/libraries/sv_console.lua",
           "states": [
@@ -1658,7 +1658,7 @@
       "symbols": [
         {
           "name": "Entity",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "Entity",
           "file": "core/libraries/network/sh_store.lua",
           "states": [
@@ -2127,7 +2127,7 @@
         },
         {
           "name": "COL",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "Enumerations",
           "file": "core/sh_enumerations.lua",
           "states": [
@@ -2232,7 +2232,11 @@
             "`COL_RANK_COREMANAGER`",
             "`COL_RANK_CORE`",
             "`COL_RANK_BUSINESS`",
-            "`COL_RANK_SECURITY`"
+            "`COL_RANK_SECURITY`",
+            "`COL_RANK_ASSISTANT`",
+            "`COL_RANK_PREMIUM`",
+            "`COL_RANK_DEFAULT`",
+            "`COL_RANK_TRIALMOD`"
           ]
         },
         {
@@ -3160,6 +3164,27 @@
           "members": []
         },
         {
+          "name": "COL_RANK_ASSISTANT",
+          "kind": "Fields",
+          "module": "Enumerations",
+          "file": "core/sh_enumerations.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": "COL",
+          "members": []
+        },
+        {
           "name": "COL_RANK_BUSINESS",
           "kind": "Fields",
           "module": "Enumerations",
@@ -3224,6 +3249,27 @@
         },
         {
           "name": "COL_RANK_COREMANAGER",
+          "kind": "Fields",
+          "module": "Enumerations",
+          "file": "core/sh_enumerations.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": "COL",
+          "members": []
+        },
+        {
+          "name": "COL_RANK_DEFAULT",
           "kind": "Fields",
           "module": "Enumerations",
           "file": "core/sh_enumerations.lua",
@@ -3328,6 +3374,27 @@
           "members": []
         },
         {
+          "name": "COL_RANK_PREMIUM",
+          "kind": "Fields",
+          "module": "Enumerations",
+          "file": "core/sh_enumerations.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": "COL",
+          "members": []
+        },
+        {
           "name": "COL_RANK_SA",
           "kind": "Fields",
           "module": "Enumerations",
@@ -3358,6 +3425,27 @@
             "server"
           ],
           "desc": "Shares COL_RANK_OTHER; its own blue, Color(84, 154, 249), is on hold.",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": "COL",
+          "members": []
+        },
+        {
+          "name": "COL_RANK_TRIALMOD",
+          "kind": "Fields",
+          "module": "Enumerations",
+          "file": "core/sh_enumerations.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
           "params": [],
           "returns": [],
           "deprecated": null,
@@ -4085,7 +4173,7 @@
         },
         {
           "name": "Colour",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "Enumerations",
           "file": "core/sh_enumerations.lua",
           "states": [
@@ -4109,7 +4197,7 @@
         },
         {
           "name": "FONT",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "Enumerations",
           "file": "core/sh_enumerations.lua",
           "states": [
@@ -4343,7 +4431,7 @@
         },
         {
           "name": "PASS",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "Enumerations",
           "file": "core/sh_enumerations.lua",
           "states": [
@@ -5168,7 +5256,7 @@
         },
         {
           "name": "WARRANT",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "Enumerations",
           "file": "core/sh_enumerations.lua",
           "states": [
@@ -5395,12 +5483,12 @@
           "params": [
             {
               "name": "time",
-              "type": "number?",
+              "type": "any",
               "desc": ""
             },
             {
               "name": "showmins",
-              "type": "boolean",
+              "type": "any",
               "desc": ""
             }
           ],
@@ -5621,7 +5709,7 @@
         },
         {
           "name": "GM",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "GM",
           "file": "init.lua",
           "states": [
@@ -8486,12 +8574,12 @@
           "params": [
             {
               "name": "ply",
-              "type": "Player",
-              "desc": " The player metatable, with CityRP's own additions to Garry's Mod's `Player`."
+              "type": "any",
+              "desc": ""
             },
             {
               "name": "state",
-              "type": "boolean",
+              "type": "any",
               "desc": ""
             }
           ],
@@ -10360,7 +10448,7 @@
       "symbols": [
         {
           "name": "ITEM",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM",
           "file": "core/items/base/sh_base_accessory.lua",
           "states": [
@@ -15411,7 +15499,7 @@
         },
         {
           "name": "ITEM.police_laptop",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM",
           "file": "core/plugins/policedb/items/sh_police_laptop.lua",
           "states": [
@@ -22160,7 +22248,7 @@
       "symbols": [
         {
           "name": "ITEM.Accessory",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Accessory",
           "file": "core/items/base/sh_base_accessory.lua",
           "states": [
@@ -23909,7 +23997,7 @@
       "symbols": [
         {
           "name": "ITEM.Ammo",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Ammo",
           "file": "core/items/base/sh_base_ammo.lua",
           "states": [
@@ -25563,7 +25651,7 @@
       "symbols": [
         {
           "name": "ITEM.Card",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Card",
           "file": "core/items/base/sh_base_collectable.lua",
           "states": [
@@ -27582,7 +27670,7 @@
       "symbols": [
         {
           "name": "ITEM.Clothing",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Clothing",
           "file": "core/items/base/sh_base_clothing.lua",
           "states": [
@@ -29680,7 +29768,7 @@
       "symbols": [
         {
           "name": "ITEM.Collectable",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Collectable",
           "file": "core/items/base/sh_base_collectable.lua",
           "states": [
@@ -31699,7 +31787,7 @@
       "symbols": [
         {
           "name": "ITEM.Food",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Food",
           "file": "core/items/base/sh_base_food.lua",
           "states": [
@@ -33574,7 +33662,7 @@
       "symbols": [
         {
           "name": "ITEM.Ingredient",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Ingredient",
           "file": "core/items/base/sh_base_ingredients.lua",
           "states": [
@@ -35164,7 +35252,7 @@
       "symbols": [
         {
           "name": "ITEM.ModelBodygroup",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.ModelBodygroup",
           "file": "core/items/base/sh_base_modelbg.lua",
           "states": [
@@ -38320,7 +38408,7 @@
       "symbols": [
         {
           "name": "ITEM.Outfit",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Outfit",
           "file": "core/items/base/sh_base_outfit.lua",
           "states": [
@@ -40334,7 +40422,7 @@
       "symbols": [
         {
           "name": "ITEM.Schematic",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Schematic",
           "file": "core/items/base/sh_base_schematic.lua",
           "states": [
@@ -42112,7 +42200,7 @@
       "symbols": [
         {
           "name": "ITEM.Spawnable",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Spawnable",
           "file": "core/items/base/sh_base_spawnable.lua",
           "states": [
@@ -43858,7 +43946,7 @@
       "symbols": [
         {
           "name": "ITEM.Sticker",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Sticker",
           "file": "core/items/base/sh_base_collectable.lua",
           "states": [
@@ -45877,7 +45965,7 @@
       "symbols": [
         {
           "name": "ITEM.Suit",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Suit",
           "file": "core/items/base/sh_base_suit.lua",
           "states": [
@@ -47892,7 +47980,7 @@
       "symbols": [
         {
           "name": "ITEM.Uniform",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Uniform",
           "file": "core/plugins/uniforms/items/sh_base_uniform.lua",
           "states": [
@@ -49933,7 +50021,7 @@
       "symbols": [
         {
           "name": "ITEM.Vehicle",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Vehicle",
           "file": "core/items/base/sh_base_vehicle.lua",
           "states": [
@@ -51802,7 +51890,7 @@
       "symbols": [
         {
           "name": "ITEM.Weapon",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.Weapon",
           "file": "core/items/base/sh_base_weapon.lua",
           "states": [
@@ -53618,7 +53706,7 @@
       "symbols": [
         {
           "name": "ITEM.WeaponMod",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "ITEM.WeaponMod",
           "file": "core/items/base/sh_base_weaponmod.lua",
           "states": [
@@ -55675,7 +55763,7 @@
       "symbols": [
         {
           "name": "PLUGIN",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "PLUGIN",
           "file": "core/libraries/sh_plugincore.lua",
           "states": [
@@ -56623,6 +56711,32 @@
           "members": []
         },
         {
+          "name": "cityrp.player.DebugListRanks",
+          "kind": "Functions",
+          "module": "Player",
+          "file": "core/metatables/sh_player.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "TEMPORARY (beta only) — enumerates every configured rank for the `!previewrankcolours`\n QA command in the beta plugin. `rankdata` is local to this file, so this is the only way\n for that command to see it. Delete this alongside the command once the rank colour\n rollout is confirmed.",
+          "params": [],
+          "returns": [
+            {
+              "type": "RankPreviewEntry[]",
+              "desc": "Every rank, ordered by rank order."
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "GiveAttachments",
           "kind": "Tables",
           "module": "Player",
@@ -56644,7 +56758,7 @@
         },
         {
           "name": "Player",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "Player",
           "file": "core/libraries/network/sv_send.lua",
           "states": [
@@ -59645,7 +59759,7 @@
         },
         {
           "name": "Player.GetPlayerChatColour",
-          "kind": "Fields",
+          "kind": "Functions",
           "module": "Player",
           "file": "core/metatables/sh_player.lua",
           "states": [
@@ -59654,7 +59768,12 @@
           ],
           "desc": "Get the player's chat color.\n Alias for GetRankColor().",
           "params": [],
-          "returns": [],
+          "returns": [
+            {
+              "type": "table",
+              "desc": "player's chat color as a Color object."
+            }
+          ],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -60725,7 +60844,7 @@
         },
         {
           "name": "Player.IsFireChief",
-          "kind": "Fields",
+          "kind": "Functions",
           "module": "Player",
           "file": "core/metatables/sh_player.lua",
           "states": [
@@ -60734,7 +60853,12 @@
           ],
           "desc": "Alias for IsFirechief() with correct capitalization.",
           "params": [],
-          "returns": [],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "if the player is the Fire Chief."
+            }
+          ],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -60849,16 +60973,21 @@
         },
         {
           "name": "Player.IsLawEnforcement",
-          "kind": "Fields",
+          "kind": "Functions",
           "module": "Player",
           "file": "core/metatables/sh_player.lua",
           "states": [
             "client",
             "server"
           ],
-          "desc": "Alias for IsLawenforcement() with correct capitalization.",
+          "desc": "Alias for IsLawenforcement() with correct capitalization.\n Forwards compat because Lawenforcement annoys the shit outta me. ~JP.",
           "params": [],
-          "returns": [],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "if the player is in law enforcement."
+            }
+          ],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -61267,11 +61396,11 @@
             "client",
             "server"
           ],
-          "desc": "Check if a player is a specified rank.\n\n```lua\n--  List of ranks.\nrank:\n    | \"streamer\"\n```",
+          "desc": "Check if a player is a specified rank.\n\n```lua\n--  List of ranks.\n--  List of ranks.\nrank:\n    | \"owner\" -- Owner\n    | \"superdeveloper\" -- Supervising Developer\n    | \"superadmin\" -- Supervising Administrator\n    | \"developer\" -- Developer / Administrator\n    | \"admin\" -- Administrator\n    | \"developermod2\" -- Developer / Senior Moderator\n    | \"moderator2\" -- Senior Moderator\n    | \"developermod\" -- Developer / Moderator\n    | \"moderator\" -- Moderator\n    | \"trialdevmod\" -- Developer / Trial Moderator\n    | \"trialmoderator\" -- Trial Moderator\n    | \"coremanager\" -- Core Manager\n    | \"business\" -- Business Advisor\n    | \"security\" -- Security Officer\n    | \"core\" -- Core Member\n    | \"developeronly\" -- Developer\n    | \"contributor\" -- Contributor\n    | \"assistant\" -- Roleplay Assistant\n    | \"console\" -- Server Console\n    | \"veteran\" -- Veteran\n    | \"streamer\"\n```",
           "params": [
             {
               "name": "rank",
-              "type": "\"streamer\"|Rank",
+              "type": "\"admin\"|\"assistant\"|\"business\"|\"console\"|\"contributor\"...(+16)",
               "desc": "The rank to check against (e.g., \"admin\", \"moderator\")."
             }
           ],
@@ -61422,16 +61551,21 @@
         },
         {
           "name": "Player.IsSecretServiceLeader",
-          "kind": "Fields",
+          "kind": "Functions",
           "module": "Player",
           "file": "core/metatables/sh_player.lua",
           "states": [
             "client",
             "server"
           ],
-          "desc": "",
+          "desc": "Alias for IsSSLeader().",
           "params": [],
-          "returns": [],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "if the player is the Secret Service Lead."
+            }
+          ],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -61625,16 +61759,21 @@
         },
         {
           "name": "Player.IsSWAT",
-          "kind": "Fields",
+          "kind": "Functions",
           "module": "Player",
           "file": "core/metatables/sh_player.lua",
           "states": [
             "client",
             "server"
           ],
-          "desc": "",
+          "desc": "Alias for IsSwat() with correct capitalization.",
           "params": [],
-          "returns": [],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "if the player is a SWAT member."
+            }
+          ],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -61672,16 +61811,21 @@
         },
         {
           "name": "Player.IsSWATLeader",
-          "kind": "Fields",
+          "kind": "Functions",
           "module": "Player",
           "file": "core/metatables/sh_player.lua",
           "states": [
             "client",
             "server"
           ],
-          "desc": "",
+          "desc": "Alias for IsSwatLeader() with correct capitalization.",
           "params": [],
-          "returns": [],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "if the player is the SWAT Leader."
+            }
+          ],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -61745,16 +61889,27 @@
         },
         {
           "name": "Player.IsUserGroup",
-          "kind": "Fields",
+          "kind": "Functions",
           "module": "Player",
           "file": "core/metatables/sh_player.lua",
           "states": [
             "client",
             "server"
           ],
-          "desc": "Check if a player is a specified rank.\n Alias for IsRank() for compatibility with Garry's Mod standard API.",
-          "params": [],
-          "returns": [],
+          "desc": "Check if a player is a specified rank.\n Alias for IsRank() for compatibility with Garry's Mod standard API.\nSee: ~IsRank~",
+          "params": [
+            {
+              "name": "rank",
+              "type": "string",
+              "desc": "The rank to check against (e.g., \"admin\", \"moderator\")."
+            }
+          ],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "if the player is the specified rank."
+            }
+          ],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -63471,8 +63626,50 @@
           "members": []
         },
         {
+          "name": "Rank",
+          "kind": "Classes",
+          "module": "Player",
+          "file": "core/metatables/sh_player.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "List of ranks.\n List of ranks.",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": [
+            "\"owner\" -- Owner",
+            "\"superdeveloper\" -- Supervising Developer",
+            "\"superadmin\" -- Supervising Administrator",
+            "\"developer\" -- Developer / Administrator",
+            "\"admin\" -- Administrator",
+            "\"developermod2\" -- Developer / Senior Moderator",
+            "\"moderator2\" -- Senior Moderator",
+            "\"developermod\" -- Developer / Moderator",
+            "\"moderator\" -- Moderator",
+            "\"trialdevmod\" -- Developer / Trial Moderator",
+            "\"trialmoderator\" -- Trial Moderator",
+            "\"coremanager\" -- Core Manager",
+            "\"business\" -- Business Advisor",
+            "\"security\" -- Security Officer",
+            "\"core\" -- Core Member",
+            "\"developeronly\" -- Developer",
+            "\"contributor\" -- Contributor",
+            "\"assistant\" -- Roleplay Assistant",
+            "\"console\" -- Server Console",
+            "\"veteran\" -- Veteran"
+          ]
+        },
+        {
           "name": "RankData",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "Player",
           "file": "core/metatables/sh_player.lua",
           "states": [
@@ -63598,14 +63795,14 @@
         },
         {
           "name": "RankKey",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "Player",
           "file": "core/metatables/sh_player.lua",
           "states": [
             "client",
             "server"
           ],
-          "desc": "List of ranks.\n List of ranks.",
+          "desc": "List of ranks.\n List of ranks.\n List of ranks.",
           "params": [],
           "returns": [],
           "deprecated": null,
@@ -63616,6 +63813,26 @@
           "section": null,
           "family": null,
           "members": [
+            "\"owner\" -- Owner",
+            "\"superdeveloper\" -- Supervising Developer",
+            "\"superadmin\" -- Supervising Administrator",
+            "\"developer\" -- Developer / Administrator",
+            "\"admin\" -- Administrator",
+            "\"developermod2\" -- Developer / Senior Moderator",
+            "\"moderator2\" -- Senior Moderator",
+            "\"developermod\" -- Developer / Moderator",
+            "\"moderator\" -- Moderator",
+            "\"trialdevmod\" -- Developer / Trial Moderator",
+            "\"trialmoderator\" -- Trial Moderator",
+            "\"coremanager\" -- Core Manager",
+            "\"business\" -- Business Advisor",
+            "\"security\" -- Security Officer",
+            "\"core\" -- Core Member",
+            "\"developeronly\" -- Developer",
+            "\"contributor\" -- Contributor",
+            "\"assistant\" -- Roleplay Assistant",
+            "\"console\" -- Server Console",
+            "\"veteran\" -- Veteran",
             "\"streamer\"",
             "\"newmember\"",
             "\"bronzemember\"",
@@ -63625,6 +63842,132 @@
             "\"member\"",
             "\"default\""
           ]
+        },
+        {
+          "name": "RankPreviewEntry",
+          "kind": "Classes",
+          "module": "Player",
+          "file": "core/metatables/sh_player.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "RankPreviewEntry.color",
+          "kind": "Fields",
+          "module": "Player",
+          "file": "core/metatables/sh_player.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "RankPreviewEntry.icon",
+          "kind": "Fields",
+          "module": "Player",
+          "file": "core/metatables/sh_player.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "RankPreviewEntry.name",
+          "kind": "Fields",
+          "module": "Player",
+          "file": "core/metatables/sh_player.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "RankPreviewEntry.order",
+          "kind": "Fields",
+          "module": "Player",
+          "file": "core/metatables/sh_player.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "RankPreviewEntry.symbol",
+          "kind": "Fields",
+          "module": "Player",
+          "file": "core/metatables/sh_player.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
         }
       ]
     },
@@ -65035,7 +65378,7 @@
         },
         {
           "name": "Vehicle",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "Vehicle",
           "file": "core/metatables/sh_vehicle.lua",
           "states": [
@@ -65634,7 +65977,7 @@
       "symbols": [
         {
           "name": "WEIGHTED_RANDOM",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "WEIGHTED_RANDOM",
           "file": "core/libraries/sh_weighted_random.lua",
           "states": [
@@ -71338,7 +71681,7 @@
         },
         {
           "name": "ImageHostDefinition",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.imageHosts",
           "file": "core/libraries/sh_imagehosts.lua",
           "states": [
@@ -72955,7 +73298,7 @@
         },
         {
           "name": "CityRPItemMetaContext",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.itemmeta",
           "file": "core/libraries/sh_itemmeta.lua",
           "states": [
@@ -73081,7 +73424,7 @@
         },
         {
           "name": "CityRPItemMetaField",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.itemmeta",
           "file": "core/libraries/sh_itemmeta.lua",
           "states": [
@@ -73333,7 +73676,7 @@
         },
         {
           "name": "CityRPItemMetaSchema",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.itemmeta",
           "file": "core/libraries/sh_itemmeta.lua",
           "states": [
@@ -73695,7 +74038,7 @@
         },
         {
           "name": "LAYER_STACK",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.layers",
           "file": "core/libraries/sv_layers.lua",
           "states": [
@@ -74768,7 +75111,7 @@
       "symbols": [
         {
           "name": "BoundLogger",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.logging",
           "file": "core/libraries/sh_logging.lua",
           "states": [
@@ -75490,7 +75833,7 @@
         },
         {
           "name": "Logger",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.logging",
           "file": "core/libraries/sh_logging.lua",
           "states": [
@@ -76303,7 +76646,7 @@
         },
         {
           "name": "LogLevel",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.logging",
           "file": "core/libraries/sh_logging.lua",
           "states": [
@@ -76324,7 +76667,7 @@
         },
         {
           "name": "Sink",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.logging",
           "file": "core/libraries/sh_logging.lua",
           "states": [
@@ -79549,7 +79892,7 @@
         },
         {
           "name": "NetCodecId",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.network",
           "file": "core/libraries/network/sh_codecs.lua",
           "states": [
@@ -79570,7 +79913,7 @@
         },
         {
           "name": "NetRecipientMode",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.network",
           "file": "core/libraries/network/sh_registry.lua",
           "states": [
@@ -79591,7 +79934,7 @@
         },
         {
           "name": "NetScope",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.network",
           "file": "core/libraries/network/sh_registry.lua",
           "states": [
@@ -80137,7 +80480,7 @@
         },
         {
           "name": "NetVar",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.network",
           "file": "core/libraries/network/sh_registry.lua",
           "states": [
@@ -83461,7 +83804,7 @@
         },
         {
           "name": "PluginCandidate",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.plugin",
           "file": "core/libraries/sh_plugin.lua",
           "states": [
@@ -83545,7 +83888,7 @@
         },
         {
           "name": "PluginDependencyStatus",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.plugin",
           "file": "core/libraries/sh_plugin.lua",
           "states": [
@@ -83734,7 +84077,7 @@
         },
         {
           "name": "PluginEntry",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.plugin",
           "file": "core/libraries/sh_plugin.lua",
           "states": [
@@ -83986,7 +84329,7 @@
         },
         {
           "name": "PluginMeta",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.plugin",
           "file": "core/libraries/sh_plugin.lua",
           "states": [
@@ -84196,7 +84539,7 @@
         },
         {
           "name": "PluginStatus",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.plugin",
           "file": "core/libraries/sh_plugin.lua",
           "states": [
@@ -84217,7 +84560,7 @@
         },
         {
           "name": "SubResourceClass",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.plugin",
           "file": "core/libraries/sh_plugin.lua",
           "states": [
@@ -85088,7 +85431,7 @@
         },
         {
           "name": "CityRPSettingsCategory",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.settings",
           "file": "core/libraries/cl_settings.lua",
           "states": [
@@ -85188,7 +85531,7 @@
         },
         {
           "name": "CityRPSettingsEntry",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.settings",
           "file": "core/libraries/cl_settings.lua",
           "states": [
@@ -86983,7 +87326,7 @@
         },
         {
           "name": "TopHintsHint",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.topHints",
           "file": "core/libraries/sh_tophints.lua",
           "states": [
@@ -87088,7 +87431,7 @@
         },
         {
           "name": "TopHintsPrefix",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "cityrp.topHints",
           "file": "core/libraries/sh_tophints.lua",
           "states": [
@@ -102910,7 +103253,7 @@
       "symbols": [
         {
           "name": "PlayerNoteArgs",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "core.plugins.acpig.sv_init",
           "file": "core/plugins/acpig/sv_init.lua",
           "states": [
@@ -104380,26 +104723,6 @@
           "params": [],
           "returns": [],
           "deprecated": "Use CONSOLE instead. This is maintained for backwards compatibility with any external plugins.",
-          "internal": false,
-          "warns": [],
-          "bugs": [],
-          "uniqueids": [],
-          "section": null,
-          "family": null,
-          "members": []
-        },
-        {
-          "name": "Rank",
-          "kind": "Fields",
-          "module": "core.plugins.admin.sv_init",
-          "file": "core/plugins/admin/sv_init.lua",
-          "states": [
-            "server"
-          ],
-          "desc": "List of ranks.",
-          "params": [],
-          "returns": [],
-          "deprecated": null,
           "internal": false,
           "warns": [],
           "bugs": [],
@@ -114560,7 +114883,7 @@
         },
         {
           "name": "TEAM",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "core.plugins.generic.sh_init",
           "file": "core/plugins/generic/sh_init.lua",
           "states": [
@@ -115644,7 +115967,7 @@
       "symbols": [
         {
           "name": "PROP_OFFER",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "core.plugins.giveprops.sv_init",
           "file": "core/plugins/giveprops/sv_init.lua",
           "states": [
@@ -120360,7 +120683,7 @@
         },
         {
           "name": "VehiclePlateInfo",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "core.plugins.licenseplates.sh_init",
           "file": "core/plugins/licenseplates/sh_init.lua",
           "states": [
@@ -129373,7 +129696,7 @@
       "symbols": [
         {
           "name": "VehicleLayoutSession",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "core.plugins.vehicle_layout.cl_init",
           "file": "core/plugins/vehicle_layout/cl_init.lua",
           "states": [
@@ -130727,21 +131050,21 @@
           "states": [
             "server"
           ],
-          "desc": "Set data regarding the player enting a vehicle, so they can be spat back out into the same place.",
+          "desc": "Remember where a player stood when they got in, so leaving can offer them that spot back.\n A hull-tested candidate for `vmGetVehicleExitPos`, not a placement: the car may have parked\n against something since.",
           "params": [
             {
               "name": "ply",
-              "type": "any",
+              "type": "Player",
               "desc": "The player entering the vehicle."
             },
             {
               "name": "vehicle",
-              "type": "any",
-              "desc": "the vehicle being entered."
+              "type": "Vehicle",
+              "desc": "The vehicle or seat being entered."
             },
             {
               "name": "role",
-              "type": "any",
+              "type": "number",
               "desc": "Unused."
             }
           ],
@@ -130857,42 +131180,6 @@
               "name": "group",
               "type": "any",
               "desc": "The type of lighting."
-            }
-          ],
-          "returns": [],
-          "deprecated": null,
-          "internal": false,
-          "warns": [],
-          "bugs": [],
-          "uniqueids": [],
-          "section": null,
-          "family": null,
-          "members": []
-        },
-        {
-          "name": "PlayerLeaveVehicleexitloc",
-          "kind": "Functions",
-          "module": "core.plugins.vehicles.sv_init",
-          "file": "core/plugins/vehicles/sv_init.lua",
-          "states": [
-            "server"
-          ],
-          "desc": "Set up so a player leaves to the same point they entered the vehicle from.",
-          "params": [
-            {
-              "name": "ply",
-              "type": "any",
-              "desc": "The player leaving the vehicle."
-            },
-            {
-              "name": "vehicle",
-              "type": "any",
-              "desc": "the vehicle being left."
-            },
-            {
-              "name": "role",
-              "type": "any",
-              "desc": "Unused."
             }
           ],
           "returns": [],
@@ -131098,22 +131385,27 @@
           "states": [
             "server"
           ],
-          "desc": "Resolve where somebody leaving a vehicle should be placed.\n Prefers the seat's own entry in the vehicle's `Customexits` table, and falls back to the\n model's exit attachments when that point is not clear of the vehicle.",
+          "desc": "Resolve where somebody leaving a vehicle should be placed.\n A candidate has to be clear of geometry, standing on something, in sight of the vehicle and\n inside the map, so placing somebody never puts them through a wall or off the world. Always\n answers: with nothing usable it returns the vehicle origin, which the stuck check in `init.lua`\n can recover from, rather than refusing the exit.",
           "params": [
             {
               "name": "vehicle",
               "type": "Vehicle",
               "desc": "The vehicle or passenger seat being left."
+            },
+            {
+              "name": "ply",
+              "type": "Player?",
+              "desc": "The player being placed; their hull is what candidates are tested against."
             }
           ],
           "returns": [
             {
               "type": "Vector?",
-              "desc": "World position to place them at, or nil if the vehicle offers no usable exit point."
+              "desc": "World position to place them at, or nil if the seat has no vehicle."
             },
             {
               "type": "Angle?",
-              "desc": "Eye angles to face them in on arrival."
+              "desc": "Eye angles to face them in on arrival, for CityRP vehicles only."
             }
           ],
           "deprecated": null,
@@ -132088,6 +132380,122 @@
           "kind": "Fields",
           "module": "core.plugins.waypoints.sh_init",
           "file": "core/plugins/waypoints/sh_init.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
+      "name": "core.plugins.website_rewards.cl_init",
+      "description": "Website rewards client-side popup.\nDisplays a HUD-styled gift popup when a player claims their website reward.",
+      "symbols": [
+        {
+          "name": "cityrp._websiteRewardPopup",
+          "kind": "Fields",
+          "module": "core.plugins.website_rewards.cl_init",
+          "file": "core/plugins/website_rewards/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
+      "name": "core.plugins.website_rewards.sh_init",
+      "description": "Website rewards plugin.\nRewards players who link their Steam and Discord accounts on the Limelight website.",
+      "symbols": [
+        {
+          "name": "WEBSITE_CLAIM_DONE",
+          "kind": "Fields",
+          "module": "core.plugins.website_rewards.sh_init",
+          "file": "core/plugins/website_rewards/sh_init.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "WEBSITE_CLAIM_PENDING",
+          "kind": "Fields",
+          "module": "core.plugins.website_rewards.sh_init",
+          "file": "core/plugins/website_rewards/sh_init.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "WEBSITE_CLAIM_UNCLAIMED",
+          "kind": "Fields",
+          "module": "core.plugins.website_rewards.sh_init",
+          "file": "core/plugins/website_rewards/sh_init.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "WebsiteClaimState",
+          "kind": "Classes",
+          "module": "core.plugins.website_rewards.sh_init",
+          "file": "core/plugins/website_rewards/sh_init.lua",
           "states": [
             "client",
             "server"
@@ -134549,7 +134957,7 @@
         },
         {
           "name": "Pass",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "core.sh_configuration",
           "file": "core/sh_configuration.lua",
           "states": [
@@ -135547,7 +135955,7 @@
       "symbols": [
         {
           "name": "WorldPropData",
-          "kind": "Fields",
+          "kind": "Classes",
           "module": "plugins.worldprops",
           "file": "core/plugins/worldprops/sv_init.lua",
           "states": [
@@ -136327,8 +136735,10 @@
       "id": "commands",
       "title": "Chat Commands (`/` vs `!`)",
       "path": "commands.md",
-      "meta": {},
-      "body": "# Chat Commands (`/` vs `!`)\n\nCityRP has two separate command systems. Choosing the wrong one \"works\" at runtime (access\nflags still gate execution) but lands the tool under the wrong chat prefix, the wrong F1\ngrouping conventions, and breaks the standardised split from the acommands migration.\n\n| Kind | Prefix | Names players use | Registration API | Who it's for |\n| :--- | :--- | :--- | :--- | :--- |\n| **Normal / slash-commands** | `/` | `/help`, `/showid` | `cityrp.command.add` | Non-privileged player RP/job tools. Generally available to all players (job checks may still apply inside the callback). |\n| **Privileged / staff / admin commands** | `!` | `!place`, `!tr` | `cityrp.acommands.AddCommand` | Anything that requires staff privileges — including RP Assistant. |\n\nIf a command needs staff privileges of any kind, use `cityrp.acommands.AddCommand`. Do **not**\nregister it with `cityrp.command.add` and a restricted access flag. RP Assistant (`+` access /\n`\"assistant\"` category) is still a privileged command and belongs on `!`.\n\nSee also the [Modern APIs](modern-apis.md) rows for both systems, [Coding Standards](coding-standards.md),\nand [AGENTS.md](../AGENTS.md) footgun #14.\n\n## Metadata is mandatory\n\nEvery command — `/` and `!` — must ship with:\n\n1. **`category`** — a key from `cityrp.command.categoryAliases` (e.g. `\"roleplay\"`,\n   `\"government\"`, `\"assistant\"`, `\"moderator\"`). Controls F1 grouping.\n2. **`help` / syntax** — argument shape such as `\"<player> <amount>\"`, or `\"<none>\"` when\n   there are no arguments. Shown in invalid-syntax / missing-argument error notifications.\n3. **`tip`** — a short, clear description of what the command does. Shown in the F1 commands\n   menu. Omitting it yields `\"No description.\"` in F1.\n\nWrite tips as a short sentence players/staff can scan: what it does, not how it's implemented.\nExamples from the codebase: `\"Open or close the Nexus garage door.\"`,\n`\"Send a help-ticket response to a player.\"`, `\"To go to the given place\"`.\n\n## Signatures\n\n### Player commands (`/`)\n\n```lua\ncityrp.command.add(name, access, minArgs, callback, category, syntax, tip[, emgr])\n```\n\n- Callback is `(ply, arguments)` — `arguments` is a string table.\n- Access `\"b\"` is the usual \"any player\" flag for non-privileged tools.\n\n```lua\ncityrp.command.add(\n\t\"nexusgarage\",\n\t\"b\",\n\t0,\n\tfunction(ply)\n\t\t-- ...\n\tend,\n\t\"government\",\n\t\"<none>\",\n\t\"Open or close the Nexus garage door.\"\n)\n```\n\n### Staff commands (`!`)\n\n```lua\ncityrp.acommands.AddCommand(name, func, minArgs, access, emgr, category, syntax, tip)\n```\n\n- Callback is `(ply, ...)` — varargs, not a table.\n- Parameter order differs from `cityrp.command.add` (notably `emgr` before `category`).\n\n```lua\ncityrp.acommands.AddCommand(\"tr\", cityrp.acommands.helpreply, 2, \"+\", false, \"assistant\",\n\t\"<player> <message>\",\n\t\"Send a help-ticket response to a player.\"\n)\n```\n\n## Moving a staff tool off `/`\n\nWhen converting a staff tool from `/` to `!`, leave a redirect so old muscle memory fails\nloudly instead of silently:\n\n```lua\ncityrp.command.redirectToAcommand(\"place\")           -- /place → \"use !place\"\ncityrp.command.redirectToAcommand(\"warp\", \"place\")   -- /warp  → \"use !place\"\n```\n\nRedirects notify the player and are excluded from F1.\n\n## Helpers\n\nPrefer these over copy-pasted lookup/parsing:\n\n- `cityrp.player.resolveTarget` / `cityrp.acommands.GetPlayerObject` for player targets\n- `cityrp.command.parseMoney` for money amounts\n\n## Invoking from code\n\nDo not dispatch via `say /cmd`. From clientside UI use\n`LocalPlayer():ConCommand(\"cityrp <cmd> <args>\")`; from serverside, for a `/` command, prefer\n`cityrp.command.consoleCommand(ply, cmd, argsTable)`. See [AGENTS.md](../AGENTS.md)\nfootgun #13 and the [Modern APIs](modern-apis.md) \"Running a CityRP command from code\" row.\n\n`cityrp.command.consoleCommand` only knows the `/` registry (`cityrp.command.stored`) — it\ndoes nothing useful for a `!` command, and will silently hit a leftover redirect stub\n(`cityrp.command.redirectToAcommand`) if the command used to live on `/`. The equivalent\nserverside dispatch for a `!` command is `cityrp.acommands.HandleCommand(ply, label, argsTable,\n\"\")` (`argsTable[1]` is the command name, same convention as `consoleCommand`'s `argsTable`;\n`label` and the trailing string are unused by the handler). If code building a dispatch table\ndoes not control which registry the target command is on — e.g. a shared picker menu that can\nopen for either a `/` or a `!` command — check `cityrp.command.stored[cmd]` first (and skip it\nwhen `.redirect` is set, since that's just the deprecation stub left behind by a `/` → `!`\nmove) before falling back to `cityrp.acommands.commands[cmd]`. See\n`core/plugins/itemgrantmenu/sv_init.lua`'s `net.Receive(PLUGIN.Net.Menu, ...)` for a worked\nexample — it backs `!giveitem`, `!takeitem` and `!refund` (all `!` commands today) through the\nsame submit handler, and still has to handle both registries since nothing stops a future\ncommand it opens for from living on `/`.\n"
+      "meta": {
+        "featured": "true"
+      },
+      "body": "\n# Chat Commands (`/` vs `!`)\n\nCityRP has two separate command systems. Choosing the wrong one \"works\" at runtime (access\nflags still gate execution) but lands the tool under the wrong chat prefix, the wrong F1\ngrouping conventions, and breaks the standardised split from the acommands migration.\n\n| Kind | Prefix | Names players use | Registration API | Who it's for |\n| :--- | :--- | :--- | :--- | :--- |\n| **Normal / slash-commands** | `/` | `/help`, `/showid` | `cityrp.command.add` | Non-privileged player RP/job tools. Generally available to all players (job checks may still apply inside the callback). |\n| **Privileged / staff / admin commands** | `!` | `!place`, `!tr` | `cityrp.acommands.AddCommand` | Anything that requires staff privileges — including RP Assistant. |\n\nIf a command needs staff privileges of any kind, use `cityrp.acommands.AddCommand`. Do **not**\nregister it with `cityrp.command.add` and a restricted access flag. RP Assistant (`+` access /\n`\"assistant\"` category) is still a privileged command and belongs on `!`.\n\nSee also the [Modern APIs](modern-apis.md) rows for both systems, [Coding Standards](coding-standards.md),\nand [AGENTS.md](../AGENTS.md) footgun #14.\n\n## Metadata is mandatory\n\nEvery command — `/` and `!` — must ship with:\n\n1. **`category`** — a key from `cityrp.command.categoryAliases` (e.g. `\"roleplay\"`,\n   `\"government\"`, `\"assistant\"`, `\"moderator\"`). Controls F1 grouping.\n2. **`help` / syntax** — argument shape such as `\"<player> <amount>\"`, or `\"<none>\"` when\n   there are no arguments. Shown in invalid-syntax / missing-argument error notifications.\n3. **`tip`** — a short, clear description of what the command does. Shown in the F1 commands\n   menu. Omitting it yields `\"No description.\"` in F1.\n\nWrite tips as a short sentence players/staff can scan: what it does, not how it's implemented.\nExamples from the codebase: `\"Open or close the Nexus garage door.\"`,\n`\"Send a help-ticket response to a player.\"`, `\"To go to the given place\"`.\n\n## Signatures\n\n### Player commands (`/`)\n\n```lua\ncityrp.command.add(name, access, minArgs, callback, category, syntax, tip[, emgr])\n```\n\n- Callback is `(ply, arguments)` — `arguments` is a string table.\n- Access `\"b\"` is the usual \"any player\" flag for non-privileged tools.\n\n```lua\ncityrp.command.add(\n\t\"nexusgarage\",\n\t\"b\",\n\t0,\n\tfunction(ply)\n\t\t-- ...\n\tend,\n\t\"government\",\n\t\"<none>\",\n\t\"Open or close the Nexus garage door.\"\n)\n```\n\n### Staff commands (`!`)\n\n```lua\ncityrp.acommands.AddCommand(name, func, minArgs, access, emgr, category, syntax, tip)\n```\n\n- Callback is `(ply, ...)` — varargs, not a table.\n- Parameter order differs from `cityrp.command.add` (notably `emgr` before `category`).\n\n```lua\ncityrp.acommands.AddCommand(\"tr\", cityrp.acommands.helpreply, 2, \"+\", false, \"assistant\",\n\t\"<player> <message>\",\n\t\"Send a help-ticket response to a player.\"\n)\n```\n\n## Moving a staff tool off `/`\n\nWhen converting a staff tool from `/` to `!`, leave a redirect so old muscle memory fails\nloudly instead of silently:\n\n```lua\ncityrp.command.redirectToAcommand(\"place\")           -- /place → \"use !place\"\ncityrp.command.redirectToAcommand(\"warp\", \"place\")   -- /warp  → \"use !place\"\n```\n\nRedirects notify the player and are excluded from F1.\n\n## Helpers\n\nPrefer these over copy-pasted lookup/parsing:\n\n- `cityrp.player.resolveTarget` / `cityrp.acommands.GetPlayerObject` for player targets\n- `cityrp.command.parseMoney` for money amounts\n\n## Invoking from code\n\nDo not dispatch via `say /cmd`. From clientside UI use\n`LocalPlayer():ConCommand(\"cityrp <cmd> <args>\")`; from serverside, for a `/` command, prefer\n`cityrp.command.consoleCommand(ply, cmd, argsTable)`. See [AGENTS.md](../AGENTS.md)\nfootgun #13 and the [Modern APIs](modern-apis.md) \"Running a CityRP command from code\" row.\n\n`cityrp.command.consoleCommand` only knows the `/` registry (`cityrp.command.stored`) — it\ndoes nothing useful for a `!` command, and will silently hit a leftover redirect stub\n(`cityrp.command.redirectToAcommand`) if the command used to live on `/`. The equivalent\nserverside dispatch for a `!` command is `cityrp.acommands.HandleCommand(ply, label, argsTable,\n\"\")` (`argsTable[1]` is the command name, same convention as `consoleCommand`'s `argsTable`;\n`label` and the trailing string are unused by the handler). If code building a dispatch table\ndoes not control which registry the target command is on — e.g. a shared picker menu that can\nopen for either a `/` or a `!` command — check `cityrp.command.stored[cmd]` first (and skip it\nwhen `.redirect` is set, since that's just the deprecation stub left behind by a `/` → `!`\nmove) before falling back to `cityrp.acommands.commands[cmd]`. See\n`core/plugins/itemgrantmenu/sv_init.lua`'s `net.Receive(PLUGIN.Net.Menu, ...)` for a worked\nexample — it backs `!giveitem`, `!takeitem` and `!refund` (all `!` commands today) through the\nsame submit handler, and still has to handle both registries since nothing stops a future\ncommand it opens for from living on `/`.\n"
     },
     {
       "id": "commit-message-conventions",
@@ -136453,7 +136863,7 @@
       "title": "Writing Doc Comments",
       "path": "doc-comments.md",
       "meta": {},
-      "body": "# Writing Doc Comments\n\nThis site is built by [`generate.py`](https://github.com/limelight-development/cityrp2/blob/master/tools/docs/generate.py) from two independent sources, so a doc comment lives or dies depending on which one actually reads it:\n\n1. **`lua-language-server`'s `--doc` JSON export.** LuaLS parses the codebase and exports every doc comment it understands — that means real [LuaCATS](https://luals.github.io/wiki/annotations/) annotations (`--- @param`, `--- @return`, `--- @class`, ...) attached **immediately above** a declaration, with no blank line in between. A blank line between the comment and the code it describes means LuaLS never associates the two, and the comment is silently dropped from the JSON entirely.\n2. **`generate.py`'s own raw-source scan**, used only for each file's *leading header comment* (description, `@namespace`, etc). This one tolerates a blank line before the code that follows. Write headers as `---` lines.\n\nEverything else in this page is about what each of those two paths actually understands. For the\nannotations themselves — every tag, its fields, the full type syntax, and the Garry's Mod-specific\nconventions — see [LuaCATS Annotations](luacats.md).\n\n## Pipeline\n\n```bash\n# 1. LuaLS walks the gamemode and exports its own understanding of every doc comment.\nlua-language-server --doc=gamemodes/cityrp_2_by_limelightgaming/gamemode \\\n                     --doc_out_path=tools/docs/out\n\n# 2. generate.py turns that JSON (plus docs/**/*.md) into this site.\npython3 tools/docs/generate.py --json tools/docs/out/doc.json \\\n                                --output tools/docs/build \\\n                                --style-dir tools/docs/style \\\n                                --topics docs\n```\n\nFiles under `core/server`, `core/autogen`, `core/plugins/antihack`, `core/plugins/screengrab`, and every `core/items/<category>` subfolder are excluded from the export entirely — no doc comment in those paths will ever appear on the site.\n\n### Seeing every feature at once\n\n[`tools/docs/fixtures/stubs.lua`](https://github.com/limelight-development/cityrp2/blob/master/tools/docs/fixtures/stubs.lua) is a stub file using every tag, realm, callout, type and section the site renders. It is never loaded, and it sits outside the gamemode so its fake symbols can never reach the published site. Build just that file when changing `generate.py` or the stylesheet — it is far quicker than hunting for a real function that happens to use the feature you touched:\n\n```bash\nlua-language-server --doc=tools/docs/fixtures --doc_out_path=tools/docs/stub-out \\\n                    --configpath=tools/docs/luarc-docs.json\npython3 tools/docs/generate.py --json tools/docs/stub-out/doc.json \\\n                              --output tools/docs/stub-build \\\n                              --style-dir tools/docs/style --topics docs \\\n                              --source tools/docs/fixtures\n```\n\nThat produces two pages: `stubs` for the library-style symbols and `StubEntity` for the metatable ones. `test_generate.py` fails if the stub stops covering a callout kind, a realm, or the example/section/alias tags, so it cannot quietly fall behind the generator.\n\n## Topic files and folders\n\nEvery markdown file under `docs/` is published, and the folder it sits in decides where. Top-level files are listed directly under the sidebar's **Topics** heading. A subfolder becomes a single collapsed entry at the bottom of that same list, linking to the folder's index page — `docs/design/x.md` publishes to `topics/design/x.html`, reachable from the **Design Docs** entry. The folder's pages only unfold in the sidebar while you're on one of them, so the Topics list is the same length from everywhere else and a body of design docs doesn't crowd out the technical topics.\n\nFolders nest to any depth. `docs/design/car-boosting/hotwiring.md` sits under **Car Boosting** inside **Design Docs**, and opening it unfolds both — every ancestor of the page you're on, and nothing else. A folder is labelled by its own leaf name; the parent it sits under supplies the rest of the context. Each level of the tree also gets its own index page, and a parent's index links down into its children under a **Sections** heading, so nothing is reachable only from an already-expanded sidebar.\n\nThere is no per-folder config; creating the folder is the whole step. Add an `index.md` to give the folder a name and an intro — its `title` becomes the sidebar label. The list of what's in the folder is always generated, never hand-maintained.\n\n`topics/` mirrors `docs/`, so a relative link between two topic files stays correct on the site as well as on GitHub — `generate.py` only swaps the `.md` for `.html`, and leaves any link that doesn't resolve to a topic (`../AGENTS.md`, absolute URLs) alone. That mirroring cuts both ways: **moving a doc into a folder changes its depth, so its own `../` links and everyone else's links to it need updating in the same change.** Headings get GitHub's own anchor slugs, so `plugins.md#keys` works in both places too.\n\nA relative link that points *above* `docs/` — `../AGENTS.md`, `../../gamemodes/…/db.lua` — has no\npage to land on, because only `docs/` is published. Those are rewritten to the repo browser rather\nthan left to 404. `test_generate.py` runs the whole `docs/` tree through the generator and fails on a\nlink or heading anchor that doesn't resolve, which is the only thing that reliably catches a doc\nbeing moved between folders.\n\nTopic pages with more than two `##` headings get a **Contents** block in the sidebar, and the sidebar\nsearch box covers every topic, module and symbol — it reads `search.json`, fetched on first use.\n\nA page's opening `<h1>` is dropped from the rendered HTML — the title already sits in the header bar above it, so keeping both would print it twice. Keep writing the heading; it's what makes the file readable on GitHub, and it's the fallback when there's no front-matter `title`. Only the first one goes, and only if the page opens with it.\n\n### Front matter\n\nAny topic may open with a `---` block. It's flat `key: value` lines, not real YAML — the docs build has no YAML dependency, and a block that isn't in that shape is left in the page as ordinary markdown rather than silently swallowed.\n\n| Key | Effect |\n| :--- | :--- |\n| `title` | Sidebar label, page header, and index row. Overrides the first heading, which is otherwise what the title comes from. |\n| `status` | Index column. Free text — `Proposed`, `Landed`, `Implemented`, whatever the folder uses. |\n| `date` | Index column. |\n| `description` | Index column. One line on what the doc covers. |\n| `pinned` | `true`/`yes`/`1` lifts the doc to the top of its list, marked with a pin. Anything else, including omitting it, leaves the doc in filename order. |\n| `index` | `true` promotes the doc to be its folder's landing page. See below. |\n\nA folder index tabulates only the columns some page in that folder actually sets, so a folder using none of them stays a plain list of links. Every field, including ones not listed above, is carried into `api.json` under the topic's `meta` for the `cityrp-docs` MCP server.\n\n### Promoting a page to be the folder index\n\nA folder whose landing page should be one of its own docs — rather than a summary written for the purpose — marks that doc `index: true`. `docs/design/clans/design.md` does this: it already explains what clans are, so the **Clans** sidebar entry points straight at it.\n\nA doc **named after the folder it sits in** is promoted the same way without needing the flag, since that naming almost always means \"this is the overview\". `docs/design/car-boosting/car-boosting.md` is the **Car Boosting and Ringing** entry for its folder on that basis alone. The name has to match in full: `car-boosting-live-test-plan.md` is not a match.\n\nPrecedence, most deliberate first — `index: true`, then an `index.md`, then a folder-name match:\n\n| Folder contains | Landing page |\n| :--- | :--- |\n| a doc with `index: true` | that doc, whatever it's called |\n| `index.md` | `index.md`, with the generated listing below its prose |\n| `<folder-name>.md` | that doc |\n| none of the above | a generated page listing the folder |\n\nA promoted page keeps its own URL (`topics/design/clans/design.html`, not `index.html`), so links written to it still resolve, and it's written once rather than existing at two addresses. It drops out of the folder's own list, since the folder entry above is now the way to reach it, and its content stands in for the generated listing rather than being prefixed to it. Links down into any *subfolders* are still appended, so promoting a page can't orphan a folder nested below it.\n\nThe folder's other pages are then reachable from the sidebar, which is unfolded whenever you're on any page in that folder — including the promoted one. If you want a listing as well as prose, use an `index.md` instead: that keeps the generated table and puts your text above it. Where two of the three mechanisms are present in one folder the table above decides, and the loser becomes an ordinary page in the list; that isn't an error, but it's worth not doing on purpose.\n\nPinning is scoped to the list the doc is already in — a pinned top-level doc rises within **Topics**, a pinned doc inside a folder rises within that folder's sidebar list and its index table. It doesn't lift a doc out of its folder, and folders themselves can't be pinned; they always sit below the loose files. Pinning several docs keeps them in filename order relative to each other.\n\n## Function/variable-level: use real LuaCATS annotations\n\nWrite these as `--- @tag ...` directly above the `function`/assignment they describe, no blank line. `generate.py` reads the native `args`/`returns` LuaLS already resolved from the function signature itself (so types are accurate even if you never repeat them) and only borrows the tag's text for the human-readable description.\n\n| Annotation | Syntax | Notes |\n| :--- | :--- | :--- |\n| `@param` | `--- @param <name> <type[?][|type...]> [description]` | Primary way to document a parameter. `?` suffix on the type marks it optional. |\n| `@return` | `--- @return <type> [<name> [comment]]` | Primary way to document a return value. One `@return` line per return value, in order. |\n| `@class` | `--- @class [(exact)] <name>[: <parent>...]` | Defines a struct/type, optionally with inheritance. |\n| `@field` | `--- @field [scope] <name> <type[?]> [description]` | Documents a field of a `@class`. `scope` is `public`/`protected`/`private`/`package`. |\n| `@type` | `--- @type <type>` | Declares the type of a variable, e.g. `--- @type string[]`. |\n| `@generic` | `--- @generic <name> [:parent_type]` | Generic type placeholder for reusable code. |\n| `@overload` | `--- @overload fun([param: type...]): [return_type]` | Documents an additional call signature. |\n| `@alias` | `--- @alias <name> <type>` | Names a type (or enum) for reuse elsewhere. |\n| `@enum` | `--- @enum [(key)] <name>` | Marks a table as an enum, usable at runtime. |\n| `@cast` | `--- @cast <value_name> [+|-]<type|?>[, ...]` | Narrows/widens a variable's type from this point on. |\n| `@deprecated` | `--- @deprecated` | Marks the item outdated (LuaLS strikes it through in editors). This is the LuaCATS spelling — see also the codebase's own `@deprecated` callout below, which the two share. |\n| `@nodiscard` | `--- @nodiscard` | Warns if the return value is ignored at the call site. |\n| `@async` | `--- @async` | Marks a function as asynchronous. |\n| `@see` | `--- @see <symbol>` | Cross-reference to another documented symbol. |\n| `@operator` | `--- @operator <op>[(param_type)]:<return_type>` | Documents an operator metamethod (`__add`, etc). |\n| `@package` / `@private` / `@protected` | `--- @package` / `--- @private` / `--- @protected` | Restricts where the item is considered accessible. |\n| `@version` | `--- @version [<|>]<version>` | Required Lua/LuaJIT version. |\n| `@meta` | `--- @meta [name]` | Marks a whole file as definition-only (not real, executable code). |\n| `@as` | `--[[@as <type>]]` | Inline cast forcing a type onto an expression. |\n| `@diagnostic` | `--- @diagnostic <state>:<diagnostic>` | Suppresses/enables a specific LuaLS diagnostic. |\n\nTwo annotations are explicitly **not** used here, even though LuaLS supports them:\n\n- **`@module`** — LuaLS reserves this for its own `require()`-return-type inference and silently drops any doc comment that uses it. Use the codebase's own [`@namespace`](#file-header-tags-this-codebases-own-set) tag instead (see below) — this is the single most common mistake when porting old LDoc comments.\n- **`@vararg`** — deprecated by LuaLS itself in favor of `--- @param ... <type> [description]` for documenting varargs.\n\nOnly `@param` and `@return` currently have their *description* folded back into the rendered page by `generate.py` (by parameter name, and by return position, respectively) — the other annotations above are understood natively by LuaLS/your editor for hover/autocomplete/type-checking, but `generate.py` doesn't render most of them specially yet.\n\nMinimal example:\n\n```lua\n--- Gets the value of an env-var.\n--- @param name string The env-var to get\n--- @return string The value found, nil otherwise\nfunction ENV:Get(name)\n\t...\nend\n```\n\n## Function/table-level: this codebase's own tags\n\nThese are custom to `generate.py`, not LuaCATS — but like `@param`/`@return`, they're written **directly above the function or table they describe**, with no blank line, since `generate.py` only reads the tags attached to that specific declaration's own doc comment.\n\n> [!IMPORTANT]\n> Write these with a space after the dashes — `--- @state server`, not `---@state server`.\n>\n> LuaLS parses `---@tag` as an annotation and drops any tag it doesn't recognise, so the tag never reaches `generate.py` and the whole line vanishes with no error. `--- @tag` is description text as far as LuaLS is concerned, which is exactly how these survive into the export for `generate.py` to re-parse. The one `@usage` in the tree was written `---@usage` and had therefore never rendered anything.\n\nThe tags:\n\n| Tag | Purpose |\n| :--- | :--- |\n| `@section <title>` | Starts a new named subsection on the module page. Every following item in the file (until the next `@section`) is grouped under it, so in practice it's usually only written once per group rather than on every function. The tag's own value is the heading, so write it as you want it read — `@section Rank Colours`. A one-word lowercase slug (`@section functions`, the older form) is title-cased into \"Functions\". |\n| `@state <word>` | One of `client`, `server`, `menu`, `shared`, `global`, `clmenu` — drives the realm badge shown next to the item. If a function omits it, it falls back to whatever `@state` the file's header comment declared. |\n| `@example <code>` | Renders an \"Example\" code block after the parameters and returns. Continuation lines are kept as lines, so a multi-line example stays multi-line. Not `@usage` — see below. |\n\n### Callout tags\n\nSeven tags render as callout boxes, in the manner of the [GMod wiki's note boxes](https://wiki.facepunch.com/gmod/Structures). They come out as the same boxes a topic gets from `> [!WARNING]`, so the site has one visual language for \"read this before you use it\" rather than two, and each has its own colour.\n\nThey always appear in this order on an entry — whether you should be using this at all, then what is wrong with it, then advisories — regardless of the order they were written in:\n\n| Tag | Box | Stock text when no text is given |\n| :--- | :--- | :--- |\n| `@deprecated [text]` | Deprecated | \"This function is deprecated and may be removed in a future version.\" |\n| `@internal [text]` | Internal | \"This function is internal. Whilst you can call it, you probably shouldn't.\" |\n| `@bug <text>` | Bug | — |\n| `@warning <text>` | Warning | — |\n| `@ambig [text]` | Ambiguous | \"This entry is unclear or incomplete.\" |\n| `@validate [text]` | Validate | \"This entry has not been checked against the code recently.\" |\n| `@note <text>` | Note | — |\n\n`@bugs`, `@warns`, `@notes` and `@ambiguous` are accepted as alternative spellings. Several spellings of the same tag on one function collapse into a single box rather than producing two. The text is rendered as markdown, so links and `code` work inside a callout.\n\nTopics can use any of these as GFM alerts too — `> [!BUG]`, `> [!DEPRECATED]` — alongside the standard `[!NOTE]`, `[!TIP]`, `[!IMPORTANT]`, `[!WARNING]` and `[!CAUTION]`.\n\n```lua\n--- Old warrant lookup, kept for legacy callers.\n--- @deprecated Use cityrp.warrants.issue instead.\n--- @bug Does not account for expired warrants.\n--- @state server\n--- @example cityrp.warrants.legacyLookup(ply)\nfunction cityrp.warrants.legacyLookup(ply)\n\t...\nend\n```\n\nNot `@usage`: it is an LDoc tag, and `standards-diff.py` rejects it in CI. Supporting it here would mean the docs rendering something nobody is allowed to write.\n\n## Constant families: `@alias` gathers the constants it names\n\nA page that declares a long run of prefixed constants — the 87 `COL_*` colours, the 26 `TEAM_*`\njobs — would otherwise list every one of them as a top-level entry, interleaved alphabetically with\neverything else the page declares. An `@alias` over those constants turns them into a section of\ntheir own instead: the alias becomes the heading, its constants sit beneath it, and it gets its own\nline in the page's **Contents**.\n\n```lua\n--- Every colour the gamemode ships as a constant.\n--- @section Colours\n--- @alias COL\n---| `COL_WHITE`\n---| `COL_BLACK`\n---| `COL_UI_GREY`\n\n--- @section Generic\nCOL_WHITE = Color(255)\nCOL_BLACK = Color(0)\n\n--- @section Limelight UI Guidelines\nCOL_UI_GREY = Color(41, 41, 41, 230)\n```\n\n- The alias's description and `@section` are its own — `@section` names the heading (defaulting to\n  the alias name, so `COL` without one), and the description renders as the section's intro.\n- `@section` on the constants themselves subdivides the family, exactly as it groups functions\n  elsewhere on the page.\n- The constants must be documented on the same page as the alias. An alias whose members are string\n  literals (`@alias WARRANT \"bolo\" | \"search\" | \"arrest\"`) or other types (`@alias Colour \\`COL\\` |\n  \\`Color\\``) has no constants to gather, so it stays an ordinary entry — rendered as an **Accepted\n  values** list rather than the raw code block LuaLS hands over.\n- Two constants is the minimum; below that a heading costs more than it saves.\n\nDeep links are unaffected: `#COL_WHITE` still lands on the constant, and `#COL` now lands on the\nfamily heading it used to be an entry in.\n\n## Class pages: `@namespace <ClassName>` gathers a class's members\n\nA metatable class is re-opened all over the tree — `Player` in nine files, so that a library can hang\none helper on it without owning the whole metatable. Each member would otherwise land on the page of\nwhichever file happens to declare it, or, if that file claims no `@namespace` of its own, on a page\nderived from a *different* file's path entirely.\n\nDeclaring `@namespace <ClassName>` on one of the class's files makes that the class's page, and every\n`<ClassName>.member` follows it there, wherever it was written:\n\n```lua\n--- Shared Player Metafunctions.\n--- @namespace Player          <-- claims the page\n\n--- @class Player\nlocal pMeta = FindMetaTable(\"Player\")\n```\n\n```lua\n--- Access and Flags - Server.\n--- @namespace cityrp.access   <-- this file's own page\n\n--- @class Player\n--- @field BlacklistTime fun(self: Player, access: string): integer|string\nlocal pMeta = FindMetaTable(\"Player\")\n```\n\n`ply:BlacklistTime()` renders on **Player**; `cityrp.access.hasAccess` stays on **cityrp.access**.\nBoth are declared in the second file.\n\nThis is opt-in, and deliberately so. `Player`, `GM`, `PLUGIN`, `ITEM`, `CONSOLE` and\n`WEIGHTED_RANDOM` claim a page this way. A `@class` that exists to describe a library's own table —\n`Pass`, `Logger`, `RankData` — declares no such namespace, so its fields stay on that library's page\nnext to the thing they describe, which is where they belong.\n\nThe page's own intro comes from a file that *claims* the namespace, not from whichever contributor\nfile sorts first, so the Player page does not introduce itself as \"Access and flags - server.\".\n\n### Metatables and panels get their own sidebar sections\n\nTwo groups are split out of the flat **Modules** list, both classified by where the code lives rather\nthan by a tag every file has to remember:\n\n- **Metatables** — a `@class` declared in `gamemode/core/metatables/`. `Player`, `Entity` and\n  `Vehicle`. These claim a page the same way a `@namespace` class does *without* needing to declare\n  one: `Player` already did, but `Entity` and `Vehicle` declare only `@class`, so their members were\n  scattering onto whichever library page LuaLS listed first — exactly the problem the `@namespace`\n  opt-in exists to solve, never applied to them.\n- **Panels** — a module whose members all come from a `derma/` folder. \"All\", not \"some\", so a\n  library that happens to define one panel helper stays under Modules.\n\nNeither needs anything added to a Lua file. A section with nothing in it is omitted, so the Panels\nheading only appears once derma files are documented — today almost none are, since a panel's methods\nhang off a file-local `PANEL` table that LuaLS can't attribute to anything.\n\n## File-header tags: this codebase's own set\n\nThe very first comment in a file (`---` line comments, blank line before the code is fine) is scanned separately for these tags — they are **not** LuaCATS and LuaLS doesn't know about them:\n\n| Tag | Purpose |\n| :--- | :--- |\n| `@namespace <name>` | **Not `@module`.** Groups every doc'd item in this file onto one page named `<name>`, merging with any other file that declares the same namespace (e.g. a `cl_*.lua`/`sv_*.lua` pair). Without it, the page falls back to the file's own dotted path (`core.libraries.sv_foo`). Must not contain `..`. Only makes sense here — write it once, on the file header. |\n| `@state <word>` | Same word list as the function-level tag above. Written on the file header, this becomes the *default* realm badge for every item in the file that doesn't declare its own `@state`. |\n| `@copyright`, `@release`, `@author` | Accepted and parsed, but **not currently rendered anywhere** on the generated site — keep them for humans reading the source, don't rely on them showing up on the page. |\n\nWrite the file header as a run of `---` lines:\n\n```lua\n--- One-line description.\n--- @copyright 2015-2026 Limelight Gaming\n--- @author Someone\n--- @namespace some.namespace\n```\n\n## Putting it together\n\n```lua\n--- Player-facing warrant helpers.\n--- @namespace cityrp.warrants\n\n--- Issue a warrant against a player.\n--- @param ply Player The player to warrant.\n--- @param reason string Why the warrant was issued.\n--- @return boolean Whether the warrant was successfully issued.\n--- @state server\nfunction cityrp.warrants.issue(ply, reason)\n\t...\nend\n```\n"
+      "body": "# Writing Doc Comments\n\nThis site is built by [`generate.py`](https://github.com/limelight-development/cityrp2/blob/master/tools/docs/generate.py) from two independent sources, so a doc comment lives or dies depending on which one actually reads it:\n\n1. **`lua-language-server`'s `--doc` JSON export.** LuaLS parses the codebase and exports every doc comment it understands — that means real [LuaCATS](https://luals.github.io/wiki/annotations/) annotations (`--- @param`, `--- @return`, `--- @class`, ...) attached **immediately above** a declaration, with no blank line in between. A blank line between the comment and the code it describes means LuaLS never associates the two, and the comment is silently dropped from the JSON entirely.\n2. **`generate.py`'s own raw-source scan**, used only for each file's *leading header comment* (description, `@namespace`, etc). This one tolerates a blank line before the code that follows. Write headers as `---` lines.\n\nEverything else in this page is about what each of those two paths actually understands. For the\nannotations themselves — every tag, its fields, the full type syntax, and the Garry's Mod-specific\nconventions — see [LuaCATS Annotations](luacats.md).\n\n## Pipeline\n\n```bash\n# 1. LuaLS walks the gamemode and exports its own understanding of every doc comment.\nlua-language-server --doc=gamemodes/cityrp_2_by_limelightgaming/gamemode \\\n                     --doc_out_path=tools/docs/out\n\n# 2. generate.py turns that JSON (plus docs/**/*.md) into this site.\npython3 tools/docs/generate.py --json tools/docs/out/doc.json \\\n                                --output tools/docs/build \\\n                                --style-dir tools/docs/style \\\n                                --topics docs\n```\n\nFiles under `core/server`, `core/autogen`, `core/plugins/antihack`, `core/plugins/screengrab`, and every `core/items/<category>` subfolder are excluded from the export entirely — no doc comment in those paths will ever appear on the site.\n\n### Seeing every feature at once\n\n[`tools/docs/fixtures/stubs.lua`](https://github.com/limelight-development/cityrp2/blob/master/tools/docs/fixtures/stubs.lua) is a stub file using every tag, realm, callout, type and section the site renders. It is never loaded, and it sits outside the gamemode so its fake symbols can never reach the published site. Build just that file when changing `generate.py` or the stylesheet — it is far quicker than hunting for a real function that happens to use the feature you touched:\n\n```bash\nlua-language-server --doc=tools/docs/fixtures --doc_out_path=tools/docs/stub-out \\\n                    --configpath=tools/docs/luarc-docs.json\npython3 tools/docs/generate.py --json tools/docs/stub-out/doc.json \\\n                              --output tools/docs/stub-build \\\n                              --style-dir tools/docs/style --topics docs \\\n                              --source tools/docs/fixtures\n```\n\nThat produces two pages: `stubs` for the library-style symbols and `StubEntity` for the metatable ones. `test_generate.py` fails if the stub stops covering a callout kind, a realm, or the example/section/alias tags, so it cannot quietly fall behind the generator.\n\n## Topic files and folders\n\nEvery markdown file under `docs/` is published, and the folder it sits in decides where. Top-level files are listed directly under the sidebar's **Topics** heading. A subfolder becomes a single collapsed entry at the bottom of that same list, linking to the folder's index page — `docs/design/x.md` publishes to `topics/design/x.html`, reachable from the **Design Docs** entry. The folder's pages only unfold in the sidebar while you're on one of them, so the Topics list is the same length from everywhere else and a body of design docs doesn't crowd out the technical topics.\n\nFolders nest to any depth. `docs/design/car-boosting/hotwiring.md` sits under **Car Boosting** inside **Design Docs**, and opening it unfolds both — every ancestor of the page you're on, and nothing else. A folder is labelled by its own leaf name; the parent it sits under supplies the rest of the context. Each level of the tree also gets its own index page, and a parent's index links down into its children under a **Sections** heading, so nothing is reachable only from an already-expanded sidebar.\n\nThere is no per-folder config; creating the folder is the whole step. Add an `index.md` to give the folder a name and an intro — its `title` becomes the sidebar label. The list of what's in the folder is always generated, never hand-maintained.\n\n`topics/` mirrors `docs/`, so a relative link between two topic files stays correct on the site as well as on GitHub — `generate.py` only swaps the `.md` for `.html`, and leaves any link that doesn't resolve to a topic (`../AGENTS.md`, absolute URLs) alone. That mirroring cuts both ways: **moving a doc into a folder changes its depth, so its own `../` links and everyone else's links to it need updating in the same change.** Headings get GitHub's own anchor slugs, so `plugins.md#keys` works in both places too.\n\nA relative link that points *above* `docs/` — `../AGENTS.md`, `../../gamemodes/…/db.lua` — has no\npage to land on, because only `docs/` is published. Those are rewritten to the repo browser rather\nthan left to 404. `test_generate.py` runs the whole `docs/` tree through the generator and fails on a\nlink or heading anchor that doesn't resolve, which is the only thing that reliably catches a doc\nbeing moved between folders.\n\nTopic pages with more than two `##` headings get a **Contents** block in the sidebar, and the sidebar\nsearch box covers every topic, module and symbol — it reads `search.json`, fetched on first use.\n\nA page's opening `<h1>` is dropped from the rendered HTML — the title already sits in the header bar above it, so keeping both would print it twice. Keep writing the heading; it's what makes the file readable on GitHub, and it's the fallback when there's no front-matter `title`. Only the first one goes, and only if the page opens with it.\n\n### Front matter\n\nAny topic may open with a `---` block. It's flat `key: value` lines, not real YAML — the docs build has no YAML dependency, and a block that isn't in that shape is left in the page as ordinary markdown rather than silently swallowed.\n\n| Key | Effect |\n| :--- | :--- |\n| `title` | Sidebar label, page header, and index row. Overrides the first heading, which is otherwise what the title comes from. |\n| `status` | Index column. Free text — `Proposed`, `Landed`, `Implemented`, whatever the folder uses. |\n| `date` | Index column. |\n| `description` | Index column. One line on what the doc covers. |\n| `pinned` | `true`/`yes`/`1` lifts the doc to the top of its list, marked with a pin. Anything else, including omitting it, leaves the doc in filename order. |\n| `featured` | `true`/`yes`/`1` adds the doc to the **Important Topics** list on the site's front page, regardless of where it lives in the tree. Independent of `pinned` — pinning only affects sidebar order, this is what puts it on the homepage. |\n| `index` | `true` promotes the doc to be its folder's landing page. See below. |\n\nA folder index tabulates only the columns some page in that folder actually sets, so a folder using none of them stays a plain list of links. Every field, including ones not listed above, is carried into `api.json` under the topic's `meta` for the `cityrp-docs` MCP server.\n\n### Promoting a page to be the folder index\n\nA folder whose landing page should be one of its own docs — rather than a summary written for the purpose — marks that doc `index: true`. `docs/design/clans/design.md` does this: it already explains what clans are, so the **Clans** sidebar entry points straight at it.\n\nA doc **named after the folder it sits in** is promoted the same way without needing the flag, since that naming almost always means \"this is the overview\". `docs/design/car-boosting/car-boosting.md` is the **Car Boosting and Ringing** entry for its folder on that basis alone. The name has to match in full: `car-boosting-live-test-plan.md` is not a match.\n\nPrecedence, most deliberate first — `index: true`, then an `index.md`, then a folder-name match:\n\n| Folder contains | Landing page |\n| :--- | :--- |\n| a doc with `index: true` | that doc, whatever it's called |\n| `index.md` | `index.md`, with the generated listing below its prose |\n| `<folder-name>.md` | that doc |\n| none of the above | a generated page listing the folder |\n\nA promoted page keeps its own URL (`topics/design/clans/design.html`, not `index.html`), so links written to it still resolve, and it's written once rather than existing at two addresses. It drops out of the folder's own list, since the folder entry above is now the way to reach it, and its content stands in for the generated listing rather than being prefixed to it. Links down into any *subfolders* are still appended, so promoting a page can't orphan a folder nested below it.\n\nThe folder's other pages are then reachable from the sidebar, which is unfolded whenever you're on any page in that folder — including the promoted one. If you want a listing as well as prose, use an `index.md` instead: that keeps the generated table and puts your text above it. Where two of the three mechanisms are present in one folder the table above decides, and the loser becomes an ordinary page in the list; that isn't an error, but it's worth not doing on purpose.\n\nPinning is scoped to the list the doc is already in — a pinned top-level doc rises within **Topics**, a pinned doc inside a folder rises within that folder's sidebar list and its index table. It doesn't lift a doc out of its folder, and folders themselves can't be pinned; they always sit below the loose files. Pinning several docs keeps them in filename order relative to each other.\n\n## Function/variable-level: use real LuaCATS annotations\n\nWrite these as `--- @tag ...` directly above the `function`/assignment they describe, no blank line. `generate.py` reads the native `args`/`returns` LuaLS already resolved from the function signature itself (so types are accurate even if you never repeat them) and only borrows the tag's text for the human-readable description.\n\n| Annotation | Syntax | Notes |\n| :--- | :--- | :--- |\n| `@param` | `--- @param <name> <type[?][|type...]> [description]` | Primary way to document a parameter. `?` suffix on the type marks it optional. |\n| `@return` | `--- @return <type> [<name> [comment]]` | Primary way to document a return value. One `@return` line per return value, in order. |\n| `@class` | `--- @class [(exact)] <name>[: <parent>...]` | Defines a struct/type, optionally with inheritance. |\n| `@field` | `--- @field [scope] <name> <type[?]> [description]` | Documents a field of a `@class`. `scope` is `public`/`protected`/`private`/`package`. |\n| `@type` | `--- @type <type>` | Declares the type of a variable, e.g. `--- @type string[]`. |\n| `@generic` | `--- @generic <name> [:parent_type]` | Generic type placeholder for reusable code. |\n| `@overload` | `--- @overload fun([param: type...]): [return_type]` | Documents an additional call signature. |\n| `@alias` | `--- @alias <name> <type>` | Names a type (or enum) for reuse elsewhere. |\n| `@enum` | `--- @enum [(key)] <name>` | Marks a table as an enum, usable at runtime. |\n| `@cast` | `--- @cast <value_name> [+|-]<type|?>[, ...]` | Narrows/widens a variable's type from this point on. |\n| `@deprecated` | `--- @deprecated` | Marks the item outdated (LuaLS strikes it through in editors). This is the LuaCATS spelling — see also the codebase's own `@deprecated` callout below, which the two share. |\n| `@nodiscard` | `--- @nodiscard` | Warns if the return value is ignored at the call site. |\n| `@async` | `--- @async` | Marks a function as asynchronous. |\n| `@see` | `--- @see <symbol>` | Cross-reference to another documented symbol. |\n| `@operator` | `--- @operator <op>[(param_type)]:<return_type>` | Documents an operator metamethod (`__add`, etc). |\n| `@package` / `@private` / `@protected` | `--- @package` / `--- @private` / `--- @protected` | Restricts where the item is considered accessible. |\n| `@version` | `--- @version [<|>]<version>` | Required Lua/LuaJIT version. |\n| `@meta` | `--- @meta [name]` | Marks a whole file as definition-only (not real, executable code). |\n| `@as` | `--[[@as <type>]]` | Inline cast forcing a type onto an expression. |\n| `@diagnostic` | `--- @diagnostic <state>:<diagnostic>` | Suppresses/enables a specific LuaLS diagnostic. |\n\nTwo annotations are explicitly **not** used here, even though LuaLS supports them:\n\n- **`@module`** — LuaLS reserves this for its own `require()`-return-type inference and silently drops any doc comment that uses it. Use the codebase's own [`@namespace`](#file-header-tags-this-codebases-own-set) tag instead (see below) — this is the single most common mistake when porting old LDoc comments.\n- **`@vararg`** — deprecated by LuaLS itself in favor of `--- @param ... <type> [description]` for documenting varargs.\n\nOnly `@param` and `@return` currently have their *description* folded back into the rendered page by `generate.py` (by parameter name, and by return position, respectively) — the other annotations above are understood natively by LuaLS/your editor for hover/autocomplete/type-checking, but `generate.py` doesn't render most of them specially yet.\n\nMinimal example:\n\n```lua\n--- Gets the value of an env-var.\n--- @param name string The env-var to get\n--- @return string The value found, nil otherwise\nfunction ENV:Get(name)\n\t...\nend\n```\n\n## Function/table-level: this codebase's own tags\n\nThese are custom to `generate.py`, not LuaCATS — but like `@param`/`@return`, they're written **directly above the function or table they describe**, with no blank line, since `generate.py` only reads the tags attached to that specific declaration's own doc comment.\n\n> [!IMPORTANT]\n> Write these with a space after the dashes — `--- @state server`, not `---@state server`.\n>\n> LuaLS parses `---@tag` as an annotation and drops any tag it doesn't recognise, so the tag never reaches `generate.py` and the whole line vanishes with no error. `--- @tag` is description text as far as LuaLS is concerned, which is exactly how these survive into the export for `generate.py` to re-parse. The one `@usage` in the tree was written `---@usage` and had therefore never rendered anything.\n\nThe tags:\n\n| Tag | Purpose |\n| :--- | :--- |\n| `@section <title>` | Starts a new named subsection on the module page. Every following item in the file (until the next `@section`) is grouped under it, so in practice it's usually only written once per group rather than on every function. The tag's own value is the heading, so write it as you want it read — `@section Rank Colours`. A one-word lowercase slug (`@section functions`, the older form) is title-cased into \"Functions\". |\n| `@state <word>` | One of `client`, `server`, `menu`, `shared`, `global`, `clmenu` — drives the realm badge shown next to the item. If a function omits it, it falls back to whatever `@state` the file's header comment declared. |\n| `@example <code>` | Renders an \"Example\" code block after the parameters and returns. Continuation lines are kept as lines, so a multi-line example stays multi-line. Not `@usage` — see below. |\n\n### Callout tags\n\nSeven tags render as callout boxes, in the manner of the [GMod wiki's note boxes](https://wiki.facepunch.com/gmod/Structures). They come out as the same boxes a topic gets from `> [!WARNING]`, so the site has one visual language for \"read this before you use it\" rather than two, and each has its own colour.\n\nThey always appear in this order on an entry — whether you should be using this at all, then what is wrong with it, then advisories — regardless of the order they were written in:\n\n| Tag | Box | Stock text when no text is given |\n| :--- | :--- | :--- |\n| `@deprecated [text]` | Deprecated | \"This function is deprecated and may be removed in a future version.\" |\n| `@internal [text]` | Internal | \"This function is internal. Whilst you can call it, you probably shouldn't.\" |\n| `@bug <text>` | Bug | — |\n| `@warning <text>` | Warning | — |\n| `@ambig [text]` | Ambiguous | \"This entry is unclear or incomplete.\" |\n| `@validate [text]` | Validate | \"This entry has not been checked against the code recently.\" |\n| `@note <text>` | Note | — |\n\n`@bugs`, `@warns`, `@notes` and `@ambiguous` are accepted as alternative spellings. Several spellings of the same tag on one function collapse into a single box rather than producing two. The text is rendered as markdown, so links and `code` work inside a callout.\n\nTopics can use any of these as GFM alerts too — `> [!BUG]`, `> [!DEPRECATED]` — alongside the standard `[!NOTE]`, `[!TIP]`, `[!IMPORTANT]`, `[!WARNING]` and `[!CAUTION]`.\n\n```lua\n--- Old warrant lookup, kept for legacy callers.\n--- @deprecated Use cityrp.warrants.issue instead.\n--- @bug Does not account for expired warrants.\n--- @state server\n--- @example cityrp.warrants.legacyLookup(ply)\nfunction cityrp.warrants.legacyLookup(ply)\n\t...\nend\n```\n\nNot `@usage`: it is an LDoc tag, and `standards-diff.py` rejects it in CI. Supporting it here would mean the docs rendering something nobody is allowed to write.\n\n## Constant families: `@alias` gathers the constants it names\n\nA page that declares a long run of prefixed constants — the 87 `COL_*` colours, the 26 `TEAM_*`\njobs — would otherwise list every one of them as a top-level entry, interleaved alphabetically with\neverything else the page declares. An `@alias` over those constants turns them into a section of\ntheir own instead: the alias becomes the heading, its constants sit beneath it, and it gets its own\nline in the page's **Contents**.\n\n```lua\n--- Every colour the gamemode ships as a constant.\n--- @section Colours\n--- @alias COL\n---| `COL_WHITE`\n---| `COL_BLACK`\n---| `COL_UI_GREY`\n\n--- @section Generic\nCOL_WHITE = Color(255)\nCOL_BLACK = Color(0)\n\n--- @section Limelight UI Guidelines\nCOL_UI_GREY = Color(41, 41, 41, 230)\n```\n\n- The alias's description and `@section` are its own — `@section` names the heading (defaulting to\n  the alias name, so `COL` without one), and the description renders as the section's intro.\n- `@section` on the constants themselves subdivides the family, exactly as it groups functions\n  elsewhere on the page.\n- The constants must be documented on the same page as the alias. An alias whose members are string\n  literals (`@alias WARRANT \"bolo\" | \"search\" | \"arrest\"`) or other types (`@alias Colour \\`COL\\` |\n  \\`Color\\``) has no constants to gather, so it stays an ordinary entry — rendered as an **Accepted\n  values** list rather than the raw code block LuaLS hands over.\n- Two constants is the minimum; below that a heading costs more than it saves.\n\nDeep links are unaffected: `#COL_WHITE` still lands on the constant, and `#COL` now lands on the\nfamily heading it used to be an entry in.\n\n## Class pages: `@namespace <ClassName>` gathers a class's members\n\nA metatable class is re-opened all over the tree — `Player` in nine files, so that a library can hang\none helper on it without owning the whole metatable. Each member would otherwise land on the page of\nwhichever file happens to declare it, or, if that file claims no `@namespace` of its own, on a page\nderived from a *different* file's path entirely.\n\nDeclaring `@namespace <ClassName>` on one of the class's files makes that the class's page, and every\n`<ClassName>.member` follows it there, wherever it was written:\n\n```lua\n--- Shared Player Metafunctions.\n--- @namespace Player          <-- claims the page\n\n--- @class Player\nlocal pMeta = FindMetaTable(\"Player\")\n```\n\n```lua\n--- Access and Flags - Server.\n--- @namespace cityrp.access   <-- this file's own page\n\n--- @class Player\n--- @field BlacklistTime fun(self: Player, access: string): integer|string\nlocal pMeta = FindMetaTable(\"Player\")\n```\n\n`ply:BlacklistTime()` renders on **Player**; `cityrp.access.hasAccess` stays on **cityrp.access**.\nBoth are declared in the second file.\n\nThis is opt-in, and deliberately so. `Player`, `GM`, `PLUGIN`, `ITEM`, `CONSOLE` and\n`WEIGHTED_RANDOM` claim a page this way. A `@class` that exists to describe a library's own table —\n`Pass`, `Logger`, `RankData` — declares no such namespace, so its fields stay on that library's page\nnext to the thing they describe, which is where they belong.\n\nThe page's own intro comes from a file that *claims* the namespace, not from whichever contributor\nfile sorts first, so the Player page does not introduce itself as \"Access and flags - server.\".\n\n### Metatables and panels get their own sidebar sections\n\nTwo groups are split out of the flat **Modules** list, both classified by where the code lives rather\nthan by a tag every file has to remember:\n\n- **Metatables** — a `@class` declared in `gamemode/core/metatables/`. `Player`, `Entity` and\n  `Vehicle`. These claim a page the same way a `@namespace` class does *without* needing to declare\n  one: `Player` already did, but `Entity` and `Vehicle` declare only `@class`, so their members were\n  scattering onto whichever library page LuaLS listed first — exactly the problem the `@namespace`\n  opt-in exists to solve, never applied to them.\n- **Panels** — a module whose members all come from a `derma/` folder. \"All\", not \"some\", so a\n  library that happens to define one panel helper stays under Modules.\n\nNeither needs anything added to a Lua file. A section with nothing in it is omitted, so the Panels\nheading only appears once derma files are documented — today almost none are, since a panel's methods\nhang off a file-local `PANEL` table that LuaLS can't attribute to anything.\n\n## File-header tags: this codebase's own set\n\nThe very first comment in a file (`---` line comments, blank line before the code is fine) is scanned separately for these tags — they are **not** LuaCATS and LuaLS doesn't know about them:\n\n| Tag | Purpose |\n| :--- | :--- |\n| `@namespace <name>` | **Not `@module`.** Groups every doc'd item in this file onto one page named `<name>`, merging with any other file that declares the same namespace (e.g. a `cl_*.lua`/`sv_*.lua` pair). Without it, the page falls back to the file's own dotted path (`core.libraries.sv_foo`). Must not contain `..`. Only makes sense here — write it once, on the file header. |\n| `@state <word>` | Same word list as the function-level tag above. Written on the file header, this becomes the *default* realm badge for every item in the file that doesn't declare its own `@state`. |\n| `@copyright`, `@release`, `@author` | Accepted and parsed, but **not currently rendered anywhere** on the generated site — keep them for humans reading the source, don't rely on them showing up on the page. |\n\nWrite the file header as a run of `---` lines:\n\n```lua\n--- One-line description.\n--- @copyright 2015-2026 Limelight Gaming\n--- @author Someone\n--- @namespace some.namespace\n```\n\n## Putting it together\n\n```lua\n--- Player-facing warrant helpers.\n--- @namespace cityrp.warrants\n\n--- Issue a warrant against a player.\n--- @param ply Player The player to warrant.\n--- @param reason string Why the warrant was issued.\n--- @return boolean Whether the warrant was successfully issued.\n--- @state server\nfunction cityrp.warrants.issue(ply, reason)\n\t...\nend\n```\n"
     },
     {
       "id": "emergency-lighting",

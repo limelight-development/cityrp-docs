@@ -2,22 +2,29 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Clans — Bank Module</title>
-	<link rel="stylesheet" href="../../../style.6b230c7a19.css" type="text/css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../../style.cd9354d8c3.css" type="text/css">
 </head>
 <body>
-<div id="container">
-	<div id="product">
-		<div id="product_logo"></div>
-		<div id="product_name"><big><b></b></big></div>
-		<div id="product_description"></div>
+<div class="ll-grain"></div>
+<header class="ll-header">
+	<div class="ll-header-inner">
+		<a class="ll-brand" href="../../../index.html">
+			<img src="../../../assets/logos/L2_blue.svg" alt="" width="26" height="26">
+			<span>CityRP Documentation</span>
+		</a>
+		<a class="ll-repo-link" href="https://github.com/limelight-development/cityrp2" target="_blank" rel="noreferrer">Repository</a>
 	</div>
+</header>
+<div id="container">
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1><a href="../../../index.html">CityRP Documentation</a></h1></div>
 <div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
+<div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
 <li><a href="#source">Source</a></li>
 <li><a href="#economic-stance">Economic stance</a></li>
 <li><a href="#tuning-knobs">Tuning knobs</a></li>
@@ -28,8 +35,8 @@
 <li><a href="#degenerate-strategies">Degenerate strategies</a></li>
 <li><a href="#undo-and-delete">Undo and delete</a></li>
 <li><a href="#open-questions">Open questions</a></li>
-</ul>
-<div class="ll-kind-header"><h2>Topics</h2></div>
+</ul></div>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">36</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -70,8 +77,8 @@
 </li>
 <li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
 </li>
-</ul>
-<div class="ll-kind-header"><h2>Items</h2></div>
+</ul></details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Items</h2></div><span class="ll-count">19</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/ITEM.html">ITEM</a></li>
 <li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
@@ -93,13 +100,15 @@
 <li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Metatables</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Metatables</h2></div><span class="ll-count">3</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/Entity.html">Entity</a></li>
 <li><a href="../../../modules/Player.html">Player</a></li>
 <li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Panels</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Panels</h2></div><span class="ll-count">17</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
@@ -119,7 +128,8 @@
 <li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
 <li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Modules</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/Array.html">Array</a></li>
 <li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
@@ -330,6 +340,8 @@
 <li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
 <li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.cl_init.html">core.plugins.website_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.sh_init.html">core.plugins.website_rewards.sh_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
@@ -347,8 +359,8 @@
 <li><a href="../../../modules/temar.html">temar</a></li>
 <li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Credits</h2></div>
-<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+</details>
+<div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
 		</div>
 		<div id="content">
 <div class="ll-module-header"><h1>Clans — Bank Module</h1></div><div class="ll-module-body"><p>Module 2. Shared clan funds: deposits, rank-gated withdrawals, and an audit
@@ -358,11 +370,11 @@ ledger.</p>
 See <a href="design.html">design.md</a> for the module framework.</p>
 </blockquote>
 <h2 id="source">Source</h2>
-<p>Issue #1418 (<em>Clan/Business Account</em>) asks for a clan wallet the owner and
+<p>Issue <a href="https://github.com/limelight-development/cityrp2/issues/1418">#1418</a> (<em>Clan/Business Account</em>) asks for a clan wallet the owner and
 officers can deposit to and withdraw from, motivated by <em>&quot;business-oriented
 clans that wish to have a clan account to place funds into for business
 expenses, which may include real estate, equipment, salaries.&quot;</em></p>
-<p>Issue #1600 separately proposes clan group accounts with leader-configured
+<p>Issue <a href="https://github.com/limelight-development/cityrp2/issues/1600">#1600</a> separately proposes clan group accounts with leader-configured
 access, and <strong>interest</strong> on stored balances as a deposit incentive.</p>
 <h2 id="economic-stance">Economic stance</h2>
 <p><strong>Deposit and withdrawal are neutral transfers.</strong> Wallet to bank, 1:1. They
@@ -374,14 +386,14 @@ The game already runs a 10% income tax (<code>cityrp.configuration[&quot;Default
 specifically to manage money supply on <em>earned</em> income; adding an ungated faucet
 that rewards parking cash more reliably than working is inconsistent with that
 stance.</p>
-<p>If #1600's underlying goal — give players a reason to bank rather than hoard —
+<p>If <a href="https://github.com/limelight-development/cityrp2/issues/1600">#1600</a>'s underlying goal — give players a reason to bank rather than hoard —
 still matters, the sink-safe forms are a fee-funded redistribution pool, or a
 non-monetary prestige incentive. Both are larger scope and neither is proposed
 for v1.</p>
 <h3 id="no-deposit-or-withdrawal-fee">No deposit or withdrawal fee</h3>
 <p><strong>Decided: no fee mechanism is built.</strong> This is not a configurable rate defaulted
 to zero — there is no fee code path, and none needs testing.</p>
-<p>A percentage haircut punishes the legitimate case #1418 describes (a business
+<p>A percentage haircut punishes the legitimate case <a href="https://github.com/limelight-development/cityrp2/issues/1418">#1418</a> describes (a business
 clan saving for real estate) and is a rounding error to anyone moving duped or
 stolen money — they do not care about efficiency loss on money they did not
 earn. Taxing the transaction type does not distinguish good actors from bad; it
@@ -510,7 +522,7 @@ alternative. Flagged in <a href="plan.html">plan.md</a> as an adjacent gap.</p>
 <td><strong>3</strong></td>
 <td>1–7</td>
 <td>Negligible friction against a same-day mule clan</td>
-<td>Locks out the small business clan #1418 describes for over a week</td>
+<td>Locks out the small business clan <a href="https://github.com/limelight-development/cityrp2/issues/1418">#1418</a> describes for over a week</td>
 </tr>
 <tr>
 <td><code>unlock_min_members</code></td>
@@ -518,7 +530,7 @@ alternative. Flagged in <a href="plan.html">plan.md</a> as an adjacent gap.</p>
 <td><strong>3</strong></td>
 <td>2–5</td>
 <td>At 2, the cheapest collusion pair clears it trivially</td>
-<td>At 5 it excludes #1418's stated use case</td>
+<td>At 5 it excludes <a href="https://github.com/limelight-development/cityrp2/issues/1418">#1418</a>'s stated use case</td>
 </tr>
 </tbody>
 </table>
@@ -553,7 +565,7 @@ shrinking later does not make it retroactively disposable.</li>
 <p>The latch also simplifies dissolution: a clan that never unlocked has a zero
 balance by construction, so there is nothing to distribute.</p>
 <p><code>unlock_min_members</code> = 3 is deliberately lighter than the 5-member gate proposed
-for clan inventory in #1624 — money access has lower per-unit abuse potential
+for clan inventory in <a href="https://github.com/limelight-development/cityrp2/issues/1624">#1624</a> — money access has lower per-unit abuse potential
 than concrete item storage. That differential is a judgement call worth
 confirming.</p>
 <h2 id="rank-gating">Rank gating</h2>
@@ -595,7 +607,7 @@ does not use the threshold shape.</p>
 <ul>
 <li><strong>Deposit open to all.</strong> Depositing cannot hurt the depositor beyond what they
 willingly hand over; gating it only frustrates &quot;I want to chip in&quot;.</li>
-<li><strong>Withdraw = Leader and Officer</strong>, matching #1418's explicit &quot;owner/officers&quot;.</li>
+<li><strong>Withdraw = Leader and Officer</strong>, matching <a href="https://github.com/limelight-development/cityrp2/issues/1418">#1418</a>'s explicit &quot;owner/officers&quot;.</li>
 </ul>
 <blockquote>
 <p>No <code>bank.configure_limits</code> permission. The tuning knobs (<code>per_withdrawal_cap</code>,
@@ -1250,7 +1262,6 @@ grant-then-mark ordering leaves a window in which two pollers could both pay out
 </table></div>
 		</div>
 	</div>
-	<br class="clearfix">
 </div>
 <script>
 var ROOT = "../../../";

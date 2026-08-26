@@ -2,22 +2,29 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Clans</title>
-	<link rel="stylesheet" href="../../../style.6b230c7a19.css" type="text/css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../../style.cd9354d8c3.css" type="text/css">
 </head>
 <body>
-<div id="container">
-	<div id="product">
-		<div id="product_logo"></div>
-		<div id="product_name"><big><b></b></big></div>
-		<div id="product_description"></div>
+<div class="ll-grain"></div>
+<header class="ll-header">
+	<div class="ll-header-inner">
+		<a class="ll-brand" href="../../../index.html">
+			<img src="../../../assets/logos/L2_blue.svg" alt="" width="26" height="26">
+			<span>CityRP Documentation</span>
+		</a>
+		<a class="ll-repo-link" href="https://github.com/limelight-development/cityrp2" target="_blank" rel="noreferrer">Repository</a>
 	</div>
+</header>
+<div id="container">
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1><a href="../../../index.html">CityRP Documentation</a></h1></div>
 <div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
+<div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
 <li><a href="#design-principle-modules-not-a-monolith">Design principle: modules, not a monolith</a></li>
 <li><a href="#module-registry">Module registry</a></li>
 <li><a href="#framework-contract">Framework contract</a></li>
@@ -34,8 +41,8 @@
 <li><a href="#acceptance-criteria">Acceptance criteria</a></li>
 <li><a href="#open-questions">Open questions</a></li>
 <li><a href="#references">References</a></li>
-</ul>
-<div class="ll-kind-header"><h2>Topics</h2></div>
+</ul></div>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">36</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -76,8 +83,8 @@
 </li>
 <li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
 </li>
-</ul>
-<div class="ll-kind-header"><h2>Items</h2></div>
+</ul></details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Items</h2></div><span class="ll-count">19</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/ITEM.html">ITEM</a></li>
 <li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
@@ -99,13 +106,15 @@
 <li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Metatables</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Metatables</h2></div><span class="ll-count">3</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/Entity.html">Entity</a></li>
 <li><a href="../../../modules/Player.html">Player</a></li>
 <li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Panels</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Panels</h2></div><span class="ll-count">17</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
@@ -125,7 +134,8 @@
 <li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
 <li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Modules</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/Array.html">Array</a></li>
 <li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
@@ -336,6 +346,8 @@
 <li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
 <li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.cl_init.html">core.plugins.website_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.sh_init.html">core.plugins.website_rewards.sh_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
@@ -353,8 +365,8 @@
 <li><a href="../../../modules/temar.html">temar</a></li>
 <li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Credits</h2></div>
-<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+</details>
+<div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
 		</div>
 		<div id="content">
 <div class="ll-module-header"><h1>Clans</h1></div><div class="ll-module-body"><p>Clans are player-formed groups with a shared identity, a rank ladder, and
@@ -433,7 +445,7 @@ the consumer rejects any model absent from the registry
 (<code>metatables/sv_player.lua:1292</code>). Removing the registration therefore makes
 clan models <em>unavailable</em>, not <em>unrestricted</em> — there is no risk of leaking
 clan-exclusive models to all players.</p>
-<p>Retiring also moots the &quot;grants access to <code>/clan model</code>&quot; element of <code>/clan shift</code> (#1327), which is separately deferred.</p>
+<p>Retiring also moots the &quot;grants access to <code>/clan model</code>&quot; element of <code>/clan shift</code> (<a href="https://github.com/limelight-development/cityrp2/issues/1327">#1327</a>), which is separately deferred.</p>
 <h2 id="framework-contract">Framework contract</h2>
 <p>A module declares itself to Core at load time. Core validates the declaration
 and owns all shared state; modules own only their own tables.</p>
@@ -611,7 +623,7 @@ open issue.</p>
 <tr>
 <td>1</td>
 <td><code>clan_members</code> is <code>PRIMARY KEY (steamid)</code>; <code>/clan accept</code> does not check existing membership, and the failed <code>INSERT</code> is not error-checked — the code sets <code>_Clan</code> and announces success regardless</td>
-<td>A player already in a clan appears to join a new one, then reverts to the old clan on reconnect. <strong>Root cause of issues #464, #336, #713</strong></td>
+<td>A player already in a clan appears to join a new one, then reverts to the old clan on reconnect. <strong>Root cause of issues <a href="https://github.com/limelight-development/cityrp2/issues/464">#464</a>, <a href="https://github.com/limelight-development/cityrp2/issues/336">#336</a>, <a href="https://github.com/limelight-development/cityrp2/issues/713">#713</a></strong></td>
 </tr>
 <tr>
 <td>2</td>
@@ -783,7 +795,7 @@ regression criteria for all twelve defects.</p>
 </tr>
 <tr>
 <td><del>4</del></td>
-<td><del>Does <code>/clan shift</code> (#1327) belong to Core or its own module?</del></td>
+<td><del>Does <code>/clan shift</code> (<a href="https://github.com/limelight-development/cityrp2/issues/1327">#1327</a>) belong to Core or its own module?</del></td>
 <td>—</td>
 <td><strong>Resolved — out of scope.</strong> Comes later as a Core rework. It is essentially an additional gate on command execution, so it retrofits cleanly and does not need a seam reserved for it now</td>
 </tr>
@@ -821,17 +833,16 @@ regression criteria for all twelve defects.</p>
 </table>
 <h2 id="references">References</h2>
 <ul>
-<li>Issue #1418 — Clan/Business Account (source suggestion for the Bank module)</li>
-<li>Issue #1541 — In-game F1 Clan Menu (player demand for an in-game surface)</li>
-<li>Issue #1624 — Clan Inventory (deferred module requirements)</li>
-<li>Issue #1327 — <code>/clan shift</code></li>
-<li>Issue #1318 — Team/Clan/Private Radio Overhaul (affects Core radio)</li>
-<li>Issues #464, #336, #713 — membership persistence failures (defect 1 above)</li>
-<li>Issue #1892 — Clan System (tracking issue, currently empty)</li>
+<li>Issue <a href="https://github.com/limelight-development/cityrp2/issues/1418">#1418</a> — Clan/Business Account (source suggestion for the Bank module)</li>
+<li>Issue <a href="https://github.com/limelight-development/cityrp2/issues/1541">#1541</a> — In-game F1 Clan Menu (player demand for an in-game surface)</li>
+<li>Issue <a href="https://github.com/limelight-development/cityrp2/issues/1624">#1624</a> — Clan Inventory (deferred module requirements)</li>
+<li>Issue <a href="https://github.com/limelight-development/cityrp2/issues/1327">#1327</a> — <code>/clan shift</code></li>
+<li>Issue <a href="https://github.com/limelight-development/cityrp2/issues/1318">#1318</a> — Team/Clan/Private Radio Overhaul (affects Core radio)</li>
+<li>Issues <a href="https://github.com/limelight-development/cityrp2/issues/464">#464</a>, <a href="https://github.com/limelight-development/cityrp2/issues/336">#336</a>, <a href="https://github.com/limelight-development/cityrp2/issues/713">#713</a> — membership persistence failures (defect 1 above)</li>
+<li>Issue <a href="https://github.com/limelight-development/cityrp2/issues/1892">#1892</a> — Clan System (tracking issue, currently empty)</li>
 </ul></div>
 		</div>
 	</div>
-	<br class="clearfix">
 </div>
 <script>
 var ROOT = "../../../";

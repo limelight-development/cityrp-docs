@@ -2,27 +2,40 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>cityrp.plugin</title>
-	<link rel="stylesheet" href="../style.6b230c7a19.css" type="text/css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../style.cd9354d8c3.css" type="text/css">
 </head>
 <body>
-<div id="container">
-	<div id="product">
-		<div id="product_logo"></div>
-		<div id="product_name"><big><b></b></big></div>
-		<div id="product_description"></div>
+<div class="ll-grain"></div>
+<header class="ll-header">
+	<div class="ll-header-inner">
+		<a class="ll-brand" href="../index.html">
+			<img src="../assets/logos/L2_blue.svg" alt="" width="26" height="26">
+			<span>CityRP Documentation</span>
+		</a>
+		<a class="ll-repo-link" href="https://github.com/limelight-development/cityrp2" target="_blank" rel="noreferrer">Repository</a>
 	</div>
+</header>
+<div id="container">
 	<div id="main">
 		<div id="navigation">
-<div class="ll-kind-header"><h1><a href="../index.html">CityRP Documentation</a></h1></div>
 <div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
-<div class="ll-kind-header"><h2>Contents</h2></div>
-<ul class="ll-kind-body nowrap">
+<div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
 <li><a href="#Tables">Tables</a></li>
+<li><a href="#Classes">Classes</a></li>
 <li><a href="#Fields">Fields</a></li>
-</ul>
-<div class="ll-kind-header"><h2>Topics</h2></div>
+<li><a href="#PluginCandidate">PluginCandidate</a></li>
+<li><a href="#PluginDependencyStatus">PluginDependencyStatus</a></li>
+<li><a href="#PluginEntry">PluginEntry</a></li>
+<li><a href="#PluginMeta">PluginMeta</a></li>
+<li><a href="#SubResourceClass">SubResourceClass</a></li>
+</ul></div>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">36</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -48,8 +61,8 @@
 </li>
 <li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
 </li>
-</ul>
-<div class="ll-kind-header"><h2>Items</h2></div>
+</ul></details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Items</h2></div><span class="ll-count">19</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/ITEM.html">ITEM</a></li>
 <li><a href="../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
@@ -71,13 +84,15 @@
 <li><a href="../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
 <li><a href="../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Metatables</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Metatables</h2></div><span class="ll-count">3</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/Entity.html">Entity</a></li>
 <li><a href="../modules/Player.html">Player</a></li>
 <li><a href="../modules/Vehicle.html">Vehicle</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Panels</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Panels</h2></div><span class="ll-count">17</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
 <li><a href="../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
@@ -97,7 +112,8 @@
 <li><a href="../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Modules</h2></div>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/Array.html">Array</a></li>
 <li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
@@ -308,6 +324,8 @@
 <li><a href="../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
 <li><a href="../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
 <li><a href="../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../modules/core.plugins.website_rewards.cl_init.html">core.plugins.website_rewards.cl_init</a></li>
+<li><a href="../modules/core.plugins.website_rewards.sh_init.html">core.plugins.website_rewards.sh_init</a></li>
 <li><a href="../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
 <li><a href="../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
 <li><a href="../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
@@ -325,8 +343,8 @@
 <li><a href="../modules/temar.html">temar</a></li>
 <li><a href="../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
 </ul>
-<div class="ll-kind-header"><h2>Credits</h2></div>
-<ul class="ll-kind-body"><li><p>Generated from LuaLS documentation JSON.</p></li><li><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></li></ul>
+</details>
+<div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
 		</div>
 		<div id="content">
 <div class="ll-module-header"><h1>cityrp.plugin</h1></div>
@@ -486,7 +504,7 @@ includes everything it received.</p>
 <dt><a name="cityrp.plugin.LoadSubResourceEntities"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.LoadSubResourceEntities<span class="ll-args">(entries)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1265">Source ☍</a></dt>
 <dd>
 <p>Loads the <code>entities/</code> and <code>weapons/</code> sub-resources of every loaded folder plugin, in load order.
-File-based plugins (#2507) never have sub-resources. A plugin that failed to resolve, or a
+File-based plugins (<a href="https://github.com/limelight-development/cityrp2/issues/2507">#2507</a>) never have sub-resources. A plugin that failed to resolve, or a
 missing <code>entities</code>/<code>weapons</code> folder, is skipped silently.</p>
 
 <p class="ll-arg-label">Parameters</p>
@@ -540,6 +558,17 @@ conditions and load order use; it is not <code><a href="PLUGIN.html#PLUGIN.name"
 
 </dd>
 </dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Classes"></a>Classes</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="PluginStatus"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginStatus</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L301">Source ☍</a></dt>
+<dd>
+<p>Resolution outcome recorded on a plugin entry. Only <code>ok</code> is executed by the loader.</p>
+
+
+
+
+</dd>
+</dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
 <dt><a name="cityrp.plugin.discovered"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.discovered</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L286">Source ☍</a></dt>
@@ -574,14 +603,12 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginCandidate"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginCandidate</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L191">Source ☍</a></dt>
-<dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="PluginCandidate"></a>PluginCandidate</h2><span class="ll-family-meta">3 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L191">Source ☍</a></span></div>
+<div class="ll-module-body">
 <p>A plugin found by <code><a href="cityrp.plugin.html#cityrp.plugin.Discover">cityrp.plugin.Discover</a></code>, before any of its code has run.</p>
 
-
-
-
-</dd>
+<dl class="function">
 <dt><a name="PluginCandidate.key"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginCandidate.key</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L192">Source ☍</a></dt>
 <dd>
 <p>Identity key, shared with folder plugin names.</p>
@@ -606,14 +633,13 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginDependencyStatus"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L996">Source ☍</a></dt>
-<dd>
+</dl>
+</div>
+<div class="ll-module-header"><h2 class="section-header"><a name="PluginDependencyStatus"></a>PluginDependencyStatus</h2><span class="ll-family-meta">8 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L996">Source ☍</a></span></div>
+<div class="ll-module-body">
 <p>A snapshot of one plugin's resolution outcome, as <code><a href="cityrp.plugin.html#cityrp.plugin.GetDependencyStatus">cityrp.plugin.GetDependencyStatus</a></code> returns it.</p>
 
-
-
-
-</dd>
+<dl class="function">
 <dt><a name="PluginDependencyStatus.cycle"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.cycle</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1003">Source ☍</a></dt>
 <dd>
 <p>Keys forming the required-edge cycle, when <code>status</code> is <code>&quot;cycle&quot;</code>.</p>
@@ -678,14 +704,13 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginEntry"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L323">Source ☍</a></dt>
-<dd>
+</dl>
+</div>
+<div class="ll-module-header"><h2 class="section-header"><a name="PluginEntry"></a>PluginEntry</h2><span class="ll-family-meta">11 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L323">Source ☍</a></span></div>
+<div class="ll-module-body">
 <p>A discovered plugin once its metadata has been read and its load order resolved.</p>
 
-
-
-
-</dd>
+<dl class="function">
 <dt><a name="PluginEntry.cycle"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.cycle</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L330">Source ☍</a></dt>
 <dd>
 <p>Keys forming the cycle, when <code>status</code> is <code>&quot;cycle&quot;</code>.</p>
@@ -774,14 +799,13 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginMeta"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L311">Source ☍</a></dt>
-<dd>
+</dl>
+</div>
+<div class="ll-module-header"><h2 class="section-header"><a name="PluginMeta"></a>PluginMeta</h2><span class="ll-family-meta">9 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L311">Source ☍</a></span></div>
+<div class="ll-module-body">
 <p>Declared metadata for one plugin, normalised and validated.</p>
 
-
-
-
-</dd>
+<dl class="function">
 <dt><a name="PluginMeta.after"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.after</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L314">Source ☍</a></dt>
 <dd>
 <p>Keys to load after; <code>&quot;*&quot;</code> means every other plugin.</p>
@@ -854,22 +878,13 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginStatus"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginStatus</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L301">Source ☍</a></dt>
-<dd>
-<p>Resolution outcome recorded on a plugin entry. Only <code>ok</code> is executed by the loader.</p>
-
-
-
-
-</dd>
-<dt><a name="SubResourceClass"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SubResourceClass</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1032">Source ☍</a></dt>
-<dd>
+</dl>
+</div>
+<div class="ll-module-header"><h2 class="section-header"><a name="SubResourceClass"></a>SubResourceClass</h2><span class="ll-family-meta">3 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1032">Source ☍</a></span></div>
+<div class="ll-module-body">
 <p>One class found under a plugin's <code>entities/</code> or <code>weapons/</code> folder.</p>
 
-
-
-
-</dd>
+<dl class="function">
 <dt><a name="SubResourceClass.folder"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SubResourceClass.folder</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1035">Source ☍</a></dt>
 <dd>
 <p>Whether the class is an engine-style folder (<code>init.lua</code>/<code>cl_init.lua</code>/<code>shared.lua</code>)</p>
@@ -894,10 +909,10 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-</dl></div>
+</dl>
+</div>
 		</div>
 	</div>
-	<br class="clearfix">
 </div>
 <script>
 var ROOT = "../";
