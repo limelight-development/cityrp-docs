@@ -23,7 +23,7 @@
 <div id="container">
 	<div id="main">
 		<div id="navigation">
-<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs…" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs… (/)" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
 <div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
 <li><a href="#Fields">Fields</a></li>
@@ -225,7 +225,6 @@
 <li><a href="../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
 <li><a href="../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
 <li><a href="../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
-<li><a href="../modules/core.plugins.disable_cat.sv_init.html">core.plugins.disable_cat.sv_init</a></li>
 <li><a href="../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
 <li><a href="../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
 <li><a href="../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
@@ -294,6 +293,7 @@
 <li><a href="../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
 <li><a href="../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
 <li><a href="../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../modules/core.plugins.sv_disable_cat.html">core.plugins.sv_disable_cat</a></li>
 <li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
 <li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
 <li><a href="../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
@@ -351,7 +351,7 @@
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
 <li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
 <li><span class="parameter">pos</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 </ul>
 <p class="ll-arg-label">Returns</p>
@@ -389,7 +389,7 @@
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
 <li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">winner</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
+<li><span class="parameter">winner</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
 </ul>
 
 
@@ -489,7 +489,7 @@
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
 <li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
 </ul>
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
@@ -534,7 +534,7 @@
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
 <li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
 </ul>
 
 
@@ -546,8 +546,8 @@
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
 <li><span class="parameter">id</span><span class="types">number|nil</span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">owner</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
-<li><span class="parameter">ent</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc">The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</span></li>
+<li><span class="parameter">owner</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">ent</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc"></span></li>
 </ul>
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
@@ -579,7 +579,7 @@
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
 <li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
 <li><span class="parameter">betKind</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
 <li><span class="parameter">raiseTo</span><span class="types">number|nil</span><span class="ll-arg-desc">absolute bet-to amount for raises</span></li>
 </ul>
@@ -604,7 +604,7 @@
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
 <li><span class="parameter">id</span><span class="types">number</span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player metatable, with CityRP's own additions to Garry's Mod's <code>Player</code>.</span></li>
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
 </ul>
 
 
@@ -716,11 +716,23 @@ var ROOT = "../";
 	input.addEventListener("focus", load);
 	input.addEventListener("input", function () { load(); render(); });
 	input.addEventListener("keydown", function (event) {
-		if (event.key === "Escape") { input.value = ""; render(); }
+		if (event.key === "Escape") { input.value = ""; render(); input.blur(); }
 		if (event.key === "Enter") {
 			var first = list.querySelector("a");
 			if (first) { window.location.href = first.href; }
 		}
+	});
+
+	// "/" jumps to the box, unless the reader is already typing somewhere -
+	// preventDefault stops the slash itself landing in the field.
+	document.addEventListener("keydown", function (event) {
+		if (event.key !== "/" || event.ctrlKey || event.metaKey || event.altKey) { return; }
+		var active = document.activeElement;
+		if (active && (active.isContentEditable
+			|| /^(input|textarea|select)$/i.test(active.tagName))) { return; }
+		event.preventDefault();
+		input.focus();
+		input.select();
 	});
 })();
 </script>
