@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-27T11:16:30Z",
+  "generated": "2026-08-28T17:10:10Z",
   "modules": [
     {
       "name": "Array",
@@ -131385,7 +131385,7 @@
           "states": [
             "server"
           ],
-          "desc": "Resolve where somebody leaving a vehicle should be placed.\n A candidate has to be clear of geometry, standing on something, in sight of the vehicle and\n inside the map, so placing somebody never puts them through a wall or off the world. Always\n answers: with nothing usable it returns the vehicle origin, which the stuck check in `init.lua`\n can recover from, rather than refusing the exit.",
+          "desc": "Resolve where somebody leaving a vehicle should be placed.\n A candidate has to be clear of geometry, standing on something, reachable from the vehicle and\n inside the map, so placing somebody never puts them through a wall or off the world.\n alone — the seat has no vehicle, or nothing around it is usable.",
           "params": [
             {
               "name": "vehicle",
@@ -131401,7 +131401,7 @@
           "returns": [
             {
               "type": "Vector?",
-              "desc": "World position to place them at, or nil if the seat has no vehicle."
+              "desc": "World position to place them at, or nil to leave the engine's own placement"
             },
             {
               "type": "Angle?",
