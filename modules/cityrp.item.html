@@ -403,6 +403,24 @@ entry (e.g. &quot;Clothing - Government Clothing&quot;) grants only that exact c
 </ol>
 
 </dd>
+<dt><a name="cityrp.item.canUseItem"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.canUseItem<span class="ll-args">(ply, itm, meta, metaContext)</span><span class="ll-returns"> → boolean, string|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L54">Source ☍</a></dt>
+<dd>
+<p>Checks every non-cooldown, non-context gate on using/equipping itm -- Clothing's fireCanUse ban and membership requirement, the PlayerCanUseItem hook, reps, membershiplevel, and canUse. Pure, never notifies -- a nil reason means the PlayerCanUseItem hook blocked it and already notified the player itself (e.g. uniforms' cooldown), so callers shouldn't show a fallback for that case; every other false result carries a real reason string.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">itm</span><span class="types">table</span><span class="ll-arg-desc">A registered item (cityrp.item.stored entry).</span></li>
+<li><span class="parameter">meta</span><span class="types">string?</span><span class="ll-arg-desc">The item meta value, forwarded to canUse's context.</span></li>
+<li><span class="parameter">metaContext</span><span class="types">table?</span><span class="ll-arg-desc">A pre-built itemmeta context to reuse (<a href="cityrp.item.html#cityrp.item.use">cityrp.item.use</a> passes its own so canUse's mutations carry through to onUse); built fresh from meta if omitted.</span></li>
+</ul>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span class="ll-ordinal">1</span><span class="types">boolean</span><span class="ll-arg-desc"></span></li>
+<li><span class="ll-ordinal">2</span><span class="types">string|nil</span><span class="ll-arg-desc"></span></li>
+</ol>
+
+</dd>
 <dt><a name="cityrp.item.categoryMatches"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.categoryMatches<span class="ll-args">(itemCat, selected)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L272">Source ☍</a></dt>
 <dd>
 <p>True if itemCat is exactly <code>selected</code>, or itemCat's parent category is <code>selected</code>.
@@ -438,7 +456,7 @@ matching rule can't drift between the two.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.destroy"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.destroy<span class="ll-args">(ply, item, amt, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L293">Source ☍</a></dt>
+<dt><a name="cityrp.item.destroy"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.destroy<span class="ll-args">(ply, item, amt, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L307">Source ☍</a></dt>
 <dd>
 <p>Destroys a player's item.</p>
 
@@ -455,7 +473,7 @@ matching rule can't drift between the two.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.drop"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.drop<span class="ll-args">(ply, item, amt, pos, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L193">Source ☍</a></dt>
+<dt><a name="cityrp.item.drop"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.drop<span class="ll-args">(ply, item, amt, pos, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L207">Source ☍</a></dt>
 <dd>
 <p>Drops an item from a player.</p>
 
@@ -501,7 +519,7 @@ matching rule can't drift between the two.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.give"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.give<span class="ll-args">(ply, item, amt, tObj, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L697">Source ☍</a></dt>
+<dt><a name="cityrp.item.give"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.give<span class="ll-args">(ply, item, amt, tObj, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L711">Source ☍</a></dt>
 <dd>
 <p>Give an item to a player.</p>
 
@@ -533,7 +551,7 @@ matching rule can't drift between the two.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.make"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.make<span class="ll-args">(item, pos, ply, meta, amt)</span><span class="ll-returns"> → boolean|<a href="Entity.html">Entity</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L471">Source ☍</a></dt>
+<dt><a name="cityrp.item.make"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.make<span class="ll-args">(item, pos, ply, meta, amt)</span><span class="ll-returns"> → boolean|<a href="Entity.html">Entity</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L485">Source ☍</a></dt>
 <dd>
 <p>Makes an item at the specified position.</p>
 
@@ -567,7 +585,7 @@ nothing from it, so the miss is logged as an ERROR rather than left silent.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.pickup"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.pickup<span class="ll-args">(ply, item, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L342">Source ☍</a></dt>
+<dt><a name="cityrp.item.pickup"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.pickup<span class="ll-args">(ply, item, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L356">Source ☍</a></dt>
 <dd>
 <p>Pick up a player's vehicle.</p>
 
@@ -583,7 +601,7 @@ nothing from it, so the miss is logged as an ERROR rather than left silent.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.place"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.place<span class="ll-args">(ply, item, amt, pos, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L593">Source ☍</a></dt>
+<dt><a name="cityrp.item.place"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.place<span class="ll-args">(ply, item, amt, pos, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L607">Source ☍</a></dt>
 <dd>
 <p>Places an item (i.e. food).</p>
 
@@ -601,7 +619,7 @@ nothing from it, so the miss is logged as an ERROR rather than left silent.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.placefood"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.placefood<span class="ll-args">(item, pos, ply, meta)</span><span class="ll-returns"> → boolean|<a href="Entity.html">Entity</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L584">Source ☍</a></dt>
+<dt><a name="cityrp.item.placefood"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.placefood<span class="ll-args">(item, pos, ply, meta)</span><span class="ll-returns"> → boolean|<a href="Entity.html">Entity</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L598">Source ☍</a></dt>
 <dd>
 <p>Makes a food entity at the specified position.</p>
 
@@ -633,7 +651,7 @@ nothing from it, so the miss is logged as an ERROR rather than left silent.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.remove"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.remove<span class="ll-args">(ply, item, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L146">Source ☍</a></dt>
+<dt><a name="cityrp.item.remove"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.remove<span class="ll-args">(ply, item, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L160">Source ☍</a></dt>
 <dd>
 <p>Remove an item from a player (like a hat).</p>
 
@@ -649,7 +667,7 @@ nothing from it, so the miss is logged as an ERROR rather than left silent.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.removemod"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.removemod<span class="ll-args">(ply, item)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L277">Source ☍</a></dt>
+<dt><a name="cityrp.item.removemod"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.removemod<span class="ll-args">(ply, item)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L291">Source ☍</a></dt>
 <dd>
 <p>Special function for removing a player's weapon mods on death. Added this because the other functions had bugs.</p>
 
@@ -679,7 +697,7 @@ Unlike <a href="cityrp.item.html#cityrp.item.get">cityrp.item.get</a>, this does
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.sell"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.sell<span class="ll-args">(ply, item, amt, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L391">Source ☍</a></dt>
+<dt><a name="cityrp.item.sell"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.sell<span class="ll-args">(ply, item, amt, meta)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L405">Source ☍</a></dt>
 <dd>
 <p>Sell a players item.</p>
 
@@ -696,7 +714,7 @@ Unlike <a href="cityrp.item.html#cityrp.item.get">cityrp.item.get</a>, this does
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.spawn"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.spawn<span class="ll-args">(class, item, pos, ply, meta)</span><span class="ll-returns"> → boolean|<a href="Entity.html">Entity</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L450">Source ☍</a></dt>
+<dt><a name="cityrp.item.spawn"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.spawn<span class="ll-args">(class, item, pos, ply, meta)</span><span class="ll-returns"> → boolean|<a href="Entity.html">Entity</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L464">Source ☍</a></dt>
 <dd>
 <p>Create an item entity and set the player.</p>
 
@@ -714,7 +732,7 @@ Unlike <a href="cityrp.item.html#cityrp.item.get">cityrp.item.get</a>, this does
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.takeStack"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.takeStack<span class="ll-args">(activator, ent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L515">Source ☍</a></dt>
+<dt><a name="cityrp.item.takeStack"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.takeStack<span class="ll-args">(activator, ent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L529">Source ☍</a></dt>
 <dd>
 <p>Gives a player as much of a dropped item stack as fits in their inventory,
 leaving any remainder in the world entity.</p>
@@ -727,7 +745,7 @@ leaving any remainder in the world entity.</p>
 
 
 </dd>
-<dt><a name="cityrp.item.tryMergeStack"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.tryMergeStack<span class="ll-args">(a, b)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L484">Source ☍</a></dt>
+<dt><a name="cityrp.item.tryMergeStack"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.tryMergeStack<span class="ll-args">(a, b)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L498">Source ☍</a></dt>
 <dd>
 <p>Attempts to combine two touching dropped item entities into one stack.
 Only merges entities that are the same item, same meta, and dropped by
@@ -741,7 +759,7 @@ the same player, so unrelated items lying near each other never combine.</p>
 
 
 </dd>
-<dt><a name="cityrp.item.use"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.use<span class="ll-args">(ply, item, meta, force)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L53">Source ☍</a></dt>
+<dt><a name="cityrp.item.use"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.item.use<span class="ll-args">(ply, item, meta, force)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_item.lua#L95">Source ☍</a></dt>
 <dd>
 <p>Have a player use an item.</p>
 

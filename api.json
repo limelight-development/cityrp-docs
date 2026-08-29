@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-28T17:10:10Z",
+  "generated": "2026-08-29T00:47:50Z",
   "modules": [
     {
       "name": "Array",
@@ -5483,12 +5483,12 @@
           "params": [
             {
               "name": "time",
-              "type": "number?",
+              "type": "any",
               "desc": ""
             },
             {
               "name": "showmins",
-              "type": "boolean",
+              "type": "any",
               "desc": ""
             }
           ],
@@ -8574,12 +8574,12 @@
           "params": [
             {
               "name": "ply",
-              "type": "Player",
+              "type": "any",
               "desc": ""
             },
             {
               "name": "state",
-              "type": "boolean",
+              "type": "any",
               "desc": ""
             }
           ],
@@ -72339,6 +72339,56 @@
           "members": []
         },
         {
+          "name": "cityrp.item.canUseItem",
+          "kind": "Functions",
+          "module": "cityrp.item",
+          "file": "core/libraries/sv_item.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Checks every non-cooldown, non-context gate on using/equipping itm -- Clothing's fireCanUse ban and membership requirement, the PlayerCanUseItem hook, reps, membershiplevel, and canUse. Pure, never notifies -- a nil reason means the PlayerCanUseItem hook blocked it and already notified the player itself (e.g. uniforms' cooldown), so callers shouldn't show a fallback for that case; every other false result carries a real reason string.",
+          "params": [
+            {
+              "name": "ply",
+              "type": "Player",
+              "desc": ""
+            },
+            {
+              "name": "itm",
+              "type": "table",
+              "desc": "A registered item (cityrp.item.stored entry)."
+            },
+            {
+              "name": "meta",
+              "type": "string?",
+              "desc": "The item meta value, forwarded to canUse's context."
+            },
+            {
+              "name": "metaContext",
+              "type": "table?",
+              "desc": "A pre-built itemmeta context to reuse (cityrp.item.use passes its own so canUse's mutations carry through to onUse); built fresh from meta if omitted."
+            }
+          ],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": ""
+            },
+            {
+              "type": "string|nil",
+              "desc": ""
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "cityrp.item.categoryMatches",
           "kind": "Functions",
           "module": "cityrp.item",
@@ -104797,7 +104847,7 @@
           "states": [
             "client"
           ],
-          "desc": "Draw the logs on screen.\n For use in a 2d render hook.",
+          "desc": "Draws the admin log panel. For use in a HUDPaint hook.",
           "params": [],
           "returns": [],
           "deprecated": null,
@@ -104879,37 +104929,6 @@
               "name": "color",
               "type": "any",
               "desc": "The colour to show on clients."
-            }
-          ],
-          "returns": [],
-          "deprecated": null,
-          "internal": false,
-          "warns": [],
-          "bugs": [],
-          "uniqueids": [],
-          "section": null,
-          "family": null,
-          "members": []
-        },
-        {
-          "name": "cityrp.adminhub.ChangeHeight",
-          "kind": "Functions",
-          "module": "core.plugins.adminhub.sv_init",
-          "file": "core/plugins/adminhub/sv_init.lua",
-          "states": [
-            "server"
-          ],
-          "desc": "Update the adminhub rows on a player.",
-          "params": [
-            {
-              "name": "ply",
-              "type": "any",
-              "desc": "Player to update."
-            },
-            {
-              "name": "rows",
-              "type": "any",
-              "desc": ""
             }
           ],
           "returns": [],
@@ -121599,6 +121618,32 @@
           "members": []
         },
         {
+          "name": "cityrp.litecharacter.GetSelectableTeams",
+          "kind": "Functions",
+          "module": "core.plugins.lite_character.sh_init",
+          "file": "core/plugins/lite_character/sh_init.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Every real, selectable team for the \"Character Team\" browser -- excludes TEAM_AFK, sorted by name.",
+          "params": [],
+          "returns": [
+            {
+              "type": "{ index: number, name: string }[]",
+              "desc": ""
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "cityrp.litecharacter.GetSlotRequirement",
           "kind": "Functions",
           "module": "core.plugins.lite_character.sh_init",
@@ -121829,7 +121874,7 @@
             "client",
             "server"
           ],
-          "desc": "Easy to retune: swap any entry for another CityAccessories Type (e.g. \"cloak\",\n \"faceaccessory\", \"headphones\", \"mouthaccessory\", \"mask\").",
+          "desc": "Every CityAccessories Type -- one dropdown per slot in the editor.",
           "params": [],
           "returns": [],
           "deprecated": null,
@@ -122354,7 +122399,11 @@
             },
             {
               "type": "string|nil",
-              "desc": "Non-fatal notice for an otherwise-successful activation (currently only the Team Character job-mismatch degrade)."
+              "desc": "Non-fatal notice for an otherwise-successful activation (Team Character job-mismatch, or a modelItem requirement no longer met)."
+            },
+            {
+              "type": "boolean|nil",
+              "desc": "True when record.modelItem exists but was soft-failed (requirements no longer met) -- tells CompleteActivation's Phase 2 to leave the model alone instead of applying record.modelItem unconditionally."
             }
           ],
           "deprecated": null,
@@ -133789,6 +133838,27 @@
             "server"
           ],
           "desc": "The max time that a player can be arrested for (seconds).",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.configuration.Max Arrest Time (Presidential)",
+          "kind": "Fields",
+          "module": "core.sh_configuration",
+          "file": "core/sh_configuration.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "The max time that a player can be arrested for (seconds), when the President or Vice President is available.",
           "params": [],
           "returns": [],
           "deprecated": null,

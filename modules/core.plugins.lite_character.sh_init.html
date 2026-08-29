@@ -362,7 +362,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.EmptyRecord"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.EmptyRecord<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L153">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.EmptyRecord"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.EmptyRecord<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L165">Source ☍</a></dt>
 <dd>
 <p>A blank slot record -- used as the default when a slot has nothing saved yet.</p>
 
@@ -373,7 +373,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.FindTeamForModel"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.FindTeamForModel<span class="ll-args">(modelPath)</span><span class="ll-returns"> → number|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L140">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.FindTeamForModel"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.FindTeamForModel<span class="ll-args">(modelPath)</span><span class="ll-returns"> → number|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L139">Source ☍</a></dt>
 <dd>
 <p>@<em>return</em> <code>team</code> — The first TEAM_* whose own model list (either gender) contains modelPath.</p>
 
@@ -384,6 +384,17 @@
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
 <li><span></span><span class="types">number|nil</span><span class="ll-arg-desc">The first TEAM_* whose own model list (either gender) contains modelPath.</span></li>
+</ol>
+
+</dd>
+<dt><a name="cityrp.litecharacter.GetSelectableTeams"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.GetSelectableTeams<span class="ll-args">()</span><span class="ll-returns"> → { index: number, name: string }[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L152">Source ☍</a></dt>
+<dd>
+<p>Every real, selectable team for the &quot;Character Team&quot; browser -- excludes TEAM_AFK, sorted by name.</p>
+
+
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">{ index: number, name: string }[]</span><span class="ll-arg-desc"></span></li>
 </ol>
 
 </dd>
@@ -403,7 +414,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.GetTeamCharacterModels"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.GetTeamCharacterModels<span class="ll-args">(team, gender)</span><span class="ll-returns"> → string[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L108">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.GetTeamCharacterModels"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.GetTeamCharacterModels<span class="ll-args">(team, gender)</span><span class="ll-returns"> → string[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L107">Source ☍</a></dt>
 <dd>
 <p>Every model path available to team's &quot;Team Character&quot; category for the given gender, de-duplicated</p>
 
@@ -418,7 +429,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.GetTeamModelCategory"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.GetTeamModelCategory<span class="ll-args">(team)</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L97">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.GetTeamModelCategory"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.GetTeamModelCategory<span class="ll-args">(team)</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L96">Source ☍</a></dt>
 <dd>
 <p>@<em>param</em> <code>team</code> — A TEAM_* constant.</p>
 <p>@<em>return</em> <code>categoryTeams</code> — Array of TEAM_* constants sharing team's category (always includes team itself, even if uncategorized).</p>
@@ -433,7 +444,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.GetTeamModelCategoryNames"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.GetTeamModelCategoryNames<span class="ll-args">(team)</span><span class="ll-returns"> → string[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L129">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.GetTeamModelCategoryNames"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.GetTeamModelCategoryNames<span class="ll-args">(team)</span><span class="ll-returns"> → string[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L128">Source ☍</a></dt>
 <dd>
 <p>Display names of every job sharing team's &quot;Team Character&quot; category</p>
 
@@ -447,7 +458,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.IsExcluded"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.IsExcluded<span class="ll-args">(uniqueID)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L80">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.IsExcluded"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.IsExcluded<span class="ll-args">(uniqueID)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L79">Source ☍</a></dt>
 <dd>
 <p>Whether an item is excluded from the lite character system entirely.</p>
 
@@ -461,7 +472,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.NetReadRecord"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.NetReadRecord<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L201">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.NetReadRecord"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.NetReadRecord<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L215">Source ☍</a></dt>
 <dd>
 <p>Reads a full slot record from the currently open net message.</p>
 
@@ -472,7 +483,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.NetWriteRecord"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.NetWriteRecord<span class="ll-args">(record)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L173">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.NetWriteRecord"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.litecharacter.NetWriteRecord<span class="ll-args">(record)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L185">Source ☍</a></dt>
 <dd>
 <p>Writes a full slot record to the currently open net message. Shared wire format used both for the server sending a saved slot to the
 editor (SlotData) and the client sending its edits back (SaveSlot).</p>
@@ -487,16 +498,15 @@ editor (SlotData) and the client sending its edits back (SaveSlot).</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="LITECHAR_ACCESSORY_SLOTS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">LITECHAR_ACCESSORY_SLOTS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L64">Source ☍</a></dt>
+<dt><a name="LITECHAR_ACCESSORY_SLOTS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">LITECHAR_ACCESSORY_SLOTS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L63">Source ☍</a></dt>
 <dd>
-<p>Easy to retune: swap any entry for another CityAccessories Type (e.g. &quot;cloak&quot;,
-&quot;faceaccessory&quot;, &quot;headphones&quot;, &quot;mouthaccessory&quot;, &quot;mask&quot;).</p>
+<p>Every CityAccessories Type -- one dropdown per slot in the editor.</p>
 
 
 
 
 </dd>
-<dt><a name="LITECHAR_EXCLUDED_ITEMS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">LITECHAR_EXCLUDED_ITEMS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L70">Source ☍</a></dt>
+<dt><a name="LITECHAR_EXCLUDED_ITEMS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">LITECHAR_EXCLUDED_ITEMS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L69">Source ☍</a></dt>
 <dd>
 <p>Developer exclusion table. Anything listed here is invisible to every dropdown
 in this system (Model/Accessories/Bodygroup Accessories/Extras) and is also
@@ -521,7 +531,7 @@ so this works identically client- and server-side.</p>
 
 
 </dd>
-<dt><a name="LITECHAR_TEAM_MODEL_CATEGORIES"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">LITECHAR_TEAM_MODEL_CATEGORIES</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L85">Source ☍</a></dt>
+<dt><a name="LITECHAR_TEAM_MODEL_CATEGORIES"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">LITECHAR_TEAM_MODEL_CATEGORIES</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sh_init.lua#L84">Source ☍</a></dt>
 <dd>
 <p>Groups jobs (TEAM_* constants) that should share one pooled &quot;Team Character&quot; model list -- e.g. a Police Officer and Police Chief can each pick from either job's own team models.</p>
 
