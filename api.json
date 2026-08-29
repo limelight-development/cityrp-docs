@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-29T00:47:50Z",
+  "generated": "2026-08-29T12:13:21Z",
   "modules": [
     {
       "name": "Array",
@@ -5483,12 +5483,12 @@
           "params": [
             {
               "name": "time",
-              "type": "any",
+              "type": "number?",
               "desc": ""
             },
             {
               "name": "showmins",
-              "type": "any",
+              "type": "boolean",
               "desc": ""
             }
           ],
@@ -8574,12 +8574,12 @@
           "params": [
             {
               "name": "ply",
-              "type": "any",
+              "type": "Player",
               "desc": ""
             },
             {
               "name": "state",
-              "type": "any",
+              "type": "boolean",
               "desc": ""
             }
           ],
@@ -77339,7 +77339,7 @@
     },
     {
       "name": "cityrp.network",
-      "description": "Clientside receiving, handshake and pull-on-visible resync for the CityRP networking library.\nStoring values directly on the entity (`sh_store.lua`) retires the plugin this library replaces'\nworst clientside bug for free: `PLUGIN.NSVars[entIndex]`, keyed by raw index, was never cleared on\ndisconnect, so a recycled edict inherited whatever the previous occupant left behind. GMod hands a\nnewly-created entity a fresh Lua table regardless of which index it reuses, so `ent.__netvars` simply\ndoes not exist yet for it -- there is nothing to clean up, and nothing here needs to try.\n\nThe one real gap that storage model leaves is timing: a value can arrive (via Update or Resync)\nreferencing an entity this client hasn't networked yet. Those are buffered by raw index in `pending`\nuntil `OnEntityCreated` actually produces the entity, and swept on a TTL in case it never does (e.g.\nthe entity never entered this client's PVS at all).",
+      "description": "Clientside receiving, handshake, pull-on-visible resync and `:ClientOwned()` sends for the CityRP\nnetworking library.\nStoring values directly on the entity (`sh_store.lua`) retires the plugin this library replaces'\nworst clientside bug for free: `PLUGIN.NSVars[entIndex]`, keyed by raw index, was never cleared on\ndisconnect, so a recycled edict inherited whatever the previous occupant left behind. GMod hands a\nnewly-created entity a fresh Lua table regardless of which index it reuses, so `ent.__netvars` simply\ndoes not exist yet for it -- there is nothing to clean up, and nothing here needs to try.\n\nThe one real gap that storage model leaves is timing: a value can arrive (via Update or Resync)\nreferencing an entity this client hasn't networked yet. Those are buffered by raw index in `pending`\nuntil `OnEntityCreated` actually produces the entity, and swept on a TTL in case it never does (e.g.\nthe entity never entered this client's PVS at all).",
       "symbols": [
         {
           "name": "cityrp.network",
@@ -77372,6 +77372,47 @@
           "desc": "Announces that this client's net channel is up and ready to receive the manifest.",
           "params": [],
           "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.network.ApplyAndSend",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sv_send.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Applies a value and, if `ApplyValue`'s delta guard says it changed, sends it.",
+          "params": [
+            {
+              "name": "netvar",
+              "type": "NetVar",
+              "desc": ""
+            },
+            {
+              "name": "ent",
+              "type": "Entity?",
+              "desc": "nil for Global scope."
+            },
+            {
+              "name": "value",
+              "type": "any",
+              "desc": ""
+            }
+          ],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "Whether the value changed, and therefore whether an update was sent."
+            }
+          ],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -77457,7 +77498,7 @@
             "client",
             "server"
           ],
-          "desc": "Validates (if the var has an `:Enum()`-set `validate` function), applies a value to storage, and\n fires the var's `:SetHook()` hook if the value changed. Shared by the server's own\n `SetNetVar`/`SetGlobal` (`sv_send.lua`) -- so the server's own copy of a value updates immediately\n regardless of who receives the resulting net message, and so the delta guard that decides whether\n to bother networking at all lives in exactly one place -- and the client's receive path\n (`cl_receive.lua`), once an update has actually been decoded.\n for a `:Predictable()` var's client-side local apply, see `GenerateAccessor` below.",
+          "desc": "Validates (if the var has an `:Enum()`-set `validate` function), applies a value to storage, and\n fires the var's `:SetHook()` hook if the value changed. Shared by the server's own\n `SetNetVar`/`SetGlobal` (`sv_send.lua`) -- so the server's own copy of a value updates immediately\n regardless of who receives the resulting net message, and so the delta guard that decides whether\n to bother networking at all lives in exactly one place -- and the client's receive path\n (`cl_receive.lua`), once an update has actually been decoded.\n for a client-side local apply the server has not confirmed, from either a `:Predictable()` or a\n `:ClientOwned()` var's client setter. See `GenerateAccessor` below.",
           "params": [
             {
               "name": "netvar",
@@ -77542,6 +77583,63 @@
           ],
           "desc": "Registered vars by their sealed numeric ID. Empty until `Seal` runs (server: immediately, from\n its own sort; client: incrementally, as manifest entries arrive -- see `cl_receive.lua`).",
           "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.network.ClearDebounce",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sv_debounce.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Drops every pending value and window for one owner. Called from `sv_send.lua`'s cleanup hooks.",
+          "params": [
+            {
+              "name": "owner",
+              "type": "Entity",
+              "desc": "The disconnecting player or removed entity."
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.network.ClientSet",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/cl_receive.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "Sets a `:ClientOwned()` var on the local player: applies it locally, then asks the server to\n accept it. What the server receives is a claim, never a fact -- see `docs/networking.md`.\n\n The generated `Set<Name>()` calls this; use it directly for a var registered without\n `:Accessor()`.",
+          "params": [
+            {
+              "name": "name",
+              "type": "string",
+              "desc": "The registered var name."
+            },
+            {
+              "name": "value",
+              "type": "any",
+              "desc": "The new value. `nil` clears it."
+            }
+          ],
           "returns": [],
           "deprecated": null,
           "internal": false,
@@ -77667,6 +77765,27 @@
             "server"
           ],
           "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.network.CODEC_BSTRING",
+          "kind": "Fields",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sh_codecs.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Length-prefixed string, bounded to the `maxLen` its `:String(maxLen)` registration declared.\n Declared-only: `Auto` has no `maxLen` to infer, which is also why this sits above `AUTO_TAG_MAX`.",
           "params": [],
           "returns": [],
           "deprecated": null,
@@ -78170,7 +78289,7 @@
             "client",
             "server"
           ],
-          "desc": "Codec definitions, indexed by `NetCodecId`. Each entry is `{name, write, read, batchable}`.\n `write(value, arg)` / `read(arg)` -- `arg` is the codec argument from the `NetVar` (bit width for\n `Integer`/`UInteger`, byte length for `Data`), ignored by fixed-shape codecs. `batchable = false`\n (currently only `Custom`) marks a codec that can't safely share a batched message, since an\n undecodable value must not corrupt any entry after it -- see `sv_send.lua`.",
+          "desc": "Codec definitions, indexed by `NetCodecId`. Each entry is `{name, write, read, batchable}`.\n `write(value, arg)` / `read(arg)` -- `arg` is the codec argument from the `NetVar` (bit width for\n `Integer`/`UInteger`, byte length for `Data`), ignored by fixed-shape codecs. `batchable = false`\n (currently only `Custom`) marks a codec that can't safely share a batched message, since an\n undecodable value must not corrupt any entry after it -- see `sv_send.lua`.\n\n A `read` may return a second value, `false`, to declare the byte stream unsalvageable from there\n on -- only `BoundedString` does, on a length prefix above its registered maximum. `DecodeEntry`\n checks it with `== false`, since every other codec's second return is `nil`.",
           "params": [],
           "returns": [],
           "deprecated": null,
@@ -78219,14 +78338,82 @@
           "members": []
         },
         {
+          "name": "cityrp.network.CountInbound",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sv_send.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Counts one inbound message against `ply`'s budget and says whether to process it. Deliberately\n crude -- `:Debounce()` is what actually makes client-owned vars safe, so this only ever fires for\n a client sending orders of magnitude more than a real one.",
+          "params": [
+            {
+              "name": "ply",
+              "type": "Player",
+              "desc": ""
+            }
+          ],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "False if the message should be ignored."
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.network.DebounceSet",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sv_debounce.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Routes one server-side set through this var's debounce window. Called from\n `cityrp.network.Dispatch` (`sv_send.lua`) for any var that declared `:Debounce()`.",
+          "params": [
+            {
+              "name": "netvar",
+              "type": "NetVar",
+              "desc": ""
+            },
+            {
+              "name": "ent",
+              "type": "Entity?",
+              "desc": "nil for Global scope."
+            },
+            {
+              "name": "value",
+              "type": "any",
+              "desc": ""
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "cityrp.network.DecodeEntry",
           "kind": "Functions",
           "module": "cityrp.network",
-          "file": "core/libraries/network/cl_receive.lua",
+          "file": "core/libraries/network/sh_store.lua",
           "states": [
-            "client"
+            "client",
+            "server"
           ],
-          "desc": "Reads one var entry (`[id][isNil][value?]`). On any decode failure the rest of the current net\n message is unsalvageable -- an id this client doesn't recognise, or a Custom codec with no local\n `:Read()`, means the byte length of what follows can't be known -- so callers must stop reading\n immediately rather than try to continue. Safe to do because the server never batches a\n non-batchable (Custom-codec) entry with anything else, and both callers below already discard any\n message that arrives before this client's own manifest.",
+          "desc": "Reads one var entry written by `WriteVarEntry`. On any decode failure the byte length of what\n follows is unknowable, so callers must stop reading rather than continue -- safe because a\n non-batchable entry is never batched with anything else.",
           "params": [],
           "returns": [
             {
@@ -78269,6 +78456,42 @@
             {
               "name": "ent",
               "type": "Entity",
+              "desc": ""
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.network.Dispatch",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sv_send.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "The single seam every server-side set goes through, so `:Debounce()` is one branch rather than a\n condition duplicated in `SetNetVar` and `SetGlobal`.",
+          "params": [
+            {
+              "name": "netvar",
+              "type": "NetVar",
+              "desc": ""
+            },
+            {
+              "name": "ent",
+              "type": "Entity?",
+              "desc": "nil for Global scope."
+            },
+            {
+              "name": "value",
+              "type": "any",
               "desc": ""
             }
           ],
@@ -78334,6 +78557,26 @@
               "desc": ""
             }
           ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.network.DrainPendingDebounces",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sv_debounce.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Applies any pending values whose windows have closed. On `Think` rather than a `timer.Simple` per\n pair, which would be a timer per player per var, each needing to re-validate its entity inside the\n callback (AGENTS.md footgun #2) for a routine mid-window disconnect.",
+          "params": [],
           "returns": [],
           "deprecated": null,
           "internal": false,
@@ -78465,6 +78708,26 @@
           "members": []
         },
         {
+          "name": "cityrp.network.FlushClientSets",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/cl_receive.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "Sends everything buffered while the manifest was outstanding. Called from the manifest receiver\n above, once `byId`/`idBits` are populated.\n\n The queue is swapped out before iterating: each apply runs the var's `:SetHook()`, which may call\n `ClientSet` again, and adding a key mid-`pairs` is undefined in Lua.",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "cityrp.network.FlushResyncRequests",
           "kind": "Functions",
           "module": "cityrp.network",
@@ -78493,7 +78756,7 @@
             "client",
             "server"
           ],
-          "desc": "Defines `Get<Name>()` (both realms) and `Set<Name>()` for a var registered with `:Accessor(name)`,\n on the metatable `ACCESSOR_METATABLE` maps its scope to (Entity for Global/Entity scope, Player\n for Player/LocalPlayer, Vehicle/Weapon for those). A no-op for a var with no accessor name set.\n Idempotent -- safe to call more than once for the same var.\n\n `Set<Name>()` is server-only -- setting is server-authoritative -- UNLESS `:Predictable()` was\n also called, in which case the client gets its own `Set<Name>()` too: a purely local apply\n (`ApplyValue` with `predicted = true`, storage + hook only, never a network send) rather than the\n server's `SetNetVar`/`SetGlobal`, which don't exist on the client realm at all (`sv_send.lua` is\n server-only). `:Predictable()` only makes sense for `:SetLocalPlayer()`, so a scope mismatch here\n is a logged error, not a silently-generated footgun.",
+          "desc": "Defines `Get<Name>()` (both realms) and `Set<Name>()` for a var registered with `:Accessor(name)`,\n on the metatable `ACCESSOR_METATABLE` maps its scope to (Entity for Global/Entity scope, Player\n for Player/LocalPlayer, Vehicle/Weapon for those). A no-op for a var with no accessor name set.\n Idempotent -- safe to call more than once for the same var.\n\n `Set<Name>()` is server-only -- `SetNetVar`/`SetGlobal` live in the server-only `sv_send.lua` --\n unless the var opted into a client-side form:\n\n - `:ClientOwned()` applies locally and sends. Already vetted at seal by `ValidateClientOwned`, so a\n   var that failed has had the flag cleared and simply gets no setter here.\n - `:Predictable()` applies locally only. Coherent for `:SetLocalPlayer()` alone, so a scope\n   mismatch is a logged error rather than a silently-generated footgun.\n\n Both pass `predicted = true` -- the client is holding a value the server has not confirmed either\n way. Client-owned wins if a var chained both; `ValidateClientOwned` has already warned.",
           "params": [
             {
               "name": "netvar",
@@ -78523,6 +78786,31 @@
           "desc": "Generates accessors for every currently-registered var. Called once from `Seal()`, after which\n new registrations no longer occur -- see `sh_registry.lua`.",
           "params": [],
           "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.network.GetDebounceReport",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sv_debounce.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Every (owner, var) pair the debouncer is tracking, for `cityrp_network_dump`. Includes settled\n pairs: without them the dump cannot tell a var that has never been set from one that has, which\n is exactly the question worth asking of a client-owned var that is not arriving.",
+          "params": [],
+          "returns": [
+            {
+              "type": "{ owner: Entity?, netvar: NetVar, interval: number, pending: boolean, dispatches: integer }[]",
+              "desc": ""
+            }
+          ],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -79754,6 +80042,33 @@
           "members": []
         },
         {
+          "name": "cityrp.network.ValidateClientOwned",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sh_registry.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Checks a `:ClientOwned()` var's constraints and clears the flag if it fails any, so the client\n setter is never generated rather than a var being writable in a shape nobody vetted.\n\n Runs at seal, not inside `:ClientOwned()`: a chain sets its fields in whatever order it was\n written, so `:ClientOwned():Bool():SetPlayer():Debounce(1)` would see a default scope, a default\n codec and no debounce. `:Predictable()` defers its scope check for the same reason.",
+          "params": [
+            {
+              "name": "netvar",
+              "type": "NetVar",
+              "desc": "The var to check. A no-op unless it called `:ClientOwned()`."
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "cityrp.network.WaitForPlayer",
           "kind": "Functions",
           "module": "cityrp.network",
@@ -79893,11 +80208,12 @@
           "name": "cityrp.network.WriteVarEntry",
           "kind": "Functions",
           "module": "cityrp.network",
-          "file": "core/libraries/network/sv_send.lua",
+          "file": "core/libraries/network/sh_store.lua",
           "states": [
+            "client",
             "server"
           ],
-          "desc": "Writes one var entry: `[id][isNil][value?]`. Shared by the single-entry live Update path and the\n grouped Resync path.",
+          "desc": "Writes one var entry: `[id][isNil][value?]`. Used by the server's live Update and grouped Resync\n paths (`sv_send.lua`) and by the client's `ClientSet` send (`cl_receive.lua`).",
           "params": [
             {
               "name": "netvar",
@@ -80781,6 +81097,53 @@
           "members": []
         },
         {
+          "name": "NetVar.clientOwned",
+          "kind": "Fields",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sh_registry.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "If true, `:Accessor()` generates a client-side `Set<Name>()` that applies locally *and* sends to the server -- see `:ClientOwned()`. Cleared at seal if the var fails `ValidateClientOwned`.",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "NetVar.ClientOwned",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sh_registry.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Lets a client set this var on its own player: `Set<Name>()` appears on the client, applying\n locally then sending, and the server applies it through the ordinary `SetNetVar` path so recipient\n rules and the `:Enum()` validator still hold. `cityrp.network.ClientSet` is the same without an\n accessor.\n\n What arrives is a claim, never a fact -- never gate permissions, economy or anti-cheat on one. See\n `docs/networking.md`.\n\n Constraints are checked at seal, not here: a builder chain sets its fields in any order, so none of\n them exist yet. See `ValidateClientOwned`.",
+          "params": [],
+          "returns": [
+            {
+              "type": "NetVar",
+              "desc": "For chaining."
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "NetVar.codec",
           "kind": "Fields",
           "module": "cityrp.network",
@@ -80894,7 +81257,7 @@
             "client",
             "server"
           ],
-          "desc": "Fixed-length byte string via `net.WriteData`/`net.ReadData`.",
+          "desc": "Fixed-length byte string. Pads short values with `\\0` to exactly `maxLen` and costs that much\n regardless; for text use `:String(maxLen)` above.",
           "params": [
             {
               "name": "maxLen",
@@ -80908,6 +81271,85 @@
               "desc": "For chaining."
             }
           ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "NetVar.Debounce",
+          "kind": "Functions",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sh_registry.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Coalesces sets to at most one change per `seconds`: a set in a quiet period dispatches\n immediately, one inside the window overwrites a single pending slot. The apply is debounced too,\n so server-side reads lag by up to `seconds`. `ceiling` reserves the shape for adaptive backoff\n without enabling it -- omitted, it equals `seconds` and the interval never moves. Required by\n `:ClientOwned()`. See `docs/networking.md`.",
+          "params": [
+            {
+              "name": "seconds",
+              "type": "number",
+              "desc": "Minimum seconds between dispatches. Must be positive."
+            },
+            {
+              "name": "ceiling",
+              "type": "number?",
+              "desc": "Upper bound for adaptive backoff. Defaults to `seconds`, i.e. no escalation."
+            }
+          ],
+          "returns": [
+            {
+              "type": "NetVar",
+              "desc": "For chaining."
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "NetVar.debounceCeiling",
+          "kind": "Fields",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sh_registry.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Upper bound for adaptive backoff. Equal to `debounceInterval` unless `:Debounce()` was given a second argument, in which case escalation is enabled.",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "NetVar.debounceInterval",
+          "kind": "Fields",
+          "module": "cityrp.network",
+          "file": "core/libraries/network/sh_registry.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Minimum seconds between dispatches, and the floor an adaptive interval resets to -- see `:Debounce()`.",
+          "params": [],
+          "returns": [],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -81854,16 +82296,27 @@
         },
         {
           "name": "NetVar.String",
-          "kind": "Fields",
+          "kind": "Functions",
           "module": "cityrp.network",
           "file": "core/libraries/network/sh_registry.lua",
           "states": [
             "client",
             "server"
           ],
-          "desc": "",
-          "params": [],
-          "returns": [],
+          "desc": "Text. With no argument, `net.WriteString`/`net.ReadString` -- null-terminated, so the writer picks\n the length. With `maxLen`, a length prefix sized to `maxLen` then exactly that many bytes: no\n padding, and the read length comes from this registration rather than the wire, which is why it is\n the only string form `:ClientOwned()` accepts. Over-length is logged either way, never silently\n dropped (`sh_codecs.lua`). `maxLen` counts bytes, so truncation can split a character.",
+          "params": [
+            {
+              "name": "maxLen",
+              "type": "integer?",
+              "desc": "Maximum byte length, 1 to `(2 ^ CODEC_ARG_BITS) - 1`. Omit for the unbounded form."
+            }
+          ],
+          "returns": [
+            {
+              "type": "NetVar",
+              "desc": "For chaining."
+            }
+          ],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -136799,7 +137252,7 @@
         "pinned": "true",
         "description": "The checklist a change has to pass, and what CI rejects."
       },
-      "body": "\n# Coding Standards (CityRP)\n\nThis is the CityRP-specific **coding standards gate** for humans and agents. General Limelight\nprocess and architecture still live in the\n[standards repo](https://github.com/limelight-development/standards). If existing code conflicts\nwith this page, **this page wins** for new and refactored work — nearby legacy is not permission\nto copy a forbidden pattern.\n\n| Layer | Role |\n| :--- | :--- |\n| [`.cursor/rules/agent-musts.mdc`](../.cursor/rules/agent-musts.mdc) | Always-injected agent summary |\n| This topic | Authoritative CityRP checklist + reject criteria |\n| [Modern APIs](modern-apis.md) | Per-category mandatory vs forbidden APIs |\n| [LuaCATS Annotations](luacats.md) | Mandatory function docs |\n| [AGENTS.md](../AGENTS.md) | Silent-failure footguns unique to this codebase |\n| CI (`lint-diff` + `standards-diff`) | Machine enforcement on **changed lines** |\n\n## Non-negotiables\n\n1. **Modern APIs only** for new/refactored code — see [modern-apis.md](modern-apis.md).\n2. **Every function** has a LuaCATS doc comment directly above it (no blank line) — see [luacats.md](luacats.md).\n3. **File headers** use `--- @namespace`, never `--- @module`.\n4. **Lua idioms**: `~=` / `not` / `and` / `or` — never `!=` / `!` / `&&` / `||` (GMod accepts the C forms silently; `glualint` rejects them).\n5. **Client UI** goes through `cityrp.ui` — see [ui-scaling.md](ui-scaling.md).\n6. **Commands**: player tools on `/` via `cityrp.command.add`; staff (including RP Assistant) on `!` via `cityrp.acommands.AddCommand`; always pass category, syntax, tip — see [commands.md](commands.md).\n7. **Async callbacks** re-check `IsValid` *inside* the callback — see [AGENTS.md](../AGENTS.md) footgun #2.\n8. **Do not** introduce `umsg.*`, `SendLua()`, or `BroadcastLua()`.\n\n## Pre-submit checklist\n\nUse this before opening or updating a PR:\n\n- [ ] Touched functions have LuaCATS annotations (three dashes, no blank line before `function`)\n- [ ] No new `ScrW() / 1920`, `LimelightHUD.GetScaleFactor()`, or fixed UI `surface.CreateFont` sizes\n- [ ] No new `\"say /...\"` command literals — use `cityrp ...` / `cityrp.command.consoleCommand`\n- [ ] No new `--- @module` headers\n- [ ] No new `cityrp.item.register` / spawnable inheritance-only bases — use `ITEM:New`\n- [ ] No new NW/NW2 vars for player state — use `SetNSVar` / `setLocalPlayerVariable`\n- [ ] No new `color_white` / `color_black` — use `COL_WHITE` / `COL_BLACK`\n- [ ] No LDoc tags, two-dash `-- @tag` annotations, or blank lines between a doc comment and its declaration\n- [ ] New commands have category + syntax + tip on the correct `/` or `!` API\n- [ ] Logging uses `cityrp.logs.add` (audit) or `cityrp.logging.GetLogger` (diagnostics), not `print`\n- [ ] `glualint` clean on changed lines:\n  `python3 .github/scripts/lint-diff.py --base origin/master gamemodes/cityrp_2_by_limelightgaming`\n- [ ] Standards patterns clean on changed lines:\n  `python3 .github/scripts/standards-diff.py --base origin/master`\n\n## What review / CI will reject\n\nThese are treated as standards violations on **lines your diff adds or modifies** (pre-existing\nlegacy elsewhere in a file is not enough reason to add more of it):\n\n| Pattern on a changed line | Why |\n| :--- | :--- |\n| `ScrW() / 1920` (or `ScrH() / 1080`) | Bypass of `cityrp.ui` |\n| `LimelightHUD.GetScaleFactor()` | Same — use `cityrp.ui` (grandfathered only under `core/derma/cl_hud_*.lua` until migrated) |\n| `--- @module` | LuaLS drops the entire doc comment — use `@namespace` |\n| A `\"say /...\"` / `\"say !...\"` literal, wherever it is built | Chat-pipeline detour — footgun #13 |\n| `umsg.*`, `SendLua(`, `BroadcastLua(` | Banned networking |\n| `cityrp.item.register(` | Legacy item API — use `ITEM:New` |\n| `ply:SetNW*` / `SetNW2*` on a player | NW vars are the avoided tier for player state — use `SetNSVar` / `setLocalPlayerVariable` |\n| `color_white` / `color_black` | Use `COL_WHITE` / `COL_BLACK` from `sh_enumerations.lua` |\n| LDoc tags (`@tparam`, `@treturn`, `@classmod`, `@usage`, `@number`, `@local`), `@vararg` | Not LuaCATS — they render nowhere, on two dashes or three |\n| Any two-dash `-- @tag` line, `--[[--- @as T]]` | Invisible to LuaLS — annotations need three dashes, inline casts take none |\n| A file-level `function` your diff adds with no `---` comment above it | Non-negotiable 2 — see [luacats.md](luacats.md) |\n| A blank line between a doc comment and its declaration | LuaLS never associates them; the annotation is dropped |\n| `cityrp.command.add` / `cityrp.acommands.AddCommand` without category, syntax and tip | F1 shows `\"No description.\"` — see [commands.md](commands.md) |\n\nThe annotation, colour-constant and NW-var rules apply under\n`gamemodes/cityrp_2_by_limelightgaming/` only: vendored addons are not on the docs site and are\nnot ours to re-plumb. The doc-comment rules look at file-level declarations, so panel callbacks\nand nested helpers are review's job, not CI's.\n\nC-style operators are rejected by `glualint` via `lint-diff.py`. Patterns in the table above are\nrejected by `standards-diff.py`. Both run in the Code Linting workflow, which tests its own diff\ngates first (`test-diff-scripts.py`) — these checks fail open when there is nothing to diff, so a\nbase resolved to the wrong commit would report success without checking anything.\n\n## When you touch legacy code\n\nEditing a file that still uses a forbidden pattern does **not** require rewriting the whole file.\nIt **does** require that *your* new or modified lines follow this page. Prefer migrating the\nlocal call site when the change already has to understand that code (especially UI scale).\n\n## Related topics\n\n- [Modern APIs](modern-apis.md)\n- [UI Scaling](ui-scaling.md)\n- [Chat Commands](commands.md)\n- [Plugins](plugins.md)\n- [LuaCATS Annotations](luacats.md)\n- [Commit Message Conventions](commit-message-conventions.md)\n- [Writing Doc Comments](doc-comments.md)\n"
+      "body": "\n# Coding Standards (CityRP)\n\nThis is the CityRP-specific **coding standards gate** for humans and agents. General Limelight\nprocess and architecture still live in the\n[standards repo](https://github.com/limelight-development/standards). If existing code conflicts\nwith this page, **this page wins** for new and refactored work — nearby legacy is not permission\nto copy a forbidden pattern.\n\n| Layer | Role |\n| :--- | :--- |\n| [`.cursor/rules/agent-musts.mdc`](../.cursor/rules/agent-musts.mdc) | Always-injected agent summary |\n| This topic | Authoritative CityRP checklist + reject criteria |\n| [Modern APIs](modern-apis.md) | Per-category mandatory vs forbidden APIs |\n| [LuaCATS Annotations](luacats.md) | Mandatory function docs |\n| [AGENTS.md](../AGENTS.md) | Silent-failure footguns unique to this codebase |\n| CI (`lint-diff` + `standards-diff`) | Machine enforcement on **changed lines** |\n\n## Non-negotiables\n\n1. **Modern APIs only** for new/refactored code — see [modern-apis.md](modern-apis.md).\n2. **Every function** has a LuaCATS doc comment directly above it (no blank line) — see [luacats.md](luacats.md).\n3. **File headers** use `--- @namespace`, never `--- @module`.\n4. **Lua idioms**: `~=` / `not` / `and` / `or` — never `!=` / `!` / `&&` / `||` (GMod accepts the C forms silently; `glualint` rejects them).\n5. **Client UI** goes through `cityrp.ui` — see [ui-scaling.md](ui-scaling.md).\n6. **Commands**: player tools on `/` via `cityrp.command.add`; staff (including RP Assistant) on `!` via `cityrp.acommands.AddCommand`; always pass category, syntax, tip — see [commands.md](commands.md).\n7. **Async callbacks** re-check `IsValid` *inside* the callback — see [AGENTS.md](../AGENTS.md) footgun #2.\n8. **Do not** introduce `umsg.*`, `SendLua()`, or `BroadcastLua()`.\n\n## Pre-submit checklist\n\nUse this before opening or updating a PR:\n\n- [ ] Touched functions have LuaCATS annotations (three dashes, no blank line before `function`)\n- [ ] No new `ScrW() / 1920`, `LimelightHUD.GetScaleFactor()`, or fixed UI `surface.CreateFont` sizes\n- [ ] No new `\"say /...\"` command literals — use `cityrp ...` / `cityrp.command.consoleCommand`\n- [ ] No new `--- @module` headers\n- [ ] No new `cityrp.item.register` / spawnable inheritance-only bases — use `ITEM:New`\n- [ ] No new NW/NW2 vars for player state — use `SetNSVar` / `setLocalPlayerVariable`\n- [ ] No new `color_white` / `color_black` — use `COL_WHITE` / `COL_BLACK`\n- [ ] No LDoc tags, two-dash `-- @tag` annotations, or blank lines between a doc comment and its declaration\n- [ ] New commands have category + syntax + tip on the correct `/` or `!` API\n- [ ] Logging uses `cityrp.logs.add` (audit) or `cityrp.logging.GetLogger` (diagnostics), not `print`\n- [ ] `glualint` clean on changed lines:\n  `python3 .github/scripts/lint-diff.py --base origin/master gamemodes/cityrp_2_by_limelightgaming`\n- [ ] Standards patterns clean on changed lines:\n  `python3 .github/scripts/standards-diff.py --base origin/master`\n\n## What review / CI will reject\n\nThese are treated as standards violations on **lines your diff adds or modifies** (pre-existing\nlegacy elsewhere in a file is not enough reason to add more of it):\n\n| Pattern on a changed line | Why |\n| :--- | :--- |\n| `ScrW() / 1920` (or `ScrH() / 1080`) | Bypass of `cityrp.ui` |\n| `LimelightHUD.GetScaleFactor()` | Same — use `cityrp.ui` (grandfathered only under `core/derma/cl_hud_*.lua` until migrated) |\n| `--- @module` | LuaLS drops the entire doc comment — use `@namespace` |\n| A `\"say /...\"` / `\"say !...\"` literal, wherever it is built | Chat-pipeline detour — footgun #13 |\n| `umsg.*`, `SendLua(`, `BroadcastLua(` | Banned networking |\n| `cityrp.item.register(` | Legacy item API — use `ITEM:New` |\n| `ply:SetNW*` / `SetNW2*` on a player | NW vars are the avoided tier for player state — use `SetNSVar` / `setLocalPlayerVariable` |\n| `color_white` / `color_black` | Use `COL_WHITE` / `COL_BLACK` from `sh_enumerations.lua` |\n| LDoc tags (`@tparam`, `@treturn`, `@classmod`, `@usage`, `@number`, `@local`), `@vararg` | Not LuaCATS — they render nowhere, on two dashes or three |\n| Any two-dash `-- @tag` line, `--[[--- @as T]]` | Invisible to LuaLS — annotations need three dashes, inline casts take none |\n| A file-level `function` your diff adds with no `---` comment above it | Non-negotiable 2 — see [luacats.md](luacats.md) |\n| A blank line between a doc comment and its declaration | LuaLS never associates them; the annotation is dropped |\n| `cityrp.command.add` / `cityrp.acommands.AddCommand` without category, syntax and tip | F1 shows `\"No description.\"` — see [commands.md](commands.md) |\n\nThe annotation, colour-constant and NW-var rules apply under\n`gamemodes/cityrp_2_by_limelightgaming/` only: vendored addons are not on the docs site and are\nnot ours to re-plumb. The doc-comment rules look at file-level declarations, so panel callbacks\nand nested helpers are review's job, not CI's.\n\nC-style operators are rejected by `glualint` via `lint-diff.py`. Patterns in the table above are\nrejected by `standards-diff.py`. Both run in the Code Linting workflow, which tests its own diff\ngates first (`test-diff-scripts.py`) — these checks fail open when there is nothing to diff, so a\nbase resolved to the wrong commit would report success without checking anything.\n\n### Warnings (do not fail CI)\n\nOne `standards-diff.py` check, `excessive-prose`, reports as a GitHub Actions `::warning::`\ninstead of `::error::` and does not fail the run: an 8+ line comment block your diff adds, outside\na file-level header, that isn't LuaCATS annotations (footgun #12 — comment only where a reader\nwould be surprised). It's a warning rather than a hard reject because there's no whitelist for a\ngenuinely long, legitimate explanation — the same check runs locally as a `PostToolUse` hook\n(`.claude/hooks/check-comment-blocks.py`) that surfaces the same nudge mid-edit instead of at\nreview time.\n\n## When you touch legacy code\n\nEditing a file that still uses a forbidden pattern does **not** require rewriting the whole file.\nIt **does** require that *your* new or modified lines follow this page. Prefer migrating the\nlocal call site when the change already has to understand that code (especially UI scale).\n\n## Related topics\n\n- [Modern APIs](modern-apis.md)\n- [UI Scaling](ui-scaling.md)\n- [Chat Commands](commands.md)\n- [Plugins](plugins.md)\n- [LuaCATS Annotations](luacats.md)\n- [Commit Message Conventions](commit-message-conventions.md)\n- [Writing Doc Comments](doc-comments.md)\n"
     },
     {
       "id": "commands",
@@ -136815,7 +137268,7 @@
       "title": "Commit Message Conventions",
       "path": "commit-message-conventions.md",
       "meta": {},
-      "body": "# Commit Message Conventions\n\n## Internal commits\n\nInternal (non-player-facing) commits are written in [Conventional Commits](https://www.conventionalcommits.org/)\nstyle: a lowercase type, a colon, then a description — `fix: Permanent bans.`,\n`feat: Add migrations library.`, `chore: update photon.`. Common types in use here are `fix`,\n`feat`, `chore`, `docs`, `refactor`, `style`, `tests`, and `ci`. Pick the type that matches what\nchanged, not what the change was for.\n\n## Public Changelogs\n\nPlayer-facing commits are marked with a `public=` prefix. Everything from `public=` onward is\ncaptured as the changelog entry — including any lines after the first, so a commit body written\nunder a `public=` subject line is part of the entry, not just the subject line itself.\n\n> [!WARNING]\n> When a PR is merged, GitHub combines the commit message subject and the extended description\n> into a single commit message. If `public=` is on the subject line, the extended description\n> (PR body, additional commit messages being squashed in, etc.) gets appended after it and\n> becomes part of the captured changelog entry too — including any hashtags placed in that\n> description.\n\nA `public=` commit looks like:\n\n```\npublic=Chefs return to Evocity. Chefs now receive 10% extra EXP when cooking on a stove. #type:update #thread:28936 #thread:28602\n```\n\n### Hashtags\n\nHashtags are `#tag:value`, and by convention go at the end of the message, after the player-facing\nprose.\n\n| Tag | Meaning | Multiple values |\n| :--- | :--- | :--- |\n| `#cmd:text` | A command to highlight | Arbitrary text — `/slashcommand` and `!bangcommand` are both fine, it's just displayed as-is. One value per tag; repeat the tag for more than one command. |\n| `#contrib:name` | Credit a contributor | Name or forum user ID. Comma-separated for multiple, and deduplicated case-insensitively. |\n| `#map:name` | Affected map | Resolved to a display name and link. One value per tag; repeat the tag for more than one map. |\n| `#rev:id` | Related revision | One value per tag; repeat the tag for more than one revision — a comma-joined value is not split apart, it just gets treated (and linked) as a single id. |\n| `#thread:id` | Forum thread | Comma-separated values are each turned into their own link. Repeating the tag also works. |\n| `#image:url` | Image | Comma-separated values are each turned into their own thumbnail. Repeating the tag also works. |\n| `#type:value` | Category | Not rendered as its own entry — it picks the accent colour, see below. One value only. |\n\n`#type:` accepts `info`, `new`, `update`, `fix`, `exploit`, or `remove`.\n\nSo `#contrib:` is the one tag that's reliably comma-separated *and* deduplicated everywhere it's\nread. `#thread:` and `#image:` accept comma-separated values too. For everything else\n(`#cmd:`, `#map:`, `#rev:`), don't comma-join — repeat the tag once per value instead:\n\n```\npublic=... #rev:114 #rev:115 #rev:116 #contrib:name 1,name 2 #cmd:/newcommand\n```\n\n### Accent colour\n\nEach changelog entry gets an accent colour — used for its row on the changelog page and for its\nembed color where it's posted elsewhere. It's picked from keywords anywhere in the captured text\n(case-insensitive, first match wins, checked in this order):\n\n1. `exploit` → exploit\n2. `remove` → remove\n3. `bug` / `fix` / `hotfix` / `resolv` / `recover` → fix\n4. `added` / `new` / `release` / `approved` → new\n5. otherwise → the default, update\n\nAn explicit `#type:value` tag overrides whatever the keyword cascade picked.\n\n**This means word choice in the description silently affects the accent colour unless `#type:` is\nset explicitly.** For example, `public=Fixed the new maintenance minigame` hits the `fix` branch\n(checked before the `new` branch), not `new`, because \"Fixed\" matches first. If the intended\ncategory doesn't match what the keyword cascade would pick, set `#type:` explicitly rather than\nrelying on wording.\n"
+      "body": "# Commit Message Conventions\n\n## Internal commits\n\nInternal (non-player-facing) commits are written in [Conventional Commits](https://www.conventionalcommits.org/)\nstyle: a lowercase type, a colon, then a description — `fix: Permanent bans.`,\n`feat: Add migrations library.`, `chore: update photon.`. Common types in use here are `fix`,\n`feat`, `chore`, `docs`, `refactor`, `style`, `tests`, and `ci`. Pick the type that matches what\nchanged, not what the change was for.\n\n## Public Changelogs\n\nPlayer-facing commits are marked with a `public=` prefix. Everything from `public=` onward is\ncaptured as the changelog entry — including any lines after the first, so a commit body written\nunder a `public=` subject line is part of the entry, not just the subject line itself.\n\n> [!WARNING]\n> `public=` must only appear on the PR title / merge commit message — never on an individual leaf\n> commit within a branch or stack. The changelog webhook parses every commit that lands on\n> master as its own entry, so a `public=` line on a leaf commit can be captured a second time if\n> that commit also reaches master outside of the squash merge (for example, a gh-stack layer).\n> Leaf commits use the internal Conventional Commits style above; add `public=` only when writing\n> the PR title/description that becomes the merge commit message.\n\n> [!WARNING]\n> When a PR is merged, GitHub combines the commit message subject and the extended description\n> into a single commit message. If `public=` is on the subject line, the extended description\n> (PR body, additional commit messages being squashed in, etc.) gets appended after it and\n> becomes part of the captured changelog entry too — including any hashtags placed in that\n> description.\n\nA `public=` commit looks like:\n\n```\npublic=Chefs return to Evocity. Chefs now receive 10% extra EXP when cooking on a stove. #type:update #thread:28936 #thread:28602\n```\n\n### Hashtags\n\nHashtags are `#tag:value`, and by convention go at the end of the message, after the player-facing\nprose.\n\n| Tag | Meaning | Multiple values |\n| :--- | :--- | :--- |\n| `#cmd:text` | A command to highlight | Arbitrary text — `/slashcommand` and `!bangcommand` are both fine, it's just displayed as-is. One value per tag; repeat the tag for more than one command. |\n| `#contrib:name` | Credit a contributor | Name or forum user ID. Comma-separated for multiple, and deduplicated case-insensitively. |\n| `#map:name` | Affected map | Resolved to a display name and link. One value per tag; repeat the tag for more than one map. |\n| `#rev:id` | Related revision | One value per tag; repeat the tag for more than one revision — a comma-joined value is not split apart, it just gets treated (and linked) as a single id. |\n| `#thread:id` | Forum thread | Comma-separated values are each turned into their own link. Repeating the tag also works. |\n| `#image:url` | Image | Comma-separated values are each turned into their own thumbnail. Repeating the tag also works. |\n| `#type:value` | Category | Not rendered as its own entry — it picks the accent colour, see below. One value only. |\n\n`#type:` accepts `info`, `new`, `update`, `fix`, `exploit`, or `remove`.\n\nSo `#contrib:` is the one tag that's reliably comma-separated *and* deduplicated everywhere it's\nread. `#thread:` and `#image:` accept comma-separated values too. For everything else\n(`#cmd:`, `#map:`, `#rev:`), don't comma-join — repeat the tag once per value instead:\n\n```\npublic=... #rev:114 #rev:115 #rev:116 #contrib:name 1,name 2 #cmd:/newcommand\n```\n\n### Accent colour\n\nEach changelog entry gets an accent colour — used for its row on the changelog page and for its\nembed color where it's posted elsewhere. It's picked from keywords anywhere in the captured text\n(case-insensitive, first match wins, checked in this order):\n\n1. `exploit` → exploit\n2. `remove` → remove\n3. `bug` / `fix` / `hotfix` / `resolv` / `recover` → fix\n4. `added` / `new` / `release` / `approved` → new\n5. otherwise → the default, update\n\nAn explicit `#type:value` tag overrides whatever the keyword cascade picked.\n\n**This means word choice in the description silently affects the accent colour unless `#type:` is\nset explicitly.** For example, `public=Fixed the new maintenance minigame` hits the `fix` branch\n(checked before the `new` branch), not `new`, because \"Fixed\" matches first. If the intended\ncategory doesn't match what the keyword cascade would pick, set `#type:` explicitly rather than\nrelying on wording.\n"
     },
     {
       "id": "design/car-boosting/car-boosting-live-test-plan",
@@ -137016,14 +137469,14 @@
         "pinned": "true",
         "description": "The authoritative list of which API to use for each category, and what it replaces."
       },
-      "body": "\n# Modern APIs\n\nCityRP is a mature codebase containing many legacy patterns and deprecated systems. The table below is the authoritative, up-to-date list of which API to use for each category. Legacy alternatives remain in the codebase — because they predate the migration, not because they're still correct — and must not be used in new or refactored code.\n\nAgents also see a condensed always-on copy of this table in [`.cursor/rules/agent-musts.mdc`](../.cursor/rules/agent-musts.mdc). When you add or change a row here, update that MUST card in the same change. The checklist and CI reject criteria for forbidden patterns are in [Coding Standards](coding-standards.md).\n\n| Category | ✅ Modern API (MANDATORY) | ❌ Legacy / Standard GMod (FORBIDDEN) | Why? |\n| :--- | :--- | :--- | :--- |\n| **Audit Logging** (player/admin actions, transactions) | `cityrp.logs.add(nick, steamid, ...)` | `print()`<br>`ServerLog()` | Logs to database and admin interfaces for moderation/audit; `print` is invisible to admins. |\n| **Diagnostic Logging** (developer debugging, traces) | `cityrp.logging.GetLogger(namespace):Debug/Info/Error(...)` | `print()`<br>`ServerLog()` | Namespaced, level-filterable developer diagnostics. Does not replace `cityrp.logs.add()` for audit events. See [logging.md](logging.md). |\n| **Items** | `ITEM:New(\"base_id\")` (Fluent), or `ITEM:New()` for no base | `cityrp.item.register({})` | Metatable-based fluent API with better inheritance and cleaner code, and it doesn't require a spawnable/purchasable base item to be registered just to be inherited from. See [items.md](items/items.md). |\n| **Networking** | See tiers below | `umsg.*`, `SendLua()`, `BroadcastLua()` (banned) | Pick the highest tier that fits; never use the banned tier. |\n| **Color Constants** | `COL_WHITE`, `COL_BLACK`, `COL_RED`, `COL_GREEN`, `COL_BLUE`, `COL_GREY` (from `sh_enumerations.lua`) | `color_white`, `color_black` (GMod globals) | Consistency, easier global theming later, reduces reliance on GMod globals. Custom one-off colors are still fine as inline `Color(...)` calls. |\n| **Running a CityRP command from code** | `ply:ConCommand(\"cityrp <cmd> <args>\")` (clientside UI)<br>`cityrp.command.consoleCommand(ply, cmd, argsTable)` (serverside) | `ply:ConCommand(\"say /<cmd> <args>\")` | Both end up in `cityrp.command.consoleCommand`; `say /` only adds the chat pipeline in front of it, where a `PlayerSay` hook can swallow the message, `cityrp.replacecodes` rewrites `%`/`$q` codes inside the arguments, >452 characters are dropped silently, and the arguments are re-quoted by a naive scanner. See [AGENTS.md](../AGENTS.md) footgun #13. |\n| **\"Is this plugin here?\"** (guarding a cross-plugin call) | `cityrp.plugin.IsAvailable(\"<key>\")` | `cityrp.plugin.get(\"<key>\") ~= nil`; unguarded cross-plugin calls | `get` only sees plugins that called `register`, and ~27 loaded plugins never do — so it reports them missing. `IsAvailable` reads the loader's bookkeeping, is realm-accurate, and answers `false` for every reason a plugin can be absent. Use `cityrp.plugin.GetDependencyStatus(key)` when you need to know *which* reason; it is for diagnostics, not for guards. See [plugins.md](plugins.md#guarding-a-cross-plugin-call). |\n| **Plugin lookup** (you need the plugin's table) | `cityrp.plugin.get(\"<key>\")` — the folder key, as used by `.meta.lua` and load order. Inside a plugin, `cityrp.plugin.get(PLUGIN.key)` | `cityrp.plugin.get(\"Display Name\")`; indexing `cityrp.plugin.stored` directly | `cityrp.plugin.stored` is keyed by the plugin key. A display name still resolves through `cityrp.plugin.names` and costs the same, but warns once per name — the two identities are not derivable from each other (`area` registers as `\"Area Manager\"`). Existing display-name call sites work; convert one when you are already editing that code. See [plugins.md](plugins.md) and [AGENTS.md](../AGENTS.md) footgun #22. |\n| **Console Entity** | `CONSOLE` | `console` (lowercase) | `console` is a deprecated alias kept only for backwards compatibility with external plugins — see `admin/sv_init.lua`. |\n| **Player chat commands** (`/` prefix; aka normal / slash-commands) | `cityrp.command.add(name, access, minArgs, callback, category, syntax, tip[, emgr])` | Raw `PlayerSay` / `concommand` parsers for gamemode commands; staff tools registered as `/` | Non-privileged player RP/job tools only — generally available to all players. **Always** pass category (key from `categoryAliases`), syntax (`\"<none>\"` if none; shown on invalid-syntax errors), and a short tip description for the F1 commands menu. Callback is `(ply, arguments)` table. See [commands.md](commands.md) and [AGENTS.md](../AGENTS.md) footgun #14. |\n| **Staff chat commands** (`!` prefix; aka privileged / admin / staff commands) | `cityrp.acommands.AddCommand(name, func, minArgs, access, emgr, category, syntax, tip)` | Staff tools on `/` (even with a restricted access flag); ad-hoc `PlayerSay` handlers for `!` | **Always** use this if the command requires staff privileges of any kind — including RP Assistant. Same mandatory category/syntax/tip metadata as player commands. Callback is `(ply, ...)` varargs. When moving a staff tool from `/` to `!`, leave `cityrp.command.redirectToAcommand(oldName)` so `/old` only notifies to use `!old`. Prefer `cityrp.player.resolveTarget` and `cityrp.command.parseMoney` over copy-pasted lookup/money parsing. See [commands.md](commands.md) and [AGENTS.md](../AGENTS.md) footgun #14. |\n| **UI Scaling** (Derma panels, entity menus, HUD overlays, custom `Paint`) | `cityrp.ui.Scale()`, `cityrp.ui.GetScaleFactor()`, `cityrp.ui.CreateScaledFont()`, `cityrp.ui.OnScaleChanged()` | Ad-hoc `ScrW() / 1920` scaling; calling `LimelightHUD.GetScaleFactor()` directly; fixed `surface.CreateFont` sizes; hardcoded pixel dimensions that never rebuild on scale change | One resolution- and preference-aware scale for all UI; fonts and layout stay in sync when `cl_llhud_scale` or screen size changes. See [ui-scaling.md](ui-scaling.md) and [AGENTS.md](../AGENTS.md) footgun #15. |\n\nIf existing code conflicts with this table, follow this table — usage of a legacy pattern elsewhere in the codebase is not evidence it's the correct approach, only that it predates this list.\n\n## Networking tiers\n\nNetworking isn't a simple modern/legacy split — use the **highest tier that fits the use case**, don't default to a lower one out of habit.\n\n1. **Top tier: Entity Networking (DTVars).** `Entity:NetworkVar(...)` / DataTables (`SetupDataTables`). Use for anything that's naturally a property of a **Lua-authored** entity (a SENT or SWEP you define yourself) — it's predicted, delta-compressed, and needs no manual send/receive code. **This does not work for GMod's engine-defined vehicle base classes** (`prop_vehicle_jeep`, `prop_vehicle_prisoner_pod`, etc.) — they don't run `SetupDataTables` the way a Lua SENT does, so DTVars aren't an option for vehicle state. See tier 3.\n2. **Standard networking.** For events/actions, use `net.*` directly. For player state that isn't a natural entity property:\n   - `ply:SetNSVar(name, value)` / `ply:GetNSVar(name, default)` — for state every client needs to know about that player (broadcast to all clients via `net.Broadcast()`).\n   - `cityrp.player.setLocalPlayerVariable(ply, CLASS_TYPE, \"_Name\", value)` — for state only the owning client needs (sent privately via `net.Send(ply)`).\n   - Both require the variable name to be pre-registered (see `networking/sh_init.lua`) — setting an unregistered name fails **silently**, with only a `print()` to console, not an error. Register the name first.\n   - **Both are Player-metatable-only** (`FindMetaTable(\"Player\")`) — they don't generalize to vehicles or other non-player entities. For non-player entity state where DTVars isn't available (see tier 1), use `net.*` directly.\n3. **Avoided: low-tier networking.** `SetNWInt`/`SetNW2Int`/etc. (NW/NW2 vars). Avoid for player data — don't use it in new or refactored code, see [problems/03](../problems/03-deprecated-network-vars.md) and [improvements/01](../improvements/01-deprecated-networked-variables.md). **Exception**: vehicles currently use this tier for real (`sv_vehicle.lua`'s `locked`/`engine_on`/`HP` state) precisely because neither tier 1 (DTVars — engine entity, no `SetupDataTables`) nor tier 2 (NSVar/LocalPlayerVar — Player-only) apply to them. Until a proper `net.*`-based vehicle-state system exists, this is the practically justified option for vehicles, not just legacy inertia.\n4. **Banned.** `umsg.*` (pre-`net` legacy usermessage library — no structure or size guarantees `net` provides), `SendLua()`, `BroadcastLua()` (execute arbitrary Lua source on the client — a code-injection vector if the string is ever built from anything less than a fully trusted, static literal, and pure legacy debt even when it isn't). Never use these.\n\n### In progress: `cityrp.network`\n\n`cityrp.network` (`core/libraries/sh_network.lua`, see [networking.md](networking.md)) is the target\nreplacement for tiers 2 and 3 above — one library covering entity/player/global/local-player scope,\nrecipient filtering (`:Filter()`, `:SendPVS()`/`:SendPAS()`), change hooks, and pull-on-visible resync,\nfixing the positional-ID and recycled-index bugs NSVars have today.\n\n**It has landed as a library only — no call site has been migrated yet.** `SetNSVar`/`GetNSVar`,\n`cityrp.player.setLocalPlayerVariable`/`Player:SetLPlyVar`, and `SetNW*` for vehicles all remain the\ncorrect APIs to use in new and refactored code until that migration (a separate, later change) lands\nand this note is updated. Do not start converting call sites to `cityrp.network` off this note alone.\n"
+      "body": "\n# Modern APIs\n\nCityRP is a mature codebase containing many legacy patterns and deprecated systems. The table below is the authoritative, up-to-date list of which API to use for each category. Legacy alternatives remain in the codebase — because they predate the migration, not because they're still correct — and must not be used in new or refactored code.\n\nAgents also see a condensed always-on copy of this table in [`.cursor/rules/agent-musts.mdc`](../.cursor/rules/agent-musts.mdc). When you add or change a row here, update that MUST card in the same change. The checklist and CI reject criteria for forbidden patterns are in [Coding Standards](coding-standards.md).\n\n| Category | ✅ Modern API (MANDATORY) | ❌ Legacy / Standard GMod (FORBIDDEN) | Why? |\n| :--- | :--- | :--- | :--- |\n| **Audit Logging** (player/admin actions, transactions) | `cityrp.logs.add(nick, steamid, ...)` | `print()`<br>`ServerLog()` | Logs to database and admin interfaces for moderation/audit; `print` is invisible to admins. |\n| **Diagnostic Logging** (developer debugging, traces) | `cityrp.logging.GetLogger(namespace):Debug/Info/Error(...)` | `print()`<br>`ServerLog()` | Namespaced, level-filterable developer diagnostics. Does not replace `cityrp.logs.add()` for audit events. See [logging.md](logging.md). |\n| **Items** | `ITEM:New(\"base_id\")` (Fluent), or `ITEM:New()` for no base | `cityrp.item.register({})` | Metatable-based fluent API with better inheritance and cleaner code, and it doesn't require a spawnable/purchasable base item to be registered just to be inherited from. See [items.md](items/items.md). |\n| **Networking** | See tiers below | `umsg.*`, `SendLua()`, `BroadcastLua()` (banned) | Pick the highest tier that fits; `cityrp.network` exists as a library but isn't mandatory yet, so legacy networking (NSVar/LocalPlayerVar) remains the correct default; never use the banned tier. |\n| **Color Constants** | `COL_WHITE`, `COL_BLACK`, `COL_RED`, `COL_GREEN`, `COL_BLUE`, `COL_GREY` (from `sh_enumerations.lua`) | `color_white`, `color_black` (GMod globals) | Consistency, easier global theming later, reduces reliance on GMod globals. Custom one-off colors are still fine as inline `Color(...)` calls. |\n| **Running a CityRP command from code** | `ply:ConCommand(\"cityrp <cmd> <args>\")` (clientside UI)<br>`cityrp.command.consoleCommand(ply, cmd, argsTable)` (serverside) | `ply:ConCommand(\"say /<cmd> <args>\")` | Both end up in `cityrp.command.consoleCommand`; `say /` only adds the chat pipeline in front of it, where a `PlayerSay` hook can swallow the message, `cityrp.replacecodes` rewrites `%`/`$q` codes inside the arguments, >452 characters are dropped silently, and the arguments are re-quoted by a naive scanner. See [AGENTS.md](../AGENTS.md) footgun #13. |\n| **\"Is this plugin here?\"** (guarding a cross-plugin call) | `cityrp.plugin.IsAvailable(\"<key>\")` | `cityrp.plugin.get(\"<key>\") ~= nil`; unguarded cross-plugin calls | `get` only sees plugins that called `register`, and ~27 loaded plugins never do — so it reports them missing. `IsAvailable` reads the loader's bookkeeping, is realm-accurate, and answers `false` for every reason a plugin can be absent. Use `cityrp.plugin.GetDependencyStatus(key)` when you need to know *which* reason; it is for diagnostics, not for guards. See [plugins.md](plugins.md#guarding-a-cross-plugin-call). |\n| **Plugin lookup** (you need the plugin's table) | `cityrp.plugin.get(\"<key>\")` — the folder key, as used by `.meta.lua` and load order. Inside a plugin, `cityrp.plugin.get(PLUGIN.key)` | `cityrp.plugin.get(\"Display Name\")`; indexing `cityrp.plugin.stored` directly | `cityrp.plugin.stored` is keyed by the plugin key. A display name still resolves through `cityrp.plugin.names` and costs the same, but warns once per name — the two identities are not derivable from each other (`area` registers as `\"Area Manager\"`). Existing display-name call sites work; convert one when you are already editing that code. See [plugins.md](plugins.md) and [AGENTS.md](../AGENTS.md) footgun #22. |\n| **Console Entity** | `CONSOLE` | `console` (lowercase) | `console` is a deprecated alias kept only for backwards compatibility with external plugins — see `admin/sv_init.lua`. |\n| **Player chat commands** (`/` prefix; aka normal / slash-commands) | `cityrp.command.add(name, access, minArgs, callback, category, syntax, tip[, emgr])` | Raw `PlayerSay` / `concommand` parsers for gamemode commands; staff tools registered as `/` | Non-privileged player RP/job tools only — generally available to all players. **Always** pass category (key from `categoryAliases`), syntax (`\"<none>\"` if none; shown on invalid-syntax errors), and a short tip description for the F1 commands menu. Callback is `(ply, arguments)` table. See [commands.md](commands.md) and [AGENTS.md](../AGENTS.md) footgun #14. |\n| **Staff chat commands** (`!` prefix; aka privileged / admin / staff commands) | `cityrp.acommands.AddCommand(name, func, minArgs, access, emgr, category, syntax, tip)` | Staff tools on `/` (even with a restricted access flag); ad-hoc `PlayerSay` handlers for `!` | **Always** use this if the command requires staff privileges of any kind — including RP Assistant. Same mandatory category/syntax/tip metadata as player commands. Callback is `(ply, ...)` varargs. When moving a staff tool from `/` to `!`, leave `cityrp.command.redirectToAcommand(oldName)` so `/old` only notifies to use `!old`. Prefer `cityrp.player.resolveTarget` and `cityrp.command.parseMoney` over copy-pasted lookup/money parsing. See [commands.md](commands.md) and [AGENTS.md](../AGENTS.md) footgun #14. |\n| **UI Scaling** (Derma panels, entity menus, HUD overlays, custom `Paint`) | `cityrp.ui.Scale()`, `cityrp.ui.GetScaleFactor()`, `cityrp.ui.CreateScaledFont()`, `cityrp.ui.OnScaleChanged()` | Ad-hoc `ScrW() / 1920` scaling; calling `LimelightHUD.GetScaleFactor()` directly; fixed `surface.CreateFont` sizes; hardcoded pixel dimensions that never rebuild on scale change | One resolution- and preference-aware scale for all UI; fonts and layout stay in sync when `cl_llhud_scale` or screen size changes. See [ui-scaling.md](ui-scaling.md) and [AGENTS.md](../AGENTS.md) footgun #15. |\n\nIf existing code conflicts with this table, follow this table — usage of a legacy pattern elsewhere in the codebase is not evidence it's the correct approach, only that it predates this list.\n\n## Networking tiers\n\nNetworking isn't a simple modern/legacy split — use the **highest tier that fits the use case**, don't default to a lower one out of habit.\n\n1. **Top tier: Entity Networking (DTVars).** `Entity:NetworkVar(...)` / DataTables (`SetupDataTables`). Use for anything that's naturally a property of a **Lua-authored** entity (a SENT or SWEP you define yourself) — it's predicted, delta-compressed, and needs no manual send/receive code. **This does not work for GMod's engine-defined vehicle base classes** (`prop_vehicle_jeep`, `prop_vehicle_prisoner_pod`, etc.) — they don't run `SetupDataTables` the way a Lua SENT does, so DTVars aren't an option for vehicle state. See tier 4.\n2. **`cityrp.network`.** `cityrp.network.Register(...)` (`core/libraries/sh_network.lua`, see [networking.md](networking.md)). Covers anything tier 1 doesn't: non-player entity state (doors, vehicles, signs), Global-scope values, LocalPlayer-private state, or any value that needs recipient filtering (`:Filter()`, `:SendPVS()`/`:SendPAS()`), a change hook, or pull-on-visible resync. **Not yet mandatory** — see *Migration status* below before reaching for this tier over tier 3. See [networking.md](networking.md) for the full builder-chain reference.\n3. **Legacy networking.** For events/actions, use `net.*` directly. For player state that isn't a natural entity property:\n   - `ply:SetNSVar(name, value)` / `ply:GetNSVar(name, default)` — for state every client needs to know about that player (broadcast to all clients via `net.Broadcast()`).\n   - `cityrp.player.setLocalPlayerVariable(ply, CLASS_TYPE, \"_Name\", value)` — for state only the owning client needs (sent privately via `net.Send(ply)`).\n   - Both require the variable name to be pre-registered (see `networking/sh_init.lua`) — setting an unregistered name fails **silently**, with only a `print()` to console, not an error. Register the name first.\n   - **Both are Player-metatable-only** (`FindMetaTable(\"Player\")`) — they don't generalize to vehicles or other non-player entities. For non-player entity state, `net.*` directly is the current option (tier 2 isn't mandatory yet — see below).\n   - Not deprecated: this tier works, is still reasonably efficient, and is the correct default today. It just sits below `cityrp.network` once that tier becomes mandatory.\n4. **Avoided: low-tier networking.** `SetNWInt`/`SetNW2Int`/etc. (NW/NW2 vars). Avoid for player data — don't use it in new or refactored code, see [problems/03](../problems/03-deprecated-network-vars.md) and [improvements/01](../improvements/01-deprecated-networked-variables.md). **Exception**: vehicles currently use this tier for real (`sv_vehicle.lua`'s `locked`/`engine_on`/`HP` state) precisely because neither tier 1 (DTVars — engine entity, no `SetupDataTables`) nor tier 3 (NSVar/LocalPlayerVar — Player-only) apply to them, and they haven't been migrated to tier 2 yet. Until that migration lands, this is the practically justified option for vehicles, not just legacy inertia.\n5. **Banned.** `umsg.*` (pre-`net` legacy usermessage library — no structure or size guarantees `net` provides), `SendLua()`, `BroadcastLua()` (execute arbitrary Lua source on the client — a code-injection vector if the string is ever built from anything less than a fully trusted, static literal, and pure legacy debt even when it isn't). Never use these.\n\n### Migration status\n\n`cityrp.network` has landed as a library only — no call site has been migrated, and it is **not yet mandatory** for new or refactored code. `SetNSVar`/`GetNSVar`, `cityrp.player.setLocalPlayerVariable`/`Player:SetLPlyVar`, and `SetNW*` for vehicles all remain the correct APIs to use until a separate, later change flips this note and starts requiring `cityrp.network` for the call sites described in tier 2. Do not start converting call sites to `cityrp.network` off this note alone. See [issue #3207](https://github.com/limelight-development/cityrp2/issues/3207) for the full migration plan.\n"
     },
     {
       "id": "networking",
       "title": "Networking Library",
       "path": "networking.md",
       "meta": {},
-      "body": "# Networking Library\n\n`cityrp.network` (`gamemode/core/libraries/sh_network.lua` and `core/libraries/network/`) is the\nunified replacement for three overlapping systems: engine `SetNW*`/`GetNW*`, NSVars, and\nLocalPlayerVars (`core/plugins/networking`). See [issue #3207](https://github.com/limelight-development/cityrp2/issues/3207)\nfor the full rationale.\n\n**Status: library only.** This topic documents the library as it exists today. No call site in the\ngamemode has been migrated yet — `core/plugins/networking` is still fully live, and `SetNSVar` /\n`GetNSVar` / `SetLPlyVar` / `SetNW*` remain the correct APIs to use until that migration (a later,\nseparate scope) lands. Do not start migrating call sites off this topic alone.\n\n## Why a new library\n\n- **NSVars are player-only.** Non-player entities (doors, vehicles, signs) still have no option but\n  the deprecated `SetNW*`/`GetNW*` tier — see [problems/03](../problems/03-deprecated-network-vars.md).\n- **No recipient filtering.** NSVars are `net.Broadcast()` or nothing; LocalPlayerVars are\n  owner-only or nothing. Nothing in between — no faction-private, gang-private, or police-private\n  state without hand-rolling a new `net.*` message.\n- **The registration ID is a positional wire contract.** NSVars assign IDs by call order\n  (`#registered + 1`); any load-order divergence between the client and server realm shifts every\n  ID and silently corrupts every value, with no error.\n- **Recycled indices leak state.** The client keys NSVar state by raw entity index\n  (`PLUGIN.NSVars[entIndex]`) and never clears an entry on disconnect, so a new player who receives a\n  recycled index inherits whatever the previous occupant left behind.\n- **Broadcast while out of PVS is lost.** There is no pull-on-visible path — a value set while a\n  client is out of range never reaches it unless something else happens to resend it later.\n\n## Core concepts\n\nA **network var** is registered once, in shared code, with a builder chain:\n\n```lua\ncityrp.network.Register(\"cityrp_VehicleLocked\")\n\t:SetEntity()\n\t:Bool()\n\t:SendPVS()\n\t:SetHook(\"CityRP.VehicleLockChanged\")\n\t:Accessor(\"VehicleLocked\")\n```\n\nRegistration must happen before the registry **seals**, which occurs automatically on the\n`Initialize` hook (both realms). Registering afterward is a logged error and the var is never\nnetworked — register vars at file scope or from an early hook, not lazily on first use.\n\n### Scope\n\nExactly one scope per var, set with one of these (default: `:SetEntity()`):\n\n| Method | Storage | Default recipients |\n| :--- | :--- | :--- |\n| `:SetEntity()` | On the entity (`ent.__netvars`) | Broadcast |\n| `:SetPlayer()` | Same as Entity — a player is an entity. Routes `:Accessor()` to `FindMetaTable(\"Player\")` — see *Accessor targets* below. | Broadcast |\n| `:SetVehicle()` | Same as Entity. Routes `:Accessor()` to `FindMetaTable(\"Vehicle\")`. | Broadcast |\n| `:SetWeapon()` | Same as Entity. Routes `:Accessor()` to `FindMetaTable(\"Weapon\")`. | Broadcast |\n| `:SetLocalPlayer()` | On the owning player | That player only, always — recipient methods below don't apply |\n| `:SetGlobal()` | In the library, no owning entity | Broadcast |\n\n`:SetEntity()`, `:SetPlayer()`, `:SetVehicle()`, and `:SetWeapon()` are identical in storage and wire\nframing — `cityrp.network.IsEntityScope(scope)` is `true` for all four. The only thing that differs\nbetween them is which metatable `:Accessor()` attaches its generated methods to. `:SetLocalPlayer()`\nalso routes to `FindMetaTable(\"Player\")`, despite differing in storage/recipients from the other four.\n\n### Codecs\n\nCall one codec method per var (default is `:Auto()` if none is called):\n\n| Method | Wire shape |\n| :--- | :--- |\n| `:Bool()` | 1 byte via `net.WriteBool` |\n| `:Bit()` | Raw bit via `net.WriteBit`/`net.ReadBit`, returns `0`/`1` rather than a boolean |\n| `:Nibble()` / `:UNibble()` | 4-bit signed/unsigned |\n| `:Byte()` / `:UByte()` | 8-bit signed/unsigned |\n| `:Short()` / `:UShort()` | 16-bit signed/unsigned |\n| `:Int()` / `:UInt()` | 32-bit signed/unsigned |\n| `:Integer(bits)` / `:UInteger(bits)` | Explicit 1-32 bit width |\n| `:Float()` | 32-bit IEEE float |\n| `:Double()` | 64-bit IEEE double |\n| `:Long()` | Alias of `:Double()` — see *Integer widths* below |\n| `:String()` | `net.WriteString` |\n| `:Vector()` | Three signed components, each auto-choosing float vs. compact integer |\n| `:Normal()` | Compact vector encoding for components that stay within ±1 |\n| `:Angle()` | Same per-component encoding as `:Vector()` |\n| `:Color()` | RGB plus an optional alpha byte (only sent if alpha isn't 255) |\n| `:Entity()` | `net.WriteEntity`/`net.ReadEntity` |\n| `:Player()` | `net.WritePlayer`/`net.ReadPlayer` — narrower than `:Entity()`, sized off `MAX_PLAYER_BITS` instead of `MAX_EDICT_BITS`. `:Auto()` picks this over `:Entity()` on its own whenever the value is a player. |\n| `:Table()` | Recursive, self-describing — each key/value goes through `:Auto()` |\n| `:Data(maxLen)` | Fixed-length byte string via `net.WriteData`/`net.ReadData` |\n| `:Auto()` | Self-describing: a small type tag, then the value. What NSVars do today. |\n| `:Write(fn, opt)` / `:Read(fn, opt)` | Custom codec — see *Custom codecs* below |\n| `:Enum(list)` | Fixed set of legal values — see *Enums* below |\n\n#### Integer widths\n\n`net.WriteInt`/`net.WriteUInt` only accept 1-32 bits. NSVars' `NETTYPE_LONG` (64) and\n`NETTYPE_XLONG` (128) passed 64/128 to those functions and could never actually work. Separately,\nGLua numbers are IEEE doubles, so no integer above 2^53 can round-trip through Lua regardless of how\nit's framed on the wire. `:Long()` is therefore an alias of `:Double()` — the widest integer GLua can\nactually represent exactly — not a wider integer codec. There is no `:XLong()`; nothing in Lua can\nhold the value, so the name would only reproduce the old illusion.\n\n#### Custom codecs\n\n`:Write(fn, opt)` / `:Read(fn, opt)` bypass the built-in codec table entirely. Because the manifest\n(below) can't describe an arbitrary function, a custom-codec var is always sent **alone in its own\nmessage**, never batched alongside other vars — an undecodable custom value can then only ever\ncorrupt its own message, not a whole batch riding with it. Both realms must register the same var\nwith matching `:Write`/`:Read` calls; a client that never called `:Read()` for a name the manifest\ndescribes as Custom-coded logs an error and drops that message when one arrives.\n\n#### Enums\n\n`:Enum(list)` declares a var's legal values as `list`, a sequential (`ipairs`-ordered) array, and\npicks between two wire strategies by comparing their actual bit cost:\n\n- **Direct value** (batchable) — if `list` is entirely integers, the value itself goes on the wire,\n  sized to its min/max via `:Integer`/`:UInteger` (signed only if the set dips below zero). No offset\n  from the minimum is applied even when every value shares a large common magnitude (e.g. `{100,\n  101}`) — an offset would itself need a per-var `:Write()`/`:Read()` closure, i.e. `CODEC_CUSTOM`,\n  which is exactly the cost this path exists to avoid. Order carries no wire meaning here.\n- **Mapped index** (not batchable) — the value's *index* in `list` goes on the wire instead, via an\n  auto-generated `:Write()`/`:Read()` pair sized to `#list`. `CODEC_CUSTOM` under the hood (see\n  *Custom codecs* above), so a resync entry using it never shares a message with sibling vars on the\n  same entity — its own `WriteIndexHeader` plus framing, and its own resync-queue slot. Order **does**\n  matter here: it's the wire index, so both realms must register the same var with the same list in\n  the same order.\n\nFor an all-integer `list`, the mapped index is only chosen if it beats the direct-value bit cost by\nmore than `cityrp.network.RESYNC_GROUP_OVERHEAD_BITS` (24), the approximate resync-framing cost of\nescaping batching. A `list` containing anything non-integer (strings, mixed types) always uses the\nmapped index; there's no numeric value to size a direct encoding from.\n\nEither way, `Set`ting a value that isn't in `list` is rejected — logged and dropped, never stored or\nsent — rather than silently encoding as something adjacent or vanishing into no enum value at all.\n`nil` (clearing the var) always bypasses this check.\n\n```lua\n-- Direct value: dense, low-magnitude set — 3 bits, batchable.\ncityrp.network.Register(\"cityrp_Rank\"):SetPlayer():Enum({1, 2, 3, 4}):Accessor(\"Rank\")\n\n-- Mapped index: small set, but string-valued (no direct encoding available) — 3 bits, not batchable.\ncityrp.network.Register(\"pass\"):Enum({\"grey\", \"green\", \"blue\", \"orange\", \"red\"}):Accessor(\"Pass\")\n```\n\n### Recipients\n\nOnly meaningful for Entity/Player/Vehicle/Weapon/Global scope — LocalPlayer scope is always\nowner-only regardless.\n\n| Method | Behaviour |\n| :--- | :--- |\n| `:Broadcast()` | Default. Sends to everyone. |\n| `:SendPVS()` | `net.SendPVS(ent:GetPos())` — everyone who can potentially see the position. |\n| `:SendPAS()` | `net.SendPAS(ent:GetPos())` — everyone who can potentially hear it. |\n| `:SendOmit(fn)` | `fn(ent, value)` returns who to exclude; everyone else gets it. |\n| `:Filter(fn)` | `fn(ent, value)` returns who receives it — a `Player`, a `Player[]`, or a `CRecipientFilter`. |\n\n**`:Filter()` is the only secrecy boundary.** PVS, PAS, and Omit are treated as **bandwidth**\noptimizations, not authorization: resync and the join bootstrap (below) always include a PVS/PAS/Omit\nvar's current value for a player who's asking, because pull-on-visible only fires once the client is\nalready in a position to receive it anyway. If a value must never reach a player at all — faction,\ngang, or police-private data — use `:Filter()`, not `:SendOmit()`. `:Filter()`'s callback doubles as\nthat authorization check: the same function that decides who gets a *live* update also decides who's\nallowed to pull it via resync, so there's exactly one predicate to keep correct, not two that can\ndrift apart. Keep `:Filter()` callbacks cheap and free of side effects — they can run once per set\nand again per resync candidate.\n\n### Behaviour\n\n| Method | Effect |\n| :--- | :--- |\n| `:SetHook(name)` | Runs `hook.Run(name, ent, newValue, oldValue, predicted)` on both realms when the value changes. `predicted` is `true` only for a `:Predictable()` var's client-side local apply — see below. |\n| `:AutoHook()` | Shorthand for `:SetHook(\"CityRP.Network.<name>.Changed\")` — use when you don't care what the hook is called. |\n| `:Accessor(name)` | Generates `Get<Name>()` (both realms) and `Set<Name>()` (server only, unless `:Predictable()`) — see *Accessor targets* below for which metatable. |\n| `:Predictable()` | Also generates a client-side `Set<Name>()` for local prediction — see below. Only valid on `:SetLocalPlayer()`. |\n| `:SetNoSync()` | Excludes the var from the join bootstrap and resync — push-only. A client that was out of PVS during a push never gets it. |\n| `:SetDefault(value)` | What `Entity:GetNetVar`/`cityrp.network.GetGlobal` return before anything is set. |\n\n#### Client-side prediction\n\n`:Set<Name>()` is normally server-only — setting is server-authoritative, and the underlying\n`SetNetVar`/`SetGlobal` don't exist on the client realm at all (`sv_send.lua` is a server-only file).\n`:Predictable()` opts a `:SetLocalPlayer()` var out of that: the client gets its own `Set<Name>()`\ntoo, which applies the value locally (storage + the `:SetHook()` hook, with `predicted = true` — never\na network send, the client has no authority to send anything) instead of calling into the\nserver-only machinery.\n\nThis is for the standard prediction-and-reconciliation shape: client-side code that runs under\n`IsFirstTimePredicted()` calls `Set<Name>()` immediately for instant feedback, while the server keeps\ncomputing and pushing the authoritative value exactly as it always did. When that confirmed value\narrives back at the client through the normal decode path, it overwrites whatever was predicted\nlocally — correcting any drift the same way it always corrected a live update, no special-case\nreconciliation code needed. If the client's prediction already matched, the delta guard in\n`ApplyValue` means nothing observable happens; if it didn't, the value snaps to the server's.\n\nOnly valid for `:SetLocalPlayer()` — a client predicting some other entity's state has no\nserver-authoritative copy of *that* entity's future value to reconcile against, so the scope doesn't\nmake sense there. Using `:Predictable()` on any other scope logs an error at accessor-generation time\nand simply doesn't generate the client-side setter, rather than producing a footgun that looks like\nit works.\n\n```lua\ncityrp.network.Register(\"_Stamina\"):SetLocalPlayer():UByte():Accessor(\"Stamina\"):Predictable()\n\n-- In shared code, guarded the same way any other predicted mutation is:\nif SERVER or IsFirstTimePredicted() then\n\tply:SetStamina(newValue) -- works on both realms now\nend\n```\n\n#### Accessor targets\n\n`:Accessor(name)` attaches to `FindMetaTable(\"Entity\")` for Entity/Global scope, `FindMetaTable(\"Player\")`\nfor Player/LocalPlayer scope, and `FindMetaTable(\"Vehicle\")`/`FindMetaTable(\"Weapon\")` for those.\nCalling `Entity:GetNetVar`/`SetNetVar` itself would already work identically regardless — GMod\nresolves a method not found on a more specific metatable by falling through to Entity's — but the one\ncase that fallthrough doesn't cover is a same-named method the *more specific* metatable already\ndefines natively: it would shadow an Entity-attached `Get<Name>`/`Set<Name>` for every entity of that\ntype, silently calling the native method instead of yours. Attaching directly to the matching\nmetatable instead puts your accessor closer than Entity's in the lookup chain, so it wins.\n\nThis is a real, present-day risk, not a hypothetical one: `sv_vehicle.lua`'s `locked`, `engine_on`,\nand `HP` state — the values [modern-apis.md](modern-apis.md) names as the reason vehicles still use\nthe otherwise-avoided `SetNW*` tier — are exactly the kind of vehicle-specific accessor a scope 2\nmigration would want to name `Locked`/`EngineOn`/`HP`, and `FindMetaTable(\"Vehicle\")` is already\nextended in this codebase (`core/metatables/sh_vehicle.lua`).\n\n### Reading and writing\n\n```lua\n-- Server only\nent:SetNetVar(\"cityrp_VehicleLocked\", true)\ncityrp.network.SetGlobal(\"WeatherState\", 2)\n\n-- Both realms\nlocal locked = ent:GetNetVar(\"cityrp_VehicleLocked\", false)\nlocal weather = cityrp.network.GetGlobal(\"WeatherState\", 0)\n\n-- Server only; runs fn(ply) once ply's handshake completes, or immediately if it already has\ncityrp.network.WaitForPlayer(ply, function(ply)\n\tply:SetNetVar(\"cityrp_Job\", \"Citizen\")\nend)\n```\n\n`Entity:SetNetVar`/`SetGlobal` on an unregistered name, the wrong scope's accessor (e.g.\n`Entity:SetNetVar` for a Global-scoped var), or `:SetNetVar` for a LocalPlayer-scoped var on a\nnon-player entity are all logged errors, not silent no-ops or thrown exceptions.\n\n## Wire protocol\n\nThree net strings, two used in both directions:\n\n| Message | cl → sv | sv → cl |\n| :--- | :--- | :--- |\n| `cityrp.network.Sync` | Client's net channel is ready | The manifest, then the join bootstrap |\n| `cityrp.network.Resync` | Batched entity indices to resync | Batched per-entity/global var groups |\n| `cityrp.network.Update` | — | A single live var change |\n\n**The manifest is what fixes the positional-wire-contract bug.** The server seals the registry\n(sorted var names → sequential IDs) and sends every client `id → name, scope, codec, arg`, with the\nID bit-width itself in the header. The client never assigns its own IDs — it waits for this message\nand matches entries by name. A load-order difference between realms can no longer desync anything: at\nworst, a var one realm doesn't have registered locally gets a synthetic entry built straight from the\nmanifest, logged once, and keeps working via `GetNetVar`/`SetNetVar`.\n\nA joining player's `Sync` announce is retried every 2 seconds (up to 5 attempts) until the manifest\narrives. The server does not send `Update`/`Resync` traffic to a player until their handshake\ncompletes — an update sent before the manifest would be undecodable, and because sets are\ndelta-guarded, that value would then be lost for good.\n\n## Storage and the recycled-index bug\n\nEntity/Player-scoped values live directly on the entity's own Lua table (`ent.__netvars`), the same\nway Photon SimpleNet stores state, on both realms. This is what retires NSVars' recycled-index bug:\nGMod hands a freshly-created entity a new Lua table regardless of which index it reuses, so there is\nnothing left over to clean up and nothing that can leak between occupants of the same index.\n\n## Resync\n\nModeled on Photon SimpleNet's pull-on-visible design:\n\n1. **Client** requests a resync when an entity is created over the network (`GM:NetworkEntityCreated`)\n   or re-enters this client's PVS (`GM:NotifyShouldTransmit`). Requests debounce to at most one\n   batched message per frame.\n2. **Server** queues the requested entities per player and drains the queues from `Think`, subject to\n   two ConVars:\n\n   | ConVar | Default | Meaning |\n   | :--- | :--- | :--- |\n   | `cityrp_network_resync_rate` | 32 | Entities resynced per frame, server-wide. |\n   | `cityrp_network_resync_rate_player` | 8 | Max entities resynced per frame for any one player. |\n\n   Draining is round-robin across players with a persistent cursor, so a player with a large queue\n   cannot starve everyone else — every player with a non-empty queue gets served within a bounded\n   number of frames regardless of how full anyone else's queue is.\n3. Each player's queue is a **weak-keyed set** of entities (`{[Entity] = true}`, `__mode = \"k\"`), not\n   an ordered array. Both a disconnecting player's whole queue and an individual removed entity clean\n   themselves out of every queue automatically; `PlayerDisconnected`/`EntityRemoved` hooks additionally\n   purge eagerly rather than waiting on the next GC pass.\n4. The **join bootstrap** reuses this same path: on handshake, every currently-known networked entity\n   is queued for the new player exactly as if it had just re-entered their PVS, so a join gets the\n   same per-frame rate limiting as any other resync rather than a separate bulk-send path to reason\n   about. Global values and the joining player's own LocalPlayer-scoped values — neither tied to any\n   entity's visibility — are sent once, directly, alongside the manifest.\n\n`cityrp_network_sync_bytes` (default 8192) is the flush threshold, in bytes, for a batched `Resync`\nmessage — checked between entity groups, so a message can exceed it by up to one group's worth of\nvars. That default leaves roughly 57 KB of headroom under the 65536-byte `net` message cap.\n\n## Diagnostics\n\n`cityrp_network_dump` — server console/RCON only (same guard as `cityrp_log_set`). Prints the sealed\nregistry (id, name, scope, codec) and, per connected player, handshake status and resync queue depth.\nVerbose per-message logging goes through the existing logging library, not a dedicated ConVar:\n\n```\ncityrp_log_set network DEBUG\n```\n\n## What this scope does not do\n\n- No gamemode call site has been migrated. `SetNSVar`/`GetNSVar`/`SetLPlyVar`/`SetNW*` remain correct\n  until a follow-up scope migrates them — see [issue #3207](https://github.com/limelight-development/cityrp2/issues/3207)\n  for the full plan (compatibility shims for `damagelog`, `prone_mod`, `vape_swep`, `mapaddons.lua`\n  and the Discord relay's fake `MT:GetNSVar` stub, then deletion of `core/plugins/networking`).\n- `core/plugins/networking` is untouched and fully live.\n"
+      "body": "# Networking Library\n\n`cityrp.network` (`gamemode/core/libraries/sh_network.lua` and `core/libraries/network/`) is the\nunified replacement for three overlapping systems: engine `SetNW*`/`GetNW*`, NSVars, and\nLocalPlayerVars (`core/plugins/networking`). See [issue #3207](https://github.com/limelight-development/cityrp2/issues/3207)\nfor the full rationale.\n\n**Status: migration in progress.** `cityrp.network` is its own tier — above legacy networking\n(NSVar/LocalPlayerVar/`SetNW*`) and below nothing except DTVars — but it is **not yet mandatory**;\nsee [Networking tiers](modern-apis.md#networking-tiers). The library is live and the first call sites\nhave moved onto it (`gamemode/core/libraries/sh_network_vars.lua`), but `core/plugins/networking` is\nstill fully live too, and `SetNSVar` / `GetNSVar` / `SetLPlyVar` / `SetNW*` remain the correct APIs to\nuse for now — not deprecated, just a lower tier that hasn't been superseded yet. Move a call site as\na deliberate change, with its legacy registration removed in the same commit — not opportunistically\noff this topic alone.\n\n## Why a new library\n\n- **NSVars are player-only.** Non-player entities (doors, vehicles, signs) still have no option but\n  the deprecated `SetNW*`/`GetNW*` tier — see [problems/03](../problems/03-deprecated-network-vars.md).\n- **No recipient filtering.** NSVars are `net.Broadcast()` or nothing; LocalPlayerVars are\n  owner-only or nothing. Nothing in between — no faction-private, gang-private, or police-private\n  state without hand-rolling a new `net.*` message.\n- **The registration ID is a positional wire contract.** NSVars assign IDs by call order\n  (`#registered + 1`); any load-order divergence between the client and server realm shifts every\n  ID and silently corrupts every value, with no error.\n- **Recycled indices leak state.** The client keys NSVar state by raw entity index\n  (`PLUGIN.NSVars[entIndex]`) and never clears an entry on disconnect, so a new player who receives a\n  recycled index inherits whatever the previous occupant left behind.\n- **Broadcast while out of PVS is lost.** There is no pull-on-visible path — a value set while a\n  client is out of range never reaches it unless something else happens to resend it later.\n\n## Core concepts\n\nA **network var** is registered once, in shared code, with a builder chain:\n\n```lua\ncityrp.network.Register(\"cityrp_VehicleLocked\")\n\t:SetEntity()\n\t:Bool()\n\t:SendPVS()\n\t:SetHook(\"CityRP.VehicleLockChanged\")\n\t:Accessor(\"VehicleLocked\")\n```\n\nRegistration must happen before the registry **seals**, which occurs automatically on the\n`Initialize` hook (both realms). Registering afterward is a logged error and the var is never\nnetworked — register vars at file scope or from an early hook, not lazily on first use.\n\n### Scope\n\nExactly one scope per var, set with one of these (default: `:SetEntity()`):\n\n| Method | Storage | Default recipients |\n| :--- | :--- | :--- |\n| `:SetEntity()` | On the entity (`ent.__netvars`) | Broadcast |\n| `:SetPlayer()` | Same as Entity — a player is an entity. Routes `:Accessor()` to `FindMetaTable(\"Player\")` — see *Accessor targets* below. | Broadcast |\n| `:SetVehicle()` | Same as Entity. Routes `:Accessor()` to `FindMetaTable(\"Vehicle\")`. | Broadcast |\n| `:SetWeapon()` | Same as Entity. Routes `:Accessor()` to `FindMetaTable(\"Weapon\")`. | Broadcast |\n| `:SetLocalPlayer()` | On the owning player | That player only, always — recipient methods below don't apply |\n| `:SetGlobal()` | In the library, no owning entity | Broadcast |\n\n`:SetEntity()`, `:SetPlayer()`, `:SetVehicle()`, and `:SetWeapon()` are identical in storage and wire\nframing — `cityrp.network.IsEntityScope(scope)` is `true` for all four. The only thing that differs\nbetween them is which metatable `:Accessor()` attaches its generated methods to. `:SetLocalPlayer()`\nalso routes to `FindMetaTable(\"Player\")`, despite differing in storage/recipients from the other four.\n\n### Codecs\n\nCall one codec method per var (default is `:Auto()` if none is called):\n\n| Method | Wire shape |\n| :--- | :--- |\n| `:Bool()` | 1 byte via `net.WriteBool` |\n| `:Bit()` | Raw bit via `net.WriteBit`/`net.ReadBit`, returns `0`/`1` rather than a boolean |\n| `:Nibble()` / `:UNibble()` | 4-bit signed/unsigned |\n| `:Byte()` / `:UByte()` | 8-bit signed/unsigned |\n| `:Short()` / `:UShort()` | 16-bit signed/unsigned |\n| `:Int()` / `:UInt()` | 32-bit signed/unsigned |\n| `:Integer(bits)` / `:UInteger(bits)` | Explicit 1-32 bit width |\n| `:Float()` | 32-bit IEEE float |\n| `:Double()` | 64-bit IEEE double |\n| `:Long()` | Alias of `:Double()` — see *Integer widths* below |\n| `:String()` | `net.WriteString` — null-terminated, so the writer decides the length |\n| `:String(maxLen)` | Length-prefixed: a fixed-width count, then that many bytes. Variable length, hard ceiling, no padding — see *Bounded strings* below |\n| `:Vector()` | Three signed components, each auto-choosing float vs. compact integer |\n| `:Normal()` | Compact vector encoding for components that stay within ±1 |\n| `:Angle()` | Same per-component encoding as `:Vector()` |\n| `:Color()` | RGB plus an optional alpha byte (only sent if alpha isn't 255) |\n| `:Entity()` | `net.WriteEntity`/`net.ReadEntity` |\n| `:Player()` | `net.WritePlayer`/`net.ReadPlayer` — narrower than `:Entity()`, sized off `MAX_PLAYER_BITS` instead of `MAX_EDICT_BITS`. `:Auto()` picks this over `:Entity()` on its own whenever the value is a player. |\n| `:Table()` | Recursive, self-describing — each key/value goes through `:Auto()` |\n| `:Data(maxLen)` | Fixed-length byte string via `net.WriteData`/`net.ReadData` |\n| `:Auto()` | Self-describing: a small type tag, then the value. What NSVars do today. |\n| `:Write(fn, opt)` / `:Read(fn, opt)` | Custom codec — see *Custom codecs* below |\n| `:Enum(list)` | Fixed set of legal values — see *Enums* below |\n\n#### Integer widths\n\n`net.WriteInt`/`net.WriteUInt` only accept 1-32 bits. NSVars' `NETTYPE_LONG` (64) and\n`NETTYPE_XLONG` (128) passed 64/128 to those functions and could never actually work. Separately,\nGLua numbers are IEEE doubles, so no integer above 2^53 can round-trip through Lua regardless of how\nit's framed on the wire. `:Long()` is therefore an alias of `:Double()` — the widest integer GLua can\nactually represent exactly — not a wider integer codec. There is no `:XLong()`; nothing in Lua can\nhold the value, so the name would only reproduce the old illusion.\n\n#### Bounded strings\n\n`:String()` reads with `net.ReadString()`, which runs to a null the *sender* places — the length is\nwhatever arrives, capped only by the 64 KB `net` limit. `:String(maxLen)` instead writes a length\nprefix and reads exactly that many bytes, so the ceiling comes from the registration and never from\nthe wire.\n\nThe prefix is a **fixed** width (`CODEC_ARG_BITS`), not one derived from `maxLen`. Deriving it cost a\nday on beta: `math.floor(math.log(64, 2)) + 1` answers 6 or 7 depending on whether the expression was\ninterpreted or JIT-compiled, so the two realms sized the same prefix differently and the payload\narrived shifted by one bit — with the length still decoding correctly, because the extra bit happened\nto be zero. Every bit width in this library is now either a constant, written to the wire beside its\nvalue, or carried in the manifest. None is recomputed independently on both realms and assumed to\nmatch.\n\nThat distinction is what makes it the only string form `:ClientOwned()` accepts. `:Data(maxLen)` is\nequally safe to read — its length also comes from the registration — but it is *fixed* width, not\nup-to-width: it pads short values with `\\0` and costs `maxLen` bytes regardless, which is right for a\nfixed-shape token and wrong for text.\n\nNothing is ever truncated silently, and the three ways it can happen are not the same severity:\n\n| Where | What it means | What happens |\n| :--- | :--- | :--- |\n| A value longer than `maxLen` is written | A bug — data is being lost | Logged as an error naming both lengths, then truncated, exactly as `:Integer()`/`:Data()` report being called wrong |\n| A decoded length prefix exceeds `maxLen` | Not truncation — a malformed or hostile message | The read is clamped for safety and **the rest of the message is abandoned**, the same contract `DecodeEntry` already has for an unknown var id |\n\nThe second row is the one worth understanding: the byte stream is desynced the moment the prefix\nlies, so clamping and carrying on would corrupt every sibling var batched behind it rather than just\nthe offending one.\n\n`maxLen` counts **bytes**, so a truncation can split a multi-byte character. That only happens on a\npath that has already logged an error, but it is why the limit should be set from the byte length you\nactually mean to allow.\n\n#### Custom codecs\n\n`:Write(fn, opt)` / `:Read(fn, opt)` bypass the built-in codec table entirely. Because the manifest\n(below) can't describe an arbitrary function, a custom-codec var is always sent **alone in its own\nmessage**, never batched alongside other vars — an undecodable custom value can then only ever\ncorrupt its own message, not a whole batch riding with it. Both realms must register the same var\nwith matching `:Write`/`:Read` calls; a client that never called `:Read()` for a name the manifest\ndescribes as Custom-coded logs an error and drops that message when one arrives.\n\n#### Enums\n\n`:Enum(list)` declares a var's legal values as `list`, a sequential (`ipairs`-ordered) array, and\npicks between two wire strategies by comparing their actual bit cost:\n\n- **Direct value** (batchable) — if `list` is entirely integers, the value itself goes on the wire,\n  sized to its min/max via `:Integer`/`:UInteger` (signed only if the set dips below zero). No offset\n  from the minimum is applied even when every value shares a large common magnitude (e.g. `{100,\n  101}`) — an offset would itself need a per-var `:Write()`/`:Read()` closure, i.e. `CODEC_CUSTOM`,\n  which is exactly the cost this path exists to avoid. Order carries no wire meaning here.\n- **Mapped index** (not batchable) — the value's *index* in `list` goes on the wire instead, via an\n  auto-generated `:Write()`/`:Read()` pair sized to `#list`. `CODEC_CUSTOM` under the hood (see\n  *Custom codecs* above), so a resync entry using it never shares a message with sibling vars on the\n  same entity — its own `WriteIndexHeader` plus framing, and its own resync-queue slot. Order **does**\n  matter here: it's the wire index, so both realms must register the same var with the same list in\n  the same order.\n\nFor an all-integer `list`, the mapped index is only chosen if it beats the direct-value bit cost by\nmore than `cityrp.network.RESYNC_GROUP_OVERHEAD_BITS` (24), the approximate resync-framing cost of\nescaping batching. A `list` containing anything non-integer (strings, mixed types) always uses the\nmapped index; there's no numeric value to size a direct encoding from.\n\nEither way, `Set`ting a value that isn't in `list` is rejected — logged and dropped, never stored or\nsent — rather than silently encoding as something adjacent or vanishing into no enum value at all.\n`nil` (clearing the var) always bypasses this check.\n\n```lua\n-- Direct value: dense, low-magnitude set — 3 bits, batchable.\ncityrp.network.Register(\"cityrp_Rank\"):SetPlayer():Enum({1, 2, 3, 4}):Accessor(\"Rank\")\n\n-- Mapped index: small set, but string-valued (no direct encoding available) — 3 bits, not batchable.\ncityrp.network.Register(\"pass\"):Enum({\"grey\", \"green\", \"blue\", \"orange\", \"red\"}):Accessor(\"Pass\")\n```\n\n### Recipients\n\nOnly meaningful for Entity/Player/Vehicle/Weapon/Global scope — LocalPlayer scope is always\nowner-only regardless.\n\n| Method | Behaviour |\n| :--- | :--- |\n| `:Broadcast()` | Default. Sends to everyone. |\n| `:SendPVS()` | `net.SendPVS(ent:GetPos())` — everyone who can potentially see the position. |\n| `:SendPAS()` | `net.SendPAS(ent:GetPos())` — everyone who can potentially hear it. |\n| `:SendOmit(fn)` | `fn(ent, value)` returns who to exclude; everyone else gets it. |\n| `:Filter(fn)` | `fn(ent, value)` returns who receives it — a `Player`, a `Player[]`, or a `CRecipientFilter`. |\n\n**`:Filter()` is the only secrecy boundary.** PVS, PAS, and Omit are treated as **bandwidth**\noptimizations, not authorization: resync and the join bootstrap (below) always include a PVS/PAS/Omit\nvar's current value for a player who's asking, because pull-on-visible only fires once the client is\nalready in a position to receive it anyway. If a value must never reach a player at all — faction,\ngang, or police-private data — use `:Filter()`, not `:SendOmit()`. `:Filter()`'s callback doubles as\nthat authorization check: the same function that decides who gets a *live* update also decides who's\nallowed to pull it via resync, so there's exactly one predicate to keep correct, not two that can\ndrift apart. Keep `:Filter()` callbacks cheap and free of side effects — they can run once per set\nand again per resync candidate.\n\n### Behaviour\n\n| Method | Effect |\n| :--- | :--- |\n| `:SetHook(name)` | Runs `hook.Run(name, ent, newValue, oldValue, predicted)` on both realms when the value changes. `predicted` is `true` only for a client-side local apply the server hasn't confirmed — see below. |\n| `:AutoHook()` | Shorthand for `:SetHook(\"CityRP.Network.<name>.Changed\")` — use when you don't care what the hook is called. |\n| `:Accessor(name)` | Generates `Get<Name>()` (both realms) and `Set<Name>()` (server only, unless `:Predictable()`) — see *Accessor targets* below for which metatable. |\n| `:Predictable()` | Also generates a client-side `Set<Name>()` for local prediction — see below. Only valid on `:SetLocalPlayer()`. |\n| `:ClientOwned()` | Lets the client set this var on its own player and have the server accept it — see *Client-owned vars* below. Requires `:SetPlayer()`/`:SetLocalPlayer()`, a bounded codec, and a `:Debounce()`. |\n| `:Debounce(seconds[, ceiling])` | Coalesces sets to at most one change per `seconds` — see *Debouncing* below. `ceiling` reserves the shape for adaptive backoff; omit it and the interval never moves. |\n| `:SetNoSync()` | Excludes the var from the join bootstrap and resync — push-only. A client that was out of PVS during a push never gets it. |\n| `:SetDefault(value)` | What `Entity:GetNetVar`/`cityrp.network.GetGlobal` return before anything is set. |\n\n#### Client-side prediction\n\n`:Set<Name>()` is normally server-only — setting is server-authoritative, and the underlying\n`SetNetVar`/`SetGlobal` don't exist on the client realm at all (`sv_send.lua` is a server-only file).\n`:Predictable()` opts a `:SetLocalPlayer()` var out of that: the client gets its own `Set<Name>()`\ntoo, which applies the value locally (storage + the `:SetHook()` hook, with `predicted = true` — never\na network send, the client has no authority to send anything) instead of calling into the\nserver-only machinery. `:ClientOwned()` below is the other way out of that rule, and the one that\ndoes send.\n\nThis is for the standard prediction-and-reconciliation shape: client-side code that runs under\n`IsFirstTimePredicted()` calls `Set<Name>()` immediately for instant feedback, while the server keeps\ncomputing and pushing the authoritative value exactly as it always did. When that confirmed value\narrives back at the client through the normal decode path, it overwrites whatever was predicted\nlocally — correcting any drift the same way it always corrected a live update, no special-case\nreconciliation code needed. If the client's prediction already matched, the delta guard in\n`ApplyValue` means nothing observable happens; if it didn't, the value snaps to the server's.\n\nOnly valid for `:SetLocalPlayer()` — a client predicting some other entity's state has no\nserver-authoritative copy of *that* entity's future value to reconcile against, so the scope doesn't\nmake sense there. Using `:Predictable()` on any other scope logs an error at accessor-generation time\nand simply doesn't generate the client-side setter, rather than producing a footgun that looks like\nit works.\n\n```lua\ncityrp.network.Register(\"_Stamina\"):SetLocalPlayer():UByte():Accessor(\"Stamina\"):Predictable()\n\n-- In shared code, guarded the same way any other predicted mutation is:\nif SERVER or IsFirstTimePredicted() then\n\tply:SetStamina(newValue) -- works on both realms now\nend\n```\n\n#### Client-owned vars\n\n`:ClientOwned()` is the only supported client→server write path. The generated `Set<Name>()` becomes\navailable on the client, where it applies the value locally and then sends it; the server validates\nthe sender, decodes it, and hands it to `ply:SetNetVar()` — the ordinary server-side setter.\n\n```lua\ncityrp.network.Register(\"cityrp_F1Open\"):SetPlayer():Bool():Accessor(\"F1Open\")\n\t:ClientOwned():Debounce(1):SetDefault(false)\n\n-- Client, wherever the menu opens and closes:\nLocalPlayer():SetF1Open(true)\n```\n\nBecause the receiver hands off to `SetNetVar`, **everything else composes for free**: the var's\n`:Enum()` validator, its delta guard, its `:Debounce()` and its recipient mode all behave exactly as\nthey would for a server-set value. A client-owned var is *not* implicitly a broadcast one. `:Filter()`\nis the interesting combination, since its callback doubles as the resync authorization check — \"only\nmy faction sees this claim\" is a supported shape — and `:SetLocalPlayer()` is coherent too: the claim\nreaches nobody but the sender, with a server-side `:SetHook()` doing the work.\n\n**The value is a claim, not a fact.** The library relays it faithfully and never second-guesses it,\nso it carries exactly the authority the sender has: none. Never gate permissions, economy or\nanti-cheat on one. The worst a liar can do to `cityrp_F1Open` is produce fake overhead text — that is\nthe bar a new client-owned var has to clear.\n\nConstraints, all checked when the registry seals, each a logged error that clears the flag rather\nthan a silently-generated hole:\n\n- **`:SetPlayer()` or `:SetLocalPlayer()` scope.** The message carries no entity index — the server\n  applies it to whoever sent it — so a client cannot address another entity. That is structural, not\n  a check to remember.\n- **A bounded codec.** The test is not \"is it small\" but \"who decides how much the server reads\".\n  Fixed-width codecs, `:Enum()`, `:Data(maxLen)` and `:String(maxLen)` all read a width fixed by the\n  registration. `:Auto()` (a wire-supplied type tag), unbounded `:String()` and `:Table()` all let the\n  sender decide, and are refused. A hand-written `:Write()`/`:Read()` pair is refused for the same\n  reason; `:Enum()`'s generated one is admitted, because its read is a fixed-width index.\n- **A `:Debounce()`.** Accepting unthrottled client-authored state isn't supported.\n\nChaining `:Predictable()` as well is redundant — client-owned already applies locally first — and\nwarns rather than erroring.\n\nSets made before the manifest arrives are **buffered and flushed once it lands**, latest-wins per\nvar. Accessors exist from `Initialize`, but the client's var IDs come from the manifest, which\narrives after `InitPostEntity`; without the buffer, a var pushed once at startup (\"my setting is X\")\nwould be silently lost. The local apply still happens immediately — only the send waits.\n\n##### Claims are not adjudicated\n\nWhether a claim is currently *meaningful* — the player is alive, awake, not spectating, in range, on\nthe right job — is decided by whatever **consumes** it, never at the point of claim. There is\ndeliberately no server-side accept predicate and no server-side clear.\n\nA rejecting predicate would strand state. Player opens F1 while alive, is killed, closes F1 — the\npredicate refuses the close because they're dead, and \"In Inventory\" sits over their head for the\nrest of the round. Every fix for that is machinery that exists only to undo damage the predicate\ncaused.\n\nThe condition also belongs at the consumer anyway, where it is *shared*: the overhead renderer\nalready needs a liveness test, and one test there covers `cityrp_Typing`, `cityrp_F1Open` and every\nclaim added later, rather than each var repeating the same three checks.\n\nThe check does not disappear, though — it **moves**, and is now the consumer's to write.\n\n#### Debouncing\n\n`:Debounce(seconds)` caps how often a var may actually change. It is not client-only — any\nhigh-churn var can opt into it — but `:ClientOwned()` requires one.\n\n- A set during a quiet period applies and dispatches **immediately**. No artificial latency on the\n  common case.\n- A set inside the window overwrites a **single pending slot**, latest wins, no accumulation.\n- The pending value is applied when the window closes.\n\nCoalescing rather than a token bucket, because these are **state, not events**. A bucket *drops*\nupdates, and a dropped \"F1 closed\" leaves everyone seeing stale overhead text until that player opens\nand closes F1 again at a politer rate. Coalescing can't do that — the last value always lands, it\njust lands late.\n\nMost of the saving comes from the delta guard rather than the throttling: a rapid\n`true → false → true → false` burst settles on a value that usually equals what is already stored, so\nthe flush reports no change and **nothing goes on the wire at all**. Pathological spam costs one\ninbound decode per message and zero outbound messages.\n\nThe debounce covers the **apply**, not only the send, so there stays exactly one notion of a var's\ncurrent value. The cost, and the one surprising consequence: a server-side `GetNetVar` lags a\n`SetNetVar` by up to the interval, so the two no longer round-trip within a frame.\n\n`ceiling` reserves the shape for adaptive backoff — escalate on sustained *dispatches*, reset to the\nfloor after a full quiet window. It is inert today: omitting it sets `ceiling == seconds`, so the\ninterval never moves. Escalation counts dispatches rather than inbound messages deliberately, since a\nburst that coalesces back to its original value costs the server nothing and must not be throttled\nfor it.\n\nPending and escalated pairs are drained on `Think` against a weak-keyed set, the same shape the\nresync queues use, rather than a timer per player per var.\n\n#### Accessor targets\n\n`:Accessor(name)` attaches to `FindMetaTable(\"Entity\")` for Entity/Global scope, `FindMetaTable(\"Player\")`\nfor Player/LocalPlayer scope, and `FindMetaTable(\"Vehicle\")`/`FindMetaTable(\"Weapon\")` for those.\nCalling `Entity:GetNetVar`/`SetNetVar` itself would already work identically regardless — GMod\nresolves a method not found on a more specific metatable by falling through to Entity's — but the one\ncase that fallthrough doesn't cover is a same-named method the *more specific* metatable already\ndefines natively: it would shadow an Entity-attached `Get<Name>`/`Set<Name>` for every entity of that\ntype, silently calling the native method instead of yours. Attaching directly to the matching\nmetatable instead puts your accessor closer than Entity's in the lookup chain, so it wins.\n\nThis is a real, present-day risk, not a hypothetical one: `sv_vehicle.lua`'s `locked`, `engine_on`,\nand `HP` state — the values [modern-apis.md](modern-apis.md) names as the reason vehicles still use\nthe otherwise-avoided `SetNW*` tier — are exactly the kind of vehicle-specific accessor a scope 2\nmigration would want to name `Locked`/`EngineOn`/`HP`, and `FindMetaTable(\"Vehicle\")` is already\nextended in this codebase (`core/metatables/sh_vehicle.lua`).\n\n### Reading and writing\n\n```lua\n-- Server only\nent:SetNetVar(\"cityrp_VehicleLocked\", true)\ncityrp.network.SetGlobal(\"WeatherState\", 2)\n\n-- Both realms\nlocal locked = ent:GetNetVar(\"cityrp_VehicleLocked\", false)\nlocal weather = cityrp.network.GetGlobal(\"WeatherState\", 0)\n\n-- Server only; runs fn(ply) once ply's handshake completes, or immediately if it already has\ncityrp.network.WaitForPlayer(ply, function(ply)\n\tply:SetNetVar(\"cityrp_Job\", \"Citizen\")\nend)\n\n-- Client only, and only for a :ClientOwned() var. Equivalent to its generated Set<Name>(); use it\n-- directly for a var registered without :Accessor().\ncityrp.network.ClientSet(\"cityrp_F1Open\", true)\n```\n\n`Entity:SetNetVar`/`SetGlobal` on an unregistered name, the wrong scope's accessor (e.g.\n`Entity:SetNetVar` for a Global-scoped var), or `:SetNetVar` for a LocalPlayer-scoped var on a\nnon-player entity are all logged errors, not silent no-ops or thrown exceptions.\n\n## Wire protocol\n\nFour net strings, two used in both directions:\n\n| Message | cl → sv | sv → cl |\n| :--- | :--- | :--- |\n| `cityrp.network.Sync` | Client's net channel is ready | The manifest, then the join bootstrap |\n| `cityrp.network.Resync` | Batched entity indices to resync | Batched per-entity/global var groups |\n| `cityrp.network.Update` | — | A single live var change |\n| `cityrp.network.ClientSet` | One `:ClientOwned()` var, for the sending player | — |\n\n`ClientSet` carries a bare var entry and **no entity index**: the server applies it to whoever sent\nit, so there is nowhere in the message to name another entity. One var per message, never batched, so\na desynced entry can only ever cost that one var. The entry's wire shape is written and read by the\nsame `WriteVarEntry`/`DecodeEntry` pair the server's own paths use — both live in `sh_store.lua`\nrather than one per realm, because a matched pair split across two files is exactly what AGENTS.md\nfootgun #11 is about.\n\n**The manifest is what fixes the positional-wire-contract bug.** The server seals the registry\n(sorted var names → sequential IDs) and sends every client `id → name, scope, codec, arg`, with the\nID bit-width itself in the header. The client never assigns its own IDs — it waits for this message\nand matches entries by name. A load-order difference between realms can no longer desync anything: at\nworst, a var one realm doesn't have registered locally gets a synthetic entry built straight from the\nmanifest, logged once, and keeps working via `GetNetVar`/`SetNetVar`.\n\nA joining player's `Sync` announce is retried every 2 seconds (up to 5 attempts) until the manifest\narrives. The server does not send `Update`/`Resync` traffic to a player until their handshake\ncompletes — an update sent before the manifest would be undecodable, and because sets are\ndelta-guarded, that value would then be lost for good.\n\n## Storage and the recycled-index bug\n\nEntity/Player-scoped values live directly on the entity's own Lua table (`ent.__netvars`), the same\nway Photon SimpleNet stores state, on both realms. This is what retires NSVars' recycled-index bug:\nGMod hands a freshly-created entity a new Lua table regardless of which index it reuses, so there is\nnothing left over to clean up and nothing that can leak between occupants of the same index.\n\n## Resync\n\nModeled on Photon SimpleNet's pull-on-visible design:\n\n1. **Client** requests a resync when an entity is created over the network (`GM:NetworkEntityCreated`)\n   or re-enters this client's PVS (`GM:NotifyShouldTransmit`). Requests debounce to at most one\n   batched message per frame.\n2. **Server** queues the requested entities per player and drains the queues from `Think`, subject to\n   two ConVars:\n\n   | ConVar | Default | Meaning |\n   | :--- | :--- | :--- |\n   | `cityrp_network_resync_rate` | 32 | Entities resynced per frame, server-wide. |\n   | `cityrp_network_resync_rate_player` | 8 | Max entities resynced per frame for any one player. |\n\n   Draining is round-robin across players with a persistent cursor, so a player with a large queue\n   cannot starve everyone else — every player with a non-empty queue gets served within a bounded\n   number of frames regardless of how full anyone else's queue is.\n3. Each player's queue is a **weak-keyed set** of entities (`{[Entity] = true}`, `__mode = \"k\"`), not\n   an ordered array. Both a disconnecting player's whole queue and an individual removed entity clean\n   themselves out of every queue automatically; `PlayerDisconnected`/`EntityRemoved` hooks additionally\n   purge eagerly rather than waiting on the next GC pass.\n4. The **join bootstrap** reuses this same path: on handshake, every currently-known networked entity\n   is queued for the new player exactly as if it had just re-entered their PVS, so a join gets the\n   same per-frame rate limiting as any other resync rather than a separate bulk-send path to reason\n   about. Global values and the joining player's own LocalPlayer-scoped values — neither tied to any\n   entity's visibility — are sent once, directly, alongside the manifest.\n\n`cityrp_network_sync_bytes` (default 8192) is the flush threshold, in bytes, for a batched `Resync`\nmessage — checked between entity groups, so a message can exceed it by up to one group's worth of\nvars. That default leaves roughly 57 KB of headroom under the 65536-byte `net` message cap.\n\n## Diagnostics\n\n`cityrp_network_dump` — server console/RCON only (same guard as `cityrp_log_set`). Prints the sealed\nregistry (id, name, scope, codec, plus `clientOwned` and `debounce=floor..ceiling` where they apply),\nper connected player their handshake status and resync queue depth, and every (owner, var) pair\ncurrently mid-window or escalated off its debounce floor. That last block matters because an\nescalated interval is otherwise invisible — it presents only as \"this player's indicator is laggy\".\n\n`cityrp_network_clientset_rate` (default 30) is the inbound backstop: `ClientSet` messages one player\nmay send per second before the rest of that second is ignored and a warning logged. It is a floodgate,\nnot the throttle that makes client-owned vars viable — `:Debounce()` is that, and it already flattens\nevery legitimate burst — which is why it can sit well above any real usage.\n\nVerbose per-message logging goes through the existing logging library, not a dedicated ConVar:\n\n```\ncityrp_log_set network DEBUG\n```\n\n## What this library does not do\n\n- **Most call sites have not been migrated.** `SetNSVar`/`GetNSVar`/`SetLPlyVar`/`SetNW*` remain\n  correct for everything still on them — see [issue #3207](https://github.com/limelight-development/cityrp2/issues/3207)\n  for the full plan (compatibility shims for `damagelog`, `prone_mod`, `vape_swep`, `mapaddons.lua`\n  and the Discord relay's fake `MT:GetNSVar` stub, then deletion of `core/plugins/networking`).\n  `core/plugins/networking` is still fully live.\n- **No client authority over anything but the sending player.** `:ClientOwned()` is\n  `:SetPlayer()`/`:SetLocalPlayer()` only; there is no client-driven Global or Entity scope, and no\n  way for a client to write another entity's state.\n- **No server-side adjudication of a claim.** No accept predicate, no server-side clear — see\n  *Claims are not adjudicated* above for why both are deliberate omissions rather than gaps.\n"
     },
     {
       "id": "new-map-checklist",

@@ -347,6 +347,14 @@ changed, not what the change was for.</p>
 captured as the changelog entry — including any lines after the first, so a commit body written
 under a <code>public=</code> subject line is part of the entry, not just the subject line itself.</p>
 <blockquote class="ll-alert ll-alert-warning"><p class="ll-alert-title">Warning</p>
+<p><code>public=</code> must only appear on the PR title / merge commit message — never on an individual leaf
+commit within a branch or stack. The changelog webhook parses every commit that lands on
+master as its own entry, so a <code>public=</code> line on a leaf commit can be captured a second time if
+that commit also reaches master outside of the squash merge (for example, a gh-stack layer).
+Leaf commits use the internal Conventional Commits style above; add <code>public=</code> only when writing
+the PR title/description that becomes the merge commit message.</p>
+</blockquote>
+<blockquote class="ll-alert ll-alert-warning"><p class="ll-alert-title">Warning</p>
 <p>When a PR is merged, GitHub combines the commit message subject and the extended description
 into a single commit message. If <code>public=</code> is on the subject line, the extended description
 (PR body, additional commit messages being squashed in, etc.) gets appended after it and

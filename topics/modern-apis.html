@@ -370,7 +370,7 @@
 <td align="left"><strong>Networking</strong></td>
 <td align="left">See tiers below</td>
 <td align="left"><code>umsg.*</code>, <code>SendLua()</code>, <code>BroadcastLua()</code> (banned)</td>
-<td align="left">Pick the highest tier that fits; never use the banned tier.</td>
+<td align="left">Pick the highest tier that fits; <code>cityrp.network</code> exists as a library but isn't mandatory yet, so legacy networking (NSVar/LocalPlayerVar) remains the correct default; never use the banned tier.</td>
 </tr>
 <tr>
 <td align="left"><strong>Color Constants</strong></td>
@@ -426,27 +426,22 @@
 <h2 id="networking-tiers">Networking tiers</h2>
 <p>Networking isn't a simple modern/legacy split — use the <strong>highest tier that fits the use case</strong>, don't default to a lower one out of habit.</p>
 <ol>
-<li><strong>Top tier: Entity Networking (DTVars).</strong> <code>Entity:NetworkVar(...)</code> / DataTables (<code>SetupDataTables</code>). Use for anything that's naturally a property of a <strong>Lua-authored</strong> entity (a SENT or SWEP you define yourself) — it's predicted, delta-compressed, and needs no manual send/receive code. <strong>This does not work for GMod's engine-defined vehicle base classes</strong> (<code>prop_vehicle_jeep</code>, <code>prop_vehicle_prisoner_pod</code>, etc.) — they don't run <code>SetupDataTables</code> the way a Lua SENT does, so DTVars aren't an option for vehicle state. See tier 3.</li>
-<li><strong>Standard networking.</strong> For events/actions, use <code>net.*</code> directly. For player state that isn't a natural entity property:
+<li><strong>Top tier: Entity Networking (DTVars).</strong> <code>Entity:NetworkVar(...)</code> / DataTables (<code>SetupDataTables</code>). Use for anything that's naturally a property of a <strong>Lua-authored</strong> entity (a SENT or SWEP you define yourself) — it's predicted, delta-compressed, and needs no manual send/receive code. <strong>This does not work for GMod's engine-defined vehicle base classes</strong> (<code>prop_vehicle_jeep</code>, <code>prop_vehicle_prisoner_pod</code>, etc.) — they don't run <code>SetupDataTables</code> the way a Lua SENT does, so DTVars aren't an option for vehicle state. See tier 4.</li>
+<li><strong><code>cityrp.network</code>.</strong> <code>cityrp.network.Register(...)</code> (<code>core/libraries/sh_network.lua</code>, see <a href="networking.html">networking.md</a>). Covers anything tier 1 doesn't: non-player entity state (doors, vehicles, signs), Global-scope values, LocalPlayer-private state, or any value that needs recipient filtering (<code>:Filter()</code>, <code>:SendPVS()</code>/<code>:SendPAS()</code>), a change hook, or pull-on-visible resync. <strong>Not yet mandatory</strong> — see <em>Migration status</em> below before reaching for this tier over tier 3. See <a href="networking.html">networking.md</a> for the full builder-chain reference.</li>
+<li><strong>Legacy networking.</strong> For events/actions, use <code>net.*</code> directly. For player state that isn't a natural entity property:
 <ul>
 <li><code>ply:SetNSVar(name, value)</code> / <code>ply:GetNSVar(name, default)</code> — for state every client needs to know about that player (broadcast to all clients via <code>net.Broadcast()</code>).</li>
 <li><code>cityrp.player.setLocalPlayerVariable(ply, CLASS_TYPE, &quot;_Name&quot;, value)</code> — for state only the owning client needs (sent privately via <code>net.Send(ply)</code>).</li>
 <li>Both require the variable name to be pre-registered (see <code>networking/sh_init.lua</code>) — setting an unregistered name fails <strong>silently</strong>, with only a <code>print()</code> to console, not an error. Register the name first.</li>
-<li><strong>Both are Player-metatable-only</strong> (<code>FindMetaTable(&quot;Player&quot;)</code>) — they don't generalize to vehicles or other non-player entities. For non-player entity state where DTVars isn't available (see tier 1), use <code>net.*</code> directly.</li>
+<li><strong>Both are Player-metatable-only</strong> (<code>FindMetaTable(&quot;Player&quot;)</code>) — they don't generalize to vehicles or other non-player entities. For non-player entity state, <code>net.*</code> directly is the current option (tier 2 isn't mandatory yet — see below).</li>
+<li>Not deprecated: this tier works, is still reasonably efficient, and is the correct default today. It just sits below <code>cityrp.network</code> once that tier becomes mandatory.</li>
 </ul>
 </li>
-<li><strong>Avoided: low-tier networking.</strong> <code>SetNWInt</code>/<code>SetNW2Int</code>/etc. (NW/NW2 vars). Avoid for player data — don't use it in new or refactored code, see <a href="https://github.com/limelight-development/cityrp2/blob/master/problems/03-deprecated-network-vars.md">problems/03</a> and <a href="https://github.com/limelight-development/cityrp2/blob/master/improvements/01-deprecated-networked-variables.md">improvements/01</a>. <strong>Exception</strong>: vehicles currently use this tier for real (<code>sv_vehicle.lua</code>'s <code>locked</code>/<code>engine_on</code>/<code>HP</code> state) precisely because neither tier 1 (DTVars — engine entity, no <code>SetupDataTables</code>) nor tier 2 (NSVar/LocalPlayerVar — Player-only) apply to them. Until a proper <code>net.*</code>-based vehicle-state system exists, this is the practically justified option for vehicles, not just legacy inertia.</li>
+<li><strong>Avoided: low-tier networking.</strong> <code>SetNWInt</code>/<code>SetNW2Int</code>/etc. (NW/NW2 vars). Avoid for player data — don't use it in new or refactored code, see <a href="https://github.com/limelight-development/cityrp2/blob/master/problems/03-deprecated-network-vars.md">problems/03</a> and <a href="https://github.com/limelight-development/cityrp2/blob/master/improvements/01-deprecated-networked-variables.md">improvements/01</a>. <strong>Exception</strong>: vehicles currently use this tier for real (<code>sv_vehicle.lua</code>'s <code>locked</code>/<code>engine_on</code>/<code>HP</code> state) precisely because neither tier 1 (DTVars — engine entity, no <code>SetupDataTables</code>) nor tier 3 (NSVar/LocalPlayerVar — Player-only) apply to them, and they haven't been migrated to tier 2 yet. Until that migration lands, this is the practically justified option for vehicles, not just legacy inertia.</li>
 <li><strong>Banned.</strong> <code>umsg.*</code> (pre-<code>net</code> legacy usermessage library — no structure or size guarantees <code>net</code> provides), <code>SendLua()</code>, <code>BroadcastLua()</code> (execute arbitrary Lua source on the client — a code-injection vector if the string is ever built from anything less than a fully trusted, static literal, and pure legacy debt even when it isn't). Never use these.</li>
 </ol>
-<h3 id="in-progress-cityrpnetwork">In progress: <code>cityrp.network</code></h3>
-<p><code>cityrp.network</code> (<code>core/libraries/sh_network.lua</code>, see <a href="networking.html">networking.md</a>) is the target
-replacement for tiers 2 and 3 above — one library covering entity/player/global/local-player scope,
-recipient filtering (<code>:Filter()</code>, <code>:SendPVS()</code>/<code>:SendPAS()</code>), change hooks, and pull-on-visible resync,
-fixing the positional-ID and recycled-index bugs NSVars have today.</p>
-<p><strong>It has landed as a library only — no call site has been migrated yet.</strong> <code>SetNSVar</code>/<code>GetNSVar</code>,
-<code>cityrp.player.setLocalPlayerVariable</code>/<code>Player:SetLPlyVar</code>, and <code>SetNW*</code> for vehicles all remain the
-correct APIs to use in new and refactored code until that migration (a separate, later change) lands
-and this note is updated. Do not start converting call sites to <code>cityrp.network</code> off this note alone.</p></div>
+<h3 id="migration-status">Migration status</h3>
+<p><code>cityrp.network</code> has landed as a library only — no call site has been migrated, and it is <strong>not yet mandatory</strong> for new or refactored code. <code>SetNSVar</code>/<code>GetNSVar</code>, <code>cityrp.player.setLocalPlayerVariable</code>/<code>Player:SetLPlyVar</code>, and <code>SetNW*</code> for vehicles all remain the correct APIs to use until a separate, later change flips this note and starts requiring <code>cityrp.network</code> for the call sites described in tier 2. Do not start converting call sites to <code>cityrp.network</code> off this note alone. See <a href="https://github.com/limelight-development/cityrp2/issues/3207">issue #3207</a> for the full migration plan.</p></div>
 		</div>
 	</div>
 </div>

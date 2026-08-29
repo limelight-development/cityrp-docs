@@ -31,7 +31,7 @@
 <li><a href="#storage-and-the-recycled-index-bug">Storage and the recycled-index bug</a></li>
 <li><a href="#resync">Resync</a></li>
 <li><a href="#diagnostics">Diagnostics</a></li>
-<li><a href="#what-this-scope-does-not-do">What this scope does not do</a></li>
+<li><a href="#what-this-library-does-not-do">What this library does not do</a></li>
 </ul></div>
 <details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">36</span></summary>
 <ul class="ll-kind-body">
@@ -349,10 +349,14 @@
 unified replacement for three overlapping systems: engine <code>SetNW*</code>/<code>GetNW*</code>, NSVars, and
 LocalPlayerVars (<code>core/plugins/networking</code>). See <a href="https://github.com/limelight-development/cityrp2/issues/3207">issue #3207</a>
 for the full rationale.</p>
-<p><strong>Status: library only.</strong> This topic documents the library as it exists today. No call site in the
-gamemode has been migrated yet — <code>core/plugins/networking</code> is still fully live, and <code>SetNSVar</code> /
-<code>GetNSVar</code> / <code>SetLPlyVar</code> / <code>SetNW*</code> remain the correct APIs to use until that migration (a later,
-separate scope) lands. Do not start migrating call sites off this topic alone.</p>
+<p><strong>Status: migration in progress.</strong> <code>cityrp.network</code> is its own tier — above legacy networking
+(NSVar/LocalPlayerVar/<code>SetNW*</code>) and below nothing except DTVars — but it is <strong>not yet mandatory</strong>;
+see <a href="modern-apis.html#networking-tiers">Networking tiers</a>. The library is live and the first call sites
+have moved onto it (<code>gamemode/core/libraries/sh_network_vars.lua</code>), but <code>core/plugins/networking</code> is
+still fully live too, and <code>SetNSVar</code> / <code>GetNSVar</code> / <code>SetLPlyVar</code> / <code>SetNW*</code> remain the correct APIs to
+use for now — not deprecated, just a lower tier that hasn't been superseded yet. Move a call site as
+a deliberate change, with its legacy registration removed in the same commit — not opportunistically
+off this topic alone.</p>
 <h2 id="why-a-new-library">Why a new library</h2>
 <ul>
 <li><strong>NSVars are player-only.</strong> Non-player entities (doors, vehicles, signs) still have no option but
@@ -480,7 +484,11 @@ also routes to <code>FindMetaTable(&quot;Player&quot;)</code>, despite differing
 </tr>
 <tr>
 <td align="left"><code>:String()</code></td>
-<td align="left"><code>net.WriteString</code></td>
+<td align="left"><code>net.WriteString</code> — null-terminated, so the writer decides the length</td>
+</tr>
+<tr>
+<td align="left"><code>:String(maxLen)</code></td>
+<td align="left">Length-prefixed: a fixed-width count, then that many bytes. Variable length, hard ceiling, no padding — see <em>Bounded strings</em> below</td>
 </tr>
 <tr>
 <td align="left"><code>:Vector()</code></td>
@@ -535,6 +543,50 @@ GLua numbers are IEEE doubles, so no integer above 2^53 can round-trip through L
 it's framed on the wire. <code>:Long()</code> is therefore an alias of <code>:Double()</code> — the widest integer GLua can
 actually represent exactly — not a wider integer codec. There is no <code>:XLong()</code>; nothing in Lua can
 hold the value, so the name would only reproduce the old illusion.</p>
+<h4 id="bounded-strings">Bounded strings</h4>
+<p><code>:String()</code> reads with <code>net.ReadString()</code>, which runs to a null the <em>sender</em> places — the length is
+whatever arrives, capped only by the 64 KB <code>net</code> limit. <code>:String(maxLen)</code> instead writes a length
+prefix and reads exactly that many bytes, so the ceiling comes from the registration and never from
+the wire.</p>
+<p>The prefix is a <strong>fixed</strong> width (<code>CODEC_ARG_BITS</code>), not one derived from <code>maxLen</code>. Deriving it cost a
+day on beta: <code>math.floor(math.log(64, 2)) + 1</code> answers 6 or 7 depending on whether the expression was
+interpreted or JIT-compiled, so the two realms sized the same prefix differently and the payload
+arrived shifted by one bit — with the length still decoding correctly, because the extra bit happened
+to be zero. Every bit width in this library is now either a constant, written to the wire beside its
+value, or carried in the manifest. None is recomputed independently on both realms and assumed to
+match.</p>
+<p>That distinction is what makes it the only string form <code>:ClientOwned()</code> accepts. <code>:Data(maxLen)</code> is
+equally safe to read — its length also comes from the registration — but it is <em>fixed</em> width, not
+up-to-width: it pads short values with <code>\0</code> and costs <code>maxLen</code> bytes regardless, which is right for a
+fixed-shape token and wrong for text.</p>
+<p>Nothing is ever truncated silently, and the three ways it can happen are not the same severity:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Where</th>
+<th align="left">What it means</th>
+<th align="left">What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">A value longer than <code>maxLen</code> is written</td>
+<td align="left">A bug — data is being lost</td>
+<td align="left">Logged as an error naming both lengths, then truncated, exactly as <code>:Integer()</code>/<code>:Data()</code> report being called wrong</td>
+</tr>
+<tr>
+<td align="left">A decoded length prefix exceeds <code>maxLen</code></td>
+<td align="left">Not truncation — a malformed or hostile message</td>
+<td align="left">The read is clamped for safety and <strong>the rest of the message is abandoned</strong>, the same contract <code>DecodeEntry</code> already has for an unknown var id</td>
+</tr>
+</tbody>
+</table>
+<p>The second row is the one worth understanding: the byte stream is desynced the moment the prefix
+lies, so clamping and carrying on would corrupt every sibling var batched behind it rather than just
+the offending one.</p>
+<p><code>maxLen</code> counts <strong>bytes</strong>, so a truncation can split a multi-byte character. That only happens on a
+path that has already logged an error, but it is why the limit should be set from the byte length you
+actually mean to allow.</p>
 <h4 id="custom-codecs">Custom codecs</h4>
 <p><code>:Write(fn, opt)</code> / <code>:Read(fn, opt)</code> bypass the built-in codec table entirely. Because the manifest
 (below) can't describe an arbitrary function, a custom-codec var is always sent <strong>alone in its own
@@ -623,7 +675,7 @@ and again per resync candidate.</p>
 <tbody>
 <tr>
 <td align="left"><code>:SetHook(name)</code></td>
-<td align="left">Runs <code>hook.Run(name, ent, newValue, oldValue, predicted)</code> on both realms when the value changes. <code>predicted</code> is <code>true</code> only for a <code>:Predictable()</code> var's client-side local apply — see below.</td>
+<td align="left">Runs <code>hook.Run(name, ent, newValue, oldValue, predicted)</code> on both realms when the value changes. <code>predicted</code> is <code>true</code> only for a client-side local apply the server hasn't confirmed — see below.</td>
 </tr>
 <tr>
 <td align="left"><code>:AutoHook()</code></td>
@@ -636,6 +688,14 @@ and again per resync candidate.</p>
 <tr>
 <td align="left"><code>:Predictable()</code></td>
 <td align="left">Also generates a client-side <code>Set&lt;Name&gt;()</code> for local prediction — see below. Only valid on <code>:SetLocalPlayer()</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>:ClientOwned()</code></td>
+<td align="left">Lets the client set this var on its own player and have the server accept it — see <em>Client-owned vars</em> below. Requires <code>:SetPlayer()</code>/<code>:SetLocalPlayer()</code>, a bounded codec, and a <code>:Debounce()</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>:Debounce(seconds[, ceiling])</code></td>
+<td align="left">Coalesces sets to at most one change per <code>seconds</code> — see <em>Debouncing</em> below. <code>ceiling</code> reserves the shape for adaptive backoff; omit it and the interval never moves.</td>
 </tr>
 <tr>
 <td align="left"><code>:SetNoSync()</code></td>
@@ -653,7 +713,8 @@ and again per resync candidate.</p>
 <code>:Predictable()</code> opts a <code>:SetLocalPlayer()</code> var out of that: the client gets its own <code>Set&lt;Name&gt;()</code>
 too, which applies the value locally (storage + the <code>:SetHook()</code> hook, with <code>predicted = true</code> — never
 a network send, the client has no authority to send anything) instead of calling into the
-server-only machinery.</p>
+server-only machinery. <code>:ClientOwned()</code> below is the other way out of that rule, and the one that
+does send.</p>
 <p>This is for the standard prediction-and-reconciliation shape: client-side code that runs under
 <code>IsFirstTimePredicted()</code> calls <code>Set&lt;Name&gt;()</code> immediately for instant feedback, while the server keeps
 computing and pushing the authoritative value exactly as it always did. When that confirmed value
@@ -673,6 +734,84 @@ if SERVER or IsFirstTimePredicted() then
 	ply:SetStamina(newValue) -- works on both realms now
 end
 </code></pre>
+<h4 id="client-owned-vars">Client-owned vars</h4>
+<p><code>:ClientOwned()</code> is the only supported client→server write path. The generated <code>Set&lt;Name&gt;()</code> becomes
+available on the client, where it applies the value locally and then sends it; the server validates
+the sender, decodes it, and hands it to <code>ply:SetNetVar()</code> — the ordinary server-side setter.</p>
+<pre><code class="language-lua">cityrp.network.Register(&quot;cityrp_F1Open&quot;):SetPlayer():Bool():Accessor(&quot;F1Open&quot;)
+	:ClientOwned():Debounce(1):SetDefault(false)
+
+-- Client, wherever the menu opens and closes:
+LocalPlayer():SetF1Open(true)
+</code></pre>
+<p>Because the receiver hands off to <code>SetNetVar</code>, <strong>everything else composes for free</strong>: the var's
+<code>:Enum()</code> validator, its delta guard, its <code>:Debounce()</code> and its recipient mode all behave exactly as
+they would for a server-set value. A client-owned var is <em>not</em> implicitly a broadcast one. <code>:Filter()</code>
+is the interesting combination, since its callback doubles as the resync authorization check — &quot;only
+my faction sees this claim&quot; is a supported shape — and <code>:SetLocalPlayer()</code> is coherent too: the claim
+reaches nobody but the sender, with a server-side <code>:SetHook()</code> doing the work.</p>
+<p><strong>The value is a claim, not a fact.</strong> The library relays it faithfully and never second-guesses it,
+so it carries exactly the authority the sender has: none. Never gate permissions, economy or
+anti-cheat on one. The worst a liar can do to <code>cityrp_F1Open</code> is produce fake overhead text — that is
+the bar a new client-owned var has to clear.</p>
+<p>Constraints, all checked when the registry seals, each a logged error that clears the flag rather
+than a silently-generated hole:</p>
+<ul>
+<li><strong><code>:SetPlayer()</code> or <code>:SetLocalPlayer()</code> scope.</strong> The message carries no entity index — the server
+applies it to whoever sent it — so a client cannot address another entity. That is structural, not
+a check to remember.</li>
+<li><strong>A bounded codec.</strong> The test is not &quot;is it small&quot; but &quot;who decides how much the server reads&quot;.
+Fixed-width codecs, <code>:Enum()</code>, <code>:Data(maxLen)</code> and <code>:String(maxLen)</code> all read a width fixed by the
+registration. <code>:Auto()</code> (a wire-supplied type tag), unbounded <code>:String()</code> and <code>:Table()</code> all let the
+sender decide, and are refused. A hand-written <code>:Write()</code>/<code>:Read()</code> pair is refused for the same
+reason; <code>:Enum()</code>'s generated one is admitted, because its read is a fixed-width index.</li>
+<li><strong>A <code>:Debounce()</code>.</strong> Accepting unthrottled client-authored state isn't supported.</li>
+</ul>
+<p>Chaining <code>:Predictable()</code> as well is redundant — client-owned already applies locally first — and
+warns rather than erroring.</p>
+<p>Sets made before the manifest arrives are <strong>buffered and flushed once it lands</strong>, latest-wins per
+var. Accessors exist from <code>Initialize</code>, but the client's var IDs come from the manifest, which
+arrives after <code>InitPostEntity</code>; without the buffer, a var pushed once at startup (&quot;my setting is X&quot;)
+would be silently lost. The local apply still happens immediately — only the send waits.</p>
+<h5 id="claims-are-not-adjudicated">Claims are not adjudicated</h5>
+<p>Whether a claim is currently <em>meaningful</em> — the player is alive, awake, not spectating, in range, on
+the right job — is decided by whatever <strong>consumes</strong> it, never at the point of claim. There is
+deliberately no server-side accept predicate and no server-side clear.</p>
+<p>A rejecting predicate would strand state. Player opens F1 while alive, is killed, closes F1 — the
+predicate refuses the close because they're dead, and &quot;In Inventory&quot; sits over their head for the
+rest of the round. Every fix for that is machinery that exists only to undo damage the predicate
+caused.</p>
+<p>The condition also belongs at the consumer anyway, where it is <em>shared</em>: the overhead renderer
+already needs a liveness test, and one test there covers <code>cityrp_Typing</code>, <code>cityrp_F1Open</code> and every
+claim added later, rather than each var repeating the same three checks.</p>
+<p>The check does not disappear, though — it <strong>moves</strong>, and is now the consumer's to write.</p>
+<h4 id="debouncing">Debouncing</h4>
+<p><code>:Debounce(seconds)</code> caps how often a var may actually change. It is not client-only — any
+high-churn var can opt into it — but <code>:ClientOwned()</code> requires one.</p>
+<ul>
+<li>A set during a quiet period applies and dispatches <strong>immediately</strong>. No artificial latency on the
+common case.</li>
+<li>A set inside the window overwrites a <strong>single pending slot</strong>, latest wins, no accumulation.</li>
+<li>The pending value is applied when the window closes.</li>
+</ul>
+<p>Coalescing rather than a token bucket, because these are <strong>state, not events</strong>. A bucket <em>drops</em>
+updates, and a dropped &quot;F1 closed&quot; leaves everyone seeing stale overhead text until that player opens
+and closes F1 again at a politer rate. Coalescing can't do that — the last value always lands, it
+just lands late.</p>
+<p>Most of the saving comes from the delta guard rather than the throttling: a rapid
+<code>true → false → true → false</code> burst settles on a value that usually equals what is already stored, so
+the flush reports no change and <strong>nothing goes on the wire at all</strong>. Pathological spam costs one
+inbound decode per message and zero outbound messages.</p>
+<p>The debounce covers the <strong>apply</strong>, not only the send, so there stays exactly one notion of a var's
+current value. The cost, and the one surprising consequence: a server-side <code>GetNetVar</code> lags a
+<code>SetNetVar</code> by up to the interval, so the two no longer round-trip within a frame.</p>
+<p><code>ceiling</code> reserves the shape for adaptive backoff — escalate on sustained <em>dispatches</em>, reset to the
+floor after a full quiet window. It is inert today: omitting it sets <code>ceiling == seconds</code>, so the
+interval never moves. Escalation counts dispatches rather than inbound messages deliberately, since a
+burst that coalesces back to its original value costs the server nothing and must not be throttled
+for it.</p>
+<p>Pending and escalated pairs are drained on <code>Think</code> against a weak-keyed set, the same shape the
+resync queues use, rather than a timer per player per var.</p>
 <h4 id="accessor-targets">Accessor targets</h4>
 <p><code>:Accessor(name)</code> attaches to <code>FindMetaTable(&quot;Entity&quot;)</code> for Entity/Global scope, <code>FindMetaTable(&quot;Player&quot;)</code>
 for Player/LocalPlayer scope, and <code>FindMetaTable(&quot;Vehicle&quot;)</code>/<code>FindMetaTable(&quot;Weapon&quot;)</code> for those.
@@ -700,12 +839,16 @@ local weather = cityrp.network.GetGlobal(&quot;WeatherState&quot;, 0)
 cityrp.network.WaitForPlayer(ply, function(ply)
 	ply:SetNetVar(&quot;cityrp_Job&quot;, &quot;Citizen&quot;)
 end)
+
+-- Client only, and only for a :ClientOwned() var. Equivalent to its generated Set&lt;Name&gt;(); use it
+-- directly for a var registered without :Accessor().
+cityrp.network.ClientSet(&quot;cityrp_F1Open&quot;, true)
 </code></pre>
 <p><code>Entity:SetNetVar</code>/<code>SetGlobal</code> on an unregistered name, the wrong scope's accessor (e.g.
 <code>Entity:SetNetVar</code> for a Global-scoped var), or <code>:SetNetVar</code> for a LocalPlayer-scoped var on a
 non-player entity are all logged errors, not silent no-ops or thrown exceptions.</p>
 <h2 id="wire-protocol">Wire protocol</h2>
-<p>Three net strings, two used in both directions:</p>
+<p>Four net strings, two used in both directions:</p>
 <table>
 <thead>
 <tr>
@@ -730,8 +873,19 @@ non-player entity are all logged errors, not silent no-ops or thrown exceptions.
 <td align="left">—</td>
 <td align="left">A single live var change</td>
 </tr>
+<tr>
+<td align="left"><code>cityrp.network.ClientSet</code></td>
+<td align="left">One <code>:ClientOwned()</code> var, for the sending player</td>
+<td align="left">—</td>
+</tr>
 </tbody>
 </table>
+<p><code>ClientSet</code> carries a bare var entry and <strong>no entity index</strong>: the server applies it to whoever sent
+it, so there is nowhere in the message to name another entity. One var per message, never batched, so
+a desynced entry can only ever cost that one var. The entry's wire shape is written and read by the
+same <code>WriteVarEntry</code>/<code>DecodeEntry</code> pair the server's own paths use — both live in <code>sh_store.lua</code>
+rather than one per realm, because a matched pair split across two files is exactly what AGENTS.md
+footgun <a href="https://github.com/limelight-development/cityrp2/issues/11">#11</a> is about.</p>
 <p><strong>The manifest is what fixes the positional-wire-contract bug.</strong> The server seals the registry
 (sorted var names → sequential IDs) and sends every client <code>id → name, scope, codec, arg</code>, with the
 ID bit-width itself in the header. The client never assigns its own IDs — it waits for this message
@@ -802,17 +956,29 @@ message — checked between entity groups, so a message can exceed it by up to o
 vars. That default leaves roughly 57 KB of headroom under the 65536-byte <code>net</code> message cap.</p>
 <h2 id="diagnostics">Diagnostics</h2>
 <p><code>cityrp_network_dump</code> — server console/RCON only (same guard as <code>cityrp_log_set</code>). Prints the sealed
-registry (id, name, scope, codec) and, per connected player, handshake status and resync queue depth.
-Verbose per-message logging goes through the existing logging library, not a dedicated ConVar:</p>
+registry (id, name, scope, codec, plus <code>clientOwned</code> and <code>debounce=floor..ceiling</code> where they apply),
+per connected player their handshake status and resync queue depth, and every (owner, var) pair
+currently mid-window or escalated off its debounce floor. That last block matters because an
+escalated interval is otherwise invisible — it presents only as &quot;this player's indicator is laggy&quot;.</p>
+<p><code>cityrp_network_clientset_rate</code> (default 30) is the inbound backstop: <code>ClientSet</code> messages one player
+may send per second before the rest of that second is ignored and a warning logged. It is a floodgate,
+not the throttle that makes client-owned vars viable — <code>:Debounce()</code> is that, and it already flattens
+every legitimate burst — which is why it can sit well above any real usage.</p>
+<p>Verbose per-message logging goes through the existing logging library, not a dedicated ConVar:</p>
 <pre><code>cityrp_log_set network DEBUG
 </code></pre>
-<h2 id="what-this-scope-does-not-do">What this scope does not do</h2>
+<h2 id="what-this-library-does-not-do">What this library does not do</h2>
 <ul>
-<li>No gamemode call site has been migrated. <code>SetNSVar</code>/<code>GetNSVar</code>/<code>SetLPlyVar</code>/<code>SetNW*</code> remain correct
-until a follow-up scope migrates them — see <a href="https://github.com/limelight-development/cityrp2/issues/3207">issue #3207</a>
+<li><strong>Most call sites have not been migrated.</strong> <code>SetNSVar</code>/<code>GetNSVar</code>/<code>SetLPlyVar</code>/<code>SetNW*</code> remain
+correct for everything still on them — see <a href="https://github.com/limelight-development/cityrp2/issues/3207">issue #3207</a>
 for the full plan (compatibility shims for <code>damagelog</code>, <code>prone_mod</code>, <code>vape_swep</code>, <code>mapaddons.lua</code>
-and the Discord relay's fake <code>MT:GetNSVar</code> stub, then deletion of <code>core/plugins/networking</code>).</li>
-<li><code>core/plugins/networking</code> is untouched and fully live.</li>
+and the Discord relay's fake <code>MT:GetNSVar</code> stub, then deletion of <code>core/plugins/networking</code>).
+<code>core/plugins/networking</code> is still fully live.</li>
+<li><strong>No client authority over anything but the sending player.</strong> <code>:ClientOwned()</code> is
+<code>:SetPlayer()</code>/<code>:SetLocalPlayer()</code> only; there is no client-driven Global or Entity scope, and no
+way for a client to write another entity's state.</li>
+<li><strong>No server-side adjudication of a claim.</strong> No accept predicate, no server-side clear — see
+<em>Claims are not adjudicated</em> above for why both are deliberate omissions rather than gaps.</li>
 </ul></div>
 		</div>
 	</div>

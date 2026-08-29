@@ -484,6 +484,14 @@ and nested helpers are review's job, not CI's.</p>
 rejected by <code>standards-diff.py</code>. Both run in the Code Linting workflow, which tests its own diff
 gates first (<code>test-diff-scripts.py</code>) — these checks fail open when there is nothing to diff, so a
 base resolved to the wrong commit would report success without checking anything.</p>
+<h3 id="warnings-do-not-fail-ci">Warnings (do not fail CI)</h3>
+<p>One <code>standards-diff.py</code> check, <code>excessive-prose</code>, reports as a GitHub Actions <code>::warning::</code>
+instead of <code>::error::</code> and does not fail the run: an 8+ line comment block your diff adds, outside
+a file-level header, that isn't LuaCATS annotations (footgun <a href="https://github.com/limelight-development/cityrp2/issues/12">#12</a> — comment only where a reader
+would be surprised). It's a warning rather than a hard reject because there's no whitelist for a
+genuinely long, legitimate explanation — the same check runs locally as a <code>PostToolUse</code> hook
+(<code>.claude/hooks/check-comment-blocks.py</code>) that surfaces the same nudge mid-edit instead of at
+review time.</p>
 <h2 id="when-you-touch-legacy-code">When you touch legacy code</h2>
 <p>Editing a file that still uses a forbidden pattern does <strong>not</strong> require rewriting the whole file.
 It <strong>does</strong> require that <em>your</em> new or modified lines follow this page. Prefer migrating the
