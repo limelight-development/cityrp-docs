@@ -938,10 +938,41 @@ cannot starve everyone else — every player with a non-empty queue gets served 
 number of frames regardless of how full anyone else's queue is.</p>
 </li>
 <li>
-<p>Each player's queue is a <strong>weak-keyed set</strong> of entities (<code>{[Entity] = true}</code>, <code>__mode = &quot;k&quot;</code>), not
-an ordered array. Both a disconnecting player's whole queue and an individual removed entity clean
-themselves out of every queue automatically; <code>PlayerDisconnected</code>/<code>EntityRemoved</code> hooks additionally
-purge eagerly rather than waiting on the next GC pass.</p>
+<p>Each player's queue is a <strong>weak-keyed table</strong> of entities (<code>__mode = &quot;k&quot;</code>), not an ordered array.
+Both a disconnecting player's whole queue and an individual removed entity clean themselves out of
+every queue automatically; <code>PlayerDisconnected</code>/<code>EntityRemoved</code> hooks additionally purge eagerly
+rather than waiting on the next GC pass.</p>
+<p>Each entry says <em>which</em> of that entity's vars to resync:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Entry</th>
+<th align="left">Queued by</th>
+<th align="left">Covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>true</code></td>
+<td align="left"><code>cityrp.network.QueueEntity(ply, ent)</code></td>
+<td align="left">Every var the entity has set</td>
+</tr>
+<tr>
+<td align="left">a set of var names</td>
+<td align="left"><code>cityrp.network.QueueEntityVars(ply, ent, names)</code></td>
+<td align="left">Only those vars</td>
+</tr>
+</tbody>
+</table>
+<p>Most resync triggers are single-var events, and re-running every var's recipient check when only
+one var's eligibility could have changed is the dominant cost of a resync — so a caller that knows
+precisely what changed can say so. <code>cityrp.network.MergeQueueEntry</code> combines an incoming entry with
+whatever is already queued, and always keeps the <strong>broader</strong> of the two: <code>true</code> absorbs any name
+set, and two name sets union. That makes merging monotonic, so no ordering of calls within a frame
+can produce a narrower entry than the broadest request made.</p>
+<p>A name set is stored by reference, so one caller narrowing the same key across many player/entity
+pairs shares a single table rather than allocating one per pair. A stored set is therefore
+immutable — <code>MergeQueueEntry</code> builds a new table rather than widening one in place.</p>
 </li>
 <li>
 <p>The <strong>join bootstrap</strong> reuses this same path: on handshake, every currently-known networked entity
@@ -960,6 +991,8 @@ registry (id, name, scope, codec, plus <code>clientOwned</code> and <code>deboun
 per connected player their handshake status and resync queue depth, and every (owner, var) pair
 currently mid-window or escalated off its debounce floor. That last block matters because an
 escalated interval is otherwise invisible — it presents only as &quot;this player's indicator is laggy&quot;.</p>
+<p><code>queued=</code> counts entities; a breakdown of how many of those entries are narrowed to specific vars is
+appended only when there are any.</p>
 <p><code>cityrp_network_clientset_rate</code> (default 30) is the inbound backstop: <code>ClientSet</code> messages one player
 may send per second before the rest of that second is ignored and a warning logged. It is a floodgate,
 not the throttle that makes client-owned vars viable — <code>:Debounce()</code> is that, and it already flattens

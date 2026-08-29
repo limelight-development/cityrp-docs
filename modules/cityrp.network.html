@@ -365,7 +365,7 @@ the entity never entered this client's PVS at all).</p></div>
 
 
 </dd>
-<dt><a name="cityrp.network.ApplyAndSend"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.ApplyAndSend<span class="ll-args">(netvar, ent, value)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L310">Source ☍</a></dt>
+<dt><a name="cityrp.network.ApplyAndSend"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.ApplyAndSend<span class="ll-args">(netvar, ent, value)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L347">Source ☍</a></dt>
 <dd>
 <p>Applies a value and, if <code>ApplyValue</code>'s delta guard says it changed, sends it.</p>
 
@@ -470,7 +470,7 @@ accept it. What the server receives is a claim, never a fact -- see <code>docs/n
 
 
 </dd>
-<dt><a name="cityrp.network.CollectSendableVars"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.CollectSendableVars<span class="ll-args">(ent, ply)</span><span class="ll-returns"> → { netvar: <a href="cityrp.network.html#NetVar">NetVar</a>, value: any }[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L386">Source ☍</a></dt>
+<dt><a name="cityrp.network.CollectSendableVars"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.CollectSendableVars<span class="ll-args">(ent, ply, names)</span><span class="ll-returns"> → { netvar: <a href="cityrp.network.html#NetVar">NetVar</a>, value: any }[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L424">Source ☍</a></dt>
 <dd>
 <p>Collects this entity's currently-set entity-scoped vars (<code>IsEntityScope</code>) that <code>ply</code> is allowed
 to see. Global and LocalPlayer-scoped vars never go through resync -- Global is broadcast
@@ -481,6 +481,7 @@ owner.</p>
 <ul class="ll-args-list">
 <li><span class="parameter">ent</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc"></span></li>
 <li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">names</span><span class="types">table&lt;string, boolean&gt;?</span><span class="ll-arg-desc">Only collect these var names. nil collects every set var.</span></li>
 </ul>
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
@@ -488,7 +489,7 @@ owner.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.network.CountInbound"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.CountInbound<span class="ll-args">(ply)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L516">Source ☍</a></dt>
+<dt><a name="cityrp.network.CountInbound"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.CountInbound<span class="ll-args">(ply)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L560">Source ☍</a></dt>
 <dd>
 <p>Counts one inbound message against <code>ply</code>'s budget and says whether to process it. Deliberately
 crude -- <code>:Debounce()</code> is what actually makes client-owned vars safe, so this only ever fires for
@@ -533,7 +534,7 @@ non-batchable entry is never batched with anything else.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.network.DequeueEntity"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.DequeueEntity<span class="ll-args">(ply, ent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L95">Source ☍</a></dt>
+<dt><a name="cityrp.network.DequeueEntity"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.DequeueEntity<span class="ll-args">(ply, ent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L132">Source ☍</a></dt>
 <dd>
 <p>Removes <code>ent</code> from <code>ply</code>'s resync queue, clearing <code>ply</code> from <code>pendingPlayers</code> if that empties it.</p>
 
@@ -545,7 +546,7 @@ non-batchable entry is never batched with anything else.</p>
 
 
 </dd>
-<dt><a name="cityrp.network.Dispatch"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.Dispatch<span class="ll-args">(netvar, ent, value)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L322">Source ☍</a></dt>
+<dt><a name="cityrp.network.Dispatch"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.Dispatch<span class="ll-args">(netvar, ent, value)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L359">Source ☍</a></dt>
 <dd>
 <p>The single seam every server-side set goes through, so <code>:Debounce()</code> is one branch rather than a
 condition duplicated in <code>SetNetVar</code> and <code>SetGlobal</code>.</p>
@@ -559,9 +560,12 @@ condition duplicated in <code>SetNetVar</code> and <code>SetGlobal</code>.</p>
 
 
 </dd>
-<dt><a name="cityrp.network.DrainOnePlayer"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.DrainOnePlayer<span class="ll-args">(ply, take)</span><span class="ll-returns"> → integer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L406">Source ☍</a></dt>
+<dt><a name="cityrp.network.DrainOnePlayer"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.DrainOnePlayer<span class="ll-args">(ply, take)</span><span class="ll-returns"> → integer</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L448">Source ☍</a></dt>
 <dd>
-<p>Drains up to <code>take</code> entities from <code>ply</code>'s resync queue and sends whatever they're owed.</p>
+<p>Drains up to <code>take</code> entities from <code>ply</code>'s resync queue and sends whatever they're owed.
+A queue entry is a &quot;re-evaluate me&quot; marker, never a snapshot: no value and no recipient decision
+is captured when an entity is queued, only which vars to look at. Everything is read live here,
+so an entry queued several frames ago still sends the current value to whoever currently passes.</p>
 
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
@@ -595,7 +599,7 @@ callback (AGENTS.md footgun <a href="https://github.com/limelight-development/ci
 
 
 </dd>
-<dt><a name="cityrp.network.DrainResyncQueues"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.DrainResyncQueues<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L440">Source ☍</a></dt>
+<dt><a name="cityrp.network.DrainResyncQueues"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.DrainResyncQueues<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L484">Source ☍</a></dt>
 <dd>
 <p>Drains every player's resync queue, round-robin, within the configured per-frame budgets.
 The cursor persists across frames (<code>drainCursorPly</code>) so a player who was last in line this frame
@@ -609,7 +613,7 @@ order can't actually promise -- a minor, self-correcting fairness wrinkle.</p>
 
 
 </dd>
-<dt><a name="cityrp.network.EnqueueAllEntitiesForResync"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.EnqueueAllEntitiesForResync<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L482">Source ☍</a></dt>
+<dt><a name="cityrp.network.EnqueueAllEntitiesForResync"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.EnqueueAllEntitiesForResync<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L526">Source ☍</a></dt>
 <dd>
 <p>Queues every currently-known networked entity for resync to <code>ply</code>. Used for the join bootstrap --
 reusing the resync path means a large join gets the same per-frame rate limiting as any other
@@ -717,12 +721,12 @@ is exactly the question worth asking of a client-owned var that is not arriving.
 </ol>
 
 </dd>
-<dt><a name="cityrp.network.GetQueue"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.GetQueue<span class="ll-args">(ply)</span><span class="ll-returns"> → table&lt;<a href="Entity.html">Entity</a>, boolean&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L74">Source ☍</a></dt>
+<dt><a name="cityrp.network.GetQueue"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.GetQueue<span class="ll-args">(ply)</span><span class="ll-returns"> → table&lt;<a href="Entity.html">Entity</a>, table&lt;string, boolean&gt;|true&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L78">Source ☍</a></dt>
 <dd>
 <p>Gets (creating if needed) a player's resync queue.
-A queue is a plain weak-keyed set of entities, not an ordered array. Photon's original resync
+A queue is a plain weak-keyed table of entities, not an ordered array. Photon's original resync
 queue is an array plus a drain cursor needing periodic &quot;backlog reclamation&quot; to stop the backing
-array growing forever; a weak-keyed set has no backing array to grow, and dropping an entity from
+array growing forever; a weak-keyed table has no backing array to grow, and dropping an entity from
 it is an ordinary key removal. The trade-off is that iteration order (<code>pairs</code>) is unspecified
 rather than FIFO, which is fine -- fairness across players already comes from the round-robin in
 <code>DrainResyncQueues</code>, not per-player ordering.</p>
@@ -733,7 +737,7 @@ rather than FIFO, which is fine -- fairness across players already comes from th
 </ul>
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
-<li><span></span><span class="types">table&lt;<a href="Entity.html">Entity</a>, boolean&gt;</span><span class="ll-arg-desc"></span></li>
+<li><span></span><span class="types">table&lt;<a href="Entity.html">Entity</a>, table&lt;string, boolean&gt;|true&gt;</span><span class="ll-arg-desc"></span></li>
 </ol>
 
 </dd>
@@ -829,7 +833,7 @@ Checks magnitude, not raw value -- a component of -1000 must not qualify just fo
 </ol>
 
 </dd>
-<dt><a name="cityrp.network.IsRecipientsEmpty"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.IsRecipientsEmpty<span class="ll-args">(recipients)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L108">Source ☍</a></dt>
+<dt><a name="cityrp.network.IsRecipientsEmpty"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.IsRecipientsEmpty<span class="ll-args">(recipients)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L145">Source ☍</a></dt>
 <dd>
 <p>Whether a resolved recipient value (from <code>:Filter()</code>/<code>:SendOmit()</code>) contains no one.</p>
 
@@ -843,7 +847,7 @@ Checks magnitude, not raw value -- a component of -1000 must not qualify just fo
 </ol>
 
 </dd>
-<dt><a name="cityrp.network.MarkReady"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.MarkReady<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L645">Source ☍</a></dt>
+<dt><a name="cityrp.network.MarkReady"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.MarkReady<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L689">Source ☍</a></dt>
 <dd>
 <p>Completes a player's handshake: sends the manifest and initial bootstrap, marks them ready, and
 runs anything queued by <code>WaitForPlayer</code>. Idempotent -- a client that re-announces before receiving
@@ -859,7 +863,38 @@ as a resync candidate, both of which would be meaningless before their manifest 
 
 
 </dd>
-<dt><a name="cityrp.network.PassesRecipientCheck"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.PassesRecipientCheck<span class="ll-args">(netvar, ent, value, ply)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L150">Source ☍</a></dt>
+<dt><a name="cityrp.network.MergeQueueEntry"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.MergeQueueEntry<span class="ll-args">(existing, incoming)</span><span class="ll-returns"> → table&lt;string, boolean&gt;|true</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L93">Source ☍</a></dt>
+<dd>
+<p>Merges an incoming queue entry into what is already queued, keeping whichever is broader.
+Monotonic, so call order within a frame cannot narrow an entry.</p>
+<pre><code class="language-lua">--  What one entity's queued resync covers: `true` for every var it has set, or a set of var names
+--  for a resync narrowed to just those. `MergeQueueEntry` defines how the two combine.
+existing:
+    | true
+
+--  What one entity's queued resync covers: `true` for every var it has set, or a set of var names
+--  for a resync narrowed to just those. `MergeQueueEntry` defines how the two combine.
+incoming:
+    | true
+
+--  What one entity's queued resync covers: `true` for every var it has set, or a set of var names
+--  for a resync narrowed to just those. `MergeQueueEntry` defines how the two combine.
+merged:
+    | true
+</code></pre>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">existing</span><span class="types">(table&lt;string, boolean&gt;|true)?</span><span class="ll-arg-desc">What is already queued, or nil if nothing is.</span></li>
+<li><span class="parameter">incoming</span><span class="types">table&lt;string, boolean&gt;|true</span><span class="ll-arg-desc">The entry being added.</span></li>
+</ul>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table&lt;string, boolean&gt;|true</span><span class="ll-arg-desc">The entry to store.</span></li>
+</ol>
+
+</dd>
+<dt><a name="cityrp.network.PassesRecipientCheck"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.PassesRecipientCheck<span class="ll-args">(netvar, ent, value, ply)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L187">Source ☍</a></dt>
 <dd>
 <p>Whether <code>ply</code> should receive this var's current value, for resync and bootstrap purposes.
 PVS/PAS are treated as bandwidth filters, not secrecy boundaries: they always pass here, because
@@ -881,14 +916,27 @@ separately-maintained predicate that could drift out of sync with the one used f
 </ol>
 
 </dd>
-<dt><a name="cityrp.network.QueueEntity"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.QueueEntity<span class="ll-args">(ply, ent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L86">Source ☍</a></dt>
+<dt><a name="cityrp.network.QueueEntity"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.QueueEntity<span class="ll-args">(ply, ent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L107">Source ☍</a></dt>
 <dd>
-<p>Adds <code>ent</code> to <code>ply</code>'s resync queue and marks <code>ply</code> as having pending work.</p>
+<p>Adds <code>ent</code> to <code>ply</code>'s resync queue for every var it has set, merging with anything already queued.</p>
 
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
 <li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
 <li><span class="parameter">ent</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc"></span></li>
+</ul>
+
+
+</dd>
+<dt><a name="cityrp.network.QueueEntityVars"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.QueueEntityVars<span class="ll-args">(ply, ent, names)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L121">Source ☍</a></dt>
+<dd>
+<p>Adds <code>ent</code> to <code>ply</code>'s resync queue for only the named vars, merging with anything already queued.</p>
+<blockquote class="ll-alert ll-alert-warning"><p class="ll-alert-title">Warning</p><p><code>names</code> is stored by reference and must not be mutated afterwards -- one caller shares a single set across every pair it queues.</p></blockquote>
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">ent</span><span class="types"><a href="Entity.html">Entity</a></span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">names</span><span class="types">table&lt;string, boolean&gt;</span><span class="ll-arg-desc">The var names to resync, as a set.</span></li>
 </ul>
 
 
@@ -930,7 +978,7 @@ wire shape is decoded in exactly one place -- see the matching <code>WriteIndexH
 </ol>
 
 </dd>
-<dt><a name="cityrp.network.RecipientsContain"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.RecipientsContain<span class="ll-args">(recipients, ply)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L121">Source ☍</a></dt>
+<dt><a name="cityrp.network.RecipientsContain"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.RecipientsContain<span class="ll-args">(recipients, ply)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L158">Source ☍</a></dt>
 <dd>
 <p>Whether <code>ply</code> is a member of a resolved recipient value.</p>
 
@@ -983,7 +1031,7 @@ sort order or registration order. Safe to call more than once; later calls are n
 
 
 </dd>
-<dt><a name="cityrp.network.SendGlobalsAndLocal"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.SendGlobalsAndLocal<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L600">Source ☍</a></dt>
+<dt><a name="cityrp.network.SendGlobalsAndLocal"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.SendGlobalsAndLocal<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L644">Source ☍</a></dt>
 <dd>
 <p>Sends every current Global value and <code>ply</code>'s own LocalPlayer-scoped values in one no-index group.
 Part of the join bootstrap; Global/LocalPlayer vars aren't entity-visibility-driven so they don't
@@ -999,7 +1047,7 @@ or reconnecting player regardless of the filter, the moment they join.</p>
 
 
 </dd>
-<dt><a name="cityrp.network.SendGroups"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.SendGroups<span class="ll-args">(ply, groups)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L189">Source ☍</a></dt>
+<dt><a name="cityrp.network.SendGroups"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.SendGroups<span class="ll-args">(ply, groups)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L226">Source ☍</a></dt>
 <dd>
 <p>Sends a batch of <code>{ent, vars = {{netvar, value}, ...}}</code> groups to one player as one or more
 <code>cityrp.network.Resync</code> messages, splitting on the byte threshold between groups.
@@ -1015,7 +1063,7 @@ that one message, not a whole batch of unrelated vars riding alongside it.</p>
 
 
 </dd>
-<dt><a name="cityrp.network.SendManifest"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.SendManifest<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L577">Source ☍</a></dt>
+<dt><a name="cityrp.network.SendManifest"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.SendManifest<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L621">Source ☍</a></dt>
 <dd>
 <p>Sends the sealed registry as <code>id -&gt; name/scope/codec/arg</code>. Sent once per player, on their first
 <code>cityrp.network.Sync</code> announce -- see <code>MarkReady</code> below. The ID width travels in the header so the
@@ -1034,7 +1082,7 @@ value so a non-numeric <code>opt</code> can never break <code>net.WriteUInt</cod
 
 
 </dd>
-<dt><a name="cityrp.network.SendUpdate"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.SendUpdate<span class="ll-args">(netvar, ent, value)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L265">Source ☍</a></dt>
+<dt><a name="cityrp.network.SendUpdate"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.SendUpdate<span class="ll-args">(netvar, ent, value)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L302">Source ☍</a></dt>
 <dd>
 <p>Sends a single var change. Resolves recipients before <code>net.Start</code> so an empty <code>:Filter()</code> result
 skips networking entirely instead of leaving a started message with nowhere to send.
@@ -1055,7 +1103,7 @@ reflected in the state that bootstrap sends moments later.</p>
 
 
 </dd>
-<dt><a name="cityrp.network.SetGlobal"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.SetGlobal<span class="ll-args">(name, value)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L364">Source ☍</a></dt>
+<dt><a name="cityrp.network.SetGlobal"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.SetGlobal<span class="ll-args">(name, value)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L401">Source ☍</a></dt>
 <dd>
 <p>Sets a Global-scoped networked value and, if it changed, broadcasts it (subject to <code>:Filter()</code>).</p>
 
@@ -1082,7 +1130,7 @@ codec and no debounce. <code>:Predictable()</code> defers its scope check for th
 
 
 </dd>
-<dt><a name="cityrp.network.WaitForPlayer"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.WaitForPlayer<span class="ll-args">(ply, fn)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L626">Source ☍</a></dt>
+<dt><a name="cityrp.network.WaitForPlayer"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.WaitForPlayer<span class="ll-args">(ply, fn)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L670">Source ☍</a></dt>
 <dd>
 <p>Runs <code>fn(ply)</code> once <code>ply</code>'s handshake has completed, or immediately if it already has.</p>
 
@@ -1106,7 +1154,7 @@ This is what backs both the <code>Auto</code> codec and every key/value inside a
 
 
 </dd>
-<dt><a name="cityrp.network.WriteIndexHeader"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.WriteIndexHeader<span class="ll-args">(hasIndex, ent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L173">Source ☍</a></dt>
+<dt><a name="cityrp.network.WriteIndexHeader"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.WriteIndexHeader<span class="ll-args">(hasIndex, ent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L210">Source ☍</a></dt>
 <dd>
 <p>Writes an index header: whether an entity index follows, and the index itself if so. Shared by
 every send path that needs this exact shape (<code>SendGroups</code>'s per-group header and <code>SendUpdate</code>'s
@@ -1258,6 +1306,19 @@ simple contiguous bound.</p>
 
 
 
+</dd>
+<dt><a name="NetResyncEntry"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">NetResyncEntry</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L42">Source ☍</a></dt>
+<dd>
+<p>What one entity's queued resync covers: <code>true</code> for every var it has set, or a set of var names
+for a resync narrowed to just those. <code>MergeQueueEntry</code> defines how the two combine.</p>
+
+
+
+
+<h3>Accepted values:</h3>
+<ul>
+<li><code>true</code></li>
+</ul>
 </dd>
 <dt><a name="NetScope"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">NetScope</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sh_registry.lua#L21">Source ☍</a></dt>
 <dd>
@@ -1698,12 +1759,12 @@ Bits used to write <code><a href="cityrp.network.html#cityrp.network.idBits">cit
 
 
 </dd>
-<dt><a name="cityrp.network.resyncQueues"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.resyncQueues</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L46">Source ☍</a></dt>
+<dt><a name="cityrp.network.resyncQueues"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.resyncQueues</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L50">Source ☍</a></dt>
 <dd>
-<p>Per-player resync queues: <code>ply -&gt; {[Entity] = true}</code>. Both axes are weak so a disconnect or an
-entity removal cleans itself up even if the explicit <code>PlayerDisconnected</code>/<code>EntityRemoved</code> hooks
-below somehow miss it (which, per AGENTS.md footgun <a href="https://github.com/limelight-development/cityrp2/issues/3">#3</a>, a third-party <code>hook.Add</code> on the same event
-returning non-nil first genuinely could) -- see <code>GetQueue</code>'s note for why this is a plain
+<p>Per-player resync queues: <code>ply -&gt; {[Entity] = NetResyncEntry}</code>. Both axes are weak so a disconnect
+or an entity removal cleans itself up even if the explicit <code>PlayerDisconnected</code>/<code>EntityRemoved</code>
+hooks below somehow miss it (which, per AGENTS.md footgun <a href="https://github.com/limelight-development/cityrp2/issues/3">#3</a>, a third-party <code>hook.Add</code> on the same
+event returning non-nil first genuinely could) -- see <code>GetQueue</code>'s note for why this is a plain
 weak-keyed set rather than an ordered array.</p>
 
 
@@ -1718,7 +1779,7 @@ weak-keyed set rather than an ordered array.</p>
 
 
 </dd>
-<dt><a name="cityrp.network.waitQueue"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.waitQueue</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L58">Source ☍</a></dt>
+<dt><a name="cityrp.network.waitQueue"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.network.waitQueue</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/network/sv_send.lua#L62">Source ☍</a></dt>
 <dd>
 <p>Callbacks waiting on a player's handshake to finish. <code>WaitForPlayer</code> queues here; cleared (and
 run) once that player's manifest and bootstrap have been sent.</p>
