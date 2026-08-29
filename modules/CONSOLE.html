@@ -346,7 +346,22 @@
 <div class="ll-module-body"><p>Console Pseudoplayer Library.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="CONSOLE.ChatPrint"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">CONSOLE<span class="ll-sep">:</span>ChatPrint<span class="ll-args">(msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L142">Source ☍</a></dt>
+<dt><a name="CONSOLE.Announce"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">CONSOLE<span class="ll-sep">:</span>Announce<span class="ll-args">(msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L146">Source ☍</a></dt>
+<dd>
+<p>Announce an automated server message in every player's chat, attributed to the console.
+Rendered through the Discord relay's stand-in player table, so the line carries the console
+rank's icon and colour rather than the bare &quot;Console: &quot; the engine's <code>say</code> produces. The
+relay owns that table on both realms, so without it there is nothing clientside to receive
+the announcement and this falls back to <code>say</code>.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">msg</span><span class="types">string</span><span class="ll-arg-desc">The message to announce.</span></li>
+</ul>
+
+
+</dd>
+<dt><a name="CONSOLE.ChatPrint"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">CONSOLE<span class="ll-sep">:</span>ChatPrint<span class="ll-args">(msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L160">Source ☍</a></dt>
 <dd>
 <p>Print a chat message to the console.</p>
 
@@ -357,7 +372,7 @@
 
 
 </dd>
-<dt><a name="CONSOLE.EntIndex"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">CONSOLE<span class="ll-sep">:</span>EntIndex<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L149">Source ☍</a></dt>
+<dt><a name="CONSOLE.EntIndex"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">CONSOLE<span class="ll-sep">:</span>EntIndex<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_console.lua#L167">Source ☍</a></dt>
 <dd>
 <p>Get the console pseudoplayer's entity index.</p>
 

@@ -386,11 +386,11 @@ This is a high level interface, so clamps HP in the 0 - 100 range.</p>
 
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
-<li><span></span><span class="types">string</span><span class="ll-arg-desc">name of the vehicle.</span></li>
+<li><span></span><span class="types">string</span><span class="ll-arg-desc">The name of the vehicle.</span></li>
 </ol>
 
 </dd>
-<dt><a name="Vehicle.CarOwner"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>CarOwner<span class="ll-args">(type)</span><span class="ll-returns"> → <a href="Entity.html">Entity</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L71">Source ☍</a></dt>
+<dt><a name="Vehicle.CarOwner"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>CarOwner<span class="ll-args">(type)</span><span class="ll-returns"> → <a href="Entity.html">Entity</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L85">Source ☍</a></dt>
 <dd>
 <p>Get the owner of a vehicle.</p>
 
@@ -404,7 +404,7 @@ This is a high level interface, so clamps HP in the 0 - 100 range.</p>
 </ol>
 
 </dd>
-<dt><a name="Vehicle.GetHP"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>GetHP<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L107">Source ☍</a></dt>
+<dt><a name="Vehicle.GetHP"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>GetHP<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L116">Source ☍</a></dt>
 <dd>
 <p>Get the vehicle's HP.</p>
 
@@ -415,18 +415,18 @@ This is a high level interface, so clamps HP in the 0 - 100 range.</p>
 </ol>
 
 </dd>
-<dt><a name="Vehicle.getVehicleLocation"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>getVehicleLocation<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L99">Source ☍</a></dt>
+<dt><a name="Vehicle.getVehicleLocation"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>getVehicleLocation<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L105">Source ☍</a></dt>
 <dd>
 <p>Function that returns the current location of the vehicle.</p>
 
 
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
-<li><span></span><span class="types">string</span><span class="ll-arg-desc">position of the vehicle.</span></li>
+<li><span></span><span class="types">string</span><span class="ll-arg-desc">The position of the vehicle.</span></li>
 </ol>
 
 </dd>
-<dt><a name="Vehicle.HasControlPermission"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>HasControlPermission<span class="ll-args">(player)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L35">Source ☍</a></dt>
+<dt><a name="Vehicle.HasControlPermission"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>HasControlPermission<span class="ll-args">(player)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L45">Source ☍</a></dt>
 <dd>
 <p>Checks if a player has permission to control this vehicle.</p>
 
@@ -436,7 +436,7 @@ This is a high level interface, so clamps HP in the 0 - 100 range.</p>
 </ul>
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
-<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">if the player has permission, false otherwise.</span></li>
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">True if the player has permission, false otherwise.</span></li>
 </ol>
 
 </dd>
@@ -448,7 +448,7 @@ This is a high level interface, so clamps HP in the 0 - 100 range.</p>
 
 
 </dd>
-<dt><a name="Vehicle.InternalLocked"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>InternalLocked<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L95">Source ☍</a></dt>
+<dt><a name="Vehicle.InternalLocked"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>InternalLocked<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L101">Source ☍</a></dt>
 <dd>
 <p>Check if a car is internally locked.</p>
 
@@ -467,7 +467,7 @@ This is a high level interface, so clamps HP in the 0 - 100 range.</p>
 
 
 </dd>
-<dt><a name="Vehicle.IsDestroyed"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>IsDestroyed<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L113">Source ☍</a></dt>
+<dt><a name="Vehicle.IsDestroyed"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>IsDestroyed<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L122">Source ☍</a></dt>
 <dd>
 <p>Gets if the vehicle is &quot;destroyed&quot;.</p>
 
@@ -489,18 +489,7 @@ This is a high level interface, so clamps HP in the 0 - 100 range.</p>
 
 
 </dd>
-<dt><a name="Vehicle.Locked"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>Locked<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L90">Source ☍</a></dt>
-<dd>
-<p>Check if a car is locked.</p>
-
-
-<p class="ll-arg-label">Returns</p>
-<ol class="ll-args-list">
-<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">the car is locked.</span></li>
-</ol>
-
-</dd>
-<dt><a name="Vehicle.OwnerWarranted"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>OwnerWarranted<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L86">Source ☍</a></dt>
+<dt><a name="Vehicle.OwnerWarranted"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>OwnerWarranted<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L96">Source ☍</a></dt>
 <dd>
 <p>Check if a car is marked as wanted.</p>
 
@@ -524,17 +513,6 @@ This is a low level interface, so does not clamp HP in the 0 - 100 range.</p>
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
 <li><span></span><span class="types">number</span><span class="ll-arg-desc">HP.</span></li>
-</ol>
-
-</dd>
-<dt><a name="Vehicle.Stolen"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle<span class="ll-sep">:</span>Stolen<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L81">Source ☍</a></dt>
-<dd>
-<p>Check if a car is stolen.</p>
-
-
-<p class="ll-arg-label">Returns</p>
-<ol class="ll-args-list">
-<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">the car is marked as stolen.</span></li>
 </ol>
 
 </dd>
@@ -601,6 +579,20 @@ This is a low level interface, so does not clamp HP in the 0 - 100 range.</p>
 
 </dd>
 <dt><a name="ply._NextUnlock"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">ply._NextUnlock</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_vehicle.lua#L41">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+<dt><a name="Vehicle._CarNameClass"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle._CarNameClass</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L36">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+<dt><a name="Vehicle._CarNameFallback"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Vehicle._CarNameFallback</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_vehicle.lua#L37">Source ☍</a></dt>
 <dd>
 
 

@@ -394,7 +394,7 @@
 
 </dd>
 <h3 class="section-header">Factory</h3>
-<dt><a name="cityrp.logging.GetLogger"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.GetLogger<span class="ll-args">(namespace)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L681">Source ☍</a></dt>
+<dt><a name="cityrp.logging.GetLogger"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.logging.GetLogger<span class="ll-args">(namespace)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L697">Source ☍</a></dt>
 <dd>
 <p>Gets or creates a logger for the given namespace, registering it against its parent if newly created.</p>
 
@@ -510,13 +510,13 @@
 
 </dd>
 </dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="BoundLogger"></a>BoundLogger</h2><span class="ll-family-meta">10 functions &middot; 3 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L543">Source ☍</a></span></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="BoundLogger"></a>BoundLogger</h2><span class="ll-family-meta">11 functions &middot; 3 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L551">Source ☍</a></span></div>
 <div class="ll-module-body">
 <p>A logger wrapper that merges a fixed set of metadata fields into every logged message. Created via <a href="cityrp.logging.html#Logger.WithFields">Logger:WithFields</a>.</p>
 
 <h3 class="section-header">Functions</h3>
 <dl class="function">
-<dt><a name="BoundLogger._MergeMeta"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>_MergeMeta<span class="ll-args">(meta)</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L564">Source ☍</a></dt>
+<dt><a name="BoundLogger._MergeMeta"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>_MergeMeta<span class="ll-args">(meta)</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L572">Source ☍</a></dt>
 <dd>
 <p>Merges this wrapper's bound fields with a per-call metadata table, with per-call values taking precedence.</p>
 
@@ -530,7 +530,7 @@
 </ol>
 
 </dd>
-<dt><a name="BoundLogger._ProcessArgs"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>_ProcessArgs<span class="ll-args">(args)</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L581">Source ☍</a></dt>
+<dt><a name="BoundLogger._ProcessArgs"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>_ProcessArgs<span class="ll-args">(args)</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L589">Source ☍</a></dt>
 <dd>
 <p>Processes an array of varargs, appending this wrapper's merged metadata table as the final argument.</p>
 
@@ -544,7 +544,7 @@
 </ol>
 
 </dd>
-<dt><a name="BoundLogger.Critical"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Critical<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L635">Source ☍</a></dt>
+<dt><a name="BoundLogger.Critical"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Critical<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L643">Source ☍</a></dt>
 <dd>
 <p>Logs a message at CRITICAL level with this wrapper's bound fields merged into the metadata.</p>
 
@@ -558,7 +558,7 @@
 </ol>
 
 </dd>
-<dt><a name="BoundLogger.Debug"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Debug<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L603">Source ☍</a></dt>
+<dt><a name="BoundLogger.Debug"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Debug<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L611">Source ☍</a></dt>
 <dd>
 <p>Logs a message at DEBUG level with this wrapper's bound fields merged into the metadata.</p>
 
@@ -572,7 +572,7 @@
 </ol>
 
 </dd>
-<dt><a name="BoundLogger.Error"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Error<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L627">Source ☍</a></dt>
+<dt><a name="BoundLogger.Error"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Error<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L635">Source ☍</a></dt>
 <dd>
 <p>Logs a message at ERROR level with this wrapper's bound fields merged into the metadata.</p>
 
@@ -586,7 +586,7 @@
 </ol>
 
 </dd>
-<dt><a name="BoundLogger.Fatal"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Fatal<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L643">Source ☍</a></dt>
+<dt><a name="BoundLogger.Fatal"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Fatal<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L651">Source ☍</a></dt>
 <dd>
 <p>Logs a message at FATAL level with this wrapper's bound fields merged into the metadata.</p>
 
@@ -600,7 +600,7 @@
 </ol>
 
 </dd>
-<dt><a name="BoundLogger.Info"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Info<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L611">Source ☍</a></dt>
+<dt><a name="BoundLogger.Info"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Info<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L619">Source ☍</a></dt>
 <dd>
 <p>Logs a message at INFO level with this wrapper's bound fields merged into the metadata.</p>
 
@@ -614,7 +614,21 @@
 </ol>
 
 </dd>
-<dt><a name="BoundLogger.Raw"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Raw<span class="ll-args">(level, _)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L652">Source ☍</a></dt>
+<dt><a name="BoundLogger.Output"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Output<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L668">Source ☍</a></dt>
+<dd>
+<p>Logs a message at INFO level, bypassing level filtering, with this wrapper's bound fields merged into the metadata. Intended for explicit command output (e.g. concommand handlers) that should always print regardless of the logger's configured level.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
+</ul>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span><span class="ll-arg-desc">This wrapper, for chaining.</span></li>
+</ol>
+
+</dd>
+<dt><a name="BoundLogger.Raw"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Raw<span class="ll-args">(level, _)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L660">Source ☍</a></dt>
 <dd>
 <p>Logs a message at an arbitrary level, bypassing level filtering, with this wrapper's bound fields merged into the metadata.</p>
 
@@ -629,7 +643,7 @@
 </ol>
 
 </dd>
-<dt><a name="BoundLogger.Warning"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Warning<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L619">Source ☍</a></dt>
+<dt><a name="BoundLogger.Warning"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>Warning<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L627">Source ☍</a></dt>
 <dd>
 <p>Logs a message at WARNING level with this wrapper's bound fields merged into the metadata.</p>
 
@@ -643,7 +657,7 @@
 </ol>
 
 </dd>
-<dt><a name="BoundLogger.WithFields"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>WithFields<span class="ll-args">(fields)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L660">Source ☍</a></dt>
+<dt><a name="BoundLogger.WithFields"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger<span class="ll-sep">:</span>WithFields<span class="ll-args">(fields)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L676">Source ☍</a></dt>
 <dd>
 <p>Creates a new bound logger with additional fields merged on top of this wrapper's existing bound fields.</p>
 
@@ -660,7 +674,7 @@
 </dl>
 <h3 class="section-header">Fields</h3>
 <dl class="function">
-<dt><a name="BoundLogger.__index"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger.__index</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L547">Source ☍</a></dt>
+<dt><a name="BoundLogger.__index"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger.__index</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L555">Source ☍</a></dt>
 <dd>
 <p>A logger wrapper that merges a fixed set of metadata fields into every logged message. Created via <a href="cityrp.logging.html#Logger.WithFields">Logger:WithFields</a>.</p>
 
@@ -668,7 +682,7 @@
 
 
 </dd>
-<dt><a name="BoundLogger._fields"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger._fields</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L545">Source ☍</a></dt>
+<dt><a name="BoundLogger._fields"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger._fields</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L553">Source ☍</a></dt>
 <dd>
 <p>Metadata fields merged into every logged message.</p>
 
@@ -676,7 +690,7 @@
 
 
 </dd>
-<dt><a name="BoundLogger._logger"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger._logger</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L544">Source ☍</a></dt>
+<dt><a name="BoundLogger._logger"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">BoundLogger._logger</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L552">Source ☍</a></dt>
 <dd>
 <p>The underlying logger this wrapper delegates to.</p>
 
@@ -686,7 +700,7 @@
 </dd>
 </dl>
 </div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Logger"></a>Logger</h2><span class="ll-family-meta">22 functions &middot; 7 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L208">Source ☍</a></span></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Logger"></a>Logger</h2><span class="ll-family-meta">23 functions &middot; 7 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L208">Source ☍</a></span></div>
 <div class="ll-module-body">
 <p>A namespaced, level-filterable logger. Obtain instances via <a href="cityrp.logging.html#cityrp.logging.GetLogger">cityrp.logging.GetLogger</a> rather than constructing directly.</p>
 
@@ -825,7 +839,7 @@
 
 </dd>
 <h3 class="section-header">Context</h3>
-<dt><a name="Logger.WithFields"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>WithFields<span class="ll-args">(fields)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L553">Source ☍</a></dt>
+<dt><a name="Logger.WithFields"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>WithFields<span class="ll-args">(fields)</span><span class="ll-returns"> → <a href="cityrp.logging.html#BoundLogger">BoundLogger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L561">Source ☍</a></dt>
 <dd>
 <p>Creates a logger wrapper that merges the given fields into the metadata of every message logged through it.</p>
 
@@ -925,6 +939,20 @@
 <dt><a name="Logger.Info"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>Info<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L495">Source ☍</a></dt>
 <dd>
 <p>Logs a message at INFO level.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter"></span><span class="types">string|function|table|<a href="https://wiki.facepunch.com/gmod/Color">Color</a>|<a href="Entity.html">Entity</a>...(+1)</span><span class="ll-arg-desc">Message parts and optional metadata table.</span></li>
+</ul>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types"><a href="cityrp.logging.html#Logger">Logger</a></span><span class="ll-arg-desc">This logger, for chaining.</span></li>
+</ol>
+
+</dd>
+<dt><a name="Logger.Output"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Logger<span class="ll-sep">:</span>Output<span class="ll-args">(_)</span><span class="ll-returns"> → <a href="cityrp.logging.html#Logger">Logger</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_logging.lua#L545">Source ☍</a></dt>
+<dd>
+<p>Logs a message at INFO level, bypassing this logger's level filtering entirely. Intended for explicit command output (e.g. concommand handlers) that should always print regardless of the logger's configured level.</p>
 
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">

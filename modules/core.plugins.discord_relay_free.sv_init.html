@@ -345,7 +345,7 @@
 <div class="ll-module-body"><p>if 1 == 1 then return end -- disable relay</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.discord.addMsgCache"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>addMsgCache<span class="ll-args">(row)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L176">Source ☍</a></dt>
+<dt><a name="cityrp.discord.addMsgCache"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>addMsgCache<span class="ll-args">(row)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L193">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -355,7 +355,22 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.connect"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.connect<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L332">Source ☍</a></dt>
+<dt><a name="cityrp.discord.announceConsole"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>announceConsole<span class="ll-args">(msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L119">Source ☍</a></dt>
+<dd>
+<p>Announce an automated server message in every player's chat, as the console pseudoplayer.
+Server announcements have no player entity behind them, so they borrow the stand-in player
+table this plugin already builds for relayed Discord chat: the client rebuilds it from the
+name and rank sent here, giving the line the console rank's icon and colour. Prefer
+<code><a href="CONSOLE.html#CONSOLE.Announce">CONSOLE:Announce</a></code> at the call site, which falls back to the engine if the relay is absent.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">msg</span><span class="types">string</span><span class="ll-arg-desc">The message to announce.</span></li>
+</ul>
+
+
+</dd>
+<dt><a name="cityrp.discord.connect"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.connect<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L349">Source ☍</a></dt>
 <dd>
 <p>Hook function when a player connects.</p>
 
@@ -366,7 +381,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.disconnect"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.disconnect<span class="ll-args">(name, sid, id, reason)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L373">Source ☍</a></dt>
+<dt><a name="cityrp.discord.disconnect"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.disconnect<span class="ll-args">(name, sid, id, reason)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L390">Source ☍</a></dt>
 <dd>
 <p>Hook function when a player disconnects.</p>
 
@@ -380,7 +395,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.getData"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>getData<span class="ll-args">(sid)</span><span class="ll-returns"> → boolean|unknown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L140">Source ☍</a></dt>
+<dt><a name="cityrp.discord.getData"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>getData<span class="ll-args">(sid)</span><span class="ll-returns"> → boolean|unknown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L157">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -393,7 +408,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.discord.getPlayerCmd"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>getPlayerCmd<span class="ll-args">(from)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L186">Source ☍</a></dt>
+<dt><a name="cityrp.discord.getPlayerCmd"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>getPlayerCmd<span class="ll-args">(from)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L203">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -403,7 +418,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.handleRemote"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>handleRemote<span class="ll-args">(row)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L215">Source ☍</a></dt>
+<dt><a name="cityrp.discord.handleRemote"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>handleRemote<span class="ll-args">(row)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L232">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -416,14 +431,14 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.discord.procMsgCache"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>procMsgCache<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L164">Source ☍</a></dt>
+<dt><a name="cityrp.discord.procMsgCache"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>procMsgCache<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L181">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.reorder"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>reorder<span class="ll-args">(tab)</span><span class="ll-returns"> → unknown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L149">Source ☍</a></dt>
+<dt><a name="cityrp.discord.reorder"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>reorder<span class="ll-args">(tab)</span><span class="ll-returns"> → unknown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L166">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -436,7 +451,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.discord.replaceTags"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.replaceTags<span class="ll-args">(msg, data)</span><span class="ll-returns"> → boolean|unknown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L285">Source ☍</a></dt>
+<dt><a name="cityrp.discord.replaceTags"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.replaceTags<span class="ll-args">(msg, data)</span><span class="ll-returns"> → boolean|unknown</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L302">Source ☍</a></dt>
 <dd>
 <p>Replace tags in a template message.</p>
 
@@ -451,7 +466,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.discord.rtnCmd"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>rtnCmd<span class="ll-args">(msg, to, time)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L103">Source ☍</a></dt>
+<dt><a name="cityrp.discord.rtnCmd"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>rtnCmd<span class="ll-args">(msg, to, time)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L104">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -463,7 +478,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.sendCmd"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>sendCmd<span class="ll-args">(ply, cmd, argTab)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L116">Source ☍</a></dt>
+<dt><a name="cityrp.discord.sendCmd"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>sendCmd<span class="ll-args">(ply, cmd, argTab)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L133">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -475,7 +490,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.sendEventNotify"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>sendEventNotify<span class="ll-args">(ply, msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L114">Source ☍</a></dt>
+<dt><a name="cityrp.discord.sendEventNotify"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>sendEventNotify<span class="ll-args">(ply, msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L131">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -486,7 +501,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.sendHelp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>sendHelp<span class="ll-args">(ply, msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L112">Source ☍</a></dt>
+<dt><a name="cityrp.discord.sendHelp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>sendHelp<span class="ll-args">(ply, msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L129">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -497,7 +512,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.sendOOC"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>sendOOC<span class="ll-args">(ply, msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L109">Source ☍</a></dt>
+<dt><a name="cityrp.discord.sendOOC"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>sendOOC<span class="ll-args">(ply, msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L110">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -508,7 +523,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.sendRaw"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>sendRaw<span class="ll-args">(usr, msg, img, sid, mType, to, time)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L86">Source ☍</a></dt>
+<dt><a name="cityrp.discord.sendRaw"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>sendRaw<span class="ll-args">(usr, msg, img, sid, mType, to, time)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L87">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -524,7 +539,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.updateCache"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>updateCache<span class="ll-args">(sid)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L126">Source ☍</a></dt>
+<dt><a name="cityrp.discord.updateCache"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord<span class="ll-sep">:</span>updateCache<span class="ll-args">(sid)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L143">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -537,56 +552,56 @@
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.discord.colours"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.colours</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L74">Source ☍</a></dt>
+<dt><a name="cityrp.discord.colours"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.colours</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L75">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L8">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L9">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.announcements"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L15">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.announcements"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L16">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.announcements.playercountsettings"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.playercountsettings</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L25">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.announcements.playercountsettings"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.playercountsettings</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L26">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.files"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.files</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L52">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.files"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.files</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L53">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.msgCache"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.msgCache</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L58">Source ☍</a></dt>
+<dt><a name="cityrp.discord.msgCache"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.msgCache</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L59">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.rankCache"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.rankCache</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L57">Source ☍</a></dt>
+<dt><a name="cityrp.discord.rankCache"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.rankCache</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L58">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.tags"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L63">Source ☍</a></dt>
+<dt><a name="cityrp.discord.tags"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L64">Source ☍</a></dt>
 <dd>
 
 
@@ -596,70 +611,70 @@
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.discord.colours.DEFAULT"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.colours.DEFAULT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L75">Source ☍</a></dt>
+<dt><a name="cityrp.discord.colours.DEFAULT"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.colours.DEFAULT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L76">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.colours.tag"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.colours.tag</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L76">Source ☍</a></dt>
+<dt><a name="cityrp.discord.colours.tag"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.colours.tag</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L77">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.announcements.connect"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.connect</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L18">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.announcements.connect"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.connect</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L19">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.announcements.connectMsg"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.connectMsg</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L19">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.announcements.connectMsg"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.connectMsg</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L20">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.announcements.disconnect"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.disconnect</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L20">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.announcements.disconnect"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.disconnect</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L21">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.announcements.disconnectMsg"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.disconnectMsg</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L21">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.announcements.disconnectMsg"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.disconnectMsg</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L22">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.announcements.online"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.online</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L16">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.announcements.online"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.online</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L17">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.announcements.onlineMsg"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.onlineMsg</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L17">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.announcements.onlineMsg"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.onlineMsg</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L18">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.announcements.playercount"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.playercount</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L22">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.announcements.playercount"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.playercount</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L23">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.announcements.playercountcooldown"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.playercountcooldown</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L24">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.announcements.playercountcooldown"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.playercountcooldown</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L25">Source ☍</a></dt>
 <dd>
 <p>Time in seconds before we'd re-announce a playercount being achieved</p>
 
@@ -667,28 +682,28 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.config.announcements.playercountmsg"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.playercountmsg</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L23">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.announcements.playercountmsg"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.announcements.playercountmsg</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L24">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.blockTeam"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.blockTeam</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L13">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.blockTeam"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.blockTeam</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L14">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.debug"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.debug</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L61">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.debug"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.debug</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L62">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.delay"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.delay</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L11">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.delay"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.delay</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L12">Source ☍</a></dt>
 <dd>
 <p>Min 2</p>
 
@@ -696,7 +711,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.config.files.mutedDiscordUsers"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.files.mutedDiscordUsers</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L55">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.files.mutedDiscordUsers"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.files.mutedDiscordUsers</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L56">Source ☍</a></dt>
 <dd>
 <p>Muted Users (Discord)</p>
 
@@ -704,7 +719,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.config.files.mutedGmodUsers"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.files.mutedGmodUsers</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L54">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.files.mutedGmodUsers"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.files.mutedGmodUsers</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L55">Source ☍</a></dt>
 <dd>
 <p>Muted Users (Gamemode)</p>
 
@@ -712,7 +727,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.config.files.recievedMessages"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.files.recievedMessages</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L53">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.files.recievedMessages"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.files.recievedMessages</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L54">Source ☍</a></dt>
 <dd>
 <p>Message Log.</p>
 
@@ -720,7 +735,7 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.config.max"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.max</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L12">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.max"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.max</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L13">Source ☍</a></dt>
 <dd>
 <p>Max messages to retrieve.</p>
 
@@ -728,84 +743,84 @@
 
 
 </dd>
-<dt><a name="cityrp.discord.config.noBots"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.noBots</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L60">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.noBots"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.noBots</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L61">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.config.prefix"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.prefix</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L10">Source ☍</a></dt>
+<dt><a name="cityrp.discord.config.prefix"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.config.prefix</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L11">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.tags.admin"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.admin</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L67">Source ☍</a></dt>
+<dt><a name="cityrp.discord.tags.admin"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.admin</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L68">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.tags.developer"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.developer</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L68">Source ☍</a></dt>
+<dt><a name="cityrp.discord.tags.developer"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.developer</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L69">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.tags.developermod"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.developermod</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L69">Source ☍</a></dt>
+<dt><a name="cityrp.discord.tags.developermod"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.developermod</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L70">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.tags.developeronly"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.developeronly</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L70">Source ☍</a></dt>
+<dt><a name="cityrp.discord.tags.developeronly"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.developeronly</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L71">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.tags.moderator"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.moderator</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L72">Source ☍</a></dt>
+<dt><a name="cityrp.discord.tags.moderator"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.moderator</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L73">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.tags.moderator2"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.moderator2</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L71">Source ☍</a></dt>
+<dt><a name="cityrp.discord.tags.moderator2"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.moderator2</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L72">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.tags.owner"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.owner</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L64">Source ☍</a></dt>
+<dt><a name="cityrp.discord.tags.owner"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.owner</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L65">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.tags.superadmin"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.superadmin</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L66">Source ☍</a></dt>
+<dt><a name="cityrp.discord.tags.superadmin"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.superadmin</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L67">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.discord.tags.superdeveloper"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.superdeveloper</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L65">Source ☍</a></dt>
+<dt><a name="cityrp.discord.tags.superdeveloper"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.discord.tags.superdeveloper</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L66">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="tmp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">tmp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L193">Source ☍</a></dt>
+<dt><a name="tmp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">tmp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/discord_relay_free/sv_init.lua#L210">Source ☍</a></dt>
 <dd>
 
 

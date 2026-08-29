@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-29T13:13:20Z",
+  "generated": "2026-08-29T14:50:30Z",
   "modules": [
     {
       "name": "Array",
@@ -402,6 +402,32 @@
           ],
           "desc": "A pseudoplayer table that can be used in place of a regular player for automated server actions.\n This table implements a subset of the Player metatable methods to allow it to be used where\n a player object is expected, such as for bans, kicks, or admin commands initiated by the server.\n\n Note: while this table can be used in place of a regular player, it will fail for most\n regular player operations that require an actual entity (e.g., GetPos(), Spawn(), etc.).\n\n Example usage:\n ```lua\n CONSOLE:Name() -- Returns \"Console\"\n cityrp.bans.DoBan(CONSOLE, steamid, nick, 0, reason)\n cityrp.acommands.adminDo(CONSOLE, \"Server action performed\", icon, flags)\n ```",
           "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "CONSOLE.Announce",
+          "kind": "Functions",
+          "module": "CONSOLE",
+          "file": "core/libraries/sv_console.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Announce an automated server message in every player's chat, attributed to the console.\n Rendered through the Discord relay's stand-in player table, so the line carries the console\n rank's icon and colour rather than the bare \"Console: \" the engine's `say` produces. The\n relay owns that table on both realms, so without it there is nothing clientside to receive\n the announcement and this falls back to `say`.",
+          "params": [
+            {
+              "name": "msg",
+              "type": "string",
+              "desc": "The message to announce."
+            }
+          ],
           "returns": [],
           "deprecated": null,
           "internal": false,
@@ -5483,12 +5509,12 @@
           "params": [
             {
               "name": "time",
-              "type": "any",
+              "type": "number?",
               "desc": ""
             },
             {
               "name": "showmins",
-              "type": "any",
+              "type": "boolean",
               "desc": ""
             }
           ],
@@ -8574,12 +8600,12 @@
           "params": [
             {
               "name": "ply",
-              "type": "any",
+              "type": "Player",
               "desc": ""
             },
             {
               "name": "state",
-              "type": "any",
+              "type": "boolean",
               "desc": ""
             }
           ],
@@ -65434,6 +65460,48 @@
           "members": []
         },
         {
+          "name": "Vehicle._CarNameClass",
+          "kind": "Fields",
+          "module": "Vehicle",
+          "file": "core/metatables/sh_vehicle.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "Vehicle._CarNameFallback",
+          "kind": "Fields",
+          "module": "Vehicle",
+          "file": "core/metatables/sh_vehicle.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "Vehicle._Locked",
           "kind": "Fields",
           "module": "Vehicle",
@@ -65531,7 +65599,7 @@
           "returns": [
             {
               "type": "string",
-              "desc": "name of the vehicle."
+              "desc": "The name of the vehicle."
             }
           ],
           "deprecated": null,
@@ -65615,7 +65683,7 @@
           "returns": [
             {
               "type": "string",
-              "desc": "position of the vehicle."
+              "desc": "The position of the vehicle."
             }
           ],
           "deprecated": null,
@@ -65647,7 +65715,7 @@
           "returns": [
             {
               "type": "boolean",
-              "desc": "if the player has permission, false otherwise."
+              "desc": "True if the player has permission, false otherwise."
             }
           ],
           "deprecated": null,
@@ -65778,32 +65846,6 @@
           "members": []
         },
         {
-          "name": "Vehicle.Locked",
-          "kind": "Functions",
-          "module": "Vehicle",
-          "file": "core/metatables/sh_vehicle.lua",
-          "states": [
-            "client",
-            "server"
-          ],
-          "desc": "Check if a car is locked.",
-          "params": [],
-          "returns": [
-            {
-              "type": "boolean",
-              "desc": "the car is locked."
-            }
-          ],
-          "deprecated": null,
-          "internal": false,
-          "warns": [],
-          "bugs": [],
-          "uniqueids": [],
-          "section": null,
-          "family": null,
-          "members": []
-        },
-        {
           "name": "Vehicle.OwnerWarranted",
           "kind": "Functions",
           "module": "Vehicle",
@@ -65854,32 +65896,6 @@
             {
               "type": "number",
               "desc": "HP."
-            }
-          ],
-          "deprecated": null,
-          "internal": false,
-          "warns": [],
-          "bugs": [],
-          "uniqueids": [],
-          "section": null,
-          "family": null,
-          "members": []
-        },
-        {
-          "name": "Vehicle.Stolen",
-          "kind": "Functions",
-          "module": "Vehicle",
-          "file": "core/metatables/sh_vehicle.lua",
-          "states": [
-            "client",
-            "server"
-          ],
-          "desc": "Check if a car is stolen.",
-          "params": [],
-          "returns": [
-            {
-              "type": "boolean",
-              "desc": "the car is marked as stolen."
             }
           ],
           "deprecated": null,
@@ -75468,6 +75484,38 @@
           "members": []
         },
         {
+          "name": "BoundLogger.Output",
+          "kind": "Functions",
+          "module": "cityrp.logging",
+          "file": "core/libraries/sh_logging.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Logs a message at INFO level, bypassing level filtering, with this wrapper's bound fields merged into the metadata. Intended for explicit command output (e.g. concommand handlers) that should always print regardless of the logger's configured level.",
+          "params": [
+            {
+              "name": "",
+              "type": "string|function|table|Color|Entity...(+1)",
+              "desc": "Message parts and optional metadata table."
+            }
+          ],
+          "returns": [
+            {
+              "type": "BoundLogger",
+              "desc": "This wrapper, for chaining."
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "BoundLogger.Raw",
           "kind": "Functions",
           "module": "cityrp.logging",
@@ -76550,6 +76598,38 @@
             {
               "type": "boolean",
               "desc": "Whether this is the root logger."
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "Logger.Output",
+          "kind": "Functions",
+          "module": "cityrp.logging",
+          "file": "core/libraries/sh_logging.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Logs a message at INFO level, bypassing this logger's level filtering entirely. Intended for explicit command output (e.g. concommand handlers) that should always print regardless of the logger's configured level.",
+          "params": [
+            {
+              "name": "",
+              "type": "string|function|table|Color|Entity...(+1)",
+              "desc": "Message parts and optional metadata table."
+            }
+          ],
+          "returns": [
+            {
+              "type": "Logger",
+              "desc": "This logger, for chaining."
             }
           ],
           "deprecated": null,
@@ -112729,6 +112809,32 @@
               "name": "row",
               "type": "any",
               "desc": ""
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.discord.announceConsole",
+          "kind": "Functions",
+          "module": "core.plugins.discord_relay_free.sv_init",
+          "file": "core/plugins/discord_relay_free/sv_init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Announce an automated server message in every player's chat, as the console pseudoplayer.\n Server announcements have no player entity behind them, so they borrow the stand-in player\n table this plugin already builds for relayed Discord chat: the client rebuilds it from the\n name and rank sent here, giving the line the console rank's icon and colour. Prefer\n `CONSOLE:Announce` at the call site, which falls back to the engine if the relay is absent.",
+          "params": [
+            {
+              "name": "msg",
+              "type": "string",
+              "desc": "The message to announce."
             }
           ],
           "returns": [],
