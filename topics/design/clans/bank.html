@@ -129,7 +129,7 @@
 <li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/Array.html">Array</a></li>
 <li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
@@ -139,7 +139,6 @@
 <li><a href="../../../modules/GM.html">GM</a></li>
 <li><a href="../../../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../../../modules/Migrations.html">Migrations</a></li>
-<li><a href="../../../modules/PLUGIN.html">PLUGIN</a></li>
 <li><a href="../../../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../../../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../../../modules/bwep.html">bwep</a></li>
@@ -1210,8 +1209,7 @@ behaviour needed:</p>
 <li>Return <strong>without</strong> calling <code>done()</code> when the player is offline, so the row
 stays <code>done = 0</code> and is retried until they connect. This is the offline
 delivery mechanism.</li>
-<li>Return without <code>done()</code> on <code>cityrp.remote.noSave</code> servers (<code>build</code>, <code>beta</code>,
-<code>beta2</code>, <code>event</code>) so a real server picks the row up instead.</li>
+<li>Return without <code>done()</code> on <code>cityrp.remote.noSave</code> servers (<code>build</code>, <code>event</code>) so a real server picks the row up instead.</li>
 <li>Require <code>IsValid(ply)</code> <strong>and</strong> <code>ply._Initialized</code> before granting.</li>
 <li>Call <code>SaveData()</code> after <code>GiveMoney</code> so the payout persists.</li>
 <li>Target <code>server = 'all'</code>. Do not hardcode server IDs — that is defect 5.</li>

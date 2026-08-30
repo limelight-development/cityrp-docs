@@ -113,7 +113,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/Array.html">Array</a></li>
 <li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
@@ -123,7 +123,6 @@
 <li><a href="../modules/GM.html">GM</a></li>
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
-<li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -351,50 +350,8 @@
 <div class="ll-module-body"><p>Plugin registration and utilities library.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.plugin.call"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.call<span class="ll-args">(name, _)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L132">Source ☍</a></dt>
-<dd>
-<p>Calls a function for all plugins.</p>
-
-<p class="ll-arg-label">Parameters</p>
-<ul class="ll-args-list">
-<li><span class="parameter">name</span><span class="types">string</span><span class="ll-arg-desc">The name of the function to call.</span></li>
-<li><span class="parameter"></span><span class="types">any</span><span class="ll-arg-desc">Arguments to pass to the called functions.</span></li>
-</ul>
-
-
-</dd>
-<dt><a name="cityrp.plugin.get"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.get<span class="ll-args">(id)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L155">Source ☍</a></dt>
-<dd>
-<p>Gets a plugin by its key, or by the display name it registered under.
-A display name still resolves, but warns once per name: the key is the identity everything else
-in the loader uses, and the two are not derivable from one another (<code>area</code> registers as
-&quot;Area Manager&quot;, <code>licenseplates</code> as &quot;Licence Plates&quot;).</p>
-
-<p class="ll-arg-label">Parameters</p>
-<ul class="ll-args-list">
-<li><span class="parameter">id</span><span class="types">string</span><span class="ll-arg-desc">The plugin's key, or the display name it registered under.</span></li>
-</ul>
-<p class="ll-arg-label">Returns</p>
-<ol class="ll-args-list">
-<li><span></span><span class="types">table?</span><span class="ll-arg-desc">The plugin table, or nil if not found.</span></li>
-</ol>
-
-</dd>
-<dt><a name="cityrp.plugin.register"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.register<span class="ll-args">(plugin)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L67">Source ☍</a></dt>
-<dd>
-<p>Registers a new plugin.
-The plugin is stored under its key, taken from the loader; its display name is recorded as an
-alias so existing <code><a href="cityrp.plugin.html#cityrp.plugin.get">cityrp.plugin.get</a>(&quot;Display Name&quot;)</code> call sites keep resolving.</p>
-
-<p class="ll-arg-label">Parameters</p>
-<ul class="ll-args-list">
-<li><span class="parameter">plugin</span><span class="types">table|<a href="PLUGIN.html">PLUGIN</a></span><span class="ll-arg-desc">The plugin table to register.</span></li>
-</ul>
-
-
-</dd>
 <h3 class="section-header">Availability</h3>
-<dt><a name="cityrp.plugin.GetDependencyStatus"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.GetDependencyStatus<span class="ll-args">(key)</span><span class="ll-returns"> → <a href="cityrp.plugin.html#PluginDependencyStatus">PluginDependencyStatus</a>?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1011">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.GetDependencyStatus"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.GetDependencyStatus<span class="ll-args">(key)</span><span class="ll-returns"> → <a href="cityrp.plugin.html#PluginDependencyStatus">PluginDependencyStatus</a>?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1159">Source ☍</a></dt>
 <dd>
 <p>Why a plugin is or is not available, for diagnostics.
 Not a guard - use <code><a href="cityrp.plugin.html#cityrp.plugin.IsAvailable">cityrp.plugin.IsAvailable</a></code> for that. Returns copies, and may gain fields.</p>
@@ -409,13 +366,13 @@ Not a guard - use <code><a href="cityrp.plugin.html#cityrp.plugin.IsAvailable">c
 </ol>
 
 </dd>
-<dt><a name="cityrp.plugin.IsAvailable"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.IsAvailable<span class="ll-args">(key)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L984">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.IsAvailable"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.IsAvailable<span class="ll-args">(key)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1132">Source ☍</a></dt>
 <dd>
 <p>Whether a plugin is loaded and running on this realm.
 The guard to put around a call into another plugin. Every reason one might be absent reads the
 same <code>false</code>; <code><a href="cityrp.plugin.html#cityrp.plugin.GetDependencyStatus">cityrp.plugin.GetDependencyStatus</a></code> tells them apart. Not the same test as
 <code><a href="cityrp.plugin.html#cityrp.plugin.get">cityrp.plugin.get</a>(key) ~= nil</code>, which misses the ~27 plugins that never call <code>register</code>.
-scope prefix. Not <code><a href="PLUGIN.html#PLUGIN.name">PLUGIN.name</a></code>.</p>
+scope prefix. Not <code>PLUGIN.name</code>.</p>
 
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
@@ -427,7 +384,7 @@ scope prefix. Not <code><a href="PLUGIN.html#PLUGIN.name">PLUGIN.name</a></code>
 </ol>
 
 </dd>
-<dt><a name="cityrp.plugin.SendsSubResourcesToClient"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.SendsSubResourcesToClient<span class="ll-args">(entry)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1157">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.SendsSubResourcesToClient"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.SendsSubResourcesToClient<span class="ll-args">(entry)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1305">Source ☍</a></dt>
 <dd>
 <p>Whether any of one plugin's sub-resources will be sent to the client.</p>
 <p>The loader <code>AddCSLuaFile</code>s sub-resources <em>after</em> the plugin loop in <code>sh_init.lua</code> has already
@@ -451,7 +408,7 @@ opposite failure and the reason the <code>sendsToClient</code> gate exists in th
 
 </dd>
 <h3 class="section-header">Discovery</h3>
-<dt><a name="cityrp.plugin.Discover"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.Discover<span class="ll-args">()</span><span class="ll-returns"> → <a href="cityrp.plugin.html#PluginCandidate">PluginCandidate</a>[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L254">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.Discover"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.Discover<span class="ll-args">()</span><span class="ll-returns"> → <a href="cityrp.plugin.html#PluginCandidate">PluginCandidate</a>[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L390">Source ☍</a></dt>
 <dd>
 <p>Discovers every plugin under <code>core/plugins</code>, resolving folder and file plugins into one key space.
 A folder plugin is a folder of <code>sv_init.lua</code>/<code>cl_init.lua</code>/<code>sh_init.lua</code>; a file plugin is a single
@@ -467,8 +424,83 @@ own metadata - <code><a href="cityrp.plugin.html#cityrp.plugin.Resolve">cityrp.p
 </ol>
 
 </dd>
+<h3 class="section-header">Loading</h3>
+<dt><a name="cityrp.plugin.AutoRegister"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.AutoRegister<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L167">Source ☍</a></dt>
+<dd>
+<p>Registers the seeded table for the plugin currently being loaded, unless it registered itself.
+A fallback rather than the primary path, so a plugin that still calls <code><a href="cityrp.plugin.html#cityrp.plugin.register">cityrp.plugin.register</a></code>
+with its own table is left alone and nothing registers twice.</p>
+
+
+
+
+</dd>
+<dt><a name="cityrp.plugin.call"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.call<span class="ll-args">(name, _)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L270">Source ☍</a></dt>
+<dd>
+<p>Calls a function for all plugins.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">name</span><span class="types">string</span><span class="ll-arg-desc">The name of the function to call.</span></li>
+<li><span class="parameter"></span><span class="types">any</span><span class="ll-arg-desc">Arguments to pass to the called functions.</span></li>
+</ul>
+
+
+</dd>
+<dt><a name="cityrp.plugin.ClearGlobal"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.ClearGlobal<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L174">Source ☍</a></dt>
+<dd>
+<p>Clears the <code>PLUGIN</code> global after a plugin's includes have finished.</p>
+
+
+
+
+</dd>
+<dt><a name="cityrp.plugin.get"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.get<span class="ll-args">(id)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L291">Source ☍</a></dt>
+<dd>
+<p>Gets a plugin by its key, or by the display name it registered under.
+A display name still resolves, but warns once per name: the key is the identity everything else
+in the loader uses, and the two are not derivable from one another (<code>area</code> registers as
+&quot;Area Manager&quot;, <code>licenseplates</code> as &quot;Licence Plates&quot;).</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">id</span><span class="types">string</span><span class="ll-arg-desc">The plugin's key, or the display name it registered under.</span></li>
+</ul>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">table?</span><span class="ll-arg-desc">The plugin table, or nil if not found.</span></li>
+</ol>
+
+</dd>
+<dt><a name="cityrp.plugin.register"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.register<span class="ll-args">(plugin)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L186">Source ☍</a></dt>
+<dd>
+<p>Registers a new plugin.
+The plugin is stored under its key, taken from the loader; its display name is recorded as an
+alias so existing <code><a href="cityrp.plugin.html#cityrp.plugin.get">cityrp.plugin.get</a>(&quot;Display Name&quot;)</code> call sites keep resolving.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">plugin</span><span class="types">table|<a href="cityrp.plugin.html#PLUGIN">PLUGIN</a></span><span class="ll-arg-desc">The plugin table to register.</span></li>
+</ul>
+
+
+</dd>
+<dt><a name="cityrp.plugin.SeedGlobal"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.SeedGlobal<span class="ll-args">(entry)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L147">Source ☍</a></dt>
+<dd>
+<p>Seeds the <code>PLUGIN</code> global for a plugin about to be included.
+The loader owns the plugin table: a plugin's files read <code>PLUGIN</code> rather than building their own
+and handing it over. An unmigrated file's <code>local PLUGIN = {}</code> shadows this harmlessly, and its
+own <code>PLUGIN_SHARED = PLUGIN</code> keeps its sub-files consistent, so both styles coexist.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">entry</span><span class="types"><a href="cityrp.plugin.html#PluginEntry">PluginEntry</a></span><span class="ll-arg-desc">The plugin about to be included.</span></li>
+</ul>
+
+
+</dd>
 <h3 class="section-header">Resolution</h3>
-<dt><a name="cityrp.plugin.Resolve"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.Resolve<span class="ll-args">()</span><span class="ll-returns"> → <a href="cityrp.plugin.html#PluginEntry">PluginEntry</a>[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L905">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.Resolve"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.Resolve<span class="ll-args">()</span><span class="ll-returns"> → <a href="cityrp.plugin.html#PluginEntry">PluginEntry</a>[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1043">Source ☍</a></dt>
 <dd>
 <p>Discovers every plugin, reads its metadata and resolves a deterministic load order.
 Plugins declare dependencies in an optional <code>.meta.lua</code> beside them; a missing required
@@ -488,7 +520,7 @@ plugin's files to the client - only inclusion is gated, on <code>status</code>.<
 
 </dd>
 <h3 class="section-header">Subresources</h3>
-<dt><a name="cityrp.plugin.LoadSubResourceDerma"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.LoadSubResourceDerma<span class="ll-args">(entries)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1316">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.LoadSubResourceDerma"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.LoadSubResourceDerma<span class="ll-args">(entries)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1472">Source ☍</a></dt>
 <dd>
 <p>Includes every <code>derma/*.lua</code> file under one loaded folder plugin, same prefix rules as
 <code>core/derma</code>: the server sends every file but only includes <code>sh_</code>-prefixed ones, the client
@@ -501,7 +533,7 @@ includes everything it received.</p>
 
 
 </dd>
-<dt><a name="cityrp.plugin.LoadSubResourceEntities"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.LoadSubResourceEntities<span class="ll-args">(entries)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1265">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.LoadSubResourceEntities"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.LoadSubResourceEntities<span class="ll-args">(entries)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1413">Source ☍</a></dt>
 <dd>
 <p>Loads the <code>entities/</code> and <code>weapons/</code> sub-resources of every loaded folder plugin, in load order.
 File-based plugins (<a href="https://github.com/limelight-development/cityrp2/issues/2507">#2507</a>) never have sub-resources. A plugin that failed to resolve, or a
@@ -514,7 +546,7 @@ missing <code>entities</code>/<code>weapons</code> folder, is skipped silently.<
 
 
 </dd>
-<dt><a name="cityrp.plugin.LoadSubResourceItems"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.LoadSubResourceItems<span class="ll-args">(entries, log)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1291">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.LoadSubResourceItems"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.LoadSubResourceItems<span class="ll-args">(entries, log)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1443">Source ☍</a></dt>
 <dd>
 <p>Includes every <code>items/*.lua</code> file under one loaded folder plugin, same convention as <code>core/items</code>:
 included and <code>AddCSLuaFile</code>'d unconditionally, so item files decide their own realm behaviour.
@@ -551,7 +583,7 @@ display name is legacy - <code><a href="cityrp.plugin.html#cityrp.plugin.get">ci
 <dd>
 <p>Registered plugins, keyed by the loader's plugin key - the folder name, or a file plugin's name
 without its scope prefix. This is the same identity <code>.meta.lua</code> dependencies, availability
-conditions and load order use; it is not <code><a href="PLUGIN.html#PLUGIN.name">PLUGIN.name</a></code>, which is a free-text display name.</p>
+conditions and load order use; it is not <code>PLUGIN.name</code>, which is a free-text display name.</p>
 
 
 
@@ -560,7 +592,7 @@ conditions and load order use; it is not <code><a href="PLUGIN.html#PLUGIN.name"
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Classes"></a>Classes</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="PluginStatus"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginStatus</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L301">Source ☍</a></dt>
+<dt><a name="PluginStatus"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginStatus</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L437">Source ☍</a></dt>
 <dd>
 <p>Resolution outcome recorded on a plugin entry. Only <code>ok</code> is executed by the loader.</p>
 
@@ -571,7 +603,7 @@ conditions and load order use; it is not <code><a href="PLUGIN.html#PLUGIN.name"
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.plugin.discovered"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.discovered</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L286">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.discovered"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.discovered</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L422">Source ☍</a></dt>
 <dd>
 
 
@@ -588,14 +620,14 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="cityrp.plugin.registry"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.registry</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L970">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.registry"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.registry</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1118">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="cityrp.plugin.status"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.status</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L886">Source ☍</a></dt>
+<dt><a name="cityrp.plugin.status"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.plugin.status</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1024">Source ☍</a></dt>
 <dd>
 <p>Resolution outcomes, for callers comparing against a <code>PluginEntry</code>'s <code>status</code>.</p>
 
@@ -603,13 +635,29 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
+<dt><a name="PLUGIN"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PLUGIN</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L157">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+<dt><a name="PLUGIN_SHARED"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PLUGIN_SHARED</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L161">Source ☍</a></dt>
+<dd>
+<p>Set for as long as unmigrated plugins still read it. Their own assignment overwrites this
+with their own table, which is exactly what those files expect.</p>
+
+
+
+
+</dd>
 </dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="PluginCandidate"></a>PluginCandidate</h2><span class="ll-family-meta">3 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L191">Source ☍</a></span></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="PluginCandidate"></a>PluginCandidate</h2><span class="ll-family-meta">3 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L327">Source ☍</a></span></div>
 <div class="ll-module-body">
 <p>A plugin found by <code><a href="cityrp.plugin.html#cityrp.plugin.Discover">cityrp.plugin.Discover</a></code>, before any of its code has run.</p>
 
 <dl class="function">
-<dt><a name="PluginCandidate.key"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginCandidate.key</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L192">Source ☍</a></dt>
+<dt><a name="PluginCandidate.key"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginCandidate.key</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L328">Source ☍</a></dt>
 <dd>
 <p>Identity key, shared with folder plugin names.</p>
 
@@ -617,7 +665,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginCandidate.path"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginCandidate.path</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L194">Source ☍</a></dt>
+<dt><a name="PluginCandidate.path"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginCandidate.path</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L330">Source ☍</a></dt>
 <dd>
 <p>Path to the folder or file, relative to the gamemode folder.</p>
 
@@ -625,7 +673,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginCandidate.scope"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginCandidate.scope</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L193">Source ☍</a></dt>
+<dt><a name="PluginCandidate.scope"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginCandidate.scope</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L329">Source ☍</a></dt>
 <dd>
 <p>One of <code>&quot;folder&quot;</code>, <code>&quot;sh&quot;</code>, <code>&quot;sv&quot;</code> or <code>&quot;cl&quot;</code>.</p>
 
@@ -635,12 +683,12 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 </dd>
 </dl>
 </div>
-<div class="ll-module-header"><h2 class="section-header"><a name="PluginDependencyStatus"></a>PluginDependencyStatus</h2><span class="ll-family-meta">8 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L996">Source ☍</a></span></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="PluginDependencyStatus"></a>PluginDependencyStatus</h2><span class="ll-family-meta">8 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1144">Source ☍</a></span></div>
 <div class="ll-module-body">
 <p>A snapshot of one plugin's resolution outcome, as <code><a href="cityrp.plugin.html#cityrp.plugin.GetDependencyStatus">cityrp.plugin.GetDependencyStatus</a></code> returns it.</p>
 
 <dl class="function">
-<dt><a name="PluginDependencyStatus.cycle"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.cycle</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1003">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.cycle"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.cycle</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1151">Source ☍</a></dt>
 <dd>
 <p>Keys forming the required-edge cycle, when <code>status</code> is <code>&quot;cycle&quot;</code>.</p>
 
@@ -648,7 +696,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginDependencyStatus.key"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.key</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L997">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.key"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.key</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1145">Source ☍</a></dt>
 <dd>
 <p>The plugin's key.</p>
 
@@ -656,7 +704,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginDependencyStatus.missing"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.missing</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1001">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.missing"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.missing</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1149">Source ☍</a></dt>
 <dd>
 <p>Required dependency keys that were absent or disabled.</p>
 
@@ -664,7 +712,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginDependencyStatus.missingOptional"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.missingOptional</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1002">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.missingOptional"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.missingOptional</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1150">Source ☍</a></dt>
 <dd>
 <p>Optional dependency keys that were absent.</p>
 
@@ -672,7 +720,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginDependencyStatus.order"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.order</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1004">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.order"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.order</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1152">Source ☍</a></dt>
 <dd>
 <p>Position in the load order, absent for an excluded plugin.</p>
 
@@ -680,7 +728,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginDependencyStatus.reason"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.reason</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1000">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.reason"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.reason</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1148">Source ☍</a></dt>
 <dd>
 <p>Why it was excluded, when <code>status</code> is <code>&quot;excluded&quot;</code>.</p>
 
@@ -688,7 +736,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginDependencyStatus.scope"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.scope</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L999">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.scope"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.scope</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1147">Source ☍</a></dt>
 <dd>
 <p>One of <code>&quot;folder&quot;</code>, <code>&quot;sh&quot;</code>, <code>&quot;sv&quot;</code> or <code>&quot;cl&quot;</code>.</p>
 
@@ -696,7 +744,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginDependencyStatus.status"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.status</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L998">Source ☍</a></dt>
+<dt><a name="PluginDependencyStatus.status"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginDependencyStatus.status</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1146">Source ☍</a></dt>
 <dd>
 <p>Why it did or did not resolve.</p>
 
@@ -706,12 +754,12 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 </dd>
 </dl>
 </div>
-<div class="ll-module-header"><h2 class="section-header"><a name="PluginEntry"></a>PluginEntry</h2><span class="ll-family-meta">11 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L323">Source ☍</a></span></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="PluginEntry"></a>PluginEntry</h2><span class="ll-family-meta">12 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L459">Source ☍</a></span></div>
 <div class="ll-module-body">
 <p>A discovered plugin once its metadata has been read and its load order resolved.</p>
 
 <dl class="function">
-<dt><a name="PluginEntry.cycle"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.cycle</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L330">Source ☍</a></dt>
+<dt><a name="PluginEntry.cycle"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.cycle</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L468">Source ☍</a></dt>
 <dd>
 <p>Keys forming the cycle, when <code>status</code> is <code>&quot;cycle&quot;</code>.</p>
 
@@ -719,7 +767,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginEntry.key"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.key</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L192">Source ☍</a></dt>
+<dt><a name="PluginEntry.key"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.key</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L328">Source ☍</a></dt>
 <dd>
 <p>Identity key, shared with folder plugin names.</p>
 
@@ -727,7 +775,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginEntry.meta"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.meta</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L324">Source ☍</a></dt>
+<dt><a name="PluginEntry.meta"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.meta</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L460">Source ☍</a></dt>
 <dd>
 <p>Declared metadata, empty when the plugin has no <code>.meta.lua</code>.</p>
 
@@ -735,7 +783,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginEntry.metaPath"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.metaPath</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L325">Source ☍</a></dt>
+<dt><a name="PluginEntry.metaPath"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.metaPath</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L461">Source ☍</a></dt>
 <dd>
 <p>Path to the metadata file, relative to the gamemode folder.</p>
 
@@ -743,7 +791,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginEntry.missing"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.missing</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L328">Source ☍</a></dt>
+<dt><a name="PluginEntry.missing"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.missing</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L466">Source ☍</a></dt>
 <dd>
 <p>Required dependency keys that were absent or disabled.</p>
 
@@ -751,7 +799,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginEntry.missingOptional"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.missingOptional</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L329">Source ☍</a></dt>
+<dt><a name="PluginEntry.missingOptional"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.missingOptional</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L467">Source ☍</a></dt>
 <dd>
 <p>Optional dependency keys that were absent.</p>
 
@@ -759,7 +807,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginEntry.order"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.order</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L331">Source ☍</a></dt>
+<dt><a name="PluginEntry.order"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.order</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L469">Source ☍</a></dt>
 <dd>
 <p>Position in the computed load order, from 1. Absent when <code>status</code> is</p>
 
@@ -767,7 +815,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginEntry.path"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.path</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L194">Source ☍</a></dt>
+<dt><a name="PluginEntry.path"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.path</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L330">Source ☍</a></dt>
 <dd>
 <p>Path to the folder or file, relative to the gamemode folder.</p>
 
@@ -775,7 +823,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginEntry.reason"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.reason</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L327">Source ☍</a></dt>
+<dt><a name="PluginEntry.reason"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.reason</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L465">Source ☍</a></dt>
 <dd>
 <p>Why it was excluded, when <code>status</code> is <code>&quot;excluded&quot;</code>.</p>
 
@@ -783,7 +831,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginEntry.scope"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.scope</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L193">Source ☍</a></dt>
+<dt><a name="PluginEntry.scope"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.scope</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L329">Source ☍</a></dt>
 <dd>
 <p>One of <code>&quot;folder&quot;</code>, <code>&quot;sh&quot;</code>, <code>&quot;sv&quot;</code> or <code>&quot;cl&quot;</code>.</p>
 
@@ -791,7 +839,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginEntry.status"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.status</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L326">Source ☍</a></dt>
+<dt><a name="PluginEntry.status"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.status</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L464">Source ☍</a></dt>
 <dd>
 <p>Whether this plugin is cleared to load, and if not, why.</p>
 
@@ -799,14 +847,22 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
+<dt><a name="PluginEntry.table"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginEntry.table</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L462">Source ☍</a></dt>
+<dd>
+<p>The plugin's own table, seeded by the loader on first include. Absent until</p>
+
+
+
+
+</dd>
 </dl>
 </div>
-<div class="ll-module-header"><h2 class="section-header"><a name="PluginMeta"></a>PluginMeta</h2><span class="ll-family-meta">9 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L311">Source ☍</a></span></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="PluginMeta"></a>PluginMeta</h2><span class="ll-family-meta">9 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L447">Source ☍</a></span></div>
 <div class="ll-module-body">
 <p>Declared metadata for one plugin, normalised and validated.</p>
 
 <dl class="function">
-<dt><a name="PluginMeta.after"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.after</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L314">Source ☍</a></dt>
+<dt><a name="PluginMeta.after"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.after</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L450">Source ☍</a></dt>
 <dd>
 <p>Keys to load after; <code>&quot;*&quot;</code> means every other plugin.</p>
 
@@ -814,7 +870,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginMeta.before"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.before</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L315">Source ☍</a></dt>
+<dt><a name="PluginMeta.before"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.before</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L451">Source ☍</a></dt>
 <dd>
 <p>Keys to load before; <code>&quot;*&quot;</code> means every other plugin.</p>
 
@@ -822,7 +878,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginMeta.dependencies"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.dependencies</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L312">Source ☍</a></dt>
+<dt><a name="PluginMeta.dependencies"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.dependencies</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L448">Source ☍</a></dt>
 <dd>
 <p>Keys this plugin cannot load without.</p>
 
@@ -830,7 +886,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginMeta.disabled"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.disabled</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L316">Source ☍</a></dt>
+<dt><a name="PluginMeta.disabled"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.disabled</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L452">Source ☍</a></dt>
 <dd>
 <p>Unconditionally excluded from both realms, regardless of servers/maps.</p>
 
@@ -838,7 +894,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginMeta.maps"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.maps</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L319">Source ☍</a></dt>
+<dt><a name="PluginMeta.maps"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.maps</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L455">Source ☍</a></dt>
 <dd>
 <p>Map names this plugin is allowed on; empty means every map.</p>
 
@@ -846,7 +902,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginMeta.notMaps"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.notMaps</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L320">Source ☍</a></dt>
+<dt><a name="PluginMeta.notMaps"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.notMaps</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L456">Source ☍</a></dt>
 <dd>
 <p>Map names this plugin is excluded from; wins over <code>maps</code>.</p>
 
@@ -854,7 +910,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginMeta.notServers"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.notServers</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L318">Source ☍</a></dt>
+<dt><a name="PluginMeta.notServers"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.notServers</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L454">Source ☍</a></dt>
 <dd>
 <p>Server codes this plugin is excluded from; wins over <code>servers</code>.</p>
 
@@ -862,7 +918,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginMeta.optionalDependencies"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.optionalDependencies</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L313">Source ☍</a></dt>
+<dt><a name="PluginMeta.optionalDependencies"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.optionalDependencies</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L449">Source ☍</a></dt>
 <dd>
 <p>Keys this plugin uses when they are present.</p>
 
@@ -870,7 +926,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="PluginMeta.servers"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.servers</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L317">Source ☍</a></dt>
+<dt><a name="PluginMeta.servers"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">PluginMeta.servers</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L453">Source ☍</a></dt>
 <dd>
 <p>Server codes this plugin is allowed on; empty means every server.</p>
 
@@ -880,12 +936,12 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 </dd>
 </dl>
 </div>
-<div class="ll-module-header"><h2 class="section-header"><a name="SubResourceClass"></a>SubResourceClass</h2><span class="ll-family-meta">3 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1032">Source ☍</a></span></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="SubResourceClass"></a>SubResourceClass</h2><span class="ll-family-meta">3 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1180">Source ☍</a></span></div>
 <div class="ll-module-body">
 <p>One class found under a plugin's <code>entities/</code> or <code>weapons/</code> folder.</p>
 
 <dl class="function">
-<dt><a name="SubResourceClass.folder"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SubResourceClass.folder</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1035">Source ☍</a></dt>
+<dt><a name="SubResourceClass.folder"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SubResourceClass.folder</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1183">Source ☍</a></dt>
 <dd>
 <p>Whether the class is an engine-style folder (<code>init.lua</code>/<code>cl_init.lua</code>/<code>shared.lua</code>)</p>
 
@@ -893,7 +949,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="SubResourceClass.fsName"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SubResourceClass.fsName</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1034">Source ☍</a></dt>
+<dt><a name="SubResourceClass.fsName"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SubResourceClass.fsName</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1182">Source ☍</a></dt>
 <dd>
 <p>The folder or file name as <code>file.Find</code> returned it, used to build paths.</p>
 
@@ -901,7 +957,7 @@ the loader loop in <code>gamemode/sh_init.lua</code>.</p>
 
 
 </dd>
-<dt><a name="SubResourceClass.name"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SubResourceClass.name</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1033">Source ☍</a></dt>
+<dt><a name="SubResourceClass.name"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SubResourceClass.name</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua#L1181">Source ☍</a></dt>
 <dd>
 <p>Class name, e.g. <code>&quot;cityrp_breathalyser&quot;</code>. Always lowercase.</p>
 

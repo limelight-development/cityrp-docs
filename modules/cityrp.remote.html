@@ -106,7 +106,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/Array.html">Array</a></li>
 <li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
@@ -116,7 +116,6 @@
 <li><a href="../modules/GM.html">GM</a></li>
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
-<li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -344,7 +343,7 @@
 <div class="ll-module-body"><p>Remote Commands Library.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.inventory.itemExists"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.inventory.itemExists<span class="ll-args">(ply, item, quantity)</span><span class="ll-returns"> → boolean?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L517">Source ☍</a></dt>
+<dt><a name="cityrp.inventory.itemExists"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.inventory.itemExists<span class="ll-args">(ply, item, quantity)</span><span class="ll-returns"> → boolean?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L592">Source ☍</a></dt>
 <dd>
 <p>Check if a player has an item in their inventory, optionally requiring a minimum quantity.</p>
 
@@ -360,7 +359,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.remote.check"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.remote.check<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L232">Source ☍</a></dt>
+<dt><a name="cityrp.remote.check"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.remote.check<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L244">Source ☍</a></dt>
 <dd>
 <p>Call the database for any unprocessed remote commands, and run any handlers attached to them.</p>
 <blockquote class="ll-alert ll-alert-internal"><p class="ll-alert-title">Internal</p><p>This function is internal. Whilst you can call it, you probably shouldn't.</p><p>Called on a repeating timer; should not be called directly.</p></blockquote>
@@ -393,7 +392,7 @@
 
 
 </dd>
-<dt><a name="cityrp.remote.doPRAlert"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.remote.doPRAlert<span class="ll-args">(ply, id)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L197">Source ☍</a></dt>
+<dt><a name="cityrp.remote.doPRAlert"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.remote.doPRAlert<span class="ll-args">(ply, id)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L209">Source ☍</a></dt>
 <dd>
 <p>Small function to notify a player of a player report.</p>
 
@@ -419,7 +418,7 @@
 
 
 </dd>
-<dt><a name="cityrp.remote.membership"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.remote.membership<span class="ll-args">(ply, qty)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L428">Source ☍</a></dt>
+<dt><a name="cityrp.remote.membership"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.remote.membership<span class="ll-args">(ply, qty)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L440">Source ☍</a></dt>
 <dd>
 <p>Add a set of membership to the player.</p>
 
@@ -434,7 +433,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.remote.moneypack"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.remote.moneypack<span class="ll-args">(ply, qty)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L469">Source ☍</a></dt>
+<dt><a name="cityrp.remote.moneypack"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.remote.moneypack<span class="ll-args">(ply, qty)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L544">Source ☍</a></dt>
 <dd>
 <p>Add moneypacks to the player.</p>
 
@@ -449,7 +448,24 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.remote.propcleanup"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.remote.propcleanup<span class="ll-args">(issuer, target)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L493">Source ☍</a></dt>
+<dt><a name="cityrp.remote.premiumToken"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.remote.premiumToken<span class="ll-args">(ply, qty, purchaser64)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L483">Source ☍</a></dt>
+<dd>
+<p>Give Premium Token items from the website (<code>ptoken</code>). Stamps hidden <code>purchaser</code> meta.
+Returns false (row stays pending) when the player cannot receive them yet.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player to give tokens to.</span></li>
+<li><span class="parameter">qty</span><span class="types">string|number</span><span class="ll-arg-desc">The number of tokens to give.</span></li>
+<li><span class="parameter">purchaser64</span><span class="types">string?</span><span class="ll-arg-desc">Original website purchaser Steam64.</span></li>
+</ul>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc">Whether the player was given their tokens.</span></li>
+</ol>
+
+</dd>
+<dt><a name="cityrp.remote.propcleanup"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.remote.propcleanup<span class="ll-args">(issuer, target)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L568">Source ☍</a></dt>
 <dd>
 <p>Run a prop cleanup, either globally or for a specific player.</p>
 
@@ -513,7 +529,7 @@
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.clans.lastreload"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.clans.lastreload</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L160">Source ☍</a></dt>
+<dt><a name="cityrp.clans.lastreload"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.clans.lastreload</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_remote.lua#L172">Source ☍</a></dt>
 <dd>
 
 

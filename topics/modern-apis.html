@@ -102,7 +102,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/Array.html">Array</a></li>
 <li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
@@ -112,7 +112,6 @@
 <li><a href="../modules/GM.html">GM</a></li>
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
-<li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -383,6 +382,12 @@
 <td align="left"><code>ply:ConCommand(&quot;cityrp &lt;cmd&gt; &lt;args&gt;&quot;)</code> (clientside UI)&lt;br&gt;<code>cityrp.command.consoleCommand(ply, cmd, argsTable)</code> (serverside)</td>
 <td align="left"><code>ply:ConCommand(&quot;say /&lt;cmd&gt; &lt;args&gt;&quot;)</code></td>
 <td align="left">Both end up in <code>cityrp.command.consoleCommand</code>; <code>say /</code> only adds the chat pipeline in front of it, where a <code>PlayerSay</code> hook can swallow the message, <code>cityrp.replacecodes</code> rewrites <code>%</code>/<code>$q</code> codes inside the arguments, &gt;452 characters are dropped silently, and the arguments are re-quoted by a naive scanner. See <a href="https://github.com/limelight-development/cityrp2/blob/master/AGENTS.md">AGENTS.md</a> footgun <a href="https://github.com/limelight-development/cityrp2/issues/13">#13</a>.</td>
+</tr>
+<tr>
+<td align="left"><strong>Reaching a plugin you declared a dependency on</strong></td>
+<td align="left"><code>PLUGIN.Dependencies[&quot;&lt;key&gt;&quot;]</code></td>
+<td align="left"><code>cityrp.plugin.get(&quot;&lt;key&gt;&quot;)</code> when the key is already in your <code>.meta.lua</code></td>
+<td align="left">The loader resolved it for you. A <strong>required</strong> dependency is never nil — your plugin would not have loaded without it — so there is nothing to guard, which no lookup-plus-guard can match. An <strong>optional</strong> one may be nil and must be guarded. See <a href="plugins.html#declared-dependencies">plugins.md</a>.</td>
 </tr>
 <tr>
 <td align="left"><strong>&quot;Is this plugin here?&quot;</strong> (guarding a cross-plugin call)</td>

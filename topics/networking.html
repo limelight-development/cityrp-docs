@@ -111,7 +111,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/Array.html">Array</a></li>
 <li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
@@ -121,7 +121,6 @@
 <li><a href="../modules/GM.html">GM</a></li>
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
-<li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -623,8 +622,9 @@ cityrp.network.Register(&quot;cityrp_Rank&quot;):SetPlayer():Enum({1, 2, 3, 4}):
 cityrp.network.Register(&quot;pass&quot;):Enum({&quot;grey&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;orange&quot;, &quot;red&quot;}):Accessor(&quot;Pass&quot;)
 </code></pre>
 <h3 id="recipients">Recipients</h3>
-<p>Only meaningful for Entity/Player/Vehicle/Weapon/Global scope — LocalPlayer scope is always
-owner-only regardless.</p>
+<p>Only meaningful for Entity/Player/Vehicle/Weapon/Global scope. LocalPlayer scope always sends to its
+one owner and its recipient mode is <em>ignored</em> on every path, so a <code>:Filter()</code> on a LocalPlayer var is
+inert rather than redundant — the registry warns about that pairing when it seals.</p>
 <table>
 <thead>
 <tr>
@@ -662,8 +662,107 @@ already in a position to receive it anyway. If a value must never reach a player
 gang, or police-private data — use <code>:Filter()</code>, not <code>:SendOmit()</code>. <code>:Filter()</code>'s callback doubles as
 that authorization check: the same function that decides who gets a <em>live</em> update also decides who's
 allowed to pull it via resync, so there's exactly one predicate to keep correct, not two that can
-drift apart. Keep <code>:Filter()</code> callbacks cheap and free of side effects — they can run once per set
-and again per resync candidate.</p>
+drift apart.</p>
+<p><strong>That guarantee is evaluated at send time, not continuously.</strong> A filter runs on exactly three
+occasions, and nothing else re-runs it:</p>
+<ol>
+<li>The value is set (<code>Entity:SetNetVar</code> / <code>cityrp.network.SetGlobal</code>).</li>
+<li>The entity re-enters a client's PVS, and that client pulls a resync.</li>
+<li>Someone calls <code>cityrp.network.Invalidate</code> — see below.</li>
+</ol>
+<p>Eligibility, though, usually depends on <strong>player</strong> state — access flags, vehicle keys, door access,
+team, rank — which changes independently of both the value and the entity's visibility. The library
+cannot observe that, so whatever changed it has to say so. Without (3), a var written once and left
+alone is only re-evaluated by the accident of map geometry that takes its entity out of a player's
+PVS and back, and a player who <em>loses</em> eligibility keeps whatever their client was last sent.</p>
+<p>Keep <code>:Filter()</code> callbacks cheap and free of side effects — they run once per set, again per resync
+candidate, and again per player per invalidation. In particular a callback must not set a var or call
+<code>Invalidate</code>: both mutate the resync queue that may be mid-iteration when the callback runs.</p>
+<h4 id="invalidating-a-filter">Invalidating a filter</h4>
+<p><strong><code>cityrp.network.Invalidate(ply, ent, key)</code> re-evaluates a filter when neither the value nor the
+entity's visibility changed.</strong> A player who has become eligible receives the current value; a player
+who has stopped being eligible has it replaced — by the var's <code>:SetDefault()</code> if it has one, or by
+<code>nil</code> if it doesn't — which fires their <code>:SetHook()</code>. Server-only.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Shape</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">one player, one entity, one key</td>
+<td align="left">this player's key access to this vehicle changed</td>
+</tr>
+<tr>
+<td align="left">one player, all entities, one key</td>
+<td align="left">this player's staff state changed; re-evaluate the PRN everywhere</td>
+</tr>
+<tr>
+<td align="left">all players, one entity, one key</td>
+<td align="left">this vehicle was sold; everyone re-evaluates its owner</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-lua">-- Called from whatever changed the eligibility, not from the networking layer.
+cityrp.network.Invalidate(ply, vehicle, &quot;cityrp_VehicleOwner&quot;)
+cityrp.network.Invalidate(ply, nil, &quot;cityrp_PRN&quot;)     -- every entity carrying it
+cityrp.network.Invalidate(nil, vehicle, &quot;cityrp_VehicleOwner&quot;) -- every player
+</code></pre>
+<p><code>ply</code> and <code>ent</code> each take a single value, an array, or <code>nil</code> for &quot;all of them&quot;. <code>ply</code> does <strong>not</strong>
+accept a <code>CRecipientFilter</code> — pass <code>filter:GetPlayers()</code>. Players who haven't finished their handshake
+are skipped: their join bootstrap is still to come and evaluates every filter fresh when it drains.</p>
+<p><strong><code>key</code> is required.</strong> A <code>nil</code> key would mean &quot;re-run every filter on every var&quot;, which is the blunt
+behaviour this exists to replace. It is also what makes the call cheap: a var name uniquely identifies
+its scope, so the key alone decides whether the call routes to the entity resync queue or straight to
+the Global/LocalPlayer path, and only that key is queued rather than the entity's whole var set. An
+array mixing the two scopes is split and routed both ways.</p>
+<p><code>ent = nil</code> scans every entity, skipping any that has never had one of the named vars set. That is the
+expensive shape — it is fine for the discrete, rare events invalidation is for, and wrong for anything
+per-frame.</p>
+<h4 id="masking-a-value-instead-of-clearing-it">Masking a value instead of clearing it</h4>
+<p><strong>A <code>:SetDefault()</code> on a <code>:Filter()</code>ed var is what a player who fails the check is told instead.</strong>
+Pair the two and the var gates itself: eligible players get the truth, everyone else is sent the
+default, and the real value never reaches them at all.</p>
+<pre><code class="language-lua">-- Everyone sees &quot;user&quot;; only staff see the real rank.
+cityrp.network.Register(&quot;_svrank&quot;):SetPlayer():String():SetDefault(&quot;user&quot;)
+	:Filter(function(ply) return &lt;viewers allowed to see the truth&gt; end)
+</code></pre>
+<p>This is the shape to reach for when the value must look ordinary rather than missing — a staff rank
+that should read as <code>&quot;user&quot;</code> while undercover, rather than as &quot;no rank&quot;. Without a default the var is
+cleared outright, which is right for something whose absence is unremarkable.</p>
+<p>Sending the default rather than a bare <code>nil</code> is what makes the two agree: <code>Entity:GetNetVar</code> already
+falls back to the default whenever a value is absent, so a filtered-out client would read <code>&quot;user&quot;</code>
+either way — but only this way does its <code>:SetHook()</code> fire with <code>&quot;user&quot;</code> rather than with <code>nil</code>,
+matching what every reader will now get.</p>
+<p>Two things worth being clear about:</p>
+<ul>
+<li><strong>The mask is fixed, not per-player.</strong> Every filtered-out player is told the same thing. Showing
+different players different fabricated values needs a genuine second value on the wire, which this
+is not.</li>
+<li><strong>The default is validated where it lands.</strong> A <code>:SetDefault()</code> outside its var's <code>:Enum()</code> would be
+rejected on every client on every revoke, so the registry warns about that pairing when it seals.</li>
+</ul>
+<p><strong>Known limitations.</strong></p>
+<ul>
+<li><strong>A var <em>cleared</em> server-side while a player is filtered out is unrecoverable.</strong> Clearing removes the
+key from <code>ent.__netvars</code> entirely, so it drops out of iteration and no later resync can mention it;
+that player keeps the old value until the entity is removed. If it ever needs closing, the cheap fix
+is a per-entity set of names that have ever been set — one small table per entity, not per
+player-entity pair.</li>
+<li><strong><code>:SetNoSync()</code> + <code>:Filter()</code> has no revocation path.</strong> A <code>noSync</code> var is excluded from resync
+entirely, which is the only path a revoke travels. Arguably correct for a push-only var, but stated
+here rather than discovered.</li>
+<li><strong><code>:Filter()</code> on <code>:SetLocalPlayer()</code> is inert</strong>, so <code>Invalidate</code> on a LocalPlayer key can only
+re-deliver, never revoke. That scope is owner-only by construction.</li>
+<li><strong>A set that itself narrows eligibility needs its own <code>Invalidate</code>.</strong> The callback receives
+<code>(ent, value)</code>, so the <em>value</em> can decide who is eligible — and a live set only ever goes to the new
+value's recipients. A player who passed the old value's filter and fails the new one keeps the old
+value and is never told.</li>
+</ul>
+<p>The last three are what the registry's seal-time warnings and this section exist to make visible;
+none of them fails loudly on its own.</p>
 <h3 id="behaviour">Behaviour</h3>
 <table>
 <thead>
@@ -699,11 +798,11 @@ and again per resync candidate.</p>
 </tr>
 <tr>
 <td align="left"><code>:SetNoSync()</code></td>
-<td align="left">Excludes the var from the join bootstrap and resync — push-only. A client that was out of PVS during a push never gets it.</td>
+<td align="left">Excludes the var from the join bootstrap and resync — push-only. A client that was out of PVS during a push never gets it, and a <code>:Filter()</code> on it has no revocation path — see <em>Invalidating a filter</em>.</td>
 </tr>
 <tr>
 <td align="left"><code>:SetDefault(value)</code></td>
-<td align="left">What <code>Entity:GetNetVar</code>/<code>cityrp.network.GetGlobal</code> return before anything is set.</td>
+<td align="left">What <code>Entity:GetNetVar</code>/<code>cityrp.network.GetGlobal</code> return before anything is set — and, on a <code>:Filter()</code>ed var, what a player who fails the check is sent instead of the real value. See <em>Masking a value instead of clearing it</em>.</td>
 </tr>
 </tbody>
 </table>
@@ -892,8 +991,9 @@ ID bit-width itself in the header. The client never assigns its own IDs — it w
 and matches entries by name. A load-order difference between realms can no longer desync anything: at
 worst, a var one realm doesn't have registered locally gets a synthetic entry built straight from the
 manifest, logged once, and keeps working via <code>GetNetVar</code>/<code>SetNetVar</code>.</p>
-<p>A joining player's <code>Sync</code> announce is retried every 2 seconds (up to 5 attempts) until the manifest
-arrives. The server does not send <code>Update</code>/<code>Resync</code> traffic to a player until their handshake
+<p>A joining player's <code>Sync</code> announce is retried every 3 seconds (up to 20 attempts) until the manifest
+arrives — a wide margin over the multi-second stalls a client can hit while loading assets right after
+joining. The server does not send <code>Update</code>/<code>Resync</code> traffic to a player until their handshake
 completes — an update sent before the manifest would be undecodable, and because sets are
 delta-guarded, that value would then be lost for good.</p>
 <h2 id="storage-and-the-recycled-index-bug">Storage and the recycled-index bug</h2>
@@ -942,13 +1042,15 @@ number of frames regardless of how full anyone else's queue is.</p>
 Both a disconnecting player's whole queue and an individual removed entity clean themselves out of
 every queue automatically; <code>PlayerDisconnected</code>/<code>EntityRemoved</code> hooks additionally purge eagerly
 rather than waiting on the next GC pass.</p>
-<p>Each entry says <em>which</em> of that entity's vars to resync:</p>
+<p>Each entry says <em>which</em> of that entity's vars to resync, and whether a <code>:Filter()</code>ed var the player
+has stopped passing is explicitly cleared from their client:</p>
 <table>
 <thead>
 <tr>
 <th align="left">Entry</th>
 <th align="left">Queued by</th>
 <th align="left">Covers</th>
+<th align="left">Revokes</th>
 </tr>
 </thead>
 <tbody>
@@ -956,20 +1058,32 @@ rather than waiting on the next GC pass.</p>
 <td align="left"><code>true</code></td>
 <td align="left"><code>cityrp.network.QueueEntity(ply, ent)</code></td>
 <td align="left">Every var the entity has set</td>
+<td align="left">yes</td>
 </tr>
 <tr>
 <td align="left">a set of var names</td>
 <td align="left"><code>cityrp.network.QueueEntityVars(ply, ent, names)</code></td>
 <td align="left">Only those vars</td>
+<td align="left">yes</td>
+</tr>
+<tr>
+<td align="left"><code>false</code></td>
+<td align="left"><code>EnqueueAllEntitiesForResync(ply, false)</code></td>
+<td align="left">Every var the entity has set</td>
+<td align="left">no</td>
 </tr>
 </tbody>
 </table>
+<p>&quot;Only these names, and no revokes&quot; is deliberately unrepresentable — the only caller that suppresses
+revokes is the join bootstrap, and it always wants every var.</p>
 <p>Most resync triggers are single-var events, and re-running every var's recipient check when only
 one var's eligibility could have changed is the dominant cost of a resync — so a caller that knows
 precisely what changed can say so. <code>cityrp.network.MergeQueueEntry</code> combines an incoming entry with
-whatever is already queued, and always keeps the <strong>broader</strong> of the two: <code>true</code> absorbs any name
-set, and two name sets union. That makes merging monotonic, so no ordering of calls within a frame
-can produce a narrower entry than the broadest request made.</p>
+whatever is already queued, and always keeps the <strong>broader</strong> of the two on both axes: <code>true</code> absorbs
+everything, two name sets union, and <code>false</code> merged with a name set becomes <code>true</code> — each is broader
+than the other on one axis, and <code>true</code> is the only shape that satisfies both. That makes merging
+monotonic, so no ordering of calls within a frame can produce a narrower entry than the broadest
+request made.</p>
 <p>A name set is stored by reference, so one caller narrowing the same key across many player/entity
 pairs shares a single table rather than allocating one per pair. A stored set is therefore
 immutable — <code>MergeQueueEntry</code> builds a new table rather than widening one in place.</p>
@@ -980,23 +1094,35 @@ is queued for the new player exactly as if it had just re-entered their PVS, so 
 same per-frame rate limiting as any other resync rather than a separate bulk-send path to reason
 about. Global values and the joining player's own LocalPlayer-scoped values — neither tied to any
 entity's visibility — are sent once, directly, alongside the manifest.</p>
+<p>The bootstrap is the <strong>only</strong> thing that suppresses revokes. A client holding a manifest it received
+seconds ago has no stale value to replace, and emitting one entry per filtered var per entity would
+put a group header on the wire for every entity that produces no message at all today. A PVS-driven
+resync does emit them — that client may well have gone out of PVS eligible and come back ineligible.</p>
 </li>
 </ol>
+<p>The wire format is unchanged by any of this: a narrowed group is just a group with fewer vars in it,
+and a revoke is an ordinary var entry — a var id plus a single <code>isNil</code> bit for a var with no default,
+or the encoded default for one that has it (see <em>Masking a value instead of clearing it</em>).</p>
 <p><code>cityrp_network_sync_bytes</code> (default 8192) is the flush threshold, in bytes, for a batched <code>Resync</code>
 message — checked between entity groups, so a message can exceed it by up to one group's worth of
 vars. That default leaves roughly 57 KB of headroom under the 65536-byte <code>net</code> message cap.</p>
 <h2 id="diagnostics">Diagnostics</h2>
 <p><code>cityrp_network_dump</code> — server console/RCON only (same guard as <code>cityrp_log_set</code>). Prints the sealed
-registry (id, name, scope, codec, plus <code>clientOwned</code> and <code>debounce=floor..ceiling</code> where they apply),
-per connected player their handshake status and resync queue depth, and every (owner, var) pair
-currently mid-window or escalated off its debounce floor. That last block matters because an
-escalated interval is otherwise invisible — it presents only as &quot;this player's indicator is laggy&quot;.</p>
-<p><code>queued=</code> counts entities; a breakdown of how many of those entries are narrowed to specific vars is
-appended only when there are any.</p>
+registry (id, name, scope, codec, whether the var is <code>:Filter()</code>ed, plus <code>clientOwned</code> and
+<code>debounce=floor..ceiling</code> where they apply), per connected player their handshake status and resync
+queue depth, and every (owner, var) pair currently mid-window or escalated off its debounce floor.
+That last block matters because an escalated interval is otherwise invisible — it presents only as
+&quot;this player's indicator is laggy&quot;.</p>
+<p><code>queued=</code> counts entities; a breakdown of how many of those entries are narrowed to specific vars, and
+how many are bootstrap entries, is appended only when there are any.</p>
 <p><code>cityrp_network_clientset_rate</code> (default 30) is the inbound backstop: <code>ClientSet</code> messages one player
 may send per second before the rest of that second is ignored and a warning logged. It is a floodgate,
 not the throttle that makes client-owned vars viable — <code>:Debounce()</code> is that, and it already flattens
 every legitimate burst — which is why it can sit well above any real usage.</p>
+<p><code>cityrp_network_selftest</code> — same guard. Re-runs the library's server-local assertions (the resync
+queue's merge lattice, and that a failed <code>:Filter()</code> check emits a revoke only when revokes are
+enabled) and logs a pass/fail summary. Safe to run at any time on any server; the assertions are pure
+and read-only.</p>
 <p>Verbose per-message logging goes through the existing logging library, not a dedicated ConVar:</p>
 <pre><code>cityrp_log_set network DEBUG
 </code></pre>

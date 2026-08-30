@@ -116,7 +116,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/Array.html">Array</a></li>
 <li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
@@ -126,7 +126,6 @@
 <li><a href="../modules/GM.html">GM</a></li>
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
-<li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -439,26 +438,86 @@ cityrp.plugin.register(PLUGIN)
     cl_init.lua    sent to the client, included there
     sh_init.lua    sent to the client; included by sv_init/cl_init, never by the loader
 </code></pre>
-<p>The <code>PLUGIN_SHARED</code> handshake, as used by <code>core/plugins/flashlight/</code>:</p>
-<pre><code class="language-lua">-- sv_init.lua and cl_init.lua both do this
+<h3 id="the-plugin-global">The <code>PLUGIN</code> global</h3>
+<p><strong>The loader owns the plugin table.</strong> Before including any of a plugin's files it seeds <code>PLUGIN</code> — a
+plain table, no metatable — and clears it afterwards. A plugin does not build its own table and does
+not register it; the loader registers whatever it seeded once the includes finish. Seeded fields:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>key</code></td>
+<td align="left">The plugin key. Use this over a repeated string literal when a plugin needs to name itself.</td>
+</tr>
+<tr>
+<td align="left"><code>name</code></td>
+<td align="left">Display name, defaulting to the key. Set it if you want something friendlier.</td>
+</tr>
+<tr>
+<td align="left"><code>logger</code></td>
+<td align="left">The plugin's logger, at <code>plugin.&lt;key&gt;</code> — available during load, not just after.</td>
+</tr>
+<tr>
+<td align="left"><code>AddHook</code></td>
+<td align="left">See <a href="#hooks">Hooks</a> below.</td>
+</tr>
+<tr>
+<td align="left"><code>Dependencies</code></td>
+<td align="left">The plugins this one declared in its <code>.meta.lua</code>, keyed by plugin key. See <a href="#declared-dependencies">Declared dependencies</a>.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-lua">-- sv_init.lua, as core/plugins/flashlight/ now does
+local PLUGIN = PLUGIN
+
+include(&quot;sh_init.lua&quot;)
+
+function PLUGIN.postPlayerSpawn(ply, light) end
+hook.Add(&quot;PostPlayerSpawn&quot;, &quot;PostPlayerSpawnflashlight&quot;, PLUGIN.postPlayerSpawn)
+
+-- sh_init.lua
+local PLUGIN = PLUGIN
+PLUGIN.name = &quot;Flashlight&quot;
+</code></pre>
+<p><strong>Localise it — <code>local PLUGIN = PLUGIN</code> — rather than reading the bare global.</strong> The loader clears
+the global once your includes finish, so anything deferred (a hook body, a timer, a <code>net.Receive</code>)
+that resolved <code>PLUGIN</code> at call time instead of capturing it would find nil. The one file that has
+nothing to say about its own table can skip the local entirely, as <code>flashlight/cl_init.lua</code> does.</p>
+<p>A folder plugin's <code>sh_init.lua</code> is included by its own <code>sv_init</code>/<code>cl_init</code>, one level deeper than
+the loader, and sees the same seeded table — which is what the old <code>PLUGIN_SHARED</code> dance emulated by
+hand. Any file beyond those three is the plugin's own responsibility to <code>include</code>/<code>AddCSLuaFile</code>,
+and sees the same table again.</p>
+<h3 id="the-old-shapes-during-the-transition">The old shapes, during the transition</h3>
+<p>Most plugins have not migrated yet, and run unchanged. Their <code>local PLUGIN = {}</code> simply shadows the
+seeded global, and their own <code>PLUGIN_SHARED = PLUGIN</code> keeps their sub-files consistent, so the two
+styles coexist:</p>
+<pre><code class="language-lua">-- the legacy dance, still valid
 local PLUGIN = {}
 PLUGIN_SHARED = PLUGIN
 include(&quot;sh_init.lua&quot;)
-
--- sh_init.lua reads it back
-local PLUGIN = PLUGIN_SHARED
-PLUGIN.name = &quot;Flashlight&quot;
+-- ...
+cityrp.plugin.register(PLUGIN)
 </code></pre>
-<p>Class-style plugins can skip the global entirely by returning the table instead, as <code>core/plugins/cpr/</code> does:</p>
-<pre><code class="language-lua">-- sh_init.lua
-local PLUGIN = PLUGIN:New(&quot;CPR&quot;, &quot;Taylor&quot;)
-return PLUGIN
-
--- cl_init.lua
-local PLUGIN = include(&quot;sh_init.lua&quot;)
-PLUGIN:Register()
+<p>An explicit <code>cityrp.plugin.register(PLUGIN)</code> still works and suppresses the loader's automatic
+registration, so nothing registers twice. Do not write new plugins this way — <code>PLUGIN_SHARED</code> is a
+leaking global that holds whichever plugin loaded last, which is the bug the seeded global exists to
+remove.</p>
+<h3 id="hooks">Hooks</h3>
+<p><code>PLUGIN:AddHook(event[, func])</code> registers a GMod hook owned by the plugin, identified as
+<code>cityrp.plugin.&lt;key&gt;.&lt;event&gt;</code>:</p>
+<pre><code class="language-lua">PLUGIN:AddHook(&quot;InitPostEntity&quot;, function(self) end)   -- a function, called as func(plugin, ...)
+PLUGIN:AddHook(&quot;InitPostEntity&quot;, &quot;SetUp&quot;)              -- names a method, resolved when it fires
+PLUGIN:AddHook(&quot;InitPostEntity&quot;)                       -- same, defaulting to the event's name
 </code></pre>
-<p>Any file beyond those three is the plugin's own responsibility to <code>include</code>/<code>AddCSLuaFile</code>.</p>
+<p>One handler per event per plugin: re-registering the same event replaces the previous handler rather
+than stacking a second, which is what stops a re-included file doubling up (footgun <a href="https://github.com/limelight-development/cityrp2/issues/7">#7</a>). A named
+method that does not exist logs an error and removes the hook the first time it fires — an
+unguarded miss on a <code>Think</code>-class event would otherwise error every frame.</p>
 <h2 id="sub-resources-entities-weapons-items-derma">Sub-resources: entities, weapons, items, derma</h2>
 <p>A <strong>folder</strong> plugin can own entities, weapons, items, and derma panels directly, so &quot;plugin disabled/absent ⇒ its content doesn't load&quot; is automatic instead of per-file gating. File plugins never get sub-resources.</p>
 <pre><code>core/plugins/&lt;key&gt;/
@@ -473,7 +532,7 @@ PLUGIN:Register()
 <ol>
 <li><strong>Plugin phase</strong> — every plugin's <code>sv_/cl_/sh_init.lua</code> runs. A plugin cannot see its own sub-resources yet, but every plugin has initialised by the time any sub-resource loads.</li>
 <li><strong>Entity/weapon phase</strong> — immediately after. Each loaded plugin's <code>entities/</code> and <code>weapons/</code> classes register.</li>
-<li><strong>Item phase</strong> — after <code>core/items/*</code>, so plugin items can inherit from bases registered there. <code>cityrp.item.stored</code>'s <code>uponLoad</code> sweep runs after this and covers plugin items automatically.</li>
+<li><strong>Item phase</strong> — after <code>core/items/*</code>, so plugin items can inherit from bases registered there. <code>cityrp.item.stored</code>'s <code>uponLoad</code> sweep runs after this and covers plugin items automatically. Every item registered here gets <code>ITEM.PLUGIN</code> set to the owning plugin's table automatically (<code>nil</code> for <code>core/items</code>), so a plugin item calls back into its own plugin as <code>self.PLUGIN.Something(...)</code> rather than looking the key up.</li>
 <li><strong>Derma phase</strong> — after <code>core/derma</code>, same prefix rules (server sends every file, includes only <code>sh_</code>; client includes everything).</li>
 </ol>
 <p>Only a <strong>loaded</strong> plugin's sub-resources are loaded — a plugin that failed to resolve (<a href="#dependencies-and-load-order">dependencies and load order</a>) or is disabled contributes nothing here, silently.</p>
@@ -482,11 +541,15 @@ PLUGIN:Register()
 <h3 id="migration-status">Migration status</h3>
 <p>Only <code>weapons/cityrp_breathalyser/</code> has been migrated, from the gamemode-level <code>entities/weapons/</code> tree into <code>core/plugins/breathalyser/weapons/</code>, as the pilot for this system. Migrating other plugin-dependent entities/items is follow-up work, done opportunistically per plugin — do not bulk-migrate.</p>
 <h2 id="registration">Registration</h2>
-<p>Either form works in either format:</p>
-<ul>
-<li><code>local PLUGIN = {}</code> … <code>cityrp.plugin.register(PLUGIN)</code> — the legacy form, used by most plugins.</li>
-<li><code>local PLUGIN = PLUGIN:New(name, author)</code> … <code>PLUGIN:Register()</code> — the class form (<code>sh_plugincore.lua</code>), which adds <code>PLUGIN:AddHook</code>, enable/disable, and per-plugin data/map file helpers.</li>
-</ul>
+<p><strong>New plugins register nothing.</strong> The loader seeds <code>PLUGIN</code> and registers it once your includes
+finish — see <a href="#the-plugin-global">The <code>PLUGIN</code> global</a>.</p>
+<p>The legacy form, <code>local PLUGIN = {}</code> … <code>cityrp.plugin.register(PLUGIN)</code>, still works and is what
+most plugins currently do; an explicit <code>register</code> call suppresses the automatic one. The old class
+form (<code>PLUGIN:New(name, author)</code> … <code>PLUGIN:Register()</code>, from <code>sh_plugincore.lua</code>) is <strong>gone</strong> — the
+file is deleted. Its enable/disable methods had no callers and enablement belongs to the loader
+(<code>.meta.lua</code> <code>disabled</code>, availability conditions, dependency status); its 13 data- and map-file
+helpers had no callers either and have no successor. <code>AddHook</code> survived, and is now seeded onto
+every plugin.</p>
 <p><strong><code>cityrp.plugin.stored</code> is keyed by the plugin key</strong>, the same identity <code>.meta.lua</code> and load order use — so a lookup is <code>cityrp.plugin.get(&quot;area&quot;)</code>. <code>cityrp.plugin.get</code> still accepts the display name (<code>cityrp.plugin.get(&quot;Area Manager&quot;)</code>) and resolves it through <code>cityrp.plugin.names</code>, but warns once per name: the two identities are not derivable from one another, so nothing can bridge them automatically. Hundreds of call sites still pass display names; they work, and converting one is worth doing when you are already editing that code. Both forms cost the same — the key is simply the identity everything else already uses.</p>
 <p>Registration also stamps the resolved key onto the plugin as <code>PLUGIN.key</code>, creates a per-plugin logger at <code>plugin.&lt;key&gt;</code>, and exposes it as <code>PLUGIN.logger</code>. Use <code>PLUGIN.key</code> rather than repeating the key as a literal when a plugin needs to look itself up.</p>
 <h2 id="keys">Keys</h2>
@@ -675,6 +738,31 @@ end)
 </code></pre>
 <p>Pass the plugin key, the same value the metadata uses. A display name still resolves, but warns.</p>
 <p>Items load after every plugin, so item files may gate on a plugin at file scope — <code>core/items/ammunition/sh_ammo_pistol.lua</code> opens with <code>if not cityrp.plugin.get(&quot;generic&quot;) then return end</code>.</p>
+<h3 id="declared-dependencies">Declared dependencies</h3>
+<p>If the plugin you want is already in your <code>.meta.lua</code>, do not look it up at all — the loader has
+resolved it for you, on <code>PLUGIN.Dependencies</code>, keyed by the same key the metadata uses:</p>
+<pre><code class="language-lua">-- uniforms/.meta.lua declares dependencies = {&quot;generic&quot;}
+PLUGIN.Dependencies.generic.PassiveDamageWeapons[&quot;cityrp_pickaxe&quot;] = true
+</code></pre>
+<p><strong>A required dependency is never nil.</strong> If it were missing your plugin would not have loaded, so
+there is nothing to guard — which is the point, and the reason to prefer this over
+<code>IsAvailable</code> + <code>get</code>. <code>core/plugins/caw/</code> used to check <code>cityrp.plugin.get(&quot;Clans&quot;)</code> at runtime
+despite declaring <code>dependencies = {&quot;clans&quot;}</code>; that check could never fail and is gone.</p>
+<p>This is also what lets a plugin contribute <em>into</em> a dependency rather than the dependency having to
+enumerate its contributors — a plugin owning a weapon can register it with <code>generic</code> itself, instead
+of <code>generic</code> hardcoding a list of classes owned by plugins it knows nothing about.</p>
+<p><strong>An optional dependency may be nil</strong>, and must be guarded — that is what makes it optional:</p>
+<pre><code class="language-lua">-- stamina/.meta.lua declares optional_dependencies = {&quot;elf&quot;}
+local elf = PLUGIN.Dependencies.elf
+if elf then ... end
+</code></pre>
+<p>One timing caveat for optional dependencies specifically. Load order puts a <em>required</em> dependency
+strictly before its dependent, so it is resolved before your first line runs. An optional one
+normally is too, but its ordering edge is a soft one, and the loader drops it — with a <code>WARNING</code> —
+when the opposite order is already required. In that case the entry appears part-way through the
+load rather than at your file scope. It is always there by <code>CityRP.Core.PostPluginLoad</code>. If you read
+an optional dependency at file scope, read it again where you use it.</p>
+<p><code>PLUGIN.Dependencies</code> is always a table, never nil, even for a plugin with no <code>.meta.lua</code> at all.</p>
 <h3 id="guarding-a-cross-plugin-call">Guarding a cross-plugin call</h3>
 <p>When you only need to know <em>whether</em> a plugin is there, not to call into its table, use <code>cityrp.plugin.IsAvailable(key)</code>:</p>
 <pre><code class="language-lua">if cityrp.plugin.IsAvailable(&quot;banking&quot;) then

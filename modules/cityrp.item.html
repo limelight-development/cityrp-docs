@@ -107,7 +107,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">227</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/Array.html">Array</a></li>
 <li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
@@ -117,7 +117,6 @@
 <li><a href="../modules/GM.html">GM</a></li>
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
-<li><a href="../modules/PLUGIN.html">PLUGIN</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -345,7 +344,7 @@
 <div class="ll-module-body"><p>Shared item and item category library.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.item.addCat"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.addCat<span class="ll-args">(name, description, access)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L237">Source ☍</a></dt>
+<dt><a name="cityrp.item.addCat"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.addCat<span class="ll-args">(name, description, access)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L243">Source ☍</a></dt>
 <dd>
 <p>Add a new category.</p>
 
@@ -386,7 +385,7 @@ weed pot, for one, reaches none of ITEM's methods.</p>
 
 
 </dd>
-<dt><a name="cityrp.item.canAccessCategory"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.canAccessCategory<span class="ll-args">(list, cat)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L290">Source ☍</a></dt>
+<dt><a name="cityrp.item.canAccessCategory"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.canAccessCategory<span class="ll-args">(list, cat)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L296">Source ☍</a></dt>
 <dd>
 <p>True if <code>cat</code> is covered by any entry in <code>list</code> (e.g. a team's canmake list).
 A parent entry (e.g. &quot;Clothing&quot;) grants every sub-category under it; a sub-category
@@ -421,7 +420,7 @@ entry (e.g. &quot;Clothing - Government Clothing&quot;) grants only that exact c
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.categoryMatches"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.categoryMatches<span class="ll-args">(itemCat, selected)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L272">Source ☍</a></dt>
+<dt><a name="cityrp.item.categoryMatches"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.categoryMatches<span class="ll-args">(itemCat, selected)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L278">Source ☍</a></dt>
 <dd>
 <p>True if itemCat is exactly <code>selected</code>, or itemCat's parent category is <code>selected</code>.
 Also true if itemCat has no sub-category of its own (e.g. &quot;Mixtures&quot;) and <code>selected</code>
@@ -441,7 +440,7 @@ matching rule can't drift between the two.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.categorySplit"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.categorySplit<span class="ll-args">(cat)</span><span class="ll-returns"> → string, string?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L256">Source ☍</a></dt>
+<dt><a name="cityrp.item.categorySplit"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.categorySplit<span class="ll-args">(cat)</span><span class="ll-returns"> → string, string?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L262">Source ☍</a></dt>
 <dd>
 <p>Splits a &quot;Parent - Sub&quot; category string into parent and sub parts.</p>
 
@@ -491,7 +490,7 @@ matching rule can't drift between the two.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.findCat"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.findCat<span class="ll-args">(name)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L318">Source ☍</a></dt>
+<dt><a name="cityrp.item.findCat"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.findCat<span class="ll-args">(name)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L324">Source ☍</a></dt>
 <dd>
 <p>Retrieve a category.</p>
 
@@ -505,7 +504,7 @@ matching rule can't drift between the two.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.get"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.get<span class="ll-args">(name)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L210">Source ☍</a></dt>
+<dt><a name="cityrp.item.get"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.get<span class="ll-args">(name)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L216">Source ☍</a></dt>
 <dd>
 <p>Get an item by its name (with fuzzy matching).</p>
 
@@ -537,7 +536,7 @@ matching rule can't drift between the two.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.isGovernmentVehicle"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.isGovernmentVehicle<span class="ll-args">(cat)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L309">Source ☍</a></dt>
+<dt><a name="cityrp.item.isGovernmentVehicle"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.isGovernmentVehicle<span class="ll-args">(cat)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L315">Source ☍</a></dt>
 <dd>
 <p>True if a vehicle item's category is one of the government vehicle sub-categories.</p>
 
@@ -682,7 +681,7 @@ nothing from it, so the miss is logged as an ERROR rather than left silent.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.item.resolve"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.resolve<span class="ll-args">(itemOrID)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L196">Source ☍</a></dt>
+<dt><a name="cityrp.item.resolve"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.resolve<span class="ll-args">(itemOrID)</span><span class="ll-returns"> → table?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L202">Source ☍</a></dt>
 <dd>
 <p>Resolve an item table from an item table or unique ID.
 Unlike <a href="cityrp.item.html#cityrp.item.get">cityrp.item.get</a>, this does not perform fuzzy name matching.</p>
@@ -786,7 +785,7 @@ the same player, so unrelated items lying near each other never combine.</p>
 
 
 </dd>
-<dt><a name="cityrp.item.governmentVehicleSubs"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.governmentVehicleSubs</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L299">Source ☍</a></dt>
+<dt><a name="cityrp.item.governmentVehicleSubs"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.governmentVehicleSubs</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L305">Source ☍</a></dt>
 <dd>
 <p>Vehicles - Sub values that count as government-owned (exempt plates, manufacture REP gate).</p>
 
@@ -797,7 +796,7 @@ the same player, so unrelated items lying near each other never combine.</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.item.catIndex"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.catIndex</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L246">Source ☍</a></dt>
+<dt><a name="cityrp.item.catIndex"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.item.catIndex</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_item.lua#L252">Source ☍</a></dt>
 <dd>
 
 
