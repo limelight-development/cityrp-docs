@@ -32,7 +32,7 @@
 <li><a href="#RankData">RankData</a></li>
 <li><a href="#RankPreviewEntry">RankPreviewEntry</a></li>
 </ul></div>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">36</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">42</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -54,6 +54,8 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/agents/index.html">Agents</a>
+</li>
 <li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
 </li>
 <li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
@@ -112,6 +114,7 @@
 </details>
 <details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
 <ul class="ll-kind-body nowrap">
+<li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
 <li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
 <li><a href="../modules/CPPI.html">CPPI</a></li>
@@ -151,6 +154,7 @@
 <li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
 <li><a href="../modules/cityrp.player.html">cityrp.player</a></li>
 <li><a href="../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../modules/cityrp.playermodelSkins.html">cityrp.playermodelSkins</a></li>
 <li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
 <li><a href="../modules/cityrp.remote.html">cityrp.remote</a></li>
 <li><a href="../modules/cityrp.settings.html">cityrp.settings</a></li>
@@ -195,8 +199,6 @@
 <li><a href="../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
 <li><a href="../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
 <li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
-<li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
-<li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
 <li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
 <li><a href="../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
 <li><a href="../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
@@ -347,7 +349,7 @@
 <div class="ll-module-body"><p>Shared Player Metafunctions.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.player.DebugListRanks"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.player.DebugListRanks<span class="ll-args">()</span><span class="ll-returns"> → <a href="Player.html#RankPreviewEntry">RankPreviewEntry</a>[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1058">Source ☍</a></dt>
+<dt><a name="cityrp.player.DebugListRanks"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.player.DebugListRanks<span class="ll-args">()</span><span class="ll-returns"> → <a href="Player.html#RankPreviewEntry">RankPreviewEntry</a>[]</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1057">Source ☍</a></dt>
 <dd>
 <p>TEMPORARY (beta only) — enumerates every configured rank for the <code>!previewrankcolours</code>
 QA command in the beta plugin. <code>rankdata</code> is local to this file, so this is the only way
@@ -361,7 +363,7 @@ rollout is confirmed.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.Arrest"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Arrest<span class="ll-args">(boolean, reset)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L734">Source ☍</a></dt>
+<dt><a name="Player.Arrest"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Arrest<span class="ll-args">(boolean, reset)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L749">Source ☍</a></dt>
 <dd>
 <p>Arrest or unarrest a player.</p>
 
@@ -396,7 +398,7 @@ rollout is confirmed.</p>
 
 
 </dd>
-<dt><a name="Player.Bleed"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Bleed<span class="ll-args">(boolean, seconds)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L833">Source ☍</a></dt>
+<dt><a name="Player.Bleed"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Bleed<span class="ll-args">(boolean, seconds)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L854">Source ☍</a></dt>
 <dd>
 <p>Make a player bleed or stop them from bleeding.</p>
 
@@ -408,7 +410,7 @@ rollout is confirmed.</p>
 
 
 </dd>
-<dt><a name="Player.Blind"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Blind<span class="ll-args">(bool)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L130">Source ☍</a></dt>
+<dt><a name="Player.Blind"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Blind<span class="ll-args">(bool)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L145">Source ☍</a></dt>
 <dd>
 <p>Manage a players blindfolded state.</p>
 
@@ -441,7 +443,7 @@ rollout is confirmed.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.CanAfford"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>CanAfford<span class="ll-args">(amt)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L669">Source ☍</a></dt>
+<dt><a name="Player.CanAfford"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>CanAfford<span class="ll-args">(amt)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L684">Source ☍</a></dt>
 <dd>
 <p>Check if a player can afford an amount of money.</p>
 
@@ -517,7 +519,7 @@ TODO: Function name has typo - &quot;Recieve&quot; should be &quot;Receive&quot;
 </ol>
 
 </dd>
-<dt><a name="Player.ChangeModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ChangeModel<span class="ll-args">(model, concom, postChange)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1410">Source ☍</a></dt>
+<dt><a name="Player.ChangeModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ChangeModel<span class="ll-args">(model, concom, postChange)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1437">Source ☍</a></dt>
 <dd>
 <p>Change the model of a player.</p>
 
@@ -533,7 +535,7 @@ TODO: Function name has typo - &quot;Recieve&quot; should be &quot;Receive&quot;
 </ol>
 
 </dd>
-<dt><a name="Player.ChangeSkin"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ChangeSkin<span class="ll-args">(skin, concom, nomodelchange)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1467">Source ☍</a></dt>
+<dt><a name="Player.ChangeSkin"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ChangeSkin<span class="ll-args">(skin, concom, nomodelchange)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1494">Source ☍</a></dt>
 <dd>
 <p>Change the player's active skin.</p>
 
@@ -549,7 +551,7 @@ TODO: Function name has typo - &quot;Recieve&quot; should be &quot;Receive&quot;
 </ol>
 
 </dd>
-<dt><a name="Player.ChatPrintF"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ChatPrintF<span class="ll-args">(_)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2045">Source ☍</a></dt>
+<dt><a name="Player.ChatPrintF"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ChatPrintF<span class="ll-args">(_)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2072">Source ☍</a></dt>
 <dd>
 <p>Add a chat print message which has been passed through string.format.
 See: <a>string.format</a></p>
@@ -594,7 +596,7 @@ See: <a>string.format</a></p>
 </ol>
 
 </dd>
-<dt><a name="Player.ConfiscateMarkedWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ConfiscateMarkedWeapons<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L404">Source ☍</a></dt>
+<dt><a name="Player.ConfiscateMarkedWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ConfiscateMarkedWeapons<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L419">Source ☍</a></dt>
 <dd>
 <p>Removes only the holstered weapons an officer has marked for confiscation from
 inventory (leaving unmarked weapons recoverable), then clears the holstered/marked
@@ -621,7 +623,7 @@ officer who marked it (not necessarily whoever performs the arrest).</p>
 </ol>
 
 </dd>
-<dt><a name="Player.Demote"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Demote<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L349">Source ☍</a></dt>
+<dt><a name="Player.Demote"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Demote<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L364">Source ☍</a></dt>
 <dd>
 <p>Demote a player from their current team.</p>
 
@@ -640,7 +642,7 @@ officer who marked it (not necessarily whoever performs the arrest).</p>
 </ol>
 
 </dd>
-<dt><a name="Player.DisableEventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>DisableEventMgr<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2102">Source ☍</a></dt>
+<dt><a name="Player.DisableEventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>DisableEventMgr<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2129">Source ☍</a></dt>
 <dd>
 <p>Disables Event Manager permissions for player.</p>
 
@@ -648,7 +650,7 @@ officer who marked it (not necessarily whoever performs the arrest).</p>
 
 
 </dd>
-<dt><a name="Player.Disarm"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Disarm<span class="ll-args">(emote)</span><span class="ll-returns"> → boolean, string|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L321">Source ☍</a></dt>
+<dt><a name="Player.Disarm"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Disarm<span class="ll-args">(emote)</span><span class="ll-returns"> → boolean, string|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L336">Source ☍</a></dt>
 <dd>
 <p>Immediately holster weapons and remove modifications.</p>
 
@@ -663,7 +665,7 @@ officer who marked it (not necessarily whoever performs the arrest).</p>
 </ol>
 
 </dd>
-<dt><a name="Player.DoorAccess"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>DoorAccess<span class="ll-args">(door)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L597">Source ☍</a></dt>
+<dt><a name="Player.DoorAccess"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>DoorAccess<span class="ll-args">(door)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L612">Source ☍</a></dt>
 <dd>
 <p>Check if a player has access to lock a door.</p>
 
@@ -677,7 +679,7 @@ officer who marked it (not necessarily whoever performs the arrest).</p>
 </ol>
 
 </dd>
-<dt><a name="Player.Emote"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Emote<span class="ll-args">(text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L306">Source ☍</a></dt>
+<dt><a name="Player.Emote"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Emote<span class="ll-args">(text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L321">Source ☍</a></dt>
 <dd>
 <p>Send a message as an action performed by the player.</p>
 
@@ -688,7 +690,7 @@ officer who marked it (not necessarily whoever performs the arrest).</p>
 
 
 </dd>
-<dt><a name="Player.EnableEventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>EnableEventMgr<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2095">Source ☍</a></dt>
+<dt><a name="Player.EnableEventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>EnableEventMgr<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2122">Source ☍</a></dt>
 <dd>
 <p>Enables Event Manager permissions for player.</p>
 
@@ -696,7 +698,7 @@ officer who marked it (not necessarily whoever performs the arrest).</p>
 
 
 </dd>
-<dt><a name="Player.EnvironmentalEmote"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>EnvironmentalEmote<span class="ll-args">(text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L313">Source ☍</a></dt>
+<dt><a name="Player.EnvironmentalEmote"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>EnvironmentalEmote<span class="ll-args">(text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L328">Source ☍</a></dt>
 <dd>
 <p>Send a message as an environmental action around a player.
 Essentially /it.</p>
@@ -708,7 +710,7 @@ Essentially /it.</p>
 
 
 </dd>
-<dt><a name="Player.EventMgr"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>EventMgr<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1247">Source ☍</a></dt>
+<dt><a name="Player.EventMgr"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>EventMgr<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1246">Source ☍</a></dt>
 <dd>
 <p>Check if the player has Event Manager permissions.</p>
 
@@ -752,7 +754,7 @@ Essentially /it.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetAgendaGroup"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetAgendaGroup<span class="ll-args">()</span><span class="ll-returns"> → boolean|string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1178">Source ☍</a></dt>
+<dt><a name="Player.GetAgendaGroup"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetAgendaGroup<span class="ll-args">()</span><span class="ll-returns"> → boolean|string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1177">Source ☍</a></dt>
 <dd>
 <p>Get the agenda group the player is in.</p>
 
@@ -763,7 +765,7 @@ Essentially /it.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetAgendaLeader"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetAgendaLeader<span class="ll-args">()</span><span class="ll-returns"> → boolean|string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1189">Source ☍</a></dt>
+<dt><a name="Player.GetAgendaLeader"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetAgendaLeader<span class="ll-args">()</span><span class="ll-returns"> → boolean|string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1188">Source ☍</a></dt>
 <dd>
 <p>Get the agenda group the player leads.
 Only returns a value for leader positions (e.g., President, SWAT Leader, Police Commander).</p>
@@ -775,7 +777,7 @@ Only returns a value for leader positions (e.g., President, SWAT Leader, Police 
 </ol>
 
 </dd>
-<dt><a name="Player.GetDefaultModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetDefaultModel<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2012">Source ☍</a></dt>
+<dt><a name="Player.GetDefaultModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetDefaultModel<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2039">Source ☍</a></dt>
 <dd>
 <p>Get a player's default (team) model.</p>
 
@@ -786,7 +788,7 @@ Only returns a value for leader positions (e.g., President, SWAT Leader, Police 
 </ol>
 
 </dd>
-<dt><a name="Player.GetFace"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetFace<span class="ll-args">()</span><span class="ll-returns"> → number|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1258">Source ☍</a></dt>
+<dt><a name="Player.GetFace"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetFace<span class="ll-args">()</span><span class="ll-returns"> → number|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1257">Source ☍</a></dt>
 <dd>
 <p>Get the current face ID of the player.
 Extracts the face ID from the player's model path if applicable.</p>
@@ -798,7 +800,7 @@ Extracts the face ID from the player's model path if applicable.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetHoursPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetHoursPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1892">Source ☍</a></dt>
+<dt><a name="Player.GetHoursPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetHoursPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1919">Source ☍</a></dt>
 <dd>
 <p>This player's playtime prop limit bonus, 0 until they cross the configured hours threshold.</p>
 
@@ -809,7 +811,7 @@ Extracts the face ID from the player's model path if applicable.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetIcon"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetIcon<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1101">Source ☍</a></dt>
+<dt><a name="Player.GetIcon"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetIcon<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1100">Source ☍</a></dt>
 <dd>
 <p>Get the rank icon path for a player.</p>
 
@@ -820,7 +822,7 @@ Extracts the face ID from the player's model path if applicable.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetIconMaterial"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetIconMaterial<span class="ll-args">()</span><span class="ll-returns"> → <a href="https://wiki.facepunch.com/gmod/IMaterial">IMaterial</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1111">Source ☍</a></dt>
+<dt><a name="Player.GetIconMaterial"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetIconMaterial<span class="ll-args">()</span><span class="ll-returns"> → <a href="https://wiki.facepunch.com/gmod/IMaterial">IMaterial</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1110">Source ☍</a></dt>
 <dd>
 <p>Get the rank material for a player.
 Client-side only. Returns a cached material object for rendering.</p>
@@ -832,7 +834,7 @@ Client-side only. Returns a cached material object for rendering.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetIconReplacement"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetIconReplacement<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1123">Source ☍</a></dt>
+<dt><a name="Player.GetIconReplacement"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetIconReplacement<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1122">Source ☍</a></dt>
 <dd>
 <p>Get the rank icon's textual replacement for a player.
 Returns an ASCII/symbol representation of the rank icon for use in text chat.</p>
@@ -844,7 +846,7 @@ Returns an ASCII/symbol representation of the rank icon for use in text chat.</p
 </ol>
 
 </dd>
-<dt><a name="Player.GetInjuryState"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetInjuryState<span class="ll-args">(hpOverride)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L927">Source ☍</a></dt>
+<dt><a name="Player.GetInjuryState"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetInjuryState<span class="ll-args">(hpOverride)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L926">Source ☍</a></dt>
 <dd>
 <p>Get the player's injury state based on current HP and injured status.
 Possible states:</p>
@@ -895,7 +897,7 @@ Returns &quot;*** Unknown ***&quot; if the player is blindfolded or in certain v
 </ol>
 
 </dd>
-<dt><a name="Player.GetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetMember<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2058">Source ☍</a></dt>
+<dt><a name="Player.GetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetMember<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2085">Source ☍</a></dt>
 <dd>
 <p>Check if a player has been granted Member entitlement (independent of whether they're wearing the tag).</p>
 
@@ -906,7 +908,7 @@ Returns &quot;*** Unknown ***&quot; if the player is blindfolded or in certain v
 </ol>
 
 </dd>
-<dt><a name="Player.GetMemberPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetMemberPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1885">Source ☍</a></dt>
+<dt><a name="Player.GetMemberPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetMemberPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1912">Source ☍</a></dt>
 <dd>
 <p>This player's membership prop limit bonus, 0 if they're not a member.</p>
 
@@ -917,7 +919,7 @@ Returns &quot;*** Unknown ***&quot; if the player is blindfolded or in certain v
 </ol>
 
 </dd>
-<dt><a name="Player.GetNetMember"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetNetMember<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1228">Source ☍</a></dt>
+<dt><a name="Player.GetNetMember"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetNetMember<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1227">Source ☍</a></dt>
 <dd>
 <p>Get the networked Member state. This is the networked sync of GetMember() (entitlement),
 not the final IsMember() value.</p>
@@ -959,7 +961,7 @@ not the final IsMember() value.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetPlayerChatColour"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetPlayerChatColour<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1201">Source ☍</a></dt>
+<dt><a name="Player.GetPlayerChatColour"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetPlayerChatColour<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1200">Source ☍</a></dt>
 <dd>
 <p>Get the player's chat color.
 Alias for GetRankColor().</p>
@@ -971,7 +973,7 @@ Alias for GetRankColor().</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetPropLimit"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetPropLimit<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L893">Source ☍</a></dt>
+<dt><a name="Player.GetPropLimit"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetPropLimit<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L892">Source ☍</a></dt>
 <dd>
 <p>Get the player's prop limit.</p>
 
@@ -982,7 +984,7 @@ Alias for GetRankColor().</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetRankColor"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankColor<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1137">Source ☍</a></dt>
+<dt><a name="Player.GetRankColor"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankColor<span class="ll-args">()</span><span class="ll-returns"> → table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1136">Source ☍</a></dt>
 <dd>
 <p>Get the color for a given player's rank.</p>
 
@@ -993,7 +995,7 @@ Alias for GetRankColor().</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetRankKey"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankKey<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1075">Source ☍</a></dt>
+<dt><a name="Player.GetRankKey"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankKey<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1074">Source ☍</a></dt>
 <dd>
 <p>Determine the rank key for a player.
 Returns the staff rank if applicable, or membership tier based on spending level.</p>
@@ -1005,7 +1007,7 @@ Returns the staff rank if applicable, or membership tier based on spending level
 </ol>
 
 </dd>
-<dt><a name="Player.GetRankName"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankName<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1130">Source ☍</a></dt>
+<dt><a name="Player.GetRankName"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankName<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1129">Source ☍</a></dt>
 <dd>
 <p>Get the name of a given player's rank.</p>
 
@@ -1016,7 +1018,7 @@ Returns the staff rank if applicable, or membership tier based on spending level
 </ol>
 
 </dd>
-<dt><a name="Player.GetRankPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankPropLimit<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1873">Source ☍</a></dt>
+<dt><a name="Player.GetRankPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankPropLimit<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1900">Source ☍</a></dt>
 <dd>
 <p>This player's base prop limit for their staff rank. -1 for unlimited.</p>
 
@@ -1027,7 +1029,7 @@ Returns the staff rank if applicable, or membership tier based on spending level
 </ol>
 
 </dd>
-<dt><a name="Player.GetRankSortOrder"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankSortOrder<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1145">Source ☍</a></dt>
+<dt><a name="Player.GetRankSortOrder"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankSortOrder<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1144">Source ☍</a></dt>
 <dd>
 <p>Get the sort order for a given player's rank.
 Lower numbers indicate higher priority/importance.</p>
@@ -1039,7 +1041,7 @@ Lower numbers indicate higher priority/importance.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetRepPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRepPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1901">Source ☍</a></dt>
+<dt><a name="Player.GetRepPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRepPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1928">Source ☍</a></dt>
 <dd>
 <p>This player's REP prop limit bonus (a fixed amount per REP earned).</p>
 
@@ -1099,7 +1101,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 </ol>
 
 </dd>
-<dt><a name="Player.GiveDoor"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GiveDoor<span class="ll-args">(door, name, unsellable, lock)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L169">Source ☍</a></dt>
+<dt><a name="Player.GiveDoor"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GiveDoor<span class="ll-args">(door, name, unsellable, lock)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L184">Source ☍</a></dt>
 <dd>
 <p>Give a door to a player.</p>
 
@@ -1113,7 +1115,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 
 
 </dd>
-<dt><a name="Player.GiveMoney"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GiveMoney<span class="ll-args">(amt)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L675">Source ☍</a></dt>
+<dt><a name="Player.GiveMoney"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GiveMoney<span class="ll-args">(amt)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L690">Source ☍</a></dt>
 <dd>
 <p>Give a player an amount of money.</p>
 
@@ -1124,7 +1126,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 
 
 </dd>
-<dt><a name="Player.GodDisable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GodDisable<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1971">Source ☍</a></dt>
+<dt><a name="Player.GodDisable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GodDisable<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1998">Source ☍</a></dt>
 <dd>
 <p>Disable god mode for a player.</p>
 
@@ -1132,7 +1134,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 
 
 </dd>
-<dt><a name="Player.GodEnable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GodEnable<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1965">Source ☍</a></dt>
+<dt><a name="Player.GodEnable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GodEnable<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1992">Source ☍</a></dt>
 <dd>
 <p>Enable god mode for a player.</p>
 
@@ -1140,7 +1142,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 
 
 </dd>
-<dt><a name="Player.HasGodMode"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasGodMode<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L940">Source ☍</a></dt>
+<dt><a name="Player.HasGodMode"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasGodMode<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L939">Source ☍</a></dt>
 <dd>
 <p>Check if a player has god mode enabled.</p>
 
@@ -1151,7 +1153,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 </ol>
 
 </dd>
-<dt><a name="Player.HasHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasHolsteredWeapons<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L361">Source ☍</a></dt>
+<dt><a name="Player.HasHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasHolsteredWeapons<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L376">Source ☍</a></dt>
 <dd>
 <p>Check if a player has any holstered weapons.</p>
 
@@ -1162,7 +1164,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 </ol>
 
 </dd>
-<dt><a name="Player.HasMembership"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasMembership<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1221">Source ☍</a></dt>
+<dt><a name="Player.HasMembership"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasMembership<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1220">Source ☍</a></dt>
 <dd>
 <p>Check if the player currently has active membership.</p>
 
@@ -1173,7 +1175,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 </ol>
 
 </dd>
-<dt><a name="Player.HasMemberTags"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasMemberTags<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1235">Source ☍</a></dt>
+<dt><a name="Player.HasMemberTags"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasMemberTags<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1234">Source ☍</a></dt>
 <dd>
 <p>Check if the player's name contains the community Member tag.
 Kept separate from HasTags(), which is for staff tags only. Shared, pure Nick() check.</p>
@@ -1185,7 +1187,7 @@ Kept separate from HasTags(), which is for staff tags only. Shared, pure Nick() 
 </ol>
 
 </dd>
-<dt><a name="Player.HasTags"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasTags<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L900">Source ☍</a></dt>
+<dt><a name="Player.HasTags"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasTags<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L899">Source ☍</a></dt>
 <dd>
 <p>Check if the player's name contains appropriate rank tags.
 Checks for configured Admin and Moderator tags in the player's nickname.</p>
@@ -1197,7 +1199,7 @@ Checks for configured Admin and Moderator tags in the player's nickname.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.HasTempHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasTempHolsteredWeapons<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L366">Source ☍</a></dt>
+<dt><a name="Player.HasTempHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HasTempHolsteredWeapons<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L381">Source ☍</a></dt>
 <dd>
 <p>Check if a player has any temporary holstered weapons.</p>
 
@@ -1208,7 +1210,7 @@ Checks for configured Admin and Moderator tags in the player's nickname.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.HolsterAll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HolsterAll<span class="ll-args">(invrem, tablerem)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L451">Source ☍</a></dt>
+<dt><a name="Player.HolsterAll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>HolsterAll<span class="ll-args">(invrem, tablerem)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L466">Source ☍</a></dt>
 <dd>
 <p>Holsters all of a player's weapons.</p>
 
@@ -1231,7 +1233,7 @@ Checks for configured Admin and Moderator tags in the player's nickname.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.Injure"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Injure<span class="ll-args">(attacker, damageInfo)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1233">Source ☍</a></dt>
+<dt><a name="Player.Injure"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Injure<span class="ll-args">(attacker, damageInfo)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1260">Source ☍</a></dt>
 <dd>
 <p>Injure a player.</p>
 
@@ -1479,9 +1481,20 @@ Includes: President, VP, Secret Service, SWAT Leader, SWAT, NDS, Police Commande
 </ol>
 
 </dd>
-<dt><a name="Player.IsImmuneToKnockOut"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>IsImmuneToKnockOut<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L927">Source ☍</a></dt>
+<dt><a name="Player.IsImmuneToKnockOut"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>IsImmuneToKnockOut<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L948">Source ☍</a></dt>
 <dd>
 <p>Whether this player is immune to being knocked out right now (Assistant+ observing in noclip).</p>
+
+
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">boolean</span><span class="ll-arg-desc"></span></li>
+</ol>
+
+</dd>
+<dt><a name="Player.IsImmuneToRestraint"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>IsImmuneToRestraint<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L954">Source ☍</a></dt>
+<dd>
+<p>Whether this player is immune to being restrained (cuffed/zip-tied/tied up) right now (Trial Mod+ observing in noclip).</p>
 
 
 <p class="ll-arg-label">Returns</p>
@@ -1558,7 +1571,7 @@ Forwards compat because Lawenforcement annoys the shit outta me. ~JP.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.IsMember"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>IsMember<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1241">Source ☍</a></dt>
+<dt><a name="Player.IsMember"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>IsMember<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1240">Source ☍</a></dt>
 <dd>
 <p>Check if a player currently has active Member status (entitled and wearing the tag), or Premium.</p>
 
@@ -1977,7 +1990,7 @@ See: <del>IsRank</del></p>
 </ol>
 
 </dd>
-<dt><a name="Player.KnockOut"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>KnockOut<span class="ll-args">(boolean, seconds, reset)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L935">Source ☍</a></dt>
+<dt><a name="Player.KnockOut"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>KnockOut<span class="ll-args">(boolean, seconds, reset)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L962">Source ☍</a></dt>
 <dd>
 <p>Knock out a player or bring them back to consciousness.</p>
 
@@ -1990,7 +2003,7 @@ See: <del>IsRank</del></p>
 
 
 </dd>
-<dt><a name="Player.LightSpawn"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>LightSpawn<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1401">Source ☍</a></dt>
+<dt><a name="Player.LightSpawn"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>LightSpawn<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1428">Source ☍</a></dt>
 <dd>
 <p>&quot;Lightly&quot; spawn a player.
 Ie. don't reset data, don't reset prone state etc.</p>
@@ -1999,7 +2012,7 @@ Ie. don't reset data, don't reset prone state etc.</p>
 
 
 </dd>
-<dt><a name="Player.LoadData"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>LoadData<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1538">Source ☍</a></dt>
+<dt><a name="Player.LoadData"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>LoadData<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1565">Source ☍</a></dt>
 <dd>
 <p>Load a player's data.</p>
 <blockquote class="ll-alert ll-alert-internal"><p class="ll-alert-title">Internal</p><p>This function is internal. Whilst you can call it, you probably shouldn't.</p></blockquote>
@@ -2007,7 +2020,7 @@ Ie. don't reset data, don't reset prone state etc.</p>
 
 
 </dd>
-<dt><a name="Player.LoadData2"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>LoadData2<span class="ll-args">(result)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1611">Source ☍</a></dt>
+<dt><a name="Player.LoadData2"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>LoadData2<span class="ll-args">(result)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1638">Source ☍</a></dt>
 <dd>
 <p>Load the player's data from the result table.</p>
 <blockquote class="ll-alert ll-alert-internal"><p class="ll-alert-title">Internal</p><p>This function is internal. Whilst you can call it, you probably shouldn't.</p></blockquote>
@@ -2018,7 +2031,7 @@ Ie. don't reset data, don't reset prone state etc.</p>
 
 
 </dd>
-<dt><a name="Player.LoadDataNew"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>LoadDataNew<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1703">Source ☍</a></dt>
+<dt><a name="Player.LoadDataNew"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>LoadDataNew<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1730">Source ☍</a></dt>
 <dd>
 <p>Load data for a new player.</p>
 <blockquote class="ll-alert ll-alert-internal"><p class="ll-alert-title">Internal</p><p>This function is internal. Whilst you can call it, you probably shouldn't.</p></blockquote>
@@ -2030,7 +2043,7 @@ Ie. don't reset data, don't reset prone state etc.</p>
 <dd>
 <p>Check if a player is currently masked.
 Checks for mask-capable models, bodygroups, and accessories.
-Returns false if the player is dead, hostaged, or cuffed.</p>
+Returns false if the player is dead, hostaged, cuffed, or ziptied.</p>
 
 
 <p class="ll-arg-label">Returns</p>
@@ -2039,7 +2052,7 @@ Returns false if the player is dead, hostaged, or cuffed.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.MembershipExpires"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>MembershipExpires<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1214">Source ☍</a></dt>
+<dt><a name="Player.MembershipExpires"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>MembershipExpires<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1213">Source ☍</a></dt>
 <dd>
 <p>Get the time when the player's membership expires.</p>
 
@@ -2094,7 +2107,7 @@ This may return a fake name if the player has set one.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.Noclipping"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Noclipping<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1208">Source ☍</a></dt>
+<dt><a name="Player.Noclipping"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Noclipping<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1207">Source ☍</a></dt>
 <dd>
 <p>Get the player's noclip state.
 Returns true if the player is in noclip mode and not in a vehicle.</p>
@@ -2106,7 +2119,7 @@ Returns true if the player is in noclip mode and not in a vehicle.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.Notify"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Notify<span class="ll-args">(message, class, priority)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L23">Source ☍</a></dt>
+<dt><a name="Player.Notify"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Notify<span class="ll-args">(message, class, priority)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L24">Source ☍</a></dt>
 <dd>
 <p>Send a notification message to a player.</p>
 
@@ -2119,7 +2132,7 @@ Returns true if the player is in noclip mode and not in a vehicle.</p>
 
 
 </dd>
-<dt><a name="Player.NotifyCenter"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>NotifyCenter<span class="ll-args">(message, icon, color, delay, showinconsole)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L96">Source ☍</a></dt>
+<dt><a name="Player.NotifyCenter"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>NotifyCenter<span class="ll-args">(message, icon, color, delay, showinconsole)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L111">Source ☍</a></dt>
 <dd>
 <p>Send a notification to the center of a player's screen.</p>
 
@@ -2134,9 +2147,11 @@ Returns true if the player is in noclip mode and not in a vehicle.</p>
 
 
 </dd>
-<dt><a name="Player.NotifyChoice"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>NotifyChoice<span class="ll-args">(message, button1, function1, button2, function2, icon, color, dismissable)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L79">Source ☍</a></dt>
+<dt><a name="Player.NotifyChoice"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>NotifyChoice<span class="ll-args">(message, button1, function1, button2, function2, icon, color, dismissable, uid)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L83">Source ☍</a></dt>
 <dd>
-<p>Send a notification message to a player, with clickable buttons to affect commands.</p>
+<p>Send a notification message to a player, with clickable buttons to affect commands.
+it instead of stacking a second one -- use this when a request can be re-sent (e.g. re-approval
+after the requester changes their proposal) so the player never sees a stale copy alongside it.</p>
 
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
@@ -2148,11 +2163,12 @@ Returns true if the player is in noclip mode and not in a vehicle.</p>
 <li><span class="parameter">icon</span><span class="types">string?</span><span class="ll-arg-desc">The icon for the message to have.</span></li>
 <li><span class="parameter">color</span><span class="types">table?</span><span class="ll-arg-desc">The colour for the message to have.</span></li>
 <li><span class="parameter">dismissable</span><span class="types">boolean?</span><span class="ll-arg-desc">A bool representing if the checkbox should have a &quot;dismiss&quot; option (default: false).</span></li>
+<li><span class="parameter">uid</span><span class="types">string?</span><span class="ll-arg-desc">A key identifying this notification. A later call with the same uid replaces</span></li>
 </ul>
 
 
 </dd>
-<dt><a name="Player.NotifyCustom"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>NotifyCustom<span class="ll-args">(message, icon, color, length)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L59">Source ☍</a></dt>
+<dt><a name="Player.NotifyCustom"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>NotifyCustom<span class="ll-args">(message, icon, color, length)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L60">Source ☍</a></dt>
 <dd>
 <p>Send a custom notification message to a player.</p>
 
@@ -2166,7 +2182,19 @@ Returns true if the player is in noclip mode and not in a vehicle.</p>
 
 
 </dd>
-<dt><a name="Player.NotifyTarget"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>NotifyTarget<span class="ll-args">(tArg, plys)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L46">Source ☍</a></dt>
+<dt><a name="Player.NotifyDismiss"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>NotifyDismiss<span class="ll-args">(uid)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L97">Source ☍</a></dt>
+<dd>
+<p>Removes a still-showing NotifyChoice notification, identified by the uid it was sent with.
+No-op if the player never got one under that uid, or already dismissed it themselves.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">uid</span><span class="types">string</span><span class="ll-arg-desc"></span></li>
+</ul>
+
+
+</dd>
+<dt><a name="Player.NotifyTarget"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>NotifyTarget<span class="ll-args">(tArg, plys)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L47">Source ☍</a></dt>
 <dd>
 <p>Send an error message to a player saying that they matched multiple players with a command target.</p>
 
@@ -2198,7 +2226,7 @@ The:
 </ol>
 
 </dd>
-<dt><a name="Player.PlaySound"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>PlaySound<span class="ll-args">(soundOrPath, playServerSide, volume, level, pitch, channel)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1299">Source ☍</a></dt>
+<dt><a name="Player.PlaySound"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>PlaySound<span class="ll-args">(soundOrPath, playServerSide, volume, level, pitch, channel)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1298">Source ☍</a></dt>
 <dd>
 <p>Play a sound for the player.
 Can play either serverside (EmitSound - audible to nearby players) or clientside (surface.PlaySound - only to this player).</p>
@@ -2215,7 +2243,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.printMessage"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>printMessage<span class="ll-args">(message)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L111">Source ☍</a></dt>
+<dt><a name="Player.printMessage"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>printMessage<span class="ll-args">(message)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L126">Source ☍</a></dt>
 <dd>
 <p>Send a message to a player.</p>
 
@@ -2226,7 +2254,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.PrintRadius"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>PrintRadius<span class="ll-args">(msg, pos, rad)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L119">Source ☍</a></dt>
+<dt><a name="Player.PrintRadius"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>PrintRadius<span class="ll-args">(msg, pos, rad)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L134">Source ☍</a></dt>
 <dd>
 <p>Prints a message to players within a radius of a specified position.</p>
 
@@ -2239,7 +2267,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.PromoteLeader"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>PromoteLeader<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L356">Source ☍</a></dt>
+<dt><a name="Player.PromoteLeader"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>PromoteLeader<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L371">Source ☍</a></dt>
 <dd>
 <p>Promotes a player to team leader.</p>
 
@@ -2247,7 +2275,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.RefreshPropLimitDefault"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RefreshPropLimitDefault<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1943">Source ☍</a></dt>
+<dt><a name="Player.RefreshPropLimitDefault"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RefreshPropLimitDefault<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1970">Source ☍</a></dt>
 <dd>
 <p>Recomputes and pushes this player's rank/member/hours/rep prop limit layers.</p>
 
@@ -2255,7 +2283,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.RefundAllAmmo"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RefundAllAmmo<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1815">Source ☍</a></dt>
+<dt><a name="Player.RefundAllAmmo"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RefundAllAmmo<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1842">Source ☍</a></dt>
 <dd>
 <p>Refund all ammo currently loaded onto a player.</p>
 
@@ -2263,7 +2291,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.RemoveHolstered"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RemoveHolstered<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L378">Source ☍</a></dt>
+<dt><a name="Player.RemoveHolstered"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RemoveHolstered<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L393">Source ☍</a></dt>
 <dd>
 <p>Removes Holstered weapons/mods from inventory</p>
 
@@ -2271,7 +2299,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.REP"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>REP<span class="ll-args">(cat)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L860">Source ☍</a></dt>
+<dt><a name="Player.REP"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>REP<span class="ll-args">(cat)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L859">Source ☍</a></dt>
 <dd>
 <p>Get a player's REP count.</p>
 
@@ -2285,7 +2313,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 </ol>
 
 </dd>
-<dt><a name="Player.ResetTempHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ResetTempHolsteredWeapons<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L371">Source ☍</a></dt>
+<dt><a name="Player.ResetTempHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ResetTempHolsteredWeapons<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L386">Source ☍</a></dt>
 <dd>
 <p>Reset a player's holstered weapons.</p>
 
@@ -2293,7 +2321,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.RestoreDefaultEquipment"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultEquipment<span class="ll-args">(force)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1979">Source ☍</a></dt>
+<dt><a name="Player.RestoreDefaultEquipment"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultEquipment<span class="ll-args">(force)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2006">Source ☍</a></dt>
 <dd>
 <p>Restore a player's default equipment.
 For example, keys, remote keys, toolgun and physgun.</p>
@@ -2305,7 +2333,7 @@ For example, keys, remote keys, toolgun and physgun.</p>
 
 
 </dd>
-<dt><a name="Player.RestoreDefaultModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultModel<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2028">Source ☍</a></dt>
+<dt><a name="Player.RestoreDefaultModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultModel<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2055">Source ☍</a></dt>
 <dd>
 <p>Restore a player's default model.
 Also unsets their custom model field.</p>
@@ -2314,7 +2342,7 @@ Also unsets their custom model field.</p>
 
 
 </dd>
-<dt><a name="Player.RestoreDefaultModelTimed"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultModelTimed<span class="ll-args">(emote, post)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2036">Source ☍</a></dt>
+<dt><a name="Player.RestoreDefaultModelTimed"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultModelTimed<span class="ll-args">(emote, post)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2063">Source ☍</a></dt>
 <dd>
 <p>Reset a player's default model, using the regular 10 second timer.</p>
 
@@ -2326,7 +2354,7 @@ Also unsets their custom model field.</p>
 
 
 </dd>
-<dt><a name="Player.RestoreGovMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreGovMods<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L859">Source ☍</a></dt>
+<dt><a name="Player.RestoreGovMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreGovMods<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L880">Source ☍</a></dt>
 <dd>
 <p>Restores government mods only in case of disarm or similar situation. Mods are not lost on knockout, but are on HolsterAll() (rope, arrest, disarm, etc.)</p>
 
@@ -2346,7 +2374,7 @@ If a fake name is set, it will be returned instead of the real IC name.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.SaveData"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SaveData<span class="ll-args">(create)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1718">Source ☍</a></dt>
+<dt><a name="Player.SaveData"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SaveData<span class="ll-args">(create)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1745">Source ☍</a></dt>
 <dd>
 <p>Save a player's data.</p>
 <blockquote class="ll-alert ll-alert-internal"><p class="ll-alert-title">Internal</p><p>This function is internal. Whilst you can call it, you probably shouldn't.</p></blockquote>
@@ -2357,7 +2385,7 @@ If a fake name is set, it will be returned instead of the real IC name.</p>
 
 
 </dd>
-<dt><a name="Player.SayDistress"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SayDistress<span class="ll-args">(text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L300">Source ☍</a></dt>
+<dt><a name="Player.SayDistress"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SayDistress<span class="ll-args">(text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L315">Source ☍</a></dt>
 <dd>
 <p>Say a message as a distress broadcast.</p>
 
@@ -2368,7 +2396,7 @@ If a fake name is set, it will be returned instead of the real IC name.</p>
 
 
 </dd>
-<dt><a name="Player.SayRadio"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SayRadio<span class="ll-args">(text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L243">Source ☍</a></dt>
+<dt><a name="Player.SayRadio"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SayRadio<span class="ll-args">(text)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L258">Source ☍</a></dt>
 <dd>
 <p>Send a message as a radio broadcast.
 If the player has sent a /panic call in the last 20 seconds, these are sent as distress class messages, rather than radio class.</p>
@@ -2380,7 +2408,7 @@ If the player has sent a /panic call in the last 20 seconds, these are sent as d
 
 
 </dd>
-<dt><a name="Player.SetHealth"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetHealth<span class="ll-args">(hp)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L893">Source ☍</a></dt>
+<dt><a name="Player.SetHealth"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetHealth<span class="ll-args">(hp)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L914">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -2403,7 +2431,7 @@ Prefer this over <code><a href="cityrp.player.html#cityrp.player.setLocalPlayerV
 
 
 </dd>
-<dt><a name="Player.SetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetMember<span class="ll-args">(bool)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2066">Source ☍</a></dt>
+<dt><a name="Player.SetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetMember<span class="ll-args">(bool)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2093">Source ☍</a></dt>
 <dd>
 <p>Grant or revoke a player's Member entitlement.
 Persisted in _Flags, the same field Premium's &quot;d&quot; flag lives in, but read/written directly
@@ -2416,7 +2444,7 @@ rather than through the <a href="cityrp.access.html">cityrp.access</a> system, s
 
 
 </dd>
-<dt><a name="Player.SetMembershipExpires"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetMembershipExpires<span class="ll-args">(expires)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2051">Source ☍</a></dt>
+<dt><a name="Player.SetMembershipExpires"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetMembershipExpires<span class="ll-args">(expires)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2078">Source ☍</a></dt>
 <dd>
 <p>Set when a player's membership expires.</p>
 
@@ -2427,7 +2455,7 @@ rather than through the <a href="cityrp.access.html">cityrp.access</a> system, s
 
 
 </dd>
-<dt><a name="Player.SetNetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetNetMember<span class="ll-args">(bool)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2082">Source ☍</a></dt>
+<dt><a name="Player.SetNetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetNetMember<span class="ll-args">(bool)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2109">Source ☍</a></dt>
 <dd>
 <p>Set the networked Member state (the sync of GetMember()). Does not itself check tags or Premium.</p>
 
@@ -2451,7 +2479,7 @@ The name must already be registered in <code>networking/sh_init.lua</code>; unre
 
 
 </dd>
-<dt><a name="Player.SetPData"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetPData<span class="ll-args">(_)</span><span class="ll-returns"> → nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1807">Source ☍</a></dt>
+<dt><a name="Player.SetPData"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetPData<span class="ll-args">(_)</span><span class="ll-returns"> → nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1834">Source ☍</a></dt>
 <dd>
 <p>Override SetPData to disable saving on build/event servers.</p>
 
@@ -2465,7 +2493,7 @@ The name must already be registered in <code>networking/sh_init.lua</code>; unre
 </ol>
 
 </dd>
-<dt><a name="Player.SetPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetPropLimit<span class="ll-args">(limit)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1932">Source ☍</a></dt>
+<dt><a name="Player.SetPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetPropLimit<span class="ll-args">(limit)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1959">Source ☍</a></dt>
 <dd>
 <p>Sets/clears an admin override for a player's prop limit (e.g. a prop extension).</p>
 
@@ -2476,7 +2504,7 @@ The name must already be registered in <code>networking/sh_init.lua</code>; unre
 
 
 </dd>
-<dt><a name="Player.SetSalary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetSalary<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1743">Source ☍</a></dt>
+<dt><a name="Player.SetSalary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetSalary<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1770">Source ☍</a></dt>
 <dd>
 <p>Set a player's salary based on third party adjustments.</p>
 
@@ -2528,7 +2556,7 @@ The name must already be registered in <code>networking/sh_init.lua</code>; unre
 </ol>
 
 </dd>
-<dt><a name="Player.TakeDoor"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>TakeDoor<span class="ll-args">(door)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L208">Source ☍</a></dt>
+<dt><a name="Player.TakeDoor"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>TakeDoor<span class="ll-args">(door)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L223">Source ☍</a></dt>
 <dd>
 <p>Take a door from a player, including child doors.</p>
 
@@ -2539,7 +2567,7 @@ The name must already be registered in <code>networking/sh_init.lua</code>; unre
 
 
 </dd>
-<dt><a name="Player.TemporaryHolsterAll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>TemporaryHolsterAll<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L510">Source ☍</a></dt>
+<dt><a name="Player.TemporaryHolsterAll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>TemporaryHolsterAll<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L525">Source ☍</a></dt>
 <dd>
 <p>Holsters all of a player's weapons temporaryly (ex for being cuffed).</p>
 
@@ -2569,7 +2597,7 @@ The name must already be registered in <code>networking/sh_init.lua</code>; unre
 </ol>
 
 </dd>
-<dt><a name="Player.UnHolsterTemporary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>UnHolsterTemporary<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L541">Source ☍</a></dt>
+<dt><a name="Player.UnHolsterTemporary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>UnHolsterTemporary<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L556">Source ☍</a></dt>
 <dd>
 <p>UnHolsters all of a player's temporary-holstered weapons.</p>
 
@@ -2577,7 +2605,7 @@ The name must already be registered in <code>networking/sh_init.lua</code>; unre
 
 
 </dd>
-<dt><a name="Player.VehicleAccess"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>VehicleAccess<span class="ll-args">(veh)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L631">Source ☍</a></dt>
+<dt><a name="Player.VehicleAccess"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>VehicleAccess<span class="ll-args">(veh)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L646">Source ☍</a></dt>
 <dd>
 <p>Check if a player has access to a vehicle.</p>
 
@@ -2591,7 +2619,7 @@ The name must already be registered in <code>networking/sh_init.lua</code>; unre
 </ol>
 
 </dd>
-<dt><a name="Player.Warrant"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Warrant<span class="ll-args">(class)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L683">Source ☍</a></dt>
+<dt><a name="Player.Warrant"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>Warrant<span class="ll-args">(class)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L698">Source ☍</a></dt>
 <dd>
 <p>Warrant or unwarrant a player.</p>
 
@@ -2634,70 +2662,70 @@ The:
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="GiveAttachments"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GiveAttachments</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L862">Source ☍</a></dt>
+<dt><a name="GiveAttachments"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GiveAttachments</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L883">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._ConfiscationMarks"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._ConfiscationMarks</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L431">Source ☍</a></dt>
+<dt><a name="Player._ConfiscationMarks"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._ConfiscationMarks</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L446">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._HolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L394">Source ☍</a></dt>
+<dt><a name="Player._HolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L409">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._HolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L439">Source ☍</a></dt>
+<dt><a name="Player._HolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L454">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._HolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L453">Source ☍</a></dt>
+<dt><a name="Player._HolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L468">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._HolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L387">Source ☍</a></dt>
+<dt><a name="Player._HolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L402">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._HolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L430">Source ☍</a></dt>
+<dt><a name="Player._HolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L445">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._HolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L452">Source ☍</a></dt>
+<dt><a name="Player._HolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L467">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._HolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L756">Source ☍</a></dt>
+<dt><a name="Player._HolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L771">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Ragdoll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Ragdoll</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1144">Source ☍</a></dt>
+<dt><a name="Player._Ragdoll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Ragdoll</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1171">Source ☍</a></dt>
 <dd>
 <p>Restore the ragdoll table and set the knocked out variable to nil.</p>
 
@@ -2705,56 +2733,56 @@ The:
 
 
 </dd>
-<dt><a name="Player._SpawnWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._SpawnWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L351">Source ☍</a></dt>
+<dt><a name="Player._SpawnWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._SpawnWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L366">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._TempHolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L373">Source ☍</a></dt>
+<dt><a name="Player._TempHolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L388">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._TempHolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L512">Source ☍</a></dt>
+<dt><a name="Player._TempHolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L527">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._TempHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L372">Source ☍</a></dt>
+<dt><a name="Player._TempHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L387">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._TempHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L511">Source ☍</a></dt>
+<dt><a name="Player._TempHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L526">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._TempHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L757">Source ☍</a></dt>
+<dt><a name="Player._TempHolsteredWeapons"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredWeapons</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L772">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._WeaponMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._WeaponMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L502">Source ☍</a></dt>
+<dt><a name="Player._WeaponMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._WeaponMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L517">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._WeaponMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._WeaponMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L794">Source ☍</a></dt>
+<dt><a name="Player._WeaponMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._WeaponMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L812">Source ☍</a></dt>
 <dd>
 
 
@@ -2772,7 +2800,7 @@ The:
 
 
 </dd>
-<dt><a name="Rank"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Rank</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L944">Source ☍</a></dt>
+<dt><a name="Rank"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Rank</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L943">Source ☍</a></dt>
 <dd>
 <p>List of ranks.
 List of ranks.</p>
@@ -2804,7 +2832,7 @@ List of ranks.</p>
 <li><code>&quot;veteran&quot; -- Veteran</code></li>
 </ul>
 </dd>
-<dt><a name="RankKey"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankKey</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L973">Source ☍</a></dt>
+<dt><a name="RankKey"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankKey</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L972">Source ☍</a></dt>
 <dd>
 <p>List of ranks.
 List of ranks.
@@ -2848,7 +2876,7 @@ List of ranks.</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="amount"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">amount</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L677">Source ☍</a></dt>
+<dt><a name="amount"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">amount</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L692">Source ☍</a></dt>
 <dd>
 <p>TODO: amount is a global variable here, should be local.</p>
 
@@ -2864,21 +2892,21 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._BleedOutDeath"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._BleedOutDeath</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1370">Source ☍</a></dt>
+<dt><a name="Player._BleedOutDeath"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._BleedOutDeath</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1397">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._BleedOutDeath"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._BleedOutDeath</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1378">Source ☍</a></dt>
+<dt><a name="Player._BleedOutDeath"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._BleedOutDeath</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1405">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Blindfolded"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Blindfolded</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L140">Source ☍</a></dt>
+<dt><a name="Player._Blindfolded"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Blindfolded</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L155">Source ☍</a></dt>
 <dd>
 <p>Set variable and NSVar</p>
 
@@ -2886,14 +2914,14 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._Blindfolded"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Blindfolded</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L147">Source ☍</a></dt>
+<dt><a name="Player._Blindfolded"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Blindfolded</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L162">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Blindfolded"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Blindfolded</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L156">Source ☍</a></dt>
+<dt><a name="Player._Blindfolded"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Blindfolded</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L171">Source ☍</a></dt>
 <dd>
 <p>Reset variable and NSVar</p>
 
@@ -2901,35 +2929,21 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._EventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._EventMgr</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2096">Source ☍</a></dt>
+<dt><a name="Player._EventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._EventMgr</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2123">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._EventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._EventMgr</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2103">Source ☍</a></dt>
+<dt><a name="Player._EventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._EventMgr</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2130">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._FatalInjured"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._FatalInjured</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1147">Source ☍</a></dt>
-<dd>
-
-
-
-
-</dd>
-<dt><a name="Player._FatalInjured"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._FatalInjured</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1349">Source ☍</a></dt>
-<dd>
-
-
-
-
-</dd>
-<dt><a name="Player._FatalInjured"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._FatalInjured</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1368">Source ☍</a></dt>
+<dt><a name="Player._FatalInjured"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._FatalInjured</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1174">Source ☍</a></dt>
 <dd>
 
 
@@ -2943,128 +2957,126 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._FatalInjuredend"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._FatalInjuredend</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1369">Source ☍</a></dt>
+<dt><a name="Player._FatalInjured"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._FatalInjured</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1395">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._FatalInjuredend"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._FatalInjuredend</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1377">Source ☍</a></dt>
+<dt><a name="Player._FatalInjured"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._FatalInjured</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1403">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._HolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L494">Source ☍</a></dt>
+<dt><a name="Player._FatalInjuredend"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._FatalInjuredend</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1396">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._HolsteredTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L454">Source ☍</a></dt>
+<dt><a name="Player._FatalInjuredend"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._FatalInjuredend</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1404">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Hostaged"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Hostaged</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L776">Source ☍</a></dt>
+<dt><a name="Player._HolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L509">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Hostaged"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Hostaged</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L800">Source ☍</a></dt>
+<dt><a name="Player._HolsteredTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._HolsteredTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L469">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._initialPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._initialPropLimit</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1938">Source ☍</a></dt>
+<dt><a name="Player._Hostaged"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Hostaged</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L794">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._initialPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._initialPropLimit</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1951">Source ☍</a></dt>
+<dt><a name="Player._Hostaged"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Hostaged</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L818">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._InjuredByPlayerWeapon"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByPlayerWeapon</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1237">Source ☍</a></dt>
+<dt><a name="Player._initialPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._initialPropLimit</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1965">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._InjuredByPlayerWeapon"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByPlayerWeapon</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1242">Source ☍</a></dt>
+<dt><a name="Player._initialPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._initialPropLimit</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1978">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._InjuredByPlayerWeapon"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByPlayerWeapon</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1248">Source ☍</a></dt>
+<dt><a name="Player._InjuredByPlayerWeapon"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByPlayerWeapon</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1264">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._InjuredByProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1236">Source ☍</a></dt>
+<dt><a name="Player._InjuredByPlayerWeapon"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByPlayerWeapon</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1269">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._InjuredByProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1243">Source ☍</a></dt>
+<dt><a name="Player._InjuredByPlayerWeapon"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByPlayerWeapon</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1275">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._InjuredByProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1249">Source ☍</a></dt>
+<dt><a name="Player._InjuredByProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1263">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._InjuredTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1353">Source ☍</a></dt>
+<dt><a name="Player._InjuredByProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1270">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._InjuringProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuringProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1238">Source ☍</a></dt>
+<dt><a name="Player._InjuredByProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredByProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1276">Source ☍</a></dt>
 <dd>
-<p>The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</p>
 
 
 
 
 </dd>
-<dt><a name="Player._InjuringProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuringProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1244">Source ☍</a></dt>
+<dt><a name="Player._InjuredTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuredTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1380">Source ☍</a></dt>
 <dd>
-<p>The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</p>
 
 
 
 
 </dd>
-<dt><a name="Player._InjuringProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuringProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1250">Source ☍</a></dt>
+<dt><a name="Player._InjuringProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuringProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1265">Source ☍</a></dt>
 <dd>
 <p>The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</p>
 
@@ -3072,7 +3084,23 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._KnockedOut"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._KnockedOut</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1094">Source ☍</a></dt>
+<dt><a name="Player._InjuringProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuringProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1271">Source ☍</a></dt>
+<dd>
+<p>The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</p>
+
+
+
+
+</dd>
+<dt><a name="Player._InjuringProp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._InjuringProp</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1277">Source ☍</a></dt>
+<dd>
+<p>The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</p>
+
+
+
+
+</dd>
+<dt><a name="Player._KnockedOut"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._KnockedOut</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1121">Source ☍</a></dt>
 <dd>
 <p>Set the player to be knocked out.</p>
 
@@ -3080,21 +3108,21 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._KnockedOut"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._KnockedOut</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1148">Source ☍</a></dt>
+<dt><a name="Player._KnockedOut"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._KnockedOut</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1175">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._LastInjure"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastInjure</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1257">Source ☍</a></dt>
+<dt><a name="Player._LastInjure"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastInjure</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1284">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._LastInjure"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastInjure</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1298">Source ☍</a></dt>
+<dt><a name="Player._LastInjure"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastInjure</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1325">Source ☍</a></dt>
 <dd>
 <p>Sometimes the injure function gets called multiple times</p>
 
@@ -3102,7 +3130,7 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._LastPropDamageEnt"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageEnt</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1240">Source ☍</a></dt>
+<dt><a name="Player._LastPropDamageEnt"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageEnt</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1267">Source ☍</a></dt>
 <dd>
 <p>The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</p>
 
@@ -3110,7 +3138,7 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._LastPropDamageEnt"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageEnt</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1246">Source ☍</a></dt>
+<dt><a name="Player._LastPropDamageEnt"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageEnt</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1273">Source ☍</a></dt>
 <dd>
 <p>The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</p>
 
@@ -3118,7 +3146,7 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._LastPropDamageEnt"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageEnt</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1252">Source ☍</a></dt>
+<dt><a name="Player._LastPropDamageEnt"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageEnt</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1279">Source ☍</a></dt>
 <dd>
 <p>The entity metatable, with CityRP's own additions to Garry's Mod's <code>Entity</code>.</p>
 
@@ -3126,49 +3154,49 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._LastPropDamageTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1239">Source ☍</a></dt>
+<dt><a name="Player._LastPropDamageTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1266">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._LastPropDamageTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1245">Source ☍</a></dt>
+<dt><a name="Player._LastPropDamageTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1272">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._LastPropDamageTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1251">Source ☍</a></dt>
+<dt><a name="Player._LastPropDamageTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LastPropDamageTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1278">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._LightSpawn"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LightSpawn</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1402">Source ☍</a></dt>
+<dt><a name="Player._LightSpawn"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._LightSpawn</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1429">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Purchases"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Purchases</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1570">Source ☍</a></dt>
+<dt><a name="Player._Purchases"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Purchases</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1597">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Purchases"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Purchases</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1653">Source ☍</a></dt>
+<dt><a name="Player._Purchases"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Purchases</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1680">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1574">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1601">Source ☍</a></dt>
 <dd>
 <p>Some default values to prevent bugs</p>
 
@@ -3176,42 +3204,7 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1744">Source ☍</a></dt>
-<dd>
-
-
-
-
-</dd>
-<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1765">Source ☍</a></dt>
-<dd>
-
-
-
-
-</dd>
-<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1775">Source ☍</a></dt>
-<dd>
-
-
-
-
-</dd>
-<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1781">Source ☍</a></dt>
-<dd>
-
-
-
-
-</dd>
-<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1785">Source ☍</a></dt>
-<dd>
-
-
-
-
-</dd>
-<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1790">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1771">Source ☍</a></dt>
 <dd>
 
 
@@ -3225,56 +3218,91 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1794">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1802">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1800">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1808">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._SetPData"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._SetPData</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1804">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1812">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Sleeping"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Sleeping</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1146">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1817">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Stunned"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Stunned</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1149">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1819">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._TapOutDeath"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TapOutDeath</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1371">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1821">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._TempHolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L533">Source ☍</a></dt>
+<dt><a name="Player._Salary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Salary</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1827">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._Warranted"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Warranted</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L694">Source ☍</a></dt>
+<dt><a name="Player._SetPData"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._SetPData</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1831">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+<dt><a name="Player._Sleeping"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Sleeping</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1173">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+<dt><a name="Player._Stunned"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Stunned</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1176">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+<dt><a name="Player._TapOutDeath"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TapOutDeath</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1398">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+<dt><a name="Player._TempHolsteredMods"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._TempHolsteredMods</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L548">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+<dt><a name="Player._Warranted"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._Warranted</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L709">Source ☍</a></dt>
 <dd>
 <p>Update their warranted status.</p>
 
@@ -3282,7 +3310,7 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._WarrantedTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._WarrantedTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1656">Source ☍</a></dt>
+<dt><a name="Player._WarrantedTime"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._WarrantedTime</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1683">Source ☍</a></dt>
 <dd>
 
 
@@ -3297,21 +3325,21 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player.CustomModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.CustomModel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1449">Source ☍</a></dt>
+<dt><a name="Player.CustomModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.CustomModel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1476">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player.CustomModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.CustomModel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2029">Source ☍</a></dt>
+<dt><a name="Player.CustomModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.CustomModel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2056">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player.CustomModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.CustomModel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2037">Source ☍</a></dt>
+<dt><a name="Player.CustomModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.CustomModel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2064">Source ☍</a></dt>
 <dd>
 
 
@@ -3334,7 +3362,7 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player.peq"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.peq</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2006">Source ☍</a></dt>
+<dt><a name="Player.peq"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.peq</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2033">Source ☍</a></dt>
 <dd>
 
 
@@ -3350,11 +3378,11 @@ List of ranks.</p>
 
 </dd>
 </dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="RankData"></a>RankData</h2><span class="ll-family-meta">5 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L966">Source ☍</a></span></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="RankData"></a>RankData</h2><span class="ll-family-meta">5 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L965">Source ☍</a></span></div>
 <div class="ll-module-body">
 
 <dl class="function">
-<dt><a name="RankData.[1]"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankData.[1]</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L967">Source ☍</a></dt>
+<dt><a name="RankData.[1]"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankData.[1]</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L966">Source ☍</a></dt>
 <dd>
 <p>icon The icon path for the rank.</p>
 
@@ -3362,7 +3390,7 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="RankData.[2]"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankData.[2]</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L968">Source ☍</a></dt>
+<dt><a name="RankData.[2]"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankData.[2]</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L967">Source ☍</a></dt>
 <dd>
 <p>symbol The symbol for the rank.</p>
 
@@ -3370,7 +3398,7 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="RankData.[3]"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankData.[3]</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L969">Source ☍</a></dt>
+<dt><a name="RankData.[3]"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankData.[3]</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L968">Source ☍</a></dt>
 <dd>
 <p>name The name of the rank.</p>
 
@@ -3378,7 +3406,7 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="RankData.[4]"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankData.[4]</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L970">Source ☍</a></dt>
+<dt><a name="RankData.[4]"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankData.[4]</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L969">Source ☍</a></dt>
 <dd>
 <p>color The color of the rank.</p>
 
@@ -3386,7 +3414,7 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="RankData.[5]"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankData.[5]</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L971">Source ☍</a></dt>
+<dt><a name="RankData.[5]"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankData.[5]</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L970">Source ☍</a></dt>
 <dd>
 <p>order The order of the rank in the list.</p>
 
@@ -3396,39 +3424,39 @@ List of ranks.</p>
 </dd>
 </dl>
 </div>
-<div class="ll-module-header"><h2 class="section-header"><a name="RankPreviewEntry"></a>RankPreviewEntry</h2><span class="ll-family-meta">5 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1037">Source ☍</a></span></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="RankPreviewEntry"></a>RankPreviewEntry</h2><span class="ll-family-meta">5 fields <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1036">Source ☍</a></span></div>
 <div class="ll-module-body">
 
 <dl class="function">
-<dt><a name="RankPreviewEntry.color"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankPreviewEntry.color</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1041">Source ☍</a></dt>
+<dt><a name="RankPreviewEntry.color"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankPreviewEntry.color</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1040">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="RankPreviewEntry.icon"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankPreviewEntry.icon</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1038">Source ☍</a></dt>
+<dt><a name="RankPreviewEntry.icon"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankPreviewEntry.icon</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1037">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="RankPreviewEntry.name"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankPreviewEntry.name</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1040">Source ☍</a></dt>
+<dt><a name="RankPreviewEntry.name"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankPreviewEntry.name</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1039">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="RankPreviewEntry.order"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankPreviewEntry.order</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1042">Source ☍</a></dt>
+<dt><a name="RankPreviewEntry.order"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankPreviewEntry.order</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1041">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="RankPreviewEntry.symbol"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankPreviewEntry.symbol</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1039">Source ☍</a></dt>
+<dt><a name="RankPreviewEntry.symbol"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">RankPreviewEntry.symbol</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sh_player.lua#L1038">Source ☍</a></dt>
 <dd>
 
 

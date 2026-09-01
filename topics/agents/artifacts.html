@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Session artifacts</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../style.cd9354d8c3.css" type="text/css">
+</head>
+<body>
+<div class="ll-grain"></div>
+<header class="ll-header">
+	<div class="ll-header-inner">
+		<a class="ll-brand" href="../../index.html">
+			<img src="../../assets/logos/L2_blue.svg" alt="" width="26" height="26">
+			<span>CityRP Documentation</span>
+		</a>
+		<a class="ll-repo-link" href="https://github.com/limelight-development/cityrp2" target="_blank" rel="noreferrer">Repository</a>
+	</div>
+</header>
+<div id="container">
+	<div id="main">
+		<div id="navigation">
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs… (/)" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
+<li><a href="#documents-branch-and-draft-pr">Documents: branch and draft PR</a></li>
+<li><a href="#code-implement">Code: /implement</a></li>
+<li><a href="#specs-and-decided-work-issues">Specs and decided work: issues</a></li>
+</ul></div>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">42</span></summary>
+<ul class="ll-kind-body">
+<li><a href="../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
+<li><a href="../../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
+<li><a href="../../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
+<li><a href="../../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><a href="../../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../../topics/meska.html">MESKA</a></li>
+<li><a href="../../topics/networking.html">Networking Library</a></li>
+<li><a href="../../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../../topics/plugins.html">Plugins</a></li>
+<li><a href="../../topics/ui-scaling.html">UI Scaling</a></li>
+<li><a href="../../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
+<li><a href="../../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder is-open"><a href="../../topics/agents/index.html">Agents</a>
+<ul class="ll-topic-children">
+<li><strong>Session artifacts</strong></li>
+<li><a href="../../topics/agents/domain.html">Domain Docs</a></li>
+<li><a href="../../topics/agents/issue-tracker.html">Issue tracker: GitHub</a></li>
+<li><a href="../../topics/agents/triage-labels.html">Triage states</a></li>
+</ul>
+</li>
+<li class="ll-topic-folder"><a href="../../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../../topics/items/items.html">Items</a>
+</li>
+</ul></details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Items</h2></div><span class="ll-count">19</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../modules/ITEM.html">ITEM</a></li>
+<li><a href="../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
+<li><a href="../../modules/ITEM.Ammo.html">ITEM.Ammo</a></li>
+<li><a href="../../modules/ITEM.Card.html">ITEM.Card</a></li>
+<li><a href="../../modules/ITEM.Clothing.html">ITEM.Clothing</a></li>
+<li><a href="../../modules/ITEM.Collectable.html">ITEM.Collectable</a></li>
+<li><a href="../../modules/ITEM.Food.html">ITEM.Food</a></li>
+<li><a href="../../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
+<li><a href="../../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
+<li><a href="../../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
+<li><a href="../../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
+<li><a href="../../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
+<li><a href="../../modules/ITEM.Sticker.html">ITEM.Sticker</a></li>
+<li><a href="../../modules/ITEM.Suit.html">ITEM.Suit</a></li>
+<li><a href="../../modules/ITEM.Uniform.html">ITEM.Uniform</a></li>
+<li><a href="../../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
+<li><a href="../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
+<li><a href="../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Metatables</h2></div><span class="ll-count">3</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../modules/Entity.html">Entity</a></li>
+<li><a href="../../modules/Player.html">Player</a></li>
+<li><a href="../../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Panels</h2></div><span class="ll-count">17</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../modules/AreaManager.html">AreaManager</a></li>
+<li><a href="../../modules/Array.html">Array</a></li>
+<li><a href="../../modules/CONSOLE.html">CONSOLE</a></li>
+<li><a href="../../modules/CPPI.html">CPPI</a></li>
+<li><a href="../../modules/DB.html">DB</a></li>
+<li><a href="../../modules/Enumerations.html">Enumerations</a></li>
+<li><a href="../../modules/GM.html">GM</a></li>
+<li><a href="../../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
+<li><a href="../../modules/Migrations.html">Migrations</a></li>
+<li><a href="../../modules/SPropProtection.html">SPropProtection</a></li>
+<li><a href="../../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../../modules/bwep.html">bwep</a></li>
+<li><a href="../../modules/cityrp.access.html">cityrp.access</a></li>
+<li><a href="../../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+<li><a href="../../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+<li><a href="../../modules/cityrp.command.html">cityrp.command</a></li>
+<li><a href="../../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../../modules/cityrp.entity.html">cityrp.entity</a></li>
+<li><a href="../../modules/cityrp.favorites.html">cityrp.favorites</a></li>
+<li><a href="../../modules/cityrp.help.html">cityrp.help</a></li>
+<li><a href="../../modules/cityrp.hints.html">cityrp.hints</a></li>
+<li><a href="../../modules/cityrp.imageHosts.html">cityrp.imageHosts</a></li>
+<li><a href="../../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+<li><a href="../../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../../modules/cityrp.itemmeta.html">cityrp.itemmeta</a></li>
+<li><a href="../../modules/cityrp.layers.html">cityrp.layers</a></li>
+<li><a href="../../modules/cityrp.legacy.functions.html">cityrp.legacy.functions</a></li>
+<li><a href="../../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
+<li><a href="../../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
+<li><a href="../../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../../modules/cityrp.logging.html">cityrp.logging</a></li>
+<li><a href="../../modules/cityrp.logs.html">cityrp.logs</a></li>
+<li><a href="../../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
+<li><a href="../../modules/cityrp.membership.html">cityrp.membership</a></li>
+<li><a href="../../modules/cityrp.model.html">cityrp.model</a></li>
+<li><a href="../../modules/cityrp.network.html">cityrp.network</a></li>
+<li><a href="../../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
+<li><a href="../../modules/cityrp.player.html">cityrp.player</a></li>
+<li><a href="../../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../../modules/cityrp.playermodelSkins.html">cityrp.playermodelSkins</a></li>
+<li><a href="../../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+<li><a href="../../modules/cityrp.remote.html">cityrp.remote</a></li>
+<li><a href="../../modules/cityrp.settings.html">cityrp.settings</a></li>
+<li><a href="../../modules/cityrp.table.html">cityrp.table</a></li>
+<li><a href="../../modules/cityrp.team.html">cityrp.team</a></li>
+<li><a href="../../modules/cityrp.teslaCharger.html">cityrp.teslaCharger</a></li>
+<li><a href="../../modules/cityrp.teslaChargerPrice.html">cityrp.teslaChargerPrice</a></li>
+<li><a href="../../modules/cityrp.topHints.html">cityrp.topHints</a></li>
+<li><a href="../../modules/cityrp.ui.html">cityrp.ui</a></li>
+<li><a href="../../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
+<li><a href="../../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
+<li><a href="../../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+<li><a href="../../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../../modules/core.plugins.animations.animationsapi.cl_boneanimlib.html">core.plugins.animations.animationsapi.cl_boneanimlib</a></li>
+<li><a href="../../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
+<li><a href="../../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
+<li><a href="../../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../../modules/core.plugins.bodybags.entities.cityrp_bodybag.cl_init.html">core.plugins.bodybags.entities.cityrp_bodybag.cl_init</a></li>
+<li><a href="../../modules/core.plugins.bodybags.entities.cityrp_bodybag.shared.html">core.plugins.bodybags.entities.cityrp_bodybag.shared</a></li>
+<li><a href="../../modules/core.plugins.bodybags.entities.cityrp_evidence.cl_init.html">core.plugins.bodybags.entities.cityrp_evidence.cl_init</a></li>
+<li><a href="../../modules/core.plugins.bodybags.entities.cityrp_evidence.init.html">core.plugins.bodybags.entities.cityrp_evidence.init</a></li>
+<li><a href="../../modules/core.plugins.bodybags.entities.cityrp_evidence.shared.html">core.plugins.bodybags.entities.cityrp_evidence.shared</a></li>
+<li><a href="../../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
+<li><a href="../../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../../modules/core.plugins.giveprops.sv_init.html">core.plugins.giveprops.sv_init</a></li>
+<li><a href="../../modules/core.plugins.holdem.cl.cl_camera.html">core.plugins.holdem.cl.cl_camera</a></li>
+<li><a href="../../modules/core.plugins.holdem.cl.cl_cards.html">core.plugins.holdem.cl.cl_cards</a></li>
+<li><a href="../../modules/core.plugins.holdem.cl.cl_chips.html">core.plugins.holdem.cl.cl_chips</a></li>
+<li><a href="../../modules/core.plugins.holdem.cl.cl_hud.html">core.plugins.holdem.cl.cl_hud</a></li>
+<li><a href="../../modules/core.plugins.holdem.cl.cl_render.html">core.plugins.holdem.cl.cl_render</a></li>
+<li><a href="../../modules/core.plugins.holdem.cl.cl_ui.html">core.plugins.holdem.cl.cl_ui</a></li>
+<li><a href="../../modules/core.plugins.holdem.cl.cl_vec2.html">core.plugins.holdem.cl.cl_vec2</a></li>
+<li><a href="../../modules/core.plugins.holdem.cl_init.html">core.plugins.holdem.cl_init</a></li>
+<li><a href="../../modules/core.plugins.holdem.sh_cards.html">core.plugins.holdem.sh_cards</a></li>
+<li><a href="../../modules/core.plugins.holdem.sh_config.html">core.plugins.holdem.sh_config</a></li>
+<li><a href="../../modules/core.plugins.holdem.sh_init.html">core.plugins.holdem.sh_init</a></li>
+<li><a href="../../modules/core.plugins.holdem.sv.sv_commands.html">core.plugins.holdem.sv.sv_commands</a></li>
+<li><a href="../../modules/core.plugins.holdem.sv.sv_game.html">core.plugins.holdem.sv.sv_game</a></li>
+<li><a href="../../modules/core.plugins.holdem.sv.sv_net.html">core.plugins.holdem.sv.sv_net</a></li>
+<li><a href="../../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><a href="../../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
+<li><a href="../../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../../modules/core.plugins.lite_character.cl_editor.html">core.plugins.lite_character.cl_editor</a></li>
+<li><a href="../../modules/core.plugins.lite_character.cl_init.html">core.plugins.lite_character.cl_init</a></li>
+<li><a href="../../modules/core.plugins.lite_character.cl_notches.html">core.plugins.lite_character.cl_notches</a></li>
+<li><a href="../../modules/core.plugins.lite_character.sh_debug.html">core.plugins.lite_character.sh_debug</a></li>
+<li><a href="../../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
+<li><a href="../../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
+<li><a href="../../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../../modules/core.plugins.maintenance.entities.cityrp_rockfall.shared.html">core.plugins.maintenance.entities.cityrp_rockfall.shared</a></li>
+<li><a href="../../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
+<li><a href="../../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
+<li><a href="../../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
+<li><a href="../../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
+<li><a href="../../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../../modules/core.plugins.sv_disable_cat.html">core.plugins.sv_disable_cat</a></li>
+<li><a href="../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
+<li><a href="../../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
+<li><a href="../../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
+<li><a href="../../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
+<li><a href="../../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../modules/core.plugins.website_rewards.cl_init.html">core.plugins.website_rewards.cl_init</a></li>
+<li><a href="../../modules/core.plugins.website_rewards.sh_init.html">core.plugins.website_rewards.sh_init</a></li>
+<li><a href="../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../../modules/dumper.html">dumper</a></li>
+<li><a href="../../modules/entities.cityrp_peephole.html">entities.cityrp_peephole</a></li>
+<li><a href="../../modules/env.html">env</a></li>
+<li><a href="../../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
+<li><a href="../../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
+<li><a href="../../modules/plugins.worldprops.html">plugins.worldprops</a></li>
+<li><a href="../../modules/sh_init.html">sh_init</a></li>
+<li><a href="../../modules/temar.html">temar</a></li>
+<li><a href="../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
+</ul>
+</details>
+<div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Session artifacts</h1></div><div class="ll-module-body"><p>What a skill session produces, and where each kind of output must end up. Two rules, split by kind:
+<strong>documents</strong> go to a branch and a draft PR, <strong>decided work</strong> goes to issues. Nothing is left in the
+transcript.</p>
+<p><code>master</code> accepts direct pushes for a docs-only change, but documents reach it through a PR anyway:
+the PR is where the review happens and where the record of what the document was for lives.</p>
+<h2 id="documents-branch-and-draft-pr">Documents: branch and draft PR</h2>
+<p>Any Markdown artifact a skill writes into the repo — an ADR, a design document, research findings,
+a glossary change — is committed to a branch and raised as a <strong>draft PR</strong>.</p>
+<p><strong>One PR per session, not per artifact.</strong> A session producing two ADRs and a glossary change opens
+one branch and one draft PR carrying all three.</p>
+<h3 id="branch-naming">Branch naming</h3>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Path in repo</th>
+<th>Branch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADR</td>
+<td><code>docs/adr/NNNN-&lt;slug&gt;.md</code></td>
+<td><code>docs/adr/&lt;slug&gt;</code></td>
+</tr>
+<tr>
+<td>Design document, or a spec kept as a document</td>
+<td><code>docs/design/&lt;topic&gt;/&lt;stage&gt;.md</code></td>
+<td><code>docs/design/&lt;topic&gt;</code></td>
+</tr>
+<tr>
+<td>Research findings</td>
+<td><code>docs/design/&lt;topic&gt;/research-&lt;slug&gt;.md</code></td>
+<td><code>docs/design/&lt;topic&gt;</code></td>
+</tr>
+<tr>
+<td><code>CONTEXT.md</code> glossary edits</td>
+<td><code>CONTEXT.md</code></td>
+<td><code>docs/context/&lt;slug&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>Where one session produces several kinds, name the branch for the session's topic using the prefix
+of the dominant artifact.</p>
+<p><strong>One folder per topic.</strong> Every document about the same topic lands in that topic's existing
+folder: successive stages of a design doc, a later redesign, the research that fed it. Coming back
+to a topic months later means adding a file to <code>docs/design/&lt;topic&gt;/</code>, never creating a
+<code>docs/design/&lt;topic&gt;-v2/</code> sibling. The folder is the topic's whole history, in order.</p>
+<p>That includes research: findings live beside the design they feed, as <code>research-&lt;slug&gt;.md</code> in the
+same topic folder, rather than in a parallel tree of their own. A topic's research and its design
+are read together, and splitting them by kind means neither half points at the other.</p>
+<p>ADRs are the exception: they stay flat and numbered in <code>docs/adr/</code>, because the number <em>is</em> the
+ordering and <code>/domain-modeling</code> writes them that way. Several ADRs on one topic are still several
+flat files.</p>
+<p>These branches deliberately omit the <code>dev/</code> prefix. <a href="https://github.com/limelight-development/cityrp2/blob/master/AGENTS.md#branching">AGENTS.md</a> requires
+<code>dev/</code> for anything deployable and exempts &quot;doc-topic edits, other <code>.md</code> files, and similar non-code
+changes&quot; — which is exactly what these are. A <code>docs/</code> branch tells the deploy pipeline it carries no
+game code.</p>
+<h3 id="contextmd-is-still-captured-inline">CONTEXT.md is still captured inline</h3>
+<p><code>/domain-modeling</code> writes glossary terms the moment they crystallise, mid-conversation, and that
+behaviour does not change. What changes is the destination: those edits accumulate in the working
+tree and go out on the session's artifact branch at the end, with the rest of the session's
+documents.</p>
+<h3 id="the-draft-pr">The draft PR</h3>
+<p>Open it as soon as the first artifact is committed, so the work is visible while still in progress:</p>
+<pre><code class="language-bash">gh pr create --draft --base master --title &quot;docs: &lt;session topic&gt;&quot; --body-file pr-body.md
+</code></pre>
+<p>The body says what the session was, what each artifact decides, and links any issue that prompted
+it. Mark it ready for review when the session ends.</p>
+<p>Delete the branch by hand once merged. Nothing on this repo prunes it for you, and the remote
+carries the backlog to prove it.</p>
+<h3 id="exceptions">Exceptions</h3>
+<ul>
+<li><strong><code>/improve-codebase-architecture</code></strong> writes its HTML report to the OS temp directory by design, so
+nothing lands in the repo. No branch, no PR.</li>
+<li><strong><code>/prototype</code></strong> commits throwaway code to its own throwaway branch and leaves a context pointer on
+the issue. That branch is a <em>primary source</em>, not an answer — the verdict is captured on the issue
+and only the validated decision reaches <code>master</code> — so it opens no PR.</li>
+<li><strong><code>/implement</code></strong> produces code, not documents. See below.</li>
+</ul>
+<h2 id="code-implement">Code: <code>/implement</code></h2>
+<p><code>/implement</code> follows the repo's own branching rules rather than the document rules above, because
+its output is deployable:</p>
+<ul>
+<li>
+<p>Branch <code>dev/&lt;author&gt;/&lt;slug&gt;</code> cut from <code>master</code>. The <code>dev/</code> prefix is what triggers automatic
+deploys (<a href="https://github.com/limelight-development/cityrp2/blob/master/AGENTS.md#branching">AGENTS.md</a>).</p>
+</li>
+<li>
+<p>Conventional Commits on each commit (<code>fix:</code>, <code>feat:</code>, <code>chore:</code>).</p>
+</li>
+<li>
+<p>A <strong>draft PR</strong> opened once the first commit lands, marked ready when the work is done.</p>
+</li>
+<li>
+<p><code>public=</code> goes on the <strong>PR title only</strong>, never on a leaf commit. GitHub squash-merges the title
+and body into one message, so a <code>public=</code> on a leaf is parsed a second time by the changelog
+webhook. See <a href="../commit-message-conventions.html">commit-message-conventions.md</a>.</p>
+</li>
+<li>
+<p>Before marking the PR ready, run both diff-scoped gates from
+<a href="https://github.com/limelight-development/cityrp2/blob/master/AGENTS.md#verifying-changes">AGENTS.md</a>. This repo has no typechecker and no test suite, so
+where the skill says &quot;run typechecking&quot; and &quot;the full test suite&quot;, it means these:</p>
+<pre><code class="language-bash">python3 .github/scripts/lint-diff.py --base origin/master gamemodes/cityrp_2_by_limelightgaming
+python3 .github/scripts/standards-diff.py --base origin/master
+</code></pre>
+</li>
+</ul>
+<h2 id="specs-and-decided-work-issues">Specs and decided work: issues</h2>
+<p>A finished spec is never left in the conversation. Whatever its size, it is written to GitHub as one
+or more issues, typed so a later session can pick it up:</p>
+<table>
+<thead>
+<tr>
+<th>What was decided</th>
+<th>Issue type</th>
+<th>Picked up by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A single implementable piece of work</td>
+<td><code>Task</code></td>
+<td><code>/implement</code></td>
+</tr>
+<tr>
+<td>A body of work spanning several tasks</td>
+<td><code>Scheme of Work</code> + sub-issues</td>
+<td><code>/to-tickets</code> decomposes it</td>
+</tr>
+<tr>
+<td>An investigation someone must do first</td>
+<td><code>Research</code></td>
+<td><code>/research</code></td>
+</tr>
+<tr>
+<td>A question still needing a decision</td>
+<td><code>Discussion</code></td>
+<td><code>/grilling</code></td>
+</tr>
+<tr>
+<td>A defect confirmed along the way</td>
+<td><code>Bug</code></td>
+<td><code>/implement</code></td>
+</tr>
+</tbody>
+</table>
+<p>Set Priority and Effort per <a href="issue-tracker.html">issue-tracker.md</a>. A spec issue is born triaged, so
+it carries no <code>review-required</code>.</p>
+<h3 id="capture-the-sidebar">Capture the sidebar</h3>
+<p>Anything raised in passing that is real work but not this session's point — the &quot;oh, we also need
+to…&quot; — gets its own issue <strong>before the session ends</strong>, separate from the spec the session is
+producing.</p>
+<ul>
+<li>File it with the type that matches what it actually is, and a body that stands alone: someone
+reading it cold must not need this conversation to understand it.</li>
+<li>Link it back with a <code>#</code>-reference inside a sentence that carries the reason, never a bare number:
+&quot;Surfaced while specifying <a href="https://github.com/limelight-development/cityrp2/issues/3401">#3401</a> — same locker loadout path.&quot;</li>
+<li>If it genuinely blocks the main work, wire it with <code>--add-blocked-by</code> rather than describing the
+dependency in prose.</li>
+<li>In a <code>/wayfinder</code> session, a sidebar beyond the destination is still filed as its own issue, and
+the map's Out of scope section links to it. Out of scope means &quot;not on this route&quot;, not &quot;not worth
+doing&quot;.</li>
+</ul></div>
+		</div>
+	</div>
+</div>
+<script>
+var ROOT = "../../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); input.blur(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+
+	// "/" jumps to the box, unless the reader is already typing somewhere -
+	// preventDefault stops the slash itself landing in the field.
+	document.addEventListener("keydown", function (event) {
+		if (event.key !== "/" || event.ctrlKey || event.metaKey || event.altKey) { return; }
+		var active = document.activeElement;
+		if (active && (active.isContentEditable
+			|| /^(input|textarea|select)$/i.test(active.tagName))) { return; }
+		event.preventDefault();
+		input.focus();
+		input.select();
+	});
+})();
+</script>
+</body>
+</html>

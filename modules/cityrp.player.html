@@ -29,7 +29,7 @@
 <li><a href="#Tables">Tables</a></li>
 <li><a href="#Fields">Fields</a></li>
 </ul></div>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">36</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">42</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -51,6 +51,8 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/agents/index.html">Agents</a>
+</li>
 <li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
 </li>
 <li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
@@ -109,6 +111,7 @@
 </details>
 <details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
 <ul class="ll-kind-body nowrap">
+<li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
 <li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
 <li><a href="../modules/CPPI.html">CPPI</a></li>
@@ -148,6 +151,7 @@
 <li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
 <li><strong>cityrp.player</strong></li>
 <li><a href="../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../modules/cityrp.playermodelSkins.html">cityrp.playermodelSkins</a></li>
 <li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
 <li><a href="../modules/cityrp.remote.html">cityrp.remote</a></li>
 <li><a href="../modules/cityrp.settings.html">cityrp.settings</a></li>
@@ -192,8 +196,6 @@
 <li><a href="../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
 <li><a href="../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
 <li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
-<li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
-<li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
 <li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
 <li><a href="../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
 <li><a href="../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
@@ -344,9 +346,11 @@
 <div class="ll-module-body"><p>Server-side player library: name validation, player lookup/resolution, networked player-data replication, database save queries, and the per-tick player update loop.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.player.get"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.get<span class="ll-args">(name)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a>, boolean|table&lt;number, <a href="Player.html">Player</a>&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L255">Source ☍</a></dt>
+<dt><a name="cityrp.player.get"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.get<span class="ll-args">(name)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a>, boolean|table&lt;number, <a href="Player.html">Player</a>&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L257">Source ☍</a></dt>
 <dd>
-<p>Finds a player by exact UserID, a STEAM_ SteamID, or a case-insensitive partial name match.</p>
+<p>Finds a player by exact UserID, a STEAM_ SteamID, an exact name, or a case-insensitive
+partial name match. An exact name wins outright: &quot;Josh&quot; resolves to Josh even while
+Joshua, whose name contains it, is connected.</p>
 
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
@@ -359,7 +363,7 @@
 </ol>
 
 </dd>
-<dt><a name="cityrp.player.getDataKeyValues"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getDataKeyValues<span class="ll-args">(player)</span><span class="ll-returns"> → string, string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L485">Source ☍</a></dt>
+<dt><a name="cityrp.player.getDataKeyValues"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getDataKeyValues<span class="ll-args">(player)</span><span class="ll-returns"> → string, string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L502">Source ☍</a></dt>
 <dd>
 <p>Builds a MySQL-escaped, comma-separated column list and matching value list for a player's saved fields.
 Intended for building an INSERT statement (see <a href="cityrp.player.html#cityrp.player.getDataUpdateQuery">cityrp.player.getDataUpdateQuery</a> for UPDATE).</p>
@@ -375,7 +379,7 @@ Intended for building an INSERT statement (see <a href="cityrp.player.html#cityr
 </ol>
 
 </dd>
-<dt><a name="cityrp.player.getDataUpdateQuery"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getDataUpdateQuery<span class="ll-args">(player)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L550">Source ☍</a></dt>
+<dt><a name="cityrp.player.getDataUpdateQuery"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getDataUpdateQuery<span class="ll-args">(player)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L567">Source ☍</a></dt>
 <dd>
 <p>Builds an UPDATE query saving a player's data, guarded by an optimistic <code>_TimePlayed</code> check.
 Saves a reduced column set on build/event servers or when saving is disabled.</p>
@@ -390,7 +394,7 @@ Saves a reduced column set on build/event servers or when saving is disabled.</p
 </ol>
 
 </dd>
-<dt><a name="cityrp.player.getid"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getid<span class="ll-args">(steamid)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L335">Source ☍</a></dt>
+<dt><a name="cityrp.player.getid"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getid<span class="ll-args">(steamid)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L352">Source ☍</a></dt>
 <dd>
 <p>Finds a player by exact SteamID.</p>
 
@@ -404,7 +408,7 @@ Saves a reduced column set on build/event servers or when saving is disabled.</p
 </ol>
 
 </dd>
-<dt><a name="cityrp.player.getig"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getig<span class="ll-args">(name)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a>, boolean|table&lt;number, <a href="Player.html">Player</a>&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L291">Source ☍</a></dt>
+<dt><a name="cityrp.player.getig"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getig<span class="ll-args">(name)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a>, boolean|table&lt;number, <a href="Player.html">Player</a>&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L308">Source ☍</a></dt>
 <dd>
 <p>Finds a human player by exact UserID, exact RP name, or a case-insensitive partial in-game name match.</p>
 
@@ -419,7 +423,7 @@ Saves a reduced column set on build/event servers or when saving is disabled.</p
 </ol>
 
 </dd>
-<dt><a name="cityrp.player.getplate"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getplate<span class="ll-args">(plate)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L368">Source ☍</a></dt>
+<dt><a name="cityrp.player.getplate"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getplate<span class="ll-args">(plate)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L385">Source ☍</a></dt>
 <dd>
 <p>Finds a player by their stored vehicle plate.</p>
 
@@ -433,7 +437,7 @@ Saves a reduced column set on build/event servers or when saving is disabled.</p
 </ol>
 
 </dd>
-<dt><a name="cityrp.player.getuniqueid"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getuniqueid<span class="ll-args">(uid)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L353">Source ☍</a></dt>
+<dt><a name="cityrp.player.getuniqueid"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.getuniqueid<span class="ll-args">(uid)</span><span class="ll-returns"> → boolean|<a href="Player.html">Player</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L370">Source ☍</a></dt>
 <dd>
 <p>Finds a player by exact UniqueID.</p>
 
@@ -462,7 +466,7 @@ Saves a reduced column set on build/event servers or when saving is disabled.</p
 </ol>
 
 </dd>
-<dt><a name="cityrp.player.notifyAll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.notifyAll<span class="ll-args">(message, class)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L396">Source ☍</a></dt>
+<dt><a name="cityrp.player.notifyAll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.notifyAll<span class="ll-args">(message, class)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L413">Source ☍</a></dt>
 <dd>
 <p>Notifies every player using Garry's hint messages, and echoes the message to console.</p>
 
@@ -474,7 +478,7 @@ Saves a reduced column set on build/event servers or when saving is disabled.</p
 
 
 </dd>
-<dt><a name="cityrp.player.playerstostring"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.playerstostring<span class="ll-args">(players)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L383">Source ☍</a></dt>
+<dt><a name="cityrp.player.playerstostring"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.playerstostring<span class="ll-args">(players)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L400">Source ☍</a></dt>
 <dd>
 <p>Formats a list of players as a comma-separated &quot;Name(UserID)&quot; string.</p>
 
@@ -500,7 +504,7 @@ Saves a reduced column set on build/event servers or when saving is disabled.</p
 
 
 </dd>
-<dt><a name="cityrp.player.printMessageAll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.printMessageAll<span class="ll-args">(message)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L407">Source ☍</a></dt>
+<dt><a name="cityrp.player.printMessageAll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.printMessageAll<span class="ll-args">(message)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L424">Source ☍</a></dt>
 <dd>
 <p>Prints a message to every player's chat area and console, and echoes it to server console.</p>
 
@@ -511,7 +515,7 @@ Saves a reduced column set on build/event servers or when saving is disabled.</p
 
 
 </dd>
-<dt><a name="cityrp.player.printMessageInRadius"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.printMessageInRadius<span class="ll-args">(message, position, radius)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L419">Source ☍</a></dt>
+<dt><a name="cityrp.player.printMessageInRadius"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.printMessageInRadius<span class="ll-args">(message, position, radius)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L436">Source ☍</a></dt>
 <dd>
 <p>Prints a message to the chat area and console of every player within a radius of a position.</p>
 
@@ -557,7 +561,7 @@ Prefer this over hand-rolling <code><a href="cityrp.player.html#cityrp.player.ge
 </ol>
 
 </dd>
-<dt><a name="cityrp.player.saveDataAll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.saveDataAll<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L623">Source ☍</a></dt>
+<dt><a name="cityrp.player.saveDataAll"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.saveDataAll<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L640">Source ☍</a></dt>
 <dd>
 <p>Bulk-saves every initialized player's data with a single multi-row INSERT ... ON DUPLICATE KEY UPDATE query.
 Saves a reduced column set on build/event servers or when saving is disabled.</p>
@@ -631,7 +635,7 @@ Saves a reduced column set on build/event servers or when saving is disabled.</p
 
 
 </dd>
-<dt><a name="cityrp.player.updateindividualplayer"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.updateindividualplayer<span class="ll-args">(v)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L818">Source ☍</a></dt>
+<dt><a name="cityrp.player.updateindividualplayer"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.updateindividualplayer<span class="ll-args">(v)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L835">Source ☍</a></dt>
 <dd>
 <p>Runs a player's per-second update: salary, NSVars, fake-identity spoofing for hidden staff, tax, and networked local player variables.</p>
 
@@ -642,7 +646,7 @@ Saves a reduced column set on build/event servers or when saving is disabled.</p
 
 
 </dd>
-<dt><a name="cityrp.player.updateplayers"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.updateplayers<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L911">Source ☍</a></dt>
+<dt><a name="cityrp.player.updateplayers"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.player.updateplayers<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L928">Source ☍</a></dt>
 <dd>
 <p>Think-hooked driver that runs <a href="cityrp.player.html#cityrp.player.updateindividualplayer">cityrp.player.updateindividualplayer</a> for every player once per second, and fires PlayerTenthSecond every tick.</p>
 
@@ -650,7 +654,7 @@ Saves a reduced column set on build/event servers or when saving is disabled.</p
 
 
 </dd>
-<dt><a name="fl_tablesEqual"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">fl_tablesEqual<span class="ll-args">(tab1, tab2)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L725">Source ☍</a></dt>
+<dt><a name="fl_tablesEqual"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">fl_tablesEqual<span class="ll-args">(tab1, tab2)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L742">Source ☍</a></dt>
 <dd>
 <p>Shallow-compares two tables by value, keyed off tab1's entries.
 For some reason the tables weren't equal when they clearly were</p>
@@ -702,7 +706,7 @@ to gate the preload against fast-reconnect stale reads (see PlayerAuthed below).
 
 
 </dd>
-<dt><a name="d"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">d</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L595">Source ☍</a></dt>
+<dt><a name="d"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">d</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_player.lua#L612">Source ☍</a></dt>
 <dd>
 
 

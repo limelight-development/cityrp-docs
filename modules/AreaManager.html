@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>core.plugins.area.sv_init</title>
+	<title>AreaManager</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -27,8 +27,9 @@
 <div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
 <li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul></div>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">36</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">42</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -50,6 +51,8 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/agents/index.html">Agents</a>
+</li>
 <li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
 </li>
 <li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
@@ -108,6 +111,7 @@
 </details>
 <details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
 <ul class="ll-kind-body nowrap">
+<li><strong>AreaManager</strong></li>
 <li><a href="../modules/Array.html">Array</a></li>
 <li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
 <li><a href="../modules/CPPI.html">CPPI</a></li>
@@ -147,6 +151,7 @@
 <li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
 <li><a href="../modules/cityrp.player.html">cityrp.player</a></li>
 <li><a href="../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../modules/cityrp.playermodelSkins.html">cityrp.playermodelSkins</a></li>
 <li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
 <li><a href="../modules/cityrp.remote.html">cityrp.remote</a></li>
 <li><a href="../modules/cityrp.settings.html">cityrp.settings</a></li>
@@ -191,8 +196,6 @@
 <li><a href="../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
 <li><a href="../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
 <li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
-<li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
-<li><strong>core.plugins.area.sv_init</strong></li>
 <li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
 <li><a href="../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
 <li><a href="../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
@@ -339,12 +342,11 @@
 <div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.plugins.area.sv_init</h1></div>
-<div class="ll-module-body"><p>Name: &quot;sv_init.lua&quot;.
-Product: &quot;CityRP&quot;.</p></div>
+<div class="ll-module-header"><h1>AreaManager</h1></div>
+<div class="ll-module-body"><p>Draws the name of the area a player enters, and the developer overlay of every area.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="setHUD"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">setHUD<span class="ll-args">(ply, loc)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/area/sv_init.lua#L113">Source ☍</a></dt>
+<dt><a name="setHUD"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">setHUD<span class="ll-args">(ply, loc)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/area/sv_init.lua#L143">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -358,7 +360,17 @@ Product: &quot;CityRP&quot;.</p></div>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="data"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">data</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/area/sv_init.lua#L179">Source ☍</a></dt>
+<dt><a name="data"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">data</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/area/sv_init.lua#L209">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.areas"></a><span class="ll-realm state-client" title="Client">Client</span><strong class="ll-symbol">cityrp.areas</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/area/cl_init.lua#L39">Source ☍</a></dt>
 <dd>
 
 

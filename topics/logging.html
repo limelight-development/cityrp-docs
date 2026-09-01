@@ -41,7 +41,7 @@
 <li><a href="#examples">Examples</a></li>
 <li><a href="#api-reference">API Reference</a></li>
 </ul></div>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">36</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">42</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -63,6 +63,8 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/agents/index.html">Agents</a>
+</li>
 <li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
 </li>
 <li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
@@ -121,6 +123,7 @@
 </details>
 <details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
 <ul class="ll-kind-body nowrap">
+<li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
 <li><a href="../modules/CONSOLE.html">CONSOLE</a></li>
 <li><a href="../modules/CPPI.html">CPPI</a></li>
@@ -160,6 +163,7 @@
 <li><a href="../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
 <li><a href="../modules/cityrp.player.html">cityrp.player</a></li>
 <li><a href="../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../modules/cityrp.playermodelSkins.html">cityrp.playermodelSkins</a></li>
 <li><a href="../modules/cityrp.plugin.html">cityrp.plugin</a></li>
 <li><a href="../modules/cityrp.remote.html">cityrp.remote</a></li>
 <li><a href="../modules/cityrp.settings.html">cityrp.settings</a></li>
@@ -204,8 +208,6 @@
 <li><a href="../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
 <li><a href="../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
 <li><a href="../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
-<li><a href="../modules/core.plugins.area.cl_init.html">core.plugins.area.cl_init</a></li>
-<li><a href="../modules/core.plugins.area.sv_init.html">core.plugins.area.sv_init</a></li>
 <li><a href="../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
 <li><a href="../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
 <li><a href="../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
@@ -551,9 +553,22 @@ log:Raw(cityrp.logging.levels.INFO, &quot;Command executed: &quot;, cmd)
 <li>Plain Lua table containing structured key-value pairs for additional context</li>
 <li>Metadata is available to sinks for filtering, formatting, and persistence</li>
 <li>Any trailing table argument without metatable is treated as metadata</li>
+<li>Nested plain tables are expanded, so sinks receive real structure rather than a <code>table: 0x...</code> address. Players and entities are reduced to a name/class string at any depth, colours are kept as colours, and anything carrying a metatable is rendered via its own <code>__tostring</code></li>
 </ul>
 <p><strong>Example:</strong></p>
 <pre><code class="language-lua">logger:Info(&quot;Player &quot;, ply, &quot; connected from &quot;, ip, {country = &quot;US&quot;, new_player = true})
+</code></pre>
+<p><strong>Nested example:</strong></p>
+<pre><code class="language-lua">logger:Info(&quot;Loadout applied&quot;, {job = &quot;medic&quot;, loadout = {primary = &quot;ar2&quot;, ammo = 90}})
+</code></pre>
+<pre><code>[2025-12-14 13:22:10][jobs][INFO] Loadout applied
+{
+	job: medic
+	loadout: {
+		primary: ar2
+		ammo: 90
+	}
+}
 </code></pre>
 <h2 id="logger-hierarchy-and-inheritance">Logger Hierarchy and Inheritance</h2>
 <h3 id="dot-notated-namespaces">Dot-Notated Namespaces</h3>
@@ -635,7 +650,8 @@ cityrp_log_set root INFO
 <li>FATAL: bright red <code>Color(255, 0, 0)</code></li>
 </ul>
 </li>
-<li>Format example: <code>[2025-12-14 13:22:10][banking.sql][INFO] Message text {metadata}</code></li>
+<li>Format example: <code>[2025-12-14 13:22:10][banking.sql][INFO] Message text</code></li>
+<li>Metadata, if present, follows on its own lines via <code>dumper.inspect</code>, with nested tables indented</li>
 <li>When running as a multiplayer listen server, adds a CLIENT/SERVER realm indicator</li>
 </ul>
 <p><strong>cityrp.logs sink</strong> (<code>&quot;cityrp_logs&quot;</code>):</p>
@@ -728,7 +744,7 @@ to it. See <a href="plugins.html#keys">plugins.md</a>.</p>
 req_log:Info(&quot;Request started&quot;)
 </code></pre>
 </li>
-<li><strong>Limit metadata size</strong>: Library enforces safe limits (max 50 keys, strings truncated at 1024 chars by sinks)</li>
+<li><strong>Limit metadata size</strong>: Library enforces safe limits — max 50 keys per table, max 4 levels of nesting, max 250 key/value pairs across the whole tree, strings truncated at 1024 chars. A table cut short by any cap gains a <code>... = &lt;truncated&gt;</code> key so the reader can tell; one below the depth cap becomes <code>&lt;table: max depth&gt;</code></li>
 </ol>
 <h3 id="optimization-strategies">Optimization Strategies</h3>
 <ul>
@@ -741,7 +757,7 @@ req_log:Info(&quot;Request started&quot;)
 <h3 id="safety-guarantees">Safety Guarantees</h3>
 <ul>
 <li><strong>Never errors</strong>: Logging calls never throw errors, even with nil or malformed input</li>
-<li><strong>Safe serialization</strong>: Metadata serializer is bounded and non-recursive; handles circular refs gracefully</li>
+<li><strong>Safe serialization</strong>: Metadata serializer recurses into nested tables but is bounded on depth, per-table keys and total entries; a cycle is reported as <code>&lt;cyclic reference&gt;</code> rather than followed, and a value whose <code>__tostring</code> or iteration errors degrades the whole table to <code>&lt;error&gt;</code> instead of propagating</li>
 <li><strong>Sanitization</strong>: Sinks are responsible for sanitizing and escaping metadata and message content for their output target (console, DB, network)</li>
 </ul>
 <h3 id="security-notes">Security Notes</h3>
