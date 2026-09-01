@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Research: what else in this codebase has reinvented &quot;which boot is this&quot;?</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../../style.cd9354d8c3.css" type="text/css">
+</head>
+<body>
+<div class="ll-grain"></div>
+<header class="ll-header">
+	<div class="ll-header-inner">
+		<a class="ll-brand" href="../../../index.html">
+			<img src="../../../assets/logos/L2_blue.svg" alt="" width="26" height="26">
+			<span>CityRP Documentation</span>
+		</a>
+		<a class="ll-repo-link" href="https://github.com/limelight-development/cityrp2" target="_blank" rel="noreferrer">Repository</a>
+	</div>
+</header>
+<div id="container">
+	<div id="main">
+		<div id="navigation">
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs… (/)" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#1-refund_ents--a-lua-epoch-integer-at-plugin-file-scope">1. refund_ents — a Lua epoch integer at plugin file scope</a></li>
+<li><a href="#2-container_code--a-mysql-autoincrement-reached-by-correlated-subquery">2. container_code — a MySQL autoincrement reached by correlated subquery</a></li>
+<li><a href="#3-dblua--a-settings-row-with-an-out-of-repo-reader">3. db.lua — a settings row with an out-of-repo reader</a></li>
+<li><a href="#4-sv_logs--a-one-second-heartbeat-file-on-disk">4. sv_logs — a one-second heartbeat file on disk</a></li>
+<li><a href="#5-sv_logs--a-file-local-first-flag-as-a-once-per-boot-guard">5. sv_logs — a file-local first flag as a once-per-boot guard</a></li>
+<li><a href="#6-not-a-hit-up-is-an-uptime-command-not-a-boot-sentinel">6. Not a hit: up is an uptime command, not a boot sentinel</a></li>
+<li><a href="#7-dbconnected-as-everything-before-now-is-void--giveprops">7. DBConnected as &quot;everything before now is void&quot; — giveprops</a></li>
+<li><a href="#8-sv_auto_restart--curtime-as-world-load-uptime-correctly">8. sv_auto_restart — CurTime() as world-load uptime, correctly</a></li>
+<li><a href="#9-near-misses-and-distinct-shapes--and-why-each-is-excluded">9. Near misses and distinct shapes — and why each is excluded</a></li>
+<li><a href="#10-evidence-for-the-adrs-rule">10. Evidence for the ADR&#x27;s rule</a></li>
+<li><a href="#11-flagged-not-acted-on">11. Flagged, not acted on</a></li>
+<li><a href="#confidence">Confidence</a></li>
+<li><a href="#sources">Sources</a></li>
+</ul></div>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">44</span></summary>
+<ul class="ll-kind-body">
+<li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../../../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
+<li><a href="../../../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
+<li><a href="../../../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../../../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
+<li><a href="../../../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../../../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../../../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../../../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><a href="../../../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../../../topics/meska.html">MESKA</a></li>
+<li><a href="../../../topics/networking.html">Networking Library</a></li>
+<li><a href="../../../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../../../topics/plugins.html">Plugins</a></li>
+<li><a href="../../../topics/ui-scaling.html">UI Scaling</a></li>
+<li><a href="../../../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../../../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
+<li><a href="../../../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../../../topics/agents/index.html">Agents</a>
+</li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/index.html">Design Docs</a>
+<ul class="ll-topic-children">
+<li><a href="../../../topics/design/docs-layout-migration.html">Docs layout migration</a></li>
+<li><a href="../../../topics/design/items-registration.html">Class-Based Item Registration</a></li>
+<li class="ll-topic-folder"><a href="../../../topics/design/car-boosting/car-boosting.html">Car Boosting</a>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/design/clans/design.html">Clans</a>
+</li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/server-sessions/index.html">Server Sessions</a>
+<ul class="ll-topic-children">
+<li><strong>Research: what else in this codebase has reinvented &quot;which boot is this&quot;?</strong></li>
+<li><a href="../../../topics/design/server-sessions/research-fearlessrp-sessions-edge-cases.html">Research: FearlessRP&#x27;s `plugins/sessions` — which operational edge cases must CityRP2 carry?</a></li>
+<li><a href="../../../topics/design/server-sessions/research-gm-initialize-boot-predicate.html">Research: is `GM:Initialize` the right world-load boot predicate for `cityrp.session`?</a></li>
+<li><a href="../../../topics/design/server-sessions/research-mysql-table-name-config-keys.html">Research: does any server override `MySQL Entity Tracker Table` / `MySQL Online Log Table`?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
+</li>
+</ul></details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Items</h2></div><span class="ll-count">19</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/ITEM.html">ITEM</a></li>
+<li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
+<li><a href="../../../modules/ITEM.Ammo.html">ITEM.Ammo</a></li>
+<li><a href="../../../modules/ITEM.Card.html">ITEM.Card</a></li>
+<li><a href="../../../modules/ITEM.Clothing.html">ITEM.Clothing</a></li>
+<li><a href="../../../modules/ITEM.Collectable.html">ITEM.Collectable</a></li>
+<li><a href="../../../modules/ITEM.Food.html">ITEM.Food</a></li>
+<li><a href="../../../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
+<li><a href="../../../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../../../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
+<li><a href="../../../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
+<li><a href="../../../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
+<li><a href="../../../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
+<li><a href="../../../modules/ITEM.Sticker.html">ITEM.Sticker</a></li>
+<li><a href="../../../modules/ITEM.Suit.html">ITEM.Suit</a></li>
+<li><a href="../../../modules/ITEM.Uniform.html">ITEM.Uniform</a></li>
+<li><a href="../../../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
+<li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
+<li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Metatables</h2></div><span class="ll-count">3</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Entity.html">Entity</a></li>
+<li><a href="../../../modules/Player.html">Player</a></li>
+<li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Panels</h2></div><span class="ll-count">17</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../../../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../../../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../../../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../../../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../../../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../../../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../../../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../../../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../../../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../../../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../../../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../../../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../../../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/AreaManager.html">AreaManager</a></li>
+<li><a href="../../../modules/Array.html">Array</a></li>
+<li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
+<li><a href="../../../modules/CPPI.html">CPPI</a></li>
+<li><a href="../../../modules/DB.html">DB</a></li>
+<li><a href="../../../modules/Enumerations.html">Enumerations</a></li>
+<li><a href="../../../modules/GM.html">GM</a></li>
+<li><a href="../../../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
+<li><a href="../../../modules/Migrations.html">Migrations</a></li>
+<li><a href="../../../modules/SPropProtection.html">SPropProtection</a></li>
+<li><a href="../../../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../../../modules/bwep.html">bwep</a></li>
+<li><a href="../../../modules/cityrp.access.html">cityrp.access</a></li>
+<li><a href="../../../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+<li><a href="../../../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+<li><a href="../../../modules/cityrp.command.html">cityrp.command</a></li>
+<li><a href="../../../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../../../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../../../modules/cityrp.entity.html">cityrp.entity</a></li>
+<li><a href="../../../modules/cityrp.favorites.html">cityrp.favorites</a></li>
+<li><a href="../../../modules/cityrp.help.html">cityrp.help</a></li>
+<li><a href="../../../modules/cityrp.hints.html">cityrp.hints</a></li>
+<li><a href="../../../modules/cityrp.imageHosts.html">cityrp.imageHosts</a></li>
+<li><a href="../../../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+<li><a href="../../../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../../../modules/cityrp.itemmeta.html">cityrp.itemmeta</a></li>
+<li><a href="../../../modules/cityrp.layers.html">cityrp.layers</a></li>
+<li><a href="../../../modules/cityrp.legacy.functions.html">cityrp.legacy.functions</a></li>
+<li><a href="../../../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
+<li><a href="../../../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
+<li><a href="../../../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../../../modules/cityrp.logging.html">cityrp.logging</a></li>
+<li><a href="../../../modules/cityrp.logs.html">cityrp.logs</a></li>
+<li><a href="../../../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
+<li><a href="../../../modules/cityrp.membership.html">cityrp.membership</a></li>
+<li><a href="../../../modules/cityrp.model.html">cityrp.model</a></li>
+<li><a href="../../../modules/cityrp.network.html">cityrp.network</a></li>
+<li><a href="../../../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
+<li><a href="../../../modules/cityrp.player.html">cityrp.player</a></li>
+<li><a href="../../../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../../../modules/cityrp.playermodelSkins.html">cityrp.playermodelSkins</a></li>
+<li><a href="../../../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+<li><a href="../../../modules/cityrp.remote.html">cityrp.remote</a></li>
+<li><a href="../../../modules/cityrp.settings.html">cityrp.settings</a></li>
+<li><a href="../../../modules/cityrp.table.html">cityrp.table</a></li>
+<li><a href="../../../modules/cityrp.team.html">cityrp.team</a></li>
+<li><a href="../../../modules/cityrp.teslaCharger.html">cityrp.teslaCharger</a></li>
+<li><a href="../../../modules/cityrp.teslaChargerPrice.html">cityrp.teslaChargerPrice</a></li>
+<li><a href="../../../modules/cityrp.topHints.html">cityrp.topHints</a></li>
+<li><a href="../../../modules/cityrp.ui.html">cityrp.ui</a></li>
+<li><a href="../../../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../../../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
+<li><a href="../../../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../../../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
+<li><a href="../../../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../../../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../../../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../../../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../../../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../../../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../../../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../../../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_boneanimlib.html">core.plugins.animations.animationsapi.cl_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../../../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
+<li><a href="../../../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
+<li><a href="../../../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../../../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../../../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.cl_init.html">core.plugins.bodybags.entities.cityrp_bodybag.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.shared.html">core.plugins.bodybags.entities.cityrp_bodybag.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.cl_init.html">core.plugins.bodybags.entities.cityrp_evidence.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.init.html">core.plugins.bodybags.entities.cityrp_evidence.init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.shared.html">core.plugins.bodybags.entities.cityrp_evidence.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../../../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.giveprops.sv_init.html">core.plugins.giveprops.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_camera.html">core.plugins.holdem.cl.cl_camera</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_cards.html">core.plugins.holdem.cl.cl_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_chips.html">core.plugins.holdem.cl.cl_chips</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_hud.html">core.plugins.holdem.cl.cl_hud</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_render.html">core.plugins.holdem.cl.cl_render</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_ui.html">core.plugins.holdem.cl.cl_ui</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_vec2.html">core.plugins.holdem.cl.cl_vec2</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl_init.html">core.plugins.holdem.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_cards.html">core.plugins.holdem.sh_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_config.html">core.plugins.holdem.sh_config</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_init.html">core.plugins.holdem.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_commands.html">core.plugins.holdem.sv.sv_commands</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_game.html">core.plugins.holdem.sv.sv_game</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_net.html">core.plugins.holdem.sv.sv_net</a></li>
+<li><a href="../../../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_editor.html">core.plugins.lite_character.cl_editor</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_init.html">core.plugins.lite_character.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_notches.html">core.plugins.lite_character.cl_notches</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_debug.html">core.plugins.lite_character.sh_debug</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_rockfall.shared.html">core.plugins.maintenance.entities.cityrp_rockfall.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../../../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../../../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.sv_disable_cat.html">core.plugins.sv_disable_cat</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.cl_init.html">core.plugins.website_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.sh_init.html">core.plugins.website_rewards.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../../../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../../../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../../../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../../../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../../../modules/dumper.html">dumper</a></li>
+<li><a href="../../../modules/entities.cityrp_peephole.html">entities.cityrp_peephole</a></li>
+<li><a href="../../../modules/env.html">env</a></li>
+<li><a href="../../../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
+<li><a href="../../../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
+<li><a href="../../../modules/plugins.worldprops.html">plugins.worldprops</a></li>
+<li><a href="../../../modules/sh_init.html">sh_init</a></li>
+<li><a href="../../../modules/temar.html">temar</a></li>
+<li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
+</ul>
+</details>
+<div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Research: what else in this codebase has reinvented &quot;which boot is this&quot;?</h1></div><div class="ll-module-body"><ul>
+<li><strong>Ticket:</strong> <a href="https://github.com/limelight-development/cityrp2/issues/3434">limelight-development/cityrp2#3434</a></li>
+<li><strong>Parent map:</strong> <a href="https://github.com/limelight-development/cityrp2/issues/3431">#3431</a> — spec for a server-only <code>cityrp.session</code> library at
+<code>gamemode/core/libraries/sv_session.lua</code>.</li>
+<li><strong>Date:</strong> 2026-09-01</li>
+<li><strong>Status:</strong> Research complete. Planning only — no gamemode code was changed.</li>
+</ul>
+<p>Repo citations are <code>path:line</code> relative to <code>gamemodes/cityrp_2_by_limelightgaming/</code> unless the path
+starts <code>addons/</code>, <code>docs/</code>, <code>lua/</code>, or is <code>AGENTS.md</code>. Every hit below was confirmed by reading the
+surrounding code, not by trusting a grep line. Engine claims are quoted from
+<a href="https://wiki.facepunch.com/gmod">wiki.facepunch.com/gmod</a> and nothing else.</p>
+<p>Sibling research: <a href="research-gm-initialize-boot-predicate.html"><code>research-gm-initialize-boot-predicate.md</code></a>
+(<a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a>, the predicate) and <a href="research-fearlessrp-sessions-edge-cases.html"><code>research-fearlessrp-sessions-edge-cases.md</code></a>
+(<a href="https://github.com/limelight-development/cityrp2/issues/3433">#3433</a>, the operational edges).</p>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<p><strong>Boot identity has been reinvented at least six independent times, in four mutually
+incompatible representations, and no two of them agree on what a boot <em>is</em>.</strong> The two the map
+already knew about are the tip: the gamemode currently carries a Lua epoch integer
+(<code>refund_ents</code>), a MySQL autoincrement reached through a correlated subquery (<code>container_code</code> via
+<code>server_stats</code>), a <code>settings</code> key-value row read by an out-of-repo service (<code>db.lua</code>), and a
+one-second-heartbeat file on disk (<code>sv_logs</code>) — four separate stores, all recording &quot;the server
+started&quot;, all keyed differently, all written from a different point in the boot, none of them aware
+of the others.</p>
+<p>One further shape matters and is not a store at all: <strong><code>DBConnected</code> used as &quot;everything before now
+is void&quot;</strong>, which in <code>giveprops</code> deletes rows belonging to other live servers because the boot has
+no identity to scope the delete by.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Site</th>
+<th>Representation of &quot;this boot&quot;</th>
+<th>Wrong today?</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>refund_ents/sv_init.lua:21</code></td>
+<td>Lua <code>os.time()</code> at plugin file scope</td>
+<td><strong>Yes</strong> — unguarded; a re-include re-derives it</td>
+<td><strong>Migrate.</strong> Primary consumer, already named by the map.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>container_code/sv_dbcode.lua:14,61</code> + <code>init.lua:2978</code> + <code>server_stats</code></td>
+<td><code>MAX(session_id)</code> via correlated subquery, resolved at <em>query</em> time</td>
+<td><strong>Yes</strong> — the producing INSERT is a <code>timer.Simple</code> at <code>init.lua</code> file scope</td>
+<td><strong>Migrate.</strong> Retire <code>server_stats</code>; see the duplication case in §2.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>db.lua:72</code> (<code>settings.last_start_&lt;server&gt;</code>)</td>
+<td><code>os.time()</code> in a key-value row, written per DB connect</td>
+<td>No — but its only reader is <strong>out of repo</strong> (the changelogs service)</td>
+<td><strong>Keep writing it.</strong> An undeclared external contract; see §3.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>sv_logs.lua:121-126, 133-135</code></td>
+<td>A <code>_time.txt</code> heartbeat file rewritten every second</td>
+<td><strong>Yes</strong> — the read/append is at core-library file scope</td>
+<td><strong>Migrate.</strong> Wants <code>startTime</code> + the previous session's close-out.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>sv_logs.lua:195-204</code> (<code>local first = true</code>)</td>
+<td>A file-local boolean &quot;have I logged the start yet&quot;</td>
+<td><strong>Yes</strong> — a re-include re-arms it</td>
+<td><strong>Migrate.</strong> Exactly the <code>announced</code> guard <a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a> sketched.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>sv_commands.lua:3109-3115</code> + <code>discord_relay_free/sv_init.lua:279-281</code></td>
+<td><code>CurTime()</code> reported as uptime</td>
+<td>n/a — <strong>not a hit</strong></td>
+<td><strong>Excluded.</strong> An uptime readout, not a boot sentinel; see §6.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>giveprops/sv_init.lua:108-111</code></td>
+<td><code>DBConnected</code> as &quot;wipe everything older than this boot&quot;</td>
+<td><strong>Yes</strong> — unscoped <code>DELETE</code>, hits other live servers</td>
+<td><strong>Migrate (scope only)</strong> + raise a Bug (§7).</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>sv_auto_restart.lua:96-101</code></td>
+<td><code>CurTime()</code> as world-load uptime</td>
+<td>No</td>
+<td><strong>Leave alone.</strong> Correct for its own intent; optional tidy-up.</td>
+</tr>
+</tbody>
+</table>
+<p>Six implementations across five files, then. Three further sites (<code>carboosting</code>, <code>daynight</code>,
+<code>spawnpoints</code>) ask a <em>different</em> question —
+&quot;am I in a boot or a hot reload?&quot; — and answer it correctly today. They are not phase-one
+consumers, but they are the strongest evidence for the ADR's rule; see §9.</p>
+<hr />
+<h2 id="1-refund_ents--a-lua-epoch-integer-at-plugin-file-scope">1. <code>refund_ents</code> — a Lua epoch integer at plugin file scope</h2>
+<p><code>refund_ents/sv_init.lua:21-23</code>:</p>
+<pre><code class="language-lua">PLUGIN.session = os.time()
+PLUGIN.lastSession = 0
+PLUGIN.server = LLServer
+</code></pre>
+<p><strong>Predicate actually wanted: world load.</strong> The token is written as the <code>start_time</code> column of every
+tracked row and read back in <code>PLUGIN:Load</code> (<code>sv_init.lua:165-171</code>), which selects rows matching
+either <code>self.lastSession</code> or <code>self.session</code> and then splits them at <code>sv_init.lua:179</code>:</p>
+<pre><code class="language-lua">local current = row.start_time == self.session
+</code></pre>
+<p><code>current</code> rows get their ownership re-attached to the still-standing entity; everything else is
+refunded to inventory (<code>sv_init.lua:193-210</code>). <code>lastSession</code> is resolved on <code>DBConnected</code> by
+<code>SELECT MAX(start_time) … WHERE server = … AND start_time &lt; self.session</code> (<code>sv_init.lua:234-241</code>) —
+the only <code>MAX()</code>-over-a-boot-stamped-table in the gamemode.</p>
+<p><strong>Wrong today.</strong> Two ways, both already charted by <a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a> and repeated here for completeness:</p>
+<ul>
+<li>The derivation is unguarded. <code>luarun</code>, <code>sinc</code> and <code>lua_refresh_file</code> all re-execute a single
+file's scope without re-running <code>gamemode/sh_init.lua:11</code> (<code>cityrp = {}</code>), so a hot reload of this
+plugin mints a <em>new</em> session while every tracked entity is still physically standing. The next
+<code>PLUGIN:Load</code> classifies all of them as wiped and refunds them — the item is now in the player's
+inventory <em>and</em> on the ground.</li>
+<li><code>row.start_time == self.session</code> compares a DB result value to a Lua <code>number</code> with <code>==</code>
+(<code>sv_init.lua:179</code>). If MySQL marshals that column as a string the comparison is <code>false</code> for every
+row and the same duplication follows. Unverified against a live DB; carried forward from <a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a> §5(b).</li>
+</ul>
+<p><strong>Recommendation: migrate.</strong> This is the consumer the map already names, and the migration is
+smaller than &quot;adopt a hook&quot; — file scope is already the right predicate, it just needs to be the
+<em>library's</em> guarded file scope rather than the plugin's unguarded one.</p>
+<hr />
+<h2 id="2-container_code--a-mysql-autoincrement-reached-by-correlated-subquery">2. <code>container_code</code> — a MySQL autoincrement reached by correlated subquery</h2>
+<p>Three files and a table, none of which know about each other.</p>
+<p><strong>The producer</strong> — <code>gamemode/init.lua:2977-2980</code>:</p>
+<pre><code class="language-lua">-- Log server start for container system
+timer.Simple(10, function()
+	DB_MAIN:Run(&quot;INSERT INTO server_stats VALUES(NULL, NOW(), '&quot;.. LLServer .. &quot;')&quot;)
+end)
+</code></pre>
+<p><strong>The table</strong> — <code>gamemode/core/migrations/0001_baseline_live_schema.lua:770-775</code>:</p>
+<pre><code class="language-sql">CREATE TABLE IF NOT EXISTS `server_stats` (
+	`session_id` int NOT NULL AUTO_INCREMENT,
+	`startup_time` datetime NOT NULL,
+	`map` varchar(30) NULL,
+	PRIMARY KEY (`session_id`)
+) ENGINE=InnoDB CHARSET=latin1
+</code></pre>
+<p>Note the positional <code>VALUES(NULL, NOW(), LLServer)</code>: the column named <code>map</code> holds the <strong>server key</strong>
+(<code>v2d</code>, <code>v4b1</code>, …), not a map name. Every reader below therefore filters <code>WHERE map = &quot;&lt;LLServer&gt;&quot;</code>.</p>
+<p><strong>The consumers</strong> — <code>container_code/sv_dbcode.lua:14</code> (read) and <code>:61</code> (write):</p>
+<pre><code class="language-lua">container_id != (SELECT session_id FROM server_stats WHERE map = &quot;]] .. LLServer .. [[&quot; ORDER BY session_id DESC LIMIT 1)
+</code></pre>
+<pre><code class="language-lua">(SELECT session_id FROM server_stats WHERE map = &quot;]] .. LLServer ..[[&quot; ORDER BY session_id DESC LIMIT 1),
+</code></pre>
+<p>A 30-second timer (<code>sv_dbcode.lua:50-70</code>) snapshots every <code>cityrp_container</code>'s contents into
+<code>crash_container</code>, stamping the row with the current boot id; <code>/c crashed</code>
+(<code>sv_command_c.lua:100-103</code> → <code>checkCrashContainerDatabase</code>, <code>sv_dbcode.lua:2-47</code>) hands back the
+contents of any row <strong>not</strong> stamped with the current boot.</p>
+<p><strong>Predicate actually wanted: world load</strong> — &quot;is this snapshot from a run of the world that is now
+gone, or from the one I am standing in?&quot; Identical semantics to <code>refund_ents</code>, expressed in a
+completely different medium.</p>
+<p><strong>Wrong today — the concrete failure case.</strong> The boot id is not captured at boot; it is
+<em>re-resolved on every query</em> from whatever the newest <code>server_stats</code> row happens to be. The row that
+defines it is produced by a bare <code>timer.Simple(10, …)</code> sitting at file scope of <code>gamemode/init.lua</code>.
+Any re-execution of that file's scope — <code>luarun</code>, <code>sinc</code>, <code>lua_refresh_file</code>, i.e. exactly the
+vectors <a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a> §2 enumerates — arms a second timer and inserts a <strong>second</strong> <code>server_stats</code> row ten
+seconds later. The boot identity has now advanced with no restart and no <code>changelevel</code>. Every
+<code>crash_container</code> row written before that moment is instantly &quot;from a previous session&quot;, so every
+container in the world becomes eligible for <code>/c crashed</code> restore <em>while the physical container is
+still standing in front of the player holding the same items</em>. That is the <code>refund_ents</code>
+duplication bug in a second plugin, reachable by a different lever.</p>
+<p>Two lesser problems in the same code, worth recording because a migration will touch them:</p>
+<ul>
+<li><strong>The restore is dead.</strong> <code>sv_dbcode.lua:30-33</code> iterates the recovered items with the only
+inventory write commented out (<code>//cityrp.inventory.update(self, k, v)</code>) and then tells the player
+<code>&quot;Items have been placed in inventory&quot;</code>. Nothing is granted. Out of scope for <a href="https://github.com/limelight-development/cityrp2/issues/3431">#3431</a> — flagged
+in §10.</li>
+<li><strong><code>res[1]</code> is dereferenced unguarded.</strong> <code>sv_dbcode.lua:16-17</code> reads <code>res[1][&quot;json&quot;]</code> with no
+emptiness check, so <code>/c crashed</code> with nothing to restore errors inside the callback. Also §10.</li>
+</ul>
+<p><strong>Recommendation: migrate, and retire <code>server_stats</code> with it.</strong> <code>server_stats</code> exists solely to
+serve this subquery — <code>init.lua:2978</code> is its only writer and <code>sv_dbcode.lua:14,61</code> its only readers,
+repo-wide. Once <code>crash_container</code> rows carry the session's own identity, the table, the delayed
+timer, and the correlated subquery all go away together.</p>
+<hr />
+<h2 id="3-dblua--a-settings-row-with-an-out-of-repo-reader">3. <code>db.lua</code> — a <code>settings</code> row with an out-of-repo reader</h2>
+<p><code>gamemode/db.lua:71-72</code>, inside the successful-connect path:</p>
+<pre><code class="language-lua">local time = os.time()
+self:FRun(&quot;INSERT INTO %s (setting, value) VALUES ('%s', %s) ON DUPLICATE KEY UPDATE value = %s&quot;, cityrpserver[&quot;MySQL Settings Table&quot;], &quot;last_start_&quot; .. self.cfg[&quot;Server&quot;], time, time)
+</code></pre>
+<p><strong>Predicate actually wanted: &quot;when did this server last come up&quot;.</strong> Overwritten in place, so it is a
+<em>latest</em>-boot marker with no history — closer to <code>processId</code> in spirit than to a session id, though
+it is re-written on every <code>changelevel</code> too, so it is neither cleanly.</p>
+<p><strong>Not dead, and not this repo's to delete.</strong> A repo-wide grep for <code>last_start</code> returns exactly this
+one line — but the grep only covers this repository. The row is consumed by the <strong>changelogs
+service</strong> (<code>limelight/services/changelogs</code>, in WebEnv), which reads <code>last_start_&lt;server&gt;</code> to know
+when each server last came up. The write is a live cross-service contract that happens to be
+invisible from here.</p>
+<p><strong>Recommendation: keep writing it, and say so in the ADR.</strong> <code>cityrp.session</code> may take ownership of
+the write — it is the natural owner of &quot;this server just came up&quot; — but the key name
+(<code>last_start_&lt;server&gt;</code>), its epoch-seconds value, its home in the settings table and its
+overwrite-in-place semantics are all fixed by a consumer outside this repository. Renaming,
+retyping or dropping it breaks changelogs silently, with the failure surfacing on a web dashboard
+rather than in any GMod console.</p>
+<p><strong>This is the sweep's own near-miss, and worth recording as one.</strong> &quot;Grep found no readers&quot; is not
+&quot;there are no readers&quot; in a multi-repo estate: three of this sweep's absence claims were repo-scoped
+greps, and this is the one that had a consumer on the other side of the boundary. The ADR's
+consumer list should be explicit that cross-repo readers exist for the session-adjacent data, so
+the phase-one migration does not delete another one.</p>
+<hr />
+<h2 id="4-sv_logs--a-one-second-heartbeat-file-on-disk">4. <code>sv_logs</code> — a one-second heartbeat file on disk</h2>
+<p><code>gamemode/core/libraries/sv_logs.lua:121-126</code>, at <strong>core-library file scope</strong>:</p>
+<pre><code class="language-lua">local ctime = file.Read(&quot;cityrp/&quot;..LLServer..&quot;_time.txt&quot;);
+ctime = tonumber(ctime)
+if ctime then
+	file.Append(&quot;cityrp/&quot;..LLServer..&quot;_prop_log.txt&quot;, os.date(&quot;%d/%m/%Y - %H:%M:%S&quot;, ctime)..&quot; ------------ Server Stop ------------\n&quot;);
+end
+file.Append(&quot;cityrp/&quot;..LLServer..&quot;_prop_log.txt&quot;, os.date(&quot;%d/%m/%Y - %H:%M:%S&quot;)..&quot; ------------ Server Start ------------\n&quot;);
+</code></pre>
+<p>fed by <code>sv_logs.lua:133-135</code>:</p>
+<pre><code class="language-lua">timer.Create(&quot;crashtimetracking&quot;, 1, 0, function()
+	file.Write(&quot;cityrp/&quot; .. LLServer .. &quot;_time.txt&quot;, os.time());
+end)
+</code></pre>
+<p><strong>Predicate actually wanted: the <em>previous</em> boot's end instant.</strong> The timer name says it outright —
+<code>crashtimetracking</code>. <code>GM:ShutDown</code> cannot record the stop time of a server that crashed, so this
+writes the wall clock once a second and lets the <em>next</em> boot read the last surviving value back as
+&quot;when the previous run died&quot;. It is a hand-rolled <code>last_heartbeat_at</code>, which is precisely the column
+<a href="https://github.com/limelight-development/cityrp2/issues/3433">#3433</a> §3 specifies on <code>server_sessions</code>.</p>
+<p><strong>Wrong today.</strong> Three ways:</p>
+<ul>
+<li><strong>The read-and-append is at file scope of a core library</strong>, so it is subject to the same reload
+vectors as everything else in <a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a> §2. A <code>lua_refresh_file</code> on <code>sv_logs.lua</code> appends a
+<code>Server Stop</code> line dated one second ago followed by a <code>Server Start</code> line dated now — a restart
+that never happened, written into the file admins read to reconstruct incidents. The heartbeat
+timer is meanwhile still running, so the &quot;stop&quot; it reports is a live server.</li>
+<li><strong>It cannot see a <code>changelevel</code>.</strong> The marker is keyed on <code>LLServer</code> and nothing else, so a map
+reload — which <code>sv_auto_restart.lua:93</code> performs on a timer and <code>!map</code>/<code>!restart</code> on demand —
+produces a <code>Server Stop</code>/<code>Server Start</code> pair indistinguishable from a genuine process restart.
+The distinction the whole of <a href="https://github.com/limelight-development/cityrp2/issues/3431">#3431</a> is built on is invisible here.</li>
+<li><strong>It is a fourth, parallel store.</strong> A crash on a server that has been up for hours leaves
+<code>server_stats</code> (§2), <code>settings.last_start_*</code> (§3), <code>refund_ents.start_time</code> (§1) and this file all
+holding different, unreconcilable answers about the same boot.</li>
+</ul>
+<p><strong>Recommendation: migrate.</strong> The prop log's <code>Server Stop</code> line wants the previous session row's
+<code>last_heartbeat_at</code>; the <code>Server Start</code> line wants this session's <code>opened_at</code>. Both are already in
+the <a href="https://github.com/limelight-development/cityrp2/issues/3433">#3433</a> schema, and moving the heartbeat onto the session library removes a per-second disk write
+in the bargain.</p>
+<hr />
+<h2 id="5-sv_logs--a-file-local-first-flag-as-a-once-per-boot-guard">5. <code>sv_logs</code> — a file-local <code>first</code> flag as a once-per-boot guard</h2>
+<p><code>gamemode/core/libraries/sv_logs.lua:195-204</code>:</p>
+<pre><code class="language-lua">local first = true
+hook.Add(&quot;DBConnected&quot;, &quot;LogRestart&quot;, function()
+	cityrp.logs.add(nil, nil, nil, nil, &quot;debug&quot;, &quot;dbconnected&quot;)
+	if first then
+		cityrp.logs.add(nil, nil, nil, nil, &quot;start&quot;)
+		…
+		first = false
+	end
+end)
+</code></pre>
+<p><strong>Predicate actually wanted: &quot;is this the first <code>DBConnected</code> of this boot&quot;.</strong> The <code>dbconnected</code>
+debug line is emitted every time; the audit-visible <code>start</code> event only for the first — i.e. the flag
+exists specifically because <code>DBConnected</code> can fire more than once per world load (a reconnect) while
+<code>start</code> must mean <em>the world came up</em>.</p>
+<p><strong>Wrong today.</strong> <code>first</code> is a <code>local</code> at file scope, so a re-include resets it to <code>true</code>. Any hot
+reload of <code>sv_logs.lua</code> followed by a DB reconnect writes a second <code>start</code> row for one world load,
+into the same audit log operators use to bound &quot;was the server up at the time&quot;. This is the exact
+trap <a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a> §3 warns about — a token in a <code>local</code> is re-derived by every re-include with nothing to
+guard it — and the exact boolean case <code>sh_tophints.lua:30</code> documents needing an <code>== nil</code> guard
+rather than an <code>or</code>.</p>
+<p><strong>Recommendation: migrate.</strong> <code>cityrp.session.announced</code> in the <a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a> sketch <em>is</em> this flag, correctly
+guarded and hanging off <code>cityrp</code> rather than a file-local. <code>sv_logs</code> should read it instead of
+keeping its own.</p>
+<hr />
+<h2 id="6-not-a-hit-up-is-an-uptime-command-not-a-boot-sentinel">6. Not a hit: <code>up</code> is an uptime command, not a boot sentinel</h2>
+<p>Listed here because it looks like a hit under the sweep's grep shapes and is not one, so the next
+person to run this sweep does not re-raise it.</p>
+<p><code>gamemode/core/sv_commands.lua:3109-3115</code>:</p>
+<pre><code class="language-lua">cityrp.acommands.AddCommand(&quot;up&quot;, function(ply)
+	ply:Notify(cityrp.formattime(CurTime(), true))
+end, 0, &quot;m&quot;, false, &quot;moderator&quot;,
+	&quot;&lt;none&gt;&quot;,
+	&quot;Check the server's current uptime.&quot;
+)
+</code></pre>
+<p>and its Discord twin, <code>discord_relay_free/sv_init.lua:279-281</code>:</p>
+<pre><code class="language-lua">if cmd == &quot;up&quot; then
+	self:rtnCmd(cityrp.formattime(CurTime(), true))
+</code></pre>
+<p><strong>This reads a duration and prints it.</strong> Nothing branches on it, nothing stores it, nothing compares
+it against a previous boot — it never functions as an identity or a sentinel, which is what the
+sweep is looking for. It belongs with the other duration readings in §9, not in the hit list: how
+long the current world has been up is a legitimate thing for <code>!up</code> to answer, and <code>CurTime()</code>
+answers it.</p>
+<p>The <code>changelevel</code> reset noted on the <a href="https://wiki.facepunch.com/gmod/Global.RealTime"><code>RealTime</code></a>
+wiki page is therefore not a defect here — it is the same reset that makes <code>sv_auto_restart</code>'s
+reading correct in §8. The same value reaches the audit log at <code>sv_logs.lua:191</code>, <code>:200</code> and
+<code>sv_temar.lua:414</code> with the same meaning.</p>
+<p><strong>Recommendation: leave alone.</strong> If <code>processId</code> later makes process uptime cheap to report
+alongside world uptime, <code>!up</code> is an obvious place to surface it — but that is a feature request
+against the command, not a session-identity consumer and not a migration this map owes anyone. The
+duplicated <code>CurTime()</code> literal across two files is a footgun <a href="https://github.com/limelight-development/cityrp2/issues/11">#11</a> shape worth tidying if either file
+is opened for another reason.</p>
+<hr />
+<h2 id="7-dbconnected-as-everything-before-now-is-void--giveprops">7. <code>DBConnected</code> as &quot;everything before now is void&quot; — <code>giveprops</code></h2>
+<p><code>gamemode/core/plugins/giveprops/sv_init.lua:108-111</code>:</p>
+<pre><code class="language-lua">-- Every loan is voided on boot, before any player can reconnect.
+hook.Add(&quot;DBConnected&quot;, &quot;GivePropsWipeLoansOnBoot&quot;, function()
+	DB_MAIN:Run(&quot;DELETE FROM giveprops_loans&quot;)
+end)
+</code></pre>
+<p><strong>Predicate actually wanted: &quot;rows that do not belong to my session&quot;.</strong> The table is a
+reconnect-recovery cache for in-memory prop-limit loans (<code>sv_init.lua:83-141</code>); a loan cannot
+outlive the world it was made in, so it is voided at boot. That is the right intent, and unlike §1–§4
+it does not roll its own token at all — which is precisely why it goes wrong.</p>
+<p><strong>Wrong today.</strong> <code>giveprops_loans</code> has no server column
+(<code>gamemode/core/migrations/0008_add_giveprops_loans.lua:8-13</code>: the primary key is
+<code>(giver_steamid64, recipient_steamid64)</code> and there is nothing else). With no identity to scope by,
+the delete is unqualified — so <strong>a boot of any Limelight server wipes every other live server's
+loans mid-session</strong>. Concretely: v4b1 hits its <code>sv_auto_restart</code> window and reloads; on v2d, two
+players who are still online and still holding a live loan have their row deleted underneath them.
+Their in-memory ledger and <code>cityrp.layers</code> entries survive, so nothing looks wrong until one of them
+disconnects and reconnects — <code>loadLoans</code> (<code>sv_init.lua:115-141</code>) then finds no rows, rebuilds
+nothing, and the loan silently evaporates: the giver gets their prop limit back, the recipient
+loses theirs. No log line records it, because from <code>giveprops</code>'s point of view nothing happened.</p>
+<p><strong>Recommendation: migrate (scope only), and raise the wipe as its own Bug.</strong> The library fix is
+one column plus <code>DELETE … WHERE session_id &lt;&gt; cityrp.session.id</code>; the ADR should name this site
+because it is the cleanest example of the ADR's own rule — the plugin did <em>not</em> invent a heuristic,
+and got a cross-server data-loss bug precisely because there was no shared one to ask.</p>
+<p>For contrast, the two neighbouring <code>DBConnected</code> cleanups are <strong>not</strong> boot-scoped and are correct as
+written: <code>policedb/sv_init.lua:359-361</code> (<code>created_at &lt; DATE_SUB(NOW(), INTERVAL 7 DAY)</code>) and
+<code>admin/sv_init.lua:215-217</code> (chat older than 7 days) are age-based retention that happens to be
+triggered at boot. Leave both alone.</p>
+<hr />
+<h2 id="8-sv_auto_restart--curtime-as-world-load-uptime-correctly">8. <code>sv_auto_restart</code> — <code>CurTime()</code> as world-load uptime, correctly</h2>
+<p><code>sv_auto_restart.lua:96-101</code>, with <code>time = CurTime()</code> from <code>:62</code>:</p>
+<pre><code class="language-lua">if (time &gt; PLUGIN.restartHardTime) and (count &lt;= PLUGIN.restartHardMax) then
+	PLUGIN.restarting = &quot;Hard&quot;
+end
+</code></pre>
+<p>against <code>PLUGIN.restartSoftTime = 14400</code> and <code>restartHardTime = 28800</code> (<code>:16, :22</code>).</p>
+<p><strong>Predicate actually wanted: uptime of <em>this world load</em></strong> — the thing a map reload is supposed to
+refresh. <code>CurTime()</code> resetting on <code>changelevel</code> is the desired behaviour here, not a bug: the
+countdown should restart after a reload.</p>
+<p><strong>Not wrong.</strong> Worth two notes for whoever migrates it later: <code>CurTime</code> is documented as <em>&quot;affected
+by various factors such as <code>host_timescale</code> … and the server being paused&quot;</em>, which <code>os.time() - cityrp.session.startTime</code> is not; and the plugin stores its countdown state on <code>PLUGIN</code> fields
+(<code>:33-40</code>) that a re-include resets, so a hot reload silently cancels a restart in progress.</p>
+<p><strong>Recommendation: leave alone</strong> for phase one. Name it in the ADR only as an example of a <em>correct</em>
+world-load reading, so the migration sweep does not mistake it for a bug.</p>
+<hr />
+<h2 id="9-near-misses-and-distinct-shapes--and-why-each-is-excluded">9. Near misses and distinct shapes — and why each is excluded</h2>
+<h3 id="per-player-per-connection-identity-the-onlinelog-family">Per-player, per-connection identity (the <code>onlinelog</code> family)</h3>
+<p><code>onlinelog/sv_init.lua:32</code> sets <code>ply._jointime = os.time()</code> on <code>PlayerInitialized</code> and
+<code>:13-29</code> mints a 10-character alphanumeric token per connection; both go into the online-log row at
+<code>:43</code> and both are used as the row's lookup key on update and disconnect (<code>:55, :62, :67</code>).</p>
+<p>This is <strong>per-player connection identity, not boot identity</strong>, and the two must not be conflated:
+<code>_jointime</code> changes many times within one boot and is scoped to a single player. It is the
+<code>player_sessions</code> half of the <a href="https://github.com/limelight-development/cityrp2/issues/3433">#3433</a> schema, not the <code>server_sessions</code> half. Excluded — but it does
+carry one lesson for the library: it is a second place where an integer epoch is used as a
+composite DB key (<code>WHERE … AND connect = '&lt;epoch&gt;'</code>), with the same string/number coercion exposure
+noted in §1. If the ADR is going to normalise a token type, this is the shape it is normalising
+against.</p>
+<h3 id="curtimesystime-used-as-durations-not-restart-signals"><code>CurTime()</code>/<code>SysTime()</code> used as durations, not restart signals</h3>
+<p><code>derma/cl_notifications.lua</code> (<code>StartTime = SysTime()</code> throughout), <code>login_rewards/cl_init.lua:156</code>,
+<code>website_rewards/cl_init.lua:124</code>, <code>xp-bar/cl_init.lua:31,70</code>, <code>maintenance/cl_minigame.lua:47,130</code>,
+<code>carboosting/sv_init.lua:4047,4061</code>, <code>db.lua:155,193</code>. All measure an elapsed interval within a
+frame budget or a UI animation. None is asking &quot;did the server restart&quot;. Excluded.</p>
+<h3 id="terminology-collisions-that-will-show-up-in-any-future-grep">Terminology collisions that will show up in any future grep</h3>
+<p>Three places use the word <em>session</em> for something unrelated to a boot, and all three will surface in
+a naive sweep:</p>
+<ul>
+<li><code>propsave/sv_init.lua:53, 99, 108, 136, 185, 197</code> — &quot;prop session&quot; is a <strong>player-initiated manual
+save</strong> of their own props, keyed by SteamID and stored per-<code>LLServer</code> on disk (<code>:24, :155</code>). Not
+time-derived, not boot-scoped.</li>
+<li><code>entities/weapons/cityrp_lockpick/shared.lua:431, 616, 623</code> — <code>session</code> is the per-attempt
+lockpicking minigame state.</li>
+<li><code>referrals/sv_session.lua</code> and <code>referrals/cl_session.lua</code> — filenames only; the contents are the
+referral UI. This is the one that matters, because the new library's file is
+<code>gamemode/core/libraries/sv_session.lua</code> and the two will be a permanent source of confusion in
+file pickers and grep output. Worth a sentence in the ADR.</li>
+</ul>
+<h3 id="boot-time-reconciliation-that-is-already-correct">Boot-time reconciliation that is already correct</h3>
+<p><code>db.lua:73</code>, <code>init.lua:2400</code> and <code>sv_logs.lua:189</code> all run
+<code>UPDATE players SET _Online = 0 WHERE _Server = '&lt;server&gt;'</code> — on connect, on shutdown, and on
+<code>GM:ShutDown</code> respectively. This is genuine boot reconciliation of state a crash would have left
+stale, and it is <strong>the one place the codebase gets this right</strong>: the flag is per-server with no
+per-boot dimension, so a server key is the correct scope, and <code>sv_player.lua:471-486</code> documents at
+length why the preload path depends on that guarantee. Excluded, and worth citing in the ADR as the
+counterexample — scoping by server is right when the state has no boot dimension; §7 is what happens
+when it does.</p>
+<h3 id="clock-broadcast-not-identity">Clock broadcast, not identity</h3>
+<p><code>sv_player.lua:932-934</code> pushes <code>SetGlobalInt(&quot;cityrp_servertime&quot;, os.time())</code> once a second so
+clients share a wall clock. Not a boot marker. Excluded.</p>
+<h3 id="dead-schema">Dead schema</h3>
+<p><code>currentstats</code> (<code>migrations/0001_baseline_live_schema.lua:270-275</code>: <code>server</code>, <code>loading</code>, <code>ingame</code>,
+<code>admins</code>, <code>adminnames</code>) is a per-server live-status table with <strong>no reader and no writer anywhere in
+the repository</strong>. It is not a boot-identity reinvention, but it is a fifth abandoned attempt at
+server-state bookkeeping sitting in the baseline schema, and it belongs in whatever cleanup retires
+<code>server_stats</code>. Flagged in §10.</p>
+<h3 id="vendored-addon-code-not-consumers-to-migrate">Vendored addon code (not consumers to migrate)</h3>
+<p>Swept <code>addons/</code> and <code>lua/</code> explicitly. <strong>No vendored addon carries a boot heuristic of any kind</strong> —
+there is no <code>server_stats</code> reader, no <code>os.time() - RealTime()</code>, no file-scope boot token outside the
+gamemode. The two file-scope <code>os.time()</code> captures that exist are both <code>damagelog</code>
+(<code>addons/damagelog/lua/damagelogs/server/oldlogs.lua:11</code>, a log-retention cutoff, and
+<code>addons/damagelog/lua/damagelogs/server/recording.lua:164-165</code>, minute-boundary alignment for its
+dump timer), and neither is boot identity. <code>addons/pcasino</code>'s <code>SetStartRoundIn(os.time())</code>
+(<code>lua/perfectcasino/core/sv_core.lua:80,117</code> and the table entities) is per-round betting-window
+state. <strong>Stated explicitly rather than silently omitted: none of these should be migrated, and a
+vendored addon that grew its own boot heuristic later would still not be a consumer</strong> — the whole
+point of <code>addons/</code> staying a clean drop-in replace.</p>
+<h3 id="the-adjacent-question-the-sweep-kept-hitting-am-i-a-boot-or-a-hot-reload">The adjacent question the sweep kept hitting: &quot;am I a boot or a hot reload?&quot;</h3>
+<p>Three sites ask a related but genuinely different question — not <em>which</em> boot, but <em>whether this
+file-scope execution is part of one</em>:</p>
+<ul>
+<li><code>carboosting/sv_init.lua:4049-4058</code> — a comment stating that <code>CityRP.Core.PostPluginLoad</code>
+(<code>sh_init.lua:217</code>) only fires on a full boot, followed by the same maintenance call made both
+immediately <em>and</em> from the hook, so a reloaded plugin still gets its fence NPCs. Paired with the
+entity sweep at <code>:543-552</code> that reconciles the world when the reload loses track of them.</li>
+<li><code>daynight/sv_init.lua:323-324</code> — <code>timer.Simple(0, bootstrap)</code> under the comment
+<em>&quot;Hot reload / late gamemode load: InitPostEntity may have already fired.&quot;</em></li>
+<li><code>spawnpoints/sv_init.lua:118-121</code> — a lazy cache fill for the same reason, commented as such.</li>
+</ul>
+<p>All three are <strong>correct today</strong> and none should be migrated in phase one. They are recorded here
+because they are the strongest evidence in the codebase that &quot;is this a boot?&quot; is a question plugins
+are already asking and answering three different ways — and because <code>cityrp.session</code> can answer it
+for free (the library's own token existing before a plugin's file scope runs <em>is</em> the reload signal).
+Flagged as fog in §10, not proposed as API.</p>
+<hr />
+<h2 id="10-evidence-for-the-adrs-rule">10. Evidence for the ADR's rule</h2>
+<p>The ADR wants to say: <em>future systems ask <code>cityrp.session</code> rather than rolling their own.</em> What the
+sweep proves, specifically:</p>
+<ol>
+<li>
+<p><strong>It gets reinvented roughly once per feature that needs it, not once ever.</strong> Six independent
+implementations across five files (§1–§5, §7): <code>refund_ents</code>, <code>container_code</code>, <code>db.lua</code>,
+<code>sv_logs</code> (twice) and <code>giveprops</code> — written by different authors across a decade of the
+codebase, none referencing another.</p>
+</li>
+<li>
+<p><strong>No two agree on the representation.</strong> A Lua epoch integer, a MySQL autoincrement, a key-value
+settings row, and a text file on disk. Four stores; a crash leaves all four holding different
+answers to &quot;when did this boot start&quot;, and there is no procedure — and no code — that reconciles
+them. One of the four (§3) is already load-bearing for a service in another repository, and
+nothing in this one says so.</p>
+</li>
+<li>
+<p><strong>The failure mode is always the same and always silent.</strong> Every wrong case in §1, §2, §4, §5
+and §7 is a re-execution of file scope that the author did not model: the code compiles, runs,
+and passes the case that was tested (a real restart), then misbehaves on a hot reload or on
+another server's restart with no error to read. That is AGENTS.md footgun <a href="https://github.com/limelight-development/cityrp2/issues/7">#7</a> stated as a
+measurement rather than a warning.</p>
+</li>
+<li>
+<p><strong>The two worst outcomes are duplication bugs in economy code.</strong> §1 and §2 are the same bug
+— &quot;still-standing thing classified as lost, refunded anyway&quot; — in two plugins, reachable by two
+different levers. The <code>refund_ents</code> variant has real history: the cross-player form of it
+(<code>todo/server-session-system.md</code>, issue <a href="https://github.com/limelight-development/cityrp2/issues/106">#106</a>) took five years to fix. §2 has not been reported,
+which is not evidence that it does not fire.</p>
+</li>
+<li>
+<p><strong>Not inventing a heuristic is not a defence either.</strong> §7 shows what the alternative looks like
+when no shared source of truth exists: <code>giveprops</code> correctly declined to roll its own token, had
+nothing to scope its cleanup by, and shipped an unqualified <code>DELETE</code> that reaches across the
+fleet. A library is not just a convenience for the systems that would otherwise reinvent it — it
+is the only thing that makes the correct scoping <em>expressible</em>.</p>
+</li>
+<li>
+<p><strong><code>server_stats</code> is the counterexample that proves the library needs to be a library.</strong> It is,
+structurally, exactly what <a href="https://github.com/limelight-development/cityrp2/issues/3431">#3431</a> asks for: one DB row per boot, with a server key and a start
+time, in the baseline schema since forever. It failed anyway, because it has no Lua-side owner —
+the token is re-resolved by subquery on every read, the producing INSERT is a naked timer at
+<code>init.lua</code> file scope, the column names lie about their contents, and no second consumer ever
+adopted it. A table is not an API.</p>
+</li>
+</ol>
+<hr />
+<h2 id="11-flagged-not-acted-on">11. Flagged, not acted on</h2>
+<p>For the map, or for their own tickets. <strong>Nothing below was changed and nothing below is in
+<a href="https://github.com/limelight-development/cityrp2/issues/3431">#3431</a>'s scope.</strong></p>
+<p><strong>New fog for the map</strong></p>
+<ul>
+<li><strong>&quot;Am I in a boot or a hot reload?&quot; is a second, distinct question the codebase keeps asking</strong>
+(§9, <code>carboosting</code>/<code>daynight</code>/<code>spawnpoints</code>). <code>cityrp.session</code> can answer it as a side effect —
+the token already existing when a plugin's file scope runs is the reload signal — but exposing
+that (<code>cityrp.session.IsBooting()</code> or similar) is a design decision, not a free consequence, and
+the three current call sites are correct without it. Deliberately not proposed as phase-one API.</li>
+<li><strong>Type discipline on the token.</strong> §1 (<code>row.start_time == self.session</code>) and §9 (<code>onlinelog</code>'s
+<code>connect = '&lt;epoch&gt;'</code> composite key) both compare a DB-marshalled value to a Lua number. If the
+library owns the token it should own its type and offer the comparison, rather than leaving each
+call site to get coercion right. Carried forward from <a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a> §5(b); the sweep found a second
+instance of the shape.</li>
+</ul>
+<p><strong>Candidate new tickets (Bug)</strong></p>
+<ul>
+<li>
+<p><strong><code>giveprops_loans</code> is wiped fleet-wide on any server's boot</strong> (§7). Cross-server data loss,
+independent of <a href="https://github.com/limelight-development/cityrp2/issues/3431">#3431</a> — the row needs a server (or session) column and the <code>DELETE</code> needs a
+<code>WHERE</code>. Sized small; the migration is one column.</p>
+</li>
+<li>
+<p><strong><code>/c crashed</code> grants nothing.</strong> <code>container_code/sv_dbcode.lua:30-33</code> — the inventory write is
+commented out and the player is told the items were restored. Player-facing, live.</p>
+</li>
+<li>
+<p><strong><code>/c crashed</code> errors when there is nothing to restore.</strong> <code>container_code/sv_dbcode.lua:16-17</code>
+dereferences <code>res[1][&quot;json&quot;]</code> with no emptiness guard.
+<strong>Out of scope / cleanup</strong></p>
+</li>
+<li>
+<p><strong><code>currentstats</code></strong> (<code>migrations/0001:270-275</code>) has no reader and no writer. Retire it alongside
+<code>server_stats</code>.</p>
+</li>
+<li>
+<p><strong><code>settings.last_start_&lt;server&gt;</code></strong> (<code>db.lua:72</code>) must <strong>not</strong> be cleaned up — its reader is the
+changelogs service, outside this repo (§3). Worth an ADR line so a future tidy-up does not remove
+it on the strength of a repo-wide grep.</p>
+</li>
+<li>
+<p><strong><code>sv_logs.lua</code>'s one-second <code>file.Write</code></strong> (<code>:133-135</code>) is a per-second disk write whose only
+purpose is the <code>Server Stop</code> line in §4. Migrating §4 removes it; worth noting as a small
+performance win rather than pure cleanup.</p>
+</li>
+<li>
+<p><strong>Naming collision:</strong> <code>gamemode/core/libraries/sv_session.lua</code> (new) vs
+<code>gamemode/core/plugins/referrals/sv_session.lua</code> (existing, unrelated). Not worth renaming the
+referrals file, but worth a line in the ADR so the next reader is not misled.</p>
+</li>
+</ul>
+<hr />
+<h2 id="confidence">Confidence</h2>
+<p><strong>Verified from source</strong> — every <code>path:line</code> citation, read in this worktree at <code>06338d9a5</code>. The
+absence claims were each checked by an explicit repo-wide grep: <code>last_start</code> (one hit in this repo,
+the writer — but see §3: the reader is the changelogs service in another repository, so this
+particular absence claim was wrong as first written);
+<code>server_stats</code> (one writer, two readers, one schema line); <code>currentstats</code> (schema only); file-scope
+<code>os.time()</code> assignment (one hit in the gamemode, <code>refund_ents/sv_init.lua:21</code>; one in vendored
+<code>damagelog</code>); <code>MAX(</code> over a boot-stamped table (one hit, <code>refund_ents/sv_init.lua:235</code>);
+<code>os.time() - RealTime()</code>/<code>SysTime()</code> (no hits anywhere, gamemode or addons).</p>
+<p><strong>Inferred</strong> — that the <code>container_code</code> reload path in §2 is live rather than prevented somewhere
+unread (the mechanism is confirmed; nobody has reported the bug). That the §7 loss sequence plays
+out as described end-to-end; the wipe, the missing column and <code>loadLoans</code>'s behaviour on an empty
+result are all confirmed in source, but the sequence has not been reproduced on a server.</p>
+<p><strong>Unverified</strong> — MySQL's marshalling of the <code>start_time</code> column as string vs number (§1), inherited
+from <a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a> and still needing a live check. Whether <code>-disableluarefresh</code> is set on Limelight boxes,
+which affects how easy the §2, §4 and §5 reload paths are to hit but not whether they exist.</p>
+<hr />
+<h2 id="sources">Sources</h2>
+<p><strong>Repo (this worktree, branch <code>claude/wayfinder-3431-3434-32da3c</code> at <code>06338d9a5</code>)</strong></p>
+<ul>
+<li><code>gamemode/init.lua:19-21, 2397-2401, 2977-2980</code></li>
+<li><code>gamemode/db.lua:57-76, 139-196</code></li>
+<li><code>gamemode/sh_init.lua:11, 108-109, 217</code></li>
+<li><code>gamemode/core/sv_commands.lua:3109-3115, 3831</code></li>
+<li><code>gamemode/core/libraries/sv_logs.lua:121-135, 188-204</code></li>
+<li><code>gamemode/core/libraries/sv_player.lua:450-495, 925-945</code></li>
+<li><code>gamemode/core/libraries/sv_temar.lua:89, 414, 419-431</code></li>
+<li><code>gamemode/core/libraries/sh_tophints.lua:15-32</code></li>
+<li><code>gamemode/core/libraries/sh_plugin.lua:1046</code></li>
+<li><code>gamemode/core/migrations/0001_baseline_live_schema.lua:259-275, 616-618, 770-775, 835-840</code></li>
+<li><code>gamemode/core/migrations/0008_add_giveprops_loans.lua:1-20</code></li>
+<li><code>gamemode/core/plugins/refund_ents/sv_init.lua:18-34, 96, 126, 157, 162-230, 231-246</code></li>
+<li><code>gamemode/core/plugins/container_code/sv_dbcode.lua</code> (whole file), <code>sv_command_c.lua:98-105</code>,
+<code>sv_init.lua</code> (whole file)</li>
+<li><code>gamemode/core/plugins/giveprops/sv_init.lua:62-141, 143-250</code></li>
+<li><code>gamemode/core/plugins/sv_auto_restart.lua:15-27, 43-46, 60-107</code></li>
+<li><code>gamemode/core/plugins/discord_relay_free/sv_init.lua:276-285</code></li>
+<li><code>gamemode/core/plugins/policedb/sv_init.lua:359-365</code>, <code>admin/sv_init.lua:215-217, 1085-1094</code></li>
+<li><code>gamemode/core/plugins/onlinelog/sv_init.lua:13-67</code></li>
+<li><code>gamemode/core/plugins/propsave/sv_init.lua:1-31, 53, 99, 155, 185, 197</code></li>
+<li><code>gamemode/core/plugins/carboosting/sv_init.lua:543-552, 4043-4058</code></li>
+<li><code>gamemode/core/plugins/daynight/sv_init.lua:30-95, 300-330</code></li>
+<li><code>gamemode/core/plugins/spawnpoints/sv_init.lua:108-125</code></li>
+<li><code>gamemode/core/plugins/beta/sv_init.lua:345</code>, <code>sv_item_db_update.lua:77</code></li>
+<li><code>entities/weapons/cityrp_lockpick/shared.lua:431, 616, 623</code></li>
+<li><code>addons/damagelog/lua/damagelogs/server/oldlogs.lua:11</code>, <code>server/recording.lua:164-165</code></li>
+<li><code>addons/pcasino/lua/perfectcasino/core/sv_core.lua:80, 117</code></li>
+<li><code>todo/server-session-system.md</code> (whole file)</li>
+<li><code>AGENTS.md</code> footguns <a href="https://github.com/limelight-development/cityrp2/issues/2">#2</a>, <a href="https://github.com/limelight-development/cityrp2/issues/7">#7</a>, <a href="https://github.com/limelight-development/cityrp2/issues/8">#8</a>, <a href="https://github.com/limelight-development/cityrp2/issues/11">#11</a>, <a href="https://github.com/limelight-development/cityrp2/issues/22">#22</a></li>
+</ul>
+<p><strong>Prior research in this folder</strong></p>
+<ul>
+<li><code>docs/design/server-sessions/research-gm-initialize-boot-predicate.md</code> (<a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a>)</li>
+<li><code>docs/design/server-sessions/research-fearlessrp-sessions-edge-cases.md</code> (<a href="https://github.com/limelight-development/cityrp2/issues/3433">#3433</a>)</li>
+</ul>
+<p><strong>Garry's Mod Wiki</strong></p>
+<ul>
+<li><a href="https://wiki.facepunch.com/gmod/Global.RealTime">https://wiki.facepunch.com/gmod/Global.RealTime</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/Global.CurTime">https://wiki.facepunch.com/gmod/Global.CurTime</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/Global.SysTime">https://wiki.facepunch.com/gmod/Global.SysTime</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/Auto_Refresh">https://wiki.facepunch.com/gmod/Auto_Refresh</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/GM:ShutDown">https://wiki.facepunch.com/gmod/GM:ShutDown</a></li>
+</ul></div>
+		</div>
+	</div>
+</div>
+<script>
+var ROOT = "../../../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); input.blur(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+
+	// "/" jumps to the box, unless the reader is already typing somewhere -
+	// preventDefault stops the slash itself landing in the field.
+	document.addEventListener("keydown", function (event) {
+		if (event.key !== "/" || event.ctrlKey || event.metaKey || event.altKey) { return; }
+		var active = document.activeElement;
+		if (active && (active.isContentEditable
+			|| /^(input|textarea|select)$/i.test(active.tagName))) { return; }
+		event.preventDefault();
+		input.focus();
+		input.select();
+	});
+})();
+</script>
+</body>
+</html>
