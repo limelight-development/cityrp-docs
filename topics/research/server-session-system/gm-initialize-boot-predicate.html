@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Is `GM:Initialize` the right world-load boot predicate for `cityrp.session`?</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../../style.cd9354d8c3.css" type="text/css">
+</head>
+<body>
+<div class="ll-grain"></div>
+<header class="ll-header">
+	<div class="ll-header-inner">
+		<a class="ll-brand" href="../../../index.html">
+			<img src="../../../assets/logos/L2_blue.svg" alt="" width="26" height="26">
+			<span>CityRP Documentation</span>
+		</a>
+		<a class="ll-repo-link" href="https://github.com/limelight-development/cityrp2" target="_blank" rel="noreferrer">Repository</a>
+	</div>
+</header>
+<div id="container">
+	<div id="main">
+		<div id="navigation">
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs… (/)" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
+<li><a href="#verdict">Verdict</a></li>
+<li><a href="#1-does-gminitialize-fire-exactly-once-per-map-load-and-what-happens-on-changelevel--map--gamemode-reload">1. Does GM:Initialize fire exactly once per map load, and what happens on changelevel / map / gamemode reload?</a></li>
+<li><a href="#2-can-the-plugin-loader-or-hot-reload-machinery-re-enter-it">2. Can the plugin loader or hot-reload machinery re-enter it?</a></li>
+<li><a href="#3-does-a-sv_sessionlua-loaded-from-includecorelibraries-survive-a-reload-of-itself">3. Does a sv_session.lua loaded from includeCore(&quot;libraries&quot;) survive a reload of itself?</a></li>
+<li><a href="#4-processid-keep-or-drop">4. processId: keep or drop?</a></li>
+<li><a href="#recommended-implementation">Recommended implementation</a></li>
+<li><a href="#correction-to-the-todo-docs-framing">Correction to the todo doc&#x27;s framing</a></li>
+<li><a href="#unverified--open-questions">Unverified / open questions</a></li>
+<li><a href="#sources">Sources</a></li>
+</ul></div>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">47</span></summary>
+<ul class="ll-kind-body">
+<li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../../../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
+<li><a href="../../../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
+<li><a href="../../../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../../../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
+<li><a href="../../../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../../../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../../../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../../../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><a href="../../../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../../../topics/meska.html">MESKA</a></li>
+<li><a href="../../../topics/networking.html">Networking Library</a></li>
+<li><a href="../../../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../../../topics/plugins.html">Plugins</a></li>
+<li><a href="../../../topics/ui-scaling.html">UI Scaling</a></li>
+<li><a href="../../../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../../../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
+<li><a href="../../../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../../../topics/agents/index.html">Agents</a>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/design/index.html">Design Docs</a>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
+</li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/research/index.html">Research</a>
+<ul class="ll-topic-children">
+<li class="ll-topic-folder is-open"><a href="../../../topics/research/server-session-system/index.html">Server Session System</a>
+<ul class="ll-topic-children">
+<li><strong>Is `GM:Initialize` the right world-load boot predicate for `cityrp.session`?</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Items</h2></div><span class="ll-count">19</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/ITEM.html">ITEM</a></li>
+<li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
+<li><a href="../../../modules/ITEM.Ammo.html">ITEM.Ammo</a></li>
+<li><a href="../../../modules/ITEM.Card.html">ITEM.Card</a></li>
+<li><a href="../../../modules/ITEM.Clothing.html">ITEM.Clothing</a></li>
+<li><a href="../../../modules/ITEM.Collectable.html">ITEM.Collectable</a></li>
+<li><a href="../../../modules/ITEM.Food.html">ITEM.Food</a></li>
+<li><a href="../../../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
+<li><a href="../../../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../../../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
+<li><a href="../../../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
+<li><a href="../../../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
+<li><a href="../../../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
+<li><a href="../../../modules/ITEM.Sticker.html">ITEM.Sticker</a></li>
+<li><a href="../../../modules/ITEM.Suit.html">ITEM.Suit</a></li>
+<li><a href="../../../modules/ITEM.Uniform.html">ITEM.Uniform</a></li>
+<li><a href="../../../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
+<li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
+<li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Metatables</h2></div><span class="ll-count">3</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Entity.html">Entity</a></li>
+<li><a href="../../../modules/Player.html">Player</a></li>
+<li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Panels</h2></div><span class="ll-count">17</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../../../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../../../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../../../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../../../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../../../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../../../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../../../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../../../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../../../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../../../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../../../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../../../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../../../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/AreaManager.html">AreaManager</a></li>
+<li><a href="../../../modules/Array.html">Array</a></li>
+<li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
+<li><a href="../../../modules/CPPI.html">CPPI</a></li>
+<li><a href="../../../modules/DB.html">DB</a></li>
+<li><a href="../../../modules/Enumerations.html">Enumerations</a></li>
+<li><a href="../../../modules/GM.html">GM</a></li>
+<li><a href="../../../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
+<li><a href="../../../modules/Migrations.html">Migrations</a></li>
+<li><a href="../../../modules/SPropProtection.html">SPropProtection</a></li>
+<li><a href="../../../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../../../modules/bwep.html">bwep</a></li>
+<li><a href="../../../modules/cityrp.access.html">cityrp.access</a></li>
+<li><a href="../../../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+<li><a href="../../../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+<li><a href="../../../modules/cityrp.command.html">cityrp.command</a></li>
+<li><a href="../../../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../../../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../../../modules/cityrp.entity.html">cityrp.entity</a></li>
+<li><a href="../../../modules/cityrp.favorites.html">cityrp.favorites</a></li>
+<li><a href="../../../modules/cityrp.help.html">cityrp.help</a></li>
+<li><a href="../../../modules/cityrp.hints.html">cityrp.hints</a></li>
+<li><a href="../../../modules/cityrp.imageHosts.html">cityrp.imageHosts</a></li>
+<li><a href="../../../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+<li><a href="../../../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../../../modules/cityrp.itemmeta.html">cityrp.itemmeta</a></li>
+<li><a href="../../../modules/cityrp.layers.html">cityrp.layers</a></li>
+<li><a href="../../../modules/cityrp.legacy.functions.html">cityrp.legacy.functions</a></li>
+<li><a href="../../../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
+<li><a href="../../../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
+<li><a href="../../../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../../../modules/cityrp.logging.html">cityrp.logging</a></li>
+<li><a href="../../../modules/cityrp.logs.html">cityrp.logs</a></li>
+<li><a href="../../../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
+<li><a href="../../../modules/cityrp.membership.html">cityrp.membership</a></li>
+<li><a href="../../../modules/cityrp.model.html">cityrp.model</a></li>
+<li><a href="../../../modules/cityrp.network.html">cityrp.network</a></li>
+<li><a href="../../../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
+<li><a href="../../../modules/cityrp.player.html">cityrp.player</a></li>
+<li><a href="../../../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../../../modules/cityrp.playermodelSkins.html">cityrp.playermodelSkins</a></li>
+<li><a href="../../../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+<li><a href="../../../modules/cityrp.remote.html">cityrp.remote</a></li>
+<li><a href="../../../modules/cityrp.settings.html">cityrp.settings</a></li>
+<li><a href="../../../modules/cityrp.table.html">cityrp.table</a></li>
+<li><a href="../../../modules/cityrp.team.html">cityrp.team</a></li>
+<li><a href="../../../modules/cityrp.teslaCharger.html">cityrp.teslaCharger</a></li>
+<li><a href="../../../modules/cityrp.teslaChargerPrice.html">cityrp.teslaChargerPrice</a></li>
+<li><a href="../../../modules/cityrp.topHints.html">cityrp.topHints</a></li>
+<li><a href="../../../modules/cityrp.ui.html">cityrp.ui</a></li>
+<li><a href="../../../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../../../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
+<li><a href="../../../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../../../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
+<li><a href="../../../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../../../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../../../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../../../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../../../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../../../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../../../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../../../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_boneanimlib.html">core.plugins.animations.animationsapi.cl_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../../../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
+<li><a href="../../../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
+<li><a href="../../../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../../../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../../../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.cl_init.html">core.plugins.bodybags.entities.cityrp_bodybag.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.shared.html">core.plugins.bodybags.entities.cityrp_bodybag.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.cl_init.html">core.plugins.bodybags.entities.cityrp_evidence.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.init.html">core.plugins.bodybags.entities.cityrp_evidence.init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.shared.html">core.plugins.bodybags.entities.cityrp_evidence.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../../../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.giveprops.sv_init.html">core.plugins.giveprops.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_camera.html">core.plugins.holdem.cl.cl_camera</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_cards.html">core.plugins.holdem.cl.cl_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_chips.html">core.plugins.holdem.cl.cl_chips</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_hud.html">core.plugins.holdem.cl.cl_hud</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_render.html">core.plugins.holdem.cl.cl_render</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_ui.html">core.plugins.holdem.cl.cl_ui</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_vec2.html">core.plugins.holdem.cl.cl_vec2</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl_init.html">core.plugins.holdem.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_cards.html">core.plugins.holdem.sh_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_config.html">core.plugins.holdem.sh_config</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_init.html">core.plugins.holdem.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_commands.html">core.plugins.holdem.sv.sv_commands</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_game.html">core.plugins.holdem.sv.sv_game</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_net.html">core.plugins.holdem.sv.sv_net</a></li>
+<li><a href="../../../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_editor.html">core.plugins.lite_character.cl_editor</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_init.html">core.plugins.lite_character.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_notches.html">core.plugins.lite_character.cl_notches</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_debug.html">core.plugins.lite_character.sh_debug</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_rockfall.shared.html">core.plugins.maintenance.entities.cityrp_rockfall.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../../../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../../../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.sv_disable_cat.html">core.plugins.sv_disable_cat</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.cl_init.html">core.plugins.website_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.sh_init.html">core.plugins.website_rewards.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../../../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../../../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../../../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../../../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../../../modules/dumper.html">dumper</a></li>
+<li><a href="../../../modules/entities.cityrp_peephole.html">entities.cityrp_peephole</a></li>
+<li><a href="../../../modules/env.html">env</a></li>
+<li><a href="../../../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
+<li><a href="../../../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
+<li><a href="../../../modules/plugins.worldprops.html">plugins.worldprops</a></li>
+<li><a href="../../../modules/sh_init.html">sh_init</a></li>
+<li><a href="../../../modules/temar.html">temar</a></li>
+<li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
+</ul>
+</details>
+<div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Is `GM:Initialize` the right world-load boot predicate for `cityrp.session`?</h1></div><div class="ll-module-body"><p>Research for <a href="https://github.com/limelight-development/cityrp2/issues/3432">limelight-development/cityrp2#3432</a> —
+&quot;Confirm <code>GM:Initialize</code> is the right world-load boot predicate for <code>cityrp.session</code>&quot;.</p>
+<h2 id="verdict">Verdict</h2>
+<p><strong><code>GM:Initialize</code> is a correct world-load predicate, but it is the wrong <em>mechanism</em> for a core
+library to hang a session token on — and <code>cityrp.session</code> does not need it at all.</strong></p>
+<p>The premise in the issue (&quot;a <code>changelevel</code> keeps the process and Lua state alive while wiping every
+entity&quot;) is <strong>contradicted by the wiki</strong>: <code>GM:ShutDown</code> is documented as
+<a href="https://wiki.facepunch.com/gmod/GM:ShutDown">&quot;Called whenever the Lua environment is about to be shut down, for example on map change&quot;</a>.
+The Lua state is torn down and rebuilt on every <code>changelevel</code>/<code>map</code>. World-load lifetime and
+Lua-state lifetime are therefore <strong>the same lifetime</strong>, and every file in
+<code>gamemode/core/libraries/</code> is executed exactly once per world load by construction.</p>
+<p>So the recommended predicate is <strong>the load of the library file itself</strong>, guarded so a manual
+<code>lua_refresh_file</code> re-execution does not re-mint the token — the
+<code>sh_tophints.lua:14</code>/<code>:27-33</code> idiom, not a hook:</p>
+<pre><code class="language-lua">cityrp.session = cityrp.session or {}
+if not cityrp.session.token then cityrp.session.token = ... end
+</code></pre>
+<p>This is strictly better than <code>hook.Add(&quot;Initialize&quot;, ...)</code>, which is exposed to AGENTS.md footgun <a href="https://github.com/limelight-development/cityrp2/issues/3">#3</a>
+(any earlier <code>hook.Add(&quot;Initialize&quot;)</code> returning non-<code>nil</code> short-circuits the rest of the chain, and
+30-odd addons register on that event — see <a href="#2-can-the-plugin-loader-or-hot-reload-machinery-re-enter-it">§2</a>).</p>
+<p><strong><code>processId</code> should be dropped</strong> as a stored identity. Nothing in Lua survives the state teardown,
+so a process id cannot be <em>derived</em> — only <em>persisted and re-read</em>. If a consumer genuinely needs
+&quot;is this the same OS process&quot;, expose the engine primitive
+<a href="https://wiki.facepunch.com/gmod/game.GetMapChangeCount"><code>game.GetMapChangeCount()</code></a> directly
+(<code>== 1</code> means &quot;first world load of this process&quot;) rather than minting a second token.</p>
+<p>There is also a <strong>live bug this maps onto</strong>: <code>refund_ents/sv_init.lua:21</code> already implements this
+exact pattern <em>without</em> the guard.</p>
+<hr />
+<h2 id="1-does-gminitialize-fire-exactly-once-per-map-load-and-what-happens-on-changelevel--map--gamemode-reload">1. Does <code>GM:Initialize</code> fire exactly once per map load, and what happens on <code>changelevel</code> / <code>map</code> / gamemode reload?</h2>
+<p><strong>Wiki (engine semantics).</strong> <a href="https://wiki.facepunch.com/gmod/GM:Initialize"><code>GM:Initialize</code></a> is
+called &quot;after the gamemode loads and starts&quot;, before any entities exist — a one-time gamemode
+initialization hook. <a href="https://wiki.facepunch.com/gmod/GM:InitPostEntity"><code>GM:InitPostEntity</code></a> is
+&quot;called after all the entities are initialized&quot;, once per map load, on both realms.
+<a href="https://wiki.facepunch.com/gmod/GM:ShutDown"><code>GM:ShutDown</code></a> is &quot;called whenever the Lua environment
+is about to be shut down, for example on map change, or when the server is going to shut down.&quot;</p>
+<p>That <code>ShutDown</code> wording is the load-bearing fact. <strong>On a <code>changelevel</code> the Lua environment is shut
+down</strong>, not preserved. <code>game.GetMapLoadType()</code> returning <code>&quot;newgame&quot;</code> after a <code>changelevel</code>
+(<a href="https://wiki.facepunch.com/gmod/game">game library</a>) is consistent with that. So the sequence for
+a map change is: <code>GM:ShutDown</code> → Lua state destroyed → new Lua state → gamemode files re-executed →
+<code>GM:Initialize</code> → <code>GM:InitPostEntity</code>.</p>
+<p><strong>This repo.</strong> The gamemode defines each of these exactly once:</p>
+<ul>
+<li><code>gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua:173</code> — <code>function GM:Initialize()</code></li>
+<li><code>gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua:624</code> — <code>function GM:InitPostEntity()</code></li>
+<li><code>gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua:2395</code> — <code>function GM:ShutDown()</code></li>
+</ul>
+<p><code>GM:Initialize</code> (init.lua:173-181) does three things: <code>self:ConnectToDatabase()</code>, clears
+<code>cityrp.disablesave</code>, and chains <code>self.BaseClass:Initialize()</code>. <code>GM:ConnectToDatabase</code>
+(init.lua:109-111) constructs a <strong>new</strong> <code>DB_MAIN</code> pool (<code>DB_MAIN = DB:New(cityrpserver)</code>) and runs
+pending migrations. A second entry into <code>GM:Initialize</code> in the same Lua state would therefore
+silently orphan the previous connection pool and re-run the migration gate — strong in-repo evidence
+that this path is designed and relied on to fire exactly once.</p>
+<p><code>GM:ShutDown</code> (init.lua:2395-2402) saves every player and flags them offline in MySQL, i.e. it is
+already treated here as the end of a world session.</p>
+<p><strong>Grep result — nothing re-triggers it.</strong> Across the whole repository (gamemode, <code>addons/</code>, <code>lua/</code>)
+there is <strong>no</strong> <code>hook.Run(&quot;Initialize&quot;)</code>, <code>hook.Call(&quot;Initialize&quot;)</code>, <code>GAMEMODE:Initialize()</code> or any
+other manual invocation. The only occurrence of the symbol at all is the definition at
+<code>init.lua:173</code>.</p>
+<h2 id="2-can-the-plugin-loader-or-hot-reload-machinery-re-enter-it">2. Can the plugin loader or hot-reload machinery re-enter it?</h2>
+<p><strong>No, and there is no in-repo reload machinery to speak of.</strong></p>
+<ul>
+<li><code>gamemode/core/libraries/sh_plugin.lua</code> registers <strong>zero</strong> console commands and zero
+<code>cityrp.command.add</code> / <code>cityrp.acommands.AddCommand</code> entries. Its public surface is
+<code>Discover</code>/<code>Resolve</code>/<code>SeedGlobal</code>/<code>AutoRegister</code>/<code>ClearGlobal</code>/<code>register</code>/<code>call</code>/<code>get</code>/
+<code>IsAvailable</code>/<code>GetDependencyStatus</code>/<code>LoadSubResource*</code>. None of them include <code>init.lua</code> or invoke
+a gamemode method.</li>
+<li>The loader runs once, inline, at <code>gamemode/sh_init.lua:131-133</code> (<code>cityrp.plugin.Resolve()</code> then
+the <code>for ... in ipairs(plugins)</code> include loop). It is a file-scope loop, not a callable entry
+point — there is no <code>cityrp.plugin.ReloadAll</code>.</li>
+<li>The only <code>lua_reload</code>-alike concommands anywhere in the tree are in third-party addons and all are
+addon-local: <code>AdvDupe_Restart_Think</code> (<code>addons/advduplicator/lua/autorun/server/AdvDupe.lua:1811</code>),
+<code>cl_refreshlegs</code> (<code>addons/gmod_legs_3_112806637/lua/autorun/sh_legs.lua:418</code>),
+<code>rradio_reload_permanent_boomboxes</code> (<code>addons/rradio_3318060741/lua/rradio/server/sv_permanent.lua:336</code>),
+<code>precision_align…reloadui</code> (<code>addons/stool_precisionalign/…/precision_align.lua:225</code>),
+<code>request_reloadmapwarpareas</code> (<code>addons/warp/lua/weapons/gmod_tool/stools/warpdesttool.lua:359</code>),
+<code>custom_spawnlist_reloadvgui</code> (<code>lua/csl/custom_spawnlist.lua:34</code>). None re-include the gamemode or
+call <code>Initialize</code>.</li>
+<li>~30 addons register <code>hook.Add(&quot;Initialize&quot;, ...)</code> / <code>hook.Add(&quot;InitPostEntity&quot;, ...)</code> (damagelog,
+prone_mod, rradio, 3dsign, smartsnap, cw20, stove, pcasino, sit_anywhere, advdupe2, …). These
+<strong>listen</strong>; none of them fire the event. They matter only for footgun <a href="https://github.com/limelight-development/cityrp2/issues/3">#3</a> ordering — which is the
+reason to prefer file-scope derivation over a hook (see the Verdict).</li>
+<li>The only <code>RunString</code> in the gamemode is the developer console in
+<code>gamemode/core/libraries/cl_temar.lua:22,68</code> — clientside, arbitrary user code, not a gamemode
+reloader.</li>
+</ul>
+<p><strong>Auto refresh.</strong> The wiki's <a href="https://wiki.facepunch.com/gmod/Auto_Refresh">Auto Refresh/HotLoading</a>
+page confirms the manual entry point is <strong><code>lua_refresh_file &lt;path&gt;</code></strong> (not <code>lua_reload</code>), that it can
+be disabled server-wide with the <code>-disableluarefresh</code> startup parameter, and — critically — that
+<strong>&quot;nothing is unloaded — only re-executed&quot;</strong>. A refresh therefore re-executes a <em>file body</em>. It does
+not call hooks. Re-executing <code>init.lua</code> would redefine <code>GM:Initialize</code> without invoking it.</p>
+<p><strong>Conclusion for the ticket's asked-for confirmation:</strong> <em>nothing in this repo's reload/refresh
+tooling re-triggers <code>GM:Initialize</code> without an actual world load.</em> The residual risk is not
+re-entry — it is <strong>file-body re-execution</strong>, which is a different failure and the one the guard
+addresses.</p>
+<h2 id="3-does-a-sv_sessionlua-loaded-from-includecorelibraries-survive-a-reload-of-itself">3. Does a <code>sv_session.lua</code> loaded from <code>includeCore(&quot;libraries&quot;)</code> survive a reload of itself?</h2>
+<p><strong>Not without a guard. It would silently re-mint a new token.</strong></p>
+<p><code>includeCore</code> is defined at <code>gamemode/sh_init.lua:68-88</code> and invoked at <code>:108-109</code>. It <code>file.Find</code>s
+<code>core/&lt;path&gt;/*.lua</code>, <code>AddCSLuaFile</code>s the <code>sh_</code>/<code>cl_</code> ones and <code>include</code>s the <code>sh_</code>/<code>sv_</code> ones on the
+server. A <code>core/libraries/sv_session.lua</code> is thus a plain <code>include()</code> of a file body — exactly the
+shape auto refresh / <code>lua_refresh_file</code> re-executes. Any <code>local token = os.time()</code> or
+<code>cityrp.session = { token = ... }</code> written at file scope is re-derived on refresh, and every
+consumer comparing against a persisted token starts silently disagreeing with the database.</p>
+<p><strong>The established idiom.</strong> <code>gamemode/core/libraries/sh_tophints.lua</code> is the clean prior art at
+library level:</p>
+<ul>
+<li><code>:14</code> — <code>cityrp.topHints = cityrp.topHints or {}</code></li>
+<li><code>:27-29</code> — <code>cityrp.topHints.cycleSeconds = cityrp.topHints.cycleSeconds or 15</code>,
+<code>.prefixes = ... or {}</code>, <code>.hints = ... or {}</code></li>
+<li><code>:30-33</code> — and the sharp edge already documented in-repo:
+<code>-- Preserve an explicit false across hot reload (&quot;x or true&quot; would always force true).</code>
+followed by an <code>if cityrp.topHints.shuffleHints == nil then</code> guard.</li>
+</ul>
+<p><code>carboosting/sv_init.lua:544</code> is the plugin-level cousin, and its comment states the mechanism
+explicitly: <em>&quot;A hot-reload of this file runs <code>local PLUGIN = {}</code> again (see the top of this file),
+which loses track of any fence NPC spawned by the previous instance&quot;</em> — with <code>local PLUGIN = {}</code> at
+<code>carboosting/sv_init.lua:6</code>. Its <code>if not self.FilingNPCsByKey then</code> guard is the same shape as the
+<code>if PLUGIN.token then return end</code> the ticket describes.</p>
+<p><strong>The live counter-example — an existing bug.</strong> <code>refund_ents</code> already implements a session token,
+unguarded:</p>
+<pre><code class="language-lua">-- gamemode/core/plugins/refund_ents/sv_init.lua:18-23
+local PLUGIN = PLUGIN
+PLUGIN.name = &quot;Entity Refund System&quot;
+PLUGIN.author = &quot;Faustie&quot;
+PLUGIN.session = os.time()
+PLUGIN.lastSession = 0
+PLUGIN.server = LLServer
+</code></pre>
+<p><code>PLUGIN.session</code> is written to the database (<code>:96</code>, <code>:126</code>, <code>:157</code>, <code>:170</code>, <code>:238</code>) and read back as
+the &quot;is this entity from the current world&quot; test at <code>:179</code>:</p>
+<pre><code class="language-lua">local current = row.start_time == self.session
+</code></pre>
+<p>A <code>lua_refresh_file</code> of that one file re-runs <code>PLUGIN.session = os.time()</code>, after which <strong>every
+still-standing entity in the world reads as not-current</strong> and refund/ownership restoration is wrong
+for the rest of the map. (This file also does <code>local PLUGIN = PLUGIN</code> — and the loader nils the
+global in <code>cityrp.plugin.ClearGlobal</code>, <code>sh_plugin.lua:174-181</code> — so a bare refresh would in fact
+error on <code>PLUGIN.name</code> before reaching line 21. Either way the file does not survive its own reload;
+the guard is what makes it survive.) Flagging this as a candidate follow-up issue rather than
+fixing it here, since <a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a> is read-only.</p>
+<p><strong>One residual hazard.</strong> <code>gamemode/sh_init.lua:11</code> does <code>cityrp = {}</code> at file scope. A
+<code>lua_refresh_file</code> of <code>sh_init.lua</code> itself wipes the entire <code>cityrp</code> namespace and re-runs the whole
+<code>includeCore</code>/plugin pass, so it <em>would</em> mint a new token. But that operation destroys every library
+and plugin table on the server simultaneously; it is not a session-specific risk and no guard in
+<code>sv_session.lua</code> can defend against it.</p>
+<h2 id="4-processid-keep-or-drop">4. <code>processId</code>: keep or drop?</h2>
+<p><strong>Drop the stored <code>processId</code>. Expose <code>game.GetMapChangeCount()</code> if a consumer actually needs it.</strong></p>
+<p>The charting assumed the Lua state outlives a <code>changelevel</code>, which would make process lifetime a
+distinct, observable thing. Per §1 it does not. Consequences:</p>
+<ul>
+<li><strong>No Lua value can be a process id.</strong> <a href="https://wiki.facepunch.com/gmod/Global.SysTime"><code>SysTime</code></a>
+is &quot;a highly accurate time in seconds since the start up&quot; and
+<a href="https://wiki.facepunch.com/gmod/Global.CurTime"><code>CurTime</code></a> is &quot;the uptime of the server in
+seconds&quot; — but both are read from a <em>fresh Lua state</em> after a map change, and neither the wiki nor
+anything I could test establishes what they read on the second map of a process. Unverified either
+way, and moot: even if one of them kept counting, a monotonic clock is not an identity.
+<a href="https://wiki.facepunch.com/gmod/os.time"><code>os.time</code></a> is wall-clock seconds since the epoch — it
+gives you <em>when this world loaded</em>, not <em>which process</em>.</li>
+<li><strong>The one genuine engine primitive is <code>game.GetMapChangeCount()</code>.</strong> The wiki describes it as
+&quot;the current map change count for the server… useful to determine whether the current map is the
+initial map, or whether a <code>changelevel</code> (using <code>map</code> command is also detected) has occurred at any
+point in the server's session&quot;, and &quot;will start at <code>1</code>&quot;. It is engine-side, so it survives the Lua
+teardown that nothing in Lua does. <code>== 1</code> means &quot;first world load of this process&quot;.</li>
+<li><strong>It is an ordinal, not an identity.</strong> To turn it into a stable <code>processId</code> you would have to mint
+one when <code>game.GetMapChangeCount() == 1</code> and persist it to disk (the way <code>carboosting</code> persists
+its filing point with <code>file.Write</code>, <code>carboosting/sv_init.lua:535</code>), re-reading it on every
+subsequent world load. That is possible and cheap, but it is <em>storage</em>, not a derived value, and
+it buys nothing for <code>refund_ents</code> — whose whole question is &quot;were these entities destroyed&quot;, which
+world-load identity already answers exactly.</li>
+</ul>
+<p>Recommendation: ship <code>cityrp.session.token</code> (world-load) only. If a later consumer needs process
+scope, add a thin <code>cityrp.session.IsFirstMapOfProcess()</code> wrapping <code>game.GetMapChangeCount() == 1</code>
+rather than a second minted token.</p>
+<h2 id="recommended-implementation">Recommended implementation</h2>
+<p>Derive at file scope with an idempotence guard — no hook, so no exposure to footgun <a href="https://github.com/limelight-development/cityrp2/issues/3">#3</a>.</p>
+<pre><code class="language-lua">--[[-- Server session identity (`cityrp.session`).
+One token per world load. A `changelevel`, a `map` command and a process restart all tear the Lua
+state down and rebuild it, so the load of this file is itself the world-load event; the guards below
+exist only so a manual `lua_refresh_file` of this file re-executes the body without re-minting.
+@copyright 2026 Limelight Gaming
+@release CityRP 2
+@author Limelight Development Team
+@namespace cityrp.session
+--]]--
+
+cityrp.session = cityrp.session or {}
+
+--- Unix timestamp of this world load, stable for the lifetime of the map.
+--- Survives a hot reload of this file; a new map load mints a new one.
+--- @type integer
+cityrp.session.token = cityrp.session.token or os.time()
+
+--- Whether this is the first world load of the current server process.
+--- Engine-side, so it is the only process-scoped fact that outlives the Lua state teardown a
+--- `changelevel` performs. Read live rather than cached, for the same reason.
+--- @return boolean isFirst True on the process's initial map, false after any `changelevel`/`map`.
+function cityrp.session.IsFirstMapOfProcess()
+	return game.GetMapChangeCount() == 1
+end
+</code></pre>
+<p>Notes on the shape:</p>
+<ul>
+<li><code>x = x or default</code> is safe here because a token is never falsy. Where a session field could
+legitimately be <code>false</code>, use the explicit <code>if x == nil then</code> form — <code>sh_tophints.lua:30-33</code> and its
+comment are the in-repo precedent.</li>
+<li>Do <strong>not</strong> wrap the derivation in <code>hook.Add(&quot;Initialize&quot;, ...)</code>. Per AGENTS.md footgun <a href="https://github.com/limelight-development/cityrp2/issues/3">#3</a> and the
+~30 addon <code>Initialize</code> listeners catalogued in §2, an earlier hook returning non-<code>nil</code> would skip
+it, and the failure would be silent.</li>
+<li>If the token is ever also needed clientside, name the file <code>sh_session.lua</code> — <code>includeCore</code>
+(<code>sh_init.lua:68-88</code>) only <code>AddCSLuaFile</code>s <code>sh_</code>/<code>cl_</code> prefixes — and network the server's value
+rather than deriving <code>os.time()</code> independently on each client.</li>
+</ul>
+<h2 id="correction-to-the-todo-docs-framing">Correction to the todo doc's framing</h2>
+<p><code>todo/server-session-system.md</code> (untracked, main checkout only) states the requirement as a value
+that &quot;identifies one continuous run of the actual server process, and that reliably changes only
+when the process really restarts (not when Lua code is hot-reloaded)&quot;. <strong>Process lifetime is the
+wrong target for <code>refund_ents</code>,</strong> and this research is the evidence:</p>
+<ul>
+<li><code>refund_ents</code> asks &quot;is this tracked entity still physically in the world?&quot; That is a question about
+<em>entities</em>, and entities are destroyed by a <code>changelevel</code> — which does <strong>not</strong> restart the process.</li>
+<li>A session id tied to process lifetime would therefore stay constant across a <code>changelevel</code>, and
+<code>row.start_time == self.session</code> would report every wiped entity as still alive. That is a
+<strong>new</strong> false-negative, in the opposite direction from the reload bug the doc set out to fix: the
+doc's stated fix would trade &quot;refunds things it shouldn't&quot; for &quot;fails to refund things it should&quot;.</li>
+<li>World-load lifetime is the correct predicate, and per §1 it coincides with Lua-state lifetime, so
+the file-load-time idiom the doc criticises is <em>nearly</em> right already. <code>refund_ents</code>' actual defect
+is narrower than the doc claims: not that <code>os.time()</code> is captured at file-load, but that it is
+captured <strong>unguarded</strong>, so a <code>lua_refresh_file</code> re-derives it. The guard in §&quot;Recommended
+implementation&quot; is the whole fix.</li>
+</ul>
+<p>The doc's proposed API survives intact — <code>cityrp.session.id</code>, <code>.startTime</code>, <code>.previous()</code>,
+<code>.isCurrent()</code> are all still the right surface. Only the definition of what <code>id</code> tracks changes, and
+<code>processId</code> (§4) should not be added alongside it.</p>
+<h2 id="unverified--open-questions">Unverified / open questions</h2>
+<ul>
+<li><del><strong><code>todo/server-session-system.md</code> does not exist.</strong></del> <strong>Resolved.</strong> It exists, untracked, in the
+main checkout at <code>E:\Limelight\cityrp2\todo\server-session-system.md</code>; it is invisible from a
+worktree because it was never committed. It has now been read, and it <em>sharpens</em> the verdict rather
+than changing it — see the note directly below.</li>
+<li><strong>Not tested live.</strong> Everything above is source reading plus wiki. I did not run a server, do a
+<code>changelevel</code>, or <code>lua_refresh_file</code> anything. In particular the claim that the Lua state is fully
+destroyed on <code>changelevel</code> rests on the <code>GM:ShutDown</code> wiki wording, which is strong but is
+documentation, not observation. Given this repo's own memory note that GMod diverges from
+assumption, a one-map-change smoke test (<code>print</code> a file-scope <code>os.time()</code> from a core library,
+<code>changelevel</code>, compare) would settle it cheaply and is worth doing before the map is finalised.</li>
+<li><strong><code>SysTime</code>/<code>CurTime</code> across a map change</strong> — not established. Not needed for the recommendation.</li>
+<li><strong><code>game.GetMapChangeCount()</code> reset on process restart</strong> — the wiki does not state it explicitly;
+I inferred it from &quot;starts at <code>1</code>&quot; and &quot;the server's session&quot;. Verify before relying on it for
+anything load-bearing.</li>
+<li><strong>Whether Limelight servers pass <code>-disableluarefresh</code></strong> — the ticket asserts autorefresh is
+disabled; I found no startup-parameter or <code>.cfg</code> evidence in this repo either way (<code>grep</code> for
+<code>AutoRefresh</code>/<code>lua_reload</code>/<code>disableluarefresh</code> returns nothing outside antihack's unrelated
+<code>sv_allowcslua</code> checks). The recommendation does not depend on it — the guard covers manual
+<code>lua_refresh_file</code> regardless.</li>
+<li><strong><code>refund_ents/sv_init.lua:21</code></strong> — I have read the unguarded token and its <code>row.start_time == self.session</code> consumer, but have not confirmed by test that a refresh of that file actually breaks
+refunds in practice (it may error out first, see §3).</li>
+</ul>
+<h2 id="sources">Sources</h2>
+<p><strong>This repository</strong></p>
+<ul>
+<li><code>gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua</code> — <code>:1-60</code> (bootstrap, <code>LLServer</code>),
+<code>:109-111</code> (<code>GM:ConnectToDatabase</code>), <code>:173-181</code> (<code>GM:Initialize</code>), <code>:624-630</code> (<code>GM:InitPostEntity</code>),
+<code>:2395-2402</code> (<code>GM:ShutDown</code>)</li>
+<li><code>gamemodes/cityrp_2_by_limelightgaming/gamemode/sh_init.lua</code> — <code>:11</code> (<code>cityrp = {}</code>), <code>:68-88</code>
+(<code>includeCore</code>), <code>:108-109</code> (libraries/metatables pass), <code>:124-160</code> (plugin load loop)</li>
+<li><code>gamemodes/cityrp_2_by_limelightgaming/gamemode/cl_init.lua</code> — <code>:1019</code>, <code>:1200</code>, <code>:1356</code>, <code>:1432</code>
+(client <code>Initialize</code>/<code>InitPostEntity</code> listeners)</li>
+<li><code>gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_plugin.lua</code> — <code>:75-96</code>
+(hook binding), <code>:141-181</code> (<code>SeedGlobal</code>/<code>AutoRegister</code>/<code>ClearGlobal</code>), <code>:186-200</code> (<code>register</code>)</li>
+<li><code>gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sh_tophints.lua</code> — <code>:14</code>, <code>:27-33</code>
+(the guard idiom)</li>
+<li><code>gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_temar.lua</code> — <code>:22</code>, <code>:68</code></li>
+<li><code>gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/refund_ents/sv_init.lua</code> — <code>:18-23</code>,
+<code>:96</code>, <code>:126</code>, <code>:157</code>, <code>:170</code>, <code>:179</code>, <code>:238</code></li>
+<li><code>gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/carboosting/sv_init.lua</code> — <code>:6</code>
+(<code>local PLUGIN = {}</code>), <code>:535</code> (<code>file.Write</code> persistence), <code>:542-552</code> (hot-reload guard)</li>
+<li><code>addons/</code> reload concommands: <code>advduplicator/lua/autorun/server/AdvDupe.lua:1811</code>,
+<code>gmod_legs_3_112806637/lua/autorun/sh_legs.lua:418</code>,
+<code>rradio_3318060741/lua/rradio/server/sv_permanent.lua:336</code>,
+<code>stool_precisionalign/lua/weapons/gmod_tool/stools/precision_align.lua:225</code>,
+<code>warp/lua/weapons/gmod_tool/stools/warpdesttool.lua:359</code>, <code>lua/csl/custom_spawnlist.lua:34</code></li>
+<li><code>AGENTS.md</code> — footgun <a href="https://github.com/limelight-development/cityrp2/issues/3">#3</a> (<code>hook.Call</code> ordering), <a href="https://github.com/limelight-development/cityrp2/issues/7">#7</a> (duplicate registration), <a href="https://github.com/limelight-development/cityrp2/issues/22">#22</a> (plugin key vs name)</li>
+<li><code>docs/agents/artifacts.md:24</code> — research file path convention</li>
+</ul>
+<p><strong>Garry's Mod wiki</strong></p>
+<ul>
+<li><a href="https://wiki.facepunch.com/gmod/GM:Initialize">https://wiki.facepunch.com/gmod/GM:Initialize</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/GM:InitPostEntity">https://wiki.facepunch.com/gmod/GM:InitPostEntity</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/GM:ShutDown">https://wiki.facepunch.com/gmod/GM:ShutDown</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/Auto_Refresh">https://wiki.facepunch.com/gmod/Auto_Refresh</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/game">https://wiki.facepunch.com/gmod/game</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/game.GetMapChangeCount">https://wiki.facepunch.com/gmod/game.GetMapChangeCount</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/Global.SysTime">https://wiki.facepunch.com/gmod/Global.SysTime</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/Global.CurTime">https://wiki.facepunch.com/gmod/Global.CurTime</a></li>
+<li><a href="https://wiki.facepunch.com/gmod/os.time">https://wiki.facepunch.com/gmod/os.time</a></li>
+</ul>
+<p><strong>CityRP docs MCP</strong></p>
+<ul>
+<li><code>search_api(&quot;session boot token startup&quot;)</code> — no public API matches; <code>cityrp.session</code> is
+greenfield (confirmed by <code>grep -rn &quot;cityrp.session&quot;</code> returning nothing repo-wide).</li>
+</ul></div>
+		</div>
+	</div>
+</div>
+<script>
+var ROOT = "../../../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); input.blur(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+
+	// "/" jumps to the box, unless the reader is already typing somewhere -
+	// preventDefault stops the slash itself landing in the field.
+	document.addEventListener("keydown", function (event) {
+		if (event.key !== "/" || event.ctrlKey || event.metaKey || event.altKey) { return; }
+		var active = document.activeElement;
+		if (active && (active.isContentEditable
+			|| /^(input|textarea|select)$/i.test(active.tagName))) { return; }
+		event.preventDefault();
+		input.focus();
+		input.select();
+	});
+})();
+</script>
+</body>
+</html>

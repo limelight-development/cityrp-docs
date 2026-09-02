@@ -37,7 +37,7 @@
 <li><a href="#worked-example">Worked example</a></li>
 <li><a href="#checklist">Checklist</a></li>
 </ul></div>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">44</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">47</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -64,6 +64,8 @@
 <li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
 </li>
 <li class="ll-topic-folder"><a href="../topics/items/items.html">Items</a>
+</li>
+<li class="ll-topic-folder"><a href="../topics/research/index.html">Research</a>
 </li>
 </ul></details>
 <details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Items</h2></div><span class="ll-count">19</span></summary>
@@ -845,6 +847,11 @@ them harmlessly. Full detail in <a href="doc-comments.html">Writing Doc Comments
 <td align="left">Starts a named subsection on the module page; the tag's value is the heading. On an <code>@alias</code> over a run of constants, it names the <a href="doc-comments.html#constant-families-alias-gathers-the-constants-it-names">constant family</a> those constants are gathered under.</td>
 </tr>
 <tr>
+<td align="left"><code>@example &lt;code&gt;</code></td>
+<td align="left">Item</td>
+<td align="left">Renders an &quot;Example&quot; code block after the parameters and returns. Continuation lines stay separate lines. <strong>Use this instead of <code>@usage</code>.</strong></td>
+</tr>
+<tr>
 <td align="left"><code>@uniqueid &lt;id&gt;</code></td>
 <td align="left">Item</td>
 <td align="left">The registration ID a documented class is stored under, rendered as a &quot;Registration ID&quot; chip. See <a href="#registration-ids">Registration IDs</a> below.</td>
@@ -916,7 +923,7 @@ and the tag with it — from the docs export, with no warning anywhere.</li>
 <tr>
 <td align="left"><code>--- @usage foo()</code></td>
 <td align="left">LDoc, not LuaCATS. LuaLS does not understand it and <code>generate.py</code> does not render it — the line is dead weight. There are still a few in the tree.</td>
-<td align="left">Put the example in the description, in a fenced block.</td>
+<td align="left"><code>--- @example foo()</code>, which renders (see <a href="#tags-that-are-not-luacats-but-live-in-the-same-comment">above</a>). A fenced Lua block in the description also works, and keeps the example where the prose puts it.</td>
 </tr>
 <tr>
 <td align="left"><code>--- @tparam Player ply</code></td>
