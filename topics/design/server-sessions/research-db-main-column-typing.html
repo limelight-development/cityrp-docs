@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Research: how `DB_MAIN` types result columns, and what type `cityrp.session`&#x27;s token should be</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../../style.cd9354d8c3.css" type="text/css">
+</head>
+<body>
+<div class="ll-grain"></div>
+<header class="ll-header">
+	<div class="ll-header-inner">
+		<a class="ll-brand" href="../../../index.html">
+			<img src="../../../assets/logos/L2_blue.svg" alt="" width="26" height="26">
+			<span>CityRP Documentation</span>
+		</a>
+		<a class="ll-repo-link" href="https://github.com/limelight-development/cityrp2" target="_blank" rel="noreferrer">Repository</a>
+	</div>
+</header>
+<div id="container">
+	<div id="main">
+		<div id="navigation">
+<div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs… (/)" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
+<div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#1-where-the-typing-decision-actually-happens">1. Where the typing decision actually happens</a></li>
+<li><a href="#2-aggregates-and-expressions-change-the-answer">2. Aggregates and expressions change the answer</a></li>
+<li><a href="#3-verdict-on-refund_ents-not-broken-no-bug-filed">3. Verdict on refund_ents: not broken, no Bug filed</a></li>
+<li><a href="#4-what-type-cityrpsessionid-and-session_id-should-be">4. What type cityrp.session.id and session_id should be</a></li>
+<li><a href="#5-sidebar-a-real-bug-found-in-passing">5. Sidebar: a real bug found in passing</a></li>
+<li><a href="#6-the-comparison-contract">6. The comparison contract</a></li>
+<li><a href="#sources">Sources</a></li>
+</ul></div>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">51</span></summary>
+<ul class="ll-kind-body">
+<li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
+<li><a href="../../../topics/casino.html">LimeCasino deployment math</a></li>
+<li><a href="../../../topics/commands.html">Chat Commands (`/` vs `!`)</a></li>
+<li><a href="../../../topics/commit-message-conventions.html">Commit Message Conventions</a></li>
+<li><a href="../../../topics/doc-comments.html">Writing Doc Comments</a></li>
+<li><a href="../../../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
+<li><a href="../../../topics/environment.html">Environment (Env-vars)</a></li>
+<li><a href="../../../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../../../topics/logging.html">Console Logging Library</a></li>
+<li><a href="../../../topics/luacats.html">LuaCATS Annotations</a></li>
+<li><a href="../../../topics/maintenance.html">Maintenance Work System</a></li>
+<li><a href="../../../topics/meska.html">MESKA</a></li>
+<li><a href="../../../topics/networking.html">Networking Library</a></li>
+<li><a href="../../../topics/new-map-checklist.html">New Map Checklist</a></li>
+<li><a href="../../../topics/plugins.html">Plugins</a></li>
+<li><a href="../../../topics/ui-scaling.html">UI Scaling</a></li>
+<li><a href="../../../topics/update-checklist.html">Update Checklist</a></li>
+<li><a href="../../../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
+<li><a href="../../../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../../../topics/adr/index.html">Architecture Decision Records</a>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/agents/index.html">Agents</a>
+</li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/index.html">Design Docs</a>
+<ul class="ll-topic-children">
+<li><a href="../../../topics/design/docs-layout-migration.html">Docs layout migration</a></li>
+<li><a href="../../../topics/design/items-registration.html">Class-Based Item Registration</a></li>
+<li class="ll-topic-folder"><a href="../../../topics/design/car-boosting/car-boosting.html">Car Boosting</a>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/design/clans/design.html">Clans</a>
+</li>
+<li class="ll-topic-folder is-open"><a href="../../../topics/design/server-sessions/decisions.html">Server sessions</a>
+<ul class="ll-topic-children">
+<li><a href="../../../topics/design/server-sessions/phase-one.html">Phase one — the library and the two migrations</a></li>
+<li><a href="../../../topics/design/server-sessions/problem-statement.html">Problem statement</a></li>
+<li><a href="../../../topics/design/server-sessions/research-boot-identity-reinventions.html">Research: other boot-identity reinventions</a></li>
+<li><strong>Research: how `DB_MAIN` types result columns, and what type `cityrp.session`&#x27;s token should be</strong></li>
+<li><a href="../../../topics/design/server-sessions/research-fearlessrp-sessions-edge-cases.html">Research: FearlessRP prior art</a></li>
+<li><a href="../../../topics/design/server-sessions/research-gm-initialize-boot-predicate.html">Research: the boot predicate</a></li>
+<li><a href="../../../topics/design/server-sessions/research-mysql-table-name-config-keys.html">Research: the table-name config keys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/items/items.html">Items</a>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/research/index.html">Research</a>
+</li>
+</ul></details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Items</h2></div><span class="ll-count">19</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/ITEM.html">ITEM</a></li>
+<li><a href="../../../modules/ITEM.Accessory.html">ITEM.Accessory</a></li>
+<li><a href="../../../modules/ITEM.Ammo.html">ITEM.Ammo</a></li>
+<li><a href="../../../modules/ITEM.Card.html">ITEM.Card</a></li>
+<li><a href="../../../modules/ITEM.Clothing.html">ITEM.Clothing</a></li>
+<li><a href="../../../modules/ITEM.Collectable.html">ITEM.Collectable</a></li>
+<li><a href="../../../modules/ITEM.Food.html">ITEM.Food</a></li>
+<li><a href="../../../modules/ITEM.Ingredient.html">ITEM.Ingredient</a></li>
+<li><a href="../../../modules/ITEM.ModelBodygroup.html">ITEM.ModelBodygroup</a></li>
+<li><a href="../../../modules/ITEM.Nametag.html">ITEM.Nametag</a></li>
+<li><a href="../../../modules/ITEM.Outfit.html">ITEM.Outfit</a></li>
+<li><a href="../../../modules/ITEM.Schematic.html">ITEM.Schematic</a></li>
+<li><a href="../../../modules/ITEM.Spawnable.html">ITEM.Spawnable</a></li>
+<li><a href="../../../modules/ITEM.Sticker.html">ITEM.Sticker</a></li>
+<li><a href="../../../modules/ITEM.Suit.html">ITEM.Suit</a></li>
+<li><a href="../../../modules/ITEM.Uniform.html">ITEM.Uniform</a></li>
+<li><a href="../../../modules/ITEM.Vehicle.html">ITEM.Vehicle</a></li>
+<li><a href="../../../modules/ITEM.Weapon.html">ITEM.Weapon</a></li>
+<li><a href="../../../modules/ITEM.WeaponMod.html">ITEM.WeaponMod</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Metatables</h2></div><span class="ll-count">3</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/Entity.html">Entity</a></li>
+<li><a href="../../../modules/Player.html">Player</a></li>
+<li><a href="../../../modules/Vehicle.html">Vehicle</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Panels</h2></div><span class="ll-count">17</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/cityrp.derma.customizationMenu.html">cityrp.derma.customizationMenu</a></li>
+<li><a href="../../../modules/core.derma.cl_character.html">core.derma.cl_character</a></li>
+<li><a href="../../../modules/core.derma.cl_credits_table.html">core.derma.cl_credits_table</a></li>
+<li><a href="../../../modules/core.derma.cl_doptionpanel.html">core.derma.cl_doptionpanel</a></li>
+<li><a href="../../../modules/core.derma.cl_hud_topleft.html">core.derma.cl_hud_topleft</a></li>
+<li><a href="../../../modules/core.derma.cl_inventory.html">core.derma.cl_inventory</a></li>
+<li><a href="../../../modules/core.derma.cl_laws.html">core.derma.cl_laws</a></li>
+<li><a href="../../../modules/core.derma.cl_main.html">core.derma.cl_main</a></li>
+<li><a href="../../../modules/core.derma.cl_makeleader.html">core.derma.cl_makeleader</a></li>
+<li><a href="../../../modules/core.derma.cl_market.html">core.derma.cl_market</a></li>
+<li><a href="../../../modules/core.derma.cl_notifications.html">core.derma.cl_notifications</a></li>
+<li><a href="../../../modules/core.derma.cl_packageinfo.html">core.derma.cl_packageinfo</a></li>
+<li><a href="../../../modules/core.derma.cl_vehicle.html">core.derma.cl_vehicle</a></li>
+<li><a href="../../../modules/core.derma.cl_welcome_table.html">core.derma.cl_welcome_table</a></li>
+<li><a href="../../../modules/core.derma.sh_commands.html">core.derma.sh_commands</a></li>
+<li><a href="../../../modules/core.derma.sh_contextmenu.html">core.derma.sh_contextmenu</a></li>
+<li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
+</ul>
+</details>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">231</span></summary>
+<ul class="ll-kind-body nowrap">
+<li><a href="../../../modules/AreaManager.html">AreaManager</a></li>
+<li><a href="../../../modules/Array.html">Array</a></li>
+<li><a href="../../../modules/CONSOLE.html">CONSOLE</a></li>
+<li><a href="../../../modules/CPPI.html">CPPI</a></li>
+<li><a href="../../../modules/DB.html">DB</a></li>
+<li><a href="../../../modules/Enumerations.html">Enumerations</a></li>
+<li><a href="../../../modules/GM.html">GM</a></li>
+<li><a href="../../../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
+<li><a href="../../../modules/Migrations.html">Migrations</a></li>
+<li><a href="../../../modules/SPropProtection.html">SPropProtection</a></li>
+<li><a href="../../../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../../../modules/bwep.html">bwep</a></li>
+<li><a href="../../../modules/cityrp.access.html">cityrp.access</a></li>
+<li><a href="../../../modules/cityrp.acommands.html">cityrp.acommands</a></li>
+<li><a href="../../../modules/cityrp.chatBox.html">cityrp.chatBox</a></li>
+<li><a href="../../../modules/cityrp.command.html">cityrp.command</a></li>
+<li><a href="../../../modules/cityrp.currency.html">cityrp.currency</a></li>
+<li><a href="../../../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../../../modules/cityrp.entity.html">cityrp.entity</a></li>
+<li><a href="../../../modules/cityrp.favorites.html">cityrp.favorites</a></li>
+<li><a href="../../../modules/cityrp.help.html">cityrp.help</a></li>
+<li><a href="../../../modules/cityrp.hints.html">cityrp.hints</a></li>
+<li><a href="../../../modules/cityrp.imageHosts.html">cityrp.imageHosts</a></li>
+<li><a href="../../../modules/cityrp.inventory.html">cityrp.inventory</a></li>
+<li><a href="../../../modules/cityrp.item.html">cityrp.item</a></li>
+<li><a href="../../../modules/cityrp.itemmeta.html">cityrp.itemmeta</a></li>
+<li><a href="../../../modules/cityrp.layers.html">cityrp.layers</a></li>
+<li><a href="../../../modules/cityrp.legacy.functions.html">cityrp.legacy.functions</a></li>
+<li><a href="../../../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
+<li><a href="../../../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
+<li><a href="../../../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../../../modules/cityrp.logging.html">cityrp.logging</a></li>
+<li><a href="../../../modules/cityrp.logs.html">cityrp.logs</a></li>
+<li><a href="../../../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
+<li><a href="../../../modules/cityrp.membership.html">cityrp.membership</a></li>
+<li><a href="../../../modules/cityrp.model.html">cityrp.model</a></li>
+<li><a href="../../../modules/cityrp.network.html">cityrp.network</a></li>
+<li><a href="../../../modules/cityrp.pcasino.html">cityrp.pcasino</a></li>
+<li><a href="../../../modules/cityrp.player.html">cityrp.player</a></li>
+<li><a href="../../../modules/cityrp.playerSettings.html">cityrp.playerSettings</a></li>
+<li><a href="../../../modules/cityrp.playermodelSkins.html">cityrp.playermodelSkins</a></li>
+<li><a href="../../../modules/cityrp.plugin.html">cityrp.plugin</a></li>
+<li><a href="../../../modules/cityrp.remote.html">cityrp.remote</a></li>
+<li><a href="../../../modules/cityrp.settings.html">cityrp.settings</a></li>
+<li><a href="../../../modules/cityrp.table.html">cityrp.table</a></li>
+<li><a href="../../../modules/cityrp.team.html">cityrp.team</a></li>
+<li><a href="../../../modules/cityrp.teslaCharger.html">cityrp.teslaCharger</a></li>
+<li><a href="../../../modules/cityrp.teslaChargerPrice.html">cityrp.teslaChargerPrice</a></li>
+<li><a href="../../../modules/cityrp.topHints.html">cityrp.topHints</a></li>
+<li><a href="../../../modules/cityrp.ui.html">cityrp.ui</a></li>
+<li><a href="../../../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
+<li><a href="../../../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
+<li><a href="../../../modules/cityrp.zones.html">cityrp.zones</a></li>
+<li><a href="../../../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
+<li><a href="../../../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../../../modules/cityrp_coalore.html">cityrp_coalore</a></li>
+<li><a href="../../../modules/cityrp_constructionworker.html">cityrp_constructionworker</a></li>
+<li><a href="../../../modules/cityrp_smeltery.html">cityrp_smeltery</a></li>
+<li><a href="../../../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
+<li><a href="../../../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
+<li><a href="../../../modules/core.libraries.meska.constants.html">core.libraries.meska.constants</a></li>
+<li><a href="../../../modules/core.libraries.meska.custombonus.server.init.html">core.libraries.meska.custombonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.dailybonus.server.init.html">core.libraries.meska.dailybonus.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.helpers.html">core.libraries.meska.helpers</a></li>
+<li><a href="../../../modules/core.libraries.meska.metrics.server.init.html">core.libraries.meska.metrics.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.html">core.libraries.meska.providers</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.cache.memory.html">core.libraries.meska.providers.cache.memory</a></li>
+<li><a href="../../../modules/core.libraries.meska.providers.database.mysql.html">core.libraries.meska.providers.database.mysql</a></li>
+<li><a href="../../../modules/core.libraries.meska.skills.server.init.html">core.libraries.meska.skills.server.init</a></li>
+<li><a href="../../../modules/core.libraries.meska.timers.html">core.libraries.meska.timers</a></li>
+<li><a href="../../../modules/core.plugins.accessories.cl_init.html">core.plugins.accessories.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.accessories.sv_init.html">core.plugins.accessories.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_html.html">core.plugins.acpig.cl_html</a></li>
+<li><a href="../../../modules/core.plugins.acpig.cl_init.html">core.plugins.acpig.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.acpig.sv_init.html">core.plugins.acpig.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.cl_init.html">core.plugins.admin.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.admin.sv_init.html">core.plugins.admin.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.admin_assist.sv_init.html">core.plugins.admin_assist.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.cl_init.html">core.plugins.adminhub.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.adminhub.sv_init.html">core.plugins.adminhub.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_animeditor.html">core.plugins.animations.animationsapi.cl_animeditor</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.cl_boneanimlib.html">core.plugins.animations.animationsapi.cl_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_boneanimlib.html">core.plugins.animations.animationsapi.sh_boneanimlib</a></li>
+<li><a href="../../../modules/core.plugins.animations.animationsapi.sh_mocap.html">core.plugins.animations.animationsapi.sh_mocap</a></li>
+<li><a href="../../../modules/core.plugins.animations.cl_quickmenu.html">core.plugins.animations.cl_quickmenu</a></li>
+<li><a href="../../../modules/core.plugins.animations.sh_animations.html">core.plugins.animations.sh_animations</a></li>
+<li><a href="../../../modules/core.plugins.animations.sv_init.html">core.plugins.animations.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.bans.sv_init.html">core.plugins.bans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_imageloader.html">core.plugins.billboards.cl.zad_imageloader</a></li>
+<li><a href="../../../modules/core.plugins.billboards.cl.zad_sign_vgui.html">core.plugins.billboards.cl.zad_sign_vgui</a></li>
+<li><a href="../../../modules/core.plugins.billboards.config.html">core.plugins.billboards.config</a></li>
+<li><a href="../../../modules/core.plugins.billboards.languages.en.html">core.plugins.billboards.languages.en</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_debug.html">core.plugins.billboards.sh.zad_debug</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_entlist.html">core.plugins.billboards.sh.zad_entlist</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_materials.html">core.plugins.billboards.sh.zad_materials</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_url_validation.html">core.plugins.billboards.sh.zad_url_validation</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sh.zad_utility.html">core.plugins.billboards.sh.zad_utility</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_money_sv.html">core.plugins.billboards.sv.zad_money_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_player_sv.html">core.plugins.billboards.sv.zad_player_sv</a></li>
+<li><a href="../../../modules/core.plugins.billboards.sv.zad_sign_sv.html">core.plugins.billboards.sv.zad_sign_sv</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.cl_init.html">core.plugins.bodybags.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.cl_init.html">core.plugins.bodybags.entities.cityrp_bodybag.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_bodybag.shared.html">core.plugins.bodybags.entities.cityrp_bodybag.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.cl_init.html">core.plugins.bodybags.entities.cityrp_evidence.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.init.html">core.plugins.bodybags.entities.cityrp_evidence.init</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.entities.cityrp_evidence.shared.html">core.plugins.bodybags.entities.cityrp_evidence.shared</a></li>
+<li><a href="../../../modules/core.plugins.bodybags.sv_blood.html">core.plugins.bodybags.sv_blood</a></li>
+<li><a href="../../../modules/core.plugins.carboosting.sv_init.html">core.plugins.carboosting.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.carpaint.sv_init.html">core.plugins.carpaint.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.clans.sv_init.html">core.plugins.clans.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.christmas.html">core.plugins.collectables.events.christmas</a></li>
+<li><a href="../../../modules/core.plugins.collectables.events.valentines.html">core.plugins.collectables.events.valentines</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_events.html">core.plugins.collectables.sv_events</a></li>
+<li><a href="../../../modules/core.plugins.collectables.sv_init.html">core.plugins.collectables.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_command_c.html">core.plugins.container_code.sv_command_c</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_dbcode.html">core.plugins.container_code.sv_dbcode</a></li>
+<li><a href="../../../modules/core.plugins.container_code.sv_init.html">core.plugins.container_code.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.daynight.entities.cityrp_daynight_sky.shared.html">core.plugins.daynight.entities.cityrp_daynight_sky.shared</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.cl_init.html">core.plugins.discord_relay_free.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.discord_relay_free.sv_init.html">core.plugins.discord_relay_free.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sh_init.html">core.plugins.doors.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.doors.sv_init.html">core.plugins.doors.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.extended_context_menu.cl_init.html">core.plugins.extended_context_menu.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.cl_init.html">core.plugins.generic.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sh_init.html">core.plugins.generic.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.generic.sv_init.html">core.plugins.generic.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.github.sv_init.html">core.plugins.github.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.giveprops.sv_init.html">core.plugins.giveprops.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_camera.html">core.plugins.holdem.cl.cl_camera</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_cards.html">core.plugins.holdem.cl.cl_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_chips.html">core.plugins.holdem.cl.cl_chips</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_hud.html">core.plugins.holdem.cl.cl_hud</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_render.html">core.plugins.holdem.cl.cl_render</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_ui.html">core.plugins.holdem.cl.cl_ui</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl.cl_vec2.html">core.plugins.holdem.cl.cl_vec2</a></li>
+<li><a href="../../../modules/core.plugins.holdem.cl_init.html">core.plugins.holdem.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_cards.html">core.plugins.holdem.sh_cards</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_config.html">core.plugins.holdem.sh_config</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sh_init.html">core.plugins.holdem.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_commands.html">core.plugins.holdem.sv.sv_commands</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_game.html">core.plugins.holdem.sv.sv_game</a></li>
+<li><a href="../../../modules/core.plugins.holdem.sv.sv_net.html">core.plugins.holdem.sv.sv_net</a></li>
+<li><a href="../../../modules/core.plugins.hud.cl_init.html">core.plugins.hud.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sh_init.html">core.plugins.hunger.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.hunger.sv_init.html">core.plugins.hunger.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.idcard.cl_init.html">core.plugins.idcard.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.cl_init.html">core.plugins.injuryinfo.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.lifealert.sh_init.html">core.plugins.lifealert.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_editor.html">core.plugins.lite_character.cl_editor</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_init.html">core.plugins.lite_character.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.cl_notches.html">core.plugins.lite_character.cl_notches</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_debug.html">core.plugins.lite_character.sh_debug</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sh_init.html">core.plugins.lite_character.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.lite_character.sv_init.html">core.plugins.lite_character.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.login_rewards.cl_init.html">core.plugins.login_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_rockfall.shared.html">core.plugins.maintenance.entities.cityrp_rockfall.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
+<li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../../../modules/core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared.html">core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared</a></li>
+<li><a href="../../../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
+<li><a href="../../../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
+<li><a href="../../../modules/core.plugins.referrals.cl_session_html.html">core.plugins.referrals.cl_session_html</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_init.html">core.plugins.referrals.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.referrals.sv_session.html">core.plugins.referrals.sv_session</a></li>
+<li><a href="../../../modules/core.plugins.refund_ents.sv_init.html">core.plugins.refund_ents.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.cl_init.html">core.plugins.rep.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.rep.sv_init.html">core.plugins.rep.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stamina.cl_init.html">core.plugins.stamina.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.steamgroup.sv_init.html">core.plugins.steamgroup.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.stickerui.cl_init.html">core.plugins.stickerui.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.sv_disable_cat.html">core.plugins.sv_disable_cat</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared.html">core.plugins.tesla_charger.entities.cityrp_tesla_homecharger.shared</a></li>
+<li><a href="../../../modules/core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init.html">core.plugins.tesla_charger.entities.cityrp_tesla_supercharger.init</a></li>
+<li><a href="../../../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.typing.sh_init.html">core.plugins.typing.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.unisec-keypads.sv_init.html">core.plugins.unisec-keypads.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicle_layout.cl_init.html">core.plugins.vehicle_layout.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.cl_init.html">core.plugins.vehicles.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_init.html">core.plugins.vehicles.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sh_sounds.html">core.plugins.vehicles.sh_sounds</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_init.html">core.plugins.vehicles.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.vehicles.sv_towtruck.html">core.plugins.vehicles.sv_towtruck</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.derma_functions.html">core.plugins.voice_distance.derma_functions</a></li>
+<li><a href="../../../modules/core.plugins.voice_distance.sh_init.html">core.plugins.voice_distance.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.cl_init.html">core.plugins.voiceradio.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.voiceradio.sh_init.html">core.plugins.voiceradio.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.cl_init.html">core.plugins.warning.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.warning.sv_init.html">core.plugins.warning.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.cl_init.html">core.plugins.website_rewards.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.website_rewards.sh_init.html">core.plugins.website_rewards.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
+<li><a href="../../../modules/core.scoreboard.scoreboard.html">core.scoreboard.scoreboard</a></li>
+<li><a href="../../../modules/core.sh_configuration.html">core.sh_configuration</a></li>
+<li><a href="../../../modules/core.sv_commands.html">core.sv_commands</a></li>
+<li><a href="../../../modules/core.sv_configuration.html">core.sv_configuration</a></li>
+<li><a href="../../../modules/dumper.html">dumper</a></li>
+<li><a href="../../../modules/entities.cityrp_peephole.html">entities.cityrp_peephole</a></li>
+<li><a href="../../../modules/env.html">env</a></li>
+<li><a href="../../../modules/plugins.perma_ents.billboard_helper.html">plugins.perma_ents.billboard_helper</a></li>
+<li><a href="../../../modules/plugins.vehicles.speedlimit.html">plugins.vehicles.speedlimit</a></li>
+<li><a href="../../../modules/plugins.worldprops.html">plugins.worldprops</a></li>
+<li><a href="../../../modules/sh_init.html">sh_init</a></li>
+<li><a href="../../../modules/temar.html">temar</a></li>
+<li><a href="../../../modules/zadkit.sv.zad_save_sv.html">zadkit.sv.zad_save_sv</a></li>
+</ul>
+</details>
+<div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
+		</div>
+		<div id="content">
+<div class="ll-module-header"><h1>Research: how `DB_MAIN` types result columns, and what type `cityrp.session`&#x27;s token should be</h1></div><div class="ll-module-body"><ul>
+<li><strong>Ticket:</strong> <a href="https://github.com/limelight-development/cityrp2/issues/3442">limelight-development/cityrp2#3442</a></li>
+<li><strong>Parent map:</strong> <a href="https://github.com/limelight-development/cityrp2/issues/3431">#3431</a> — spec for a server-only <code>cityrp.session</code> library at
+<code>gamemode/core/libraries/sv_session.lua</code>.</li>
+<li><strong>Surfaced by:</strong> <a href="https://github.com/limelight-development/cityrp2/issues/3432">#3432</a>. Blocks <a href="https://github.com/limelight-development/cityrp2/issues/3436">#3436</a>, <a href="https://github.com/limelight-development/cityrp2/issues/3437">#3437</a>.</li>
+<li><strong>Date:</strong> 2026-09-02</li>
+<li><strong>Status:</strong> Research complete. Planning only — no gamemode code was changed.</li>
+</ul>
+<p>Repo citations are <code>path:line</code> relative to <code>gamemodes/cityrp_2_by_limelightgaming/</code> unless the path
+starts <code>docs/</code>. Module citations are against
+<a href="https://github.com/SuperiorServers/gm_tmysql4">SuperiorServers/gm_tmysql4</a> at <code>master</code>, which is
+the module <code>gamemode/db.lua:9</code> loads with <code>require(&quot;tmysql4&quot;)</code>. MySQL claims are quoted from
+<a href="https://dev.mysql.com/doc/refman/8.0/en/">dev.mysql.com</a> and nothing else.</p>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What type does an <code>INT</code> column come back as?</td>
+<td>A <strong>Lua number</strong>. <code>tmysql4</code> converts it in C.</td>
+</tr>
+<tr>
+<td>What about <code>BIGINT</code>?</td>
+<td>A <strong>Lua string</strong> — <code>BIGINT</code> is the one numeric type explicitly excluded from the conversion, on purpose.</td>
+</tr>
+<tr>
+<td>Does it differ between <code>Run</code> and <code>FRun</code>?</td>
+<td><strong>No.</strong> <code>FRun</code> is a <code>string.format</code> wrapper that calls <code>Run</code>; it never touches the result.</td>
+</tr>
+<tr>
+<td>Does it differ between prepared and raw queries?</td>
+<td><strong>No.</strong> Both <code>Result</code> constructors store every cell as a <code>std::string</code> and both dispatch through the same <code>PopulateLuaTable</code>, which types from the column metadata.</td>
+</tr>
+<tr>
+<td>Is <code>refund_ents/sv_init.lua:179</code> broken on Live?</td>
+<td><strong>No.</strong> <code>track.start_time</code> is declared <code>int</code>, so <code>row.start_time</code> is a number and the <code>==</code> is number-to-number. <strong>No Bug filed for it.</strong></td>
+</tr>
+<tr>
+<td>Is <code>sv_init.lua:241</code> broken?</td>
+<td><strong>No.</strong> <code>MAX()</code> returns its argument's type, so <code>MAX(start_time)</code> over an <code>int</code> is also a number.</td>
+</tr>
+<tr>
+<td>What type should <code>cityrp.session.id</code> be?</td>
+<td>A <strong>Lua number</strong>, backed by <code>session_id int unsigned NOT NULL AUTO_INCREMENT</code>. Never <code>BIGINT</code>, never <code>VARCHAR</code>.</td>
+</tr>
+<tr>
+<td>Should the library expose <code>Is()</code> / <code>Matches()</code>?</td>
+<td><strong>Yes</strong> — not because the DB lies today, but because the type is a function of the column declaration and the SQL expression, and both of those decay silently.</td>
+</tr>
+</tbody>
+</table>
+<p>One live defect <em>was</em> found in passing, in a different plugin — <code>bans/sv_init.lua:356</code>, filed as
+<a href="https://github.com/limelight-development/cityrp2/issues/3451">#3451</a>. See
+<a href="#5-sidebar-a-real-bug-found-in-passing">§5</a>.</p>
+<hr />
+<h2 id="1-where-the-typing-decision-actually-happens">1. Where the typing decision actually happens</h2>
+<p><code>gamemode/db.lua:9</code> is <code>require(&quot;tmysql4&quot;)</code>, and <code>DB:Connect</code> (<code>db.lua:47-53</code>) calls
+<code>tmysql.initialize(...)</code>. Every result the gamemode ever sees is built by that binary module. There
+is exactly one function in it that decides a Lua type, and it is
+<a href="https://github.com/SuperiorServers/gm_tmysql4/blob/master/src/result.cpp"><code>Result::PopulateLuaTable</code></a>:</p>
+<pre><code class="language-cpp">for (unsigned int c = 0; c &lt; m_colCount; c++)
+{
+    if (useNumbers == true)
+        LUA-&gt;PushNumber(c + 1);
+
+    if (m_nullRowValues[r][c])
+        LUA-&gt;PushNil();
+    else if (IS_NUM(m_columnTypes[c]) &amp;&amp; m_columnTypes[c] != MYSQL_TYPE_LONGLONG)
+        LUA-&gt;PushNumber(atof(m_rows[r][c].c_str()));
+    else
+        LUA-&gt;PushString(m_rows[r][c].c_str(), m_rows[r][c].length());
+    ...
+}
+</code></pre>
+<p>Three branches, in order:</p>
+<ol>
+<li><strong>SQL <code>NULL</code> → Lua <code>nil</code>.</strong> Not <code>&quot;&quot;</code>, not <code>0</code>.</li>
+<li><strong><code>IS_NUM</code> and not <code>LONGLONG</code> → Lua number</strong>, via <code>atof</code> on the wire string.</li>
+<li><strong>Everything else → Lua string.</strong></li>
+</ol>
+<p><code>IS_NUM</code> is the connector's own macro, vendored in the same repo at
+<a href="https://github.com/SuperiorServers/gm_tmysql4/blob/master/include/connector/mysql.h"><code>include/connector/mysql.h:106</code></a>:</p>
+<pre><code class="language-c">#define IS_NUM(t) (((t) &lt;= MYSQL_TYPE_INT24 &amp;&amp; (t) != MYSQL_TYPE_TIMESTAMP) || (t) == MYSQL_TYPE_YEAR || (t) == MYSQL_TYPE_NEWDECIMAL)
+</code></pre>
+<p><code>m_columnTypes[c]</code> is <code>field-&gt;type</code> read from <code>mysql_fetch_field_direct</code> — the <strong>declared column
+type as MySQL reports it in the result metadata</strong>, not a guess from the value. So the answer is
+entirely determined by the schema (or, for an expression, by what MySQL says that expression's type
+is).</p>
+<h3 id="the-resulting-table">The resulting table</h3>
+<table>
+<thead>
+<tr>
+<th>MySQL column type</th>
+<th><code>field-&gt;type</code></th>
+<th>Lua type in <code>row.x</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TINYINT</code>, <code>SMALLINT</code>, <code>MEDIUMINT</code>, <code>INT</code></td>
+<td><code>TINY</code>/<code>SHORT</code>/<code>INT24</code>/<code>LONG</code></td>
+<td><strong>number</strong></td>
+</tr>
+<tr>
+<td><code>FLOAT</code>, <code>DOUBLE</code></td>
+<td><code>FLOAT</code>/<code>DOUBLE</code></td>
+<td><strong>number</strong></td>
+</tr>
+<tr>
+<td><code>DECIMAL</code>, <code>NUMERIC</code></td>
+<td><code>NEWDECIMAL</code></td>
+<td><strong>number</strong></td>
+</tr>
+<tr>
+<td><code>YEAR</code></td>
+<td><code>YEAR</code></td>
+<td><strong>number</strong></td>
+</tr>
+<tr>
+<td><strong><code>BIGINT</code></strong></td>
+<td><strong><code>LONGLONG</code></strong></td>
+<td><strong>string</strong></td>
+</tr>
+<tr>
+<td><code>TIMESTAMP</code>, <code>DATETIME</code>, <code>DATE</code>, <code>TIME</code></td>
+<td>—</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>CHAR</code>, <code>VARCHAR</code>, <code>TEXT</code>, <code>BLOB</code>, <code>ENUM</code>, <code>SET</code>, <code>JSON</code></td>
+<td>—</td>
+<td>string</td>
+</tr>
+<tr>
+<td>any column, value <code>NULL</code></td>
+<td>—</td>
+<td><strong><code>nil</code></strong></td>
+</tr>
+</tbody>
+</table>
+<p><code>BIGINT</code> is excluded deliberately: a Lua number is an IEEE-754 double, which cannot represent every
+64-bit integer exactly, so pushing a <code>BIGINT</code> as a number would silently corrupt large values
+(SteamID64s being the obvious case). The module chooses lossless-as-a-string over lossy-as-a-number.
+That is the right call, and it is also the trap — <strong><code>BIGINT</code> is a numeric type that does not behave
+numerically in Lua.</strong></p>
+<h3 id="run-vs-frun"><code>Run</code> vs <code>FRun</code></h3>
+<p>No difference. <code>DB:FRun</code> (<code>db.lua:169-173</code>) is:</p>
+<pre><code class="language-lua">function DB:FRun(query, ...)
+	local cb = select(-1, ...)
+	if not isfunction(cb) then cb = nil end
+	self:Run(query:format(...), cb)
+end
+</code></pre>
+<p>It formats a string and delegates. <code>DB:Run</code> (<code>db.lua:130-156</code>) is the only place that unwraps the
+result, and it hands the callback <code>r.data</code> verbatim. <code>RunChecked</code>, <code>QueryParams</code> and
+<code>QueryParamsChecked</code> all funnel into <code>Run</code>/<code>RunChecked</code> the same way.</p>
+<h3 id="prepared-vs-raw">Prepared vs raw</h3>
+<p>No difference either, and the source is unambiguous about why. <code>Result</code> has two constructors:</p>
+<ul>
+<li><code>Result(MYSQL*)</code> — raw path. <code>mysql_fetch_row</code> gives <code>char*</code> per cell; each is stored as
+<code>m_rows[i][n] = std::string(row[n], len[n])</code>.</li>
+<li><code>Result(PStatement*)</code> — prepared path. Every bind is forced to <code>bind.buffer_type = MYSQL_TYPE_STRING</code> (with the source comment <em>&quot;I really don't like making prepped statements mimic
+the char array style of <code>MYSQL_ROW</code>&quot;</em>), and each cell lands in the same <code>m_rows</code> <code>std::string</code>
+store.</li>
+</ul>
+<p>Both constructors populate <code>m_columnTypes[i] = field-&gt;type</code> from the same
+<code>mysql_fetch_field_direct</code>, and both results are rendered by the single <code>PopulateLuaTable</code> above. So
+the wire representation is a string in both cases, and the Lua type is decided from column metadata
+in both cases — identically.</p>
+<p>CityRP2 does not use prepared statements through <code>DB_MAIN</code> at all today, so this is future-proofing
+rather than a live concern.</p>
+<h3 id="two-more-properties-worth-pinning-down">Two more properties worth pinning down</h3>
+<p><strong>Column keys are names, not indices.</strong> <code>Database::lua_Query</code>
+(<a href="https://github.com/SuperiorServers/gm_tmysql4/blob/master/src/database.cpp"><code>database.cpp:351-374</code></a>)
+reads the <code>ColumnNumbers</code> switch off argument 5: <code>mysqldb-&gt;QueueQuery(query, callbackfunc, callbackref, LUA-&gt;GetBool(5))</code>. <code>DB:Run</code> calls <code>self.Connection:Query(query, function(res) ... end)</code>
+— two arguments — so argument 5 is nil, <code>GetBool</code> is false, and rows are <strong>always</strong> keyed by column
+name. <code>row[1]</code> is <code>nil</code> in every callback this gamemode writes. (That is the sidebar bug in
+<a href="#5-sidebar-a-real-bug-found-in-passing">§5</a>.)</p>
+<p><strong><code>lastid</code> is always a number.</strong> <code>PopulateLuaTable</code> pushes it with <code>LUA-&gt;PushNumber(m_iLastID)</code>
+unconditionally, from <code>mysql_insert_id</code>. <code>DB:Run</code> (<code>db.lua:150-152</code>) routes it to the callback for
+any query matching <code>query:find(&quot;INSERT INTO&quot;)</code>. So an <code>AUTO_INCREMENT</code> value arrives <strong>as a number
+on insert</strong>, whatever the column's declared type.</p>
+<p>Hold that thought — it is the whole argument in <a href="#4-what-type-cityrpsessionid-and-session_id-should-be">§4</a>.</p>
+<hr />
+<h2 id="2-aggregates-and-expressions-change-the-answer">2. Aggregates and expressions change the answer</h2>
+<p>The type comes from result metadata, so wrapping a column in an expression can change it.</p>
+<ul>
+<li><strong><code>COUNT()</code></strong> — the MySQL manual is explicit: <em>&quot;The result is a <code>BIGINT</code> value.&quot;</em>
+(<a href="https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html">Aggregate Functions</a>). <code>BIGINT</code>
+is <code>LONGLONG</code>, so <strong><code>COUNT()</code> always comes back as a Lua string.</strong></li>
+<li><strong><code>SUM()</code> / <code>AVG()</code></strong> — <em>&quot;return a <code>DECIMAL</code> value for exact-value arguments (integer or
+<code>DECIMAL</code>), and a <code>DOUBLE</code> value for approximate-value arguments&quot;</em> (ibid.). Both map to <code>IS_NUM</code>
+and neither is <code>LONGLONG</code>, so <strong>number</strong>.</li>
+<li><strong><code>MAX()</code> / <code>MIN()</code></strong> — the manual documents these as taking the type of their argument (<em>&quot;<code>MAX()</code>
+may take a string argument; in such cases, it returns the maximum string value&quot;</em>), and MySQL
+reports the argument's field type in the result metadata. <code>MAX(int_col)</code> is therefore
+<code>MYSQL_TYPE_LONG</code> → <strong>number</strong>.</li>
+<li><strong><code>CAST(x AS SIGNED)</code> / <code>CAST(x AS UNSIGNED)</code></strong> — yields <code>BIGINT</code> → <strong>string</strong>. Casting to make
+something &quot;a number&quot; in SQL makes it a string in Lua. This is the most counterintuitive case in
+the whole set.</li>
+</ul>
+<h3 id="the-codebase-already-knows-this">The codebase already knows this</h3>
+<p>Two live call sites are written against the <code>COUNT()</code>-is-a-string rule, which is about as strong an
+empirical confirmation as a static read can offer:</p>
+<ul>
+<li><code>vehicles/sv_init.lua:1160</code> — <code>if (res[1][&quot;COUNT(*)&quot;] == &quot;1&quot;) then</code>. Compared against a <strong>string
+literal</strong>. This is on the vehicle-spawn path, so it demonstrably works on Live.</li>
+<li><code>container_code/sv_dbcode.lua:39</code> — <code>if (tonumber(res[1][&quot;COUNT(*)&quot;]) &gt; 0) then</code>. Explicit
+<code>tonumber</code>, which would be redundant if <code>COUNT()</code> were a number.</li>
+<li><code>meska/hooks.lua:129</code> — <code>local count = tonumber(results[1][&quot;total&quot;])</code> over <code>COUNT(id) AS total</code>.
+Same.</li>
+</ul>
+<hr />
+<h2 id="3-verdict-on-refund_ents-not-broken-no-bug-filed">3. Verdict on <code>refund_ents</code>: <strong>not broken, no Bug filed</strong></h2>
+<p>The ticket's hypothesis was that <code>row.start_time == self.session</code> (<code>refund_ents/sv_init.lua:179</code>)
+compares a string to a number and is false for every row, refunding every still-standing entity.
+That would be a duplication bug in footgun <a href="https://github.com/limelight-development/cityrp2/issues/7">#7</a>'s family. It is not what happens.</p>
+<p><code>track.start_time</code> is declared in the baseline migration
+(<code>gamemode/core/migrations/0001_baseline_live_schema.lua:800-809</code>):</p>
+<pre><code class="language-sql">CREATE TABLE IF NOT EXISTS `track` (
+    `server` varchar(40) NOT NULL,
+    `start_time` int NOT NULL,
+    `ent_index` int unsigned NOT NULL,
+    `owner_steamid` varchar(50) NULL,
+    `entity` varchar(45) NULL,
+    `data` text NULL,
+    `flagged` tinyint DEFAULT 0 NULL,
+    PRIMARY KEY (`server`, `start_time`, `ent_index`)
+) ENGINE=InnoDB CHARSET=latin1
+</code></pre>
+<p><code>int</code>, not <code>bigint</code>. <code>MYSQL_TYPE_LONG</code> passes <code>IS_NUM</code> and is not <code>LONGLONG</code>, so <code>PopulateLuaTable</code>
+takes the <code>PushNumber(atof(...))</code> branch. <code>row.start_time</code> is a Lua number.</p>
+<p><code>PLUGIN.session</code> is <code>os.time()</code> (<code>refund_ents/sv_init.lua:21</code>), also a number. The comparison at
+line 179 is number-to-number and behaves as intended.</p>
+<p>Line 241 — <code>self.lastSession = results[1].start_time</code> from
+<code>SELECT MAX(start_time) start_time ...</code> (<code>sv_init.lua:235</code>) — is also safe, per the <code>MAX()</code> rule in
+<a href="#2-aggregates-and-expressions-change-the-answer">§2</a>. And even had it returned a string, that value
+is only ever interpolated back into SQL with <code>%s</code> (<code>sv_init.lua:169</code>), never <code>==</code>-compared, so it
+would have survived anyway.</p>
+<p><strong>Nothing needs fixing here, and nothing has been filed against <code>refund_ents</code>.</strong> The hypothesis was
+worth testing — it is the exact shape of bug this codebase produces — but the schema saves it.</p>
+<p>The near-miss is instructive rather than reassuring, though. <code>refund_ents</code> is correct because
+somebody in 2015 wrote <code>int</code> and not <code>bigint</code>, and no comment anywhere records that the plugin's
+correctness depends on that choice. An <code>ALTER TABLE track MODIFY start_time bigint</code> — an entirely
+reasonable-looking change, and one somebody might make for Y2038 headroom — would turn line 179
+false for every row and start refunding live contraband while the entities stayed standing, with no
+error, no log line, and nothing in the diff that looks wrong. That is the argument for
+<a href="#6-the-comparison-contract">§6</a>.</p>
+<hr />
+<h2 id="4-what-type-cityrpsessionid-and-session_id-should-be">4. What type <code>cityrp.session.id</code> and <code>session_id</code> should be</h2>
+<h3 id="cityrpsessionid-a-lua-number"><code>cityrp.session.id</code>: a Lua <strong>number</strong></h3>
+<h3 id="the-column-session_id-int-unsigned-not-null-auto_increment--never-bigint-never-varchar">The column: <code>session_id int unsigned NOT NULL AUTO_INCREMENT</code> — never <code>BIGINT</code>, never <code>VARCHAR</code></h3>
+<p>The map (<a href="https://github.com/limelight-development/cityrp2/issues/3431">#3431</a>) settled that identity is &quot;a locally generated token plus the DB row's
+autoincrement&quot;. Those are two values with two different types, and only the autoincrement is at risk
+here.</p>
+<p>The decisive constraint is the <strong>insert/select asymmetry</strong>. The autoincrement reaches Lua by two
+different routes:</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Source</th>
+<th>Lua type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>At session open — <code>DB:Run</code>'s <code>INSERT INTO</code> callback</td>
+<td><code>LUA-&gt;PushNumber(m_iLastID)</code></td>
+<td><strong>always a number</strong>, whatever the column type</td>
+</tr>
+<tr>
+<td>At read-back — <code>SELECT session_id FROM ...</code>, or a joined <code>track.session_id</code></td>
+<td><code>PopulateLuaTable</code>, from column metadata</td>
+<td>number if <code>INT</code>, <strong>string if <code>BIGINT</code></strong></td>
+</tr>
+</tbody>
+</table>
+<p>With an <code>int</code> column, both routes give a number and every comparison is consistent. With a <code>BIGINT</code>
+column, <code>cityrp.session.id</code> would be a number for the whole life of the process — because it came
+from <code>lastid</code> — while every row read back carrying that same id would be a string. <code>==</code> would be
+false everywhere, and it would be false <em>only in the read path</em>, so unit-style poking at the library
+in isolation would show nothing wrong. That is precisely the failure mode the ticket went looking
+for in <code>refund_ents</code>, and choosing <code>BIGINT</code> is how we would actually build it.</p>
+<p><code>int unsigned</code> is 4.29 billion sessions. At a generous ten world-loads per server per day across the
+fleet, that is not a bound anyone will reach; it is not worth buying <code>BIGINT</code>'s range at the cost of
+the type asymmetry. If range ever genuinely matters, the answer is to normalise on read
+(<a href="#6-the-comparison-contract">§6</a>), not to widen the column and hope.</p>
+<p><code>VARCHAR</code> is worse and there is a live precedent for it going wrong-ish already:
+<code>crash_container.container_id</code> is <code>varchar(40)</code>
+(<code>migrations/0001_baseline_live_schema.lua:261</code>) while the <code>server_stats.session_id</code> it stores is
+<code>int NOT NULL AUTO_INCREMENT</code> (<code>:771</code>). <code>container_code/sv_dbcode.lua:14,61</code> gets away with it only
+because both comparisons happen <strong>inside SQL</strong>, where MySQL coerces. The moment that value is read
+into Lua and compared there, it is a string against a number. When <code>container_code</code> migrates onto
+<code>cityrp.session</code> (a decision the map has already taken), its <code>session_id</code> column must be declared
+<code>int unsigned</code> and not inherit <code>container_id</code>'s <code>varchar(40)</code>.</p>
+<p><strong>Every table that references a session must declare the FK column <code>int unsigned</code></strong> — <code>track</code>, the
+<code>container_code</code> replacement, and phase two's <code>player_sessions</code> alike. A single <code>varchar</code> or
+<code>bigint</code> among them reintroduces the split.</p>
+<h3 id="the-opaque-token-stays-a-string">The opaque token stays a <strong>string</strong></h3>
+<p><a href="https://github.com/limelight-development/cityrp2/issues/3433">#3433</a> settled the token as a <code>util.SHA256</code> digest — a 64-character hex string. Store it <code>char(64)</code>
+(or <code>varchar(64)</code>); <code>CHAR</code>/<code>VARCHAR</code> is outside <code>IS_NUM</code>, so it round-trips as a string with no
+coercion at any point. There is no hazard here, and no reason to normalise it.</p>
+<p>Two consequences worth writing into the spec:</p>
+<ul>
+<li>The token is <strong>never</strong> the join key. The map already decided this (rejecting FearlessRP's
+join-on-token); the typing analysis independently agrees, since the numeric autoincrement is the
+value that compares cleanly and cheaply.</li>
+<li>The token must never be fed to <code>tonumber</code> by the comparison helper's normalisation path. A
+64-character hex digest is not a number, <code>tonumber</code> returns <code>nil</code>, and a naive
+<code>tonumber(a) == tonumber(b)</code> helper would then report <code>nil == nil</code> → <strong>true</strong> and match
+everything. See the contract below.</li>
+</ul>
+<hr />
+<h2 id="5-sidebar-a-real-bug-found-in-passing">5. Sidebar: a real bug found in passing</h2>
+<p>Not <code>refund_ents</code>, not this map, filed on its own.</p>
+<p><code>bans/sv_init.lua:355-363</code>:</p>
+<pre><code class="language-lua">DB_MAIN:Run(&quot;SELECT COUNT(*) FROM bans WHERE ... steamid = '&quot; .. Escape(sid) .. &quot;' ...&quot;, function(bans)
+    if (bans[1][1] == nil) then return end
+
+    local banc = tonumber(bans[1][1]) or 0
+    if (banc &gt; 0) then
+        msg_admins(&quot;Bans System Init Spawn Check has kicked and re-banned &quot; .. ply:Name() ...)
+        ...
+    end
+end)
+</code></pre>
+<p><code>bans[1][1]</code> indexes the row by <strong>column number</strong>. As established in <a href="#two-more-properties-worth-pinning-down">§1</a>,
+<code>DB:Run</code> never passes tmysql4's <code>ColumnNumbers</code> argument, so rows are keyed by name only and
+<code>bans[1][1]</code> is <code>nil</code> unconditionally. The <code>== nil</code> guard therefore returns on every single
+invocation, and this <code>PlayerInitialized</code> re-ban check has never fired. The column's actual key is
+<code>&quot;COUNT(*)&quot;</code>, exactly as <code>vehicles/sv_init.lua:1160</code> and <code>container_code/sv_dbcode.lua:39</code> use it.</p>
+<p>Filed as <a href="https://github.com/limelight-development/cityrp2/issues/3451">#3451</a>. It has nothing to do
+with sessions beyond having been turned up by the same read, and should not wait on this map.</p>
+<hr />
+<h2 id="6-the-comparison-contract">6. The comparison contract</h2>
+<p><strong>Recommendation: yes, ship <code>cityrp.session.Is(value)</code> and <code>cityrp.session.Matches(row, field)</code>, and
+make a bare <code>==</code> against a result-set value a reviewable defect.</strong></p>
+<p>The justification is <em>not</em> &quot;the database lies about integers&quot; — <a href="#1-where-the-typing-decision-actually-happens">§1</a>
+establishes it does not, and <a href="#3-verdict-on-refund_ents-not-broken-no-bug-filed">§3</a> establishes the
+existing code is correct. The justification is that the Lua type of a session id is a function of
+three things that all live somewhere else and all change silently:</p>
+<ol>
+<li><strong>The column declaration</strong> — <code>int</code> works, <code>bigint</code> and <code>varchar</code> do not, and the difference is
+invisible at the Lua call site. A migration written a year from now by someone who has never read
+this document is the realistic vector.</li>
+<li><strong>The SQL expression</strong> — <code>session_id</code> is a number, <code>MAX(session_id)</code> is a number,
+<code>COUNT(session_id)</code> is a string, <code>CAST(session_id AS UNSIGNED)</code> is a string. Adding an aggregate
+or a cast to an existing query changes the Lua type of its result with no other visible effect.</li>
+<li><strong><code>NULL</code></strong> — a <code>LEFT JOIN</code> that misses, or a row written before the column existed, yields <code>nil</code>,
+which <code>==</code> against a number is quietly <code>false</code> rather than an error. A helper is the only place to
+make that a deliberate answer rather than an accident.</li>
+</ol>
+<p>None of the three produces a lint error, a runtime error, or a stack trace. All three produce
+&quot;the comparison is false, so this entity is unowned, so refund it&quot; — a duplication bug, on the
+contraband path, which is what this whole map exists to stop.</p>
+<h3 id="proposed-contract">Proposed contract</h3>
+<pre><code class="language-lua">--- Test whether a value identifies the current session.
+--- Normalises result-set values, which arrive as strings for `BIGINT`, `VARCHAR` and every
+--- aggregate expression (`COUNT()` in particular). Fails closed: `nil`, a non-numeric value,
+--- and &quot;the session is not ready yet&quot; are all `false`.
+--- @param value any Candidate id — a Lua number, or a value straight out of a `DB_MAIN` row.
+--- @return boolean isCurrent True only when `value` is unambiguously this session's id.
+function cityrp.session.Is(value)
+</code></pre>
+<pre><code class="language-lua">--- Test whether a result-set row belongs to the current session.
+--- @param row table? A row from a `DB_MAIN` callback's result set.
+--- @param field string? Column name holding the session id. Defaults to `&quot;session_id&quot;`.
+--- @return boolean isCurrent True only when the row exists and its session column is this session.
+function cityrp.session.Matches(row, field)
+</code></pre>
+<p>Rules the implementation has to hold to, each of which is a way to get this wrong:</p>
+<ul>
+<li><strong><code>Is(nil)</code> is <code>false</code>, never <code>true</code>.</strong> The <code>tonumber(a) == tonumber(b)</code> shape gives <code>nil == nil</code>
+→ <code>true</code> and matches every row with a <code>NULL</code> session — the worst possible answer on a
+fail-closed path. Reject a <code>nil</code> normalisation before comparing.</li>
+<li><strong><code>Is(anything)</code> is <code>false</code> while the library is not ready.</strong> The map's fail-closed decision:
+before the DB row lands there is no current session, so nothing is current. This must be the
+helper's answer too, not just <code>Track</code>'s.</li>
+<li><strong>Normalise the <em>candidate</em>, not the stored id.</strong> <code>cityrp.session.id</code> is known to be a number by
+construction (<a href="#4-what-type-cityrpsessionid-and-session_id-should-be">§4</a>); only the incoming
+value is of unknown provenance. Normalising both invites someone to make <code>id</code> a string later.</li>
+<li><strong><code>tonumber</code>, not <code>tostring</code>.</strong> Comparing as strings makes <code>1</code> <del>= <code>&quot;01&quot;</code> and <code>1</code> </del>= <code>&quot;1.0&quot;</code>;
+comparing as numbers collapses every representation MySQL might emit for an integer. It also
+correctly refuses the SHA256 token (<code>tonumber</code> → <code>nil</code> → <code>false</code>), which string comparison would
+not.</li>
+<li><strong><code>Matches</code> takes the field name.</strong> Phase two's <code>player_sessions</code> and the <code>track</code> replacement will
+not agree on a single column name forever, and a <code>Matches(row)</code> that hardcodes <code>&quot;session_id&quot;</code> gets
+copy-pasted with a manual <code>==</code> the first time it doesn't fit.</li>
+</ul>
+<p><code>Matches</code> is not sugar over <code>Is</code> — it is where the <code>nil</code>-row case is handled once. <code>Is(row.session_id)</code>
+on a <code>nil</code> <code>row</code> is a hard error inside an async callback; <code>Matches(row)</code> is <code>false</code>.</p>
+<h3 id="where-the-contract-has-to-be-enforced">Where the contract has to be enforced</h3>
+<p>A helper nobody calls is worse than no helper. The spec should require that after phase one,
+<code>grep -n &quot;session_id ==\|== .*session&quot; </code> over the migrated plugins returns nothing, and that the
+<code>cityrp.session</code> docs page states the rule directly: <strong>result-set values are compared with
+<code>cityrp.session.Is</code>, never <code>==</code>.</strong> This is the same shape as footgun <a href="https://github.com/limelight-development/cityrp2/issues/9">#9</a>'s &quot;one image-host allowlist&quot;
+— the failure there was every consumer carrying its own copy of a check, each correct in isolation.</p>
+<hr />
+<h2 id="sources">Sources</h2>
+<p><strong>Module source</strong> (SuperiorServers/gm_tmysql4, <code>master</code> — the module <code>db.lua:9</code> requires):</p>
+<ul>
+<li><code>src/result.cpp</code> — <code>Result::PopulateLuaTable</code>, both <code>Result</code> constructors, <code>Resize</code>.</li>
+<li><code>src/database.cpp</code> — <code>Database::lua_Query</code> (the <code>ColumnNumbers</code> argument).</li>
+<li><code>include/connector/mysql.h:106</code> — the <code>IS_NUM</code> macro, vendored MariaDB Connector/C.</li>
+</ul>
+<p><strong>MySQL manual:</strong></p>
+<ul>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html">12.20.1 Aggregate Function Descriptions</a>
+— <code>COUNT()</code> returns <code>BIGINT</code>; <code>SUM()</code>/<code>AVG()</code> return <code>DECIMAL</code> or <code>DOUBLE</code>; <code>MAX()</code>/<code>MIN()</code> follow
+their argument.</li>
+</ul>
+<p><strong>Repo</strong> (paths relative to <code>gamemodes/cityrp_2_by_limelightgaming/</code>):</p>
+<ul>
+<li><code>gamemode/db.lua:9,47-53,130-156,169-173</code> — module load, connect, <code>Run</code>, <code>FRun</code>.</li>
+<li><code>gamemode/core/migrations/0001_baseline_live_schema.lua:259-268,770-775,800-809</code> —
+<code>crash_container</code>, <code>server_stats</code>, <code>track</code>.</li>
+<li><code>gamemode/core/plugins/refund_ents/sv_init.lua:21,165-170,179,235,241</code>.</li>
+<li><code>gamemode/core/plugins/vehicles/sv_init.lua:1158-1160</code> — <code>COUNT(*)</code> compared to <code>&quot;1&quot;</code>.</li>
+<li><code>gamemode/core/plugins/container_code/sv_dbcode.lua:14,39,61</code>.</li>
+<li><code>gamemode/core/libraries/meska/hooks.lua:116,129</code>.</li>
+<li><code>gamemode/core/plugins/bans/sv_init.lua:355-363</code> — the sidebar bug.</li>
+</ul></div>
+		</div>
+	</div>
+</div>
+<script>
+var ROOT = "../../../";
+(function () {
+	var input = document.getElementById("ll-search-input");
+	var list = document.getElementById("ll-search-results");
+	if (!input || !list) { return; }
+	var index = null, loading = false;
+
+	function load() {
+		if (index || loading) { return; }
+		loading = true;
+		fetch(ROOT + "search.json").then(function (response) {
+			return response.json();
+		}).then(function (data) {
+			index = data;
+			loading = false;
+			render();
+		}).catch(function () {
+			loading = false;
+			list.innerHTML = "<li><p>Search index unavailable.</p></li>";
+			list.hidden = false;
+		});
+	}
+
+	// Lower is better: exact name, then prefix, then anywhere in the name, then
+	// only in the description.
+	function score(entry, query) {
+		var name = entry.n.toLowerCase();
+		if (name === query) { return 0; }
+		if (name.lastIndexOf(query, 0) === 0) { return 1; }
+		if (name.indexOf(query) > 0) { return 2; }
+		return (entry.d || "").toLowerCase().indexOf(query) >= 0 ? 3 : -1;
+	}
+
+	function escape(text) {
+		return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function render() {
+		var query = input.value.trim().toLowerCase();
+		if (!query) { list.hidden = true; list.innerHTML = ""; return; }
+        if (!index) { return; }
+		var hits = [];
+		for (var i = 0; i < index.length; i++) {
+			var rank = score(index[i], query);
+			if (rank >= 0) { hits.push([rank, index[i].n.length, index[i]]); }
+		}
+		hits.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+		list.innerHTML = hits.slice(0, 20).map(function (hit) {
+			var entry = hit[2];
+			return '<li><a href="' + ROOT + entry.u + '">' + escape(entry.n)
+				+ '<span class="ll-search-kind">' + escape(entry.k) + "</span></a></li>";
+		}).join("") || "<li><p>No matches.</p></li>";
+		list.hidden = false;
+	}
+
+	input.addEventListener("focus", load);
+	input.addEventListener("input", function () { load(); render(); });
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") { input.value = ""; render(); input.blur(); }
+		if (event.key === "Enter") {
+			var first = list.querySelector("a");
+			if (first) { window.location.href = first.href; }
+		}
+	});
+
+	// "/" jumps to the box, unless the reader is already typing somewhere -
+	// preventDefault stops the slash itself landing in the field.
+	document.addEventListener("keydown", function (event) {
+		if (event.key !== "/" || event.ctrlKey || event.metaKey || event.altKey) { return; }
+		var active = document.activeElement;
+		if (active && (active.isContentEditable
+			|| /^(input|textarea|select)$/i.test(active.tagName))) { return; }
+		event.preventDefault();
+		input.focus();
+		input.select();
+	});
+})();
+</script>
+</body>
+</html>

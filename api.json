@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-09-02T17:35:45Z",
+  "generated": "2026-09-03T17:39:54Z",
   "modules": [
     {
       "name": "AreaManager",
@@ -4541,7 +4541,7 @@
             "client",
             "server"
           ],
-          "desc": "A player's pass tier. The tiers themselves are configured under\n `cityrp.configuration[\"Passes\"]`; this is only the set of keys.",
+          "desc": "",
           "params": [],
           "returns": [],
           "deprecated": null,
@@ -4550,14 +4550,119 @@
           "bugs": [],
           "uniqueids": [],
           "section": null,
-          "family": null,
+          "family": "PASS",
           "members": [
-            "\"grey\"",
-            "\"green\"",
-            "\"blue\"",
-            "\"orange\"",
-            "\"red\""
+            "`PASS_GREY`",
+            "`PASS_GREEN`",
+            "`PASS_BLUE`",
+            "`PASS_ORANGE`",
+            "`PASS_RED`"
           ]
+        },
+        {
+          "name": "PASS_BLUE",
+          "kind": "Fields",
+          "module": "Enumerations",
+          "file": "core/sh_enumerations.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": "PASS",
+          "members": []
+        },
+        {
+          "name": "PASS_GREEN",
+          "kind": "Fields",
+          "module": "Enumerations",
+          "file": "core/sh_enumerations.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": "PASS",
+          "members": []
+        },
+        {
+          "name": "PASS_GREY",
+          "kind": "Fields",
+          "module": "Enumerations",
+          "file": "core/sh_enumerations.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "A player's pass tier. String-backed to match `cityrp.configuration[\"Passes\"]`'s own keys exactly\n -- these constants are names for the same literals that table (and every other pass-keyed table)\n already uses, not a new/different representation, so nothing keyed by the raw string needs\n rekeying just because call sites move onto these constants.",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": "Passes",
+          "family": "PASS",
+          "members": []
+        },
+        {
+          "name": "PASS_ORANGE",
+          "kind": "Fields",
+          "module": "Enumerations",
+          "file": "core/sh_enumerations.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": "PASS",
+          "members": []
+        },
+        {
+          "name": "PASS_RED",
+          "kind": "Fields",
+          "module": "Enumerations",
+          "file": "core/sh_enumerations.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": "PASS",
+          "members": []
         },
         {
           "name": "SNDLVL_20dB",
@@ -5586,12 +5691,12 @@
           "params": [
             {
               "name": "time",
-              "type": "number?",
+              "type": "any",
               "desc": ""
             },
             {
               "name": "showmins",
-              "type": "boolean",
+              "type": "any",
               "desc": ""
             }
           ],
@@ -8327,7 +8432,7 @@
           "states": [
             "server"
           ],
-          "desc": "Called when a player is demoting another player.\n\n```lua\nfrom:\n    | `TEAM_PRESIDENT`\n    | `TEAM_VP`\n    | `TEAM_SSL`\n    | `TEAM_SS`\n    | `TEAM_GAL`\n    | `TEAM_GA`\n    | `TEAM_POLICECOMMANDER`\n    | `TEAM_POLICEOFFICER`\n    | `TEAM_FIRECHIEF`\n    | `TEAM_RESCUE`\n    | `TEAM_FIREMAN`\n    | `TEAM_PARAMEDIC`\n    | `TEAM_NEXUSDESK`\n    | `TEAM_CITIZEN`\n    | `TEAM_CHEF`\n    | `TEAM_DOCTOR`\n    | `TEAM_ARMSDEALER`\n    | `TEAM_MECHANIC`\n    | `TEAM_TAXI`\n    | `TEAM_SECURITY`\n    | `TEAM_REBEL`\n    | `TEAM_REBELLEADER`\n    | `TEAM_BLACKMARKETDEALER`\n    | `TEAM_MAFIABOSS`\n    | `TEAM_MAFIA`\n    | `TEAM_AFK`\n```",
+          "desc": "Called when a player is demoting another player.\n\n```lua\nfrom:\n    | `TEAM_PRESIDENT`\n    | `TEAM_VP`\n    | `TEAM_SSL`\n    | `TEAM_SS`\n    | `TEAM_GAL`\n    | `TEAM_GA`\n    | `TEAM_POLICECOMMANDER`\n    | `TEAM_POLICEOFFICER`\n    | `TEAM_FIRECHIEF`\n    | `TEAM_RESCUE`\n    | `TEAM_FIREMAN`\n    | `TEAM_PARAMEDIC`\n    | `TEAM_NEXUSDESK`\n    | `TEAM_CITIZEN`\n    | `TEAM_CHEF`\n    | `TEAM_DOCTOR`\n    | `TEAM_ARMSDEALER`\n    | `TEAM_MECHANIC`\n    | `TEAM_TAXI`\n    | `TEAM_SECURITY`\n    | `TEAM_REBEL`\n    | `TEAM_REBELLEADER`\n    | `TEAM_ANARCHIST`\n    | `TEAM_BLACKMARKETDEALER`\n    | `TEAM_MAFIABOSS`\n    | `TEAM_MAFIA`\n    | `TEAM_AFK`\n```",
           "params": [
             {
               "name": "ply",
@@ -8341,7 +8446,7 @@
             },
             {
               "name": "from",
-              "type": "`TEAM_AFK`|`TEAM_ARMSDEALER`|`TEAM_BLACKMARKETDEALER`|`TEAM_CHEF`|`TEAM_CITIZEN`...(+21)",
+              "type": "`TEAM_AFK`|`TEAM_ANARCHIST`|`TEAM_ARMSDEALER`|`TEAM_BLACKMARKETDEALER`|`TEAM_CHEF`...(+22)",
               "desc": "The team they're being demoted from."
             },
             {
@@ -8677,12 +8782,12 @@
           "params": [
             {
               "name": "ply",
-              "type": "Player",
+              "type": "any",
               "desc": ""
             },
             {
               "name": "state",
-              "type": "boolean",
+              "type": "any",
               "desc": ""
             }
           ],
@@ -8709,7 +8814,7 @@
           "states": [
             "server"
           ],
-          "desc": "Called when a player is promoting another player.\n\n```lua\nfrom:\n    | `TEAM_PRESIDENT`\n    | `TEAM_VP`\n    | `TEAM_SSL`\n    | `TEAM_SS`\n    | `TEAM_GAL`\n    | `TEAM_GA`\n    | `TEAM_POLICECOMMANDER`\n    | `TEAM_POLICEOFFICER`\n    | `TEAM_FIRECHIEF`\n    | `TEAM_RESCUE`\n    | `TEAM_FIREMAN`\n    | `TEAM_PARAMEDIC`\n    | `TEAM_NEXUSDESK`\n    | `TEAM_CITIZEN`\n    | `TEAM_CHEF`\n    | `TEAM_DOCTOR`\n    | `TEAM_ARMSDEALER`\n    | `TEAM_MECHANIC`\n    | `TEAM_TAXI`\n    | `TEAM_SECURITY`\n    | `TEAM_REBEL`\n    | `TEAM_REBELLEADER`\n    | `TEAM_BLACKMARKETDEALER`\n    | `TEAM_MAFIABOSS`\n    | `TEAM_MAFIA`\n    | `TEAM_AFK`\n```",
+          "desc": "Called when a player is promoting another player.\n\n```lua\nfrom:\n    | `TEAM_PRESIDENT`\n    | `TEAM_VP`\n    | `TEAM_SSL`\n    | `TEAM_SS`\n    | `TEAM_GAL`\n    | `TEAM_GA`\n    | `TEAM_POLICECOMMANDER`\n    | `TEAM_POLICEOFFICER`\n    | `TEAM_FIRECHIEF`\n    | `TEAM_RESCUE`\n    | `TEAM_FIREMAN`\n    | `TEAM_PARAMEDIC`\n    | `TEAM_NEXUSDESK`\n    | `TEAM_CITIZEN`\n    | `TEAM_CHEF`\n    | `TEAM_DOCTOR`\n    | `TEAM_ARMSDEALER`\n    | `TEAM_MECHANIC`\n    | `TEAM_TAXI`\n    | `TEAM_SECURITY`\n    | `TEAM_REBEL`\n    | `TEAM_REBELLEADER`\n    | `TEAM_ANARCHIST`\n    | `TEAM_BLACKMARKETDEALER`\n    | `TEAM_MAFIABOSS`\n    | `TEAM_MAFIA`\n    | `TEAM_AFK`\n```",
           "params": [
             {
               "name": "ply",
@@ -8723,7 +8828,7 @@
             },
             {
               "name": "from",
-              "type": "`TEAM_AFK`|`TEAM_ARMSDEALER`|`TEAM_BLACKMARKETDEALER`|`TEAM_CHEF`|`TEAM_CITIZEN`...(+21)",
+              "type": "`TEAM_AFK`|`TEAM_ANARCHIST`|`TEAM_ARMSDEALER`|`TEAM_BLACKMARKETDEALER`|`TEAM_CHEF`...(+22)",
               "desc": "The team they're being promoted to."
             }
           ],
@@ -9639,52 +9744,6 @@
           "members": []
         },
         {
-          "name": "GM.PlayerTraceAttack",
-          "kind": "Functions",
-          "module": "GM",
-          "file": "init.lua",
-          "states": [
-            "server"
-          ],
-          "desc": "Called when a player is attacked by a trace.",
-          "params": [
-            {
-              "name": "ply",
-              "type": "any",
-              "desc": ""
-            },
-            {
-              "name": "damageInfo",
-              "type": "any",
-              "desc": ""
-            },
-            {
-              "name": "direction",
-              "type": "any",
-              "desc": ""
-            },
-            {
-              "name": "trace",
-              "type": "any",
-              "desc": ""
-            }
-          ],
-          "returns": [
-            {
-              "type": "boolean",
-              "desc": ""
-            }
-          ],
-          "deprecated": null,
-          "internal": false,
-          "warns": [],
-          "bugs": [],
-          "uniqueids": [],
-          "section": null,
-          "family": null,
-          "members": []
-        },
-        {
           "name": "GM.PlayerUnarrest",
           "kind": "Functions",
           "module": "GM",
@@ -10022,6 +10081,42 @@
               "desc": ""
             }
           ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "GM.ScalePlayerDamage",
+          "kind": "Functions",
+          "module": "GM",
+          "file": "init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Called when a player takes damage to a specific body part. Defined here to\n shadow base's implementation, which hardcodes head x2 and limb x0.25.",
+          "params": [
+            {
+              "name": "ply",
+              "type": "Player",
+              "desc": "Player which took the damage."
+            },
+            {
+              "name": "hitgroup",
+              "type": "number",
+              "desc": "`HITGROUP_*` enum of the body part which was hit."
+            },
+            {
+              "name": "damageInfo",
+              "type": "DamageInfo",
+              "desc": "Information about the damage."
+            }
+          ],
+          "returns": [],
           "deprecated": null,
           "internal": false,
           "warns": [],
@@ -60433,7 +60528,7 @@
           "states": [
             "server"
           ],
-          "desc": "Get a player's default (team) model.",
+          "desc": "Get a player's default (team) model.\n Jobs whose model list has citizen models merged in via `ApplyCitizenModels` (Mafia, Rebel, Anarchist) roll one of their own unique models here rather than a citizen one; the citizen models are still manually selectable via the F1 menu.",
           "params": [],
           "returns": [
             {
@@ -61525,6 +61620,32 @@
             {
               "type": "boolean",
               "desc": "if the player has Administrative permissions."
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "Player.IsAnarchist",
+          "kind": "Functions",
+          "module": "Player",
+          "file": "core/metatables/sh_player.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Check if player is an Anarchist.",
+          "params": [],
+          "returns": [
+            {
+              "type": "boolean",
+              "desc": "if the player is an Anarchist."
             }
           ],
           "deprecated": null,
@@ -63666,11 +63787,11 @@
             "client",
             "server"
           ],
-          "desc": "Check if a player has a pass.\n\n```lua\n--  A player's pass tier. The tiers themselves are configured under\n--  `cityrp.configuration[\"Passes\"]`; this is only the set of keys.\nThe:\n    | \"grey\"\n    | \"green\"\n    | \"blue\"\n    | \"orange\"\n    | \"red\"\n```",
+          "desc": "Check if a player has a pass.\n\n```lua\nThe:\n    | `PASS_GREY`\n    | `PASS_GREEN`\n    | `PASS_BLUE`\n    | `PASS_ORANGE`\n    | `PASS_RED`\n```",
           "params": [],
           "returns": [
             {
-              "type": "\"blue\"|\"green\"|\"grey\"|\"orange\"|\"red\"...(+1)",
+              "type": "`PASS_BLUE`|`PASS_GREEN`|`PASS_GREY`|`PASS_ORANGE`|`PASS_RED`...(+1)",
               "desc": "current pass or nil if none."
             }
           ],
@@ -92732,6 +92853,450 @@
       ]
     },
     {
+      "name": "cityrp_coalore",
+      "description": "Coal Deposit entity - server.\nHandles being mined: rolls loot per swing, sinks the rock into the ground as its health\ndrops, and respawns the deposit a few minutes after it is broken.",
+      "symbols": [
+        {
+          "name": "ENT.AdminSpawnable",
+          "kind": "Fields",
+          "module": "cityrp_coalore",
+          "file": "core/plugins/mining/entities/cityrp_coalore/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.Color",
+          "kind": "Fields",
+          "module": "cityrp_coalore",
+          "file": "core/plugins/mining/entities/cityrp_coalore/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.Contains",
+          "kind": "Fields",
+          "module": "cityrp_coalore",
+          "file": "core/plugins/mining/entities/cityrp_coalore/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.Information",
+          "kind": "Fields",
+          "module": "cityrp_coalore",
+          "file": "core/plugins/mining/entities/cityrp_coalore/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.LootOreItem",
+          "kind": "Fields",
+          "module": "cityrp_coalore",
+          "file": "core/plugins/mining/entities/cityrp_coalore/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.OnTakeDamage",
+          "kind": "Functions",
+          "module": "cityrp_coalore",
+          "file": "core/plugins/mining/entities/cityrp_coalore/init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Awards loot for a successful pickaxe swing and breaks the deposit once it runs out of health.",
+          "params": [
+            {
+              "name": "dmginfo",
+              "type": "CTakeDamageInfo",
+              "desc": "The damage being dealt."
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.OriginalPos",
+          "kind": "Fields",
+          "module": "cityrp_coalore",
+          "file": "core/plugins/mining/entities/cityrp_coalore/init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.RemovedByMining",
+          "kind": "Fields",
+          "module": "cityrp_coalore",
+          "file": "core/plugins/mining/entities/cityrp_coalore/init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.RockOreItem",
+          "kind": "Fields",
+          "module": "cityrp_coalore",
+          "file": "core/plugins/mining/entities/cityrp_coalore/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
+      "name": "cityrp_constructionworker",
+      "description": "Construction Worker NPC - client.\nThe sell menu the NPC opens, and its look-at panel.",
+      "symbols": [
+        {
+          "name": "ENT.AcceptInput",
+          "kind": "Functions",
+          "module": "cityrp_constructionworker",
+          "file": "core/plugins/mining/entities/cityrp_constructionworker/init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Opens the sell menu for the player pressing use on the NPC.",
+          "params": [
+            {
+              "name": "name",
+              "type": "string",
+              "desc": "The input name."
+            },
+            {
+              "name": "activator",
+              "type": "Entity",
+              "desc": "The entity that triggered the input."
+            },
+            {
+              "name": "caller",
+              "type": "Entity",
+              "desc": "The entity that caused the input."
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.AutomaticFrameAdvance",
+          "kind": "Fields",
+          "module": "cityrp_constructionworker",
+          "file": "core/plugins/mining/entities/cityrp_constructionworker/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "This entity will animate itself.",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.Description",
+          "kind": "Fields",
+          "module": "cityrp_constructionworker",
+          "file": "core/plugins/mining/entities/cityrp_constructionworker/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.Job",
+          "kind": "Fields",
+          "module": "cityrp_constructionworker",
+          "file": "core/plugins/mining/entities/cityrp_constructionworker/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.Name",
+          "kind": "Fields",
+          "module": "cityrp_constructionworker",
+          "file": "core/plugins/mining/entities/cityrp_constructionworker/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.SetAutomaticFrameAdvance",
+          "kind": "Functions",
+          "module": "cityrp_constructionworker",
+          "file": "core/plugins/mining/entities/cityrp_constructionworker/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Called by the engine to tell the entity whether it should animate itself.",
+          "params": [
+            {
+              "name": "bUsingAnim",
+              "type": "boolean",
+              "desc": "Whether the entity is currently playing an animation."
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "npc_mineralsellmenu",
+          "kind": "Functions",
+          "module": "cityrp_constructionworker",
+          "file": "core/plugins/mining/entities/cityrp_constructionworker/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "Opens the NPC's top-level menu, offering the rock and coal sell flows.\n Global because net.Receive below and openSellStep's Return button both call it.",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
+      "name": "cityrp_smeltery",
+      "description": "Smeltery entity - server.\nAccepts coal and metal ore by touch or by use, burns for SmeltTime, then holds one\nscrap metal until the owner collects it.",
+      "symbols": [
+        {
+          "name": "ENT.lastUsePresses",
+          "kind": "Tables",
+          "module": "cityrp_smeltery",
+          "file": "core/plugins/mining/entities/cityrp_smeltery/init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.SmeltTime",
+          "kind": "Fields",
+          "module": "cityrp_smeltery",
+          "file": "core/plugins/mining/entities/cityrp_smeltery/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.StartTouch",
+          "kind": "Functions",
+          "module": "cityrp_smeltery",
+          "file": "core/plugins/mining/entities/cityrp_smeltery/init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Absorbs a dropped coal or metal ore item that lands on the smeltery.",
+          "params": [
+            {
+              "name": "ent",
+              "type": "Entity",
+              "desc": "The entity that touched the smeltery."
+            }
+          ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
       "name": "core.cl_scoreboard",
       "description": "",
       "symbols": [
@@ -117005,6 +117570,7 @@
             "`TEAM_SECURITY`",
             "`TEAM_REBEL`",
             "`TEAM_REBELLEADER`",
+            "`TEAM_ANARCHIST`",
             "`TEAM_BLACKMARKETDEALER`",
             "`TEAM_MAFIABOSS`",
             "`TEAM_MAFIA`",
@@ -117013,6 +117579,27 @@
         },
         {
           "name": "TEAM_AFK",
+          "kind": "Fields",
+          "module": "core.plugins.generic.sh_init",
+          "file": "core/plugins/generic/sh_init.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": "TEAM",
+          "members": []
+        },
+        {
+          "name": "TEAM_ANARCHIST",
           "kind": "Fields",
           "module": "core.plugins.generic.sh_init",
           "file": "core/plugins/generic/sh_init.lua",
@@ -125765,6 +126352,138 @@
       ]
     },
     {
+      "name": "core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared",
+      "description": "Hardwood Pickaxe.",
+      "symbols": [
+        {
+          "name": "SWEP.Base",
+          "kind": "Fields",
+          "module": "core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared",
+          "file": "core/plugins/mining/weapons/cityrp_hardwood_pickaxe/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "SWEP.DamageType",
+          "kind": "Fields",
+          "module": "core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared",
+          "file": "core/plugins/mining/weapons/cityrp_hardwood_pickaxe/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "SWEP.PlayHitSound",
+          "kind": "Functions",
+          "module": "core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared",
+          "file": "core/plugins/mining/weapons/cityrp_hardwood_pickaxe/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "Play the sound of the pickaxe striking something, varying the sample and pitch per swing.",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "SWEP.StaminaCost",
+          "kind": "Fields",
+          "module": "core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared",
+          "file": "core/plugins/mining/weapons/cityrp_hardwood_pickaxe/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "SWEP.StaminaRequired",
+          "kind": "Fields",
+          "module": "core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared",
+          "file": "core/plugins/mining/weapons/cityrp_hardwood_pickaxe/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "SWEP.SwingHoldType",
+          "kind": "Fields",
+          "module": "core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared",
+          "file": "core/plugins/mining/weapons/cityrp_hardwood_pickaxe/shared.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
       "name": "core.plugins.passivemode.sv_init",
       "description": "Passive Mode",
       "symbols": [
@@ -130580,6 +131299,54 @@
               "desc": "The arguments sent."
             }
           ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
+      "name": "core.plugins.typing.sh_init",
+      "description": "Overhead Typing Notifications Server.",
+      "symbols": [
+        {
+          "name": "PLUGIN.author",
+          "kind": "Fields",
+          "module": "core.plugins.typing.sh_init",
+          "file": "core/plugins/typing/sh_init.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PLUGIN.name",
+          "kind": "Fields",
+          "module": "core.plugins.typing.sh_init",
+          "file": "core/plugins/typing/sh_init.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
           "returns": [],
           "deprecated": null,
           "internal": false,
@@ -137751,27 +138518,6 @@
       "description": "Door Peephole Entity (Client).\nBoth faces are drawn as a rim and a lens rather than modelled.",
       "symbols": [
         {
-          "name": "ENT.AdminSpawnable",
-          "kind": "Fields",
-          "module": "entities.cityrp_peephole",
-          "file": "core/plugins/peepholes/entities/cityrp_peephole/shared.lua",
-          "states": [
-            "client",
-            "server"
-          ],
-          "desc": "",
-          "params": [],
-          "returns": [],
-          "deprecated": null,
-          "internal": false,
-          "warns": [],
-          "bugs": [],
-          "uniqueids": [],
-          "section": null,
-          "family": null,
-          "members": []
-        },
-        {
           "name": "ENT.DrawFace",
           "kind": "Functions",
           "module": "entities.cityrp_peephole",
@@ -137864,27 +138610,6 @@
             "server"
           ],
           "desc": "Half-extent of the collision hull.",
-          "params": [],
-          "returns": [],
-          "deprecated": null,
-          "internal": false,
-          "warns": [],
-          "bugs": [],
-          "uniqueids": [],
-          "section": null,
-          "family": null,
-          "members": []
-        },
-        {
-          "name": "ENT.Information",
-          "kind": "Fields",
-          "module": "entities.cityrp_peephole",
-          "file": "core/plugins/peepholes/entities/cityrp_peephole/shared.lua",
-          "states": [
-            "client",
-            "server"
-          ],
-          "desc": "",
           "params": [],
           "returns": [],
           "deprecated": null,
@@ -138042,32 +138767,6 @@
           ],
           "desc": "Clears the door's cached reference to this fitting.",
           "params": [],
-          "returns": [],
-          "deprecated": null,
-          "internal": false,
-          "warns": [],
-          "bugs": [],
-          "uniqueids": [],
-          "section": null,
-          "family": null,
-          "members": []
-        },
-        {
-          "name": "ENT.OnTakeDamage",
-          "kind": "Functions",
-          "module": "entities.cityrp_peephole",
-          "file": "core/plugins/peepholes/entities/cityrp_peephole/init.lua",
-          "states": [
-            "server"
-          ],
-          "desc": "Degrades the lens when the engine does deliver damage here.\n Secondary path only; the plugin's bullet handler is what actually catches shots.",
-          "params": [
-            {
-              "name": "damageInfo",
-              "type": "CTakeDamageInfo",
-              "desc": "The damage being applied."
-            }
-          ],
           "returns": [],
           "deprecated": null,
           "internal": false,
@@ -139114,6 +139813,28 @@
   ],
   "topics": [
     {
+      "id": "adr/0001-what-counts-as-a-server-session",
+      "title": "What counts as a server session",
+      "path": "adr/0001-what-counts-as-a-server-session.md",
+      "meta": {
+        "title": "What counts as a server session",
+        "status": "Accepted",
+        "date": "2026-09-03",
+        "description": "A session is one world-load lifetime, owned by cityrp.session, keyed by an internal autoincrement, and served fail-closed."
+      },
+      "body": "\n# 0001 — What counts as a server session\n\n**Status**: Accepted · 2026-09-03 · charted by\n[#3431](https://github.com/limelight-development/cityrp2/issues/3431)\n\nA session is **one world-load lifetime**, and `cityrp.session`\n(`gamemode/core/libraries/sv_session.lua`) is the only thing allowed to answer \"which one is this\".\nIt is referenced inside the database by an **internal session key** — the ledger's `int unsigned`\nautoincrement — and it refuses to answer at all until that row lands. Everything below is the\nreasoning a future reader will otherwise have to reconstruct.\n\nThe vocabulary this ADR uses — **session**, **process**, **internal session key**, **external\nsession key** — is defined in [`CONTEXT.md`](../../CONTEXT.md) and deliberately not redefined here.\nThe design that implements it is [Phase one](../design/server-sessions/phase-one.md); the route that\nproduced it is [the charted decisions](../design/server-sessions/decisions.md).\n\n## The decision\n\n### A session is a world-load lifetime, not a process lifetime\n\nThe note that started this effort asked for an identifier \"provably tied to the real process\nlifetime\". That wording is wrong, and following it would have introduced a defect rather than fixed\none.\n\nThe consumer with a live exploit behind it is `refund_ents`, and what it actually cares about is\n**the world having been wiped**. A `changelevel` keeps the srcds process and the Lua state alive\nwhile destroying every entity, so a PID-based marker would have newly broken the case that today's\naccidental `os.time()`-at-file-load happens to get right. The two concepts are named apart in the\nglossary for the same reason: conflating them is how the original bug was made.\n\nThe derivation point is **the load of the library file itself** — the\n`cityrp.session = cityrp.session or {}` guard, during `sh_init.lua`'s `includeCore(\"libraries\")`\npass. Not `GM:Initialize`: the library pass runs earlier, is immune to footgun #3's hook\nsuppression, and is untouched by every manual hot-reload vector in the repo\n([#3432](https://github.com/limelight-development/cityrp2/issues/3432)). `cityrp.session` therefore\nuses no hook to decide what a session is, which also sidesteps the repo-wide hazard that a\n`hook.Add(\"Initialize\")` returning non-`nil` suppresses `GM:Initialize` and takes the database\nconnection with it.\n\n### Identity splits in two, and only one of them is a key\n\n- **Internal session key** — `session_id`, `int unsigned NOT NULL AUTO_INCREMENT`. Every foreign\n  key, every lookup, every in-database reference to a session.\n- **External session key** — a 64-character random token, `char(64)`, minted once per session by\n  MySQL. It is a **credential** held for future server-to-server authentication. Never a join key,\n  never a lookup key, and not exposed to Lua at all in phase one.\n\nThe type is not incidental. `tmysql4` marshals `INT` as a Lua number but `BIGINT` as a Lua\n*string*, while an `INSERT`'s `lastid` is always a number — so a `BIGINT` key would be a number on\nthe write path and a string on the read path, and `==` would be false everywhere the value came\nback out of the database. That asymmetry is invisible to any test that exercises the library alone\n([#3442](https://github.com/limelight-development/cityrp2/issues/3442)). `varchar` is worse, and\n`crash_container.container_id varchar(40)` — an integer autoincrement stored as text, which works\nonly because every comparison happened inside SQL — is the live precedent this design refuses to\ninherit.\n\n**Result-set values are compared with `cityrp.session.Is` / `Matches`, never with a bare `==`.**\nThe Lua type of a session id depends on three things that all live elsewhere and all change\nsilently: the column declaration, the SQL expression, and `NULL`. `CAST(x AS SIGNED)` is the trap\nworth naming outright — it yields `BIGINT`, so casting a column to make it numeric in SQL makes it\nnon-numeric in Lua. None of the three produces a lint error or a stack trace; all three produce\n\"comparison false → entity unowned → refund it\", on the contraband path. This is footgun #9's\nshape, where every consumer carried its own copy of a check and each was correct in isolation.\n\n### The library is fail-closed, and that is the API rather than a safety net\n\nCharting ruled synchronous availability non-negotiable, on the grounds that libraries load long\nbefore the database connects. That premise is dead. Once the autoincrement became the internal key\nin every referencing column and token generation moved into MySQL, **nothing a consumer needs\nexists synchronously** ([#3437](https://github.com/limelight-development/cityrp2/issues/3437)).\n\nTwo facts make this unavoidable rather than merely chosen:\n\n- `hook.Run(\"DBConnected\")` dispatches synchronously, while the session `INSERT`'s callback cannot\n  land until a later frame. **No `DBConnected` handler can ever observe a ready session**, whatever\n  the hook order. Every current consumer of session identity moves onto `OnReady`.\n- `DB:Connect` never calls its callback on a failed connection, so a database down at boot means\n  the library never even attempts its `INSERT`. \"Permanently unready\" has two causes, and the\n  bounded retry covers only one.\n\n`OnReady(name, fn)` is the **only** sanctioned wait. A bare predicate forces every consumer to\nhand-roll the \"did I already miss it?\" branch, and hand-rolled waits are the failure this whole\neffort exists to stop. `Get()` **errors** when unready rather than returning `nil`, because `nil`\ninterpolates as the literal string `nil` through an `FRun` `%s`.\n\n**The cost is real and is accepted.** While unready, `refund_ents` early-returns from `Track`: the\ncontraband is untracked, and the player loses it on the next wipe. The alternative is minting a\n`track` row against a session that does not exist — permanently unclaimable player property and a\ndangling foreign key — which is strictly worse. The server also keeps serving while permanently\nunready: refusing players over a ledger row is a bigger outage than the one it prevents, and the\nlibrary does not self-`changelevel`, because a bounce does not fix a down database and would make\n`cityrp.session` the arbiter of server availability for a failure it merely noticed first.\n\n### Consumers ask `cityrp.session`; they do not roll their own\n\nBoot identity had been reinvented at least six times in four incompatible representations before\nthis ADR ([#3434](https://github.com/limelight-development/cityrp2/issues/3434)): an epoch integer\nat plugin file scope (`refund_ents`), a `server_stats` autoincrement reached by correlated subquery\n(`container_code`), a `settings.last_start_<server>` row (`db.lua`), and a one-second heartbeat file\n(`sv_logs.lua`). Four of the sites are wrong today and all of them fail the same way — the marker is\nderived at Lua file scope, so a hot reload advances it without the world being wiped.\n\nThe lesson that earns the ADR entry is narrower than \"we built a library\": **`server_stats` was\nalready structurally what this effort asks for, and failed anyway, because it had no Lua-side owner.\nA table is not an API.**\n\nTwo rules follow, and both are about restraint:\n\n- **Expose derived state the library already holds; do not derive new state for a hypothetical\n  consumer.** `IsFirstLoad()` ships because the boot-versus-hot-reload distinction *is* the\n  library's own reload guard. The token accessor does not ship, because an accessor with no callers\n  invites using a credential as an identifier. `processId` does not ship, because both of its\n  imagined consumers turned out to be uptime readouts that branch on nothing.\n- **Table names are hardcoded; configuration never names a table.**\n  ([#3450](https://github.com/limelight-development/cityrp2/issues/3450)) A numbered migration\n  cannot declare a foreign key against a table a server can rename. The alternative — teaching the\n  migration runner to read `cityrpserver` — is ruled out in the other direction: it makes the DDL\n  history non-reproducible, and the migration set's whole value is that it is a literal, replayable\n  record. The hazard itself is AGENTS.md footgun #24.\n\n### A repo-wide grep is not an absence proof\n\nTwice in this effort a table or key looked dead to a repo-wide grep and turned out to have a reader\noutside the repository. `settings.last_start_<server>` is read by the changelogs service in WebEnv,\nso its key name, epoch value and overwrite-in-place semantics are a live cross-service contract and\nthe write stays. `crash_container` is named by the GDPR subject-access export and the ACP backup\nmanifest, so its table name and its `owner` / `json` / `done` columns must not move — which is why\nthat migration renames only the two columns nothing outside the repo reads.\n\nThe consumer list for anything schema-shaped is therefore: this repo, WebEnv, the ACP, the forums,\nthe panel. `server_stats` and `currentstats` were checked against all of them before being dropped.\n\n## Consequences\n\n- One `changelevel` is the difference between a refundable loss and a permanent one, so\n  `cityrp.session` owns the teardown flag (`IsClosing()`) rather than each consumer keeping a\n  private one. This rests on **undocumented engine behaviour**: `GM:ShutDown`'s ordering against\n  entity teardown is documented nowhere, the evidence that it runs first is circumstantial, and if\n  it is wrong the guard is a silent no-op that deletes every outstanding contraband row on the next\n  map change. Phase one therefore carries a **mandatory acceptance test** — spawn a tracked entity,\n  `changelevel`, assert the row survives. The fallback, if it fails, is dropping `CallOnRemove` for\n  explicit `Untrack` calls; that is the worse design, which is exactly why it is the fallback.\n- `refund_ents` keeps its `LLServer == \"build\"` decision inside `Track` and does not acquire a\n  `not_servers` meta condition. It publishes `cityrp.contrack` to eight call sites outside the\n  plugin, none of them nil-guarded, so excluding the plugin would make all eight throw. That hazard\n  — a plugin publishing a global consumed by non-plugin code — is AGENTS.md footgun #25.\n- The library is **server-only**. Nothing in the use-case list is client-side, and a networked\n  session id would be a net message designed for no current consumer.\n- `gamemode/core/plugins/referrals/sv_session.lua` already exists and is unrelated. The library is\n  `gamemode/core/libraries/sv_session.lua`; the two are told apart by path only.\n- The session ledger is append-only. Foreign keys against it are written\n  `ON DELETE RESTRICT ON UPDATE RESTRICT` explicitly rather than left to InnoDB's default, because a\n  cascade here would silently destroy unclaimable player property.\n- Phase two (player sessions) and phase three (the lost and found) hang off this decision but do not\n  change it. \"Session\" names three distinct things across the effort — session, player session, job\n  interval — and the glossary keeps them apart so the overloading does not spread.\n"
+    },
+    {
+      "id": "adr/index",
+      "title": "Architecture Decision Records",
+      "path": "adr/index.md",
+      "meta": {
+        "title": "Architecture Decision Records",
+        "description": "Numbered records of the decisions that shape the gamemode, and why each one was made."
+      },
+      "body": "\n# Architecture Decision Records\n\nOne file per decision, numbered in the order they were taken: `NNNN-<slug>.md`. The number *is* the\nordering, so ADRs stay flat here rather than being foldered by topic — several ADRs about one system\nare still several flat files. A superseded ADR is never deleted; the one that replaces it says so.\n\nAn ADR earns its place when all three are true: the decision is hard to reverse, it would surprise a\nreader who only sees the code, and there was a real alternative that was rejected for specific\nreasons. Everything else belongs in [design docs](../design/index.md) (what a change would touch, in\nwhat order) or in the topic docs under [`docs/`](..) (how the gamemode behaves today).\n\n| ADR | Decision |\n| --- | --- |\n| [0001](0001-what-counts-as-a-server-session.md) | What counts as a server session |\n"
+    },
+    {
       "id": "agents/artifacts",
       "title": "Session artifacts",
       "path": "agents/artifacts.md",
@@ -139296,7 +140017,19 @@
         "index": "true",
         "description": "What counts as a server session, and the decisions phase one of cityrp.session inherits."
       },
-      "body": "\n# Server sessions — charted decisions\n\nThe premises every ticket under\n[#3431](https://github.com/limelight-development/cityrp2/issues/3431) inherits, settled in a\ncharting session on 2026-09-01. This is the folder's landing page; it is **not** the spec. The ADR\nand the phase-one design stage are\n[#3439](https://github.com/limelight-development/cityrp2/issues/3439)'s output, and this page is\nwhat they are written from.\n\n| Document | What it is |\n| --- | --- |\n| [Problem statement](problem-statement.md) | The original note, with the two premises charting corrected |\n| [Research: the boot predicate](research-gm-initialize-boot-predicate.md) | #3432 — is `GM:Initialize` the right derivation point? |\n| [Research: FearlessRP prior art](research-fearlessrp-sessions-edge-cases.md) | #3433 — operational edge cases worth carrying |\n| [Research: other reinventions](research-boot-identity-reinventions.md) | #3434 — who else rolled their own boot identity |\n| [Research: the table-name config keys](research-mysql-table-name-config-keys.md) | #3435 — is the FK declarable? |\n\n## What a session is\n\n**A world-load lifetime, not a process lifetime.** This corrects the problem statement's own\nwording. `refund_ents` — the consumer with a live exploit behind it — cares about *the world being\nwiped*, and a `changelevel` keeps the process and Lua state alive while destroying every entity. A\nPID-based marker would therefore newly break the `changelevel` case that today's\n`os.time()`-at-file-load happens to get right.\n\nA distinct `processId` is exposed alongside it where cheap, for the genuinely process-scoped\nconsumers the problem statement also lists — uptime and \"last restarted at\". Conflating the two is\nhow this bug was made in the first place, so they stay named apart.\n\n## Identity\n\n**A locally generated token, plus the DB row's autoincrement for ordering.**\n\nLibraries load from `sh_init.lua`'s `includeCore(\"libraries\")` pass — before any plugin, and long\nbefore the database connects. FearlessRP's prior art sidesteps this by living in a plugin and\nhooking `DatabaseConnected`; a library cannot. So synchronous availability at load is\nnon-negotiable, which rules out a DB autoincrement as the identity. The autoincrement is kept\nanyway, because \"last session\" lookups and `container_code`'s `ORDER BY ... DESC LIMIT 1` need\nsomething orderable.\n\nThe row carries `LLServer` and the raw map string as separate columns. The existing `server_stats`\nmatches `map = <LLServer>` — a server code compared against a column named `map` — and that\nambiguity does not survive.\n\n## Consequences\n\n- **`previous()` is cut from the API.** `refund_ents`' `lastSession` is not a crash signal; it is a\n  scoping window (`start_time = lastSession OR start_time = session`,\n  `refund_ents/sv_init.lua:165-170`) that silently drops contraband for anyone who misses two\n  restarts. Refunding on `session_id ~= current` removes the API, removes the `MAX(start_time)`\n  query in `OnDBConnected`, and fixes that.\n- **Crash-versus-clean is irrelevant to `refund_ents`.** Clean shutdown, `changelevel` and crash all\n  wipe the world; how the previous session ended never changes the outcome. The heartbeat ships\n  anyway, justified solely by player-session playtime integrity in phase two — a crash otherwise\n  leaves every player row open forever — and is never read back to trigger a reboot.\n- **Fail closed.** `cityrp.session` refuses to serve until its DB row lands, and `refund_ents`\n  early-returns from `Track` while not ready, matching its existing `LLServer == \"build\"` guard.\n  This follows from taking a foreign key: an orphaned `track` row is not a reporting gap, it is\n  permanently unclaimable player property. A DB outage must stop new tracking loudly rather than\n  silently mint property nobody can reclaim.\n- **The configurable table-name keys die.** A numbered migration cannot declare an FK against a\n  table a server can rename, so `MySQL Entity Tracker Table` and `MySQL Online Log Table` are\n  hardcoded. #3435 verified this is safe.\n- **Auto-refund is replaced entirely** by a client-initiated \"lost and found\" claim window, so\n  players reclaim at their leisure rather than receiving a lump grant on login. Entity\n  *re-ownership* — the `session_id = current` half — stays automatic and separate. One grant path\n  over the table, not two; two is how the cross-player mixing bug survived five years.\n- **`server_stats` is superseded**, migrating `container_code` off its\n  `ORDER BY session_id DESC LIMIT 1` boot heuristic, which is itself a second instance of the\n  reinvention this whole effort exists to stop.\n- **The library is server-only**, at `gamemode/core/libraries/sv_session.lua`. Nothing in the\n  use-case list is client-side, and a networked session id would be a net message designed for no\n  current consumer.\n\n## Phasing\n\nPhase one — the library, `container_code`, `refund_ents` — is the exploit fix and must stay\nshippable alone.\n\n**Phase two, player sessions**, replaces the `onlinelog` plugin with a `player_sessions` ledger\nkeyed on the new session id, dual-writing both tables during a cutover window so the internal tools\nreading `onlinelog` can migrate on their own schedule. One row per connection, plus a\n`player_session_jobs` child table of job intervals — rather than FearlessRP's\nclose-and-reopen-per-team-change, which overloads \"session\" into a third meaning. It is explicitly\n**severable**: abandoning it does not invalidate phase one.\n\n**Phase three, the lost and found**, is the claim window that replaces auto-refund. It has its own\ndesign tree — expiry, spawn-versus-inventory, anti-abuse, `cityrp.ui` scaling — and shares exactly\none decision with phase one: what counts as lost.\n\n## Out of scope\n\n- **The remote restart kill-switch.** FearlessRP's heartbeat reads `closed_at` back and\n  self-`changelevel`s, so anyone who can `UPDATE server_sessions` can reboot a live server under\n  full load. Useful, but a separate feature: coupling it to the ledger means a logging bug can\n  restart Live. The `last_heartbeat_at` column phase one does ship makes it a pure follow-up rather\n  than a schema change.\n- **A query builder for CityRP2.** The prior art depends on one; the session tables are\n  re-implemented natively against `DB_MAIN:Run` instead.\n- **Migrating the internal tools off `onlinelog`.** The phase-two dual-write window exists to buy\n  them time.\n"
+      "body": "\n# Server sessions — charted decisions\n\nThe premises every ticket under\n[#3431](https://github.com/limelight-development/cityrp2/issues/3431) inherits, settled in a\ncharting session on 2026-09-01. This is the folder's landing page; it is **not** the spec.\n\n> **Read the spec first.** Charting is now finished, and three of the premises below were\n> **superseded** by the tickets that tested them — each is marked inline. The decisions as they\n> actually stand are [ADR 0001](../../adr/0001-what-counts-as-a-server-session.md) (what a session\n> is, and why) and [Phase one](phase-one.md) (what to build). This page is kept as the record of\n> where the route started.\n\n| Document | What it is |\n| --- | --- |\n| [ADR 0001](../../adr/0001-what-counts-as-a-server-session.md) | The decision, as it stands |\n| [Phase one](phase-one.md) | The buildable spec — library, `container_code`, `track` |\n| [Problem statement](problem-statement.md) | The original note, with the two premises charting corrected |\n| [Research: the boot predicate](research-gm-initialize-boot-predicate.md) | #3432 — is `GM:Initialize` the right derivation point? |\n| [Research: FearlessRP prior art](research-fearlessrp-sessions-edge-cases.md) | #3433 — operational edge cases worth carrying |\n| [Research: other reinventions](research-boot-identity-reinventions.md) | #3434 — who else rolled their own boot identity |\n| [Research: the table-name config keys](research-mysql-table-name-config-keys.md) | #3435 — is the FK declarable? |\n| [Research: `DB_MAIN` column typing](research-db-main-column-typing.md) | #3442 — what Lua type does a result column arrive as? |\n\n## What a session is\n\n**A world-load lifetime, not a process lifetime.** This corrects the problem statement's own\nwording. `refund_ents` — the consumer with a live exploit behind it — cares about *the world being\nwiped*, and a `changelevel` keeps the process and Lua state alive while destroying every entity. A\nPID-based marker would therefore newly break the `changelevel` case that today's\n`os.time()`-at-file-load happens to get right.\n\nA distinct `processId` is exposed alongside it where cheap, for the genuinely process-scoped\nconsumers the problem statement also lists — uptime and \"last restarted at\". Conflating the two is\nhow this bug was made in the first place, so they stay named apart.\n\n## Identity\n\n> **Superseded.** [#3438](https://github.com/limelight-development/cityrp2/issues/3438) split\n> identity into an **internal session key** (the `int unsigned` autoincrement — every FK, every\n> lookup) and an **external session key** (a 64-char token minted in MySQL, held as a *credential*,\n> never a join key). [#3437](https://github.com/limelight-development/cityrp2/issues/3437) then\n> retired the synchronous-availability premise below: with the autoincrement as the key and the\n> token minted server-side, nothing a consumer needs exists synchronously, and fail-closed became\n> the API rather than a safety net over it. The section is kept as written.\n\n**A locally generated token, plus the DB row's autoincrement for ordering.**\n\nLibraries load from `sh_init.lua`'s `includeCore(\"libraries\")` pass — before any plugin, and long\nbefore the database connects. FearlessRP's prior art sidesteps this by living in a plugin and\nhooking `DatabaseConnected`; a library cannot. So synchronous availability at load is\nnon-negotiable, which rules out a DB autoincrement as the identity. The autoincrement is kept\nanyway, because \"last session\" lookups and `container_code`'s `ORDER BY ... DESC LIMIT 1` need\nsomething orderable.\n\nThe row carries `LLServer` and the raw map string as separate columns. The existing `server_stats`\nmatches `map = <LLServer>` — a server code compared against a column named `map` — and that\nambiguity does not survive.\n\n## Consequences\n\n- **`previous()` is cut from the API.** `refund_ents`' `lastSession` is not a crash signal; it is a\n  scoping window (`start_time = lastSession OR start_time = session`,\n  `refund_ents/sv_init.lua:165-170`) that silently drops contraband for anyone who misses two\n  restarts. Refunding on `session_id ~= current` removes the API, removes the `MAX(start_time)`\n  query in `OnDBConnected`, and fixes that.\n- **Crash-versus-clean is irrelevant to `refund_ents`.** Clean shutdown, `changelevel` and crash all\n  wipe the world; how the previous session ended never changes the outcome. *(Right as a design\n  goal, wrong as a description of today:\n  [#3436](https://github.com/limelight-development/cityrp2/issues/3436) found Live `track` holds\n  12,898 rows and 18 unflagged ones across 2 of 356 sessions, because the `CallOnRemove` flags\n  everything at shutdown teardown — so only crashes leave anything claimable. `IsClosing()` is what\n  makes the premise true.)* The heartbeat ships\n  anyway, justified solely by player-session playtime integrity in phase two — a crash otherwise\n  leaves every player row open forever — and is never read back to trigger a reboot.\n- **Fail closed.** `cityrp.session` refuses to serve until its DB row lands, and `refund_ents`\n  early-returns from `Track` while not ready, matching its existing `LLServer == \"build\"` guard.\n  This follows from taking a foreign key: an orphaned `track` row is not a reporting gap, it is\n  permanently unclaimable player property. A DB outage must stop new tracking loudly rather than\n  silently mint property nobody can reclaim.\n- **The configurable table-name keys die.** A numbered migration cannot declare an FK against a\n  table a server can rename, so `MySQL Entity Tracker Table` and `MySQL Online Log Table` are\n  hardcoded. #3435 verified this is safe.\n- **Auto-refund is replaced entirely** by a client-initiated \"lost and found\" claim window, so\n  players reclaim at their leisure rather than receiving a lump grant on login. Entity\n  *re-ownership* — the `session_id = current` half — stays automatic and separate. One grant path\n  over the table, not two; two is how the cross-player mixing bug survived five years.\n- **`server_stats` is superseded**, migrating `container_code` off its\n  `ORDER BY session_id DESC LIMIT 1` boot heuristic, which is itself a second instance of the\n  reinvention this whole effort exists to stop.\n- **The library is server-only**, at `gamemode/core/libraries/sv_session.lua`. Nothing in the\n  use-case list is client-side, and a networked session id would be a net message designed for no\n  current consumer.\n\n## Phasing\n\nPhase one — the library, `container_code`, `refund_ents` — is the exploit fix and must stay\nshippable alone.\n\n**Phase two, player sessions**, replaces the `onlinelog` plugin with a `player_sessions` ledger\nkeyed on the new session id, dual-writing both tables during a cutover window so the internal tools\nreading `onlinelog` can migrate on their own schedule. One row per connection, plus a\n`player_session_jobs` child table of job intervals — rather than FearlessRP's\nclose-and-reopen-per-team-change, which overloads \"session\" into a third meaning. It is explicitly\n**severable**: abandoning it does not invalidate phase one.\n\n**Phase three, the lost and found**, is the claim window that replaces auto-refund. It has its own\ndesign tree — expiry, spawn-versus-inventory, anti-abuse, `cityrp.ui` scaling — and shares exactly\none decision with phase one: what counts as lost.\n\n## Out of scope\n\n- **The remote restart kill-switch.** FearlessRP's heartbeat reads `closed_at` back and\n  self-`changelevel`s, so anyone who can `UPDATE server_sessions` can reboot a live server under\n  full load. Useful, but a separate feature: coupling it to the ledger means a logging bug can\n  restart Live. The `last_heartbeat_at` column phase one does ship makes it a pure follow-up rather\n  than a schema change.\n- **A query builder for CityRP2.** The prior art depends on one; the session tables are\n  re-implemented natively against `DB_MAIN:RunChecked` instead — not `Run`, which dispatches its\n  callback even when MySQL errored\n  ([#3433](https://github.com/limelight-development/cityrp2/issues/3433)).\n- **Migrating the internal tools off `onlinelog`.** The phase-two dual-write window exists to buy\n  them time.\n"
+    },
+    {
+      "id": "design/server-sessions/phase-one",
+      "title": "Phase one — the library and the two migrations",
+      "path": "design/server-sessions/phase-one.md",
+      "meta": {
+        "title": "Phase one — the library and the two migrations",
+        "status": "Proposed",
+        "date": "2026-09-03",
+        "description": "The buildable spec for cityrp.session, the server_sessions ledger, and moving container_code and refund_ents onto it."
+      },
+      "body": "\n# Phase one — `cityrp.session`, `container_code`, `refund_ents`\n\nThe buildable spec for the first shippable slice of the server-sessions effort. It is the exploit\nfix, and it must stay shippable alone: phases two and three are severable and nothing here waits on\nthem.\n\nNothing in this document is a new decision. The reasoning lives in\n[ADR 0001](../../adr/0001-what-counts-as-a-server-session.md) and in the tickets under\n[#3431](https://github.com/limelight-development/cityrp2/issues/3431); this is the same content\narranged for someone about to write the code. Where the tickets left a choice to the spec, the\nchoice is marked **Spec's call** and carries its reasoning inline.\n\n## What ships\n\n1. `gamemode/core/libraries/sv_session.lua` — the library.\n2. A `server_sessions` ledger, with `server_stats` imported into it and then dropped\n   (`currentstats` with it).\n3. `crash_container` moved onto the internal session key, its two inverted column names fixed, and\n   the `/c crashed` cross-server leak closed.\n4. `track` rebuilt around `session_id`, with destruction and refund both deleting the row.\n5. Four `cityrpserver` table-name keys deleted.\n\nWhat does **not** ship, and is not blocked by this: the `sv_logs` heartbeat and `announced` flag,\n`giveprops` scoping, the three boot-versus-hot-reload sites, phase two's `player_sessions`, and\nphase three's lost and found. Each is a consumer of a library that will already exist.\n\n## Naming: `server_sessions`\n\n**Spec's call.** [#3436](https://github.com/limelight-development/cityrp2/issues/3436) left the\nledger's table name as `<sessions>`.\n\nThe prose in this effort avoids \"server session\" — [`CONTEXT.md`](../../../CONTEXT.md) defines the\nterm as **session** and lists \"server session\" under _Avoid_, because it invites reading the process\nas the unit. The table is nonetheless `server_sessions`, for two reasons that only apply inside the\ndatabase: it sits in a schema shared with the website and the forums, where a bare `sessions` reads\nas web sessions and is the kind of name someone else's tooling will collide with; and phase two adds\n`player_sessions`, against which `server_sessions` is the pair that tells a reader which is which.\nThe vocabulary rule governs how we write and speak about the concept; the table name is a\ndisambiguator inside a shared namespace.\n\n## Schema\n\n```sql\nCREATE TABLE `server_sessions` (\n  `session_id`         int unsigned NOT NULL AUTO_INCREMENT,\n  `llserver`           varchar(32) NOT NULL,\n  `map`                varchar(64) NULL,\n  `token`              char(64) NULL,\n  `opened_at`          datetime NOT NULL,\n  `closed_at`          datetime NULL,\n  `last_heartbeat_at`  datetime NULL,\n  PRIMARY KEY (`session_id`),\n  UNIQUE KEY `server_sessions_token` (`token`),\n  KEY `server_sessions_llserver` (`llserver`, `session_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci\n```\n\n- `session_id` is `int unsigned`, never `BIGINT` and never `varchar`. `tmysql4` marshals `INT` as a\n  Lua number and `BIGINT` as a Lua string while `lastid` is always a number, so `BIGINT` would be a\n  number on the write path and a string on the read path\n  ([#3442](https://github.com/limelight-development/cityrp2/issues/3442)). 4.29bn world-loads is not\n  a range worth that asymmetry.\n- `llserver` holds the server code and `map` holds the raw map string, as separate columns.\n  `server_stats` matched `map = <LLServer>` — a server code compared against a column named `map` —\n  and that ambiguity does not survive.\n- `token` is `UNIQUE` but **not** `NOT NULL`: imported and sentinel rows carry `NULL`, and MySQL\n  permits multiple `NULL`s in a unique index. `token IS NOT NULL` is therefore the fence that\n  separates a real post-migration session from a pre-ledger one, and\n  [#3436](https://github.com/limelight-development/cityrp2/issues/3436)'s D1 depends on it.\n- `closed_at` and `last_heartbeat_at` are written by the library. Nothing reads `last_heartbeat_at`\n  back in phase one; it is shipped so that phase two's playtime integrity and any later restart\n  tooling are follow-ups rather than schema changes. Nothing reads `closed_at` back either — a\n  session's own `IsClosing()` is in-memory state, not a query.\n- Every foreign key against this table is written `ON DELETE RESTRICT ON UPDATE RESTRICT`\n  explicitly. The ledger is append-only; a cascade would silently destroy unclaimable player\n  property.\n\n### Token generation\n\nThe token is minted **by MySQL at `INSERT`**, never in Lua: `math.randomseed` is never called\nanywhere in this repo, so a Lua draw is both weak and correlated across a fleet booting together,\nand nothing can authenticate against a session that does not exist yet.\n\n```sql\nINSERT INTO `server_sessions` (`llserver`, `map`, `token`, `opened_at`)\nVALUES (?, ?, SHA2(RANDOM_BYTES(32), 256), NOW())\n```\n\n`RANDOM_BYTES()` requires MySQL 8.0. **Open item, must be settled before implementation**: one\n`SELECT VERSION()` against Live. On a pre-8.0 server the fallback is\n`SHA2(CONCAT(UUID(), UUID(), UUID()), 256)`, which is weaker (UUIDv1 is time-and-MAC derived) and is\naccepted only because phase one asserts nothing about what the token authorises — if the fallback is\nwhat ships, the eventual server-to-server auth design must re-mint tokens rather than trust them.\n\n## The library\n\n`gamemode/core/libraries/sv_session.lua`, server-only, loaded by `sh_init.lua`'s\n`includeCore(\"libraries\")` pass. Not to be confused with\n`gamemode/core/plugins/referrals/sv_session.lua`, which is unrelated.\n\n### Lifecycle\n\n1. **File load** — `cityrp.session = cityrp.session or {}`. This guard *is* the boot predicate: a\n   hot reload finds the table already there, so `IsFirstLoad()` is false and no state is re-derived\n   ([#3432](https://github.com/limelight-development/cityrp2/issues/3432)). Follow\n   `sh_tophints.lua`'s `x = x or default` idiom.\n2. **`DBConnected`** — the library's own `hook.Add` issues the `INSERT` through\n   `DB_MAIN:RunChecked`. **Not `DB_MAIN:Run`**: `Run` dispatches its callback even when MySQL\n   errored (`db.lua:139-156` has no `return` between the error branch and the dispatch), which would\n   invert the whole fail-closed premise.\n3. **Callback** — `lastid` becomes the internal session key, readiness flips to true, and the queued\n   `OnReady` callbacks fire in registration order.\n4. **`ShutDown`** — a `hook.Add` (a library cannot own `GM:ShutDown`) sets the closing flag and\n   writes `closed_at`. `sv_logs.lua:188`'s existing `ShutDown` handler returns nothing, so footgun\n   #3 cannot have it suppress ours.\n\nNote that a boot which *applies* migrations never reaches step 2: `Migrations.RunPending` issues a\n`changelevel` and returns without firing `DBConnected` (`init.lua:114-124`). That boot has no ledger\nrow, which is correct — it wiped its own world on the way out.\n\n### Surface\n\n| Member | Unready behaviour | Notes |\n| --- | --- | --- |\n| `OnReady(name, fn)` | queues | The only sanctioned wait. Fires immediately if already ready. Passes the internal key to `fn`. `name` makes it idempotent across hot reloads, exactly as `hook.Add`'s name does (footgun #7). |\n| `IsReady()` | `false` | Mid-flight guards only (`Track`), never for waiting. |\n| `Get()` | **errors** | The internal session key. Correct code receives it from `OnReady`. |\n| `Is(value)` | `false` | True when `value` denotes this session. |\n| `Matches(row, field)` | `false` | `field` defaults to `\"session_id\"`. Handles a `nil` row. |\n| `GetStartTime()` | always | Local wall clock, **logging only** — `opened_at` is authoritative. |\n| `IsClosing()` | always | Teardown flag, set from the library's `ShutDown` handler. |\n| `IsFirstLoad()` | always | Boot versus hot reload. Documented, zero callers in phase one. |\n\n**Not on the surface**: `previous()`, `isCurrent()`, a token accessor, and `processId`. Each was cut\nunder one rule — expose derived state the library already holds; do not derive new state for a\nhypothetical consumer — and the ADR carries the reasoning.\n\n**`DBConnected` is not a session-readiness signal.** It dispatches synchronously and the `INSERT`'s\ncallback lands a frame later, so no `DBConnected` handler can ever observe a ready session. Say this\nin the library's own doc comment, because every current consumer is on that hook today.\n\n### `Is` / `Matches`\n\nFive rules, each of them a way to get this wrong:\n\n- `Is(nil)` is `false`. The tempting `tonumber(a) == tonumber(b)` gives `nil == nil` → `true`, which\n  matches every row with a `NULL` session — the worst possible answer on a fail-closed path.\n- `Is(anything)` is `false` while the library is not ready.\n- Normalise the *candidate*, not the stored id. The stored key is a number by construction; only the\n  incoming value has unknown provenance.\n- `tonumber`, not `tostring`. String comparison makes `1` unequal to `\"01\"`, and would fail to\n  reject a 64-character token where `tonumber` correctly returns `nil`.\n- `Matches` takes the field name, and is where the `nil`-row case is handled once. `Is(row.session_id)`\n  on a `nil` row hard-errors inside an async callback; `Matches(row)` is `false`.\n\nThe docs page must state outright that **result-set values are compared with `cityrp.session.Is`,\nnever with a bare `==`**.\n\n### Retry and escalation\n\n- **Five attempts, 2s linear backoff**, then `cityrp.logging.GetLogger(\"session\"):Critical()`\n  (footgun #8) plus a line on the Discord relay channel `sv_auto_restart.lua:88` already uses.\n- **Readiness is monotonic.** Once true it never returns to false: the key is a fact about this\n  world load, not a claim about connectivity, and a flapping predicate makes every consumer's guard\n  racy.\n- **No self-bounce.** A `changelevel` does not fix a down database and would loop; the graver\n  condition — a failed migration — already halts rather than restarting; and bouncing would make\n  `cityrp.session` the arbiter of server availability for a failure it merely noticed first.\n- **The server keeps serving while permanently unready.** This is a deliberate accepted degradation:\n  contraband spawned in that window is untracked and is lost on the next wipe.\n- Note that `DB:Connect` never calls its callback on a failed connection, so `DBConnected` never\n  fires and the retry never runs at all. \"Permanently unready\" has two shapes and only one of them\n  is retryable; the `Critical` line should distinguish them.\n\n### On `build`\n\nThe library runs normally on `build`. Excluding it there would reuse \"not ready\" to mean\n\"deliberately off\", and would leave the not-ready path exercised only where its consequences do not\nmatter. `refund_ents` keeps its `LLServer == \"build\"` decision inside `Track`\n(`sv_init.lua:72`) and does **not** acquire a `.meta.lua` — it publishes `cityrp.contrack` to eight\ncall sites outside the plugin, none nil-guarded, so `not_servers` would make all eight throw.\n\n## Migration 1 — the ledger\n\nOne numbered migration under `gamemode/core/migrations/`, taking the next free number.\n\n1. `CREATE TABLE server_sessions` (above).\n2. **Import `server_stats`, preserving `session_id`**:\n   `INSERT INTO server_sessions (session_id, llserver, opened_at) SELECT session_id, map, startup_time FROM server_stats`.\n   Token, map, `closed_at` and `last_heartbeat_at` stay `NULL` — a pre-ledger boot cannot supply\n   them, and `NULL` reads as \"this boot predates the ledger\", which is true. A synthesised token\n   would read as a real credential and would be a lie.\n3. `DROP TABLE server_stats`, `DROP TABLE currentstats`.\n\nThe import is what lets `crash_container`'s existing values keep resolving with **no rewrite of that\ntable at all**, and it is what stops the ledger's `AUTO_INCREMENT` eventually colliding with a\nlegacy `container_id` — a collision that would silently hide one player's container from\n`/c crashed` and return it on the next restart.\n\n**Ordering hazard: the import must read `server_stats` before the `DROP`, in this order, in this\nmigration.** Getting that backwards is unrecoverable.\n\nIn the same change, delete `gamemode/init.lua:2977-2980` — the file-scope\n`timer.Simple(10, ...)` that is `server_stats`' sole writer, and a hot-reload boot-marker advance in\nits own right.\n\n## Migration 2 — `crash_container` and `container_code`\n\n`crash_container` is a **live cross-service contract**: the GDPR subject-access export\n(`limelight-intern/acp/gdpr/access.php:1769`) and the ACP backup manifest both name it. The table\nname and the `owner` / `json` / `done` columns must not move. Only the two columns nothing outside\nthe repo reads are touched.\n\nSchema:\n\n- `u_key` → **`creation_id`**, and `container_id` → **`session_id`**. The names are inverted today:\n  the `INSERT` writes `VALUES(GetCreationID(), <session subquery>, ...)`, so `u_key` holds the\n  entity creation id and `container_id` holds the session id.\n- `session_id` is redeclared `int unsigned NOT NULL` with a real foreign key to\n  `server_sessions(session_id)`, `ON DELETE RESTRICT ON UPDATE RESTRICT`. It does not inherit\n  `varchar(40)`.\n- The foreign key lands non-null immediately, because migration 1 preserved every legacy id.\n\nLua, all in `container_code/sv_dbcode.lua`:\n\n- `:14` (select previous boots' containers) and `:61` (insert tagged with this boot) both want **the\n  current boot**. The `(SELECT session_id FROM server_stats WHERE map = \"<LLServer>\" ORDER BY\n  session_id DESC LIMIT 1)` subquery, its `ORDER BY ... LIMIT 1` and its `map = LLServer` filter all\n  leave; the value is a bound literal from `cityrp.session`.\n- **The `/c crashed` cross-server leak is closed here.** `crash_container` has no server column and\n  the *selection* was never scoped — only the exclusion was, via that subquery — so Live rows are\n  visible to `/c crashed` on beta today. **Spec's call**: scope by joining the ledger\n  (`JOIN server_sessions s ON s.session_id = c.session_id WHERE s.llserver = <LLServer>`), not by\n  denormalising a server column onto `crash_container`. The join is one row per player on a command\n  invocation, `server_sessions_llserver` covers it, and a denormalised column is a second copy of a\n  fact the ledger already owns — which is the failure mode this whole effort is about.\n- `crashproof_containers` (the 30s timer at `:50`) gains a **fail-closed early return** on\n  `not cityrp.session.IsReady()`. This is load-bearing, not hygiene: the internal key does not exist\n  until the row lands, and today the 30s timer beats the old 10s insert by coincidence rather than\n  design.\n\nNot fixed here, and not blocked on this spec:\n[#3447](https://github.com/limelight-development/cityrp2/issues/3447) (the commented-out inventory\nwrite that still marks the row `done`, and the unguarded empty result set).\n\n## Migration 3 — `track` and `refund_ents`\n\n`track` has no external reader, and `flagged` has exactly three readers repo-wide, all inside\n`refund_ents`. Live holds **12,898 rows, of which 18 are unflagged, across 2 of 356 sessions** — the\nrefund path has been effectively dead since 2021, because the `CallOnRemove` at `sv_init.lua:121`\nalmost certainly fires during shutdown teardown and pre-flags everything.\n\nTarget schema:\n\n```sql\nCREATE TABLE `track` (\n  `session_id`    int unsigned NOT NULL,\n  `ent_index`     int unsigned NOT NULL,\n  `owner_steamid` varchar(50) NULL,\n  `entity`        varchar(45) NULL,\n  `data`          text NULL,\n  PRIMARY KEY (`session_id`, `ent_index`),\n  KEY `track_owner` (`owner_steamid`, `session_id`),\n  CONSTRAINT `track_session_fk` FOREIGN KEY (`session_id`)\n    REFERENCES `server_sessions` (`session_id`) ON DELETE RESTRICT ON UPDATE RESTRICT\n) ENGINE=InnoDB CHARSET=latin1\n```\n\n`server`, `start_time` and `flagged` are all dropped. The primary key stays a **real** key rather\nthan gaining a surrogate `id`: if the delete-before-insert ordering ever breaks, a natural key fails\nloudly with a duplicate-key error, where a surrogate would let two rows coexist and the delete take\nboth. The integer foreign key never touches `latin1`, so there is no charset conversion and no\nreason to rewrite the table's charset.\n\nMigration steps, in order:\n\n1. `DELETE FROM track WHERE flagged = 1` — dead history with no reader, unclaimable under the fence\n   below. This leaves ~18 rows, so the rewrite that follows is instant and needs no online-DDL\n   tooling.\n2. `ALTER TABLE track ADD COLUMN session_id int unsigned NULL`.\n3. **One sentinel session per distinct `server` value in `track`**: insert a `server_sessions` row\n   with `llserver` = that value and token, map, `closed_at`, `last_heartbeat_at` all `NULL`; capture\n   `LAST_INSERT_ID()`; `UPDATE track SET session_id = @sid WHERE server = '<x>'`. Capturing the id\n   explicitly rather than joining is what keeps `token IS NULL` unambiguous between imported and\n   sentinel rows. This step must run **after** migration 1's import, or the ids collide.\n4. `MODIFY session_id ... NOT NULL`, drop and rebuild the primary key, drop `server` / `start_time`\n   / `flagged`, add `track_owner`, add the foreign key.\n\n**Spec's call on step 3's data dependence.**\n[#3436](https://github.com/limelight-development/cityrp2/issues/3436) flagged the tension with\n[#3450](https://github.com/limelight-development/cityrp2/issues/3450)'s principle that a migration's\nvalue is being a literal, replayable export. Enumerate at run time\n(`SELECT DISTINCT server FROM track`), and log each `server → session_id` pair the migration\ncreates. The principle governs **table names**, which are static facts about the schema and are in\nthe repo; it does not govern **data values**, which by definition are not — and hardcoding four\nserver strings makes the migration wrong on any database whose `track` holds a fifth. `up` is a\ncallback, not a literal list, so `Migrations.RunSequence` is simply not the tool for this step.\n\n`refund_ents/sv_init.lua` changes:\n\n- **`Track` early-returns while not ready**, logging one `Error` per session on first refusal — not\n  per entity, or a busy server spams the log for hours. No queue: during the transient window no\n  player is connected and `Track` requires a valid player owner, so zero calls can occur; in the\n  permanent case a queue's only non-empty state is the one where it never flushes.\n- **`OnDBConnected` becomes `cityrp.session.OnReady`**, and its `SELECT MAX(start_time)`\n  previous-session lookup (`:233-246`) is deleted outright. There is no `previous()` and no second\n  notion of \"session\" left in the file.\n- **Destruction deletes the row.** The `CallOnRemove` at `:121` deletes rather than flagging, which\n  is also what closes a second live bug: GMod reuses entity index slots, so under the old\n  `(server, start_time, ent_index)` key the second contraband entity to occupy an index in one\n  session hits a duplicate key, and that entity is silently untracked for the rest of its life.\n- **The `CallOnRemove` asks `cityrp.session.IsClosing()`** rather than keeping a private flag, so\n  any world wipe — crash, clean shutdown, `changelevel`, map reload — leaves the row claimable and\n  only in-play destruction does not. Per footgun #21 this is library state, not a file-scope local.\n- **The refund path deletes too.** The batched `UPDATE ... SET flagged = 1 WHERE <key list>` at\n  `:219` becomes a batched `DELETE` of the same shape. Refunds stay audited by the existing\n  `cityrp.logs.addPly(..., \"auto-refund\", ...)` at `:225`, so nothing is lost.\n- **The refund predicate is fenced on the session having a token**, which grants **zero backlog**:\n  ```sql\n  SELECT ... FROM track t\n    JOIN server_sessions s ON s.session_id = t.session_id\n   WHERE t.owner_steamid = ? AND t.session_id != ? AND s.token IS NOT NULL\n  ```\n  Legacy and sentinel rows carry `NULL` and are excluded by construction — no magic id, no date\n  cutoff. Without the fence, `session_id != current` alone would dump years of contraband in as a\n  lump grant through `Load` (`sv_player.lua:1630`), the very auto-refund path phase three exists to\n  replace. Phase one is still a strict improvement on today: *any* post-migration session's losses\n  are refunded, not just the last one.\n\n## Config keys\n\nDelete four keys from `gamemode/core/sv_configuration.lua`. **The keys go; the tables stay** —\n`rppoints` and `commendations` may well be read by the website or the forums, and nothing here\ntouches them.\n\n| Key | Value | Call sites |\n| --- | --- | --- |\n| `MySQL Entity Tracker Table` | `track` | 6, all `refund_ents/sv_init.lua` (`:94`, `:124`, `:154`, `:167`, `:219`, `:236`) |\n| `MySQL Online Log Table` | `onlinelog` | 6 — `onlinelog/sv_init.lua` (`:43`, `:55`, `:62`, `:67`), `referrals/sv_init.lua` (`:160`, `:189`) |\n| `MySQL RPP Table` | `rppoints` | 0 |\n| `MySQL Commendations Table` | `commendations` | 0 |\n\n**The `%s` positional trap**: four of the `refund_ents` sites pass the table name as a positional\n`%s` argument to `DB_MAIN:FRun`. Removing the `%s` without removing its argument (or the reverse)\nsilently shifts every subsequent argument. They go together.\n\nThe two dead keys ship as **their own commit** inside the phase-one PR, so the record shows them as\na ride-along rather than as part of the session decision. The remaining `MySQL * Table` keys are\n[#3466](https://github.com/limelight-development/cityrp2/issues/3466) and\n[#3467](https://github.com/limelight-development/cityrp2/issues/3467), and neither blocks this.\n\n## Verification\n\nThree checks, and the first is a hard gate rather than a nice-to-have.\n\n1. **The teardown-ordering acceptance test — mandatory.** Spawn a tracked contraband entity,\n   `changelevel`, assert the `track` row survives. `GM:ShutDown`'s ordering against entity teardown\n   is documented nowhere; if it runs *after*, `IsClosing()` is a silent no-op and one map change\n   deletes every outstanding row on the server. A hard crash runs no Lua, so this one test covers\n   the entire surface of the assumption. **If it fails**, the fallback is dropping `CallOnRemove`\n   for explicit `Untrack(ent)` calls on the in-play destruction paths — the worse design, which is\n   why it is the fallback.\n   This test also settles the 12,898-versus-18 reading: if the row survives with the guard removed,\n   the shutdown-flags-everything explanation was wrong.\n2. **tmysql4 serialises queries per connection.** Destruction-deletes-the-row is correct only if the\n   `DELETE` is *issued* before the reusing `INSERT`. `DB_MAIN` wraps a single connection\n   (`db.lua:2`) and the outage path replays `self.cache` in order, so this is expected to hold — but\n   it is unproven, and it is load-bearing.\n3. **`SELECT VERSION()` against Live**, before writing migration 1, to settle `RANDOM_BYTES()`\n   against the `UUID()` fallback.\n\nThen both diff-scoped gates from [AGENTS.md](../../../AGENTS.md#verifying-changes).\n\n## Rollout\n\nMigrations are numbered, so the order is enforced by the numbers: ledger, then `crash_container`,\nthen `track`. Each is independently replayable and carries its own `down`.\n\nApplying a migration `changelevel`s the server (`init.lua:114-124`), so a deploy that lands all\nthree restarts once and comes up on the new schema with a fresh session row. The Lua changes and the\nmigrations ship together; a server running the new Lua against the old schema has no ledger to\ninsert into and would sit permanently unready, which is loud but is a needless outage.\n\nRollback is per-migration `down`, in reverse. Note that `down` on migration 1 cannot restore\n`server_stats`' rows once they have been imported and the table dropped — take a backup of\n`server_stats`, `crash_container` and `track` before the deploy. This is the one irreversible step\nin the set.\n\n## Open items\n\n- `SELECT VERSION()` against Live (token generation, above). **Blocks migration 1.**\n- The teardown-ordering test's result. **Blocks marking phase one done**, not writing it.\n\n## Deliberately not here\n\nThe map's [Out of scope](https://github.com/limelight-development/cityrp2/issues/3431) section is\nthe authority; the ones most likely to be re-proposed while reading this document are the remote\nrestart kill-switch, a query builder, migrating the internal tools off `onlinelog`, and\n`game.CleanUpMap` (an admin-initiated wipe that ends no session, so its rows are deleted as ordinary\ndestructions — a status-quo hold, since today they are equally unrecoverable at `flagged = 1`).\n"
     },
     {
       "id": "design/server-sessions/problem-statement",
@@ -139321,6 +140054,13 @@
         "description": "Where else in the gamemode a per-boot identity has been reinvented locally."
       },
       "body": "\n# Research: what else in this codebase has reinvented \"which boot is this\"?\n\n- **Ticket:** [limelight-development/cityrp2#3434](https://github.com/limelight-development/cityrp2/issues/3434)\n- **Parent map:** #3431 — spec for a server-only `cityrp.session` library at\n  `gamemode/core/libraries/sv_session.lua`.\n- **Date:** 2026-09-01\n- **Status:** Research complete. Planning only — no gamemode code was changed.\n\nRepo citations are `path:line` relative to `gamemodes/cityrp_2_by_limelightgaming/` unless the path\nstarts `addons/`, `docs/`, `lua/`, or is `AGENTS.md`. Every hit below was confirmed by reading the\nsurrounding code, not by trusting a grep line. Engine claims are quoted from\n[wiki.facepunch.com/gmod](https://wiki.facepunch.com/gmod) and nothing else.\n\nSibling research: [`research-gm-initialize-boot-predicate.md`](research-gm-initialize-boot-predicate.md)\n(#3432, the predicate) and [`research-fearlessrp-sessions-edge-cases.md`](research-fearlessrp-sessions-edge-cases.md)\n(#3433, the operational edges).\n\n---\n\n## TL;DR\n\n**Boot identity has been reinvented at least six independent times, in four mutually\nincompatible representations, and no two of them agree on what a boot *is*.** The two the map\nalready knew about are the tip: the gamemode currently carries a Lua epoch integer\n(`refund_ents`), a MySQL autoincrement reached through a correlated subquery (`container_code` via\n`server_stats`), a `settings` key-value row read by an out-of-repo service (`db.lua`), and a\none-second-heartbeat file on disk (`sv_logs`) — four separate stores, all recording \"the server\nstarted\", all keyed differently, all written from a different point in the boot, none of them aware\nof the others.\n\nOne further shape matters and is not a store at all: **`DBConnected` used as \"everything before now\nis void\"**, which in `giveprops` deletes rows belonging to other live servers because the boot has\nno identity to scope the delete by.\n\n| # | Site | Representation of \"this boot\" | Wrong today? | Recommendation |\n| --- | --- | --- | --- | --- |\n| 1 | `refund_ents/sv_init.lua:21` | Lua `os.time()` at plugin file scope | **Yes** — unguarded; a re-include re-derives it | **Migrate.** Primary consumer, already named by the map. |\n| 2 | `container_code/sv_dbcode.lua:14,61` + `init.lua:2978` + `server_stats` | `MAX(session_id)` via correlated subquery, resolved at *query* time | **Yes** — the producing INSERT is a `timer.Simple` at `init.lua` file scope | **Migrate.** Retire `server_stats`; see the duplication case in §2. |\n| 3 | `db.lua:72` (`settings.last_start_<server>`) | `os.time()` in a key-value row, written per DB connect | No — but its only reader is **out of repo** (the changelogs service) | **Keep writing it.** An undeclared external contract; see §3. |\n| 4 | `sv_logs.lua:121-126, 133-135` | A `_time.txt` heartbeat file rewritten every second | **Yes** — the read/append is at core-library file scope | **Migrate.** Wants `startTime` + the previous session's close-out. |\n| 5 | `sv_logs.lua:195-204` (`local first = true`) | A file-local boolean \"have I logged the start yet\" | **Yes** — a re-include re-arms it | **Migrate.** Exactly the `announced` guard #3432 sketched. |\n| 6 | `sv_commands.lua:3109-3115` + `discord_relay_free/sv_init.lua:279-281` | `CurTime()` reported as uptime | n/a — **not a hit** | **Excluded.** An uptime readout, not a boot sentinel; see §6. |\n| 7 | `giveprops/sv_init.lua:108-111` | `DBConnected` as \"wipe everything older than this boot\" | **Yes** — unscoped `DELETE`, hits other live servers | **Migrate (scope only)** + raise a Bug (§7). |\n| 8 | `sv_auto_restart.lua:96-101` | `CurTime()` as world-load uptime | No | **Leave alone.** Correct for its own intent; optional tidy-up. |\n\nSix implementations across five files, then. Three further sites (`carboosting`, `daynight`,\n`spawnpoints`) ask a *different* question —\n\"am I in a boot or a hot reload?\" — and answer it correctly today. They are not phase-one\nconsumers, but they are the strongest evidence for the ADR's rule; see §9.\n\n---\n\n## 1. `refund_ents` — a Lua epoch integer at plugin file scope\n\n`refund_ents/sv_init.lua:21-23`:\n\n```lua\nPLUGIN.session = os.time()\nPLUGIN.lastSession = 0\nPLUGIN.server = LLServer\n```\n\n**Predicate actually wanted: world load.** The token is written as the `start_time` column of every\ntracked row and read back in `PLUGIN:Load` (`sv_init.lua:165-171`), which selects rows matching\neither `self.lastSession` or `self.session` and then splits them at `sv_init.lua:179`:\n\n```lua\nlocal current = row.start_time == self.session\n```\n\n`current` rows get their ownership re-attached to the still-standing entity; everything else is\nrefunded to inventory (`sv_init.lua:193-210`). `lastSession` is resolved on `DBConnected` by\n`SELECT MAX(start_time) … WHERE server = … AND start_time < self.session` (`sv_init.lua:234-241`) —\nthe only `MAX()`-over-a-boot-stamped-table in the gamemode.\n\n**Wrong today.** Two ways, both already charted by #3432 and repeated here for completeness:\n\n- The derivation is unguarded. `luarun`, `sinc` and `lua_refresh_file` all re-execute a single\n  file's scope without re-running `gamemode/sh_init.lua:11` (`cityrp = {}`), so a hot reload of this\n  plugin mints a *new* session while every tracked entity is still physically standing. The next\n  `PLUGIN:Load` classifies all of them as wiped and refunds them — the item is now in the player's\n  inventory *and* on the ground.\n- `row.start_time == self.session` compares a DB result value to a Lua `number` with `==`\n  (`sv_init.lua:179`). If MySQL marshals that column as a string the comparison is `false` for every\n  row and the same duplication follows. Unverified against a live DB; carried forward from #3432 §5(b).\n\n**Recommendation: migrate.** This is the consumer the map already names, and the migration is\nsmaller than \"adopt a hook\" — file scope is already the right predicate, it just needs to be the\n*library's* guarded file scope rather than the plugin's unguarded one.\n\n---\n\n## 2. `container_code` — a MySQL autoincrement reached by correlated subquery\n\nThree files and a table, none of which know about each other.\n\n**The producer** — `gamemode/init.lua:2977-2980`:\n\n```lua\n-- Log server start for container system\ntimer.Simple(10, function()\n\tDB_MAIN:Run(\"INSERT INTO server_stats VALUES(NULL, NOW(), '\".. LLServer .. \"')\")\nend)\n```\n\n**The table** — `gamemode/core/migrations/0001_baseline_live_schema.lua:770-775`:\n\n```sql\nCREATE TABLE IF NOT EXISTS `server_stats` (\n\t`session_id` int NOT NULL AUTO_INCREMENT,\n\t`startup_time` datetime NOT NULL,\n\t`map` varchar(30) NULL,\n\tPRIMARY KEY (`session_id`)\n) ENGINE=InnoDB CHARSET=latin1\n```\n\nNote the positional `VALUES(NULL, NOW(), LLServer)`: the column named `map` holds the **server key**\n(`v2d`, `v4b1`, …), not a map name. Every reader below therefore filters `WHERE map = \"<LLServer>\"`.\n\n**The consumers** — `container_code/sv_dbcode.lua:14` (read) and `:61` (write):\n\n```lua\ncontainer_id != (SELECT session_id FROM server_stats WHERE map = \"]] .. LLServer .. [[\" ORDER BY session_id DESC LIMIT 1)\n```\n\n```lua\n(SELECT session_id FROM server_stats WHERE map = \"]] .. LLServer ..[[\" ORDER BY session_id DESC LIMIT 1),\n```\n\nA 30-second timer (`sv_dbcode.lua:50-70`) snapshots every `cityrp_container`'s contents into\n`crash_container`, stamping the row with the current boot id; `/c crashed`\n(`sv_command_c.lua:100-103` → `checkCrashContainerDatabase`, `sv_dbcode.lua:2-47`) hands back the\ncontents of any row **not** stamped with the current boot.\n\n**Predicate actually wanted: world load** — \"is this snapshot from a run of the world that is now\ngone, or from the one I am standing in?\" Identical semantics to `refund_ents`, expressed in a\ncompletely different medium.\n\n**Wrong today — the concrete failure case.** The boot id is not captured at boot; it is\n*re-resolved on every query* from whatever the newest `server_stats` row happens to be. The row that\ndefines it is produced by a bare `timer.Simple(10, …)` sitting at file scope of `gamemode/init.lua`.\nAny re-execution of that file's scope — `luarun`, `sinc`, `lua_refresh_file`, i.e. exactly the\nvectors #3432 §2 enumerates — arms a second timer and inserts a **second** `server_stats` row ten\nseconds later. The boot identity has now advanced with no restart and no `changelevel`. Every\n`crash_container` row written before that moment is instantly \"from a previous session\", so every\ncontainer in the world becomes eligible for `/c crashed` restore *while the physical container is\nstill standing in front of the player holding the same items*. That is the `refund_ents`\nduplication bug in a second plugin, reachable by a different lever.\n\nTwo lesser problems in the same code, worth recording because a migration will touch them:\n\n- **The restore is dead.** `sv_dbcode.lua:30-33` iterates the recovered items with the only\n  inventory write commented out (`//cityrp.inventory.update(self, k, v)`) and then tells the player\n  `\"Items have been placed in inventory\"`. Nothing is granted. Out of scope for #3431 — flagged\n  in §10.\n- **`res[1]` is dereferenced unguarded.** `sv_dbcode.lua:16-17` reads `res[1][\"json\"]` with no\n  emptiness check, so `/c crashed` with nothing to restore errors inside the callback. Also §10.\n\n**Recommendation: migrate, and retire `server_stats` with it.** `server_stats` exists solely to\nserve this subquery — `init.lua:2978` is its only writer and `sv_dbcode.lua:14,61` its only readers,\nrepo-wide. Once `crash_container` rows carry the session's own identity, the table, the delayed\ntimer, and the correlated subquery all go away together.\n\n---\n\n## 3. `db.lua` — a `settings` row with an out-of-repo reader\n\n`gamemode/db.lua:71-72`, inside the successful-connect path:\n\n```lua\nlocal time = os.time()\nself:FRun(\"INSERT INTO %s (setting, value) VALUES ('%s', %s) ON DUPLICATE KEY UPDATE value = %s\", cityrpserver[\"MySQL Settings Table\"], \"last_start_\" .. self.cfg[\"Server\"], time, time)\n```\n\n**Predicate actually wanted: \"when did this server last come up\".** Overwritten in place, so it is a\n*latest*-boot marker with no history — closer to `processId` in spirit than to a session id, though\nit is re-written on every `changelevel` too, so it is neither cleanly.\n\n**Not dead, and not this repo's to delete.** A repo-wide grep for `last_start` returns exactly this\none line — but the grep only covers this repository. The row is consumed by the **changelogs\nservice** (`limelight/services/changelogs`, in WebEnv), which reads `last_start_<server>` to know\nwhen each server last came up. The write is a live cross-service contract that happens to be\ninvisible from here.\n\n**Recommendation: keep writing it, and say so in the ADR.** `cityrp.session` may take ownership of\nthe write — it is the natural owner of \"this server just came up\" — but the key name\n(`last_start_<server>`), its epoch-seconds value, its home in the settings table and its\noverwrite-in-place semantics are all fixed by a consumer outside this repository. Renaming,\nretyping or dropping it breaks changelogs silently, with the failure surfacing on a web dashboard\nrather than in any GMod console.\n\n**This is the sweep's own near-miss, and worth recording as one.** \"Grep found no readers\" is not\n\"there are no readers\" in a multi-repo estate: three of this sweep's absence claims were repo-scoped\ngreps, and this is the one that had a consumer on the other side of the boundary. The ADR's\nconsumer list should be explicit that cross-repo readers exist for the session-adjacent data, so\nthe phase-one migration does not delete another one.\n\n---\n\n## 4. `sv_logs` — a one-second heartbeat file on disk\n\n`gamemode/core/libraries/sv_logs.lua:121-126`, at **core-library file scope**:\n\n```lua\nlocal ctime = file.Read(\"cityrp/\"..LLServer..\"_time.txt\");\nctime = tonumber(ctime)\nif ctime then\n\tfile.Append(\"cityrp/\"..LLServer..\"_prop_log.txt\", os.date(\"%d/%m/%Y - %H:%M:%S\", ctime)..\" ------------ Server Stop ------------\\n\");\nend\nfile.Append(\"cityrp/\"..LLServer..\"_prop_log.txt\", os.date(\"%d/%m/%Y - %H:%M:%S\")..\" ------------ Server Start ------------\\n\");\n```\n\nfed by `sv_logs.lua:133-135`:\n\n```lua\ntimer.Create(\"crashtimetracking\", 1, 0, function()\n\tfile.Write(\"cityrp/\" .. LLServer .. \"_time.txt\", os.time());\nend)\n```\n\n**Predicate actually wanted: the *previous* boot's end instant.** The timer name says it outright —\n`crashtimetracking`. `GM:ShutDown` cannot record the stop time of a server that crashed, so this\nwrites the wall clock once a second and lets the *next* boot read the last surviving value back as\n\"when the previous run died\". It is a hand-rolled `last_heartbeat_at`, which is precisely the column\n#3433 §3 specifies on `server_sessions`.\n\n**Wrong today.** Three ways:\n\n- **The read-and-append is at file scope of a core library**, so it is subject to the same reload\n  vectors as everything else in #3432 §2. A `lua_refresh_file` on `sv_logs.lua` appends a\n  `Server Stop` line dated one second ago followed by a `Server Start` line dated now — a restart\n  that never happened, written into the file admins read to reconstruct incidents. The heartbeat\n  timer is meanwhile still running, so the \"stop\" it reports is a live server.\n- **It cannot see a `changelevel`.** The marker is keyed on `LLServer` and nothing else, so a map\n  reload — which `sv_auto_restart.lua:93` performs on a timer and `!map`/`!restart` on demand —\n  produces a `Server Stop`/`Server Start` pair indistinguishable from a genuine process restart.\n  The distinction the whole of #3431 is built on is invisible here.\n- **It is a fourth, parallel store.** A crash on a server that has been up for hours leaves\n  `server_stats` (§2), `settings.last_start_*` (§3), `refund_ents.start_time` (§1) and this file all\n  holding different, unreconcilable answers about the same boot.\n\n**Recommendation: migrate.** The prop log's `Server Stop` line wants the previous session row's\n`last_heartbeat_at`; the `Server Start` line wants this session's `opened_at`. Both are already in\nthe #3433 schema, and moving the heartbeat onto the session library removes a per-second disk write\nin the bargain.\n\n---\n\n## 5. `sv_logs` — a file-local `first` flag as a once-per-boot guard\n\n`gamemode/core/libraries/sv_logs.lua:195-204`:\n\n```lua\nlocal first = true\nhook.Add(\"DBConnected\", \"LogRestart\", function()\n\tcityrp.logs.add(nil, nil, nil, nil, \"debug\", \"dbconnected\")\n\tif first then\n\t\tcityrp.logs.add(nil, nil, nil, nil, \"start\")\n\t\t…\n\t\tfirst = false\n\tend\nend)\n```\n\n**Predicate actually wanted: \"is this the first `DBConnected` of this boot\".** The `dbconnected`\ndebug line is emitted every time; the audit-visible `start` event only for the first — i.e. the flag\nexists specifically because `DBConnected` can fire more than once per world load (a reconnect) while\n`start` must mean *the world came up*.\n\n**Wrong today.** `first` is a `local` at file scope, so a re-include resets it to `true`. Any hot\nreload of `sv_logs.lua` followed by a DB reconnect writes a second `start` row for one world load,\ninto the same audit log operators use to bound \"was the server up at the time\". This is the exact\ntrap #3432 §3 warns about — a token in a `local` is re-derived by every re-include with nothing to\nguard it — and the exact boolean case `sh_tophints.lua:30` documents needing an `== nil` guard\nrather than an `or`.\n\n**Recommendation: migrate.** `cityrp.session.announced` in the #3432 sketch *is* this flag, correctly\nguarded and hanging off `cityrp` rather than a file-local. `sv_logs` should read it instead of\nkeeping its own.\n\n---\n\n## 6. Not a hit: `up` is an uptime command, not a boot sentinel\n\nListed here because it looks like a hit under the sweep's grep shapes and is not one, so the next\nperson to run this sweep does not re-raise it.\n\n`gamemode/core/sv_commands.lua:3109-3115`:\n\n```lua\ncityrp.acommands.AddCommand(\"up\", function(ply)\n\tply:Notify(cityrp.formattime(CurTime(), true))\nend, 0, \"m\", false, \"moderator\",\n\t\"<none>\",\n\t\"Check the server's current uptime.\"\n)\n```\n\nand its Discord twin, `discord_relay_free/sv_init.lua:279-281`:\n\n```lua\nif cmd == \"up\" then\n\tself:rtnCmd(cityrp.formattime(CurTime(), true))\n```\n\n**This reads a duration and prints it.** Nothing branches on it, nothing stores it, nothing compares\nit against a previous boot — it never functions as an identity or a sentinel, which is what the\nsweep is looking for. It belongs with the other duration readings in §9, not in the hit list: how\nlong the current world has been up is a legitimate thing for `!up` to answer, and `CurTime()`\nanswers it.\n\nThe `changelevel` reset noted on the [`RealTime`](https://wiki.facepunch.com/gmod/Global.RealTime)\nwiki page is therefore not a defect here — it is the same reset that makes `sv_auto_restart`'s\nreading correct in §8. The same value reaches the audit log at `sv_logs.lua:191`, `:200` and\n`sv_temar.lua:414` with the same meaning.\n\n**Recommendation: leave alone.** If `processId` later makes process uptime cheap to report\nalongside world uptime, `!up` is an obvious place to surface it — but that is a feature request\nagainst the command, not a session-identity consumer and not a migration this map owes anyone. The\nduplicated `CurTime()` literal across two files is a footgun #11 shape worth tidying if either file\nis opened for another reason.\n\n---\n\n## 7. `DBConnected` as \"everything before now is void\" — `giveprops`\n\n`gamemode/core/plugins/giveprops/sv_init.lua:108-111`:\n\n```lua\n-- Every loan is voided on boot, before any player can reconnect.\nhook.Add(\"DBConnected\", \"GivePropsWipeLoansOnBoot\", function()\n\tDB_MAIN:Run(\"DELETE FROM giveprops_loans\")\nend)\n```\n\n**Predicate actually wanted: \"rows that do not belong to my session\".** The table is a\nreconnect-recovery cache for in-memory prop-limit loans (`sv_init.lua:83-141`); a loan cannot\noutlive the world it was made in, so it is voided at boot. That is the right intent, and unlike §1–§4\nit does not roll its own token at all — which is precisely why it goes wrong.\n\n**Wrong today.** `giveprops_loans` has no server column\n(`gamemode/core/migrations/0008_add_giveprops_loans.lua:8-13`: the primary key is\n`(giver_steamid64, recipient_steamid64)` and there is nothing else). With no identity to scope by,\nthe delete is unqualified — so **a boot of any Limelight server wipes every other live server's\nloans mid-session**. Concretely: v4b1 hits its `sv_auto_restart` window and reloads; on v2d, two\nplayers who are still online and still holding a live loan have their row deleted underneath them.\nTheir in-memory ledger and `cityrp.layers` entries survive, so nothing looks wrong until one of them\ndisconnects and reconnects — `loadLoans` (`sv_init.lua:115-141`) then finds no rows, rebuilds\nnothing, and the loan silently evaporates: the giver gets their prop limit back, the recipient\nloses theirs. No log line records it, because from `giveprops`'s point of view nothing happened.\n\n**Recommendation: migrate (scope only), and raise the wipe as its own Bug.** The library fix is\none column plus `DELETE … WHERE session_id <> cityrp.session.id`; the ADR should name this site\nbecause it is the cleanest example of the ADR's own rule — the plugin did *not* invent a heuristic,\nand got a cross-server data-loss bug precisely because there was no shared one to ask.\n\nFor contrast, the two neighbouring `DBConnected` cleanups are **not** boot-scoped and are correct as\nwritten: `policedb/sv_init.lua:359-361` (`created_at < DATE_SUB(NOW(), INTERVAL 7 DAY)`) and\n`admin/sv_init.lua:215-217` (chat older than 7 days) are age-based retention that happens to be\ntriggered at boot. Leave both alone.\n\n---\n\n## 8. `sv_auto_restart` — `CurTime()` as world-load uptime, correctly\n\n`sv_auto_restart.lua:96-101`, with `time = CurTime()` from `:62`:\n\n```lua\nif (time > PLUGIN.restartHardTime) and (count <= PLUGIN.restartHardMax) then\n\tPLUGIN.restarting = \"Hard\"\nend\n```\n\nagainst `PLUGIN.restartSoftTime = 14400` and `restartHardTime = 28800` (`:16, :22`).\n\n**Predicate actually wanted: uptime of *this world load*** — the thing a map reload is supposed to\nrefresh. `CurTime()` resetting on `changelevel` is the desired behaviour here, not a bug: the\ncountdown should restart after a reload.\n\n**Not wrong.** Worth two notes for whoever migrates it later: `CurTime` is documented as *\"affected\nby various factors such as `host_timescale` … and the server being paused\"*, which `os.time() -\ncityrp.session.startTime` is not; and the plugin stores its countdown state on `PLUGIN` fields\n(`:33-40`) that a re-include resets, so a hot reload silently cancels a restart in progress.\n\n**Recommendation: leave alone** for phase one. Name it in the ADR only as an example of a *correct*\nworld-load reading, so the migration sweep does not mistake it for a bug.\n\n---\n\n## 9. Near misses and distinct shapes — and why each is excluded\n\n### Per-player, per-connection identity (the `onlinelog` family)\n\n`onlinelog/sv_init.lua:32` sets `ply._jointime = os.time()` on `PlayerInitialized` and\n`:13-29` mints a 10-character alphanumeric token per connection; both go into the online-log row at\n`:43` and both are used as the row's lookup key on update and disconnect (`:55, :62, :67`).\n\nThis is **per-player connection identity, not boot identity**, and the two must not be conflated:\n`_jointime` changes many times within one boot and is scoped to a single player. It is the\n`player_sessions` half of the #3433 schema, not the `server_sessions` half. Excluded — but it does\ncarry one lesson for the library: it is a second place where an integer epoch is used as a\ncomposite DB key (`WHERE … AND connect = '<epoch>'`), with the same string/number coercion exposure\nnoted in §1. If the ADR is going to normalise a token type, this is the shape it is normalising\nagainst.\n\n### `CurTime()`/`SysTime()` used as durations, not restart signals\n\n`derma/cl_notifications.lua` (`StartTime = SysTime()` throughout), `login_rewards/cl_init.lua:156`,\n`website_rewards/cl_init.lua:124`, `xp-bar/cl_init.lua:31,70`, `maintenance/cl_minigame.lua:47,130`,\n`carboosting/sv_init.lua:4047,4061`, `db.lua:155,193`. All measure an elapsed interval within a\nframe budget or a UI animation. None is asking \"did the server restart\". Excluded.\n\n### Terminology collisions that will show up in any future grep\n\nThree places use the word *session* for something unrelated to a boot, and all three will surface in\na naive sweep:\n\n- `propsave/sv_init.lua:53, 99, 108, 136, 185, 197` — \"prop session\" is a **player-initiated manual\n  save** of their own props, keyed by SteamID and stored per-`LLServer` on disk (`:24, :155`). Not\n  time-derived, not boot-scoped.\n- `entities/weapons/cityrp_lockpick/shared.lua:431, 616, 623` — `session` is the per-attempt\n  lockpicking minigame state.\n- `referrals/sv_session.lua` and `referrals/cl_session.lua` — filenames only; the contents are the\n  referral UI. This is the one that matters, because the new library's file is\n  `gamemode/core/libraries/sv_session.lua` and the two will be a permanent source of confusion in\n  file pickers and grep output. Worth a sentence in the ADR.\n\n### Boot-time reconciliation that is already correct\n\n`db.lua:73`, `init.lua:2400` and `sv_logs.lua:189` all run\n`UPDATE players SET _Online = 0 WHERE _Server = '<server>'` — on connect, on shutdown, and on\n`GM:ShutDown` respectively. This is genuine boot reconciliation of state a crash would have left\nstale, and it is **the one place the codebase gets this right**: the flag is per-server with no\nper-boot dimension, so a server key is the correct scope, and `sv_player.lua:471-486` documents at\nlength why the preload path depends on that guarantee. Excluded, and worth citing in the ADR as the\ncounterexample — scoping by server is right when the state has no boot dimension; §7 is what happens\nwhen it does.\n\n### Clock broadcast, not identity\n\n`sv_player.lua:932-934` pushes `SetGlobalInt(\"cityrp_servertime\", os.time())` once a second so\nclients share a wall clock. Not a boot marker. Excluded.\n\n### Dead schema\n\n`currentstats` (`migrations/0001_baseline_live_schema.lua:270-275`: `server`, `loading`, `ingame`,\n`admins`, `adminnames`) is a per-server live-status table with **no reader and no writer anywhere in\nthe repository**. It is not a boot-identity reinvention, but it is a fifth abandoned attempt at\nserver-state bookkeeping sitting in the baseline schema, and it belongs in whatever cleanup retires\n`server_stats`. Flagged in §10.\n\n### Vendored addon code (not consumers to migrate)\n\nSwept `addons/` and `lua/` explicitly. **No vendored addon carries a boot heuristic of any kind** —\nthere is no `server_stats` reader, no `os.time() - RealTime()`, no file-scope boot token outside the\ngamemode. The two file-scope `os.time()` captures that exist are both `damagelog`\n(`addons/damagelog/lua/damagelogs/server/oldlogs.lua:11`, a log-retention cutoff, and\n`addons/damagelog/lua/damagelogs/server/recording.lua:164-165`, minute-boundary alignment for its\ndump timer), and neither is boot identity. `addons/pcasino`'s `SetStartRoundIn(os.time())`\n(`lua/perfectcasino/core/sv_core.lua:80,117` and the table entities) is per-round betting-window\nstate. **Stated explicitly rather than silently omitted: none of these should be migrated, and a\nvendored addon that grew its own boot heuristic later would still not be a consumer** — the whole\npoint of `addons/` staying a clean drop-in replace.\n\n### The adjacent question the sweep kept hitting: \"am I a boot or a hot reload?\"\n\nThree sites ask a related but genuinely different question — not *which* boot, but *whether this\nfile-scope execution is part of one*:\n\n- `carboosting/sv_init.lua:4049-4058` — a comment stating that `CityRP.Core.PostPluginLoad`\n  (`sh_init.lua:217`) only fires on a full boot, followed by the same maintenance call made both\n  immediately *and* from the hook, so a reloaded plugin still gets its fence NPCs. Paired with the\n  entity sweep at `:543-552` that reconciles the world when the reload loses track of them.\n- `daynight/sv_init.lua:323-324` — `timer.Simple(0, bootstrap)` under the comment\n  *\"Hot reload / late gamemode load: InitPostEntity may have already fired.\"*\n- `spawnpoints/sv_init.lua:118-121` — a lazy cache fill for the same reason, commented as such.\n\nAll three are **correct today** and none should be migrated in phase one. They are recorded here\nbecause they are the strongest evidence in the codebase that \"is this a boot?\" is a question plugins\nare already asking and answering three different ways — and because `cityrp.session` can answer it\nfor free (the library's own token existing before a plugin's file scope runs *is* the reload signal).\nFlagged as fog in §10, not proposed as API.\n\n---\n\n## 10. Evidence for the ADR's rule\n\nThe ADR wants to say: *future systems ask `cityrp.session` rather than rolling their own.* What the\nsweep proves, specifically:\n\n1. **It gets reinvented roughly once per feature that needs it, not once ever.** Six independent\n   implementations across five files (§1–§5, §7): `refund_ents`, `container_code`, `db.lua`,\n   `sv_logs` (twice) and `giveprops` — written by different authors across a decade of the\n   codebase, none referencing another.\n\n2. **No two agree on the representation.** A Lua epoch integer, a MySQL autoincrement, a key-value\n   settings row, and a text file on disk. Four stores; a crash leaves all four holding different\n   answers to \"when did this boot start\", and there is no procedure — and no code — that reconciles\n   them. One of the four (§3) is already load-bearing for a service in another repository, and\n   nothing in this one says so.\n\n3. **The failure mode is always the same and always silent.** Every wrong case in §1, §2, §4, §5\n   and §7 is a re-execution of file scope that the author did not model: the code compiles, runs,\n   and passes the case that was tested (a real restart), then misbehaves on a hot reload or on\n   another server's restart with no error to read. That is AGENTS.md footgun #7 stated as a\n   measurement rather than a warning.\n\n4. **The two worst outcomes are duplication bugs in economy code.** §1 and §2 are the same bug\n   — \"still-standing thing classified as lost, refunded anyway\" — in two plugins, reachable by two\n   different levers. The `refund_ents` variant has real history: the cross-player form of it\n   (`todo/server-session-system.md`, issue #106) took five years to fix. §2 has not been reported,\n   which is not evidence that it does not fire.\n\n5. **Not inventing a heuristic is not a defence either.** §7 shows what the alternative looks like\n   when no shared source of truth exists: `giveprops` correctly declined to roll its own token, had\n   nothing to scope its cleanup by, and shipped an unqualified `DELETE` that reaches across the\n   fleet. A library is not just a convenience for the systems that would otherwise reinvent it — it\n   is the only thing that makes the correct scoping *expressible*.\n\n6. **`server_stats` is the counterexample that proves the library needs to be a library.** It is,\n   structurally, exactly what #3431 asks for: one DB row per boot, with a server key and a start\n   time, in the baseline schema since forever. It failed anyway, because it has no Lua-side owner —\n   the token is re-resolved by subquery on every read, the producing INSERT is a naked timer at\n   `init.lua` file scope, the column names lie about their contents, and no second consumer ever\n   adopted it. A table is not an API.\n\n---\n\n## 11. Flagged, not acted on\n\nFor the map, or for their own tickets. **Nothing below was changed and nothing below is in\n#3431's scope.**\n\n**New fog for the map**\n\n- **\"Am I in a boot or a hot reload?\" is a second, distinct question the codebase keeps asking**\n  (§9, `carboosting`/`daynight`/`spawnpoints`). `cityrp.session` can answer it as a side effect —\n  the token already existing when a plugin's file scope runs is the reload signal — but exposing\n  that (`cityrp.session.IsBooting()` or similar) is a design decision, not a free consequence, and\n  the three current call sites are correct without it. Deliberately not proposed as phase-one API.\n- **Type discipline on the token.** §1 (`row.start_time == self.session`) and §9 (`onlinelog`'s\n  `connect = '<epoch>'` composite key) both compare a DB-marshalled value to a Lua number. If the\n  library owns the token it should own its type and offer the comparison, rather than leaving each\n  call site to get coercion right. Carried forward from #3432 §5(b); the sweep found a second\n  instance of the shape.\n\n**Candidate new tickets (Bug)**\n\n- **`giveprops_loans` is wiped fleet-wide on any server's boot** (§7). Cross-server data loss,\n  independent of #3431 — the row needs a server (or session) column and the `DELETE` needs a\n  `WHERE`. Sized small; the migration is one column.\n- **`/c crashed` grants nothing.** `container_code/sv_dbcode.lua:30-33` — the inventory write is\n  commented out and the player is told the items were restored. Player-facing, live.\n- **`/c crashed` errors when there is nothing to restore.** `container_code/sv_dbcode.lua:16-17`\n  dereferences `res[1][\"json\"]` with no emptiness guard.\n**Out of scope / cleanup**\n\n- **`currentstats`** (`migrations/0001:270-275`) has no reader and no writer. Retire it alongside\n  `server_stats`.\n- **`settings.last_start_<server>`** (`db.lua:72`) must **not** be cleaned up — its reader is the\n  changelogs service, outside this repo (§3). Worth an ADR line so a future tidy-up does not remove\n  it on the strength of a repo-wide grep.\n- **`sv_logs.lua`'s one-second `file.Write`** (`:133-135`) is a per-second disk write whose only\n  purpose is the `Server Stop` line in §4. Migrating §4 removes it; worth noting as a small\n  performance win rather than pure cleanup.\n- **Naming collision:** `gamemode/core/libraries/sv_session.lua` (new) vs\n  `gamemode/core/plugins/referrals/sv_session.lua` (existing, unrelated). Not worth renaming the\n  referrals file, but worth a line in the ADR so the next reader is not misled.\n\n---\n\n## Confidence\n\n**Verified from source** — every `path:line` citation, read in this worktree at `06338d9a5`. The\nabsence claims were each checked by an explicit repo-wide grep: `last_start` (one hit in this repo,\nthe writer — but see §3: the reader is the changelogs service in another repository, so this\nparticular absence claim was wrong as first written);\n`server_stats` (one writer, two readers, one schema line); `currentstats` (schema only); file-scope\n`os.time()` assignment (one hit in the gamemode, `refund_ents/sv_init.lua:21`; one in vendored\n`damagelog`); `MAX(` over a boot-stamped table (one hit, `refund_ents/sv_init.lua:235`);\n`os.time() - RealTime()`/`SysTime()` (no hits anywhere, gamemode or addons).\n\n**Inferred** — that the `container_code` reload path in §2 is live rather than prevented somewhere\nunread (the mechanism is confirmed; nobody has reported the bug). That the §7 loss sequence plays\nout as described end-to-end; the wipe, the missing column and `loadLoans`'s behaviour on an empty\nresult are all confirmed in source, but the sequence has not been reproduced on a server.\n\n**Unverified** — MySQL's marshalling of the `start_time` column as string vs number (§1), inherited\nfrom #3432 and still needing a live check. Whether `-disableluarefresh` is set on Limelight boxes,\nwhich affects how easy the §2, §4 and §5 reload paths are to hit but not whether they exist.\n\n---\n\n## Sources\n\n**Repo (this worktree, branch `claude/wayfinder-3431-3434-32da3c` at `06338d9a5`)**\n\n- `gamemode/init.lua:19-21, 2397-2401, 2977-2980`\n- `gamemode/db.lua:57-76, 139-196`\n- `gamemode/sh_init.lua:11, 108-109, 217`\n- `gamemode/core/sv_commands.lua:3109-3115, 3831`\n- `gamemode/core/libraries/sv_logs.lua:121-135, 188-204`\n- `gamemode/core/libraries/sv_player.lua:450-495, 925-945`\n- `gamemode/core/libraries/sv_temar.lua:89, 414, 419-431`\n- `gamemode/core/libraries/sh_tophints.lua:15-32`\n- `gamemode/core/libraries/sh_plugin.lua:1046`\n- `gamemode/core/migrations/0001_baseline_live_schema.lua:259-275, 616-618, 770-775, 835-840`\n- `gamemode/core/migrations/0008_add_giveprops_loans.lua:1-20`\n- `gamemode/core/plugins/refund_ents/sv_init.lua:18-34, 96, 126, 157, 162-230, 231-246`\n- `gamemode/core/plugins/container_code/sv_dbcode.lua` (whole file), `sv_command_c.lua:98-105`,\n  `sv_init.lua` (whole file)\n- `gamemode/core/plugins/giveprops/sv_init.lua:62-141, 143-250`\n- `gamemode/core/plugins/sv_auto_restart.lua:15-27, 43-46, 60-107`\n- `gamemode/core/plugins/discord_relay_free/sv_init.lua:276-285`\n- `gamemode/core/plugins/policedb/sv_init.lua:359-365`, `admin/sv_init.lua:215-217, 1085-1094`\n- `gamemode/core/plugins/onlinelog/sv_init.lua:13-67`\n- `gamemode/core/plugins/propsave/sv_init.lua:1-31, 53, 99, 155, 185, 197`\n- `gamemode/core/plugins/carboosting/sv_init.lua:543-552, 4043-4058`\n- `gamemode/core/plugins/daynight/sv_init.lua:30-95, 300-330`\n- `gamemode/core/plugins/spawnpoints/sv_init.lua:108-125`\n- `gamemode/core/plugins/beta/sv_init.lua:345`, `sv_item_db_update.lua:77`\n- `entities/weapons/cityrp_lockpick/shared.lua:431, 616, 623`\n- `addons/damagelog/lua/damagelogs/server/oldlogs.lua:11`, `server/recording.lua:164-165`\n- `addons/pcasino/lua/perfectcasino/core/sv_core.lua:80, 117`\n- `todo/server-session-system.md` (whole file)\n- `AGENTS.md` footguns #2, #7, #8, #11, #22\n\n**Prior research in this folder**\n\n- `docs/design/server-sessions/research-gm-initialize-boot-predicate.md` (#3432)\n- `docs/design/server-sessions/research-fearlessrp-sessions-edge-cases.md` (#3433)\n\n**Garry's Mod Wiki**\n\n- <https://wiki.facepunch.com/gmod/Global.RealTime>\n- <https://wiki.facepunch.com/gmod/Global.CurTime>\n- <https://wiki.facepunch.com/gmod/Global.SysTime>\n- <https://wiki.facepunch.com/gmod/Auto_Refresh>\n- <https://wiki.facepunch.com/gmod/GM:ShutDown>\n"
+    },
+    {
+      "id": "design/server-sessions/research-db-main-column-typing",
+      "title": "Research: how `DB_MAIN` types result columns, and what type `cityrp.session`'s token should be",
+      "path": "design/server-sessions/research-db-main-column-typing.md",
+      "meta": {},
+      "body": "# Research: how `DB_MAIN` types result columns, and what type `cityrp.session`'s token should be\n\n- **Ticket:** [limelight-development/cityrp2#3442](https://github.com/limelight-development/cityrp2/issues/3442)\n- **Parent map:** #3431 — spec for a server-only `cityrp.session` library at\n  `gamemode/core/libraries/sv_session.lua`.\n- **Surfaced by:** #3432. Blocks #3436, #3437.\n- **Date:** 2026-09-02\n- **Status:** Research complete. Planning only — no gamemode code was changed.\n\nRepo citations are `path:line` relative to `gamemodes/cityrp_2_by_limelightgaming/` unless the path\nstarts `docs/`. Module citations are against\n[SuperiorServers/gm_tmysql4](https://github.com/SuperiorServers/gm_tmysql4) at `master`, which is\nthe module `gamemode/db.lua:9` loads with `require(\"tmysql4\")`. MySQL claims are quoted from\n[dev.mysql.com](https://dev.mysql.com/doc/refman/8.0/en/) and nothing else.\n\n---\n\n## TL;DR\n\n| Question | Answer |\n| --- | --- |\n| What type does an `INT` column come back as? | A **Lua number**. `tmysql4` converts it in C. |\n| What about `BIGINT`? | A **Lua string** — `BIGINT` is the one numeric type explicitly excluded from the conversion, on purpose. |\n| Does it differ between `Run` and `FRun`? | **No.** `FRun` is a `string.format` wrapper that calls `Run`; it never touches the result. |\n| Does it differ between prepared and raw queries? | **No.** Both `Result` constructors store every cell as a `std::string` and both dispatch through the same `PopulateLuaTable`, which types from the column metadata. |\n| Is `refund_ents/sv_init.lua:179` broken on Live? | **No.** `track.start_time` is declared `int`, so `row.start_time` is a number and the `==` is number-to-number. **No Bug filed for it.** |\n| Is `sv_init.lua:241` broken? | **No.** `MAX()` returns its argument's type, so `MAX(start_time)` over an `int` is also a number. |\n| What type should `cityrp.session.id` be? | A **Lua number**, backed by `session_id int unsigned NOT NULL AUTO_INCREMENT`. Never `BIGINT`, never `VARCHAR`. |\n| Should the library expose `Is()` / `Matches()`? | **Yes** — not because the DB lies today, but because the type is a function of the column declaration and the SQL expression, and both of those decay silently. |\n\nOne live defect *was* found in passing, in a different plugin — `bans/sv_init.lua:356`, filed as\n[#3451](https://github.com/limelight-development/cityrp2/issues/3451). See\n[§5](#5-sidebar-a-real-bug-found-in-passing).\n\n---\n\n## 1. Where the typing decision actually happens\n\n`gamemode/db.lua:9` is `require(\"tmysql4\")`, and `DB:Connect` (`db.lua:47-53`) calls\n`tmysql.initialize(...)`. Every result the gamemode ever sees is built by that binary module. There\nis exactly one function in it that decides a Lua type, and it is\n[`Result::PopulateLuaTable`](https://github.com/SuperiorServers/gm_tmysql4/blob/master/src/result.cpp):\n\n```cpp\nfor (unsigned int c = 0; c < m_colCount; c++)\n{\n    if (useNumbers == true)\n        LUA->PushNumber(c + 1);\n\n    if (m_nullRowValues[r][c])\n        LUA->PushNil();\n    else if (IS_NUM(m_columnTypes[c]) && m_columnTypes[c] != MYSQL_TYPE_LONGLONG)\n        LUA->PushNumber(atof(m_rows[r][c].c_str()));\n    else\n        LUA->PushString(m_rows[r][c].c_str(), m_rows[r][c].length());\n    ...\n}\n```\n\nThree branches, in order:\n\n1. **SQL `NULL` → Lua `nil`.** Not `\"\"`, not `0`.\n2. **`IS_NUM` and not `LONGLONG` → Lua number**, via `atof` on the wire string.\n3. **Everything else → Lua string.**\n\n`IS_NUM` is the connector's own macro, vendored in the same repo at\n[`include/connector/mysql.h:106`](https://github.com/SuperiorServers/gm_tmysql4/blob/master/include/connector/mysql.h):\n\n```c\n#define IS_NUM(t) (((t) <= MYSQL_TYPE_INT24 && (t) != MYSQL_TYPE_TIMESTAMP) || (t) == MYSQL_TYPE_YEAR || (t) == MYSQL_TYPE_NEWDECIMAL)\n```\n\n`m_columnTypes[c]` is `field->type` read from `mysql_fetch_field_direct` — the **declared column\ntype as MySQL reports it in the result metadata**, not a guess from the value. So the answer is\nentirely determined by the schema (or, for an expression, by what MySQL says that expression's type\nis).\n\n### The resulting table\n\n| MySQL column type | `field->type` | Lua type in `row.x` |\n| --- | --- | --- |\n| `TINYINT`, `SMALLINT`, `MEDIUMINT`, `INT` | `TINY`/`SHORT`/`INT24`/`LONG` | **number** |\n| `FLOAT`, `DOUBLE` | `FLOAT`/`DOUBLE` | **number** |\n| `DECIMAL`, `NUMERIC` | `NEWDECIMAL` | **number** |\n| `YEAR` | `YEAR` | **number** |\n| **`BIGINT`** | **`LONGLONG`** | **string** |\n| `TIMESTAMP`, `DATETIME`, `DATE`, `TIME` | — | string |\n| `CHAR`, `VARCHAR`, `TEXT`, `BLOB`, `ENUM`, `SET`, `JSON` | — | string |\n| any column, value `NULL` | — | **`nil`** |\n\n`BIGINT` is excluded deliberately: a Lua number is an IEEE-754 double, which cannot represent every\n64-bit integer exactly, so pushing a `BIGINT` as a number would silently corrupt large values\n(SteamID64s being the obvious case). The module chooses lossless-as-a-string over lossy-as-a-number.\nThat is the right call, and it is also the trap — **`BIGINT` is a numeric type that does not behave\nnumerically in Lua.**\n\n### `Run` vs `FRun`\n\nNo difference. `DB:FRun` (`db.lua:169-173`) is:\n\n```lua\nfunction DB:FRun(query, ...)\n\tlocal cb = select(-1, ...)\n\tif not isfunction(cb) then cb = nil end\n\tself:Run(query:format(...), cb)\nend\n```\n\nIt formats a string and delegates. `DB:Run` (`db.lua:130-156`) is the only place that unwraps the\nresult, and it hands the callback `r.data` verbatim. `RunChecked`, `QueryParams` and\n`QueryParamsChecked` all funnel into `Run`/`RunChecked` the same way.\n\n### Prepared vs raw\n\nNo difference either, and the source is unambiguous about why. `Result` has two constructors:\n\n- `Result(MYSQL*)` — raw path. `mysql_fetch_row` gives `char*` per cell; each is stored as\n  `m_rows[i][n] = std::string(row[n], len[n])`.\n- `Result(PStatement*)` — prepared path. Every bind is forced to `bind.buffer_type =\n  MYSQL_TYPE_STRING` (with the source comment *\"I really don't like making prepped statements mimic\n  the char array style of `MYSQL_ROW`\"*), and each cell lands in the same `m_rows` `std::string`\n  store.\n\nBoth constructors populate `m_columnTypes[i] = field->type` from the same\n`mysql_fetch_field_direct`, and both results are rendered by the single `PopulateLuaTable` above. So\nthe wire representation is a string in both cases, and the Lua type is decided from column metadata\nin both cases — identically.\n\nCityRP2 does not use prepared statements through `DB_MAIN` at all today, so this is future-proofing\nrather than a live concern.\n\n### Two more properties worth pinning down\n\n**Column keys are names, not indices.** `Database::lua_Query`\n([`database.cpp:351-374`](https://github.com/SuperiorServers/gm_tmysql4/blob/master/src/database.cpp))\nreads the `ColumnNumbers` switch off argument 5: `mysqldb->QueueQuery(query, callbackfunc,\ncallbackref, LUA->GetBool(5))`. `DB:Run` calls `self.Connection:Query(query, function(res) ... end)`\n— two arguments — so argument 5 is nil, `GetBool` is false, and rows are **always** keyed by column\nname. `row[1]` is `nil` in every callback this gamemode writes. (That is the sidebar bug in\n[§5](#5-sidebar-a-real-bug-found-in-passing).)\n\n**`lastid` is always a number.** `PopulateLuaTable` pushes it with `LUA->PushNumber(m_iLastID)`\nunconditionally, from `mysql_insert_id`. `DB:Run` (`db.lua:150-152`) routes it to the callback for\nany query matching `query:find(\"INSERT INTO\")`. So an `AUTO_INCREMENT` value arrives **as a number\non insert**, whatever the column's declared type.\n\nHold that thought — it is the whole argument in [§4](#4-what-type-cityrpsessionid-and-session_id-should-be).\n\n---\n\n## 2. Aggregates and expressions change the answer\n\nThe type comes from result metadata, so wrapping a column in an expression can change it.\n\n- **`COUNT()`** — the MySQL manual is explicit: *\"The result is a `BIGINT` value.\"*\n  ([Aggregate Functions](https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html)). `BIGINT`\n  is `LONGLONG`, so **`COUNT()` always comes back as a Lua string.**\n- **`SUM()` / `AVG()`** — *\"return a `DECIMAL` value for exact-value arguments (integer or\n  `DECIMAL`), and a `DOUBLE` value for approximate-value arguments\"* (ibid.). Both map to `IS_NUM`\n  and neither is `LONGLONG`, so **number**.\n- **`MAX()` / `MIN()`** — the manual documents these as taking the type of their argument (*\"`MAX()`\n  may take a string argument; in such cases, it returns the maximum string value\"*), and MySQL\n  reports the argument's field type in the result metadata. `MAX(int_col)` is therefore\n  `MYSQL_TYPE_LONG` → **number**.\n- **`CAST(x AS SIGNED)` / `CAST(x AS UNSIGNED)`** — yields `BIGINT` → **string**. Casting to make\n  something \"a number\" in SQL makes it a string in Lua. This is the most counterintuitive case in\n  the whole set.\n\n### The codebase already knows this\n\nTwo live call sites are written against the `COUNT()`-is-a-string rule, which is about as strong an\nempirical confirmation as a static read can offer:\n\n- `vehicles/sv_init.lua:1160` — `if (res[1][\"COUNT(*)\"] == \"1\") then`. Compared against a **string\n  literal**. This is on the vehicle-spawn path, so it demonstrably works on Live.\n- `container_code/sv_dbcode.lua:39` — `if (tonumber(res[1][\"COUNT(*)\"]) > 0) then`. Explicit\n  `tonumber`, which would be redundant if `COUNT()` were a number.\n- `meska/hooks.lua:129` — `local count = tonumber(results[1][\"total\"])` over `COUNT(id) AS total`.\n  Same.\n\n---\n\n## 3. Verdict on `refund_ents`: **not broken, no Bug filed**\n\nThe ticket's hypothesis was that `row.start_time == self.session` (`refund_ents/sv_init.lua:179`)\ncompares a string to a number and is false for every row, refunding every still-standing entity.\nThat would be a duplication bug in footgun #7's family. It is not what happens.\n\n`track.start_time` is declared in the baseline migration\n(`gamemode/core/migrations/0001_baseline_live_schema.lua:800-809`):\n\n```sql\nCREATE TABLE IF NOT EXISTS `track` (\n    `server` varchar(40) NOT NULL,\n    `start_time` int NOT NULL,\n    `ent_index` int unsigned NOT NULL,\n    `owner_steamid` varchar(50) NULL,\n    `entity` varchar(45) NULL,\n    `data` text NULL,\n    `flagged` tinyint DEFAULT 0 NULL,\n    PRIMARY KEY (`server`, `start_time`, `ent_index`)\n) ENGINE=InnoDB CHARSET=latin1\n```\n\n`int`, not `bigint`. `MYSQL_TYPE_LONG` passes `IS_NUM` and is not `LONGLONG`, so `PopulateLuaTable`\ntakes the `PushNumber(atof(...))` branch. `row.start_time` is a Lua number.\n\n`PLUGIN.session` is `os.time()` (`refund_ents/sv_init.lua:21`), also a number. The comparison at\nline 179 is number-to-number and behaves as intended.\n\nLine 241 — `self.lastSession = results[1].start_time` from\n`SELECT MAX(start_time) start_time ...` (`sv_init.lua:235`) — is also safe, per the `MAX()` rule in\n[§2](#2-aggregates-and-expressions-change-the-answer). And even had it returned a string, that value\nis only ever interpolated back into SQL with `%s` (`sv_init.lua:169`), never `==`-compared, so it\nwould have survived anyway.\n\n**Nothing needs fixing here, and nothing has been filed against `refund_ents`.** The hypothesis was\nworth testing — it is the exact shape of bug this codebase produces — but the schema saves it.\n\nThe near-miss is instructive rather than reassuring, though. `refund_ents` is correct because\nsomebody in 2015 wrote `int` and not `bigint`, and no comment anywhere records that the plugin's\ncorrectness depends on that choice. An `ALTER TABLE track MODIFY start_time bigint` — an entirely\nreasonable-looking change, and one somebody might make for Y2038 headroom — would turn line 179\nfalse for every row and start refunding live contraband while the entities stayed standing, with no\nerror, no log line, and nothing in the diff that looks wrong. That is the argument for\n[§6](#6-the-comparison-contract).\n\n---\n\n## 4. What type `cityrp.session.id` and `session_id` should be\n\n### `cityrp.session.id`: a Lua **number**\n\n### The column: `session_id int unsigned NOT NULL AUTO_INCREMENT` — never `BIGINT`, never `VARCHAR`\n\nThe map (#3431) settled that identity is \"a locally generated token plus the DB row's\nautoincrement\". Those are two values with two different types, and only the autoincrement is at risk\nhere.\n\nThe decisive constraint is the **insert/select asymmetry**. The autoincrement reaches Lua by two\ndifferent routes:\n\n| Route | Source | Lua type |\n| --- | --- | --- |\n| At session open — `DB:Run`'s `INSERT INTO` callback | `LUA->PushNumber(m_iLastID)` | **always a number**, whatever the column type |\n| At read-back — `SELECT session_id FROM ...`, or a joined `track.session_id` | `PopulateLuaTable`, from column metadata | number if `INT`, **string if `BIGINT`** |\n\nWith an `int` column, both routes give a number and every comparison is consistent. With a `BIGINT`\ncolumn, `cityrp.session.id` would be a number for the whole life of the process — because it came\nfrom `lastid` — while every row read back carrying that same id would be a string. `==` would be\nfalse everywhere, and it would be false *only in the read path*, so unit-style poking at the library\nin isolation would show nothing wrong. That is precisely the failure mode the ticket went looking\nfor in `refund_ents`, and choosing `BIGINT` is how we would actually build it.\n\n`int unsigned` is 4.29 billion sessions. At a generous ten world-loads per server per day across the\nfleet, that is not a bound anyone will reach; it is not worth buying `BIGINT`'s range at the cost of\nthe type asymmetry. If range ever genuinely matters, the answer is to normalise on read\n([§6](#6-the-comparison-contract)), not to widen the column and hope.\n\n`VARCHAR` is worse and there is a live precedent for it going wrong-ish already:\n`crash_container.container_id` is `varchar(40)`\n(`migrations/0001_baseline_live_schema.lua:261`) while the `server_stats.session_id` it stores is\n`int NOT NULL AUTO_INCREMENT` (`:771`). `container_code/sv_dbcode.lua:14,61` gets away with it only\nbecause both comparisons happen **inside SQL**, where MySQL coerces. The moment that value is read\ninto Lua and compared there, it is a string against a number. When `container_code` migrates onto\n`cityrp.session` (a decision the map has already taken), its `session_id` column must be declared\n`int unsigned` and not inherit `container_id`'s `varchar(40)`.\n\n**Every table that references a session must declare the FK column `int unsigned`** — `track`, the\n`container_code` replacement, and phase two's `player_sessions` alike. A single `varchar` or\n`bigint` among them reintroduces the split.\n\n### The opaque token stays a **string**\n\n#3433 settled the token as a `util.SHA256` digest — a 64-character hex string. Store it `char(64)`\n(or `varchar(64)`); `CHAR`/`VARCHAR` is outside `IS_NUM`, so it round-trips as a string with no\ncoercion at any point. There is no hazard here, and no reason to normalise it.\n\nTwo consequences worth writing into the spec:\n\n- The token is **never** the join key. The map already decided this (rejecting FearlessRP's\n  join-on-token); the typing analysis independently agrees, since the numeric autoincrement is the\n  value that compares cleanly and cheaply.\n- The token must never be fed to `tonumber` by the comparison helper's normalisation path. A\n  64-character hex digest is not a number, `tonumber` returns `nil`, and a naive\n  `tonumber(a) == tonumber(b)` helper would then report `nil == nil` → **true** and match\n  everything. See the contract below.\n\n---\n\n## 5. Sidebar: a real bug found in passing\n\nNot `refund_ents`, not this map, filed on its own.\n\n`bans/sv_init.lua:355-363`:\n\n```lua\nDB_MAIN:Run(\"SELECT COUNT(*) FROM bans WHERE ... steamid = '\" .. Escape(sid) .. \"' ...\", function(bans)\n    if (bans[1][1] == nil) then return end\n\n    local banc = tonumber(bans[1][1]) or 0\n    if (banc > 0) then\n        msg_admins(\"Bans System Init Spawn Check has kicked and re-banned \" .. ply:Name() ...)\n        ...\n    end\nend)\n```\n\n`bans[1][1]` indexes the row by **column number**. As established in [§1](#two-more-properties-worth-pinning-down),\n`DB:Run` never passes tmysql4's `ColumnNumbers` argument, so rows are keyed by name only and\n`bans[1][1]` is `nil` unconditionally. The `== nil` guard therefore returns on every single\ninvocation, and this `PlayerInitialized` re-ban check has never fired. The column's actual key is\n`\"COUNT(*)\"`, exactly as `vehicles/sv_init.lua:1160` and `container_code/sv_dbcode.lua:39` use it.\n\nFiled as [#3451](https://github.com/limelight-development/cityrp2/issues/3451). It has nothing to do\nwith sessions beyond having been turned up by the same read, and should not wait on this map.\n\n---\n\n## 6. The comparison contract\n\n**Recommendation: yes, ship `cityrp.session.Is(value)` and `cityrp.session.Matches(row, field)`, and\nmake a bare `==` against a result-set value a reviewable defect.**\n\nThe justification is *not* \"the database lies about integers\" — [§1](#1-where-the-typing-decision-actually-happens)\nestablishes it does not, and [§3](#3-verdict-on-refund_ents-not-broken-no-bug-filed) establishes the\nexisting code is correct. The justification is that the Lua type of a session id is a function of\nthree things that all live somewhere else and all change silently:\n\n1. **The column declaration** — `int` works, `bigint` and `varchar` do not, and the difference is\n   invisible at the Lua call site. A migration written a year from now by someone who has never read\n   this document is the realistic vector.\n2. **The SQL expression** — `session_id` is a number, `MAX(session_id)` is a number,\n   `COUNT(session_id)` is a string, `CAST(session_id AS UNSIGNED)` is a string. Adding an aggregate\n   or a cast to an existing query changes the Lua type of its result with no other visible effect.\n3. **`NULL`** — a `LEFT JOIN` that misses, or a row written before the column existed, yields `nil`,\n   which `==` against a number is quietly `false` rather than an error. A helper is the only place to\n   make that a deliberate answer rather than an accident.\n\nNone of the three produces a lint error, a runtime error, or a stack trace. All three produce\n\"the comparison is false, so this entity is unowned, so refund it\" — a duplication bug, on the\ncontraband path, which is what this whole map exists to stop.\n\n### Proposed contract\n\n```lua\n--- Test whether a value identifies the current session.\n--- Normalises result-set values, which arrive as strings for `BIGINT`, `VARCHAR` and every\n--- aggregate expression (`COUNT()` in particular). Fails closed: `nil`, a non-numeric value,\n--- and \"the session is not ready yet\" are all `false`.\n--- @param value any Candidate id — a Lua number, or a value straight out of a `DB_MAIN` row.\n--- @return boolean isCurrent True only when `value` is unambiguously this session's id.\nfunction cityrp.session.Is(value)\n```\n\n```lua\n--- Test whether a result-set row belongs to the current session.\n--- @param row table? A row from a `DB_MAIN` callback's result set.\n--- @param field string? Column name holding the session id. Defaults to `\"session_id\"`.\n--- @return boolean isCurrent True only when the row exists and its session column is this session.\nfunction cityrp.session.Matches(row, field)\n```\n\nRules the implementation has to hold to, each of which is a way to get this wrong:\n\n- **`Is(nil)` is `false`, never `true`.** The `tonumber(a) == tonumber(b)` shape gives `nil == nil`\n  → `true` and matches every row with a `NULL` session — the worst possible answer on a\n  fail-closed path. Reject a `nil` normalisation before comparing.\n- **`Is(anything)` is `false` while the library is not ready.** The map's fail-closed decision:\n  before the DB row lands there is no current session, so nothing is current. This must be the\n  helper's answer too, not just `Track`'s.\n- **Normalise the *candidate*, not the stored id.** `cityrp.session.id` is known to be a number by\n  construction ([§4](#4-what-type-cityrpsessionid-and-session_id-should-be)); only the incoming\n  value is of unknown provenance. Normalising both invites someone to make `id` a string later.\n- **`tonumber`, not `tostring`.** Comparing as strings makes `1` ~= `\"01\"` and `1` ~= `\"1.0\"`;\n  comparing as numbers collapses every representation MySQL might emit for an integer. It also\n  correctly refuses the SHA256 token (`tonumber` → `nil` → `false`), which string comparison would\n  not.\n- **`Matches` takes the field name.** Phase two's `player_sessions` and the `track` replacement will\n  not agree on a single column name forever, and a `Matches(row)` that hardcodes `\"session_id\"` gets\n  copy-pasted with a manual `==` the first time it doesn't fit.\n\n`Matches` is not sugar over `Is` — it is where the `nil`-row case is handled once. `Is(row.session_id)`\non a `nil` `row` is a hard error inside an async callback; `Matches(row)` is `false`.\n\n### Where the contract has to be enforced\n\nA helper nobody calls is worse than no helper. The spec should require that after phase one,\n`grep -n \"session_id ==\\|== .*session\" ` over the migrated plugins returns nothing, and that the\n`cityrp.session` docs page states the rule directly: **result-set values are compared with\n`cityrp.session.Is`, never `==`.** This is the same shape as footgun #9's \"one image-host allowlist\"\n— the failure there was every consumer carrying its own copy of a check, each correct in isolation.\n\n---\n\n## Sources\n\n**Module source** (SuperiorServers/gm_tmysql4, `master` — the module `db.lua:9` requires):\n\n- `src/result.cpp` — `Result::PopulateLuaTable`, both `Result` constructors, `Resize`.\n- `src/database.cpp` — `Database::lua_Query` (the `ColumnNumbers` argument).\n- `include/connector/mysql.h:106` — the `IS_NUM` macro, vendored MariaDB Connector/C.\n\n**MySQL manual:**\n\n- [12.20.1 Aggregate Function Descriptions](https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html)\n  — `COUNT()` returns `BIGINT`; `SUM()`/`AVG()` return `DECIMAL` or `DOUBLE`; `MAX()`/`MIN()` follow\n  their argument.\n\n**Repo** (paths relative to `gamemodes/cityrp_2_by_limelightgaming/`):\n\n- `gamemode/db.lua:9,47-53,130-156,169-173` — module load, connect, `Run`, `FRun`.\n- `gamemode/core/migrations/0001_baseline_live_schema.lua:259-268,770-775,800-809` —\n  `crash_container`, `server_stats`, `track`.\n- `gamemode/core/plugins/refund_ents/sv_init.lua:21,165-170,179,235,241`.\n- `gamemode/core/plugins/vehicles/sv_init.lua:1158-1160` — `COUNT(*)` compared to `\"1\"`.\n- `gamemode/core/plugins/container_code/sv_dbcode.lua:14,39,61`.\n- `gamemode/core/libraries/meska/hooks.lua:116,129`.\n- `gamemode/core/plugins/bans/sv_init.lua:355-363` — the sidebar bug.\n"
     },
     {
       "id": "design/server-sessions/research-fearlessrp-sessions-edge-cases",

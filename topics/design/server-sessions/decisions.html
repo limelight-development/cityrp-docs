@@ -31,7 +31,7 @@
 <li><a href="#phasing">Phasing</a></li>
 <li><a href="#out-of-scope">Out of scope</a></li>
 </ul></div>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">47</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">51</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -53,6 +53,8 @@
 <li><a href="../../../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../../../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../../../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../../../topics/adr/index.html">Architecture Decision Records</a>
+</li>
 <li class="ll-topic-folder"><a href="../../../topics/agents/index.html">Agents</a>
 </li>
 <li class="ll-topic-folder is-open"><a href="../../../topics/design/index.html">Design Docs</a>
@@ -65,8 +67,10 @@
 </li>
 <li class="ll-topic-folder is-open"><strong>Server sessions</strong>
 <ul class="ll-topic-children">
+<li><a href="../../../topics/design/server-sessions/phase-one.html">Phase one — the library and the two migrations</a></li>
 <li><a href="../../../topics/design/server-sessions/problem-statement.html">Problem statement</a></li>
 <li><a href="../../../topics/design/server-sessions/research-boot-identity-reinventions.html">Research: other boot-identity reinventions</a></li>
+<li><a href="../../../topics/design/server-sessions/research-db-main-column-typing.html">Research: how `DB_MAIN` types result columns, and what type `cityrp.session`&#x27;s token should be</a></li>
 <li><a href="../../../topics/design/server-sessions/research-fearlessrp-sessions-edge-cases.html">Research: FearlessRP prior art</a></li>
 <li><a href="../../../topics/design/server-sessions/research-gm-initialize-boot-predicate.html">Research: the boot predicate</a></li>
 <li><a href="../../../topics/design/server-sessions/research-mysql-table-name-config-keys.html">Research: the table-name config keys</a></li>
@@ -130,7 +134,7 @@
 <li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">231</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../../../modules/Array.html">Array</a></li>
@@ -187,6 +191,9 @@
 <li><a href="../../../modules/cityrp.zones.html">cityrp.zones</a></li>
 <li><a href="../../../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../../../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../../../modules/cityrp_coalore.html">cityrp_coalore</a></li>
+<li><a href="../../../modules/cityrp_constructionworker.html">cityrp_constructionworker</a></li>
+<li><a href="../../../modules/cityrp_smeltery.html">cityrp_smeltery</a></li>
 <li><a href="../../../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../../../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../../../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
@@ -296,6 +303,7 @@
 <li><a href="../../../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
 <li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
 <li><a href="../../../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../../../modules/core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared.html">core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared</a></li>
 <li><a href="../../../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
 <li><a href="../../../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
 <li><a href="../../../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
@@ -323,6 +331,7 @@
 <li><a href="../../../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
 <li><a href="../../../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../../../modules/core.plugins.typing.sh_init.html">core.plugins.typing.sh_init</a></li>
 <li><a href="../../../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
 <li><a href="../../../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
@@ -365,10 +374,14 @@
 		<div id="content">
 <div class="ll-module-header"><h1>Server sessions</h1></div><div class="ll-module-body"><p>The premises every ticket under
 <a href="https://github.com/limelight-development/cityrp2/issues/3431">#3431</a> inherits, settled in a
-charting session on 2026-09-01. This is the folder's landing page; it is <strong>not</strong> the spec. The ADR
-and the phase-one design stage are
-<a href="https://github.com/limelight-development/cityrp2/issues/3439">#3439</a>'s output, and this page is
-what they are written from.</p>
+charting session on 2026-09-01. This is the folder's landing page; it is <strong>not</strong> the spec.</p>
+<blockquote>
+<p><strong>Read the spec first.</strong> Charting is now finished, and three of the premises below were
+<strong>superseded</strong> by the tickets that tested them — each is marked inline. The decisions as they
+actually stand are <a href="../../adr/0001-what-counts-as-a-server-session.html">ADR 0001</a> (what a session
+is, and why) and <a href="phase-one.html">Phase one</a> (what to build). This page is kept as the record of
+where the route started.</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -377,6 +390,14 @@ what they are written from.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../../adr/0001-what-counts-as-a-server-session.html">ADR 0001</a></td>
+<td>The decision, as it stands</td>
+</tr>
+<tr>
+<td><a href="phase-one.html">Phase one</a></td>
+<td>The buildable spec — library, <code>container_code</code>, <code>track</code></td>
+</tr>
 <tr>
 <td><a href="problem-statement.html">Problem statement</a></td>
 <td>The original note, with the two premises charting corrected</td>
@@ -397,6 +418,10 @@ what they are written from.</p>
 <td><a href="research-mysql-table-name-config-keys.html">Research: the table-name config keys</a></td>
 <td><a href="https://github.com/limelight-development/cityrp2/issues/3435">#3435</a> — is the FK declarable?</td>
 </tr>
+<tr>
+<td><a href="research-db-main-column-typing.html">Research: <code>DB_MAIN</code> column typing</a></td>
+<td><a href="https://github.com/limelight-development/cityrp2/issues/3442">#3442</a> — what Lua type does a result column arrive as?</td>
+</tr>
 </tbody>
 </table>
 <h2 id="what-a-session-is">What a session is</h2>
@@ -409,6 +434,15 @@ PID-based marker would therefore newly break the <code>changelevel</code> case t
 consumers the problem statement also lists — uptime and &quot;last restarted at&quot;. Conflating the two is
 how this bug was made in the first place, so they stay named apart.</p>
 <h2 id="identity">Identity</h2>
+<blockquote>
+<p><strong>Superseded.</strong> <a href="https://github.com/limelight-development/cityrp2/issues/3438">#3438</a> split
+identity into an <strong>internal session key</strong> (the <code>int unsigned</code> autoincrement — every FK, every
+lookup) and an <strong>external session key</strong> (a 64-char token minted in MySQL, held as a <em>credential</em>,
+never a join key). <a href="https://github.com/limelight-development/cityrp2/issues/3437">#3437</a> then
+retired the synchronous-availability premise below: with the autoincrement as the key and the
+token minted server-side, nothing a consumer needs exists synchronously, and fail-closed became
+the API rather than a safety net over it. The section is kept as written.</p>
+</blockquote>
 <p><strong>A locally generated token, plus the DB row's autoincrement for ordering.</strong></p>
 <p>Libraries load from <code>sh_init.lua</code>'s <code>includeCore(&quot;libraries&quot;)</code> pass — before any plugin, and long
 before the database connects. FearlessRP's prior art sidesteps this by living in a plugin and
@@ -427,7 +461,12 @@ scoping window (<code>start_time = lastSession OR start_time = session</code>,
 restarts. Refunding on <code>session_id ~= current</code> removes the API, removes the <code>MAX(start_time)</code>
 query in <code>OnDBConnected</code>, and fixes that.</li>
 <li><strong>Crash-versus-clean is irrelevant to <code>refund_ents</code>.</strong> Clean shutdown, <code>changelevel</code> and crash all
-wipe the world; how the previous session ended never changes the outcome. The heartbeat ships
+wipe the world; how the previous session ended never changes the outcome. <em>(Right as a design
+goal, wrong as a description of today:
+<a href="https://github.com/limelight-development/cityrp2/issues/3436">#3436</a> found Live <code>track</code> holds
+12,898 rows and 18 unflagged ones across 2 of 356 sessions, because the <code>CallOnRemove</code> flags
+everything at shutdown teardown — so only crashes leave anything claimable. <code>IsClosing()</code> is what
+makes the premise true.)</em> The heartbeat ships
 anyway, justified solely by player-session playtime integrity in phase two — a crash otherwise
 leaves every player row open forever — and is never read back to trigger a reboot.</li>
 <li><strong>Fail closed.</strong> <code>cityrp.session</code> refuses to serve until its DB row lands, and <code>refund_ents</code>
@@ -469,7 +508,9 @@ full load. Useful, but a separate feature: coupling it to the ledger means a log
 restart Live. The <code>last_heartbeat_at</code> column phase one does ship makes it a pure follow-up rather
 than a schema change.</li>
 <li><strong>A query builder for CityRP2.</strong> The prior art depends on one; the session tables are
-re-implemented natively against <code>DB_MAIN:Run</code> instead.</li>
+re-implemented natively against <code>DB_MAIN:RunChecked</code> instead — not <code>Run</code>, which dispatches its
+callback even when MySQL errored
+(<a href="https://github.com/limelight-development/cityrp2/issues/3433">#3433</a>).</li>
 <li><strong>Migrating the internal tools off <code>onlinelog</code>.</strong> The phase-two dual-write window exists to buy
 them time.</li>
 </ul></div>

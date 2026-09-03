@@ -30,7 +30,7 @@
 <li><a href="#Classes">Classes</a></li>
 <li><a href="#Fields">Fields</a></li>
 </ul></div>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">47</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">51</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -52,6 +52,8 @@
 <li><a href="../topics/update-checklist.html">Update Checklist</a></li>
 <li><a href="../topics/vehicle-params.html">Vehicle Params &amp; Script Editor</a></li>
 <li><a href="../topics/waypoints.html">Waypoints</a></li>
+<li class="ll-topic-folder"><a href="../topics/adr/index.html">Architecture Decision Records</a>
+</li>
 <li class="ll-topic-folder"><a href="../topics/agents/index.html">Agents</a>
 </li>
 <li class="ll-topic-folder"><a href="../topics/design/index.html">Design Docs</a>
@@ -112,7 +114,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">226</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">231</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
@@ -169,6 +171,9 @@
 <li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
+<li><a href="../modules/cityrp_coalore.html">cityrp_coalore</a></li>
+<li><a href="../modules/cityrp_constructionworker.html">cityrp_constructionworker</a></li>
+<li><a href="../modules/cityrp_smeltery.html">cityrp_smeltery</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
@@ -278,6 +283,7 @@
 <li><a href="../modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html">core.plugins.maintenance.entities.cityrp_trashbag.shared</a></li>
 <li><a href="../modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html">core.plugins.maintenance.weapons.cityrp_maint_pliers.shared</a></li>
 <li><a href="../modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html">core.plugins.maintenance.weapons.cityrp_maint_shovel.shared</a></li>
+<li><a href="../modules/core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared.html">core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared</a></li>
 <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
 <li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
 <li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
@@ -305,6 +311,7 @@
 <li><a href="../modules/core.plugins.tracking.cl_init.html">core.plugins.tracking.cl_init</a></li>
 <li><a href="../modules/core.plugins.tradingcards.sv_init.html">core.plugins.tradingcards.sv_init</a></li>
 <li><a href="../modules/core.plugins.tradingstickers.sv_init.html">core.plugins.tradingstickers.sv_init</a></li>
+<li><a href="../modules/core.plugins.typing.sh_init.html">core.plugins.typing.sh_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.cl_init.html">core.plugins.unisec-keypads.cl_init</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html">core.plugins.unisec-keypads.entities.uni_keypad.shared</a></li>
 <li><a href="../modules/core.plugins.unisec-keypads.sh_init.html">core.plugins.unisec-keypads.sh_init</a></li>
@@ -370,8 +377,8 @@
 
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
-<li><span class="parameter">time</span><span class="types">number?</span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">showmins</span><span class="types">boolean</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">time</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">showmins</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
 </ul>
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
@@ -426,7 +433,7 @@
 </ol>
 
 </dd>
-<dt><a name="GM.CanExitVehicle"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>CanExitVehicle<span class="ll-args">(veh, ply)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2695">Source ☍</a></dt>
+<dt><a name="GM.CanExitVehicle"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>CanExitVehicle<span class="ll-args">(veh, ply)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2701">Source ☍</a></dt>
 <dd>
 <p>Called to check if a player is able to exit a vehicle.</p>
 
@@ -488,7 +495,7 @@
 </ol>
 
 </dd>
-<dt><a name="GM.CheckPassword"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>CheckPassword<span class="ll-args">(id64, ipAddr, svPass, clPass, name)</span><span class="ll-returns"> → boolean, string|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L3052">Source ☍</a></dt>
+<dt><a name="GM.CheckPassword"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>CheckPassword<span class="ll-args">(id64, ipAddr, svPass, clPass, name)</span><span class="ll-returns"> → boolean, string|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L3058">Source ☍</a></dt>
 <dd>
 <p>Called when a player joins and attempts to check their password.</p>
 
@@ -531,7 +538,7 @@
 
 
 </dd>
-<dt><a name="GM.DoPlayerDeath"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>DoPlayerDeath<span class="ll-args">(ply, attacker, damageInfo)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2218">Source ☍</a></dt>
+<dt><a name="GM.DoPlayerDeath"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>DoPlayerDeath<span class="ll-args">(ply, attacker, damageInfo)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2242">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -578,7 +585,7 @@
 
 
 </dd>
-<dt><a name="GM.EntityTakeDamage"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>EntityTakeDamage<span class="ll-args">(entity, damageInfo)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2462">Source ☍</a></dt>
+<dt><a name="GM.EntityTakeDamage"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>EntityTakeDamage<span class="ll-args">(entity, damageInfo)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2486">Source ☍</a></dt>
 <dd>
 <p>Called when an entity takes damage.</p>
 
@@ -731,7 +738,7 @@
 </ol>
 
 </dd>
-<dt><a name="GM.KeyPress"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>KeyPress<span class="ll-args">(ply, key)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2752">Source ☍</a></dt>
+<dt><a name="GM.KeyPress"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>KeyPress<span class="ll-args">(ply, key)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2758">Source ☍</a></dt>
 <dd>
 <p>Called when a player presses a key.</p>
 
@@ -743,7 +750,7 @@
 
 
 </dd>
-<dt><a name="GM.KeyRelease"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>KeyRelease<span class="ll-args">(ply, key)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2771">Source ☍</a></dt>
+<dt><a name="GM.KeyRelease"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>KeyRelease<span class="ll-args">(ply, key)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2777">Source ☍</a></dt>
 <dd>
 <p>Called when a player releases a key.</p>
 
@@ -1298,7 +1305,7 @@ created (false, via pMeta:LoadDataNew).</p>
 
 
 </dd>
-<dt><a name="GM.PlayerDeath"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerDeath<span class="ll-args">(ply, inflictor, attacker, ragdoll)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2310">Source ☍</a></dt>
+<dt><a name="GM.PlayerDeath"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerDeath<span class="ll-args">(ply, inflictor, attacker, ragdoll)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2334">Source ☍</a></dt>
 <dd>
 <p>Called when a player dies.</p>
 
@@ -1312,7 +1319,7 @@ created (false, via pMeta:LoadDataNew).</p>
 
 
 </dd>
-<dt><a name="GM.PlayerDeathSound"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerDeathSound<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2836">Source ☍</a></dt>
+<dt><a name="GM.PlayerDeathSound"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerDeathSound<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2842">Source ☍</a></dt>
 <dd>
 <p>Called to check if the default death sound should be played.</p>
 
@@ -1363,6 +1370,7 @@ created (false, via pMeta:LoadDataNew).</p>
     | `TEAM_SECURITY`
     | `TEAM_REBEL`
     | `TEAM_REBELLEADER`
+    | `TEAM_ANARCHIST`
     | `TEAM_BLACKMARKETDEALER`
     | `TEAM_MAFIABOSS`
     | `TEAM_MAFIA`
@@ -1373,7 +1381,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <ul class="ll-args-list">
 <li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player demoting the target.</span></li>
 <li><span class="parameter">tgt</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player being demoted.</span></li>
-<li><span class="parameter">from</span><span class="types">`<a href="core.plugins.generic.sh_init.html#TEAM_AFK">TEAM_AFK</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_ARMSDEALER">TEAM_ARMSDEALER</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_BLACKMARKETDEALER">TEAM_BLACKMARKETDEALER</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_CHEF">TEAM_CHEF</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_CITIZEN">TEAM_CITIZEN</a>`...(+21)</span><span class="ll-arg-desc">The team they're being demoted from.</span></li>
+<li><span class="parameter">from</span><span class="types">`<a href="core.plugins.generic.sh_init.html#TEAM_AFK">TEAM_AFK</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_ANARCHIST">TEAM_ANARCHIST</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_ARMSDEALER">TEAM_ARMSDEALER</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_BLACKMARKETDEALER">TEAM_BLACKMARKETDEALER</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_CHEF">TEAM_CHEF</a>`...(+22)</span><span class="ll-arg-desc">The team they're being demoted from.</span></li>
 <li><span class="parameter">reason</span><span class="types">string</span><span class="ll-arg-desc">The reason they're being demoted.</span></li>
 </ul>
 <p class="ll-arg-label">Returns</p>
@@ -1382,7 +1390,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ol>
 
 </dd>
-<dt><a name="GM.PlayerDisconnected"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerDisconnected<span class="ll-args">(player)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2657">Source ☍</a></dt>
+<dt><a name="GM.PlayerDisconnected"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerDisconnected<span class="ll-args">(player)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2663">Source ☍</a></dt>
 <dd>
 <p>Called when a player has disconnected.</p>
 
@@ -1421,7 +1429,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ol>
 
 </dd>
-<dt><a name="GM.PlayerGiveSWEP"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerGiveSWEP<span class="ll-args">(ply, class, wep)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2736">Source ☍</a></dt>
+<dt><a name="GM.PlayerGiveSWEP"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerGiveSWEP<span class="ll-args">(ply, class, wep)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2742">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to give a SWEP.</p>
 
@@ -1489,7 +1497,7 @@ created (false, via pMeta:LoadDataNew).</p>
 </ol>
 
 </dd>
-<dt><a name="GM.PlayerLoadout"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerLoadout<span class="ll-args">(player)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2353">Source ☍</a></dt>
+<dt><a name="GM.PlayerLoadout"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerLoadout<span class="ll-args">(player)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2377">Source ☍</a></dt>
 <dd>
 <p>Called when a player's weapons should be given.</p>
 
@@ -1505,8 +1513,8 @@ created (false, via pMeta:LoadDataNew).</p>
 
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
-<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">state</span><span class="types">boolean</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
+<li><span class="parameter">state</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
 </ul>
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
@@ -1540,6 +1548,7 @@ created (false, via pMeta:LoadDataNew).</p>
     | `TEAM_SECURITY`
     | `TEAM_REBEL`
     | `TEAM_REBELLEADER`
+    | `TEAM_ANARCHIST`
     | `TEAM_BLACKMARKETDEALER`
     | `TEAM_MAFIABOSS`
     | `TEAM_MAFIA`
@@ -1550,7 +1559,7 @@ created (false, via pMeta:LoadDataNew).</p>
 <ul class="ll-args-list">
 <li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player promoting the target.</span></li>
 <li><span class="parameter">tgt</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The player being promoted.</span></li>
-<li><span class="parameter">from</span><span class="types">`<a href="core.plugins.generic.sh_init.html#TEAM_AFK">TEAM_AFK</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_ARMSDEALER">TEAM_ARMSDEALER</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_BLACKMARKETDEALER">TEAM_BLACKMARKETDEALER</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_CHEF">TEAM_CHEF</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_CITIZEN">TEAM_CITIZEN</a>`...(+21)</span><span class="ll-arg-desc">The team they're being promoted to.</span></li>
+<li><span class="parameter">from</span><span class="types">`<a href="core.plugins.generic.sh_init.html#TEAM_AFK">TEAM_AFK</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_ANARCHIST">TEAM_ANARCHIST</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_ARMSDEALER">TEAM_ARMSDEALER</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_BLACKMARKETDEALER">TEAM_BLACKMARKETDEALER</a>`|`<a href="core.plugins.generic.sh_init.html#TEAM_CHEF">TEAM_CHEF</a>`...(+22)</span><span class="ll-arg-desc">The team they're being promoted to.</span></li>
 </ul>
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
@@ -1827,7 +1836,7 @@ Coded by Voluptious.</p>
 </ol>
 
 </dd>
-<dt><a name="GM.PlayerSpawnSENT"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerSpawnSENT<span class="ll-args">(ply, class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2744">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnSENT"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerSpawnSENT<span class="ll-args">(ply, class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2750">Source ☍</a></dt>
 <dd>
 <p>Called when attempts to spawn a SENT.</p>
 
@@ -1842,7 +1851,7 @@ Coded by Voluptious.</p>
 </ol>
 
 </dd>
-<dt><a name="GM.PlayerSpawnSWEP"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerSpawnSWEP<span class="ll-args">(ply, class, wep)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2727">Source ☍</a></dt>
+<dt><a name="GM.PlayerSpawnSWEP"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerSpawnSWEP<span class="ll-args">(ply, class, wep)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2733">Source ☍</a></dt>
 <dd>
 <p>Called when a player attempts to spawn a SWEP.</p>
 
@@ -1909,23 +1918,6 @@ Coded by Voluptious.</p>
 <p class="ll-arg-label">Returns</p>
 <ol class="ll-args-list">
 <li><span></span><span class="types">boolean</span><span class="ll-arg-desc">If their flashlight is allowed to change state.</span></li>
-</ol>
-
-</dd>
-<dt><a name="GM.PlayerTraceAttack"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>PlayerTraceAttack<span class="ll-args">(ply, damageInfo, direction, trace)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2027">Source ☍</a></dt>
-<dd>
-<p>Called when a player is attacked by a trace.</p>
-
-<p class="ll-arg-label">Parameters</p>
-<ul class="ll-args-list">
-<li><span class="parameter">ply</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">damageInfo</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">direction</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
-<li><span class="parameter">trace</span><span class="types">any</span><span class="ll-arg-desc"></span></li>
-</ul>
-<p class="ll-arg-label">Returns</p>
-<ol class="ll-args-list">
-<li><span></span><span class="types">boolean</span><span class="ll-arg-desc"></span></li>
 </ol>
 
 </dd>
@@ -2078,6 +2070,20 @@ class:
 </ol>
 
 </dd>
+<dt><a name="GM.ScalePlayerDamage"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>ScalePlayerDamage<span class="ll-args">(ply, hitgroup, damageInfo)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2039">Source ☍</a></dt>
+<dd>
+<p>Called when a player takes damage to a specific body part. Defined here to
+shadow base's implementation, which hardcodes head x2 and limb x0.25.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">ply</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">Player which took the damage.</span></li>
+<li><span class="parameter">hitgroup</span><span class="types">number</span><span class="ll-arg-desc"><code>HITGROUP_*</code> enum of the body part which was hit.</span></li>
+<li><span class="parameter">damageInfo</span><span class="types">DamageInfo</span><span class="ll-arg-desc">Information about the damage.</span></li>
+</ul>
+
+
+</dd>
 <dt><a name="GM.ScoreboardHide"></a><span class="ll-realm state-client" title="Client">Client</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>ScoreboardHide<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/cl_scoreboard.lua#L30">Source ☍</a></dt>
 <dd>
 <p>Hide the scoreboard.</p>
@@ -2105,7 +2111,7 @@ class:
 
 
 </dd>
-<dt><a name="GM.ShowHelp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>ShowHelp<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2407">Source ☍</a></dt>
+<dt><a name="GM.ShowHelp"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>ShowHelp<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2431">Source ☍</a></dt>
 <dd>
 <p>Called when a player presses F1.</p>
 
@@ -2116,7 +2122,7 @@ class:
 
 
 </dd>
-<dt><a name="GM.ShowSpare2"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>ShowSpare2<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2413">Source ☍</a></dt>
+<dt><a name="GM.ShowSpare2"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>ShowSpare2<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2437">Source ☍</a></dt>
 <dd>
 <p>Called when a player presses F4.</p>
 
@@ -2127,7 +2133,7 @@ class:
 
 
 </dd>
-<dt><a name="GM.ShowTeam"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>ShowTeam<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2422">Source ☍</a></dt>
+<dt><a name="GM.ShowTeam"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>ShowTeam<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2446">Source ☍</a></dt>
 <dd>
 <p>Called when a player presses F2.</p>
 
@@ -2138,7 +2144,7 @@ class:
 
 
 </dd>
-<dt><a name="GM.ShutDown"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>ShutDown<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2395">Source ☍</a></dt>
+<dt><a name="GM.ShutDown"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">GM<span class="ll-sep">:</span>ShutDown<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2419">Source ☍</a></dt>
 <dd>
 <p>Called when the server shuts down or the map changes.</p>
 
@@ -2220,7 +2226,7 @@ These are documented in init.lua</p>
 
 
 </dd>
-<dt><a name="pTable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">pTable<span class="ll-args">(tbl, indent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2982">Source ☍</a></dt>
+<dt><a name="pTable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">pTable<span class="ll-args">(tbl, indent)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L2988">Source ☍</a></dt>
 <dd>
 <p>For when PrintTable doesnt work</p>
 
@@ -2246,7 +2252,7 @@ These are documented in init.lua</p>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="BetaWhitelist"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">BetaWhitelist</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L3020">Source ☍</a></dt>
+<dt><a name="BetaWhitelist"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">BetaWhitelist</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/init.lua#L3026">Source ☍</a></dt>
 <dd>
 
 

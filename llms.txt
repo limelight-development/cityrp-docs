@@ -84,6 +84,9 @@ Machine-readable index: https://docs.limelightgaming.info/api.json
 - [cityrp.zones](https://docs.limelightgaming.info/modules/cityrp.zones.html)
 - [cityrp_boosting_gpsremover](https://docs.limelightgaming.info/modules/cityrp_boosting_gpsremover.html)
 - [cityrp_breathalyser](https://docs.limelightgaming.info/modules/cityrp_breathalyser.html)
+- [cityrp_coalore](https://docs.limelightgaming.info/modules/cityrp_coalore.html)
+- [cityrp_constructionworker](https://docs.limelightgaming.info/modules/cityrp_constructionworker.html)
+- [cityrp_smeltery](https://docs.limelightgaming.info/modules/cityrp_smeltery.html)
 - [core.cl_scoreboard](https://docs.limelightgaming.info/modules/core.cl_scoreboard.html)
 - [core.derma.cl_character](https://docs.limelightgaming.info/modules/core.derma.cl_character.html)
 - [core.derma.cl_credits_table](https://docs.limelightgaming.info/modules/core.derma.cl_credits_table.html)
@@ -209,6 +212,7 @@ Machine-readable index: https://docs.limelightgaming.info/api.json
 - [core.plugins.maintenance.entities.cityrp_trashbag.shared](https://docs.limelightgaming.info/modules/core.plugins.maintenance.entities.cityrp_trashbag.shared.html)
 - [core.plugins.maintenance.weapons.cityrp_maint_pliers.shared](https://docs.limelightgaming.info/modules/core.plugins.maintenance.weapons.cityrp_maint_pliers.shared.html)
 - [core.plugins.maintenance.weapons.cityrp_maint_shovel.shared](https://docs.limelightgaming.info/modules/core.plugins.maintenance.weapons.cityrp_maint_shovel.shared.html)
+- [core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared](https://docs.limelightgaming.info/modules/core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared.html)
 - [core.plugins.passivemode.sv_init](https://docs.limelightgaming.info/modules/core.plugins.passivemode.sv_init.html)
 - [core.plugins.perma_ents.sv_init](https://docs.limelightgaming.info/modules/core.plugins.perma_ents.sv_init.html)
 - [core.plugins.phonebook.sh_init](https://docs.limelightgaming.info/modules/core.plugins.phonebook.sh_init.html)
@@ -236,6 +240,7 @@ Machine-readable index: https://docs.limelightgaming.info/api.json
 - [core.plugins.tracking.cl_init](https://docs.limelightgaming.info/modules/core.plugins.tracking.cl_init.html)
 - [core.plugins.tradingcards.sv_init](https://docs.limelightgaming.info/modules/core.plugins.tradingcards.sv_init.html)
 - [core.plugins.tradingstickers.sv_init](https://docs.limelightgaming.info/modules/core.plugins.tradingstickers.sv_init.html)
+- [core.plugins.typing.sh_init](https://docs.limelightgaming.info/modules/core.plugins.typing.sh_init.html)
 - [core.plugins.unisec-keypads.cl_init](https://docs.limelightgaming.info/modules/core.plugins.unisec-keypads.cl_init.html)
 - [core.plugins.unisec-keypads.entities.uni_keypad.shared](https://docs.limelightgaming.info/modules/core.plugins.unisec-keypads.entities.uni_keypad.shared.html)
 - [core.plugins.unisec-keypads.sh_init](https://docs.limelightgaming.info/modules/core.plugins.unisec-keypads.sh_init.html)
@@ -295,6 +300,11 @@ Machine-readable index: https://docs.limelightgaming.info/api.json
 - [Vehicle Params & Script Editor](https://docs.limelightgaming.info/topics/vehicle-params.html)
 - [Waypoints](https://docs.limelightgaming.info/topics/waypoints.html)
 
+## Architecture Decision Records
+
+- [Architecture Decision Records](https://docs.limelightgaming.info/topics/adr/index.html)
+- [What counts as a server session](https://docs.limelightgaming.info/topics/adr/0001-what-counts-as-a-server-session.html)
+
 ## Agents
 
 - [Agents](https://docs.limelightgaming.info/topics/agents/index.html)
@@ -328,8 +338,10 @@ Machine-readable index: https://docs.limelightgaming.info/api.json
 ## Design Docs / Server sessions
 
 - [Server sessions](https://docs.limelightgaming.info/topics/design/server-sessions/decisions.html)
+- [Phase one — the library and the two migrations](https://docs.limelightgaming.info/topics/design/server-sessions/phase-one.html)
 - [Problem statement](https://docs.limelightgaming.info/topics/design/server-sessions/problem-statement.html)
 - [Research: other boot-identity reinventions](https://docs.limelightgaming.info/topics/design/server-sessions/research-boot-identity-reinventions.html)
+- [Research: how `DB_MAIN` types result columns, and what type `cityrp.session`'s token should be](https://docs.limelightgaming.info/topics/design/server-sessions/research-db-main-column-typing.html)
 - [Research: FearlessRP prior art](https://docs.limelightgaming.info/topics/design/server-sessions/research-fearlessrp-sessions-edge-cases.html)
 - [Research: the boot predicate](https://docs.limelightgaming.info/topics/design/server-sessions/research-gm-initialize-boot-predicate.html)
 - [Research: the table-name config keys](https://docs.limelightgaming.info/topics/design/server-sessions/research-mysql-table-name-config-keys.html)
