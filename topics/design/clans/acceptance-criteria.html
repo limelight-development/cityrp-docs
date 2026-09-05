@@ -35,7 +35,7 @@
 <li><a href="#7-concurrency--how-to-actually-test-it">7. Concurrency — how to actually test it</a></li>
 <li><a href="#open-items">Open items</a></li>
 </ul></div>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">51</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">54</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../../../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../../../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -46,6 +46,7 @@
 <li><a href="../../../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../../../topics/environment.html">Environment (Env-vars)</a></li>
 <li><a href="../../../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../../../topics/limits.html">Player limits</a></li>
 <li><a href="../../../topics/logging.html">Console Logging Library</a></li>
 <li><a href="../../../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../../../topics/maintenance.html">Maintenance Work System</a></li>
@@ -76,7 +77,11 @@
 <li><a href="../../../topics/design/clans/ui.html">Clans — In-Game Menu</a></li>
 </ul>
 </li>
+<li class="ll-topic-folder"><a href="../../../topics/design/economy/index.html">Economy</a>
+</li>
 <li class="ll-topic-folder"><a href="../../../topics/design/server-sessions/decisions.html">Server sessions</a>
+</li>
+<li class="ll-topic-folder"><a href="../../../topics/design/weed/index.html">Weed</a>
 </li>
 </ul>
 </li>
@@ -136,7 +141,7 @@
 <li><a href="../../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">231</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">248</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../../../modules/Array.html">Array</a></li>
@@ -147,6 +152,7 @@
 <li><a href="../../../modules/GM.html">GM</a></li>
 <li><a href="../../../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../../../modules/Migrations.html">Migrations</a></li>
+<li><a href="../../../modules/PLUGIN.VoiceVolume.html">PLUGIN.VoiceVolume</a></li>
 <li><a href="../../../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../../../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../../../modules/bwep.html">bwep</a></li>
@@ -156,6 +162,7 @@
 <li><a href="../../../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../../../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../../../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../../../modules/cityrp.dupeitems.html">cityrp.dupeitems</a></li>
 <li><a href="../../../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../../../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../../../modules/cityrp.help.html">cityrp.help</a></li>
@@ -169,6 +176,7 @@
 <li><a href="../../../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
 <li><a href="../../../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
 <li><a href="../../../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../../../modules/cityrp.limits.html">cityrp.limits</a></li>
 <li><a href="../../../modules/cityrp.logging.html">cityrp.logging</a></li>
 <li><a href="../../../modules/cityrp.logs.html">cityrp.logs</a></li>
 <li><a href="../../../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
@@ -190,12 +198,22 @@
 <li><a href="../../../modules/cityrp.ui.html">cityrp.ui</a></li>
 <li><a href="../../../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
 <li><a href="../../../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
+<li><a href="../../../modules/cityrp.weed.html">cityrp.weed</a></li>
+<li><a href="../../../modules/cityrp.weed.package.html">cityrp.weed.package</a></li>
+<li><a href="../../../modules/cityrp.weed.trim.html">cityrp.weed.trim</a></li>
 <li><a href="../../../modules/cityrp.zones.html">cityrp.zones</a></li>
 <li><a href="../../../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../../../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../../../modules/cityrp_coalore.html">cityrp_coalore</a></li>
 <li><a href="../../../modules/cityrp_constructionworker.html">cityrp_constructionworker</a></li>
+<li><a href="../../../modules/cityrp_drugsdealer.html">cityrp_drugsdealer</a></li>
+<li><a href="../../../modules/cityrp_dryingrack.html">cityrp_dryingrack</a></li>
+<li><a href="../../../modules/cityrp_growtent.html">cityrp_growtent</a></li>
+<li><a href="../../../modules/cityrp_seed.html">cityrp_seed</a></li>
 <li><a href="../../../modules/cityrp_smeltery.html">cityrp_smeltery</a></li>
+<li><a href="../../../modules/cityrp_trimmers.html">cityrp_trimmers</a></li>
+<li><a href="../../../modules/cityrp_weedpackager.html">cityrp_weedpackager</a></li>
+<li><a href="../../../modules/cityrp_weedpot.html">cityrp_weedpot</a></li>
 <li><a href="../../../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../../../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../../../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
@@ -353,6 +371,10 @@
 <li><a href="../../../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
 <li><a href="../../../modules/core.plugins.website_rewards.cl_init.html">core.plugins.website_rewards.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.website_rewards.sh_init.html">core.plugins.website_rewards.sh_init</a></li>
+<li><a href="../../../modules/core.plugins.weed.entities.cityrp_seed.init.html">core.plugins.weed.entities.cityrp_seed.init</a></li>
+<li><a href="../../../modules/core.plugins.weed.entities.cityrp_uvlight.cl_init.html">core.plugins.weed.entities.cityrp_uvlight.cl_init</a></li>
+<li><a href="../../../modules/core.plugins.weed.entities.cityrp_uvlight.init.html">core.plugins.weed.entities.cityrp_uvlight.init</a></li>
+<li><a href="../../../modules/core.plugins.weed.entities.cityrp_weedpot.shared.html">core.plugins.weed.entities.cityrp_weedpot.shared</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
 <li><a href="../../../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>

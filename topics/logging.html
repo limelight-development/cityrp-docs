@@ -37,11 +37,12 @@
 <li><a href="#sanitization-helpers">Sanitization Helpers</a></li>
 <li><a href="#performance-and-optimization">Performance and Optimization</a></li>
 <li><a href="#security-and-safety">Security and Safety</a></li>
+<li><a href="#admin-hub-live-logging">Admin Hub Live Logging</a></li>
 <li><a href="#migration-from-legacy-logging">Migration from Legacy Logging</a></li>
 <li><a href="#examples">Examples</a></li>
 <li><a href="#api-reference">API Reference</a></li>
 </ul></div>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">51</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">54</span></summary>
 <ul class="ll-kind-body">
 <li><a href="../topics/coding-standards.html">Coding Standards (CityRP)<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
 <li><a href="../topics/modern-apis.html">Modern APIs<svg class="ll-pin" viewBox="0 0 24 24" role="img"><title>Pinned</title><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"/></svg></a></li>
@@ -52,6 +53,7 @@
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
+<li><a href="../topics/limits.html">Player limits</a></li>
 <li><strong>Console Logging Library</strong></li>
 <li><a href="../topics/luacats.html">LuaCATS Annotations</a></li>
 <li><a href="../topics/maintenance.html">Maintenance Work System</a></li>
@@ -125,7 +127,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">231</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">248</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
@@ -136,6 +138,7 @@
 <li><a href="../modules/GM.html">GM</a></li>
 <li><a href="../modules/ItemDatabaseUpdater.html">ItemDatabaseUpdater</a></li>
 <li><a href="../modules/Migrations.html">Migrations</a></li>
+<li><a href="../modules/PLUGIN.VoiceVolume.html">PLUGIN.VoiceVolume</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
@@ -145,6 +148,7 @@
 <li><a href="../modules/cityrp.command.html">cityrp.command</a></li>
 <li><a href="../modules/cityrp.currency.html">cityrp.currency</a></li>
 <li><a href="../modules/cityrp.daynight.html">cityrp.daynight</a></li>
+<li><a href="../modules/cityrp.dupeitems.html">cityrp.dupeitems</a></li>
 <li><a href="../modules/cityrp.entity.html">cityrp.entity</a></li>
 <li><a href="../modules/cityrp.favorites.html">cityrp.favorites</a></li>
 <li><a href="../modules/cityrp.help.html">cityrp.help</a></li>
@@ -158,6 +162,7 @@
 <li><a href="../modules/cityrp.legacy.gatekeeper.html">cityrp.legacy.gatekeeper</a></li>
 <li><a href="../modules/cityrp.legacy.internet.html">cityrp.legacy.internet</a></li>
 <li><a href="../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
+<li><a href="../modules/cityrp.limits.html">cityrp.limits</a></li>
 <li><a href="../modules/cityrp.logging.html">cityrp.logging</a></li>
 <li><a href="../modules/cityrp.logs.html">cityrp.logs</a></li>
 <li><a href="../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
@@ -179,12 +184,22 @@
 <li><a href="../modules/cityrp.ui.html">cityrp.ui</a></li>
 <li><a href="../modules/cityrp.vehicledamage.html">cityrp.vehicledamage</a></li>
 <li><a href="../modules/cityrp.vehicleparams.html">cityrp.vehicleparams</a></li>
+<li><a href="../modules/cityrp.weed.html">cityrp.weed</a></li>
+<li><a href="../modules/cityrp.weed.package.html">cityrp.weed.package</a></li>
+<li><a href="../modules/cityrp.weed.trim.html">cityrp.weed.trim</a></li>
 <li><a href="../modules/cityrp.zones.html">cityrp.zones</a></li>
 <li><a href="../modules/cityrp_boosting_gpsremover.html">cityrp_boosting_gpsremover</a></li>
 <li><a href="../modules/cityrp_breathalyser.html">cityrp_breathalyser</a></li>
 <li><a href="../modules/cityrp_coalore.html">cityrp_coalore</a></li>
 <li><a href="../modules/cityrp_constructionworker.html">cityrp_constructionworker</a></li>
+<li><a href="../modules/cityrp_drugsdealer.html">cityrp_drugsdealer</a></li>
+<li><a href="../modules/cityrp_dryingrack.html">cityrp_dryingrack</a></li>
+<li><a href="../modules/cityrp_growtent.html">cityrp_growtent</a></li>
+<li><a href="../modules/cityrp_seed.html">cityrp_seed</a></li>
 <li><a href="../modules/cityrp_smeltery.html">cityrp_smeltery</a></li>
+<li><a href="../modules/cityrp_trimmers.html">cityrp_trimmers</a></li>
+<li><a href="../modules/cityrp_weedpackager.html">cityrp_weedpackager</a></li>
+<li><a href="../modules/cityrp_weedpot.html">cityrp_weedpot</a></li>
 <li><a href="../modules/core.cl_scoreboard.html">core.cl_scoreboard</a></li>
 <li><a href="../modules/core.libraries.meska.achievements.server.init.html">core.libraries.meska.achievements.server.init</a></li>
 <li><a href="../modules/core.libraries.meska.config.html">core.libraries.meska.config</a></li>
@@ -342,6 +357,10 @@
 <li><a href="../modules/core.plugins.waypoints.sh_init.html">core.plugins.waypoints.sh_init</a></li>
 <li><a href="../modules/core.plugins.website_rewards.cl_init.html">core.plugins.website_rewards.cl_init</a></li>
 <li><a href="../modules/core.plugins.website_rewards.sh_init.html">core.plugins.website_rewards.sh_init</a></li>
+<li><a href="../modules/core.plugins.weed.entities.cityrp_seed.init.html">core.plugins.weed.entities.cityrp_seed.init</a></li>
+<li><a href="../modules/core.plugins.weed.entities.cityrp_uvlight.cl_init.html">core.plugins.weed.entities.cityrp_uvlight.cl_init</a></li>
+<li><a href="../modules/core.plugins.weed.entities.cityrp_uvlight.init.html">core.plugins.weed.entities.cityrp_uvlight.init</a></li>
+<li><a href="../modules/core.plugins.weed.entities.cityrp_weedpot.shared.html">core.plugins.weed.entities.cityrp_weedpot.shared</a></li>
 <li><a href="../modules/core.plugins.xp-bar.cl_init.html">core.plugins.xp-bar.cl_init</a></li>
 <li><a href="../modules/core.plugins.xp-bar.sh_init.html">core.plugins.xp-bar.sh_init</a></li>
 <li><a href="../modules/core.plugins.xp-bar.sv_init.html">core.plugins.xp-bar.sv_init</a></li>
@@ -378,7 +397,7 @@
 <li>Performance-optimized with lazy evaluation and caching</li>
 <li>Extensible sink API for custom log destinations</li>
 </ul>
-<p><strong>Important</strong>: This library is for <strong>developer diagnostics only</strong>. For audit logging (player actions, admin actions, transactions), continue using <code>cityrp.logs.add()</code> directly.</p>
+<p><strong>Important</strong>: This library is for <strong>developer diagnostics only</strong>. For audit logging (player actions, admin actions, transactions), continue using <code>cityrp.logs.add()</code> directly. For events staff should see live in-game, see <a href="#admin-hub-live-logging">Admin Hub Live Logging</a> — it is a separate, non-persistent channel.</p>
 <h2 id="log-levels">Log Levels</h2>
 <h3 id="numeric-mapping">Numeric Mapping</h3>
 <table>
@@ -776,6 +795,98 @@ req_log:Info(&quot;Request started&quot;)
 <li><strong>DB sink</strong>: Server-only. Clients cannot write to DB directly or indirectly</li>
 <li><strong>Concommand permissions</strong>: Concommands are server console or RCON only; no player-executable commands</li>
 </ul>
+<h2 id="admin-hub-live-logging">Admin Hub Live Logging</h2>
+<p><code>cityrp.adminhub.AddLogLine</code> is a third channel, distinct from both of the above. It is the <strong>live
+staff feed</strong>: a coloured one-line event pushed to every online staff member's screen and console the
+moment it happens. It persists nothing and cannot be queried afterwards.</p>
+<pre><code class="language-lua">cityrp.adminhub.AddLogLine(event, text, colour)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event</code></td>
+<td><code>string</code></td>
+<td>Short category shown in brackets (<code>&quot;KILL&quot;</code>, <code>&quot;Lockpick&quot;</code>, <code>&quot;CMD&quot;</code>).</td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td><code>string</code></td>
+<td>The already-formatted line. Include names and SteamIDs yourself.</td>
+</tr>
+<tr>
+<td><code>colour</code></td>
+<td><code>Color?</code></td>
+<td>Defaults to white. Use a <code>COL_*</code> constant from <code>sh_enumerations.lua</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Server-only (<code>core/plugins/adminhub/sv_init.lua</code>). Call sites in shared SWEP/entity files must guard
+with <code>if SERVER then</code>.</p>
+<h3 id="what-it-does-with-the-call">What it does with the call</h3>
+<ol>
+<li>Logs the line to <code>cityrp.logging</code> under <code>admin.&lt;event lowercased&gt;</code> at <strong>INFO</strong>.</li>
+<li>Sends it to every player passing <code>IsTrialMod()</code> via <code>cityrp_adminhub_newlog</code>.</li>
+</ol>
+<p>Recipients see it twice: <code>MsgC</code>'d into their game console with a timestamp, and — while the ADMIN LOG
+panel is open (<code>!adminhub</code>) — drawn in the top-right HUD panel. The client re-checks <code>IsTrialMod()</code>
+on receive, keeps the last 100 entries, and shows as many as <code>cl_adminhub_lines</code> allows.</p>
+<h3 id="it-is-not-an-audit-record">It is not an audit record</h3>
+<p>Nothing written through <code>AddLogLine</code> reaches the database. The console copy goes through the <code>admin</code>
+logger at INFO, which is below the <code>cityrp_logs</code> sink's WARNING threshold, and the net message is
+display-only — an event logged this way is gone as soon as it scrolls off. <strong>If the event needs to be
+queryable later, call <code>cityrp.logs.add</code> as well.</strong> Most existing call sites do exactly that, as two
+separate calls:</p>
+<pre><code class="language-lua">player:KnockOut(true, player._KnockOutTime)
+cityrp.adminhub.AddLogLine(&quot;Baton&quot;, ply:Nick() .. &quot; knocked out &quot; .. player:Nick())
+cityrp.logs.add(ply:Name(), ply:SteamID(), player:Name(), player:SteamID(), &quot;knockout&quot;, &quot;ASP Baton&quot;)
+</code></pre>
+<h3 id="choosing-a-channel">Choosing a channel</h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Persistent, queryable record for moderation</td>
+<td><code>cityrp.logs.add</code></td>
+</tr>
+<tr>
+<td>Staff should see it happen, live, in-game</td>
+<td><code>cityrp.adminhub.AddLogLine</code></td>
+</tr>
+<tr>
+<td>Developer diagnostics, level-filterable</td>
+<td><code>cityrp.logging.GetLogger(ns)</code></td>
+</tr>
+</tbody>
+</table>
+<p>These are not alternatives to each other — an event that staff should both witness and be able to
+look up later belongs on the first two.</p>
+<h3 id="silencing-and-namespaces">Silencing and namespaces</h3>
+<p>Because every line goes through <code>admin.&lt;event&gt;</code>, the server-console copy of the whole feed can be
+silenced with the normal level commands:</p>
+<pre><code>cityrp_log_set admin NEVER
+cityrp_log_set admin.spawn NEVER
+</code></pre>
+<p>This only affects the server console. Staff clients still receive the net message and still see the
+line in their own console and panel.</p>
+<p>The namespace is <code>event</code> lowercased with spaces replaced by underscores (<code>&quot;Riot Shield&quot;</code> →
+<code>admin.riot_shield</code>), so every event stays addressable from console — <code>cityrp_log_set</code> splits its
+arguments on whitespace and could not otherwise reach a multi-word event. The <code>event</code> string sent to
+clients and shown in the panel is untouched.</p>
+<h3 id="cost">Cost</h3>
+<p><code>AddLogLine</code> iterates every player and sends a net message on each call, with no rate limiting or
+coalescing. Keep it to discrete events; never call it from a think/tick path.</p>
 <h2 id="migration-from-legacy-logging">Migration from Legacy Logging</h2>
 <h3 id="do-not-replace-cityrplogs-for-audit-events">Do NOT Replace cityrp.logs for Audit Events</h3>
 <ul>
@@ -783,6 +894,24 @@ req_log:Info(&quot;Request started&quot;)
 <li><code>cityrp.logging</code> is for developer diagnostics and runtime troubleshooting</li>
 <li>Use <code>cityrp.logs.add</code> for events that must be queryable and persistent for moderation/audit</li>
 <li>Use <code>cityrp.logging</code> for debug output, performance traces, and operational monitoring</li>
+<li>Use <code>cityrp.adminhub.AddLogLine</code> for events staff should witness live; it persists nothing, so pair it with <code>cityrp.logs.add</code> when the event also needs to be auditable</li>
+</ul>
+<h3 id="audit-log-value-conventions">Audit log value conventions</h3>
+<p><code>cityrp.logs.add</code>'s four value columns are generic <code>text</code> — the meaning of each one is a
+convention <em>per log type</em>, not a column contract (<code>say</code> logs put a whole chat line in <code>value1</code>).
+Consumers outside the gamemode query these columns directly, so a convention that isn't written
+down here evaporates the next time a call site is edited.</p>
+<p>Three rules for any log type whose values get queried:</p>
+<ul>
+<li><strong>Identify by uniqueID, not display name.</strong> Display names are renamed freely and are not stable
+identifiers, and there is no historical name→ID mapping to recover them from (<code>item_values</code> is
+truncated and rebuilt on every <code>DBConnected</code>, so retired items simply vanish from it).</li>
+<li><strong>Keep aggregation targets as scalars in their own column.</strong> Anything a consumer will
+<code>COUNT</code>/<code>SUM</code>/<code>GROUP BY</code> must not live inside a JSON blob — there is no index into <code>text</code>.
+JSON is for the long tail (display name, cost, flags, source entity).</li>
+<li><strong>Encode exactly once.</strong> <code>util.TableToJSON</code> on a <em>table</em>, never on a string that is already
+JSON. <code>caw_metrics.metrics</code> is double-encoded and consumers have to compare against the literal
+<code>'&quot;{\&quot;cause\&quot;:\&quot;prop\&quot;}&quot;'</code> to work around it; don't reproduce that.</li>
 </ul>
 <h3 id="replacing-legacy-prints">Replacing Legacy Prints</h3>
 <p>Replace developer-facing <code>print()</code>, <code>ServerLog()</code>, <code>MsgN()</code> calls with <code>cityrp.logging</code>:</p>
