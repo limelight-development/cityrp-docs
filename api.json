@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-09-05T17:26:57Z",
+  "generated": "2026-09-06T20:26:16Z",
   "modules": [
     {
       "name": "AreaManager",
@@ -69095,6 +69095,26 @@
           "members": []
         },
         {
+          "name": "cityrp.acommands.defaultReason",
+          "kind": "Fields",
+          "module": "cityrp.acommands",
+          "file": "core/libraries/sv_admin_core.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "cityrp.acommands.Deprecate",
           "kind": "Functions",
           "module": "cityrp.acommands",
@@ -69260,6 +69280,82 @@
             {
               "type": "string",
               "desc": "Arguments in string form (for logging)."
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.acommands.reasonOptional",
+          "kind": "Fields",
+          "module": "cityrp.acommands",
+          "file": "core/libraries/sv_admin_core.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.acommands.ReasonSyntax",
+          "kind": "Functions",
+          "module": "cityrp.acommands",
+          "file": "core/libraries/sv_admin_core.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "The `<reason>` fragment of a command's syntax string, bracketed to match the realm.",
+          "params": [],
+          "returns": [
+            {
+              "type": "string",
+              "desc": "`\"[reason]\"` where a reason is optional, `\"<reason>\"` otherwise."
+            }
+          ],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.acommands.ResolveReason",
+          "kind": "Functions",
+          "module": "cityrp.acommands",
+          "file": "core/libraries/sv_admin_core.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Resolve the reason a command was given into the one it should act on.",
+          "params": [
+            {
+              "name": "reason",
+              "type": "string?",
+              "desc": "The reason as typed, if any."
+            }
+          ],
+          "returns": [
+            {
+              "type": "string?",
+              "desc": "The reason to use, or nil when one is required here and none was given."
             }
           ],
           "deprecated": null,
@@ -97475,6 +97571,46 @@
         },
         {
           "name": "ENT.lightamt",
+          "kind": "Fields",
+          "module": "cityrp_weedpot",
+          "file": "core/plugins/weed/entities/cityrp_weedpot/init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.moistureScoreStartsAt",
+          "kind": "Fields",
+          "module": "cityrp_weedpot",
+          "file": "core/plugins/weed/entities/cityrp_weedpot/init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "ENT.moistureScoreTicks",
           "kind": "Fields",
           "module": "cityrp_weedpot",
           "file": "core/plugins/weed/entities/cityrp_weedpot/init.lua",

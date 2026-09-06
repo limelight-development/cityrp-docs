@@ -27,6 +27,7 @@
 <div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
 <li><a href="#Functions">Functions</a></li>
 <li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul></div>
 <details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">54</span></summary>
 <ul class="ll-kind-body">
@@ -391,7 +392,7 @@ Must only be used for admin/staff commands.</p>
 
 
 </dd>
-<dt><a name="cityrp.acommands.Deprecate"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.Deprecate<span class="ll-args">(cmd, msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L63">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.Deprecate"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.Deprecate<span class="ll-args">(cmd, msg)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L86">Source ☍</a></dt>
 <dd>
 <p>Deprecate an admin command.
 Shows a warning to the user when the command is used.</p>
@@ -404,7 +405,7 @@ Shows a warning to the user when the command is used.</p>
 
 
 </dd>
-<dt><a name="cityrp.acommands.HandleCommand"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.HandleCommand<span class="ll-args">(ply, _, args, aStr)</span><span class="ll-returns"> → string?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L86">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.HandleCommand"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.HandleCommand<span class="ll-args">(ply, _, args, aStr)</span><span class="ll-returns"> → string?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L109">Source ☍</a></dt>
 <dd>
 <p>Handle a <code>!</code>-prefixed staff command.
 This is the actual command dispatcher for the privileged (<code>!</code>) command system, bound to the
@@ -425,7 +426,7 @@ suppress default console command output; nil if <code>args</code> was empty.</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.acommands.luarun"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.luarun<span class="ll-args">(ply, _, _, code)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L164">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.luarun"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.luarun<span class="ll-args">(ply, _, _, code)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L187">Source ☍</a></dt>
 <dd>
 <p>Runs arbitrary Lua code, restricted to the SteamIDs in <code>access_luarun</code>.</p>
 
@@ -439,7 +440,7 @@ suppress default console command output; nil if <code>args</code> was empty.</p>
 
 
 </dd>
-<dt><a name="cityrp.acommands.parse"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.parse<span class="ll-args">(str)</span><span class="ll-returns"> → string, string[], string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L210">Source ☍</a></dt>
+<dt><a name="cityrp.acommands.parse"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.parse<span class="ll-args">(str)</span><span class="ll-returns"> → string, string[], string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L233">Source ☍</a></dt>
 <dd>
 <p>Parse a <code>!</code>-prefixed string into a command and a table of arguments, respecting quoting rules.</p>
 
@@ -455,10 +456,35 @@ suppress default console command output; nil if <code>args</code> was empty.</p>
 </ol>
 
 </dd>
+<dt><a name="cityrp.acommands.ReasonSyntax"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.ReasonSyntax<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L78">Source ☍</a></dt>
+<dd>
+<p>The <code>&lt;reason&gt;</code> fragment of a command's syntax string, bracketed to match the realm.</p>
+
+
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string</span><span class="ll-arg-desc"><code>&quot;[reason]&quot;</code> where a reason is optional, <code>&quot;&lt;reason&gt;&quot;</code> otherwise.</span></li>
+</ol>
+
+</dd>
+<dt><a name="cityrp.acommands.ResolveReason"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.ResolveReason<span class="ll-args">(reason)</span><span class="ll-returns"> → string?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L66">Source ☍</a></dt>
+<dd>
+<p>Resolve the reason a command was given into the one it should act on.</p>
+
+<p class="ll-arg-label">Parameters</p>
+<ul class="ll-args-list">
+<li><span class="parameter">reason</span><span class="types">string?</span><span class="ll-arg-desc">The reason as typed, if any.</span></li>
+</ul>
+<p class="ll-arg-label">Returns</p>
+<ol class="ll-args-list">
+<li><span></span><span class="types">string?</span><span class="ll-arg-desc">The reason to use, or nil when one is required here and none was given.</span></li>
+</ol>
+
+</dd>
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="access_luarun"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">access_luarun</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L153">Source ☍</a></dt>
+<dt><a name="access_luarun"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">access_luarun</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L176">Source ☍</a></dt>
 <dd>
 
 
@@ -487,6 +513,23 @@ suppress default console command output; nil if <code>args</code> was empty.</p>
 
 </dd>
 <dt><a name="cityrp.acommands.deprecated"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.deprecated</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L11">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+</dl></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
+<div class="ll-module-body"><dl class="function">
+<dt><a name="cityrp.acommands.defaultReason"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.defaultReason</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L60">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+<dt><a name="cityrp.acommands.reasonOptional"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.acommands.reasonOptional</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_admin_core.lua#L59">Source ☍</a></dt>
 <dd>
 
 
