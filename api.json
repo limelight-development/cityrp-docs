@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-09-06T23:48:56Z",
+  "generated": "2026-09-07T23:39:55Z",
   "modules": [
     {
       "name": "AreaManager",
@@ -91520,7 +91520,7 @@
           "states": [
             "client"
           ],
-          "desc": "Runs `callback` whenever the UI scale changes.\n\n The entire UI, not just the HUD. cl_llhud_scale is named for the HUD because\n that is where it started, but it is the user-scale input to GetScaleFactor,\n which every consumer of this library reads -- menus, entity panels and the\n HUD alike. Both of that function's inputs can move while the player is in\n game, so both are watched here: the ConVar, and the screen resolution behind\n the automatic component. Menus that watched only the ConVar kept the font\n sizes they were built with when the resolution changed under them.\n\n Debounced, because dragging the HUD scale slider fires the ConVar callback\n every tick, and a resolution change can fire alongside one.\n\n ```lua\n cityrp.ui.OnScaleChanged(\"door\", createDoorMenuFonts)\n ```",
+          "desc": "Runs `callback` now, and again (debounced) whenever the UI scale changes.\n The first call is synchronous, so fonts registered here exist on the next\n line -- in exchange, the callback must be safe to run at registration time.",
           "params": [
             {
               "name": "id",
@@ -91530,7 +91530,7 @@
             {
               "name": "callback",
               "type": "function",
-              "desc": "Called once the scale has settled."
+              "desc": "Called now, and again once a later scale change has settled."
             }
           ],
           "returns": [],
@@ -127043,7 +127043,7 @@
           "states": [
             "client"
           ],
-          "desc": "Rebuilds the HUD with the current scale factor.\n Call this when scale settings change.",
+          "desc": "Rebuilds the HUD with the current scale factor.\n Skips Init until the HUD has panels: Init reads a file-local element list\n declared below this, so OnScaleChanged's load-time call would hit `pairs(nil)`.",
           "params": [],
           "returns": [],
           "deprecated": null,
@@ -131512,6 +131512,66 @@
       "description": "Fixed Entity Spawning System.",
       "symbols": [
         {
+          "name": "cityrp.permaents",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents.sv_init",
+          "file": "core/plugins/perma_ents/sv_init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "Exposed read-only for perma_ents_devtool's \"detect existing config\" step. Registration\n below is what these tables are for; do not mutate them from outside this file.",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.permaents.deleteTab",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents.sv_init",
+          "file": "core/plugins/perma_ents/sv_init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "cityrp.permaents.entTab",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents.sv_init",
+          "file": "core/plugins/perma_ents/sv_init.lua",
+          "states": [
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
           "name": "DeleteMapEntity",
           "kind": "Functions",
           "module": "core.plugins.perma_ents.sv_init",
@@ -131573,6 +131633,561 @@
               "desc": "Optional argument to specify a map to spawn on. If nil, replaced with the last SetDefaultMap argument."
             }
           ],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
+      "name": "core.plugins.perma_ents_devtool.cl_init",
+      "description": "Perma Ents Config Builder, client side.",
+      "symbols": [
+        {
+          "name": "PermaEntsDevtoolDelete",
+          "kind": "Classes",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolDelete.className",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolDelete.id",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolDelete.isNew",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolDelete.note",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolDelete.pos",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolEntry",
+          "kind": "Classes",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolEntry.ang",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolEntry.category",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolEntry.class",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolEntry.clientId",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "Correlates to the temporary draft prop spawned server-side, if any.",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolEntry.invisible",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolEntry.isNew",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolEntry.model",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolEntry.note",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolEntry.pos",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolEntry.resupply",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolSession",
+          "kind": "Classes",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolSession.deletes",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolSession.entries",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolSession.headerIssue",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolSession.headerWorksheet",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolSession.loaded",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolSession.map",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.cl_init",
+          "file": "core/plugins/perma_ents_devtool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
+      "name": "core.plugins.perma_ents_devtool.sh_init",
+      "description": "Developer tool for building and exporting a perma_ents map config.",
+      "symbols": [
+        {
+          "name": "PermaEntsDevtoolCategory",
+          "kind": "Classes",
+          "module": "core.plugins.perma_ents_devtool.sh_init",
+          "file": "core/plugins/perma_ents_devtool/sh_init.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolCategory.id",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.sh_init",
+          "file": "core/plugins/perma_ents_devtool/sh_init.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PermaEntsDevtoolCategory.label",
+          "kind": "Fields",
+          "module": "core.plugins.perma_ents_devtool.sh_init",
+          "file": "core/plugins/perma_ents_devtool/sh_init.lua",
+          "states": [
+            "client",
+            "server"
+          ],
+          "desc": "",
+          "params": [],
           "returns": [],
           "deprecated": null,
           "internal": false,
@@ -133574,6 +134189,132 @@
           "file": "core/plugins/policedb/sv_init.lua",
           "states": [
             "server"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        }
+      ]
+    },
+    {
+      "name": "core.plugins.property_tool.cl_init",
+      "description": "Property Tool, client side.",
+      "symbols": [
+        {
+          "name": "PropertyToolSession",
+          "kind": "Classes",
+          "module": "core.plugins.property_tool.cl_init",
+          "file": "core/plugins/property_tool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PropertyToolSession.doors",
+          "kind": "Fields",
+          "module": "core.plugins.property_tool.cl_init",
+          "file": "core/plugins/property_tool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PropertyToolSession.edit",
+          "kind": "Fields",
+          "module": "core.plugins.property_tool.cl_init",
+          "file": "core/plugins/property_tool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PropertyToolSession.editing",
+          "kind": "Fields",
+          "module": "core.plugins.property_tool.cl_init",
+          "file": "core/plugins/property_tool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PropertyToolSession.name",
+          "kind": "Fields",
+          "module": "core.plugins.property_tool.cl_init",
+          "file": "core/plugins/property_tool/cl_init.lua",
+          "states": [
+            "client"
+          ],
+          "desc": "",
+          "params": [],
+          "returns": [],
+          "deprecated": null,
+          "internal": false,
+          "warns": [],
+          "bugs": [],
+          "uniqueids": [],
+          "section": null,
+          "family": null,
+          "members": []
+        },
+        {
+          "name": "PropertyToolSession.rent",
+          "kind": "Fields",
+          "module": "core.plugins.property_tool.cl_init",
+          "file": "core/plugins/property_tool/cl_init.lua",
+          "states": [
+            "client"
           ],
           "desc": "",
           "params": [],
@@ -144885,7 +145626,7 @@
       "title": "Issue tracker: GitHub",
       "path": "agents/issue-tracker.md",
       "meta": {},
-      "body": "# Issue tracker: GitHub\n\nIssues and specs for this repo live as GitHub issues on `limelight-development/cityrp2`. Use the\n`gh` CLI for all operations; it infers the repo from `git remote -v` when run inside a clone.\n\n**Prefer native GitHub primitives over labels.** This repo carries issue types, org issue fields,\nnative close reasons, and native parent/blocked-by relationships. Wherever a skill's default\nconvention is a label, the native mechanism below wins.\n\n[.claude/skills/github-issues/SKILL.md](../../.claude/skills/github-issues/SKILL.md) is the\nauthority on the mechanics: endpoints, payload shapes, the field IDs, and the read/write\nvalue-format asymmetry that makes a field read impossible to round-trip into a write. Read it\nbefore setting any field. Getting this wrong is footgun #20 in [AGENTS.md](../../AGENTS.md).\n\n## Conventions\n\n- **Create an issue**: `gh issue create --type <Type> --title \"...\" --body-file body.md`. Always\n  pass `--type`; an issue created from `gh` without it arrives untyped, and `Task` is not a safe\n  default for a bug.\n- **Read an issue**: `gh issue view <number> --comments`, plus\n  `gh api repos/limelight-development/cityrp2/issues/<number>/issue-field-values` for Priority and\n  Effort, which `gh issue view` does not return.\n- **List issues**: `gh issue list --state open --json number,title,body,labels,issueType,comments`.\n  `--type <name>` filters by issue type.\n- **Comment**: `gh issue comment <number> --body \"...\"`\n- **Close**: see [Closing an issue](#closing-an-issue) below; always pass a reason.\n\nEvery inflowing issue gets added to `CityRP2 Project Board`\n(`gh issue edit <n> --add-project \"CityRP2 Project Board\"`), whatever else happens to it.\n\n## Issue types\n\nPick against the criteria in the `github-issues` skill, which lists every type the org defines.\nThese are the ones the engineering skills produce:\n\n| Skill concept | Issue type |\n| --- | --- |\n| A bug confirmed during triage | `Bug` |\n| Internal dev work, a spec from `/to-spec`, a ticket from `/to-tickets` | `Task` |\n| A `/wayfinder` map | `Scheme of Work` |\n| A `/wayfinder` grilling ticket (a decision to be reached) | `Discussion` |\n| A `/wayfinder` research ticket | `Research` |\n| A `/wayfinder` prototype or task ticket | `Task` |\n\n`Suggestion` is almost always synced in from community feedback rather than hand-created, and\n`Feedback` is reserved for the PR back channel: neither is for these skills to assign.\n\n## Issue fields\n\n`Priority` and `Effort` are **org issue fields**, set with a single batched REST POST. Project\nfields and labels cannot hold them. The `github-issues` skill owns the accepted values and the\nfield IDs.\n\n- Set `Priority` on every type except `Discussion` and `Feedback`.\n- Set `Effort` on `Bug`, `Suggestion`, `Task` and `Research` — not on `Scheme of Work`, which is a\n  plan rather than sized work.\n\n**Issue fields are not searchable.** `gh issue list --search 'priority:High'` returns `[]`\n(verified against the live API). Reading a field value means a per-issue\n`issue-field-values` call, so any \"everything with Priority set\" sweep is N calls, not one query.\nLabels, types, assignees and state are all searchable; fields are not.\n\n## Closing an issue\n\nGitHub's native close reasons replace the `wontfix` and `duplicate` labels:\n\n| Situation | Command |\n| --- | --- |\n| Resolved, or found to be already implemented | `gh issue close <n> --reason completed` |\n| Out of scope, rejected, won't be actioned | `gh issue close <n> --reason \"not planned\"` |\n| Already tracked by another issue | `gh issue close <n> --reason duplicate` |\n\nAlways leave a comment saying why. A `not planned` closure of a feature request also creates or\nupdates a file in `.out-of-scope/`, which `/triage` reads on future issues to catch re-litigation.\n\n## Pull requests as a triage surface\n\n**PRs as a request surface: no.** _(Set to `yes` if this repo treats external PRs as feature\nrequests; `/triage` reads this flag.)_\n\n## When a skill says \"publish to the issue tracker\"\n\nCreate a GitHub issue: pass `--type`, add it to the project board, then set `Priority` and\n`Effort` in one batched POST.\n\n## When a skill says \"fetch the relevant ticket\"\n\n`gh issue view <number> --comments`, plus the `issue-field-values` call if the decision depends on\nPriority or Effort.\n\n## Wayfinding operations\n\nUsed by `/wayfinder`. Its map-and-child-tickets structure maps directly onto native GitHub\nprimitives, so this repo uses no `wayfinder:<type>` labels — the ticket's **issue type** carries\nthat.\n\n- **Map**: a `Scheme of Work` issue labelled `wayfinder:map`, holding the Destination / Notes /\n  Decisions-so-far / Fog body. The label is the discriminator: not every Scheme of Work is a\n  wayfinder map. Priority set, no Effort.\n  `gh issue create --type \"Scheme of Work\" --label wayfinder:map`\n- **Child ticket**: a native sub-issue of the map, `--parent <map>` at create or\n  `gh issue edit <child> --parent <map>` after. Its wayfinder type is its issue type: `Research`\n  for research, `Discussion` for grilling, `Task` for prototype and task. Set Priority, and Effort\n  where it is known. Once claimed, the ticket is assigned to the driving dev.\n- **Blocking**: native issue dependencies via `gh issue edit <n> --add-blocked-by <m>`. GitHub\n  renders its own *Blocked* badge on the board and issue list, so the `blocked` label is not used\n  for issue-to-issue blocking. A ticket is unblocked when every blocker is closed.\n- **Frontier query**: read the map's children with\n  `gh issue view <map> --json subIssues`, then per child\n  `gh issue view <n> --json state,assignees,blockedBy`. The frontier is the open, unassigned\n  children with no open blocker; first in map order wins.\n- **Claim**: `gh issue edit <n> --add-assignee @me`, the session's first write. An open,\n  unassigned ticket is unclaimed.\n- **Resolve**: comment the answer, `gh issue close <n> --reason completed`, then append a context\n  pointer to the map's Decisions-so-far.\n- **Rule out of scope**: `gh issue close <n> --reason \"not planned\"`, then one line in the map's\n  Out of scope section. It stays out of Decisions-so-far, which records the route actually walked.\n\n## Publishing a spec\n\nA finished spec becomes one or more typed issues rather than staying in the conversation, and\nanything raised in passing gets its own issue too. The rules are in\n[artifacts.md](artifacts.md#specs-and-decided-work-issues).\n"
+      "body": "# Issue tracker: GitHub\n\nIssues and specs for this repo live as GitHub issues on `limelight-development/cityrp2`. Use the\n`gh` CLI for all operations; it infers the repo from `git remote -v` when run inside a clone.\n\n**Prefer native GitHub primitives over labels.** This repo carries issue types, org issue fields,\nnative close reasons, and native parent/blocked-by relationships. Wherever a skill's default\nconvention is a label, the native mechanism below wins.\n\n[.claude/skills/github-issues/SKILL.md](../../.claude/skills/github-issues/SKILL.md) is the\nauthority on the mechanics: endpoints, payload shapes, the field IDs, and the read/write\nvalue-format asymmetry that makes a field read impossible to round-trip into a write. Read it\nbefore setting any field. Getting this wrong is footgun #20 in [AGENTS.md](../../AGENTS.md).\n\n## Conventions\n\n- **Start work on an issue**: `gh issue edit <n> --add-assignee @me`, before the first edit. An\n  open, unassigned issue reads as unclaimed, and a second agent picks up the same work.\n- **Create an issue**: `gh issue create --type <Type> --title \"...\" --body-file body.md`. Always\n  pass `--type`; an issue created from `gh` without it arrives untyped, and `Task` is not a safe\n  default for a bug.\n- **Read an issue**: `gh issue view <number> --comments`, plus\n  `gh api repos/limelight-development/cityrp2/issues/<number>/issue-field-values` for Priority and\n  Effort, which `gh issue view` does not return.\n- **List issues**: `gh issue list --state open --json number,title,body,labels,issueType,comments`.\n  `--type <name>` filters by issue type.\n- **Comment**: `gh issue comment <number> --body \"...\"`\n- **Close**: see [Closing an issue](#closing-an-issue) below; always pass a reason.\n\nEvery inflowing issue gets added to `CityRP2 Project Board`\n(`gh issue edit <n> --add-project \"CityRP2 Project Board\"`), whatever else happens to it.\n\n## Issue types\n\nPick against the criteria in the `github-issues` skill, which lists every type the org defines.\nThese are the ones the engineering skills produce:\n\n| Skill concept | Issue type |\n| --- | --- |\n| A bug confirmed during triage | `Bug` |\n| Internal dev work, a spec from `/to-spec`, a ticket from `/to-tickets` | `Task` |\n| A `/wayfinder` map | `Scheme of Work` |\n| A `/wayfinder` grilling ticket (a decision to be reached) | `Discussion` |\n| A `/wayfinder` research ticket | `Research` |\n| A `/wayfinder` prototype or task ticket | `Task` |\n\n`Suggestion` is almost always synced in from community feedback rather than hand-created, and\n`Feedback` is reserved for the PR back channel: neither is for these skills to assign.\n\n## Issue fields\n\n`Priority` and `Effort` are **org issue fields**, set with a single batched REST POST. Project\nfields and labels cannot hold them. The `github-issues` skill owns the accepted values and the\nfield IDs.\n\n- Set `Priority` on every type except `Discussion` and `Feedback`.\n- Set `Effort` on `Bug`, `Suggestion`, `Task` and `Research` — not on `Scheme of Work`, which is a\n  plan rather than sized work.\n\n**Issue fields are not searchable.** `gh issue list --search 'priority:High'` returns `[]`\n(verified against the live API). Reading a field value means a per-issue\n`issue-field-values` call, so any \"everything with Priority set\" sweep is N calls, not one query.\nLabels, types, assignees and state are all searchable; fields are not.\n\n## Closing an issue\n\nGitHub's native close reasons replace the `wontfix` and `duplicate` labels:\n\n| Situation | Command |\n| --- | --- |\n| Resolved, or found to be already implemented | `gh issue close <n> --reason completed` |\n| Out of scope, rejected, won't be actioned | `gh issue close <n> --reason \"not planned\"` |\n| Already tracked by another issue | `gh issue close <n> --reason duplicate` |\n\nAlways leave a comment saying why. A `not planned` closure of a feature request also creates or\nupdates a file in `.out-of-scope/`, which `/triage` reads on future issues to catch re-litigation.\n\n## Pull requests as a triage surface\n\n**PRs as a request surface: no.** _(Set to `yes` if this repo treats external PRs as feature\nrequests; `/triage` reads this flag.)_\n\n## When a skill says \"publish to the issue tracker\"\n\nCreate a GitHub issue: pass `--type`, add it to the project board, then set `Priority` and\n`Effort` in one batched POST.\n\n## When a skill says \"fetch the relevant ticket\"\n\n`gh issue view <number> --comments`, plus the `issue-field-values` call if the decision depends on\nPriority or Effort.\n\n## Wayfinding operations\n\nUsed by `/wayfinder`. Its map-and-child-tickets structure maps directly onto native GitHub\nprimitives, so this repo uses no `wayfinder:<type>` labels — the ticket's **issue type** carries\nthat.\n\n- **Map**: a `Scheme of Work` issue labelled `wayfinder:map`, holding the Destination / Notes /\n  Decisions-so-far / Fog body. The label is the discriminator: not every Scheme of Work is a\n  wayfinder map. Priority set, no Effort.\n  `gh issue create --type \"Scheme of Work\" --label wayfinder:map`\n- **Child ticket**: a native sub-issue of the map, `--parent <map>` at create or\n  `gh issue edit <child> --parent <map>` after. Its wayfinder type is its issue type: `Research`\n  for research, `Discussion` for grilling, `Task` for prototype and task. Set Priority, and Effort\n  where it is known. Once claimed, the ticket is assigned to the driving dev.\n- **Blocking**: native issue dependencies via `gh issue edit <n> --add-blocked-by <m>`. GitHub\n  renders its own *Blocked* badge on the board and issue list, so the `blocked` label is not used\n  for issue-to-issue blocking. A ticket is unblocked when every blocker is closed.\n- **Frontier query**: read the map's children with\n  `gh issue view <map> --json subIssues`, then per child\n  `gh issue view <n> --json state,assignees,blockedBy`. The frontier is the open, unassigned\n  children with no open blocker; first in map order wins.\n- **Claim**: assign yourself, the session's first write. An open, unassigned ticket is unclaimed.\n- **Resolve**: comment the answer, `gh issue close <n> --reason completed`, then append a context\n  pointer to the map's Decisions-so-far.\n- **Rule out of scope**: `gh issue close <n> --reason \"not planned\"`, then one line in the map's\n  Out of scope section. It stays out of Decisions-so-far, which records the route actually walked.\n\n## Publishing a spec\n\nA finished spec becomes one or more typed issues rather than staying in the conversation, and\nanything raised in passing gets its own issue too. The rules are in\n[artifacts.md](artifacts.md#specs-and-decided-work-issues).\n"
     },
     {
       "id": "agents/triage-labels",
@@ -145250,7 +145991,7 @@
         "pinned": "true",
         "description": "The authoritative list of which API to use for each category, and what it replaces."
       },
-      "body": "\n# Modern APIs\n\nCityRP is a mature codebase containing many legacy patterns and deprecated systems. The table below is the authoritative, up-to-date list of which API to use for each category. Legacy alternatives remain in the codebase — because they predate the migration, not because they're still correct — and must not be used in new or refactored code.\n\nAgents also see a condensed always-on copy of this table in [`.cursor/rules/agent-musts.mdc`](../.cursor/rules/agent-musts.mdc). When you add or change a row here, update that MUST card in the same change. The checklist and CI reject criteria for forbidden patterns are in [Coding Standards](coding-standards.md).\n\n| Category | ✅ Modern API (MANDATORY) | ❌ Legacy / Standard GMod (FORBIDDEN) | Why? |\n| :--- | :--- | :--- | :--- |\n| **Audit Logging** (player/admin actions, transactions) | `cityrp.logs.add(nick, steamid, ...)` | `print()`<br>`ServerLog()` | Logs to database and admin interfaces for moderation/audit; `print` is invisible to admins. |\n| **Diagnostic Logging** (developer debugging, traces) | `cityrp.logging.GetLogger(namespace):Debug/Info/Error(...)` | `print()`<br>`ServerLog()` | Namespaced, level-filterable developer diagnostics. Does not replace `cityrp.logs.add()` for audit events. See [logging.md](logging.md). |\n| **Items** | `ITEM:New(\"base_id\")` (Fluent), or `ITEM:New()` for no base | `cityrp.item.register({})` | Metatable-based fluent API with better inheritance and cleaner code, and it doesn't require a spawnable/purchasable base item to be registered just to be inherited from. See [items.md](items/items.md). |\n| **Networking** | See tiers below | `umsg.*`, `SendLua()`, `BroadcastLua()` (banned) | Pick the highest tier that fits; `cityrp.network` exists as a library but isn't mandatory yet, so legacy networking (NSVar/LocalPlayerVar) remains the correct default; never use the banned tier. |\n| **Color Constants** | `COL_WHITE`, `COL_BLACK`, `COL_RED`, `COL_GREEN`, `COL_BLUE`, `COL_GREY` (from `sh_enumerations.lua`) | `color_white`, `color_black` (GMod globals) | Consistency, easier global theming later, reduces reliance on GMod globals. Custom one-off colors are still fine as inline `Color(...)` calls. |\n| **Running a CityRP command from code** | `ply:ConCommand(\"cityrp <cmd> <args>\")` (clientside UI)<br>`cityrp.command.consoleCommand(ply, cmd, argsTable)` (serverside) | `ply:ConCommand(\"say /<cmd> <args>\")` | Both end up in `cityrp.command.consoleCommand`; `say /` only adds the chat pipeline in front of it, where a `PlayerSay` hook can swallow the message, `cityrp.replacecodes` rewrites `%`/`$q` codes inside the arguments, >452 characters are dropped silently, and the arguments are re-quoted by a naive scanner. See [AGENTS.md](../AGENTS.md) footgun #13. |\n| **Reaching a plugin you declared a dependency on** | `PLUGIN.Dependencies[\"<key>\"]` | `cityrp.plugin.get(\"<key>\")` when the key is already in your `.meta.lua` | The loader resolved it for you. A **required** dependency is never nil — your plugin would not have loaded without it — so there is nothing to guard, which no lookup-plus-guard can match. An **optional** one may be nil and must be guarded. See [plugins.md](plugins.md#declared-dependencies). |\n| **\"Is this plugin here?\"** (guarding a cross-plugin call) | `cityrp.plugin.IsAvailable(\"<key>\")` | `cityrp.plugin.get(\"<key>\") ~= nil`; unguarded cross-plugin calls | `get` only sees plugins that called `register`, and ~27 loaded plugins never do — so it reports them missing. `IsAvailable` reads the loader's bookkeeping, is realm-accurate, and answers `false` for every reason a plugin can be absent. Use `cityrp.plugin.GetDependencyStatus(key)` when you need to know *which* reason; it is for diagnostics, not for guards. See [plugins.md](plugins.md#guarding-a-cross-plugin-call). |\n| **Plugin lookup** (you need the plugin's table) | `cityrp.plugin.get(\"<key>\")` — the folder key, as used by `.meta.lua` and load order. Inside a plugin, `cityrp.plugin.get(PLUGIN.key)` | `cityrp.plugin.get(\"Display Name\")`; indexing `cityrp.plugin.stored` directly | `cityrp.plugin.stored` is keyed by the plugin key. A display name still resolves through `cityrp.plugin.names` and costs the same, but warns once per name — the two identities are not derivable from each other (`area` registers as `\"Area Manager\"`). Existing display-name call sites work; convert one when you are already editing that code. See [plugins.md](plugins.md) and [AGENTS.md](../AGENTS.md) footgun #22. |\n| **Console Entity** | `CONSOLE` | `console` (lowercase) | `console` is a deprecated alias kept only for backwards compatibility with external plugins — see `admin/sv_init.lua`. |\n| **Player chat commands** (`/` prefix; aka normal / slash-commands) | `cityrp.command.add(name, access, minArgs, callback, category, syntax, tip[, emgr])` | Raw `PlayerSay` / `concommand` parsers for gamemode commands; staff tools registered as `/` | Non-privileged player RP/job tools only — generally available to all players. **Always** pass category (key from `categoryAliases`), syntax (`\"<none>\"` if none; shown on invalid-syntax errors), and a short tip description for the F1 commands menu. Callback is `(ply, arguments)` table. See [commands.md](commands.md) and [AGENTS.md](../AGENTS.md) footgun #14. |\n| **Staff chat commands** (`!` prefix; aka privileged / admin / staff commands) | `cityrp.acommands.AddCommand(name, func, minArgs, access, emgr, category, syntax, tip)` | Staff tools on `/` (even with a restricted access flag); ad-hoc `PlayerSay` handlers for `!` | **Always** use this if the command requires staff privileges of any kind — including RP Assistant. Same mandatory category/syntax/tip metadata as player commands. Callback is `(ply, ...)` varargs. When moving a staff tool from `/` to `!`, leave `cityrp.command.redirectToAcommand(oldName)` so `/old` only notifies to use `!old`. Prefer `cityrp.player.resolveTarget` and `cityrp.command.parseMoney` over copy-pasted lookup/money parsing. See [commands.md](commands.md) and [AGENTS.md](../AGENTS.md) footgun #14. |\n| **UI Scaling** (Derma panels, entity menus, HUD overlays, custom `Paint`) | `cityrp.ui.Scale()`, `cityrp.ui.GetScaleFactor()`, `cityrp.ui.CreateScaledFont()`, `cityrp.ui.OnScaleChanged()` | Ad-hoc `ScrW() / 1920` scaling; calling `LimelightHUD.GetScaleFactor()` directly; fixed `surface.CreateFont` sizes; hardcoded pixel dimensions that never rebuild on scale change | One resolution- and preference-aware scale for all UI; fonts and layout stay in sync when `cl_llhud_scale` or screen size changes. See [ui-scaling.md](ui-scaling.md) and [AGENTS.md](../AGENTS.md) footgun #15. |\n\nIf existing code conflicts with this table, follow this table — usage of a legacy pattern elsewhere in the codebase is not evidence it's the correct approach, only that it predates this list.\n\n## Networking tiers\n\nNetworking isn't a simple modern/legacy split — use the **highest tier that fits the use case**, don't default to a lower one out of habit.\n\n1. **Top tier: Entity Networking (DTVars).** `Entity:NetworkVar(...)` / DataTables (`SetupDataTables`). Use for anything that's naturally a property of a **Lua-authored** entity (a SENT or SWEP you define yourself) — it's predicted, delta-compressed, and needs no manual send/receive code. **This does not work for GMod's engine-defined vehicle base classes** (`prop_vehicle_jeep`, `prop_vehicle_prisoner_pod`, etc.) — they don't run `SetupDataTables` the way a Lua SENT does, so DTVars aren't an option for vehicle state. See tier 4.\n2. **`cityrp.network`.** `cityrp.network.Register(...)` (`core/libraries/sh_network.lua`, see [networking.md](networking.md)). Covers anything tier 1 doesn't: non-player entity state (doors, vehicles, signs), Global-scope values, LocalPlayer-private state, or any value that needs recipient filtering (`:Filter()`, `:SendPVS()`/`:SendPAS()`), a change hook, or pull-on-visible resync. **Not yet mandatory** — see *Migration status* below before reaching for this tier over tier 3. See [networking.md](networking.md) for the full builder-chain reference.\n3. **Legacy networking.** For events/actions, use `net.*` directly. For player state that isn't a natural entity property:\n   - `ply:SetNSVar(name, value)` / `ply:GetNSVar(name, default)` — for state every client needs to know about that player (broadcast to all clients via `net.Broadcast()`).\n   - `cityrp.player.setLocalPlayerVariable(ply, CLASS_TYPE, \"_Name\", value)` — for state only the owning client needs (sent privately via `net.Send(ply)`).\n   - Both require the variable name to be pre-registered (see `networking/sh_init.lua`) — setting an unregistered name fails **silently**, with only a `print()` to console, not an error. Register the name first.\n   - **Both are Player-metatable-only** (`FindMetaTable(\"Player\")`) — they don't generalize to vehicles or other non-player entities. For non-player entity state, `net.*` directly is the current option (tier 2 isn't mandatory yet — see below).\n   - Not deprecated: this tier works, is still reasonably efficient, and is the correct default today. It just sits below `cityrp.network` once that tier becomes mandatory.\n4. **Avoided: low-tier networking.** `SetNWInt`/`SetNW2Int`/etc. (NW/NW2 vars). Avoid for player data — don't use it in new or refactored code, see [problems/03](../problems/03-deprecated-network-vars.md) and [improvements/01](../improvements/01-deprecated-networked-variables.md). **Exception**: vehicles currently use this tier for real (`sv_vehicle.lua`'s `locked`/`engine_on`/`HP` state) precisely because neither tier 1 (DTVars — engine entity, no `SetupDataTables`) nor tier 3 (NSVar/LocalPlayerVar — Player-only) apply to them, and they haven't been migrated to tier 2 yet. Until that migration lands, this is the practically justified option for vehicles, not just legacy inertia.\n5. **Banned.** `umsg.*` (pre-`net` legacy usermessage library — no structure or size guarantees `net` provides), `SendLua()`, `BroadcastLua()` (execute arbitrary Lua source on the client — a code-injection vector if the string is ever built from anything less than a fully trusted, static literal, and pure legacy debt even when it isn't). Never use these.\n\n### Migration status\n\n`cityrp.network` is live and call sites have started moving onto it — `cityrp_Job` and `_Food` (`core/libraries/sh_network_vars.lua`), the vehicles plugin (`core/plugins/vehicles/sh_network_vars.lua`), and the player limits registered by `cityrp.limits` — but it is **not yet mandatory** for new or refactored code. `SetNSVar`/`GetNSVar`, `cityrp.player.setLocalPlayerVariable`/`Player:SetLPlyVar`, and `SetNW*` for vehicles all remain correct APIs until a separate, later change flips this note and starts requiring `cityrp.network` for the call sites described in tier 2.\n\nMove a call site as a deliberate change, with its legacy registration removed from `networking/sh_init.lua` in the same commit — not opportunistically off this note alone. See [networking.md](networking.md) and [issue #3207](https://github.com/limelight-development/cityrp2/issues/3207) for the full migration plan.\n"
+      "body": "\n# Modern APIs\n\nCityRP is a mature codebase containing many legacy patterns and deprecated systems. The table below is the authoritative, up-to-date list of which API to use for each category. Legacy alternatives remain in the codebase — because they predate the migration, not because they're still correct — and must not be used in new or refactored code.\n\nAgents also see a condensed always-on copy of this table in [`.cursor/rules/agent-musts.mdc`](../.cursor/rules/agent-musts.mdc). When you add or change a row here, update that MUST card in the same change. The checklist and CI reject criteria for forbidden patterns are in [Coding Standards](coding-standards.md).\n\n| Category | ✅ Modern API (MANDATORY) | ❌ Legacy / Standard GMod (FORBIDDEN) | Why? |\n| :--- | :--- | :--- | :--- |\n| **Audit Logging** (player/admin actions, transactions) | `cityrp.logs.add(nick, steamid, ...)` | `print()`<br>`ServerLog()` | Logs to database and admin interfaces for moderation/audit; `print` is invisible to admins. |\n| **Diagnostic Logging** (developer debugging, traces) | `cityrp.logging.GetLogger(namespace):Debug/Info/Error(...)` | `print()`<br>`ServerLog()` | Namespaced, level-filterable developer diagnostics. Does not replace `cityrp.logs.add()` for audit events. See [logging.md](logging.md). |\n| **Items** | `ITEM:New(\"base_id\")` (Fluent), or `ITEM:New()` for no base | `cityrp.item.register({})` | Metatable-based fluent API with better inheritance and cleaner code, and it doesn't require a spawnable/purchasable base item to be registered just to be inherited from. See [items.md](items/items.md). |\n| **Networking** | See tiers below | `umsg.*`, `SendLua()`, `BroadcastLua()` (banned) | Pick the highest tier that fits; `cityrp.network` exists as a library but isn't mandatory yet, so legacy networking (NSVar/LocalPlayerVar) remains the correct default; never use the banned tier. |\n| **Color Constants** | `COL_WHITE`, `COL_BLACK`, `COL_RED`, `COL_GREEN`, `COL_BLUE`, `COL_GREY` (from `sh_enumerations.lua`) | `color_white`, `color_black` (GMod globals) | Consistency, easier global theming later, reduces reliance on GMod globals. Custom one-off colors are still fine as inline `Color(...)` calls. |\n| **Running a CityRP command from code** | `ply:ConCommand(\"cityrp <cmd> <args>\")` (clientside UI)<br>`cityrp.command.consoleCommand(ply, cmd, argsTable)` (serverside) | `ply:ConCommand(\"say /<cmd> <args>\")` | Both end up in `cityrp.command.consoleCommand`; `say /` only adds the chat pipeline in front of it, where a `PlayerSay` hook can swallow the message, `cityrp.replacecodes` rewrites `%`/`$q` codes inside the arguments, >452 characters are dropped silently, and the arguments are re-quoted by a naive scanner. See [AGENTS.md](../AGENTS.md) footgun #13. |\n| **Reaching a plugin you declared a dependency on** | `PLUGIN.Dependencies[\"<key>\"]` | `cityrp.plugin.get(\"<key>\")` when the key is already in your `.meta.lua` | The loader resolved it for you. A **required** dependency is never nil — your plugin would not have loaded without it — so there is nothing to guard, which no lookup-plus-guard can match. An **optional** one may be nil and must be guarded. See [plugins.md](plugins.md#declared-dependencies). |\n| **\"Is this plugin here?\"** (guarding a cross-plugin call) | `cityrp.plugin.IsAvailable(\"<key>\")` | `cityrp.plugin.get(\"<key>\") ~= nil`; unguarded cross-plugin calls | `get` only sees plugins that called `register`, and ~27 loaded plugins never do — so it reports them missing. `IsAvailable` reads the loader's bookkeeping, is realm-accurate, and answers `false` for every reason a plugin can be absent. Use `cityrp.plugin.GetDependencyStatus(key)` when you need to know *which* reason; it is for diagnostics, not for guards. See [plugins.md](plugins.md#guarding-a-cross-plugin-call). |\n| **Plugin lookup** (you need the plugin's table) | `cityrp.plugin.get(\"<key>\")` — the folder key, as used by `.meta.lua` and load order. Inside a plugin, `cityrp.plugin.get(PLUGIN.key)` | `cityrp.plugin.get(\"Display Name\")`; indexing `cityrp.plugin.stored` directly | `cityrp.plugin.stored` is keyed by the plugin key. A display name still resolves through `cityrp.plugin.names` and costs the same, but warns once per name — the two identities are not derivable from each other (`area` registers as `\"Area Manager\"`). Existing display-name call sites work; convert one when you are already editing that code. See [plugins.md](plugins.md) and [AGENTS.md](../AGENTS.md) footgun #22. |\n| **Console Entity** | `CONSOLE` | `console` (lowercase) | `console` is a deprecated alias kept only for backwards compatibility with external plugins — see `admin/sv_init.lua`. |\n| **Player chat commands** (`/` prefix; aka normal / slash-commands) | `cityrp.command.add(name, access, minArgs, callback, category, syntax, tip[, emgr])` | Raw `PlayerSay` / `concommand` parsers for gamemode commands; staff tools registered as `/` | Non-privileged player RP/job tools only — generally available to all players. **Always** pass category (key from `categoryAliases`), syntax (`\"<none>\"` if none; shown on invalid-syntax errors), and a short tip description for the F1 commands menu. Callback is `(ply, arguments)` table. See [commands.md](commands.md) and [AGENTS.md](../AGENTS.md) footgun #14. |\n| **Staff chat commands** (`!` prefix; aka privileged / admin / staff commands) | `cityrp.acommands.AddCommand(name, func, minArgs, access, emgr, category, syntax, tip)` | Staff tools on `/` (even with a restricted access flag); ad-hoc `PlayerSay` handlers for `!` | **Always** use this if the command requires staff privileges of any kind — including RP Assistant. Same mandatory category/syntax/tip metadata as player commands. Callback is `(ply, ...)` varargs. When moving a staff tool from `/` to `!`, leave `cityrp.command.redirectToAcommand(oldName)` so `/old` only notifies to use `!old`. Prefer `cityrp.player.resolveTarget` and `cityrp.command.parseMoney` over copy-pasted lookup/money parsing. See [commands.md](commands.md) and [AGENTS.md](../AGENTS.md) footgun #14. |\n| **UI Scaling** (Derma panels, entity menus, HUD overlays, custom `Paint`) | `cityrp.ui.Scale()`, `cityrp.ui.GetScaleFactor()`, `cityrp.ui.CreateScaledFont()`, `cityrp.ui.OnScaleChanged()` | Ad-hoc `ScrW() / 1920` scaling; calling `LimelightHUD.GetScaleFactor()` directly; fixed `surface.CreateFont` sizes; hardcoded pixel dimensions that never rebuild on scale change; calling your builder yourself as well as registering it | One resolution- and preference-aware scale for all UI; fonts and layout stay in sync when `cl_llhud_scale` or screen size changes. `OnScaleChanged` runs the callback once at registration, so one registration builds and rebuilds — the callback must be safe to run at registration time. See [ui-scaling.md](ui-scaling.md) and [AGENTS.md](../AGENTS.md) footgun #15. |\n\nIf existing code conflicts with this table, follow this table — usage of a legacy pattern elsewhere in the codebase is not evidence it's the correct approach, only that it predates this list.\n\n## Networking tiers\n\nNetworking isn't a simple modern/legacy split — use the **highest tier that fits the use case**, don't default to a lower one out of habit.\n\n1. **Top tier: Entity Networking (DTVars).** `Entity:NetworkVar(...)` / DataTables (`SetupDataTables`). Use for anything that's naturally a property of a **Lua-authored** entity (a SENT or SWEP you define yourself) — it's predicted, delta-compressed, and needs no manual send/receive code. **This does not work for GMod's engine-defined vehicle base classes** (`prop_vehicle_jeep`, `prop_vehicle_prisoner_pod`, etc.) — they don't run `SetupDataTables` the way a Lua SENT does, so DTVars aren't an option for vehicle state. See tier 4.\n2. **`cityrp.network`.** `cityrp.network.Register(...)` (`core/libraries/sh_network.lua`, see [networking.md](networking.md)). Covers anything tier 1 doesn't: non-player entity state (doors, vehicles, signs), Global-scope values, LocalPlayer-private state, or any value that needs recipient filtering (`:Filter()`, `:SendPVS()`/`:SendPAS()`), a change hook, or pull-on-visible resync. **Not yet mandatory** — see *Migration status* below before reaching for this tier over tier 3. See [networking.md](networking.md) for the full builder-chain reference.\n3. **Legacy networking.** For events/actions, use `net.*` directly. For player state that isn't a natural entity property:\n   - `ply:SetNSVar(name, value)` / `ply:GetNSVar(name, default)` — for state every client needs to know about that player (broadcast to all clients via `net.Broadcast()`).\n   - `cityrp.player.setLocalPlayerVariable(ply, CLASS_TYPE, \"_Name\", value)` — for state only the owning client needs (sent privately via `net.Send(ply)`).\n   - Both require the variable name to be pre-registered (see `networking/sh_init.lua`) — setting an unregistered name fails **silently**, with only a `print()` to console, not an error. Register the name first.\n   - **Both are Player-metatable-only** (`FindMetaTable(\"Player\")`) — they don't generalize to vehicles or other non-player entities. For non-player entity state, `net.*` directly is the current option (tier 2 isn't mandatory yet — see below).\n   - Not deprecated: this tier works, is still reasonably efficient, and is the correct default today. It just sits below `cityrp.network` once that tier becomes mandatory.\n4. **Avoided: low-tier networking.** `SetNWInt`/`SetNW2Int`/etc. (NW/NW2 vars). Avoid for player data — don't use it in new or refactored code, see [problems/03](../problems/03-deprecated-network-vars.md) and [improvements/01](../improvements/01-deprecated-networked-variables.md). **Exception**: vehicles currently use this tier for real (`sv_vehicle.lua`'s `locked`/`engine_on`/`HP` state) precisely because neither tier 1 (DTVars — engine entity, no `SetupDataTables`) nor tier 3 (NSVar/LocalPlayerVar — Player-only) apply to them, and they haven't been migrated to tier 2 yet. Until that migration lands, this is the practically justified option for vehicles, not just legacy inertia.\n5. **Banned.** `umsg.*` (pre-`net` legacy usermessage library — no structure or size guarantees `net` provides), `SendLua()`, `BroadcastLua()` (execute arbitrary Lua source on the client — a code-injection vector if the string is ever built from anything less than a fully trusted, static literal, and pure legacy debt even when it isn't). Never use these.\n\n### Migration status\n\n`cityrp.network` is live and call sites have started moving onto it — `cityrp_Job` and `_Food` (`core/libraries/sh_network_vars.lua`), the vehicles plugin (`core/plugins/vehicles/sh_network_vars.lua`), and the player limits registered by `cityrp.limits` — but it is **not yet mandatory** for new or refactored code. `SetNSVar`/`GetNSVar`, `cityrp.player.setLocalPlayerVariable`/`Player:SetLPlyVar`, and `SetNW*` for vehicles all remain correct APIs until a separate, later change flips this note and starts requiring `cityrp.network` for the call sites described in tier 2.\n\nMove a call site as a deliberate change, with its legacy registration removed from `networking/sh_init.lua` in the same commit — not opportunistically off this note alone. See [networking.md](networking.md) and [issue #3207](https://github.com/limelight-development/cityrp2/issues/3207) for the full migration plan.\n"
     },
     {
       "id": "networking",
@@ -145285,7 +146026,7 @@
       "title": "UI Scaling",
       "path": "ui-scaling.md",
       "meta": {},
-      "body": "# UI Scaling\n\nThe `cityrp.ui` library (`gamemode/core/libraries/cl_ui.lua`) is the mandatory way to scale client UI — Derma panels, entity menus, HUD overlays, and any other screen-space layout or drawing. It combines automatic resolution scaling (1920×1080 reference) with the player's `cl_llhud_scale` preference and keeps every consumer in sync when either input changes.\n\n## When to use it\n\nUse `cityrp.ui` for **any** client-side UI dimension that should track screen size or the player's scale setting:\n\n- Panel sizes, margins, padding, and positions\n- Font sizes\n- Icon and button dimensions\n- `draw.*` coordinates in custom `Paint` functions\n\nDo **not** roll your own scale factor. Ad-hoc `ScrW() / 1920` math, calling `LimelightHUD.GetScaleFactor()` directly, or hardcoded pixel values that never rebuild on scale change are legacy patterns — they drift from the HUD, ignore `cl_llhud_scale`, and break when resolution changes mid-session.\n\n**Enforcement:** new or modified lines that introduce `ScrW() / 1920`, `ScrH() / 1080`, or\n`LimelightHUD.GetScaleFactor()` fail `standards-diff.py` in CI (legacy `core/derma/cl_hud_*.lua`\npanels are grandfathered until migrated). See [Coding Standards](coding-standards.md).\n\n## Core API\n\n| Function | Purpose |\n| :--- | :--- |\n| `cityrp.ui.Scale(value)` | Scale a single pixel measurement to the nearest whole pixel. Use for widths, heights, margins, positions, and any other screen-space dimension. |\n| `cityrp.ui.GetScaleFactor()` | Return the raw, unrounded scale multiplier. Use only when you need the factor itself (e.g. proportional math before a single final round), not for individual pixel measurements — prefer `Scale()` for those. |\n| `cityrp.ui.CreateScaledFont(name, baseFont, baseSize[, weight])` | Create a font at the current scale. `baseSize` is the size at 1920×1080. |\n| `cityrp.ui.OnScaleChanged(id, callback)` | Register a debounced callback that fires when `cl_llhud_scale` or screen resolution changes. Use to rebuild fonts and relayout panels. |\n| `cityrp.ui.Shade(colour, amount)` | Lighten or darken a colour for hover/pressed states. Cache the result at style time, not inside `Paint`. |\n| `cityrp.ui.ScaleCheckBox(checkbox, font)` | Apply a scaled font to a `DCheckBoxLabel` and grow its tick box to match. |\n| `cityrp.ui.AddTitleBarCloseButton(frame, titleBarHeight, onClose)` | Add the shared text-only close button used on CityRP menu title bars. |\n\n## Standard patterns\n\n### Scale dimensions\n\n```lua\nlocal pad = cityrp.ui.Scale(10)\nframe:SetSize(cityrp.ui.Scale(400), cityrp.ui.Scale(300))\nbutton:DockMargin(pad, pad, pad, pad)\n```\n\n### Scaled fonts\n\nBuild fonts once at load and rebuild them when the scale changes:\n\n```lua\nlocal function createMyMenuFonts()\n\tcityrp.ui.CreateScaledFont(\"MyMenuTitle\", \"Roboto\", 17, 500)\n\tcityrp.ui.CreateScaledFont(\"MyMenuBody\", \"Roboto\", 13, 400)\nend\n\ncreateMyMenuFonts()\ncityrp.ui.OnScaleChanged(\"mymenu\", createMyMenuFonts)\n```\n\n### Relayout on scale change\n\nIf a panel's geometry depends on scaled values, rebuild or relayout inside the `OnScaleChanged` callback — not only the fonts. Menus that watched only `cl_llhud_scale` but not resolution kept the sizes they were built with when the screen size changed underneath them; `OnScaleChanged` watches both.\n\n## What not to do\n\n| ❌ Forbidden | ✅ Use instead |\n| :--- | :--- |\n| `ScrW() / 1920` (or similar resolution ratios) | `cityrp.ui.Scale()` / `cityrp.ui.GetScaleFactor()` |\n| `LimelightHUD.GetScaleFactor()` in new code | `cityrp.ui.GetScaleFactor()` |\n| `surface.CreateFont` with a fixed `size` for UI text | `cityrp.ui.CreateScaledFont` |\n| Hardcoded pixel sizes with no scale rebuild | `cityrp.ui.Scale()` + `cityrp.ui.OnScaleChanged` |\n| `cvars.AddChangeCallback(\"cl_llhud_scale\", ...)` alone | `cityrp.ui.OnScaleChanged` (also watches resolution) |\n\nExisting HUD derma under `gamemode/core/derma/cl_hud_*.lua` still calls `LimelightHUD.GetScaleFactor()` directly — that predates `cityrp.ui`. New or refactored UI code must go through the library.\n"
+      "body": "# UI Scaling\n\nThe `cityrp.ui` library (`gamemode/core/libraries/cl_ui.lua`) is the mandatory way to scale client UI — Derma panels, entity menus, HUD overlays, and any other screen-space layout or drawing. It combines automatic resolution scaling (1920×1080 reference) with the player's `cl_llhud_scale` preference and keeps every consumer in sync when either input changes.\n\n## When to use it\n\nUse `cityrp.ui` for **any** client-side UI dimension that should track screen size or the player's scale setting:\n\n- Panel sizes, margins, padding, and positions\n- Font sizes\n- Icon and button dimensions\n- `draw.*` coordinates in custom `Paint` functions\n\nDo **not** roll your own scale factor. Ad-hoc `ScrW() / 1920` math, calling `LimelightHUD.GetScaleFactor()` directly, or hardcoded pixel values that never rebuild on scale change are legacy patterns — they drift from the HUD, ignore `cl_llhud_scale`, and break when resolution changes mid-session.\n\n**Enforcement:** new or modified lines that introduce `ScrW() / 1920`, `ScrH() / 1080`, or\n`LimelightHUD.GetScaleFactor()` fail `standards-diff.py` in CI (legacy `core/derma/cl_hud_*.lua`\npanels are grandfathered until migrated). See [Coding Standards](coding-standards.md).\n\n## Core API\n\n| Function | Purpose |\n| :--- | :--- |\n| `cityrp.ui.Scale(value)` | Scale a single pixel measurement to the nearest whole pixel. Use for widths, heights, margins, positions, and any other screen-space dimension. |\n| `cityrp.ui.GetScaleFactor()` | Return the raw, unrounded scale multiplier. Use only when you need the factor itself (e.g. proportional math before a single final round), not for individual pixel measurements — prefer `Scale()` for those. |\n| `cityrp.ui.CreateScaledFont(name, baseFont, baseSize[, weight])` | Create a font at the current scale. `baseSize` is the size at 1920×1080. |\n| `cityrp.ui.OnScaleChanged(id, callback)` | Register a callback that runs immediately, then again (debounced) whenever `cl_llhud_scale` or screen resolution changes. Use to build and rebuild fonts and relayout panels. The callback must be safe to run at registration time. |\n| `cityrp.ui.Shade(colour, amount)` | Lighten or darken a colour for hover/pressed states. Cache the result at style time, not inside `Paint`. |\n| `cityrp.ui.ScaleCheckBox(checkbox, font)` | Apply a scaled font to a `DCheckBoxLabel` and grow its tick box to match. |\n| `cityrp.ui.AddTitleBarCloseButton(frame, titleBarHeight, onClose)` | Add the shared text-only close button used on CityRP menu title bars. |\n\n## Standard patterns\n\n### Scale dimensions\n\n```lua\nlocal pad = cityrp.ui.Scale(10)\nframe:SetSize(cityrp.ui.Scale(400), cityrp.ui.Scale(300))\nbutton:DockMargin(pad, pad, pad, pad)\n```\n\n### Scaled fonts\n\n`OnScaleChanged` runs the callback once at registration, so a single registration both builds the fonts and keeps them in sync — there is no separate load-time call:\n\n```lua\ncityrp.ui.OnScaleChanged(\"mymenu\", function()\n\tcityrp.ui.CreateScaledFont(\"MyMenuTitle\", \"Roboto\", 17, 500)\n\tcityrp.ui.CreateScaledFont(\"MyMenuBody\", \"Roboto\", 13, 400)\nend)\n```\n\nThat first call is synchronous, so the fonts exist by the line after the registration.\n\n### Relayout on scale change\n\nIf a panel's geometry depends on scaled values, rebuild or relayout inside the `OnScaleChanged` callback — not only the fonts. Menus that watched only `cl_llhud_scale` but not resolution kept the sizes they were built with when the screen size changed underneath them; `OnScaleChanged` watches both.\n\nBecause the callback also runs at registration, a relayout handler must guard its own preconditions rather than assume the thing it relayouts already exists:\n\n```lua\ncityrp.ui.OnScaleChanged(\"mymenu.layout\", function()\n\tif not IsValid(panel) then return end\n\tpanel:SetPos(cityrp.ui.Scale(16), cityrp.ui.Scale(16))\nend)\n```\n\n## What not to do\n\n| ❌ Forbidden | ✅ Use instead |\n| :--- | :--- |\n| `ScrW() / 1920` (or similar resolution ratios) | `cityrp.ui.Scale()` / `cityrp.ui.GetScaleFactor()` |\n| `LimelightHUD.GetScaleFactor()` in new code | `cityrp.ui.GetScaleFactor()` |\n| `surface.CreateFont` with a fixed `size` for UI text | `cityrp.ui.CreateScaledFont` |\n| Hardcoded pixel sizes with no scale rebuild | `cityrp.ui.Scale()` + `cityrp.ui.OnScaleChanged` |\n| `cvars.AddChangeCallback(\"cl_llhud_scale\", ...)` alone | `cityrp.ui.OnScaleChanged` (also watches resolution) |\n\nExisting HUD derma under `gamemode/core/derma/cl_hud_*.lua` still calls `LimelightHUD.GetScaleFactor()` directly — that predates `cityrp.ui`. New or refactored UI code must go through the library.\n"
     },
     {
       "id": "update-checklist",

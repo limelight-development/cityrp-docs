@@ -112,7 +112,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">248</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">251</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
@@ -297,12 +297,15 @@
 <li><a href="../modules/core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared.html">core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared</a></li>
 <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
 <li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.perma_ents_devtool.cl_init.html">core.plugins.perma_ents_devtool.cl_init</a></li>
+<li><a href="../modules/core.plugins.perma_ents_devtool.sh_init.html">core.plugins.perma_ents_devtool.sh_init</a></li>
 <li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
 <li><a href="../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
 <li><a href="../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
 <li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../modules/core.plugins.property_tool.cl_init.html">core.plugins.property_tool.cl_init</a></li>
 <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
 <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
 <li><a href="../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
@@ -374,7 +377,7 @@ This library ensures consistent UI sizing across different screen resolutions
 and respects user-defined HUD scale preferences (cl_llhud_scale ConVar).</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.ui.AddTitleBarCloseButton"></a><span class="ll-realm state-client" title="Client">Client</span><strong class="ll-symbol">cityrp.ui.AddTitleBarCloseButton<span class="ll-args">(frame, titleBarHeight, onClose)</span><span class="ll-returns"> → <a href="https://wiki.facepunch.com/gmod/Panel">Panel</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_ui.lua#L188">Source ☍</a></dt>
+<dt><a name="cityrp.ui.AddTitleBarCloseButton"></a><span class="ll-realm state-client" title="Client">Client</span><strong class="ll-symbol">cityrp.ui.AddTitleBarCloseButton<span class="ll-args">(frame, titleBarHeight, onClose)</span><span class="ll-returns"> → <a href="https://wiki.facepunch.com/gmod/Panel">Panel</a></span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_ui.lua#L177">Source ☍</a></dt>
 <dd>
 <p>Adds a text-only close button to a frame title bar, matching the cooking stove UI.
 The stock DFrame close control is hidden by the <a href="cityrp.ui.html">cityrp.ui</a> chrome; this draws
@@ -433,28 +436,19 @@ The scale factor is calculated as: (baseScale * autoScale), where:</p>
 </ol>
 
 </dd>
-<dt><a name="cityrp.ui.OnScaleChanged"></a><span class="ll-realm state-client" title="Client">Client</span><strong class="ll-symbol">cityrp.ui.OnScaleChanged<span class="ll-args">(id, callback)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_ui.lua#L127">Source ☍</a></dt>
+<dt><a name="cityrp.ui.OnScaleChanged"></a><span class="ll-realm state-client" title="Client">Client</span><strong class="ll-symbol">cityrp.ui.OnScaleChanged<span class="ll-args">(id, callback)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_ui.lua#L115">Source ☍</a></dt>
 <dd>
-<p>Runs <code>callback</code> whenever the UI scale changes.</p>
-<p>The entire UI, not just the HUD. cl_llhud_scale is named for the HUD because
-that is where it started, but it is the user-scale input to GetScaleFactor,
-which every consumer of this library reads -- menus, entity panels and the
-HUD alike. Both of that function's inputs can move while the player is in
-game, so both are watched here: the ConVar, and the screen resolution behind
-the automatic component. Menus that watched only the ConVar kept the font
-sizes they were built with when the resolution changed under them.</p>
-<p>Debounced, because dragging the HUD scale slider fires the ConVar callback
-every tick, and a resolution change can fire alongside one.</p>
-<pre><code class="language-lua">cityrp.ui.OnScaleChanged(&quot;door&quot;, createDoorMenuFonts)
-</code></pre>
+<p>Runs <code>callback</code> now, and again (debounced) whenever the UI scale changes.
+The first call is synchronous, so fonts registered here exist on the next
+line -- in exchange, the callback must be safe to run at registration time.</p>
 
 <p class="ll-arg-label">Parameters</p>
 <ul class="ll-args-list">
 <li><span class="parameter">id</span><span class="types">string</span><span class="ll-arg-desc">Unique identifier, used to name the callback, hook and timer.</span></li>
-<li><span class="parameter">callback</span><span class="types">function</span><span class="ll-arg-desc">Called once the scale has settled.</span></li>
+<li><span class="parameter">callback</span><span class="types">function</span><span class="ll-arg-desc">Called now, and again once a later scale change has settled.</span></li>
 </ul>
 
-
+<p class="ll-arg-label">Example</p><pre class="ll-example"><code>cityrp.ui.OnScaleChanged(&quot;door&quot;, createDoorMenuFonts)</code></pre>
 </dd>
 <dt><a name="cityrp.ui.Scale"></a><span class="ll-realm state-client" title="Client">Client</span><strong class="ll-symbol">cityrp.ui.Scale<span class="ll-args">(value)</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_ui.lua#L58">Source ☍</a></dt>
 <dd>
@@ -482,7 +476,7 @@ local scaledMargin = cityrp.ui.Scale(8) -- Scales margin consistently with scree
 </ol>
 
 </dd>
-<dt><a name="cityrp.ui.ScaleCheckBox"></a><span class="ll-realm state-client" title="Client">Client</span><strong class="ll-symbol">cityrp.ui.ScaleCheckBox<span class="ll-args">(checkbox, font)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_ui.lua#L151">Source ☍</a></dt>
+<dt><a name="cityrp.ui.ScaleCheckBox"></a><span class="ll-realm state-client" title="Client">Client</span><strong class="ll-symbol">cityrp.ui.ScaleCheckBox<span class="ll-args">(checkbox, font)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/cl_ui.lua#L145">Source ☍</a></dt>
 <dd>
 <p>Applies a scaled font to a DCheckBoxLabel and grows its tick box to match.
 DCheckBoxLabel lays the box out at a fixed size, so setting a scaled font on

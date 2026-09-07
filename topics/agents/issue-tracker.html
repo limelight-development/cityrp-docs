@@ -126,7 +126,7 @@
 <li><a href="../../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">248</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">251</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../../modules/Array.html">Array</a></li>
@@ -311,12 +311,15 @@
 <li><a href="../../modules/core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared.html">core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared</a></li>
 <li><a href="../../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
 <li><a href="../../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../../modules/core.plugins.perma_ents_devtool.cl_init.html">core.plugins.perma_ents_devtool.cl_init</a></li>
+<li><a href="../../modules/core.plugins.perma_ents_devtool.sh_init.html">core.plugins.perma_ents_devtool.sh_init</a></li>
 <li><a href="../../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
 <li><a href="../../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
 <li><a href="../../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
 <li><a href="../../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
 <li><a href="../../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
 <li><a href="../../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../../modules/core.plugins.property_tool.cl_init.html">core.plugins.property_tool.cl_init</a></li>
 <li><a href="../../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
 <li><a href="../../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
 <li><a href="../../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
@@ -392,6 +395,8 @@ value-format asymmetry that makes a field read impossible to round-trip into a w
 before setting any field. Getting this wrong is footgun <a href="https://github.com/limelight-development/cityrp2/issues/20">#20</a> in <a href="https://github.com/limelight-development/cityrp2/blob/master/AGENTS.md">AGENTS.md</a>.</p>
 <h2 id="conventions">Conventions</h2>
 <ul>
+<li><strong>Start work on an issue</strong>: <code>gh issue edit &lt;n&gt; --add-assignee @me</code>, before the first edit. An
+open, unassigned issue reads as unclaimed, and a second agent picks up the same work.</li>
 <li><strong>Create an issue</strong>: <code>gh issue create --type &lt;Type&gt; --title &quot;...&quot; --body-file body.md</code>. Always
 pass <code>--type</code>; an issue created from <code>gh</code> without it arrives untyped, and <code>Task</code> is not a safe
 default for a bug.</li>
@@ -512,8 +517,7 @@ for issue-to-issue blocking. A ticket is unblocked when every blocker is closed.
 <code>gh issue view &lt;map&gt; --json subIssues</code>, then per child
 <code>gh issue view &lt;n&gt; --json state,assignees,blockedBy</code>. The frontier is the open, unassigned
 children with no open blocker; first in map order wins.</li>
-<li><strong>Claim</strong>: <code>gh issue edit &lt;n&gt; --add-assignee @me</code>, the session's first write. An open,
-unassigned ticket is unclaimed.</li>
+<li><strong>Claim</strong>: assign yourself, the session's first write. An open, unassigned ticket is unclaimed.</li>
 <li><strong>Resolve</strong>: comment the answer, <code>gh issue close &lt;n&gt; --reason completed</code>, then append a context
 pointer to the map's Decisions-so-far.</li>
 <li><strong>Rule out of scope</strong>: <code>gh issue close &lt;n&gt; --reason &quot;not planned&quot;</code>, then one line in the map's

@@ -109,7 +109,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">248</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">251</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
@@ -294,12 +294,15 @@
 <li><a href="../modules/core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared.html">core.plugins.mining.weapons.cityrp_hardwood_pickaxe.shared</a></li>
 <li><a href="../modules/core.plugins.passivemode.sv_init.html">core.plugins.passivemode.sv_init</a></li>
 <li><a href="../modules/core.plugins.perma_ents.sv_init.html">core.plugins.perma_ents.sv_init</a></li>
+<li><a href="../modules/core.plugins.perma_ents_devtool.cl_init.html">core.plugins.perma_ents_devtool.cl_init</a></li>
+<li><a href="../modules/core.plugins.perma_ents_devtool.sh_init.html">core.plugins.perma_ents_devtool.sh_init</a></li>
 <li><a href="../modules/core.plugins.phonebook.sh_init.html">core.plugins.phonebook.sh_init</a></li>
 <li><a href="../modules/core.plugins.player_settings.cl_panel.html">core.plugins.player_settings.cl_panel</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_functions.html">core.plugins.policedb.cl_functions</a></li>
 <li><a href="../modules/core.plugins.policedb.cl_init.html">core.plugins.policedb.cl_init</a></li>
 <li><a href="../modules/core.plugins.policedb.entities.cityrp_policelaptop.cl_init.html">core.plugins.policedb.entities.cityrp_policelaptop.cl_init</a></li>
 <li><a href="../modules/core.plugins.policedb.sv_init.html">core.plugins.policedb.sv_init</a></li>
+<li><a href="../modules/core.plugins.property_tool.cl_init.html">core.plugins.property_tool.cl_init</a></li>
 <li><a href="../modules/core.plugins.propsave.sv_init.html">core.plugins.propsave.sv_init</a></li>
 <li><a href="../modules/core.plugins.queue.sv_init.html">core.plugins.queue.sv_init</a></li>
 <li><a href="../modules/core.plugins.referrals.cl_session.html">core.plugins.referrals.cl_session</a></li>
@@ -451,8 +454,8 @@
 <tr>
 <td align="left"><strong>UI Scaling</strong> (Derma panels, entity menus, HUD overlays, custom <code>Paint</code>)</td>
 <td align="left"><code>cityrp.ui.Scale()</code>, <code>cityrp.ui.GetScaleFactor()</code>, <code>cityrp.ui.CreateScaledFont()</code>, <code>cityrp.ui.OnScaleChanged()</code></td>
-<td align="left">Ad-hoc <code>ScrW() / 1920</code> scaling; calling <code>LimelightHUD.GetScaleFactor()</code> directly; fixed <code>surface.CreateFont</code> sizes; hardcoded pixel dimensions that never rebuild on scale change</td>
-<td align="left">One resolution- and preference-aware scale for all UI; fonts and layout stay in sync when <code>cl_llhud_scale</code> or screen size changes. See <a href="ui-scaling.html">ui-scaling.md</a> and <a href="https://github.com/limelight-development/cityrp2/blob/master/AGENTS.md">AGENTS.md</a> footgun <a href="https://github.com/limelight-development/cityrp2/issues/15">#15</a>.</td>
+<td align="left">Ad-hoc <code>ScrW() / 1920</code> scaling; calling <code>LimelightHUD.GetScaleFactor()</code> directly; fixed <code>surface.CreateFont</code> sizes; hardcoded pixel dimensions that never rebuild on scale change; calling your builder yourself as well as registering it</td>
+<td align="left">One resolution- and preference-aware scale for all UI; fonts and layout stay in sync when <code>cl_llhud_scale</code> or screen size changes. <code>OnScaleChanged</code> runs the callback once at registration, so one registration builds and rebuilds — the callback must be safe to run at registration time. See <a href="ui-scaling.html">ui-scaling.md</a> and <a href="https://github.com/limelight-development/cityrp2/blob/master/AGENTS.md">AGENTS.md</a> footgun <a href="https://github.com/limelight-development/cityrp2/issues/15">#15</a>.</td>
 </tr>
 </tbody>
 </table>
