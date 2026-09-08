@@ -114,7 +114,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">251</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">252</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
@@ -128,6 +128,7 @@
 <li><a href="../modules/PLUGIN.VoiceVolume.html">PLUGIN.VoiceVolume</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../modules/Weapon.RubberMP5.html">Weapon.RubberMP5</a></li>
 <li><strong>bwep</strong></li>
 <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 <li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
@@ -376,7 +377,7 @@
 <div class="ll-module-body"><p>Holstered weapon display (back, front, and optional hip pistols).</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="bwep.emptySlots"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.emptySlots<span class="ll-args">()</span><span class="ll-returns"> → table&lt;integer, boolean|string&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L98">Source ☍</a></dt>
+<dt><a name="bwep.emptySlots"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.emptySlots<span class="ll-args">()</span><span class="ll-returns"> → table&lt;integer, boolean|string&gt;</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L100">Source ☍</a></dt>
 <dd>
 <p>Returns a dense slot table filled with <code>false</code>.</p>
 
@@ -387,7 +388,7 @@
 </ol>
 
 </dd>
-<dt><a name="bwep.getSlotKind"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.getSlotKind<span class="ll-args">(slot)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L123">Source ☍</a></dt>
+<dt><a name="bwep.getSlotKind"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.getSlotKind<span class="ll-args">(slot)</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L125">Source ☍</a></dt>
 <dd>
 <p>Returns the kind of a 1-based holster slot.</p>
 
@@ -401,7 +402,7 @@
 </ol>
 
 </dd>
-<dt><a name="bwep.isLongClass"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.isLongClass<span class="ll-args">(class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L116">Source ☍</a></dt>
+<dt><a name="bwep.isLongClass"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.isLongClass<span class="ll-args">(class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L118">Source ☍</a></dt>
 <dd>
 <p>Returns whether this class is a long gun for back/front slots.</p>
 
@@ -415,7 +416,7 @@
 </ol>
 
 </dd>
-<dt><a name="bwep.isPistolClass"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.isPistolClass<span class="ll-args">(class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L109">Source ☍</a></dt>
+<dt><a name="bwep.isPistolClass"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.isPistolClass<span class="ll-args">(class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L111">Source ☍</a></dt>
 <dd>
 <p>Returns whether this class is a holster pistol.</p>
 
@@ -429,7 +430,7 @@
 </ol>
 
 </dd>
-<dt><a name="bwep.slotAccepts"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.slotAccepts<span class="ll-args">(slot, class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L132">Source ☍</a></dt>
+<dt><a name="bwep.slotAccepts"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.slotAccepts<span class="ll-args">(slot, class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L134">Source ☍</a></dt>
 <dd>
 <p>Returns whether a weapon class may occupy the given slot.</p>
 
@@ -444,7 +445,7 @@
 </ol>
 
 </dd>
-<dt><a name="bwep.slotVisible"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.slotVisible<span class="ll-args">(slot, showPistol)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L148">Source ☍</a></dt>
+<dt><a name="bwep.slotVisible"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.slotVisible<span class="ll-args">(slot, showPistol)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L150">Source ☍</a></dt>
 <dd>
 <p>Returns whether a slot should appear in /weppos for the current pistol toggle.
 Hip slots are hidden until the player ticks &quot;Show a pistol on my hip&quot;.</p>
@@ -463,7 +464,7 @@ Hip slots are hidden until the player ticks &quot;Show a pistol on my hip&quot;.
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="bwep.classByIndex"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.classByIndex</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L56">Source ☍</a></dt>
+<dt><a name="bwep.classByIndex"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.classByIndex</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L58">Source ☍</a></dt>
 <dd>
 <p>Reverse lookup for net payloads: compact index -&gt; class name.</p>
 
@@ -471,30 +472,31 @@ Hip slots are hidden until the player ticks &quot;Show a pistol on my hip&quot;.
 
 
 </dd>
-<dt><a name="bwep.classes"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.classes</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L17">Source ☍</a></dt>
+<dt><a name="bwep.classes"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.classes</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L18">Source ☍</a></dt>
 <dd>
 <p>Displayable weapon class -&gt; compact net index.
-Long guns occupy 1-19; holster pistols start at 20.</p>
+Long guns occupy 1-19 and 26 up; holster pistols 20-25. The grouping is only a convention for
+reading this table -- <code><a href="bwep.html#bwep.pistolClasses">bwep.pistolClasses</a></code> below is what decides which slots a class may use.</p>
 
 
 
 
 </dd>
-<dt><a name="bwep.modelAttachments"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.modelAttachments</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L244">Source ☍</a></dt>
+<dt><a name="bwep.modelAttachments"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.modelAttachments</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L246">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="bwep.modelOffsets"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.modelOffsets</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L251">Source ☍</a></dt>
+<dt><a name="bwep.modelOffsets"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.modelOffsets</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L253">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="bwep.offsets"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.offsets</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L184">Source ☍</a></dt>
+<dt><a name="bwep.offsets"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.offsets</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L186">Source ☍</a></dt>
 <dd>
 <p>Slots 1-5 are local to the chest attachment and 6-7 to the pelvis, but both
 frames are player aligned: -X is behind the body, +Y is the player's left, -Z
@@ -513,7 +515,7 @@ leads the way a belt holster does.</p>
 
 
 </dd>
-<dt><a name="bwep.pistolClasses"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.pistolClasses</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L46">Source ☍</a></dt>
+<dt><a name="bwep.pistolClasses"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.pistolClasses</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L48">Source ☍</a></dt>
 <dd>
 <p>Pistol classes that may occupy hip holster slots.</p>
 
@@ -521,21 +523,21 @@ leads the way a belt holster does.</p>
 
 
 </dd>
-<dt><a name="bwep.pistolTypes"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.pistolTypes</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L239">Source ☍</a></dt>
+<dt><a name="bwep.pistolTypes"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.pistolTypes</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L241">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="bwep.rifleTypes"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.rifleTypes</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L232">Source ☍</a></dt>
+<dt><a name="bwep.rifleTypes"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.rifleTypes</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L234">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="bwep.slotIndexByID"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.slotIndexByID</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L88">Source ☍</a></dt>
+<dt><a name="bwep.slotIndexByID"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.slotIndexByID</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L90">Source ☍</a></dt>
 <dd>
 <p>Slot id -&gt; index, so a slot can be named without depending on where it sits
 in the table or on the label players read.</p>
@@ -544,7 +546,7 @@ in the table or on the label players read.</p>
 
 
 </dd>
-<dt><a name="bwep.slots"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.slots</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L73">Source ☍</a></dt>
+<dt><a name="bwep.slots"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.slots</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L75">Source ☍</a></dt>
 <dd>
 <p>Ordered holster slots. The array index is the slot id sent over the net.
 <code>id</code> is what code refers to a slot by; <code>name</code> is only ever shown to players.</p>
@@ -563,7 +565,7 @@ in the table or on the label players read.</p>
 
 
 </dd>
-<dt><a name="bwep.CLASS_BITS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.CLASS_BITS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L68">Source ☍</a></dt>
+<dt><a name="bwep.CLASS_BITS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.CLASS_BITS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L70">Source ☍</a></dt>
 <dd>
 <p>Bits used when writing a class index over the net. -1 means the slot is empty.</p>
 
@@ -571,14 +573,14 @@ in the table or on the label players read.</p>
 
 
 </dd>
-<dt><a name="bwep.crouchingOffset"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.crouchingOffset</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L230">Source ☍</a></dt>
+<dt><a name="bwep.crouchingOffset"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.crouchingOffset</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L232">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="bwep.HIP_BONE"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.HIP_BONE</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L165">Source ☍</a></dt>
+<dt><a name="bwep.HIP_BONE"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.HIP_BONE</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L167">Source ☍</a></dt>
 <dd>
 <p>Bone the hip slots hang from. The chest attachment sits at the top of the
 spine, so a hip measured down from it is out by however long the torso of the
@@ -590,7 +592,7 @@ model and travels with the legs, which is what a belt holster does.</p>
 
 
 </dd>
-<dt><a name="bwep.HIP_FALLBACK"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.HIP_FALLBACK</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L168">Source ☍</a></dt>
+<dt><a name="bwep.HIP_FALLBACK"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.HIP_FALLBACK</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L170">Source ☍</a></dt>
 <dd>
 <p>Chest-local drop to the hips, for a model with no pelvis bone to hang from.</p>
 
@@ -598,21 +600,21 @@ model and travels with the legs, which is what a belt holster does.</p>
 
 
 </dd>
-<dt><a name="bwep.HIP_LEFT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.HIP_LEFT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L94">Source ☍</a></dt>
+<dt><a name="bwep.HIP_LEFT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.HIP_LEFT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L96">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="bwep.HIP_RIGHT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.HIP_RIGHT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L93">Source ☍</a></dt>
+<dt><a name="bwep.HIP_RIGHT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.HIP_RIGHT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L95">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="bwep.POS_BITS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.POS_BITS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L65">Source ☍</a></dt>
+<dt><a name="bwep.POS_BITS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.POS_BITS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L67">Source ☍</a></dt>
 <dd>
 <p>Bits used when writing a slot index over the net.</p>
 
@@ -620,21 +622,21 @@ model and travels with the legs, which is what a belt holster does.</p>
 
 
 </dd>
-<dt><a name="bwep.SLOT_COUNT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.SLOT_COUNT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L83">Source ☍</a></dt>
+<dt><a name="bwep.SLOT_COUNT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.SLOT_COUNT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L85">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="bwep.SLOT_KIND_LONG"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.SLOT_KIND_LONG</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L61">Source ☍</a></dt>
+<dt><a name="bwep.SLOT_KIND_LONG"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.SLOT_KIND_LONG</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L63">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="bwep.SLOT_KIND_PISTOL"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.SLOT_KIND_PISTOL</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L62">Source ☍</a></dt>
+<dt><a name="bwep.SLOT_KIND_PISTOL"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">bwep.SLOT_KIND_PISTOL</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/weapons_on_back/sh_init.lua#L64">Source ☍</a></dt>
 <dd>
 
 

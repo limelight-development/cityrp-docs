@@ -112,7 +112,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">251</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">252</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
@@ -126,6 +126,7 @@
 <li><a href="../modules/PLUGIN.VoiceVolume.html">PLUGIN.VoiceVolume</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../modules/Weapon.RubberMP5.html">Weapon.RubberMP5</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
 <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 <li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
@@ -377,7 +378,7 @@ rarely enough (open editor, save, activate) that every read/write goes
 straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.litecharacter.BeginActivation"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.BeginActivation<span class="ll-args">(ply, slot)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L787">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.BeginActivation"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.BeginActivation<span class="ll-args">(ply, slot)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L786">Source ☍</a></dt>
 <dd>
 <p>Begins the stand-still activation channel for a slot.</p>
 
@@ -389,7 +390,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 
 
 </dd>
-<dt><a name="cityrp.litecharacter.CancelActivation"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.CancelActivation<span class="ll-args">(ply, reason)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L516">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.CancelActivation"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.CancelActivation<span class="ll-args">(ply, reason)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L515">Source ☍</a></dt>
 <dd>
 <p>Cancels a running activation channel, if any.</p>
 
@@ -401,7 +402,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 
 
 </dd>
-<dt><a name="cityrp.litecharacter.CompleteActivation"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.CompleteActivation<span class="ll-args">(ply, slot, record)</span><span class="ll-returns"> → boolean|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L667">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.CompleteActivation"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.CompleteActivation<span class="ll-args">(ply, slot, record)</span><span class="ll-returns"> → boolean|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L666">Source ☍</a></dt>
 <dd>
 <p>@<em>param</em> <code>record</code> — The already-fetched record for this activation.</p>
 
@@ -417,7 +418,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.DeleteSlot"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.DeleteSlot<span class="ll-args">(ply, slot, callback)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L483">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.DeleteSlot"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.DeleteSlot<span class="ll-args">(ply, slot, callback)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L482">Source ☍</a></dt>
 <dd>
 <p>Deletes a player's saved slot entirely. Distinct from saving a slot withevery field blank.</p>
 
@@ -430,7 +431,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 
 
 </dd>
-<dt><a name="cityrp.litecharacter.IsLockedOut"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.IsLockedOut<span class="ll-args">(ply)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L256">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.IsLockedOut"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.IsLockedOut<span class="ll-args">(ply)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L255">Source ☍</a></dt>
 <dd>
 
 <p class="ll-arg-label">Parameters</p>
@@ -443,7 +444,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.PushLockoutState"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.PushLockoutState<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L246">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.PushLockoutState"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.PushLockoutState<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L245">Source ☍</a></dt>
 <dd>
 <p>Pushes the player's current lockout countdown.</p>
 
@@ -454,7 +455,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 
 
 </dd>
-<dt><a name="cityrp.litecharacter.ResetLockout"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.ResetLockout<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L269">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.ResetLockout"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.ResetLockout<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L268">Source ☍</a></dt>
 <dd>
 <p>Clears the lockout early (death / team change). No-op if not currently locked out.</p>
 
@@ -465,7 +466,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 
 
 </dd>
-<dt><a name="cityrp.litecharacter.SaveSlot"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.SaveSlot<span class="ll-args">(ply, slot, data, callback)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L359">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.SaveSlot"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.SaveSlot<span class="ll-args">(ply, slot, data, callback)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L358">Source ☍</a></dt>
 <dd>
 <p>Validates and persists one slot from a client-submitted payload. Never trusts the client</p>
 
@@ -479,7 +480,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 
 
 </dd>
-<dt><a name="cityrp.litecharacter.SendSummary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.SendSummary<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L226">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.SendSummary"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.SendSummary<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L225">Source ☍</a></dt>
 <dd>
 <p>Pushes the per-slot populated/name summary the notches render from.</p>
 
@@ -490,7 +491,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 
 
 </dd>
-<dt><a name="cityrp.litecharacter.SetLockout"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.SetLockout<span class="ll-args">(ply, until_)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L262">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.SetLockout"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.SetLockout<span class="ll-args">(ply, until_)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L261">Source ☍</a></dt>
 <dd>
 <p>@<em>param</em> <code>until_</code> — CurTime() timestamp the lockout ends at (0 to clear).</p>
 
@@ -502,7 +503,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 
 
 </dd>
-<dt><a name="cityrp.litecharacter.ValidateActivation"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.ValidateActivation<span class="ll-args">(ply, record)</span><span class="ll-returns"> → boolean, string|nil, string|nil, string|nil, string|nil, boolean|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L544">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.ValidateActivation"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.ValidateActivation<span class="ll-args">(ply, record)</span><span class="ll-returns"> → boolean, string|nil, string|nil, string|nil, string|nil, boolean|nil</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L543">Source ☍</a></dt>
 <dd>
 <p>Re-validates every saved selection in a record against the player's current inventory/authorization</p>
 
@@ -522,7 +523,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.ValidateOwnedAccessory"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.ValidateOwnedAccessory<span class="ll-args">(ply, uniqueID, expectedType)</span><span class="ll-returns"> → boolean, string|table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L316">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.ValidateOwnedAccessory"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.ValidateOwnedAccessory<span class="ll-args">(ply, uniqueID, expectedType)</span><span class="ll-returns"> → boolean, string|table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L315">Source ☍</a></dt>
 <dd>
 <p>@<em>param</em> <code>expectedType</code> — CityAccessories .Type this dropdown slot is fixed to.</p>
 
@@ -539,7 +540,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.ValidateOwnedBodygroupAccessory"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.ValidateOwnedBodygroupAccessory<span class="ll-args">(ply, uniqueID, modelPath)</span><span class="ll-returns"> → boolean, string|table, boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L338">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.ValidateOwnedBodygroupAccessory"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.ValidateOwnedBodygroupAccessory<span class="ll-args">(ply, uniqueID, modelPath)</span><span class="ll-returns"> → boolean, string|table, boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L337">Source ☍</a></dt>
 <dd>
 <p>@<em>param</em> <code>modelPath</code> — The playermodel path this accessory must be compatible with.</p>
 <p>@<em>return</em> <code>ok</code></p>
@@ -560,7 +561,7 @@ straight to the DB instead of keeping a stale in-memory copy around.</p></div>
 </ol>
 
 </dd>
-<dt><a name="cityrp.litecharacter.ValidateOwnedItem"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.ValidateOwnedItem<span class="ll-args">(ply, uniqueID, requiredCategoryParent)</span><span class="ll-returns"> → boolean, string|table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L287">Source ☍</a></dt>
+<dt><a name="cityrp.litecharacter.ValidateOwnedItem"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.litecharacter.ValidateOwnedItem<span class="ll-args">(ply, uniqueID, requiredCategoryParent)</span><span class="ll-returns"> → boolean, string|table</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/lite_character/sv_init.lua#L286">Source ☍</a></dt>
 <dd>
 <p>Validates that a player owns a usable, non-excluded item of the given parent category.</p>
 

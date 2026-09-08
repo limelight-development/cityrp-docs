@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>cityrp.logs</title>
+	<title>Weapon.RubberMP5</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -25,8 +25,7 @@
 		<div id="navigation">
 <div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs… (/)" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
 <div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
-<li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
+<li><a href="#Classes">Classes</a></li>
 <li><a href="#Fields">Fields</a></li>
 </ul></div>
 <details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">54</span></summary>
@@ -128,7 +127,7 @@
 <li><a href="../modules/PLUGIN.VoiceVolume.html">PLUGIN.VoiceVolume</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
-<li><a href="../modules/Weapon.RubberMP5.html">Weapon.RubberMP5</a></li>
+<li><strong>Weapon.RubberMP5</strong></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
 <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 <li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
@@ -152,7 +151,7 @@
 <li><a href="../modules/cityrp.legacy.workarounds.html">cityrp.legacy.workarounds</a></li>
 <li><a href="../modules/cityrp.limits.html">cityrp.limits</a></li>
 <li><a href="../modules/cityrp.logging.html">cityrp.logging</a></li>
-<li><strong>cityrp.logs</strong></li>
+<li><a href="../modules/cityrp.logs.html">cityrp.logs</a></li>
 <li><a href="../modules/cityrp.makeleader.html">cityrp.makeleader</a></li>
 <li><a href="../modules/cityrp.membership.html">cityrp.membership</a></li>
 <li><a href="../modules/cityrp.model.html">cityrp.model</a></li>
@@ -373,68 +372,15 @@
 <div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>cityrp.logs</h1></div>
-<div class="ll-module-body"><p>Serverside logging utility.</p></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
+<div class="ll-module-header"><h1>Weapon.RubberMP5</h1></div>
+<div class="ll-module-body"><p>Less-lethal MP5 SWEP: a <code>cw_mp5</code> firing 9mm rubber baton rounds, which bruise and disorient
+rather than wound. Only what makes this gun less-lethal is set here; the rest is inherited.</p></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="Classes"></a>Classes</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.logs.add"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.logs.add<span class="ll-args">(player1, steamid1, player2, steamid2, logtype, value1, value2, value3, value4)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_logs.lua#L53">Source ☍</a></dt>
+<dt><a name="Weapon.RubberMP5"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">Weapon.RubberMP5</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/less_lethals/weapons/cityrp_rubbermp5/shared.lua#L7">Source ☍</a></dt>
 <dd>
-<p>Add a raw log to the file.</p>
-
-<p class="ll-arg-label">Parameters</p>
-<ul class="ll-args-list">
-<li><span class="parameter">player1</span><span class="types">(string|number)?</span><span class="ll-arg-desc">The first player's name.</span></li>
-<li><span class="parameter">steamid1</span><span class="types">(string|number)?</span><span class="ll-arg-desc">The first player's steamid.</span></li>
-<li><span class="parameter">player2</span><span class="types">(string|number)?</span><span class="ll-arg-desc">The second player's name.</span></li>
-<li><span class="parameter">steamid2</span><span class="types">(string|number)?</span><span class="ll-arg-desc">The second player's steamid.</span></li>
-<li><span class="parameter">logtype</span><span class="types">string?</span><span class="ll-arg-desc">The type of log to use.</span></li>
-<li><span class="parameter">value1</span><span class="types">(string|number)?</span><span class="ll-arg-desc">The first value to add.</span></li>
-<li><span class="parameter">value2</span><span class="types">(string|number)?</span><span class="ll-arg-desc">The second value to add.</span></li>
-<li><span class="parameter">value3</span><span class="types">(string|number)?</span><span class="ll-arg-desc">The third value to add.</span></li>
-<li><span class="parameter">value4</span><span class="types">(string|number)?</span><span class="ll-arg-desc">The fourth value to add.</span></li>
-</ul>
-
-
-</dd>
-<dt><a name="cityrp.logs.addPly"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.logs.addPly<span class="ll-args">(p1, p2, lType, v1, v2, v3, v4)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_logs.lua#L35">Source ☍</a></dt>
-<dd>
-<p>Add a player-based log to the file.</p>
-
-<p class="ll-arg-label">Parameters</p>
-<ul class="ll-args-list">
-<li><span class="parameter">p1</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The first player.</span></li>
-<li><span class="parameter">p2</span><span class="types"><a href="Player.html">Player</a></span><span class="ll-arg-desc">The second player.</span></li>
-<li><span class="parameter">lType</span><span class="types">string</span><span class="ll-arg-desc">The type of log to use.</span></li>
-<li><span class="parameter">v1</span><span class="types">any</span><span class="ll-arg-desc">The first value to add.</span></li>
-<li><span class="parameter">v2</span><span class="types">any</span><span class="ll-arg-desc">The second value to add.</span></li>
-<li><span class="parameter">v3</span><span class="types">any</span><span class="ll-arg-desc">The third value to add.</span></li>
-<li><span class="parameter">v4</span><span class="types">any</span><span class="ll-arg-desc">The fourth value to add.</span></li>
-</ul>
-
-
-</dd>
-<dt><a name="cityrp.logs.dump"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.logs.dump<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_logs.lua#L85">Source ☍</a></dt>
-<dd>
-<p>Dump logs to the SQL table.</p>
-
-
-
-
-</dd>
-</dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.logs"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.logs</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_logs.lua#L10">Source ☍</a></dt>
-<dd>
-<p>Main table for storing log functions.</p>
-
-
-
-
-</dd>
-<dt><a name="cityrp.logs.logs"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.logs.logs</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_logs.lua#L12">Source ☍</a></dt>
-<dd>
-<p>The stored logs which have yet to be dumped.</p>
+<p>Less-lethal MP5 SWEP: a <code>cw_mp5</code> firing 9mm rubber baton rounds, which bruise and disorient
+rather than wound. Only what makes this gun less-lethal is set here; the rest is inherited.</p>
 
 
 
@@ -443,17 +389,56 @@
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.logs.cleanupran"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.logs.cleanupran</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_logs.lua#L16">Source ☍</a></dt>
+<dt><a name="SWEP.Attachments"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SWEP.Attachments</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/less_lethals/weapons/cityrp_rubbermp5/shared.lua#L58">Source ☍</a></dt>
 <dd>
-<p>If the log cleanup has been ran.</p>
+<p>Declared for <code>weapons.GetStored</code> readers -- the locker sweeps Attachments to decide what a kit
+hands out -- but declaring them removes nothing: GMod merges table fields key by key, so the
+base's extra entries come back on the spawned weapon.</p>
 
 
 
 
 </dd>
-<dt><a name="cityrp.logs.propprotection"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.logs.propprotection</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_logs.lua#L14">Source ☍</a></dt>
+<dt><a name="SWEP.Base"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SWEP.Base</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/less_lethals/weapons/cityrp_rubbermp5/shared.lua#L14">Source ☍</a></dt>
 <dd>
-<p>The prop protection system being used.</p>
+
+
+
+
+</dd>
+<dt><a name="SWEP.Damage"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SWEP.Damage</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/less_lethals/weapons/cityrp_rubbermp5/shared.lua#L42">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+<dt><a name="SWEP.FireDelay"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SWEP.FireDelay</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/less_lethals/weapons/cityrp_rubbermp5/shared.lua#L40">Source ☍</a></dt>
+<dd>
+<p>Around two thirds of the base MP5's rate of fire.</p>
+
+
+
+
+</dd>
+<dt><a name="SWEP.FireModes"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SWEP.FireModes</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/less_lethals/weapons/cityrp_rubbermp5/shared.lua#L59">Source ☍</a></dt>
+<dd>
+
+
+
+
+</dd>
+<dt><a name="SWEP.MuzzleVelocity"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SWEP.MuzzleVelocity</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/less_lethals/weapons/cityrp_rubbermp5/shared.lua#L41">Source ☍</a></dt>
+<dd>
+<p>m/s</p>
+
+
+
+
+</dd>
+<dt><a name="SWEP.RubberRound"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">SWEP.RubberRound</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/less_lethals/weapons/cityrp_rubbermp5/shared.lua#L45">Source ☍</a></dt>
+<dd>
+<p>The flag the damage hook at the bottom of this file keys on.</p>
 
 
 

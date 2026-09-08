@@ -119,7 +119,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">251</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">252</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
@@ -133,6 +133,7 @@
 <li><a href="../modules/PLUGIN.VoiceVolume.html">PLUGIN.VoiceVolume</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../modules/Weapon.RubberMP5.html">Weapon.RubberMP5</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
 <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 <li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
@@ -458,9 +459,14 @@ search box covers every topic, module and symbol — it reads <code>search.json<
 <td align="left"><code>index</code></td>
 <td align="left"><code>true</code> promotes the doc to be its folder's landing page. See below.</td>
 </tr>
+<tr>
+<td align="left"><code>hidden</code></td>
+<td align="left"><code>true</code>/<code>yes</code>/<code>1</code> drops the page from the build entirely: no HTML page, and no entry in the sidebar, folder index, search box, <code>api.json</code>, or <code>llms.txt</code>. A draft still living in the repo, not a published one — commit it, work on it across sessions, and flip the flag off when it's ready.</td>
+</tr>
 </tbody>
 </table>
-<p>A folder index tabulates only the columns some page in that folder actually sets, so a folder using none of them stays a plain list of links. Every field, including ones not listed above, is carried into <code>api.json</code> under the topic's <code>meta</code> for the <code>cityrp-docs</code> MCP server.</p>
+<p>A folder index tabulates only the columns some page in that folder actually sets, so a folder using none of them stays a plain list of links. Every field, including ones not listed above, is carried into <code>api.json</code> under the topic's <code>meta</code> for the <code>cityrp-docs</code> MCP server — except <code>hidden</code>, since a hidden page has no <code>api.json</code> entry to carry it on.</p>
+<p>Hiding prunes backwards through the folder tree: if every doc in a folder is hidden — its own pages and, recursively, everything in its subfolders — the folder itself has nothing left to show and disappears from the sidebar too, the same way an empty folder always would. Hide only some of a folder's docs and the folder stays, just without the hidden ones.</p>
 <h3 id="promoting-a-page-to-be-the-folder-index">Promoting a page to be the folder index</h3>
 <p>A folder whose landing page should be one of its own docs — rather than a summary written for the purpose — marks that doc <code>index: true</code>. <code>docs/design/clans/design.md</code> does this: it already explains what clans are, so the <strong>Clans</strong> sidebar entry points straight at it.</p>
 <p>A doc <strong>named after the folder it sits in</strong> is promoted the same way without needing the flag, since that naming almost always means &quot;this is the overview&quot;. <code>docs/design/car-boosting/car-boosting.md</code> is the <strong>Car Boosting and Ringing</strong> entry for its folder on that basis alone. The name has to match in full: <code>car-boosting-live-test-plan.md</code> is not a match.</p>
@@ -809,6 +815,10 @@ hang off a file-local <code>PANEL</code> table that LuaLS can't attribute to any
 <td align="left"><code>@copyright</code>, <code>@release</code>, <code>@author</code></td>
 <td align="left">Accepted and parsed, but <strong>not currently rendered anywhere</strong> on the generated site — keep them for humans reading the source, don't rely on them showing up on the page.</td>
 </tr>
+<tr>
+<td align="left"><code>@hidden [reason]</code></td>
+<td align="left">Drops the whole namespace from the build — no module page, no sidebar/index/search/api.json entry, nothing to link to from another page's prose. The code-side equivalent of a topic's <a href="#front-matter"><code>hidden: true</code></a> front matter, for a plugin whose functions shouldn't be documented publicly (a secure/anti-cheat plugin, say) without needing a <code>generate.py</code> edit for every one.</td>
+</tr>
 </tbody>
 </table>
 <p>Write the file header as a run of <code>---</code> lines:</p>
@@ -817,6 +827,7 @@ hang off a file-local <code>PANEL</code> table that LuaLS can't attribute to any
 --- @author Someone
 --- @namespace some.namespace
 </code></pre>
+<p><code>@hidden</code> takes effect from any file that contributes to the namespace — put it on just one side of a <code>cl_*.lua</code>/<code>sv_*.lua</code> pair sharing an <code>@namespace</code> and the whole merged page is hidden, not only that file's own items. That's deliberate: a secure plugin's client and server halves should disappear together, without needing the tag repeated on every file that happens to declare the same namespace.</p>
 <h2 id="putting-it-together">Putting it together</h2>
 <pre><code class="language-lua">--- Player-facing warrant helpers.
 --- @namespace cityrp.warrants

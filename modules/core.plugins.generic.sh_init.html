@@ -115,7 +115,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">251</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">252</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
@@ -129,6 +129,7 @@
 <li><a href="../modules/PLUGIN.VoiceVolume.html">PLUGIN.VoiceVolume</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../modules/Weapon.RubberMP5.html">Weapon.RubberMP5</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
 <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 <li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
@@ -378,7 +379,7 @@
 Product: &quot;CityRP 2 (Roleplay)&quot;.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="IsPassiveDamageWeapon"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">IsPassiveDamageWeapon<span class="ll-args">(class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L54">Source ☍</a></dt>
+<dt><a name="IsPassiveDamageWeapon"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">IsPassiveDamageWeapon<span class="ll-args">(class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L55">Source ☍</a></dt>
 <dd>
 <p>Whether a weapon class is registered as a passive-damage tool.
 For callers holding a class but no reference to generic, such as a weapon checking itself.</p>
@@ -393,7 +394,7 @@ For callers holding a class but no reference to generic, such as a weapon checki
 </ol>
 
 </dd>
-<dt><a name="ShouldBlockPassiveWeaponDamage"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">ShouldBlockPassiveWeaponDamage<span class="ll-args">(attacker, target)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L64">Source ☍</a></dt>
+<dt><a name="ShouldBlockPassiveWeaponDamage"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">ShouldBlockPassiveWeaponDamage<span class="ll-args">(attacker, target)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L65">Source ☍</a></dt>
 <dd>
 <p>Check whether an attacker's active weapon is a passive tool that should not be allowed
 to damage the given target while the attacker lacks &quot;w&quot; access.
@@ -413,84 +414,84 @@ Resolve prop_ragdoll targets to the player they represent before calling this.</
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Tables"></a>Tables</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.accessnames"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.accessnames</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L701">Source ☍</a></dt>
+<dt><a name="cityrp.accessnames"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">cityrp.accessnames</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L702">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAMGROUPS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L876">Source ☍</a></dt>
+<dt><a name="TEAMGROUPS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L877">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAMGROUPS.ADMINISTRATION"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.ADMINISTRATION</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L880">Source ☍</a></dt>
+<dt><a name="TEAMGROUPS.ADMINISTRATION"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.ADMINISTRATION</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L881">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAMGROUPS.GOVERNMENT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.GOVERNMENT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L877">Source ☍</a></dt>
+<dt><a name="TEAMGROUPS.GOVERNMENT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.GOVERNMENT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L878">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAMGROUPS.LAWENFORCEMENT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.LAWENFORCEMENT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L881">Source ☍</a></dt>
+<dt><a name="TEAMGROUPS.LAWENFORCEMENT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.LAWENFORCEMENT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L882">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAMGROUPS.MAFIA"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.MAFIA</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L886">Source ☍</a></dt>
+<dt><a name="TEAMGROUPS.MAFIA"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.MAFIA</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L887">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAMGROUPS.POLICE"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.POLICE</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L883">Source ☍</a></dt>
+<dt><a name="TEAMGROUPS.POLICE"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.POLICE</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L884">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAMGROUPS.PRESIDENT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.PRESIDENT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L878">Source ☍</a></dt>
+<dt><a name="TEAMGROUPS.PRESIDENT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.PRESIDENT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L879">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAMGROUPS.REBELS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.REBELS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L885">Source ☍</a></dt>
+<dt><a name="TEAMGROUPS.REBELS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.REBELS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L886">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAMGROUPS.RESCUE"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.RESCUE</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L884">Source ☍</a></dt>
+<dt><a name="TEAMGROUPS.RESCUE"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.RESCUE</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L885">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAMGROUPS.SECRET_SERVICE"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.SECRET_SERVICE</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L879">Source ☍</a></dt>
+<dt><a name="TEAMGROUPS.SECRET_SERVICE"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.SECRET_SERVICE</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L880">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAMGROUPS.SWAT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.SWAT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L882">Source ☍</a></dt>
+<dt><a name="TEAMGROUPS.SWAT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAMGROUPS.SWAT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L883">Source ☍</a></dt>
 <dd>
 
 
@@ -500,14 +501,14 @@ Resolve prop_ragdoll targets to the player they represent before calling this.</
 </dl></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Fields"></a>Fields</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="TEAM_MAINTENANCEWORKER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_MAINTENANCEWORKER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L824">Source ☍</a></dt>
+<dt><a name="TEAM_MAINTENANCEWORKER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_MAINTENANCEWORKER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L825">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="WeaponAmmoTypes"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">WeaponAmmoTypes</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L36">Source ☍</a></dt>
+<dt><a name="WeaponAmmoTypes"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">WeaponAmmoTypes</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L37">Source ☍</a></dt>
 <dd>
 
 
@@ -515,192 +516,192 @@ Resolve prop_ragdoll targets to the player they represent before calling this.</
 
 </dd>
 </dl></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="TEAM"></a>TEAM</h2><span class="ll-family-meta">27 values <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L846">Source ☍</a></span></div>
+<div class="ll-module-header"><h2 class="section-header"><a name="TEAM"></a>TEAM</h2><span class="ll-family-meta">27 values <a href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L847">Source ☍</a></span></div>
 <div class="ll-module-body">
 <dl class="function">
-<dt><a name="TEAM_PRESIDENT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_PRESIDENT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L788">Source ☍</a></dt>
+<dt><a name="TEAM_PRESIDENT"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_PRESIDENT</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L789">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_VP"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_VP</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L790">Source ☍</a></dt>
+<dt><a name="TEAM_VP"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_VP</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L791">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_SSL"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_SSL</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L792">Source ☍</a></dt>
+<dt><a name="TEAM_SSL"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_SSL</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L793">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_SS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_SS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L794">Source ☍</a></dt>
+<dt><a name="TEAM_SS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_SS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L795">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_GAL"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_GAL</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L796">Source ☍</a></dt>
+<dt><a name="TEAM_GAL"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_GAL</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L797">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_GA"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_GA</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L798">Source ☍</a></dt>
+<dt><a name="TEAM_GA"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_GA</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L799">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_POLICECOMMANDER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_POLICECOMMANDER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L800">Source ☍</a></dt>
+<dt><a name="TEAM_POLICECOMMANDER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_POLICECOMMANDER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L801">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_POLICEOFFICER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_POLICEOFFICER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L802">Source ☍</a></dt>
+<dt><a name="TEAM_POLICEOFFICER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_POLICEOFFICER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L803">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_FIRECHIEF"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_FIRECHIEF</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L804">Source ☍</a></dt>
+<dt><a name="TEAM_FIRECHIEF"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_FIRECHIEF</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L805">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_RESCUE"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_RESCUE</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L806">Source ☍</a></dt>
+<dt><a name="TEAM_RESCUE"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_RESCUE</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L807">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_FIREMAN"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_FIREMAN</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L808">Source ☍</a></dt>
+<dt><a name="TEAM_FIREMAN"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_FIREMAN</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L809">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_PARAMEDIC"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_PARAMEDIC</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L810">Source ☍</a></dt>
+<dt><a name="TEAM_PARAMEDIC"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_PARAMEDIC</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L811">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_NEXUSDESK"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_NEXUSDESK</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L812">Source ☍</a></dt>
+<dt><a name="TEAM_NEXUSDESK"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_NEXUSDESK</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L813">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_CITIZEN"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_CITIZEN</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L814">Source ☍</a></dt>
+<dt><a name="TEAM_CITIZEN"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_CITIZEN</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L815">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_CHEF"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_CHEF</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L816">Source ☍</a></dt>
+<dt><a name="TEAM_CHEF"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_CHEF</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L817">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_DOCTOR"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_DOCTOR</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L818">Source ☍</a></dt>
+<dt><a name="TEAM_DOCTOR"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_DOCTOR</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L819">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_ARMSDEALER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_ARMSDEALER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L820">Source ☍</a></dt>
+<dt><a name="TEAM_ARMSDEALER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_ARMSDEALER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L821">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_MECHANIC"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_MECHANIC</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L822">Source ☍</a></dt>
+<dt><a name="TEAM_MECHANIC"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_MECHANIC</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L823">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_TAXI"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_TAXI</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L826">Source ☍</a></dt>
+<dt><a name="TEAM_TAXI"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_TAXI</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L827">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_SECURITY"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_SECURITY</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L828">Source ☍</a></dt>
+<dt><a name="TEAM_SECURITY"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_SECURITY</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L829">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_ANARCHIST"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_ANARCHIST</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L830">Source ☍</a></dt>
+<dt><a name="TEAM_ANARCHIST"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_ANARCHIST</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L831">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_REBELLEADER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_REBELLEADER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L832">Source ☍</a></dt>
+<dt><a name="TEAM_REBELLEADER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_REBELLEADER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L833">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_REBEL"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_REBEL</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L834">Source ☍</a></dt>
+<dt><a name="TEAM_REBEL"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_REBEL</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L835">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_MAFIABOSS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_MAFIABOSS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L836">Source ☍</a></dt>
+<dt><a name="TEAM_MAFIABOSS"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_MAFIABOSS</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L837">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_MAFIA"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_MAFIA</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L838">Source ☍</a></dt>
+<dt><a name="TEAM_MAFIA"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_MAFIA</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L839">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_BLACKMARKETDEALER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_BLACKMARKETDEALER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L840">Source ☍</a></dt>
+<dt><a name="TEAM_BLACKMARKETDEALER"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_BLACKMARKETDEALER</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L841">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="TEAM_AFK"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_AFK</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L842">Source ☍</a></dt>
+<dt><a name="TEAM_AFK"></a><span class="ll-realm state-client state-server" title="Server and Client">Shared</span><strong class="ll-symbol">TEAM_AFK</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/generic/sh_init.lua#L843">Source ☍</a></dt>
 <dd>
 
 

@@ -117,7 +117,7 @@
 <li><a href="../modules/core.derma.sh_mechanic.html">core.derma.sh_mechanic</a></li>
 </ul>
 </details>
-<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">251</span></summary>
+<details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Modules</h2></div><span class="ll-count">252</span></summary>
 <ul class="ll-kind-body nowrap">
 <li><a href="../modules/AreaManager.html">AreaManager</a></li>
 <li><a href="../modules/Array.html">Array</a></li>
@@ -131,6 +131,7 @@
 <li><a href="../modules/PLUGIN.VoiceVolume.html">PLUGIN.VoiceVolume</a></li>
 <li><a href="../modules/SPropProtection.html">SPropProtection</a></li>
 <li><a href="../modules/WEIGHTED_RANDOM.html">WEIGHTED_RANDOM</a></li>
+<li><a href="../modules/Weapon.RubberMP5.html">Weapon.RubberMP5</a></li>
 <li><a href="../modules/bwep.html">bwep</a></li>
 <li><a href="../modules/cityrp.access.html">cityrp.access</a></li>
 <li><a href="../modules/cityrp.acommands.html">cityrp.acommands</a></li>
@@ -581,7 +582,7 @@ TODO: Function name has typo - &quot;Recieve&quot; should be &quot;Receive&quot;
 </ol>
 
 </dd>
-<dt><a name="Player.ChatPrintF"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ChatPrintF<span class="ll-args">(_)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2102">Source ☍</a></dt>
+<dt><a name="Player.ChatPrintF"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>ChatPrintF<span class="ll-args">(_)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2103">Source ☍</a></dt>
 <dd>
 <p>Add a chat print message which has been passed through string.format.
 See: <a>string.format</a></p>
@@ -672,7 +673,7 @@ officer who marked it (not necessarily whoever performs the arrest).</p>
 </ol>
 
 </dd>
-<dt><a name="Player.DisableEventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>DisableEventMgr<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2159">Source ☍</a></dt>
+<dt><a name="Player.DisableEventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>DisableEventMgr<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2160">Source ☍</a></dt>
 <dd>
 <p>Disables Event Manager permissions for player.</p>
 
@@ -720,7 +721,7 @@ officer who marked it (not necessarily whoever performs the arrest).</p>
 
 
 </dd>
-<dt><a name="Player.EnableEventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>EnableEventMgr<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2152">Source ☍</a></dt>
+<dt><a name="Player.EnableEventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>EnableEventMgr<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2153">Source ☍</a></dt>
 <dd>
 <p>Enables Event Manager permissions for player.</p>
 
@@ -807,7 +808,7 @@ Only returns a value for leader positions (e.g., President, SWAT Leader, Police 
 </ol>
 
 </dd>
-<dt><a name="Player.GetDefaultModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetDefaultModel<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2069">Source ☍</a></dt>
+<dt><a name="Player.GetDefaultModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetDefaultModel<span class="ll-args">()</span><span class="ll-returns"> → string</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2070">Source ☍</a></dt>
 <dd>
 <p>Get a player's default (team) model.
 Jobs whose model list has citizen models merged in via <code>ApplyCitizenModels</code> (Mafia, Rebel, Anarchist) roll one of their own unique models here rather than a citizen one; the citizen models are still manually selectable via the F1 menu.</p>
@@ -831,7 +832,7 @@ Extracts the face ID from the player's model path if applicable.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetHoursPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetHoursPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1947">Source ☍</a></dt>
+<dt><a name="Player.GetHoursPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetHoursPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1948">Source ☍</a></dt>
 <dd>
 <p>This player's playtime prop limit bonus, 0 until they cross the configured hours threshold.</p>
 
@@ -928,7 +929,7 @@ Returns &quot;*** Unknown ***&quot; if the player is blindfolded or in certain v
 </ol>
 
 </dd>
-<dt><a name="Player.GetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetMember<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2115">Source ☍</a></dt>
+<dt><a name="Player.GetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetMember<span class="ll-args">()</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2116">Source ☍</a></dt>
 <dd>
 <p>Check if a player has been granted Member entitlement (independent of whether they're wearing the tag).</p>
 
@@ -939,7 +940,7 @@ Returns &quot;*** Unknown ***&quot; if the player is blindfolded or in certain v
 </ol>
 
 </dd>
-<dt><a name="Player.GetMemberPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetMemberPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1940">Source ☍</a></dt>
+<dt><a name="Player.GetMemberPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetMemberPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1941">Source ☍</a></dt>
 <dd>
 <p>This player's membership prop limit bonus, 0 if they're not a member.</p>
 
@@ -1050,7 +1051,7 @@ Returns the staff rank if applicable, or membership tier based on spending level
 </ol>
 
 </dd>
-<dt><a name="Player.GetRankPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankPropLimit<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1928">Source ☍</a></dt>
+<dt><a name="Player.GetRankPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRankPropLimit<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1929">Source ☍</a></dt>
 <dd>
 <p>This player's base prop limit for their staff rank. -1 for unlimited.</p>
 
@@ -1073,7 +1074,7 @@ Lower numbers indicate higher priority/importance.</p>
 </ol>
 
 </dd>
-<dt><a name="Player.GetRepPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRepPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1956">Source ☍</a></dt>
+<dt><a name="Player.GetRepPropLimitBonus"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GetRepPropLimitBonus<span class="ll-args">()</span><span class="ll-returns"> → number</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1957">Source ☍</a></dt>
 <dd>
 <p>This player's REP prop limit bonus (a fixed amount per REP earned).</p>
 
@@ -1158,7 +1159,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 
 
 </dd>
-<dt><a name="Player.GodDisable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GodDisable<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2027">Source ☍</a></dt>
+<dt><a name="Player.GodDisable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GodDisable<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2028">Source ☍</a></dt>
 <dd>
 <p>Disable god mode for a player.</p>
 
@@ -1166,7 +1167,7 @@ If there are multiple matches, the first one defined in the TEAMGROUPS table wil
 
 
 </dd>
-<dt><a name="Player.GodEnable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GodEnable<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2021">Source ☍</a></dt>
+<dt><a name="Player.GodEnable"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>GodEnable<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2022">Source ☍</a></dt>
 <dd>
 <p>Enable god mode for a player.</p>
 
@@ -2316,7 +2317,7 @@ Can play either serverside (EmitSound - audible to nearby players) or clientside
 
 
 </dd>
-<dt><a name="Player.RefreshPropLimitDefault"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RefreshPropLimitDefault<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1999">Source ☍</a></dt>
+<dt><a name="Player.RefreshPropLimitDefault"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RefreshPropLimitDefault<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2000">Source ☍</a></dt>
 <dd>
 <p>Recomputes and pushes this player's rank/member/hours/rep prop limit layers.
 Props only - call <code><a href="cityrp.limits.html#cityrp.limits.RefreshDefaults">cityrp.limits.RefreshDefaults</a></code> to recompute every limit a player has.</p>
@@ -2325,7 +2326,7 @@ Props only - call <code><a href="cityrp.limits.html#cityrp.limits.RefreshDefault
 
 
 </dd>
-<dt><a name="Player.RefundAllAmmo"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RefundAllAmmo<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1867">Source ☍</a></dt>
+<dt><a name="Player.RefundAllAmmo"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RefundAllAmmo<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1868">Source ☍</a></dt>
 <dd>
 <p>Refund all ammo currently loaded onto a player.
 Ammo is only cleared once the boxes it converts to are safely in the inventory; a refund that
@@ -2365,7 +2366,7 @@ cannot be made (unregistered item, full inventory) leaves the rounds on the play
 
 
 </dd>
-<dt><a name="Player.RestoreDefaultEquipment"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultEquipment<span class="ll-args">(force)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2035">Source ☍</a></dt>
+<dt><a name="Player.RestoreDefaultEquipment"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultEquipment<span class="ll-args">(force)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2036">Source ☍</a></dt>
 <dd>
 <p>Restore a player's default equipment.
 For example, keys, remote keys, toolgun and physgun.</p>
@@ -2377,7 +2378,7 @@ For example, keys, remote keys, toolgun and physgun.</p>
 
 
 </dd>
-<dt><a name="Player.RestoreDefaultModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultModel<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2085">Source ☍</a></dt>
+<dt><a name="Player.RestoreDefaultModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultModel<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2086">Source ☍</a></dt>
 <dd>
 <p>Restore a player's default model.
 Also unsets their custom model field.</p>
@@ -2386,7 +2387,7 @@ Also unsets their custom model field.</p>
 
 
 </dd>
-<dt><a name="Player.RestoreDefaultModelTimed"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultModelTimed<span class="ll-args">(emote, post)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2093">Source ☍</a></dt>
+<dt><a name="Player.RestoreDefaultModelTimed"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>RestoreDefaultModelTimed<span class="ll-args">(emote, post)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2094">Source ☍</a></dt>
 <dd>
 <p>Reset a player's default model, using the regular 10 second timer.</p>
 
@@ -2475,7 +2476,7 @@ Prefer this over <code><a href="cityrp.player.html#cityrp.player.setLocalPlayerV
 
 
 </dd>
-<dt><a name="Player.SetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetMember<span class="ll-args">(bool)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2123">Source ☍</a></dt>
+<dt><a name="Player.SetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetMember<span class="ll-args">(bool)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2124">Source ☍</a></dt>
 <dd>
 <p>Grant or revoke a player's Member entitlement.
 Persisted in _Flags, the same field Premium's &quot;d&quot; flag lives in, but read/written directly
@@ -2488,7 +2489,7 @@ rather than through the <a href="cityrp.access.html">cityrp.access</a> system, s
 
 
 </dd>
-<dt><a name="Player.SetMembershipExpires"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetMembershipExpires<span class="ll-args">(expires)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2108">Source ☍</a></dt>
+<dt><a name="Player.SetMembershipExpires"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetMembershipExpires<span class="ll-args">(expires)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2109">Source ☍</a></dt>
 <dd>
 <p>Set when a player's membership expires.</p>
 
@@ -2499,7 +2500,7 @@ rather than through the <a href="cityrp.access.html">cityrp.access</a> system, s
 
 
 </dd>
-<dt><a name="Player.SetNetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetNetMember<span class="ll-args">(bool)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2139">Source ☍</a></dt>
+<dt><a name="Player.SetNetMember"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetNetMember<span class="ll-args">(bool)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2140">Source ☍</a></dt>
 <dd>
 <p>Set the networked Member state (the sync of GetMember()). Does not itself check tags or Premium.</p>
 
@@ -2537,7 +2538,7 @@ The name must already be registered in <code>networking/sh_init.lua</code>; unre
 </ol>
 
 </dd>
-<dt><a name="Player.SetPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetPropLimit<span class="ll-args">(limit)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1987">Source ☍</a></dt>
+<dt><a name="Player.SetPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player<span class="ll-sep">:</span>SetPropLimit<span class="ll-args">(limit)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1988">Source ☍</a></dt>
 <dd>
 <p>Sets/clears an admin override for a player's prop limit (e.g. a prop extension).</p>
 
@@ -2973,14 +2974,14 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._EventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._EventMgr</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2153">Source ☍</a></dt>
+<dt><a name="Player._EventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._EventMgr</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2154">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._EventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._EventMgr</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2160">Source ☍</a></dt>
+<dt><a name="Player._EventMgr"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._EventMgr</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2161">Source ☍</a></dt>
 <dd>
 
 
@@ -3057,14 +3058,14 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player._initialPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._initialPropLimit</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1993">Source ☍</a></dt>
+<dt><a name="Player._initialPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._initialPropLimit</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L1994">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player._initialPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._initialPropLimit</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2007">Source ☍</a></dt>
+<dt><a name="Player._initialPropLimit"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player._initialPropLimit</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2008">Source ☍</a></dt>
 <dd>
 
 
@@ -3376,14 +3377,14 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player.CustomModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.CustomModel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2086">Source ☍</a></dt>
+<dt><a name="Player.CustomModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.CustomModel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2087">Source ☍</a></dt>
 <dd>
 
 
 
 
 </dd>
-<dt><a name="Player.CustomModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.CustomModel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2094">Source ☍</a></dt>
+<dt><a name="Player.CustomModel"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.CustomModel</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2095">Source ☍</a></dt>
 <dd>
 
 
@@ -3406,7 +3407,7 @@ List of ranks.</p>
 
 
 </dd>
-<dt><a name="Player.peq"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.peq</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2062">Source ☍</a></dt>
+<dt><a name="Player.peq"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">Player.peq</strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/metatables/sv_player.lua#L2063">Source ☍</a></dt>
 <dd>
 
 
