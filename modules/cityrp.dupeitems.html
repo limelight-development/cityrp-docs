@@ -377,7 +377,7 @@
 Gates AdvDupe2 pasting of inventory-placeable entities behind the same ownership/limit rules already enforced when a player places one normally.</p></div>
 <div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
 <div class="ll-module-body"><dl class="function">
-<dt><a name="cityrp.dupeitems.CheckSpawn"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.dupeitems.CheckSpawn<span class="ll-args">(ply, class)</span><span class="ll-returns"> → boolean, boolean?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_dupeitems.lua#L145">Source ☍</a></dt>
+<dt><a name="cityrp.dupeitems.CheckSpawn"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.dupeitems.CheckSpawn<span class="ll-args">(ply, class)</span><span class="ll-returns"> → boolean, boolean?</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_dupeitems.lua#L151">Source ☍</a></dt>
 <dd>
 <p>Checks whether a player may have this entity class pasted via AdvDupe2 - tracked items are gated by ownership/limit, blocked classes are denied outright, both bypassed only for admins with their &quot;Ignore Entity Limits&quot; F1 setting enabled. Only applies to an actual AdvDupe2 paste (AdvDupe2.SpawningEntity); Q-menu/other spawns of the same classes are left to the normal staff-only gate.</p>
 
@@ -393,7 +393,7 @@ Gates AdvDupe2 pasting of inventory-placeable entities behind the same ownership
 </ol>
 
 </dd>
-<dt><a name="cityrp.dupeitems.HandlePostPaste"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.dupeitems<span class="ll-sep">:</span>HandlePostPaste<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_dupeitems.lua#L234">Source ☍</a></dt>
+<dt><a name="cityrp.dupeitems.HandlePostPaste"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.dupeitems<span class="ll-sep">:</span>HandlePostPaste<span class="ll-args">(ply)</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_dupeitems.lua#L250">Source ☍</a></dt>
 <dd>
 <p>Registers a pasted item entity against the player's live placed-count, since a dupe paste never runs the item's own onUse.</p>
 
@@ -404,7 +404,7 @@ Gates AdvDupe2 pasting of inventory-placeable entities behind the same ownership
 
 
 </dd>
-<dt><a name="cityrp.dupeitems.IsTracked"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.dupeitems.IsTracked<span class="ll-args">(class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_dupeitems.lua#L133">Source ☍</a></dt>
+<dt><a name="cityrp.dupeitems.IsTracked"></a><span class="ll-realm state-server" title="Server">Server</span><strong class="ll-symbol">cityrp.dupeitems.IsTracked<span class="ll-args">(class)</span><span class="ll-returns"> → boolean</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/libraries/sv_dupeitems.lua#L138">Source ☍</a></dt>
 <dd>
 <p>Whether this entity class is governed by this system in any way - keypad passthrough, a tracked inventory item, or blocked outright. AdvDupe2's own vendored <code>IsAllowed</code> (sv_clipboard.lua) defers to this instead of its own <code>Spawnable</code>/<code>AdminOnly</code> checks for any class this returns true for, so the entity files can carry accurate, standard <code>Spawnable</code>/<code>AdminSpawnable</code> flags without those flags controlling dupe-paste permission - this system's own tables are the single source of truth for that instead.</p>
 
