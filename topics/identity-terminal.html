@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>core.plugins.laws.cl_init</title>
+	<title>Identity terminal</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -25,7 +25,10 @@
 		<div id="navigation">
 <div class="ll-search"><input type="search" id="ll-search-input" autocomplete="off" spellcheck="false" placeholder="Search docs… (/)" aria-label="Search documentation"><ul id="ll-search-results" class="ll-kind-body" hidden></ul></div>
 <div class="ll-contents-block"><div class="ll-kind-header"><h2>Contents</h2></div><ul class="ll-kind-body nowrap">
-<li><a href="#Functions">Functions</a></li>
+<li><a href="#adding-your-own-panel">Adding your own panel</a></li>
+<li><a href="#hooks">Hooks</a></li>
+<li><a href="#styling">Styling</a></li>
+<li><a href="#logging">Logging</a></li>
 </ul></div>
 <details class="ll-nav-group" open><summary><div class="ll-kind-header"><h2>Topics</h2></div><span class="ll-count">55</span></summary>
 <ul class="ll-kind-body">
@@ -37,7 +40,7 @@
 <li><a href="../topics/doc-comments.html">Writing Doc Comments</a></li>
 <li><a href="../topics/emergency-lighting.html">Vehicle Emergency Lighting (ELS)</a></li>
 <li><a href="../topics/environment.html">Environment (Env-vars)</a></li>
-<li><a href="../topics/identity-terminal.html">Identity terminal</a></li>
+<li><strong>Identity terminal</strong></li>
 <li><a href="../topics/image-hosts.html">Image Hosts</a></li>
 <li><a href="../topics/limits.html">Player limits</a></li>
 <li><a href="../topics/logging.html">Console Logging Library</a></li>
@@ -280,7 +283,7 @@
 <li><a href="../modules/core.plugins.injuryinfo.sh_init.html">core.plugins.injuryinfo.sh_init</a></li>
 <li><a href="../modules/core.plugins.internets_utils.cl_init.html">core.plugins.internets_utils.cl_init</a></li>
 <li><a href="../modules/core.plugins.itemgrantmenu.sv_init.html">core.plugins.itemgrantmenu.sv_init</a></li>
-<li><strong>core.plugins.laws.cl_init</strong></li>
+<li><a href="../modules/core.plugins.laws.cl_init.html">core.plugins.laws.cl_init</a></li>
 <li><a href="../modules/core.plugins.licenseplates.cl_init.html">core.plugins.licenseplates.cl_init</a></li>
 <li><a href="../modules/core.plugins.licenseplates.sh_init.html">core.plugins.licenseplates.sh_init</a></li>
 <li><a href="../modules/core.plugins.licenseplates.sv_init.html">core.plugins.licenseplates.sv_init</a></li>
@@ -372,19 +375,80 @@
 <div class="ll-sidebar-footer"><p>Generated from LuaLS documentation JSON.</p><p>Generated using the <a href="https://limelightgaming.info">Limelight Theme</a>.</p></div>
 		</div>
 		<div id="content">
-<div class="ll-module-header"><h1>core.plugins.laws.cl_init</h1></div>
-<div class="ll-module-body"><p>Name: &quot;cl_init.lua&quot;.
-Product: &quot;CityRP 2 (Roleplay)&quot;.</p></div>
-<div class="ll-module-header"><h2 class="section-header"><a name="Functions"></a>Functions</h2></div>
-<div class="ll-module-body"><dl class="function">
-<dt><a name="tmpfunc_openLawPanel"></a><span class="ll-realm state-client" title="Client">Client</span><strong class="ll-symbol">tmpfunc_openLawPanel<span class="ll-args">()</span></strong><a style="float:right;" href="https://github.com/limelight-development/cityrp2/blob/master/gamemodes/cityrp_2_by_limelightgaming/gamemode/core/plugins/laws/cl_init.lua#L34">Source ☍</a></dt>
-<dd>
+<div class="ll-module-header"><h1>Identity terminal</h1></div><div class="ll-module-body"><p><code>cityrp_idterminal</code> is the government personnel terminal. <code>ENT:GetIDMode</code> decides who may open one
+and what roster they see; <code>IDMODE_NONE</code> means no access at all. Terminals are placed as permanent
+entities per map (<code>core/plugins/perma_ents/maps/</code>), including one in the SWAT/Police equipment room
+on Evocity.</p>
+<p>The client library is <code>cityrp.idterminal</code>, in the entity's own <code>cl_init.lua</code>.</p>
+<h2 id="adding-your-own-panel">Adding your own panel</h2>
+<p>The frame has a sidebar column to the right of the roster. It is shared — more than one plugin can
+qualify for it at once — so a plugin registers a section of it rather than sizing the column itself:</p>
+<pre><code class="language-lua">local card = cityrp.idterminal.claimSidebar(frame, PLUGIN.key, {dock = BOTTOM, order = 10})
+if not card then return end
 
+cityrp.idterminal.styleCard(card)
+-- ... build into card ...
 
-
-
-</dd>
-</dl></div>
+cityrp.idterminal.releaseSidebar(frame, PLUGIN.key)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>claimSidebar(frame, key, options)</code></td>
+<td align="left">The container to build into. Idempotent — returns the section the plugin already holds. <code>options.dock</code> defaults to <code>BOTTOM</code>; <code>options.order</code> sorts sections against each other via <code>SetZPos</code>, lowest first.</td>
+</tr>
+<tr>
+<td align="left"><code>getSidebar(frame, key)</code></td>
+<td align="left">The plugin's section, or nil. Never creates one.</td>
+</tr>
+<tr>
+<td align="left"><code>releaseSidebar(frame, key)</code></td>
+<td align="left">Removes the section, collapsing the column once the last one is gone.</td>
+</tr>
+</tbody>
+</table>
+<p>The terminal owns the column's width, docking, ordering and teardown, and prunes sections whose
+panel was removed elsewhere. <strong>Do not touch <code>frame.sidebar</code> directly</strong> — sizing it from a plugin is
+what the old <code>warrant_delegation</code> did, and clearing its card would have collapsed the column with
+another plugin's card still in it.</p>
+<p>At most one section should take <code>FILL</code>. It becomes the top of the column and everything else stacks
+below it. <code>warrant_delegation</code> holds that one.</p>
+<h2 id="hooks">Hooks</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Hook</th>
+<th align="left">Realm</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>CityRP.IDTerminal.Opened(ent, ply, mode)</code></td>
+<td align="left">server</td>
+<td align="left">Fired after the open message, so state pushed from it arrives once the frame exists.</td>
+</tr>
+<tr>
+<td align="left"><code>CityRP.IDTerminal.PostOpen(frame, ent, ply, mode)</code></td>
+<td align="left">client</td>
+<td align="left">The frame is built. Drop any cached panel references here — the old frame is gone.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="styling">Styling</h2>
+<p><code>cityrp.idterminal.colors</code> is the palette; <code>styleFrame</code>, <code>styleCard</code>, <code>styleList</code> and
+<code>styleButton(button, &quot;accent&quot;|&quot;neutral&quot;|&quot;danger&quot;|&quot;positive&quot;)</code> apply the chrome. Fonts are
+<code>IDTerminal_Title</code>, <code>IDTerminal_Body</code> and <code>IDTerminal_Caption</code>, built through
+<a href="ui-scaling.html"><code>cityrp.ui</code></a> and rebuilt on scale change.</p>
+<h2 id="logging">Logging</h2>
+<p>Both realms log under <code>idterminal</code>: who opened a terminal and in which mode, who was refused, and
+every sidebar section claimed or released.</p></div>
 		</div>
 	</div>
 </div>
